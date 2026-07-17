@@ -15,14 +15,30 @@ import os, re, json, time, mimetypes
 CORPUS = os.path.join(os.path.dirname(__file__), "..", "corpus")
 GUMROAD_API = "https://api.gumroad.com/v2/products"
 
+def _read_secrets_file():
+    """Projekt-lokale Secrets (gitignored), damit Hermes-.env (write-protected)
+    nicht angefasst werden muss. Format: KEY=VALUE pro Zeile."""
+    p = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".gumroad_secrets"))
+    out = {}
+    if os.path.exists(p):
+        for line in open(p, encoding="utf-8", errors="ignore"):
+            s = line.strip()
+            if "=" in s and not s.startswith("#"):
+                k, v = s.split("=", 1)
+                out[k.strip()] = v.strip().strip('"').strip("'")
+    return out
+
 def get_key():
-    # aus env
+    # 1) env
     k = os.environ.get("GUMROAD_API_KEY")
     if k:
         return k
-    # aus .env (HERMES_HOME)
-    envp = os.path.join(os.path.dirname(__file__), "..", "..", "AppData", "Local", "hermes", ".env")
-    envp = os.path.abspath(envp)
+    # 2) projekt-lokale secrets
+    sec = _read_secrets_file()
+    if sec.get("GUMROAD_API_KEY"):
+        return sec["GUMROAD_API_KEY"]
+    # 3) Hermes-.env (read-only, falls dort gepflegt)
+    envp = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "AppData", "Local", "hermes", ".env"))
     if os.path.exists(envp):
         for line in open(envp, encoding="utf-8", errors="ignore"):
             s = line.strip()
@@ -54,8 +70,22 @@ def publish(book_id: str):
     if not key:
         return False, "NO_KEY: GUMROAD_API_KEY fehlt (harter Stopp — Nutzer muss Key bereitstellen)"
     payload, prod = build_payload(book_id)
-    # echter API-Call nur mit Key; hier nur Vorbereitung (kein Call ohne Key)
-    return True, f"READY key=***{key[-4:]} payload={payload['name']} price={payload['price']}"
+    # echter API-Call
+    try:
+        files = {}
+        content = os.path.join(prod, "content.md")
+        if os.path.exists(content):
+            files["file"] = (f"{payload['name']}.md", open(content, "rb"), "text/markdown")
+        data = {k: v for k, v in payload.items() if k != "tags"}
+        data["tags"] = payload["tags"]
+        r = httpx.post(GUMROAD_API, headers={"Authorization": f"Bearer {key}"},
+                       data=data, files=files, timeout=60)
+        if r.status_code == 200 and r.json().get("success"):
+            pid = r.json().get("product", {}).get("id")
+            return True, f"PUBLISHED pid={pid} {payload['name']} price={payload['price']}"
+        return False, f"API {r.status_code}: {r.text[:160]}"
+    except Exception as e:
+        return False, f"REQ_ERR {e}"
 
 if __name__ == "__main__":
     import glob

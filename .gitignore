@@ -1,0 +1,13 @@
+# Secrets (NIEMALS committen)
+.gumroad_secrets
+*.env
+
+# Logs
+*.log
+sales.log
+reinvest.log
+loop_log.txt
+
+# Corpus (Rohtexte sind Public Domain, aber Build-Artefakte nicht noetig im Repo)
+corpus/
+sale_webhook.py

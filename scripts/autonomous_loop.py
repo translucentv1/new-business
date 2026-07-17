@@ -59,10 +59,14 @@ def main():
                 if os.path.exists(os.path.join(sc.CORPUS, bid, "product", "meta.json")):
                     ok, det = gu.publish(bid)
                     log(f"upload {bid}: {'OK' if ok else 'BLOCK'} {det}")
+            # 4: poll sales (replaces webhook — no public URL needed)
+            import sale_poller as sp
+            n, det = sp.poll()
+            log(f"sales poll: {det}")
         else:
             log("no GUMROAD_API_KEY -> Entwurf-Modus (corpus waechst, kein Upload)")
     except Exception as e:
-        log(f"upload phase err: {e}")
+        log(f"upload/sales phase err: {e}")
 
     log("loop tick done")
 
