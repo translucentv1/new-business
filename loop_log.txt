@@ -1,0 +1,9 @@
+2026-07-17 23:53:45 === autonomous loop tick ===
+2026-07-17 23:53:53 scanned 5 new works
+2026-07-17 23:53:53 processed 25913
+2026-07-17 23:53:53 processed 2701
+2026-07-17 23:53:53 processed 174
+2026-07-17 23:53:54 processed 345
+2026-07-17 23:53:54 processed 84
+2026-07-17 23:53:54 no GUMROAD_API_KEY -> Entwurf-Modus (corpus waechst, kein Upload)
+2026-07-17 23:53:54 loop tick done

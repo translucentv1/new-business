@@ -1,0 +1,12 @@
+{
+  "book_id": "2701",
+  "title": "Moby-Dick",
+  "author": "Herman Melville",
+  "chapters": 287,
+  "chars": 1218938,
+  "built": 1784325233,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

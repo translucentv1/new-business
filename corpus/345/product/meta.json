@@ -1,0 +1,12 @@
+{
+  "book_id": "345",
+  "title": "Dracula",
+  "author": "Bram Stoker",
+  "chapters": 55,
+  "chars": 861355,
+  "built": 1784325234,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}
