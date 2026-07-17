@@ -1,0 +1,12 @@
+{
+  "book_id": "11",
+  "title": "Alice's Adventures in Wonderland",
+  "author": "Lewis Carroll",
+  "chapters": 25,
+  "chars": 144599,
+  "built": 1784325052,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

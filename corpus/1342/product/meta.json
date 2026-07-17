@@ -1,0 +1,12 @@
+{
+  "book_id": "1342",
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen",
+  "chapters": 62,
+  "chars": 728713,
+  "built": 1784325052,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}
