@@ -1,9 +1,9 @@
-🔧 PROCESSES [17:16]:
-• 30min Observer: ok | next 17:30
-• 15min Feed: ok | next 17:30
-• 2h Report ⚠️: ok | next 18:00 (WA-delivery fail)
-• wa-watchdog: ok | next 17:17
-• Stripe-Bootstrap: ok | next 17:30
-• Stripe-SalePoll: ok | next 17:20
-• Nachtschicht: ok | next 17:21
-• Store: 5 drafts (0 pub) | Sales: 0
+🔧 PROCESSES [18:16]:
+• WA-Watchdog: ok | next 18:18
+• 2h Report: ⚠️ WA-Delivery(500) | next 20:00
+• 30min Observer: ok | next 18:30
+• 15min Feed: ok | next 18:30
+• Stripe-Boot: ok | next 18:30
+• Stripe-Poll: ok | next 18:20
+• Nachtschicht: ok | next 18:27
+• Store: 5 drafts · 0 live | Sales: keine

@@ -1,8 +1,8 @@
-# Metamorphosen
+# Tales of Folk and Fairies
 
-Autor: Ovid
+Autor: Katharine Pyle
 Quelle: Project Gutenberg (Public Domain, EU Leben+70 Jahre)
 
 Dieses Werk ist gemeinfrei. Diese Ausgabe wurde neu gegliedert (Inhaltsverzeichnis + Wortregister) für bessere Lesbarkeit.
 
-Umfang: 281958 Zeichen, 1 Kapitel.
+Umfang: 285147 Zeichen, 14 Kapitel (Märchen).

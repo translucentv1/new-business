@@ -239,13 +239,22 @@ def _sitemap(entries):
     urls = [f"  <url><loc>{base}/</loc></url>"]
     for bid, m, g, c, url in entries:
         urls.append(f"  <url><loc>{base}/{bid}/</loc></url>")
+    # Long-Tail-SEO-Seiten (TB-SEO) mit aufnehmen, damit sie indexiert werden.
+    seo_root = os.path.join(SITE, "seo")
+    if os.path.isdir(seo_root):
+        for slug in sorted(os.listdir(seo_root)):
+            sd = os.path.join(seo_root, slug)
+            if not os.path.isdir(sd):
+                continue
+            for kind in sorted(os.listdir(sd)):
+                if os.path.isdir(os.path.join(sd, kind)):
+                    urls.append(f"  <url><loc>{base}/seo/{slug}/{kind}/</loc></url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(urls) + "\n</urlset>\n")
 
 
 def _robots():
-    # ADR-0013: Download-Gate-Pfad fuer Crawler unsichtbar halten.
     return ("User-agent: *\nAllow: /\n\n"
             "# Download-Gate Deliverables nicht crawlen/indexieren (ADR-0013)\n"
             "Disallow: /dl/\n\n"
