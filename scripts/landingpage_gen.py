@@ -116,6 +116,30 @@ def product_html(bid, meta, desc, content, buy_url):
     blurb = _esc(desc.strip().split("\n")[0][:300])
     chapters = meta.get("chapters", "?")
     chars = meta.get("chars", 0)
+    # TB-11: sharpened SEO title/description (long-tail aligned).
+    seo_title = f"{title} von {author}{year_s} – eBook als Download (Public Domain)"
+    seo_desc = (f"{title} von {author}{year_s}: aufbereitete Public-Domain-Ausgabe "
+                f"als eBook kaufen. Mit Leseprobe (Inhaltsverzeichnis + erstes Kapitel). "
+                f"{chapters} Kapitel, ca. {chars:,} Zeichen.")
+    # TB-11: JSON-LD Product schema for rich results.
+    price_eur = _price_eur().replace(",", ".")
+    json_ld = (
+        '<script type="application/ld+json">\n'
+        '{\n'
+        '  "@context": "https://schema.org/",\n'
+        '  "@type": "Product",\n'
+        f'  "name": {json.dumps(meta["title"] + " – eBook (Public Domain)")},\n'
+        f'  "author": {{"@type": "Person", "name": {json.dumps(meta.get("author", "Unbekannt"))}}},\n'
+        f'  "description": {json.dumps(seo_desc)},\n'
+        '  "offers": {\n'
+        '    "@type": "Offer",\n'
+        f'    "price": "{price_eur}",\n'
+        '    "priceCurrency": "EUR",\n'
+        '    "availability": "https://schema.org/InStock"\n'
+        '  }\n'
+        '}\n'
+        '</script>'
+    )
     if buy_url:
         buy_btn = (
             f'    <p class="buy"><a class="buy-btn" href="{buy_url}">'
@@ -144,12 +168,13 @@ def product_html(bid, meta, desc, content, buy_url):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} von {author}{year_s} – eBook (Public Domain)</title>
-  <meta name="description" content="{title} von {author} – aufbereitete Public-Domain-Ausgabe als eBook. {blurb}">
+  <title>{seo_title}</title>
+  <meta name="description" content="{_esc(seo_desc)}">
   <meta property="og:title" content="{title} von {author}">
   <meta property="og:description" content="Aufbereitete Public-Domain-Ausgabe – als eBook erhaeltlich.">
   <meta property="og:type" content="website">
   <meta name="robots" content="index,follow">
+  {json_ld}
   <style>
     body{{font-family:Georgia,serif;max-width:42em;margin:2em auto;padding:0 1em;line-height:1.6;color:#1a1a1a}}
     h1{{font-size:1.9em}} .byline{{color:#666;font-style:italic;margin-top:-.4em}}
@@ -211,13 +236,28 @@ def index_html(entries):
         + '</li>'
         for bid, m, g, c, url in entries
     )
+    json_ld = (
+        '<script type="application/ld+json">\n'
+        '{\n'
+        '  "@context": "https://schema.org/",\n'
+        '  "@type": "ItemList",\n'
+        '  "itemListElement": [\n'
+        + ",\n".join(
+            f'    {{"@type": "ListItem", "position": {i+1}, '
+            f'"name": {json.dumps(m["title"] + " – eBook")}, '
+            f'"url": "https://translucentv1.github.io/new-business/{bid}/"}}'
+            for i, (bid, m, g, c, url) in enumerate(entries)
+        )
+        + '\n  ]\n}\n</script>'
+    )
     return f"""<!DOCTYPE html>
 <html lang="{LANG}">
 <head>
   <meta charset="utf-8">
-  <title>Public-Domain eBooks – Leseproben & Kauf</title>
-  <meta name="description" content="Aufbereitete Public-Domain-Klassiker als eBook – mit Leseprobe.">
+  <title>Public-Domain eBooks kaufen – Leseproben & Download (Frankenstein, Dracula, Moby-Dick u.a.)</title>
+  <meta name="description" content="Aufbereitete Public-Domain-Klassiker als eBook kaufen – mit Leseprobe. Frankenstein, Dracula, Moby-Dick, Pride and Prejudice, Alice im Wunderland u.a.">
   <meta name="robots" content="index,follow">
+  {json_ld}
 </head>
 <body>
   <h1>Public-Domain eBooks</h1>
