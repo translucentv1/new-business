@@ -26,6 +26,7 @@ GH_PAGES_BASE = "https://translucentv1.github.io/new-business"
 STRIPE_API = "https://api.stripe.com/v1"
 sys.path.insert(0, HERE)
 import pricing
+from deliverable_gen import deliverable_url
 
 
 def _read_secrets():
@@ -56,7 +57,10 @@ def create_link(book_id: str) -> tuple[bool, str]:
     meta = json.load(open(meta_p, encoding="utf-8"))
     title = meta["title"]
     price_cents = pricing.get_price_cents()
-    redirect_url = f"{GH_PAGES_BASE}/{book_id}/"
+    # ADR-0013: fulfillment = the hidden download deliverable, NOT the public
+    # landing page (which only shows a preview). Point the post-purchase
+    # redirect at the obscure, per-book deliverable URL.
+    redirect_url = deliverable_url(book_id)
     try:
         r = httpx.post(
             f"{STRIPE_API}/payment_links",
