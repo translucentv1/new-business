@@ -3,7 +3,7 @@
 **Label:** `wayfinder:map`
 **Charted:** 2026-07-18 (autonomous, user grant: alle hard stops aufgehoben)
 **Tracker:** local-markdown (kein issue-tracker installiert; Map = diese Datei, Tickets = `docs/wayfinder/<slug>.md`)
-**Status:** charting (noch keine Tickets resolved)
+**Status:** charting (T1/T3/T4 resolved; T2 blocked; T5 offen)
 
 ## Destination
 
@@ -57,16 +57,29 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   4 Download-Gates (/dl/<hash>/<slug>.html) → HTTP 200; robots.txt Disallow /dl/ korrekt,
   sitemap.xml vorhanden. Erster Sale über Stripe-Links jederzeit möglich sobald Traffic da.
 
+- **2h-cron status-check 16:01 (2026-07-18)** — letzte ~2h (14:01–16:01): 1 autonomer Commit `1ee6ef1` (15:42):
+  ADR-0013 `create_link` idempotent (REUSE statt Neu-Generierung) + **13 Link-Seiten** auf konsistente
+  Stripe-Links im Registry aktualisiert (MEASURED: 13 index.html geändert, Pages HTTP 200). Mehr als
+  diese 1 Änderung passierte nicht. STORE unverändert total=5 drafts=5 published=0; 8 Drafts fehlen,
+  weiter BLOCKED durch Gumroad 10/Tag-Limit (`upload_missing_drafts.py` -> DAILY LIMIT HIT; 04:00-Retry-Cron
+  `58f0ebc08d11` läuft, kein manueller Push, kein ToS-Bypass). Pages HTTP 200 (erreichbar).
+  0 Sales (sales.log fehlt; `sale_poller.py` live: "0 new sales", detektiert price>0).
+- **T3 — Distribution-Kanal-Entscheidung** — RESOLVED 2026-07-18 (per Betriebs-Charta/Nutzer):
+  Kanal = **SEO-Landingpages (GitHub Pages) zuerst**. Autonomes Social-Posting (Pinterest/Reddit)
+  ausdrücklich NICHT erlaubt (freigabepflichtig, Hard Stop). Pinterest-/Reddit-Details -> Out-of-Scope.
+  Nächstes offenes Ticket: **T5** (Publish-Strategie).
+
 ## Open Tickets (Frontier)
 
 - ~~**T1 — GitHub Pages Deployment** (`task`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
 - **T2 — 3 fehlende Drafts live** (`task`, AFK via Cron): 2701/345/84 warten auf 04:00-Retry-Cron
   (`58f0ebc08d11`). BLOCKED by Gumroad 10/Tag-Limit (MEASURED: Fenster resettet ~24h nach
   erstem Create heute früh). Resolve wenn STORE: total=8 drafts=8 published=0.
-- **T3 — Distribution-Kanal-Entscheidung** (`grilling`): welcher Kanal zuerst? ADR-0007 nennt
-  (1) SEO-Landingpages, (2) Pinterest, (3) Reddit nur ToS-konform. Ein Kanal = ein Mini-Experiment.
+- ~~**T3 — Distribution-Kanal-Entscheidung** (`grilling`) — RESOLVED 2026-07-18 (siehe Decisions so far).~~
+  Kanal = SEO-Landingpages (Charta: kein autonomes Social-Posting). Pinterest/Reddit -> Out-of-Scope.
+  **Nächstes offenes Ticket: T5** (Publish-Strategie).
 - ~~**T4 — First-Sale-Measurement** (`research`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
-- **T5 — Publish-Strategie** (`grilling`): wann/wie Drafts→published? Discover braucht $100 Sales
+- **T5 — Publish-Strategie** (`grilling`) — NÄCHSTES OFFENES TICKET: wann/wie Drafts→published? Discover braucht $100 Sales
   + Risk-Review → Publish allein bringt 0 Traffic. Bewusster separater Schritt.
 
 ## Not yet specified (fog)
