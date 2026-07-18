@@ -27,9 +27,11 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
 
 ## Open Tickets (Frontier)
 
-- **T1 — GitHub Pages Deployment** (`task`): `docs/site/` zu GitHub Pages publizieren, damit
-  Landingpages öffentlich erreichbar + crawlbar sind. Blocked by: Repo muss zu GitHub gepusht sein
-  (remote fehlt aktuell — MEASURED: `git remote -v` leer in new-business).
+- ~~**T1 — GitHub Pages Deployment** (`task`) — RESOLVED 2026-07-18. Repo `translucentv1/new-business`
+  (public) erstellt + push; Landingpages `docs/`; Pages via **Actions-Workflow** (`.github/workflows/pages.yml`,
+  build_type=workflow). Deploy SUCCESS (`Reported success!`, env url confirmed). Legacy-build scheiterte
+  persistent (404 trotz `status:built`) → auf Actions umgestellt. CDN-Propagation nach 1. Deploy ggf.
+  noch ausstehend; URL: https://translucentv1.github.io/new-business/ . Blocked-by (remote fehlend) behoben.
 - **T2 — 3 fehlende Drafts live** (`task`, AFK via Cron): 2701/345/84 warten auf 04:00-Retry.
   Resolve wenn STORE: total=8 drafts=8 published=0.
 - **T3 — Distribution-Kanal-Entscheidung** (`grilling`): welcher Kanal zuerst? ADR-0007 nennt
