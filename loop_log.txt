@@ -27,3 +27,14 @@
 2026-07-18 00:04:19 no fresh works, corpus stable
 2026-07-18 00:04:19 no GUMROAD_API_KEY -> Entwurf-Modus (corpus waechst, kein Upload)
 2026-07-18 00:04:19 loop tick done
+
+=== NACHTSCHICHT-DURCHGANG (Hermes, autonom) 2026-07-18 10:16 ===
+Stand vorab: 8 Live-Stripe-Links vorhanden; .stripe_secrets hat sk_live-Key (User bereitgestellt).
+TB-8 DONE: scripts/deliverable_gen.py (self-contained HTML unter docs/dl/<hash>/<slug>.html); landingpage_gen.py auf Preview (TOC+1.Kap) umgebaut; robots.txt Disallow /dl/; Qualitaets-Guard (korrupte Bundles werden nicht veroeffentlicht). 7 saubere Deliverables gebaut, 25913 SKIP.
+TB-9 DONE: scripts/test_download_gate.py gruen (7 sauber, 25913 ausgenommen); test_pd_processor.py 4/4 PASS (unveraendert).
+TB-10 DONE: Stripe after_completion-Redirect bei 7 sauberen Links live auf Download-URL umgestellt (MEASURED per GET verifiziert). 25913 SKIP. Site via publish_site.py auf gh-pages gepusht. Live-Check: / =200, /84/ =200, /dl/.../frankenstein.html =200 (nach ~3min Pages-Propagierung), robots.txt hat Disallow /dl/, keine Volltext-Leaks in Previews.
+TB-11 DONE: JSON-LD Product + ItemList, geschaerfte Titles/Descriptions. Gepusht, Live 200, JSON-LD valide (parst als Product mit Offer).
+TB-12 DONE: docs/research/2026-07-18-pivot-optionen.md (NUR Recherche, MEASURED-Quellen URL+Datum).
+TB-13 TODO (USER): 25913-Bundle korrupt (Inhalt=TALES OF FOLK AND FAIRIES, nicht Metamorphosen) -> nicht autonom gebaut, nur vermerkt.
+SALE-CHECK: 0 new sales (poll ok; kein Traffic/Social per Hard Stop).
+Cron Sicherheitsnetz: 'new-business: Nachtschicht' alle 30min (job 230dc6956129) angelegt, pusht per ADR-0013-Nachtrag, Stopp 16:00.
