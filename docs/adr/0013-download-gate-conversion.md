@@ -47,6 +47,17 @@ derselben Seite bereits kostenlos und vollstaendig lesbar ist.
 - Legal unveraendert unkritisch: Werke sind gemeinfrei; das Gate schuetzt die
   *Aufbereitung/Bequemlichkeit*, nicht ein Urheberrecht.
 
+## Nachtrag (Nutzer-Entscheidung, 2026-07-18 spaeter Abend)
+1. **Autonomer Push erlaubt.** Die urspruengliche Auflage "nur lokal committen,
+   Nutzer pusht morgens" ist vom Nutzer aufgehoben: Hermes darf MEASURED-gruene
+   Aenderungen (Tests + Datei-Checks bestanden) selbst auf gh-pages pushen und
+   den Stripe-`after_completion`-Redirect live umstellen. Begruendung: Ziel ist
+   ein moeglicher Sale bis 16:00 — dafuer muss das Gate nachts live gehen.
+2. **Nacht-Mandat erweitert:** Nach dem Gate (TB-8..10) darf Hermes weitere
+   Sale-Hebel abarbeiten (TB-11 SEO-Titel/Meta, TB-12 Pivot-Research). **Kein
+   Business-Pivot in der Nacht** — Research ja, Umbau nein (Nutzer entscheidet
+   wach). Hard Stops (Accounts/Keys/Geld/Social/OAuth) bleiben voll bestehen.
+
 ## Belege
 - MEASURED 2026-07-18: `landingpage_gen.py` Volltext-Render (Zeile
   `body_text = _esc(content)`), `stripe_links.json` (8 Links), fehlende
