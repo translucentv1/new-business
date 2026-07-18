@@ -3,7 +3,7 @@
 **Label:** `wayfinder:map`
 **Charted:** 2026-07-18 (autonomous, user grant: alle hard stops aufgehoben)
 **Tracker:** local-markdown (kein issue-tracker installiert; Map = diese Datei, Tickets = `docs/wayfinder/<slug>.md`)
-**Status:** charting (noch keine Tickets resolved)
+**Status:** charting (T1/T3/T4 resolved; T2 blocked; T5 offen; ADR-0018 Produkt-Pivot aktiv = neue Frontier)
 
 ## Destination
 
@@ -57,16 +57,44 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   4 Download-Gates (/dl/<hash>/<slug>.html) → HTTP 200; robots.txt Disallow /dl/ korrekt,
   sitemap.xml vorhanden. Erster Sale über Stripe-Links jederzeit möglich sobald Traffic da.
 
+- **2h-cron status-check 16:01 (2026-07-18)** — letzte ~2h (14:01–16:01): 1 autonomer Commit `1ee6ef1` (15:42):
+  ADR-0013 `create_link` idempotent (REUSE statt Neu-Generierung) + **13 Link-Seiten** auf konsistente
+  Stripe-Links im Registry aktualisiert (MEASURED: 13 index.html geändert, Pages HTTP 200). Mehr als
+  diese 1 Änderung passierte nicht. STORE unverändert total=5 drafts=5 published=0; 8 Drafts fehlen,
+  weiter BLOCKED durch Gumroad 10/Tag-Limit (`upload_missing_drafts.py` -> DAILY LIMIT HIT; 04:00-Retry-Cron
+  `58f0ebc08d11` läuft, kein manueller Push, kein ToS-Bypass). Pages HTTP 200 (erreichbar).
+  0 Sales (sales.log fehlt; `sale_poller.py` live: "0 new sales", detektiert price>0).
+- **2h-cron status-check 18:01 (2026-07-18)** — letzte ~2h (16:01–18:01): autonomer PRODUKT-PIVOT
+  (ADR-0018) zu Lese-Begleitern (Study Guides) + 2 neue Bücher live. 9 Commits lagen lokal,
+  NICHT gepusht → live-Site war hinkend (hatte Stripe-Buttons, aber kein Begleiter-Inhalt).
+  Dieser Cron hat die 9 Commits gepusht → CI-Deploy erfolgt: Begleiter-Inhalt JETZT LIVE
+  (MEASURED: live /1260/ hat 9 "Begleiter"-Matches; neue Bücher /768/ + /215/ = HTTP 200).
+  Inhalt des Fensters: TB-17/ADR-0017 "Wuthering Heights" (Gutenberg 768) live; TB-18
+  "The Call of the Wild" (Gutenberg 215) live; TB-19/ADR-0018 Study-Guide-Generator
+  (13 Guides, 4 Tests grün) + TB-19b LLM-Fill (11/13 mit echtem LLM-Inhalt tencent/hy3:free
+  gefüllt, 25913 korrupt übersprungen, 1 ohne Inhalt) + Begleiter-Deliverables/Landingpages.
+  Push verifiziert KEINE Secrets im Diff. STORE unverändert total=5 drafts=5 published=0;
+  8 Drafts fehlen, T2 weiter BLOCKED (Gumroad 10/Tag: `upload_missing_drafts.py` -> DAILY LIMIT HIT;
+  04:00-Retry-Cron `58f0ebc08d11` läuft, kein manueller Push, kein ToS-Bypass). Pages HTTP 200
+  (erreichbar, jetzt mit Begleiter-Inhalt). 0 Sales (sales.log fehlt; Sale-Rail Stripe messbereit).
+  **Nächstes Wayfinder-Ticket: T5 (Publish-Strategie)** bleibt offen — braucht Nutzer-Entscheidung
+  (Publish allein = 0 Traffic, Discover braucht $100). Fokus lag auf Produktwert statt T5.
+- **T3 — Distribution-Kanal-Entscheidung** — RESOLVED 2026-07-18 (per Betriebs-Charta/Nutzer):
+  Kanal = **SEO-Landingpages (GitHub Pages) zuerst**. Autonomes Social-Posting (Pinterest/Reddit)
+  ausdrücklich NICHT erlaubt (freigabepflichtig, Hard Stop). Pinterest-/Reddit-Details -> Out-of-Scope.
+  Nächstes offenes Ticket: **T5** (Publish-Strategie).
+
 ## Open Tickets (Frontier)
 
 - ~~**T1 — GitHub Pages Deployment** (`task`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
 - **T2 — 3 fehlende Drafts live** (`task`, AFK via Cron): 2701/345/84 warten auf 04:00-Retry-Cron
   (`58f0ebc08d11`). BLOCKED by Gumroad 10/Tag-Limit (MEASURED: Fenster resettet ~24h nach
   erstem Create heute früh). Resolve wenn STORE: total=8 drafts=8 published=0.
-- **T3 — Distribution-Kanal-Entscheidung** (`grilling`): welcher Kanal zuerst? ADR-0007 nennt
-  (1) SEO-Landingpages, (2) Pinterest, (3) Reddit nur ToS-konform. Ein Kanal = ein Mini-Experiment.
+- ~~**T3 — Distribution-Kanal-Entscheidung** (`grilling`) — RESOLVED 2026-07-18 (siehe Decisions so far).~~
+  Kanal = SEO-Landingpages (Charta: kein autonomes Social-Posting). Pinterest/Reddit -> Out-of-Scope.
+  **Nächstes offenes Ticket: T5** (Publish-Strategie).
 - ~~**T4 — First-Sale-Measurement** (`research`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
-- **T5 — Publish-Strategie** (`grilling`): wann/wie Drafts→published? Discover braucht $100 Sales
+- **T5 — Publish-Strategie** (`grilling`) — NÄCHSTES OFFENES TICKET: wann/wie Drafts→published? Discover braucht $100 Sales
   + Risk-Review → Publish allein bringt 0 Traffic. Bewusster separater Schritt.
 
 ## Not yet specified (fog)
