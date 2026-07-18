@@ -65,7 +65,7 @@ def build_payload(book_id: str):
         "name": meta["title"],
         "description": desc,
         "price": price_cents,
-        "tags": "public-domain,ebook,klassiker",
+        "tags": ["public-domain", "ebook", "klassiker"],
     }, prod
 
 
@@ -115,10 +115,13 @@ def publish(book_id: str, do_publish: bool = False):
     try:
         with httpx.Client(timeout=120) as c:
             # 1) create draft product
-            r = c.post(f"{API}/v2/products",
-                       data={"access_token": key, "name": payload["name"],
-                             "price": str(payload["price"]), "description": payload["description"],
-                             "tags": payload["tags"]})
+            create_pairs = [("access_token", key), ("name", payload["name"]),
+                            ("price", str(payload["price"])),
+                            ("description", payload["description"])]
+            for t in payload["tags"]:
+                create_pairs.append(("tags[]", t))
+            r = c.post(f"{API}/v2/products", content=urlencode(create_pairs),
+                       headers={"Content-Type": "application/x-www-form-urlencoded"})
             if r.status_code != 200 or not r.json().get("success"):
                 return False, f"CREATE API {r.status_code}: {r.text[:160]}"
             pid = r.json()["product"]["id"]
