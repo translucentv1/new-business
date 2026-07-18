@@ -8,7 +8,7 @@ GitHub-Pages-faehig (relativ-pfadfaehig). Kein externer Call.
 import os, json, glob
 
 CORPUS = os.path.join(os.path.dirname(__file__), "..", "corpus")
-SITE = os.path.join(os.path.dirname(__file__), "..", "docs", "site")
+SITE = os.path.join(os.path.dirname(__file__), "..", "site")
 
 GUMROAD_BASE = "https://philippbehnisch.gumroad.com/l/"  # short_url-Praefix; im Loop durch echte URL ersetzt
 LANG = "de"
