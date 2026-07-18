@@ -3,7 +3,7 @@
 **Label:** `wayfinder:map`
 **Charted:** 2026-07-18 (autonomous, user grant: alle hard stops aufgehoben)
 **Tracker:** local-markdown (kein issue-tracker installiert; Map = diese Datei, Tickets = `docs/wayfinder/<slug>.md`)
-**Status:** charting (T1/T3/T4 resolved; T2 blocked; T5 offen)
+**Status:** charting (T1/T3/T4 resolved; T2 blocked; T5 offen; ADR-0018 Produkt-Pivot aktiv = neue Frontier)
 
 ## Destination
 
@@ -64,6 +64,21 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   weiter BLOCKED durch Gumroad 10/Tag-Limit (`upload_missing_drafts.py` -> DAILY LIMIT HIT; 04:00-Retry-Cron
   `58f0ebc08d11` läuft, kein manueller Push, kein ToS-Bypass). Pages HTTP 200 (erreichbar).
   0 Sales (sales.log fehlt; `sale_poller.py` live: "0 new sales", detektiert price>0).
+- **2h-cron status-check 18:01 (2026-07-18)** — letzte ~2h (16:01–18:01): autonomer PRODUKT-PIVOT
+  (ADR-0018) zu Lese-Begleitern (Study Guides) + 2 neue Bücher live. 9 Commits lagen lokal,
+  NICHT gepusht → live-Site war hinkend (hatte Stripe-Buttons, aber kein Begleiter-Inhalt).
+  Dieser Cron hat die 9 Commits gepusht → CI-Deploy erfolgt: Begleiter-Inhalt JETZT LIVE
+  (MEASURED: live /1260/ hat 9 "Begleiter"-Matches; neue Bücher /768/ + /215/ = HTTP 200).
+  Inhalt des Fensters: TB-17/ADR-0017 "Wuthering Heights" (Gutenberg 768) live; TB-18
+  "The Call of the Wild" (Gutenberg 215) live; TB-19/ADR-0018 Study-Guide-Generator
+  (13 Guides, 4 Tests grün) + TB-19b LLM-Fill (11/13 mit echtem LLM-Inhalt tencent/hy3:free
+  gefüllt, 25913 korrupt übersprungen, 1 ohne Inhalt) + Begleiter-Deliverables/Landingpages.
+  Push verifiziert KEINE Secrets im Diff. STORE unverändert total=5 drafts=5 published=0;
+  8 Drafts fehlen, T2 weiter BLOCKED (Gumroad 10/Tag: `upload_missing_drafts.py` -> DAILY LIMIT HIT;
+  04:00-Retry-Cron `58f0ebc08d11` läuft, kein manueller Push, kein ToS-Bypass). Pages HTTP 200
+  (erreichbar, jetzt mit Begleiter-Inhalt). 0 Sales (sales.log fehlt; Sale-Rail Stripe messbereit).
+  **Nächstes Wayfinder-Ticket: T5 (Publish-Strategie)** bleibt offen — braucht Nutzer-Entscheidung
+  (Publish allein = 0 Traffic, Discover braucht $100). Fokus lag auf Produktwert statt T5.
 - **T3 — Distribution-Kanal-Entscheidung** — RESOLVED 2026-07-18 (per Betriebs-Charta/Nutzer):
   Kanal = **SEO-Landingpages (GitHub Pages) zuerst**. Autonomes Social-Posting (Pinterest/Reddit)
   ausdrücklich NICHT erlaubt (freigabepflichtig, Hard Stop). Pinterest-/Reddit-Details -> Out-of-Scope.
