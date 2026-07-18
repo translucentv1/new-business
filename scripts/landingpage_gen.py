@@ -115,6 +115,21 @@ def _price_eur() -> str:
         return "3,99"
 
 
+def _sitemap(entries):
+    base = "https://translucentv1.github.io/new-business"
+    urls = [f"  <url><loc>{base}/</loc></url>"]
+    for bid, m, g, c, url in entries:
+        urls.append(f"  <url><loc>{base}/{bid}/</loc></url>")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "\n".join(urls) + "\n</urlset>\n")
+
+
+def _robots():
+    return ("User-agent: *\nAllow: /\n\n"
+            "Sitemap: https://translucentv1.github.io/new-business/sitemap.xml\n")
+
+
 def index_html(entries):
     rows = "\n".join(
         f'    <li><a href="{bid}/index.html">{_esc(m["title"])}</a> – {_esc(m.get("author",""))}'
@@ -152,6 +167,11 @@ def build():
         entries.append((bid, meta, desc, content, url))
     with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html(entries))
+    # SEO: sitemap + robots for faster/broader indexing (traffic = sales).
+    with open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(_sitemap(entries))
+    with open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write(_robots())
     wired = [b for b, *_ in entries if _[-1]]
     print(f"Generated {len(entries)} product pages + index at {SITE}")
     print(f"Stripe-Links wired for: {wired} | placeholders for rest: {[b for b in [e[0] for e in entries] if b not in wired]}")
