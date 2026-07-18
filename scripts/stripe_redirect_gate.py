@@ -111,7 +111,7 @@ def main():
         print(f"  {bid}: redirect -> {got}  [{'OK' if match else 'MISMATCH'}]")
         results.append((bid, "ok" if match else "mismatch", got))
 
-    ok_n = sum(1 for *_, st in [(r[0], r[1], r[2]) for r in results] if st == "ok")
+    ok_n = sum(1 for r in results if r[1] == "ok")
     print(f"\nTB-10 Redirect-Update: {ok_n}/{len(remote)} Links verifiziert auf Download-URL.")
     fails = [r for r in results if r[1] not in ("ok", "skipped-corrupt")]
     if fails:
