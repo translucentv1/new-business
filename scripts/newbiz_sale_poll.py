@@ -4,8 +4,10 @@ Polls Stripe charges; reports the first price>0 sale (or remains silent).
 Charta: a sale needs a real external buyer -> this only REPORTS, never fakes.
 """
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
+REPO = os.environ.get("NEWBIZ_REPO", r"C:\Users\phili\new-business")
+SCRIPTS = os.path.join(REPO, "scripts")
+if SCRIPTS not in sys.path:
+    sys.path.insert(0, SCRIPTS)
 import stripe_uploader as su
 
 if __name__ == "__main__":

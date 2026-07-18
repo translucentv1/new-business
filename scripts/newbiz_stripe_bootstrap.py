@@ -1,7 +1,8 @@
 """Autonomous bootstrap trigger for the Stripe sales chain (no agent, cron-safe).
 
-Runs every 15 min. If STRIPE_SECRET_KEY is present and stripe_links.json is
-empty/partial, it autonomously:
+Runs via Hermes cron (script lives in HERMES_HOME/scripts/, repo is at
+C:/Users/phili/new-business). If STRIPE_SECRET_KEY is present and
+stripe_links.json is empty/partial, it autonomously:
   1) creates 8 Payment Links (incl. fulfillment redirect)  -> stripe_links.json
   2) rebuilds landing pages with Stripe buy buttons
   3) publishes the site (root-level) to gh-pages
@@ -11,25 +12,28 @@ payout connection remain the user's hard stop (done before the key lands).
 
 Prints nothing if no key yet (silent watchdog), or a concise status line.
 """
-import os, sys, json
+import os, sys, json, glob
 
+# Resolve repo regardless of where this script lives.
 HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.abspath(os.path.join(HERE, ".."))
-sys.path.insert(0, HERE)
+REPO = os.environ.get("NEWBIZ_REPO", r"C:\Users\phili\new-business")
+SCRIPTS = os.path.join(REPO, "scripts")
+if SCRIPTS not in sys.path:
+    sys.path.insert(0, SCRIPTS)
 
 import stripe_uploader as su
 import publish_site as ps
 
-LINKS = su.LINKS
+LINKS = os.path.join(REPO, "stripe_links.json")
+CORPUS = su.CORPUS
 
 
 def main():
     key = su.get_key()
     if not key:
         return  # silent: waiting for user to drop the key (hard stop, not our job)
-    # How many links do we need?
     bids = sorted(
-        os.path.basename(p) for p in __import__("glob").glob(os.path.join(su.CORPUS, "*"))
+        os.path.basename(p) for p in glob.glob(os.path.join(CORPUS, "*"))
         if os.path.isdir(p) and os.path.exists(os.path.join(p, "product", "meta.json"))
     )
     have = {}
@@ -42,7 +46,6 @@ def main():
     if not missing:
         print(f"OK: all {len(bids)} Stripe links already present; nothing to do.")
         return
-    # 1) create links
     created = 0
     for b in missing:
         ok, det = su.create_link(b)
@@ -53,7 +56,6 @@ def main():
         else:
             print(f"  link {b}: FAIL {det}")
     json.dump(have, open(LINKS, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    # 2)+3) rebuild + publish (publish_site refuses if no links)
     ps.main()
     print(f"BOOTSTRAP DONE: {created} new link(s); site published.")
 
