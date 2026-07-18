@@ -10,7 +10,7 @@ GitHub Pages serves the branch root, so <id>/index.html and index.html go to
 the top of the gh-pages tree (not under docs/). Only public landing pages are
 published; secrets and raw corpus text are excluded.
 """
-import os, sys, shutil, subprocess
+import os, sys, shutil, subprocess, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, ".."))
