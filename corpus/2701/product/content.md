@@ -302,8 +302,6 @@ or, THE WHALE.
 
 By Herman Melville
 
-
-
 CONTENTS
 
 ETYMOLOGY.
@@ -850,23 +848,15 @@ over Him.
 
 Epilogue
 
-
-
-
 Original Transcriber’s Notes:
 
 This text is a combination of etexts, one from the now-defunct ERIS
-project at Virginia Tech and one from Project Gutenberg’s archives. The
+
 proofreaders of this version are indebted to The University of Adelaide
 Library for preserving the Virginia Tech version. The resulting etext
 was compared with a public domain hard copy version of the text.
 
-
-
-
-
   ETYMOLOGY.
-
 
   (Supplied by a Late Consumptive Usher to a Grammar School.)
 
@@ -889,7 +879,6 @@ was compared with a public domain hard copy version of the text.
   “WHALE. * * * It is more immediately from the Dut. and Ger. _Wallen_;
   A.S. _Walw-ian_, to roll, to wallow.” —_Richardson’s Dictionary._
 
-
   ‏חו‎,                _Hebrew_.
   ϰητος,             _Greek_.
   CETUS,             _Latin_.
@@ -904,10 +893,7 @@ was compared with a public domain hard copy version of the text.
   PEKEE-NUEE-NUEE,   _Fegee_.
   PEHEE-NUEE-NUEE,   _Erromangoan_.
 
-
   EXTRACTS. (Supplied by a Sub-Sub-Librarian).
-
-
 
   It will be seen that this mere painstaking burrower and grub-worm of
   a poor devil of a Sub-Sub appears to have gone through the long
@@ -971,9 +957,6 @@ EXTRACTS.
   open-mouthed, raising the waves on all sides, and beating the sea
   before him into a foam.” —_Tooke’s Lucian_. “_The True History_.”
 
-
-
-
   “He visited this country also with a view of catching horse-whales,
   which had bones of very great value for their teeth, of which he
   brought some to the king.... The best whales were catched in his own
@@ -1002,21 +985,15 @@ EXTRACTS.
   quantity of oil will be extracted out of one whale.” —_Ibid_.
   “_History of Life and Death_.”
 
-
-
-
   “The sovereignest thing on earth is parmacetti for an inward bruise.”
   —_King Henry_.
 
   “Very like a whale.” —_Hamlet_.
 
-
   “Which to secure, no skill of leach’s art Mote him availle, but to
   returne againe To his wound’s worker, that with lowly dart, Dinting
   his breast, had bred his restless paine, Like as the wounded whale to
   shore flies thro’ the maine.” —_The Fairie Queen_.
-
-
 
   “Immense as whales, the motion of whose vast bodies can in a peaceful
   calm trouble the ocean till it boil.” —_Sir William Davenant. Preface
@@ -1027,13 +1004,10 @@ EXTRACTS.
   sit_.” —_Sir T. Browne. Of Sperma Ceti and the Sperma Ceti Whale.
   Vide his V. E._
 
-
   “Like Spencer’s Talus with his modern flail He threatens ruin with
   his ponderous tail. ... Their fixed jav’lins in his side he wears,
   And on his back a grove of pikes appears.” —_Waller’s Battle of the
   Summer Islands_.
-
-
 
   “By art is created that great Leviathan, called a Commonwealth or
   State—(in Latin, Civitas) which is but an artificial man.” —_Opening
@@ -1042,7 +1016,6 @@ EXTRACTS.
   “Silly Mansoul swallowed it without chewing, as if it had been a
   sprat in the mouth of a whale.” —_Pilgrim’s Progress_.
 
-
   “That sea beast Leviathan, which God of all his works Created hugest
   that swim the ocean stream.” —_Paradise Lost_.
 
@@ -1050,17 +1023,12 @@ EXTRACTS.
   like a promontory sleeps or swims, And seems a moving land; and at
   his gills Draws in, and at his breath spouts out a sea.” —_Ibid_.
 
-
-
   “The mighty whales which swim in a sea of water, and have a sea of
   oil swimming in them.” —_Fuller’s Profane and Holy State_.
-
 
   “So close behind some promontory lie The huge Leviathan to attend
   their prey, And give no chance, but swallow in the fry, Which through
   their gaping jaws mistake the way.” —_Dryden’s Annus Mirabilis_.
-
-
 
   “While the whale is floating at the stern of the ship, they cut off
   his head, and tow it with a boat as near the shore as it will come;
@@ -1108,13 +1076,10 @@ EXTRACTS.
   insupportable smell, as to bring on a disorder of the brain.”
   —_Ulloa’s South America_.
 
-
   “To fifty chosen sylphs of special note, We trust the important
   charge, the petticoat. Oft have we known that seven-fold fence to
   fail, Tho’ stuffed with hoops and armed with ribs of whale.” —_Rape
   of the Lock_.
-
-
 
   “If we compare land animals in respect to magnitude, with those that
   take up their abode in the deep, we shall find they will appear
@@ -1153,7 +1118,6 @@ EXTRACTS.
   and sturgeon. And these, when either thrown ashore or caught near the
   coast, are the property of the king.” —_Blackstone_.
 
-
   “Soon to the sport of death the crews repair: Rodmond unerring o’er
   his head suspends The barbed steel, and every turn attends.”
   —_Falconer’s Shipwreck_.
@@ -1164,8 +1128,6 @@ EXTRACTS.
   “So fire with water to compare, The ocean serves on high, Up-spouted
   by a whale in air, To express unwieldy joy.” —_Cowper, on the Queen’s
   Visit to London_.
-
-
 
   “Ten or fifteen gallons of blood are thrown out of the heart at a
   stroke, with immense velocity.” —_John Hunter’s account of the
@@ -1184,7 +1146,6 @@ EXTRACTS.
   —_Colnett’s Voyage for the Purpose of Extending the Spermaceti Whale
   Fishery_.
 
-
   “In the free element beneath me swam, Floundered and dived, in play,
   in chace, in battle, Fishes of every colour, form, and kind; Which
   language cannot paint, and mariner Had never seen; from dread
@@ -1199,8 +1160,6 @@ EXTRACTS.
   whale than this In the vast Atlantic is; Not a fatter fish than he,
   Flounders round the Polar Sea.” —_Charles Lamb’s Triumph of the
   Whale_.
-
-
 
   “In the year 1690 some persons were on a high hill observing the
   whales spouting and sporting with each other, when one observed:
@@ -1230,13 +1189,10 @@ EXTRACTS.
   large Sperm Whale in the Pacific Ocean_.” _By Owen Chace of
   Nantucket, first mate of said vessel. New York_, 1821.
 
-
   “A mariner sat in the shrouds one night, The wind was piping free;
   Now bright, now dimmed, was the moonlight pale, And the phospher
   gleamed in the wake of the whale, As it floundered in the sea.”
   —_Elizabeth Oakes Smith_.
-
-
 
   “The quantity of line withdrawn from the boats engaged in the capture
   of this one whale, amounted altogether to 10,440 yards or nearly six
@@ -1269,7 +1225,6 @@ EXTRACTS.
   tribe.” —_Frederick Debell Bennett’s Whaling Voyage Round the Globe_,
   1840.
 
-
   October 13.  “There she blows,” was sung out from the mast-head.
   “Where away?” demanded the captain. “Three points off the lee bow,
   sir.” “Raise up your wheel.  Steady!”  “Steady, sir.” “Mast-head
@@ -1279,8 +1234,6 @@ EXTRACTS.
   blows—bowes—bo-o-os!” “How far off?” “Two miles and a half.” “Thunder
   and lightning! so near!  Call all hands.” —_J. Ross Browne’s Etchings
   of a Whaling Cruize_.  1846.
-
-
 
   “The Whale-ship Globe, on board of which vessel occurred the horrid
   transactions we are about to relate, belonged to the island of
@@ -1363,7 +1316,6 @@ EXTRACTS.
 
   “So be cheery, my lads, let your hearts never fail, While the bold
   harpooneer is striking the whale!” —_Nantucket Song_.
-
 
   “Oh, the rare old Whale, mid storm and gale In his ocean home will be
   A giant in might, where might is right, And King of the boundless
@@ -2779,7 +2731,6 @@ bell in a ship that is foundering at sea in a fog—in such tones he
 commenced reading the following hymn; but changing his manner towards
 the concluding stanzas, burst forth with a pealing exultation and joy—
 
-
   “The ribs and terrors in the whale, Arched over me a dismal gloom,
   While all God’s sun-lit waves rolled by, And lift me deepening down
   to doom.
@@ -2797,9 +2748,6 @@ the concluding stanzas, burst forth with a pealing exultation and joy—
 
   “My song for ever shall record That terrible, that joyful hour; I
   give the glory to my God, His all the mercy and the power.”
-
-
-
 
 Nearly all joined in singing this hymn, which swelled high above the
 howling of the storm. A brief pause ensued; the preacher slowly turned
@@ -5151,11 +5099,8 @@ the old craft deep dived into the green seas, and sent the shivering
 frost all over her, and the winds howled, and the cordage rang, his
 steady notes were heard,—
 
-
 _“Sweet fields beyond the swelling flood, Stand dressed in living
 green. So to the Jews old Canaan stood, While Jordan rolled between.”_
-
-
 
 Never did those sweet words sound more sweetly to me than then. They
 were full of hope and fruition. Spite of this frigid winter night in
@@ -7087,11 +7032,8 @@ sentiment in tar and blubber. Childe Harold not unfrequently perches
 himself upon the mast-head of some luckless disappointed whale-ship,
 and in moody phrase ejaculates:—
 
-
 “Roll on, thou deep and dark blue ocean, roll! Ten thousand
 blubber-hunters sweep over thee in vain.”
-
-
 
 Very often do the captains of such ships take those absent-minded young
 philosophers to task, upbraiding them with not feeling sufficient
@@ -7540,12 +7482,9 @@ skirra! What’s my juicy little pear at home doing now? Crying its eyes
 out?—Giving a party to the last arrived harpooneers, I dare say, gay as
 a frigate’s pennant, and so am I—fa, la! lirra, skirra! Oh—
 
-
 We’ll drink to-night with hearts as light, To love, as gay and fleeting
 As bubbles that swim, on the beaker’s brim, And break on the lips while
 meeting.
-
-
 
 A brave stave that—who calls? Mr. Starbuck? Aye, aye, sir—(_Aside_)
 he’s my superior, he has his too, if I’m not mistaken.—Aye, aye, sir,
@@ -7558,25 +7497,19 @@ HARPOONEERS AND SAILORS.
 (_Foresail rises and discovers the watch standing, lounging, leaning,
 and lying in various attitudes, all singing in chorus_.)
 
-
   Farewell and adieu to you, Spanish ladies! Farewell and adieu to you,
   ladies of Spain! Our captain’s commanded.—
-
-
 
 1ST NANTUCKET SAILOR. Oh, boys, don’t be sentimental; it’s bad for the
 digestion! Take a tonic, follow me!
 
 (_Sings, and all follow._)
 
-
  Our captain stood upon the deck, A spy-glass in his hand, A viewing of
  those gallant whales That blew at every strand. Oh, your tubs in your
  boats, my boys, And by your braces stand, And we’ll have one of those
  fine whales, Hand, boys, over hand! So, be cheery, my lads! may your
  hearts never fail! While the bold harpooner is striking the whale!
-
-
 
 MATE’S VOICE FROM THE QUARTER-DECK. Eight bells there, forward!
 
@@ -8565,7 +8498,6 @@ correspond in invariability to those of the herring-shoals or the
 flights of swallows. On this hint, attempts have been made to construct
 elaborate migratory charts of the sperm whale.*
 
-
   *Since the above was written, the statement is happily borne out by
   an official circular, issued by Lieutenant Maury, of the National
   Observatory, Washington, April 16th, 1851. By that circular, it
@@ -8578,9 +8510,6 @@ elaborate migratory charts of the sperm whale.*
   been spent in each month in every district, and the two others to
   show the number of days in which whales, sperm or right, have been
   seen.”
-
-
-
 
 Besides, when making a passage from one feeding-ground to another, the
 sperm whales, guided by some infallible instinct—say, rather, secret
@@ -19665,7 +19594,6 @@ all round the world it runs, and then comes the spring! But as for me,
 all the start I have to meet it, is just across the deck here. But
 never mind; it’s all in fun: so the old song says;”—(_sings_.)
 
-
   Oh! jolly is the gale, And a joker is the whale, A’ flourishin’ his
   tail,— Such a funny, sporty, gamy, jesty, joky, hoky-poky lad, is the
   Ocean, oh!
@@ -19677,8 +19605,6 @@ never mind; it’s all in fun: so the old song says;”—(_sings_.)
   Thunder splits the ships, But he only smacks his lips, A tastin’ of
   this flip,— Such a funny, sporty, gamy, jesty, joky, hoky-poky lad,
   is the Ocean, oh!
-
-
 
 “Avast Stubb,” cried Starbuck, “let the Typhoon sing, and strike his
 harp here in our rigging; but if thou art a brave man thou wilt hold
@@ -22343,7 +22269,6 @@ heaven along with her, and helmeted herself with it.
 Now small fowls flew screaming over the yet yawning gulf; a sullen
 white surf beat against its steep sides; then all collapsed, and the
 great shroud of the sea rolled on as it rolled five thousand years ago.
-
 
 Epilogue
 

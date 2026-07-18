@@ -2,9 +2,9 @@
   "book_id": "158",
   "title": "Emma",
   "author": "Jane Austen",
-  "chapters": 84,
-  "chars": 880424,
-  "built": 1784325052,
+  "chapters": 111,
+  "chars": 880173,
+  "built": 1784351369,
   "files": [
     "content.md",
     "description.md"

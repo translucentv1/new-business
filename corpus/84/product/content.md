@@ -5,42 +5,54 @@ _von Mary Shelley_
 # Inhaltsverzeichnis
 
 1. Vorspann
-2. Chapter 2
-3. Chapter 4
-4. Chapter 6
-5. Chapter 8
-6. Chapter 10
-7. Chapter 12
-8. Chapter 14
-9. Chapter 16
-10. Chapter 18
-11. Chapter 20
-12. Chapter 22
-13. Chapter 24
-14. I am by birth a Genevese, and my family is one of the most
-15. We were brought up together; there was not quite a year difference in
-16. When I had attained the age of seventeen my parents resolved that I
-17. From this day natural philosophy, and particularly chemistry, in the
-18. It was on a dreary night of November that I beheld the accomplishment
-19. Clerval then put the following letter into my hands. It was from my
-20. On my return, I found the following letter from my father:—
-21. We passed a few sad hours until eleven o’clock, when the trial was to
-22. Nothing is more painful to the human mind than, after the feelings have
-23. I spent the following day roaming through the valley. I stood beside
-24. “It is with considerable difficulty that I remember the original era of
-25. “I lay on my straw, but I could not sleep. I thought of the
-26. “I now hasten to the more moving part of my story. I shall relate
-27. “Some time elapsed before I learned the history of my friends. It was
-28. “Such was the history of my beloved cottagers. It impressed me deeply.
-29. “Cursed, cursed creator! Why did I live? Why, in that instant, did I
-30. The being finished speaking and fixed his looks upon me in the
-31. Day after day, week after week, passed away on my return to Geneva; and
-32. London was our present point of rest; we determined to remain several
-33. I sat one evening in my laboratory; the sun had set, and the moon was just
-34. I was soon introduced into the presence of the magistrate, an old
-35. The voyage came to an end. We landed, and proceeded to Paris. I soon
-36. It was eight o’clock when we landed; we walked for a short time on the
-37. My present situation was one in which all voluntary thought was
+2. Kapitel 1
+3. Kapitel 2
+4. Kapitel 3
+5. Kapitel 4
+6. Kapitel 5
+7. Kapitel 6
+8. Kapitel 7
+9. Kapitel 8
+10. Kapitel 9
+11. Kapitel 10
+12. Kapitel 11
+13. Kapitel 12
+14. Kapitel 13
+15. Kapitel 14
+16. Kapitel 15
+17. Kapitel 16
+18. Kapitel 17
+19. Kapitel 18
+20. Kapitel 19
+21. Kapitel 20
+22. Kapitel 21
+23. Kapitel 22
+24. Kapitel 23
+25. Kapitel 24
+26. Kapitel 1
+27. Kapitel 2
+28. Kapitel 3
+29. Kapitel 4
+30. Kapitel 5
+31. Kapitel 6
+32. Kapitel 7
+33. Kapitel 8
+34. Kapitel 9
+35. Kapitel 10
+36. Kapitel 11
+37. Kapitel 12
+38. Kapitel 13
+39. Kapitel 14
+40. Kapitel 15
+41. Kapitel 16
+42. Kapitel 17
+43. Kapitel 18
+44. Kapitel 19
+45. Kapitel 20
+46. Kapitel 21
+47. Kapitel 22
+48. Kapitel 23
+49. Kapitel 24
 
 ---
 
@@ -52,7 +64,6 @@ or, the Modern Prometheus
 
 by Mary Wollstonecraft (Godwin) Shelley
 
-
  CONTENTS
 
  Letter 1
@@ -60,59 +71,105 @@ by Mary Wollstonecraft (Godwin) Shelley
  Letter 3
  Letter 4
 
-## Chapter 2
+## Kapitel 1
 
 
 
-## Chapter 4
+## Kapitel 2
 
 
 
-## Chapter 6
+## Kapitel 3
 
 
 
-## Chapter 8
+## Kapitel 4
 
 
 
-## Chapter 10
+## Kapitel 5
 
 
 
-## Chapter 12
+## Kapitel 6
 
 
 
-## Chapter 14
+## Kapitel 7
 
 
 
-## Chapter 16
+## Kapitel 8
 
 
 
-## Chapter 18
+## Kapitel 9
 
 
 
-## Chapter 20
+## Kapitel 10
 
 
 
-## Chapter 22
+## Kapitel 11
 
 
 
-## Chapter 24
+## Kapitel 12
+
+
+
+## Kapitel 13
+
+
+
+## Kapitel 14
+
+
+
+## Kapitel 15
+
+
+
+## Kapitel 16
+
+
+
+## Kapitel 17
+
+
+
+## Kapitel 18
+
+
+
+## Kapitel 19
+
+
+
+## Kapitel 20
+
+
+
+## Kapitel 21
+
+
+
+## Kapitel 22
+
+
+
+## Kapitel 23
+
+
+
+## Kapitel 24
 
 Letter 1
 
 _To Mrs. Saville, England._
 
-
 St. Petersburgh, Dec. 11th, 17—.
-
 
 You will rejoice to hear that no disaster has accompanied the
 commencement of an enterprise which you have regarded with such evil
@@ -227,15 +284,11 @@ Your affectionate brother,
 
 R. Walton
 
-
-
-
 Letter 2
 
 _To Mrs. Saville, England._
 
 Archangel, 28th March, 17—.
-
 
 How slowly the time passes here, encompassed as I am by frost and snow!
 Yet a second step is taken towards my enterprise. I have hired a
@@ -352,15 +405,11 @@ Remember me with affection, should you never hear from me again.
 Your affectionate brother,
  Robert Walton
 
-
-
-
 Letter 3
 
 _To Mrs. Saville, England._
 
 July 7th, 17—.
-
 
 My dear Sister,
 
@@ -397,11 +446,7 @@ finish. Heaven bless my beloved sister!
 
 R.W.
 
-
-
-
 Letter 4
-
 
 _To Mrs. Saville, England._
 
@@ -548,11 +593,7 @@ of my heart.
 I shall continue my journal concerning the stranger at intervals,
 should I have any fresh incidents to record.
 
-
-
-
 August 13th, 17—.
-
 
 My affection for my guest increases every day. He excites at once my
 admiration and my pity to an astonishing degree. How can I see so
@@ -630,11 +671,7 @@ power of judgment, a penetration into the causes of things, unequalled
 for clearness and precision; add to this a facility of expression and a
 voice whose varied intonations are soul-subduing music.
 
-
-
-
 August 19th, 17—.
-
 
 Yesterday the stranger said to me, “You may easily perceive, Captain
 Walton, that I have suffered great and unparalleled misfortunes. I had
@@ -684,8 +721,9 @@ animation, while the lineaments of his face are irradiated by the soul
 within. Strange and harrowing must be his story, frightful the storm which
 embraced the gallant vessel on its course and wrecked it—thus!
 
-## I am by birth a Genevese, and my family is one of the most
+## Kapitel 1
 
+I am by birth a Genevese, and my family is one of the most
 distinguished of that republic. My ancestors had been for many years
 counsellors and syndics, and my father had filled several public
 situations with honour and reputation. He was respected by all who
@@ -845,8 +883,9 @@ familiarly by the name of cousin. No word, no expression could body
 forth the kind of relation in which she stood to me—my more than
 sister, since till death she was to be mine only.
 
-## We were brought up together; there was not quite a year difference in
+## Kapitel 2
 
+We were brought up together; there was not quite a year difference in
 our ages. I need not say that we were strangers to any species of
 disunion or dispute. Harmony was the soul of our companionship, and
 the diversity and contrast that subsisted in our characters drew us
@@ -1051,8 +1090,9 @@ It was a strong effort of the spirit of good, but it was ineffectual.
 Destiny was too potent, and her immutable laws had decreed my utter and
 terrible destruction.
 
-## When I had attained the age of seventeen my parents resolved that I
+## Kapitel 3
 
+When I had attained the age of seventeen my parents resolved that I
 should become a student at the university of Ingolstadt. I had
 hitherto attended the schools of Geneva, but my father thought it
 necessary for the completion of my education that I should be made
@@ -1301,8 +1341,9 @@ books which I had requested, and I took my leave.
 
 Thus ended a day memorable to me; it decided my future destiny.
 
-## From this day natural philosophy, and particularly chemistry, in the
+## Kapitel 4
 
+From this day natural philosophy, and particularly chemistry, in the
 most comprehensive sense of the term, became nearly my sole occupation.
 I read with ardour those works, so full of genius and discrimination,
 which modern inquirers have written on these subjects. I attended the
@@ -1532,8 +1573,9 @@ sustained me: my labours would soon end, and I believed that exercise and
 amusement would then drive away incipient disease; and I promised myself
 both of these when my creation should be complete.
 
-## It was on a dreary night of November that I beheld the accomplishment
+## Kapitel 5
 
+It was on a dreary night of November that I beheld the accomplishment
 of my toils. With an anxiety that almost amounted to agony, I
 collected the instruments of life around me, that I might infuse a
 spark of being into the lifeless thing that lay at my feet. It was
@@ -1622,8 +1664,6 @@ hurried on with irregular steps, not daring to look about me:
  Doth close behind him tread.
  
  [Coleridge’s “Ancient Mariner.”]
-
-
 
 Continuing thus, I came at length opposite to the inn at which the various
 diligences and carriages usually stopped. Here I paused, I knew not why;
@@ -1765,8 +1805,9 @@ who are so deserving of my love?”
 to see a letter that has been lying here some days for you; it is from
 your cousin, I believe.”
 
-## Clerval then put the following letter into my hands. It was from my
+## Kapitel 6
 
+Clerval then put the following letter into my hands. It was from my
 own Elizabeth:
 
 “My dearest Cousin,
@@ -1895,10 +1936,7 @@ you, write!
 
 “Elizabeth Lavenza.
 
-
 “Geneva, March 18th, 17—.”
-
-
 
 “Dear, dear Elizabeth!” I exclaimed, when I had read her
 letter: “I will write instantly and relieve them from the anxiety
@@ -2026,7 +2064,9 @@ We returned to our college on a Sunday afternoon: the peasants were
 dancing, and every one we met appeared gay and happy. My own spirits were
 high, and I bounded along with feelings of unbridled joy and hilarity.
 
-## On my return, I found the following letter from my father:—
+## Kapitel 7
+
+On my return, I found the following letter from my father:—
 
 “My dear Victor,
 
@@ -2100,11 +2140,7 @@ with hatred for your enemies.
 
 “Alphonse Frankenstein.
 
-
-
 “Geneva, May 12th, 17—.”
-
-
 
 Clerval, who had watched my countenance as I read this letter, was
 surprised to observe the despair that succeeded the joy I at first
@@ -2389,8 +2425,9 @@ is, as you believe, innocent, rely on the justice of our laws, and the
 activity with which I shall prevent the slightest shadow of
 partiality.”
 
-## We passed a few sad hours until eleven o’clock, when the trial was to
+## Kapitel 8
 
+We passed a few sad hours until eleven o’clock, when the trial was to
 commence. My father and the rest of the family being obliged to attend
 as witnesses, I accompanied them to the court. During the whole of
 this wretched mockery of justice I suffered living torture. It was to
@@ -2689,8 +2726,9 @@ Thus spoke my prophetic soul, as, torn by remorse, horror, and despair,
 I beheld those I loved spend vain sorrow upon the graves of William and
 Justine, the first hapless victims to my unhallowed arts.
 
-## Nothing is more painful to the human mind than, after the feelings have
+## Kapitel 9
 
+Nothing is more painful to the human mind than, after the feelings have
 been worked up by a quick succession of events, the dead calmness of
 inaction and certainty which follows and deprives the soul both of hope
 and fear. Justine died, she rested, and I was alive. The blood flowed
@@ -2893,8 +2931,9 @@ acted as a lullaby to my too keen sensations; when I placed my head
 upon my pillow, sleep crept over me; I felt it as it came and blessed
 the giver of oblivion.
 
-## I spent the following day roaming through the valley. I stood beside
+## Kapitel 10
 
+I spent the following day roaming through the valley. I stood beside
 the sources of the Arveiron, which take their rise in a glacier, that
 with slow pace is advancing down from the summit of the hills to
 barricade the valley. The abrupt sides of vast mountains were before
@@ -2965,7 +3004,6 @@ convey to us.
      The path of its departure still is free.
   Man’s yesterday may ne’er be like his morrow;
      Nought may endure but mutability!
-
 
 It was nearly noon when I arrived at the top of the ascent. For some
 time I sat upon the rock that overlooks the sea of ice. A mist covered
@@ -3111,8 +3149,9 @@ heart and depressed spirits. But I consented to listen, and seating
 myself by the fire which my odious companion had lighted, he thus began
 his tale.
 
-## “It is with considerable difficulty that I remember the original era of
+## Kapitel 11
 
+“It is with considerable difficulty that I remember the original era of
 my being; all the events of that period appear confused and indistinct.
 A strange multiplicity of sensations seized me, and I saw, felt, heard,
 and smelt at the same time; and it was, indeed, a long time before I
@@ -3370,8 +3409,9 @@ science of words or letters.
 “The family, after having been thus occupied for a short time,
 extinguished their lights and retired, as I conjectured, to rest.”
 
-## “I lay on my straw, but I could not sleep. I thought of the
+## Kapitel 12
 
+“I lay on my straw, but I could not sleep. I thought of the
 occurrences of the day. What chiefly struck me was the gentle manners
 of these people, and I longed to join them, but dared not. I
 remembered too well the treatment I had suffered the night before from
@@ -3572,8 +3612,9 @@ unwholesome. My spirits were elevated by the enchanting appearance of
 nature; the past was blotted from my memory, the present was tranquil,
 and the future gilded by bright rays of hope and anticipations of joy.”
 
-## “I now hasten to the more moving part of my story. I shall relate
+## Kapitel 13
 
+“I now hasten to the more moving part of my story. I shall relate
 events that impressed me with feelings which, from what I had been,
 have made me what I am.
 
@@ -3771,8 +3812,9 @@ feelings of indignation, delight, and wonder, but which all terminated
 in additional love and reverence for my protectors (for so I loved, in
 an innocent, half-painful self-deceit, to call them).”
 
-## “Some time elapsed before I learned the history of my friends. It was
+## Kapitel 14
 
+“Some time elapsed before I learned the history of my friends. It was
 one which could not fail to impress itself deeply on my mind, unfolding
 as it did a number of circumstances, each interesting and wonderful to
 one so utterly inexperienced as I was.
@@ -3950,8 +3992,9 @@ which they were bound, and after her death the woman of the house in
 which they had lived took care that Safie should arrive in safety at
 the cottage of her lover.”
 
-## “Such was the history of my beloved cottagers. It impressed me deeply.
+## Kapitel 15
 
+“Such was the history of my beloved cottagers. It impressed me deeply.
 I learned, from the views of social life which it developed, to admire
 their virtues and to deprecate the vices of mankind.
 
@@ -4254,8 +4297,9 @@ I refrained. I saw him on the point of repeating his blow, when,
 overcome by pain and anguish, I quitted the cottage, and in the general
 tumult escaped unperceived to my hovel.”
 
-## “Cursed, cursed creator! Why did I live? Why, in that instant, did I
+## Kapitel 16
 
+“Cursed, cursed creator! Why did I live? Why, in that instant, did I
 not extinguish the spark of existence which you had so wantonly
 bestowed? I know not; despair had not yet taken possession of me; my
 feelings were those of rage and revenge. I could with pleasure have
@@ -4563,8 +4607,9 @@ will not associate with me; but one as deformed and horrible as myself
 would not deny herself to me. My companion must be of the same species
 and have the same defects. This being you must create.”
 
-## The being finished speaking and fixed his looks upon me in the
+## Kapitel 17
 
+The being finished speaking and fixed his looks upon me in the
 expectation of a reply. But I was bewildered, perplexed, and unable to
 arrange my ideas sufficiently to understand the full extent of his
 proposition. He continued,
@@ -4741,8 +4786,9 @@ myself to my most abhorred task. The prospect of such an occupation
 made every other circumstance of existence pass before me like a dream,
 and that thought only had to me the reality of life.
 
-## Day after day, week after week, passed away on my return to Geneva; and
+## Kapitel 18
 
+Day after day, week after week, passed away on my return to Geneva; and
 I could not collect the courage to recommence my work. I feared the
 vengeance of the disappointed fiend, yet I was unable to overcome my
 repugnance to the task which was enjoined me. I found that I could not
@@ -5017,8 +5063,9 @@ of even in my country.
 At length we saw the numerous steeples of London, St. Paul’s towering
 above all, and the Tower famed in English history.
 
-## London was our present point of rest; we determined to remain several
+## Kapitel 19
 
+London was our present point of rest; we determined to remain several
 months in this wonderful and celebrated city. Clerval desired the
 intercourse of the men of genius and talent who flourished at this
 time, but this was with me a secondary object; I was principally
@@ -5263,8 +5310,9 @@ hope, which I dared not trust myself to question but which was
 intermixed with obscure forebodings of evil that made my heart sicken
 in my bosom.
 
-## I sat one evening in my laboratory; the sun had set, and the moon was just
+## Kapitel 20
 
+I sat one evening in my laboratory; the sun had set, and the moon was just
 rising from the sea; I had not sufficient light for my employment, and I
 remained idle, in a pause of consideration of whether I should leave my
 labour for the night or hasten its conclusion by an unremitting attention
@@ -5586,8 +5634,9 @@ I must pause here, for it requires all my fortitude to recall the memory of
 the frightful events which I am about to relate, in proper detail, to my
 recollection.
 
-## I was soon introduced into the presence of the magistrate, an old
+## Kapitel 21
 
+I was soon introduced into the presence of the magistrate, an old
 benevolent man with calm and mild manners. He looked upon me, however,
 with some degree of severity, and then, turning towards my conductors,
 he asked who appeared as witnesses on this occasion.
@@ -5947,8 +5996,9 @@ and the irresistible, disastrous future imparted to me a kind of calm
 forgetfulness, of which the human mind is by its structure peculiarly
 susceptible.
 
-## The voyage came to an end. We landed, and proceeded to Paris. I soon
+## Kapitel 22
 
+The voyage came to an end. We landed, and proceeded to Paris. I soon
 found that I had overtaxed my strength and that I must repose before I
 could continue my journey. My father’s care and attentions were
 indefatigable, but he did not know the origin of my sufferings and
@@ -6082,11 +6132,7 @@ shall need no other happiness.
 
 “Elizabeth Lavenza.
 
-
-
 “Geneva, May 18th, 17—”
-
-
 
 This letter revived in my memory what I had before forgotten, the threat of
 the fiend—“_I will be with you on your
@@ -6283,8 +6329,9 @@ hay. The sun sank beneath the horizon as we landed, and as I touched
 the shore I felt those cares and fears revive which soon were to clasp
 me and cling to me for ever.
 
-## It was eight o’clock when we landed; we walked for a short time on the
+## Kapitel 23
 
+It was eight o’clock when we landed; we walked for a short time on the
 shore, enjoying the transitory light, and then retired to the inn and
 contemplated the lovely scene of waters, woods, and mountains, obscured
 in darkness, yet still displaying their black outlines.
@@ -6526,8 +6573,9 @@ wisdom! Cease; you know not what it is you say.”
 I broke from the house angry and disturbed and retired to meditate on
 some other mode of action.
 
-## My present situation was one in which all voluntary thought was
+## Kapitel 24
 
+My present situation was one in which all voluntary thought was
 swallowed up and lost. I was hurried away by fury; revenge alone
 endowed me with strength and composure; it moulded my feelings and
 allowed me to be calculating and calm at periods when otherwise
@@ -6799,9 +6847,7 @@ steel aright.
 
 Walton, _in continuation._
 
-
 August 26th, 17—.
-
 
 You have read this strange and terrific story, Margaret; and do you not
 feel your blood congeal with horror, like that which even now curdles
@@ -6914,7 +6960,6 @@ My beloved Sister,
 
 September 2d.
 
-
 I write to you, encompassed by peril and ignorant whether I am ever
 doomed to see again dear England and the dearer friends that inhabit
 it. I am surrounded by mountains of ice which admit of no escape and
@@ -6945,7 +6990,6 @@ expectation delayed fills them with fear, and I almost dread a mutiny
 caused by this despair.
 
 September 5th.
-
 
 A scene has just passed of such uncommon interest that, although it is
 highly probable that these papers may never reach you, yet I cannot
@@ -7023,14 +7067,12 @@ willingly continue to endure their present hardships.
 
 September 7th.
 
-
 The die is cast; I have consented to return if we are not destroyed.
 Thus are my hopes blasted by cowardice and indecision; I come back
 ignorant and disappointed. It requires more philosophy than I possess
 to bear this injustice with patience.
 
 September 12th.
-
 
 It is past; I am returning to England. I have lost my hopes of utility
 and glory; I have lost my friend. But I will endeavour to detail these

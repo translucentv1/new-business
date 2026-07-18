@@ -17,27 +17,22 @@ _von Lewis Carroll_
 11. The Lobster Quadrille
 12. Who Stole the Tarts?
 13. Alice’s Evidence
-14. Down the Rabbit-Hole
-15. The Pool of Tears
-16. A Caucus-Race and a Long Tale
-17. The Rabbit Sends in a Little Bill
-18. Advice from a Caterpillar
-19. Pig and Pepper
-20. A Mad Tea-Party
-21. The Queen’s Croquet-Ground
-22. The Mock Turtle’s Story
-23. The Lobster Quadrille
-24. Who Stole the Tarts?
-25. Alice’s Evidence
+14. Kapitel I
+15. Kapitel II
+16. Kapitel III
+17. Kapitel IV
+18. Kapitel V
+19. Kapitel VI
+20. Kapitel VII
+21. Kapitel VIII
+22. Kapitel IX
+23. Kapitel X
+24. Kapitel XI
+25. Kapitel XII
 
 ---
 
 ## Kapitel Vorspann
-
-[Illustration]
-
-
-
 
 Alice’s Adventures in Wonderland
 
@@ -95,7 +90,9 @@ Contents
 
 
 
-## Down the Rabbit-Hole
+## Kapitel I
+
+Down the Rabbit-Hole
 
 Alice was beginning to get very tired of sitting by her sister on the
 bank, and of having nothing to do: once or twice she had peeped into
@@ -252,7 +249,6 @@ hot buttered toast,) she very soon finished it off.
 
 *      *      *      *      *      *      *
 
-
 “What a curious feeling!” said Alice; “I must be shutting up like a
 telescope.”
 
@@ -309,7 +305,9 @@ So she set to work, and very soon finished off the cake.
 
 *      *      *      *      *      *      *
 
-## The Pool of Tears
+## Kapitel II
+
+The Pool of Tears
 
 “Curiouser and curiouser!” cried Alice (she was so much surprised, that
 for the moment she quite forgot how to speak good English); “now I’m
@@ -391,7 +389,6 @@ And pour the waters of the Nile
     How neatly spread his claws,
 And welcome little fishes in
     With gently smiling jaws!”
-
 
 “I’m sure those are not the right words,” said poor Alice, and her eyes
 filled with tears again as she went on, “I must be Mabel after all, and
@@ -509,7 +506,9 @@ birds and animals that had fallen into it: there were a Duck and a
 Dodo, a Lory and an Eaglet, and several other curious creatures. Alice
 led the way, and the whole party swam to the shore.
 
-## A Caucus-Race and a Long Tale
+## Kapitel III
+
+A Caucus-Race and a Long Tale
 
 They were indeed a queer-looking party that assembled on the bank—the
 birds with draggled feathers, the animals with their fur clinging close
@@ -714,7 +713,9 @@ little pattering of footsteps in the distance, and she looked up
 eagerly, half hoping that the Mouse had changed his mind, and was
 coming back to finish his story.
 
-## The Rabbit Sends in a Little Bill
+## Kapitel IV
+
+The Rabbit Sends in a Little Bill
 
 It was the White Rabbit, trotting slowly back again, and looking
 anxiously about as it went, as if it had lost something; and she heard
@@ -973,7 +974,9 @@ caterpillar, that was sitting on the top with its arms folded, quietly
 smoking a long hookah, and taking not the smallest notice of her or of
 anything else.
 
-## Advice from a Caterpillar
+## Kapitel V
+
+Advice from a Caterpillar
 
 The Caterpillar and Alice looked at each other for some time in
 silence: at last the Caterpillar took the hookah out of its mouth, and
@@ -1093,7 +1096,6 @@ Yet you balanced an eel on the end of your nose—
 Do you think I can listen all day to such stuff?
     Be off, or I’ll kick you down stairs!”
 
-
 “That is not said right,” said the Caterpillar.
 
 “Not _quite_ right, I’m afraid,” said Alice, timidly; “some of the
@@ -1164,7 +1166,6 @@ lefthand bit.
     *      *      *      *      *      *
 
 *      *      *      *      *      *      *
-
 
 “Come, my head’s free at last!” said Alice in a tone of delight, which
 changed into alarm in another moment, when she found that her shoulders
@@ -1267,7 +1268,9 @@ _this_ size: why, I should frighten them out of their wits!” So she
 began nibbling at the righthand bit again, and did not venture to go
 near the house till she had brought herself down to nine inches high.
 
-## Pig and Pepper
+## Kapitel VI
+
+Pig and Pepper
 
 For a minute or two she stood looking at the house, and wondering what
 to do next, when suddenly a footman in livery came running out of the
@@ -1416,13 +1419,10 @@ the end of every line:
 He only does it to annoy,
     Because he knows it teases.”
 
-
 CHORUS.
 (In which the cook and the baby joined):
 
-
 “Wow! wow! wow!”
-
 
 While the Duchess sang the second verse of the song, she kept tossing
 the baby violently up and down, and the poor little thing howled so,
@@ -1433,12 +1433,9 @@ that Alice could hardly hear the words:—
 For he can thoroughly enjoy
     The pepper when he pleases!”
 
-
 CHORUS.
 
-
 “Wow! wow! wow!”
-
 
 “Here! you may nurse it a bit, if you like!” the Duchess said to Alice,
 flinging the baby at her as she spoke. “I must go and get ready to play
@@ -1589,7 +1586,9 @@ to about two feet high: even then she walked up towards it rather
 timidly, saying to herself “Suppose it should be raving mad after all!
 I almost wish I’d gone to see the Hatter instead!”
 
-## A Mad Tea-Party
+## Kapitel VII
+
+A Mad Tea-Party
 
 There was a table set out under a tree in front of the house, and the
 March Hare and the Hatter were having tea at it: a Dormouse was sitting
@@ -1747,7 +1746,6 @@ given by the Queen of Hearts, and I had to sing
 ‘Twinkle, twinkle, little bat!
 How I wonder what you’re at!’
 
-
 You know the song, perhaps?”
 
 “I’ve heard something like it,” said Alice.
@@ -1757,7 +1755,6 @@ You know the song, perhaps?”
 ‘Up above the world you fly,
 Like a tea-tray in the sky.
                     Twinkle, twinkle—’”
-
 
 Here the Dormouse shook itself, and began singing in its sleep
 “_Twinkle, twinkle, twinkle, twinkle_—” and went on so long that they
@@ -1929,7 +1926,9 @@ high: then she walked down the little passage: and _then_—she found
 herself at last in the beautiful garden, among the bright flower-beds
 and the cool fountains.
 
-## The Queen’s Croquet-Ground
+## Kapitel VIII
+
+The Queen’s Croquet-Ground
 
 A large rose-tree stood near the entrance of the garden: the roses
 growing on it were white, but there were three gardeners at it, busily
@@ -2232,7 +2231,9 @@ time he had come back with the Duchess, it had entirely disappeared; so
 the King and the executioner ran wildly up and down looking for it,
 while the rest of the party went back to the game.
 
-## The Mock Turtle’s Story
+## Kapitel IX
+
+The Mock Turtle’s Story
 
 “You can’t think how glad I am to see you again, you dear old thing!”
 said the Duchess, as she tucked her arm affectionately into Alice’s,
@@ -2549,7 +2550,9 @@ a holiday?”
 “That’s enough about lessons,” the Gryphon interrupted in a very
 decided tone: “tell her something about the games now.”
 
-## The Lobster Quadrille
+## Kapitel X
+
+The Lobster Quadrille
 
 The Mock Turtle sighed deeply, and drew the back of one flapper across
 his eyes. He looked at Alice, and tried to speak, but for a minute or
@@ -2636,7 +2639,6 @@ The further off from England the nearer is to France—
 Then turn not pale, beloved snail, but come and join the dance.
 Will you, won’t you, will you, won’t you, will you join the dance?
 Will you, won’t you, will you, won’t you, won’t you join the dance?”
-
 
 “Thank you, it’s a very interesting dance to watch,” said Alice,
 feeling very glad that it was over at last: “and I do so like that
@@ -2753,7 +2755,6 @@ And will talk in contemptuous tones of the Shark,
 But, when the tide rises and sharks are around,
 His voice has a timid and tremulous sound.]
 
-
 “That’s different from what _I_ used to say when I was a child,” said
 the Gryphon.
 
@@ -2790,7 +2791,6 @@ When the pie was all finished, the Owl, as a boon,
 Was kindly permitted to pocket the spoon:
 While the Panther received knife and fork with a growl,
 And concluded the banquet—]
-
 
 “What _is_ the use of repeating all that stuff,” the Mock Turtle
 interrupted, “if you don’t explain it as you go on? It’s by far the
@@ -2830,7 +2830,6 @@ Pennyworth only of beautiful Soup?
 Soo—oop of the e—e—evening,
     Beautiful, beauti—FUL SOUP!”
 
-
 “Chorus again!” cried the Gryphon, and the Mock Turtle had just begun
 to repeat it, when a cry of “The trial’s beginning!” was heard in the
 distance.
@@ -2845,7 +2844,9 @@ came, carried on the breeze that followed them, the melancholy words:—
 “Soo—oop of the e—e—evening,
     Beautiful, beautiful Soup!”
 
-## Who Stole the Tarts?
+## Kapitel XI
+
+Who Stole the Tarts?
 
 The King and Queen of Hearts were seated on their throne when they
 arrived, with a great crowd assembled about them—all sorts of little
@@ -2911,7 +2912,6 @@ unrolled the parchment scroll, and read as follows:—
     All on a summer day:
 The Knave of Hearts, he stole those tarts,
     And took them quite away!”
-
 
 “Consider your verdict,” the King said to the jury.
 
@@ -3102,7 +3102,9 @@ haven’t got much evidence _yet_,” she said to herself. Imagine her
 surprise, when the White Rabbit read out, at the top of his shrill
 little voice, the name “Alice!”
 
-## Alice’s Evidence
+## Kapitel XII
+
+Alice’s Evidence
 
 “Here!” cried Alice, quite forgetting in the flurry of the moment how
 large she had grown in the last few minutes, and she jumped up in such
@@ -3262,7 +3264,6 @@ Don’t let him know she liked them best,
 A secret, kept from all the rest,
     Between yourself and me.”
 
-
 “That’s the most important piece of evidence we’ve heard yet,” said the
 King, rubbing his hands; “so now let the jury—”
 
@@ -3341,7 +3342,6 @@ had finished, her sister kissed her, and said, “It _was_ a curious
 dream, dear, certainly: but now run in to your tea; it’s getting late.”
 So Alice got up and ran off, thinking while she ran, as well she might,
 what a wonderful dream it had been.
-
 
 But her sister sat still just as she left her, leaning her head on her
 hand, watching the setting sun, and thinking of little Alice and all

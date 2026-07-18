@@ -5,4 +5,4 @@ Quelle: Project Gutenberg (Public Domain, EU Leben+70 Jahre)
 
 Dieses Werk ist gemeinfrei. Diese Ausgabe wurde neu gegliedert (Inhaltsverzeichnis + Wortregister) für bessere Lesbarkeit.
 
-Umfang: 728713 Zeichen, 62 Kapitel.
+Umfang: 721216 Zeichen, 61 Kapitel.

@@ -2,9 +2,9 @@
   "book_id": "1342",
   "title": "Pride and Prejudice",
   "author": "Jane Austen",
-  "chapters": 62,
-  "chars": 728713,
-  "built": 1784325052,
+  "chapters": 61,
+  "chars": 721216,
+  "built": 1784351369,
   "files": [
     "content.md",
     "description.md"

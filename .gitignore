@@ -1,6 +1,12 @@
 # Secrets (NIEMALS committen)
 .gumroad_secrets
+.stripe_secrets
+.payhip_secrets
 *.env
+
+# Python
+__pycache__/
+*.pyc
 
 # Logs
 *.log

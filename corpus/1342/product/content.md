@@ -5,92 +5,72 @@ _von Jane Austen_
 # Inhaltsverzeichnis
 
 1. Vorspann
-2. ]
-3. [Illustration]
-4. [Illustration]
-5. [Illustration]
-6. [Illustration]
-7. [Illustration]
-8. [Illustration]
-9. [Illustration]
-10. [Illustration]
-11. [Illustration]
-12. [Illustration]
-13. [Illustration]
-14. [Illustration]
-15. [Illustration]
-16. [Illustration]
-17. [Illustration]
-18. [Illustration]
-19. [Illustration]
-20. [Illustration]
-21. [Illustration]
-22. [Illustration]
-23. [Illustration]
-24. [Illustration]
-25. [Illustration]
-26. [Illustration]
-27. [Illustration]
-28. [Illustration]
-29. [Illustration]
-30. [Illustration]
-31. [Illustration]
-32. [Illustration]
-33. [Illustration]
-34. [Illustration]
-35. [Illustration]
-36. [Illustration]
-37. [Illustration]
-38. [Illustration]
-39. [Illustration]
-40. [Illustration]
-41. [Illustration]
-42. [Illustration]
-43. [Illustration]
-44. [Illustration]
-45. [Illustration]
-46. [Illustration]
-47. [Illustration]
-48. [Illustration]
-49. [Illustration]
-50. [Illustration]
-51. [Illustration]
-52. [Illustration]
-53. [Illustration]
-54. [Illustration]
-55. [Illustration]
-56. [Illustration]
-57. [Illustration]
-58. [Illustration]
-59. [Illustration]
-60. [Illustration]
-61. [Illustration]
-62. [Illustration]
+2. Kapitel II
+3. Kapitel III
+4. Kapitel IV
+5. Kapitel V
+6. Kapitel VI
+7. Kapitel VII
+8. Kapitel VIII
+9. Kapitel IX
+10. Kapitel X
+11. Kapitel XI
+12. Kapitel XII
+13. Kapitel XIII
+14. Kapitel XIV
+15. Kapitel XV
+16. Kapitel XVI
+17. Kapitel XVII
+18. Kapitel XVIII
+19. Kapitel XIX
+20. Kapitel XX
+21. Kapitel XXI
+22. Kapitel XXII
+23. Kapitel XXIII
+24. Kapitel XXIV
+25. Kapitel XXV
+26. Kapitel XXVI
+27. Kapitel XXVII
+28. Kapitel XXVIII
+29. Kapitel XXIX
+30. Kapitel XXX
+31. Kapitel XXXI
+32. Kapitel XXXII
+33. Kapitel XXXIII
+34. Kapitel XXXIV
+35. Kapitel XXXV
+36. Kapitel XXXVI
+37. Kapitel XXXVII
+38. Kapitel XXXVIII
+39. Kapitel XXXIX
+40. Kapitel XL
+41. Kapitel XLI
+42. Kapitel XLII
+43. Kapitel XLIII
+44. Kapitel XLIV
+45. Kapitel XLV
+46. Kapitel XLVI
+47. Kapitel XLVII
+48. Kapitel XLVIII
+49. Kapitel XLIX
+50. Kapitel L
+51. Kapitel LI
+52. Kapitel LII
+53. Kapitel LIII
+54. Kapitel LIV
+55. Kapitel LV
+56. Kapitel LVI
+57. Kapitel LVII
+58. Kapitel LVIII
+59. Kapitel LIX
+60. Kapitel LX
+61. Kapitel LXI
 
 ---
 
 ## Kapitel Vorspann
 
-[Illustration:
-
-                             GEORGE ALLEN
-                               PUBLISHER
-
-                        156 CHARING CROSS ROAD
-                                LONDON
-
-                             RUSKIN HOUSE
-                                   ]
-
-                            [Illustration:
-
-               _Reading Jane’s Letters._      _Chap 34._
-                                   ]
-
-
-
-
-                                PRIDE.
+PRIDE.
                                   and
                                PREJUDICE
 
@@ -103,7 +83,7 @@ _von Jane Austen_
                            Illustrations by
                              Hugh Thomson
 
-                         [Illustration: 1894]
+                         
 
                        Ruskin       156. Charing
                        House.        Cross Road.
@@ -111,33 +91,12 @@ _von Jane Austen_
                                 London
                              George Allen.
 
-
-
-
              CHISWICK PRESS:--CHARLES WHITTINGHAM AND CO.
                   TOOKS COURT, CHANCERY LANE, LONDON.
 
-
-
-
-                            [Illustration:
-
-                          _To J. Comyns Carr
-                      in acknowledgment of all I
-                       owe to his friendship and
-                    advice, these illustrations are
-                         gratefully inscribed_
-
-                            _Hugh Thomson_
-                                   ]
-
-
-
+                            
 
 PREFACE.
-
-[Illustration]
-
 
 _Walt Whitman has somewhere a fine and just distinction between “loving
 by allowance” and “loving with personal love.” This distinction applies
@@ -522,12 +481,6 @@ of the four can come into competition with Elizabeth._
 
 _GEORGE SAINTSBURY._
 
-
-
-
-[Illustration: List of Illustrations.]
-
-
                                                                     PAGE
 
 Frontispiece                                                          iv
@@ -732,13 +685,6 @@ Heading to Chapter LXI.                                              472
 
 The End                                                              476
 
-
-
-
-[Illustration: ·PRIDE AND PREJUDICE·
-
-## ]
-
 It is a truth universally acknowledged, that a single man in possession
 of a good fortune must be in want of a wife.
 
@@ -761,11 +707,7 @@ Mr. Bennet made no answer.
 
 “_You_ want to tell me, and I have no objection to hearing it.”
 
-[Illustration:
-
-“He came down to see the place”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 This was invitation enough.
 
@@ -857,20 +799,11 @@ little information, and uncertain temper. When she was discontented, she
 fancied herself nervous. The business of her life was to get her
 daughters married: its solace was visiting and news.
 
-[Illustration: M^{r.} & M^{rs.} Bennet
+]
 
-[_Copyright 1894 by George Allen._]]
+]
 
-
-
-
-[Illustration:
-
-“I hope Mr. Bingley will like it”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel II
 
 Mr. Bennet was among the earliest of those who waited on Mr. Bingley. He
 had always intended to visit him, though to the last always assuring his
@@ -975,17 +908,7 @@ The rest of the evening was spent in conjecturing how soon he would
 return Mr. Bennet’s visit, and determining when they should ask him to
 dinner.
 
-[Illustration: “I’m the tallest”]
-
-
-
-
-[Illustration:
-
-     “He rode a black horse”
-]
-
-## [Illustration]
+## Kapitel III
 
 Not all that Mrs. Bennet, however, with the assistance of her five
 daughters, could ask on the subject, was sufficient to draw from her
@@ -1022,11 +945,7 @@ he might always be flying about from one place to another, and never
 settled at Netherfield as he ought to be. Lady Lucas quieted her fears a
 little by starting the idea of his
 
-[Illustration:
-
-     “When the Party entered”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 being gone to London only to get a large party for the ball; and a
 report soon followed that Mr. Bingley was to bring twelve ladies and
@@ -1095,11 +1014,7 @@ Darcy, looking at the eldest Miss Bennet.
 of her sisters sitting down just behind you, who is very pretty, and I
 dare say very agreeable. Do let me ask my partner to introduce you.”
 
-[Illustration:
-
-“She is tolerable”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “Which do you mean?” and turning round, he looked for a moment at
 Elizabeth, till, catching her eye, he withdrew his own, and coldly said,
@@ -1165,12 +1080,7 @@ him! He walked here, and he walked there, fancying himself so very
 great! Not handsome enough to dance with! I wish you had been there, my
 dear, to have given him one of your set-downs. I quite detest the man.”
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel IV
 
 When Jane and Elizabeth were alone, the former, who had been cautious in
 her praise of Mr. Bingley before, expressed to her sister how very much
@@ -1281,12 +1191,9 @@ they should not object to know more of. Miss Bennet was therefore
 established as a sweet girl; and their brother felt authorized by such
 commendation to think of her as he chose.
 
+]
 
-
-
-[Illustration: [_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel V
 
 Within a short walk of Longbourn lived a family with whom the Bennets
 were particularly intimate. Sir William Lucas had been formerly in trade
@@ -1341,9 +1248,7 @@ ill-treatment, for he is such a disagreeable man that it would be quite
 a misfortune to be liked by him. Mrs. Long told me last night that he
 sat close to her for half an hour without once opening his lips.”
 
-[Illustration: “Without once opening his lips”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “Are you quite sure, ma’am? Is not there a little mistake?” said Jane.
 “I certainly saw Mr. Darcy speaking to her.”
@@ -1400,14 +1305,7 @@ directly.”
 The boy protested that she should not; she continued to declare that she
 would; and the argument ended only with the visit.
 
-[Illustration]
-
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel VI
 
 The ladies of Longbourn soon waited on those of Netherfield. The visit
 was returned in due form. Miss Bennet’s pleasing manners grew on the
@@ -1523,8 +1421,7 @@ conversation with Colonel Forster?”
 what he is about. He has a very satirical eye, and if I do not begin by
 being impertinent myself, I shall soon grow afraid of him.”
 
-[Illustration: “The entreaties of several” [_Copyright 1894 by George
-Allen._]]
+]
 
 On his approaching them soon afterwards, though without seeming to have
 any intention of speaking, Miss Lucas defied her friend to mention such
@@ -1675,16 +1572,9 @@ He listened to her with perfect indifference, while she chose to
 entertain herself in this manner; and as his composure convinced her
 that all was safe, her wit flowed along.
 
+]
 
-
-
-[Illustration:
-
-     “A note for Miss Bennet”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel VII
 
 Mr. Bennet’s property consisted almost entirely in an estate of two
 thousand a year, which, unfortunately for his daughters, was entailed,
@@ -1800,8 +1690,6 @@ and the Hursts have no horses to theirs.”
 
 “But, my dear, your father cannot spare the horses, I am sure. They are
 wanted in the farm, Mr. Bennet, are not they?”
-
-[Illustration: Cheerful prognostics]
 
 “They are wanted in the farm much oftener than I can get them.”
 
@@ -1921,20 +1809,7 @@ present. Elizabeth most thankfully consented, and a servant was
 despatched to Longbourn, to acquaint the family with her stay, and bring
 back a supply of clothes.
 
-[Illustration:
-
-“The Apothecary came”
-]
-
-
-
-
-[Illustration:
-
-“covering a screen”
-]
-
-## [Illustration]
+## Kapitel VIII
 
 At five o’clock the two ladies retired to dress, and at half-past six
 Elizabeth was summoned to dinner. To the civil inquiries which then
@@ -2179,16 +2054,9 @@ however, by duets after supper; while he could find no better relief to
 his feelings than by giving his housekeeper directions that every
 possible attention might be paid to the sick lady and her sister.
 
+]
 
-
-
-[Illustration:
-
-M^{rs} Bennet and her two youngest girls
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel IX
 
 Elizabeth passed the chief of the night in her sister’s room, and in the
 morning had the pleasure of being able to send a tolerable answer to the
@@ -2379,12 +2247,7 @@ remarks of the two ladies and Mr. Darcy; the latter of whom, however,
 could not be prevailed on to join in their censure of _her_, in spite of
 all Miss Bingley’s witticisms on _fine eyes_.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel X
 
 The day passed much as the day before had done. Mrs. Hurst and Miss
 Bingley had spent some hours of the morning with the invalid, who
@@ -2621,11 +2484,7 @@ the officers. And, if I may mention so delicate a subject, endeavour to
 check that little something, bordering on conceit and impertinence,
 which your lady possesses.”
 
-[Illustration:
-
-     “No, no; stay where you are”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “Have you anything else to propose for my domestic felicity?”
 
@@ -2666,16 +2525,9 @@ She then ran gaily off, rejoicing, as she rambled about, in the hope of
 being at home again in a day or two. Jane was already so much recovered
 as to intend leaving her room for a couple of hours that evening.
 
+]
 
-
-
-[Illustration:
-
-     “Piling up the fire”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel XI
 
 When the ladies removed after dinner Elizabeth ran up to her sister, and
 seeing her well guarded from cold, attended her into the drawing-room,
@@ -2858,12 +2710,7 @@ Her sister made not the smallest objection, and the pianoforte was
 opened; and Darcy, after a few moments’ recollection, was not sorry for
 it. He began to feel the danger of paying Elizabeth too much attention.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XII
 
 In consequence of an agreement between the sisters, Elizabeth wrote the
 next morning to her mother, to beg that the carriage might be sent for
@@ -2930,12 +2777,7 @@ in the regiment since the preceding Wednesday; several of the officers
 had dined lately with their uncle; a private had been flogged; and it
 had actually been hinted that Colonel Forster was going to be married.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XIII
 
 “I hope, my dear,” said Mr. Bennet to his wife, as they were at
 breakfast the next morning, “that you have ordered a good dinner to-day,
@@ -3116,12 +2958,7 @@ pardon for having displeased her. In a softened tone she declared
 herself not at all offended; but he continued to apologize for about a
 quarter of an hour.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XIV
 
 During dinner, Mr. Bennet scarcely spoke at all; but when the servants
 were withdrawn, he thought it time to have some conversation with his
@@ -3208,12 +3045,6 @@ By tea-time, however, the dose had been enough, and Mr. Bennet was glad
 to take his guest into the drawing-room again, and when tea was over,
 glad to invite him
 
-[Illustration:
-
-“Protested
-that he never read novels”      H.T Feb 94
-]
-
 to read aloud to the ladies. Mr. Collins readily assented, and a book
 was produced; but on beholding it (for everything announced it to be
 from a circulating library) he started back, and, begging pardon,
@@ -3246,12 +3077,7 @@ young cousin no ill-will, and should never resent her behaviour as any
 affront, seated himself at another table with Mr. Bennet, and prepared
 for backgammon.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XV
 
 Mr. Collins was not a sensible man, and the deficiency of nature had
 been but little assisted by education or society; the greatest part of
@@ -3412,12 +3238,7 @@ utterly unknown to her before. Something, he supposed, might be
 attributed to his connection with them, but yet he had never met with so
 much attention in the whole course of his life.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XVI
 
 As no objection was made to the young people’s engagement with their
 aunt, and all Mr. Collins’s scruples of leaving Mr. and Mrs. Bennet for
@@ -3458,11 +3279,7 @@ Mr, Wickham was as far beyond them all in person, countenance, air, and
 walk, as _they_ were superior to the broad-faced stuffy uncle Philips,
 breathing port wine, who followed them into the room.
 
-[Illustration:
-
-“The officers of the ----shire”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 Mr. Wickham was the happy man towards whom almost every female eye was
 turned, and Elizabeth was the happy woman by whom he finally seated
@@ -3785,15 +3602,7 @@ at whist, enumerating all the dishes at supper, and repeatedly fearing
 that he crowded his cousins, had more to say than he could well manage
 before the carriage stopped at Longbourn House.
 
-
-
-
-[Illustration:
-
-     “delighted to see their dear friend again”
-]
-
-## [Illustration]
+## Kapitel XVII
 
 Elizabeth related to Jane, the next day, what had passed between Mr.
 Wickham and herself. Jane listened with astonishment and concern: she
@@ -3922,12 +3731,7 @@ of her acquaintance with Mr. Wickham; and nothing less than a dance on
 Tuesday could have made such a Friday, Saturday, Sunday, and Monday
 endurable to Kitty and Lydia.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XVIII
 
 Till Elizabeth entered the drawing-room at Netherfield, and looked in
 vain for Mr. Wickham among the cluster of red coats there assembled, a
@@ -4069,12 +3873,7 @@ then flow in! I appeal to Mr. Darcy;--but let me not interrupt you, sir.
 You will not thank me for detaining you from the bewitching converse of
 that young lady, whose bright eyes are also upbraiding me.”
 
-[Illustration:
-
-“Such very superior dancing is not
-often seen.”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 The latter part of this address was scarcely heard by Darcy; but Sir
 William’s allusion to his friend seemed to strike him forcibly, and his
@@ -4464,15 +4263,7 @@ Elizabeth was the least dear to her of all her children; and though the
 man and the match were quite good enough for _her_, the worth of each
 was eclipsed by Mr. Bingley and Netherfield.
 
-
-
-
-[Illustration:
-
-     “to assure you in the most animated language”
-]
-
-## [Illustration]
+## Kapitel XIX
 
 The next day opened a new scene at Longbourn. Mr. Collins made his
 declaration in form. Having resolved to do it without loss of time, as
@@ -4660,12 +4451,7 @@ encouragement, to apply to her father, whose negative might be uttered
 in such a manner as must be decisive, and whose behaviour at least could
 not be mistaken for the affectation and coquetry of an elegant female.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XX
 
 Mr. Collins was not left long to the silent contemplation of his
 successful love; for Mrs. Bennet, having dawdled about in the vestibule
@@ -4782,11 +4568,6 @@ her, cried in a half whisper, “I am glad you are come, for there is such
 fun here! What do you think has happened this morning? Mr. Collins has
 made an offer to Lizzy, and she will not have him.”
 
-[Illustration:
-
-     “they entered the breakfast room”
-]
-
 Charlotte had hardly time to answer before they were joined by Kitty,
 who came to tell the same news; and no sooner had they entered the
 breakfast-room, where Mrs. Bennet was alone, than she likewise began on
@@ -4851,12 +4632,7 @@ My object has been to secure an amiable companion for myself, with due
 consideration for the advantage of all your family; and if my _manner_
 has been at all reprehensible, I here beg leave to apologize.”
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXI
 
 The discussion of Mr. Collins’s offer was now nearly at an end, and
 Elizabeth had only to suffer from the uncomfortable feelings necessarily
@@ -4895,9 +4671,7 @@ His accompanying them was a double advantage: she felt all the
 compliment it offered to herself; and it was most acceptable as an
 occasion of introducing him to her father and mother.
 
-[Illustration: “Walked back with them”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 Soon after their return, a letter was delivered to Miss Bennet; it came
 from Netherfield, and was opened immediately. The envelope contained a
@@ -5064,12 +4838,7 @@ Longbourn; and the conclusion of all was the comfortable declaration,
 that, though he had been invited only to a family dinner, she would take
 care to have two full courses.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXII
 
 The Bennets were engaged to dine with the Lucases; and again, during the
 chief of the day, was Miss Lucas so kind as to listen to Mr. Collins.
@@ -5116,11 +4885,7 @@ they could give little fortune; and his prospects of future wealth were
 exceedingly fair. Lady Lucas began directly to calculate, with more
 interest than the matter had ever
 
-[Illustration:
-
-     “So much love and eloquence”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 excited before, how many years longer Mr. Bennet was likely to live; and
 Sir William gave it as his decided opinion, that whenever Mr. Collins
@@ -5248,16 +5013,9 @@ herself, and sunk in her esteem, was added the distressing conviction
 that it was impossible for that friend to be tolerably happy in the lot
 she had chosen.
 
+]
 
-
-
-[Illustration:
-
-     “Protested he must be entirely mistaken.”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel XXIII
 
 Elizabeth was sitting with her mother and sisters, reflecting on what
 she had heard, and doubting whether she was authorized to mention it,
@@ -5390,11 +5148,6 @@ from a great deal of his company. The chief of every day was spent by
 him at Lucas Lodge, and he sometimes returned to Longbourn only in time
 to make an apology for his absence before the family went to bed.
 
-[Illustration:
-
-     “_Whenever she spoke in a low voice_”
-]
-
 Mrs. Bennet was really in a most pitiable state. The very mention of
 anything concerning the match threw her into an agony of ill-humour, and
 wherever she went she was sure of hearing it talked of. The sight of
@@ -5433,12 +5186,7 @@ Why should _he_ have it more than anybody else?”
 
 “I leave it to yourself to determine,” said Mr. Bennet.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXIV
 
 Miss Bingley’s letter arrived, and put an end to doubt. The very first
 sentence conveyed the assurance of their being all settled in London for
@@ -5639,12 +5387,7 @@ Hertfordshire: her mild and steady candour always pleaded for
 allowances, and urged the possibility of mistakes; but by everybody else
 Mr. Darcy was condemned as the worst of men.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXV
 
 After a week spent in professions of love and schemes of felicity, Mr.
 Collins was called from his amiable Charlotte by the arrival of
@@ -5702,11 +5445,7 @@ such as you describe Mr. Bingley, so easily falls in love with a pretty
 girl for a few weeks, and, when accident separates them, so easily
 forgets her, that these sort of inconstancies are very frequent.”
 
-[Illustration:
-
-     “Offended two or three young ladies”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “An excellent consolation in its way,” said Elizabeth; “but it will not
 do for _us_. We do not suffer by accident. It does not often happen
@@ -5807,15 +5546,7 @@ agree with it; and was confident, at last, that she recollected having
 heard Mr. Fitzwilliam Darcy formerly spoken of as a very proud,
 ill-natured boy.
 
-
-
-
-[Illustration:
-
-     “Will you come and see me?”
-]
-
-## [Illustration]
+## Kapitel XXVI
 
 Mrs. Gardiner’s caution to Elizabeth was punctually and kindly given on
 the first favourable opportunity of speaking to her alone: after
@@ -6045,15 +5776,7 @@ of the world, and not yet open to the mortifying conviction that
 handsome young men must have something to live on as well as the
 plain.”
 
-
-
-
-[Illustration:
-
-     “On the Stairs”
-]
-
-## [Illustration]
+## Kapitel XXVII
 
 With no greater events than these in the Longbourn family, and otherwise
 diversified by little beyond the walks to Meryton, sometimes dirty and
@@ -6191,15 +5914,7 @@ we attempt to describe any particular scene, will we begin quarrelling
 about its relative situation. Let _our_ first effusions be less
 insupportable than those of the generality of travellers.”
 
-
-
-
-[Illustration:
-
-     “At the door”
-]
-
-## [Illustration]
+## Kapitel XXVIII
 
 Every object in the next day’s journey was new and interesting to
 Elizabeth; and her spirits were in a state of enjoyment; for she had
@@ -6308,11 +6023,7 @@ upstairs in a violent hurry, and calling loudly after her. She opened
 the door, and met Maria in the landing-place, who, breathless with
 agitation, cried out,--
 
-[Illustration:
-
-     “In Conversation with the ladies”
-
-[Copyright 1894 by George Allen.]]
+]
 
 “Oh, my dear Eliza! pray make haste and come into the dining-room, for
 there is such a sight to be seen! I will not tell you what it is. Make
@@ -6354,16 +6065,9 @@ girls than he began to congratulate them on their good fortune, which
 Charlotte explained by letting them know that the whole party was asked
 to dine at Rosings the next day.
 
+]
 
-
-
-[Illustration:
-
-     ‘Lady Catherine, said she, you have given me a treasure.’
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel XXIX
 
 Mr. Collins’s triumph, in consequence of this invitation, was complete.
 The power of displaying the grandeur of his patroness to his wondering
@@ -6625,12 +6329,7 @@ her commendation, though costing her some trouble, could by no means
 satisfy Mr. Collins, and he was very soon obliged to take her Ladyship’s
 praise into his own hands.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXX
 
 Sir William stayed only a week at Hunsford; but his visit was long
 enough to convince him of his daughter’s being most comfortably settled,
@@ -6678,11 +6377,6 @@ quarrelsome, discontented, or too poor, she sallied forth into the
 village to settle their differences, silence their complaints, and scold
 them into harmony and plenty.
 
-[Illustration:
-
-     “he never failed to inform them”
-]
-
 The entertainment of dining at Rosings was repeated about twice a week;
 and, allowing for the loss of Sir William, and there being only one
 card-table in the evening, every such entertainment was the counterpart
@@ -6715,11 +6409,7 @@ His arrival was soon known at the Parsonage; for Mr. Collins was walking
 the whole morning within view of the lodges opening into Hunsford Lane,
 in order to have
 
-[Illustration:
-
-“The gentlemen accompanied him.”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 the earliest assurance of it; and, after making his bow as the carriage
 turned into the park, hurried home with the great intelligence. On the
@@ -6762,15 +6452,7 @@ answered that he had never been so fortunate as to meet Miss Bennet. The
 subject was pursued no further, and the gentlemen soon afterwards went
 away.
 
-
-
-
-[Illustration:
-
-“At Church”
-]
-
-## [Illustration]
+## Kapitel XXXI
 
 Colonel Fitzwilliam’s manners were very much admired at the Parsonage,
 and the ladies all felt that he must add considerably to the pleasure of
@@ -6938,12 +6620,7 @@ them with all the forbearance of civility; and at the request of the
 gentlemen remained at the instrument till her Ladyship’s carriage was
 ready to take them all home.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXXII
 
 Elizabeth was sitting by herself the next morning, and writing to Jane,
 while Mrs. Collins and Maria were gone on business into the village,
@@ -7058,9 +6735,7 @@ surprised them. Mr. Darcy related the mistake which had occasioned his
 intruding on Miss Bennet, and, after sitting a few minutes longer,
 without saying much to anybody, went away.
 
-[Illustration: “Accompanied by their aunt”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “What can be the meaning of this?” said Charlotte, as soon as he was
 gone. “My dear Eliza, he must be in love with you, or he would never
@@ -7115,12 +6790,7 @@ certainly admired her, and his situation in life was most eligible; but,
 to counterbalance these advantages, Mr. Darcy had considerable patronage
 in the church, and his cousin could have none at all.
 
-
-
-
-[Illustration: “On looking up”]
-
-## [Illustration]
+## Kapitel XXXIII
 
 More than once did Elizabeth, in her ramble within the park,
 unexpectedly meet Mr. Darcy. She felt all the perverseness of the
@@ -7330,12 +7000,7 @@ as possible prevented her husband from pressing her; but Mr. Collins
 could not conceal his apprehension of Lady Catherine’s being rather
 displeased by her staying at home.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXXIV
 
 When they were gone, Elizabeth, as if intending to exasperate herself as
 much as possible against Mr. Darcy, chose for her employment the
@@ -7553,15 +7218,7 @@ She continued in very agitating reflections till the sound of Lady
 Catherine’s carriage made her feel how unequal she was to encounter
 Charlotte’s observation, and hurried her away to her room.
 
-
-
-
-[Illustration:
-
-“Hearing herself called”
-]
-
-## [Illustration]
+## Kapitel XXXV
 
 Elizabeth awoke the next morning to the same thoughts and meditations
 which had at length closed her eyes. She could not yet recover from the
@@ -7815,12 +7472,7 @@ course of the morning. I will only add, God bless you.
 
 “FITZWILLIAM DARCY.”
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XXXVI
 
 Elizabeth, when Mr. Darcy gave her the letter, did not expect it to
 contain a renewal of his offers, she had formed no expectation at all of
@@ -7886,11 +7538,7 @@ persuasion of the young man, who, on meeting him accidentally in town,
 had there renewed a slight acquaintance. Of his former way of life,
 nothing had been known in Hertfordshire but what he told
 
-[Illustration:
-
-     “Meeting accidentally in Town”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 himself. As to his real character, had information been in her power,
 she had never felt a wish of inquiring. His countenance, voice, and
@@ -8017,15 +7665,7 @@ till she could be found. Elizabeth could but just _affect_ concern in
 missing him; she really rejoiced at it. Colonel Fitzwilliam was no
 longer an object. She could think only of her letter.
 
-
-
-
-[Illustration:
-
-“His parting obeisance”
-]
-
-## [Illustration]
+## Kapitel XXXVII
 
 The two gentlemen left Rosings the next morning; and Mr. Collins having
 been in waiting near the lodges, to make them his parting obeisance, was
@@ -8075,11 +7715,7 @@ spare you for another fortnight.”
 
 “But my father cannot. He wrote last week to hurry my return.”
 
-[Illustration:
-
-“Dawson”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “Oh, your father, of course, may spare you, if your mother can.
 Daughters are never of so much consequence to a father. And if you will
@@ -8175,15 +7811,7 @@ a good journey, and invited them to come to Hunsford again next year;
 and Miss de Bourgh exerted herself so far as to courtesy and hold out
 her hand to both.
 
-
-
-
-[Illustration:
-
-“The elevation of his feelings.”
-]
-
-## [Illustration]
+## Kapitel XXXVIII
 
 On Saturday morning Elizabeth and Mr. Collins met for breakfast a few
 minutes before the others appeared; and he took the opportunity of
@@ -8256,11 +7884,6 @@ her in, Maria followed, and the door was on the point of being closed,
 when he suddenly reminded them, with some consternation, that they had
 hitherto forgotten to leave any message for the ladies of Rosings.
 
-[Illustration:
-
-“They had forgotten to leave any message”
-]
-
 “But,” he added, “you will of course wish to have your humble respects
 delivered to them, with your grateful thanks for their kindness to you
 while you have been here.”
@@ -8299,15 +7922,7 @@ and her fear, if she once entered on the subject, of being hurried into
 repeating something of Bingley, which might only grieve her sister
 further.
 
-
-
-
-[Illustration:
-
-     “How nicely we are crammed in”
-]
-
-## [Illustration]
+## Kapitel XXXIX
 
 It was the second week in May, in which the three young ladies set out
 together from Gracechurch Street for the town of ----, in Hertfordshire;
@@ -8469,12 +8084,7 @@ father had not the smallest intention of yielding; but his answers were
 at the same time so vague and equivocal, that her mother, though often
 disheartened, had never yet despaired of succeeding at last.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XL
 
 Elizabeth’s impatience to acquaint Jane with what had happened could no
 longer be overcome; and at length resolving to suppress every particular
@@ -8625,11 +8235,6 @@ chance in the world of her ever getting him now. There is no talk of his
 coming to Netherfield again in the summer; and I have inquired of
 everybody, too, who is likely to know.”
 
-[Illustration:
-
-     “I am determined never to speak of it again”
-]
-
 “I do not believe that he will ever live at Netherfield any more.”
 
 “Oh, well! it is just as he chooses. Nobody wants him to come; though I
@@ -8663,16 +8268,9 @@ often talk of it between themselves. Well, if they can be easy with an
 estate that is not lawfully their own, so much the better. _I_ should be
 ashamed of having one that was only entailed on me.”
 
+]
 
-
-
-[Illustration:
-
-“When Colonel Miller’s regiment went away”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel XLI
 
 The first week of their return was soon gone. The second began. It was
 the last of the regiment’s stay in Meryton, and all the young ladies in
@@ -8812,11 +8410,7 @@ and the gay, and dazzling with scarlet; and, to complete the view, she
 saw herself seated beneath a tent, tenderly flirting with at least six
 officers at once.
 
-[Illustration:
-
-“Tenderly flirting”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 Had she known that her sister sought to tear her from such prospects and
 such realities as these, what would have been her sensations? They could
@@ -8922,16 +8516,7 @@ was every reason to believe would be attended to; and, in the clamorous
 happiness of Lydia herself in bidding farewell, the more gentle adieus
 of her sisters were uttered without being heard.
 
-
-
-
-[Illustration:
-
-The arrival of the
-Gardiners
-]
-
-## [Illustration]
+## Kapitel XLII
 
 Had Elizabeth’s opinion been all drawn from her own family, she could
 not have formed a very pleasing picture of conjugal felicity or domestic
@@ -9111,15 +8696,7 @@ to the scheme.
 
 To Pemberley, therefore, they were to go.
 
-
-
-
-[Illustration:
-
-     “Conjecturing as to the date”
-]
-
-## [Illustration]
+## Kapitel XLIII
 
 Elizabeth, as they drove along, watched for the first appearance of
 Pemberley Woods with some perturbation; and when at length they turned
@@ -9626,12 +9203,7 @@ much attention for any of these new friends; and she could do nothing
 but think, and think with wonder, of Mr. Darcy’s civility, and, above
 all, of his wishing her to be acquainted with his sister.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XLIV
 
 Elizabeth had settled it that Mr. Darcy would bring his sister to visit
 her the very day after her reaching Pemberley; and was, consequently,
@@ -9705,11 +9277,7 @@ she endeavoured to give pleasure were pre-possessed in her favour.
 Bingley was ready, Georgiana was eager, and Darcy determined, to be
 pleased.
 
-[Illustration:
-
-     “To make herself agreeable to all”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 In seeing Bingley, her thoughts naturally flew to her sister; and oh!
 how ardently did she long to know whether any of his were directed in a
@@ -9854,15 +9422,7 @@ Mr. Gardiner left them soon after breakfast. The fishing scheme had been
 renewed the day before, and a positive engagement made of his meeting
 some of the gentlemen at Pemberley by noon.
 
-
-
-
-[Illustration:
-
-     “Engaged by the river”
-]
-
-## [Illustration]
+## Kapitel XLV
 
 Convinced as Elizabeth now was that Miss Bingley’s dislike of her had
 originated in jealousy, she could not help feeling how very unwelcome
@@ -10036,12 +9596,7 @@ himself; yet Elizabeth was longing to know what Mrs. Gardiner thought of
 him, and Mrs. Gardiner would have been highly gratified by her niece’s
 beginning the subject.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XLVI
 
 Elizabeth had been a good deal disappointed in not finding a letter from
 Jane on their first arrival at Lambton; and this disappointment had been
@@ -10174,11 +9729,6 @@ some dreadful news which I have just received from Longbourn.”
 She burst into tears as she alluded to it, and for a few minutes could
 not speak another word. Darcy, in wretched suspense, could only say
 something indistinctly of his
-
-[Illustration:
-
-     “I have not an instant to lose”
-]
 
 concern, and observe her in compassionate silence. At length she spoke
 again. “I have just had a letter from Jane, with such dreadful news. It
@@ -10335,15 +9885,7 @@ remained to be done but to go; and Elizabeth, after all the misery of
 the morning, found herself, in a shorter space of time than she could
 have supposed, seated in the carriage, and on the road to Longbourn.
 
-
-
-
-[Illustration:
-
-     “The first pleasing earnest of their welcome”
-]
-
-## [Illustration]
+## Kapitel XLVII
 
 “I have been thinking it over again, Elizabeth,” said her uncle, as they
 drove from the town; “and really, upon serious consideration, I am much
@@ -10714,7 +10256,6 @@ were the contents:--
 
 “LYDIA BENNET.”
 
-
 “Oh, thoughtless, thoughtless Lydia!” cried Elizabeth when she had
 finished it. “What a letter is this, to be written at such a moment! But
 at least it shows that _she_ was serious in the object of her journey.
@@ -10770,15 +10311,7 @@ other designs that he had formed; but he was in such a hurry to be gone,
 and his spirits so greatly discomposed, that I had difficulty in finding
 out even so much as this.”
 
-
-
-
-[Illustration:
-
-     The Post
-]
-
-## [Illustration]
+## Kapitel XLVIII
 
 The whole party were in hopes of a letter from Mr. Bennet the next
 morning, but the post came in without bringing a single line from him.
@@ -10883,11 +10416,7 @@ follows:--
      suppose, as my dear Charlotte informs me, that this licentiousness
      of behaviour in your
 
-     [Illustration:
-
-“To whom I have related the affair”
-
-     [_Copyright 1894 by George Allen._]]
+     ]
 
      daughter has proceeded from a faulty degree of indulgence; though,
      at the same time, for the consolation of yourself and Mrs. Bennet,
@@ -11018,12 +10547,7 @@ Kitty, who took all these threats in a serious light, began to cry.
 girl for the next ten years, I will take you to a review at the end of
 them.”
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel XLIX
 
 Two days after Mr. Bennet’s return, as Jane and Elizabeth were walking
 together in the shrubbery behind the house, they saw the housekeeper
@@ -11081,11 +10605,7 @@ about.”
      It is enough to know they are discovered: I have seen them
      both----”
 
-     [Illustration:
-
-“But perhaps you would like to read it”
-
-     [_Copyright 1894 by George Allen._]]
+     ]
 
      “Then it is as I always hoped,” cried Jane: “they are married!”
 
@@ -11284,16 +10804,9 @@ neither rational happiness, nor worldly prosperity could be justly
 expected for her sister, in looking back to what they had feared, only
 two hours ago, she felt all the advantages of what they had gained.
 
+]
 
-
-
-[Illustration:
-
-“The spiteful old ladies”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel L
 
 Mr. Bennet had very often wished, before this period of his life, that,
 instead of spending his whole income, he had laid by an annual sum, for
@@ -11510,16 +11023,9 @@ was surprised, however, that Wickham should consent to such a scheme;
 and, had she consulted only her own inclination, any meeting with him
 would have been the last object of her wishes.
 
+]
 
-
-
-[Illustration:
-
-“With an affectionate smile”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel LI
 
 Their sister’s wedding-day arrived; and Jane and Elizabeth felt for her
 probably more than she felt for herself. The carriage was sent to meet
@@ -11741,15 +11247,7 @@ Elizabeth privately of what Lydia had let fall; Elizabeth was glad of
 it:--till it appeared whether her inquiries would receive any
 satisfaction, she had rather be without a confidante.
 
-
-
-
-[Illustration:
-
-“I am sure she did not listen.”
-]
-
-## [Illustration]
+## Kapitel LII
 
 Elizabeth had the satisfaction of receiving an answer to her letter as
 soon as she possibly could. She was no sooner in possession of it, than
@@ -11915,7 +11413,6 @@ contain a denial.
 
 “M. GARDINER.”
 
-
 The contents of this letter threw Elizabeth into a flutter of spirits,
 in which it was difficult to determine whether pleasure or pain bore the
 greatest share. The vague and unsettled suspicions which uncertainty had
@@ -12057,15 +11554,7 @@ mind.”
 She held out her hand: he kissed it with affectionate gallantry, though
 he hardly knew how to look, and they entered the house.
 
-
-
-
-[Illustration:
-
-“Mr. Darcy with him.”
-]
-
-## [Illustration]
+## Kapitel LIII
 
 Mr. Wickham was so perfectly satisfied with this conversation, that he
 never again distressed himself, or provoked his dear sister Elizabeth,
@@ -12381,15 +11870,7 @@ not think anything less than two courses could be good enough for a man
 on whom she had such anxious designs, or satisfy the appetite and pride
 of one who had ten thousand a year.
 
-
-
-
-[Illustration:
-
-     “Jane happened to look round”
-]
-
-## [Illustration]
+## Kapitel LIV
 
 As soon as they were gone, Elizabeth walked out to recover her spirits;
 or, in other words, to dwell without interruption on those subjects
@@ -12538,11 +12019,6 @@ at Netherfield at last!’ She did, indeed. I do think Mrs. Long is as
 good a creature as ever lived--and her nieces are very pretty behaved
 girls, and not at all handsome: I like them prodigiously.”
 
-[Illustration:
-
-     “M^{rs}. Long and her nieces.”
-]
-
 Mrs. Bennet, in short, was in very great spirits: she had seen enough of
 Bingley’s behaviour to Jane to be convinced that she would get him at
 last; and her expectations of advantage to her family, when in a happy
@@ -12575,15 +12051,7 @@ instruct, though we can teach only what is not worth knowing. Forgive
 me; and if you persist in indifference, do not make _me_ your
 confidante.”
 
-
-
-
-[Illustration:
-
-     “Lizzy, my dear, I want to speak to you.”
-]
-
-## [Illustration]
+## Kapitel LV
 
 A few days after this visit, Mr. Bingley called again, and alone. His
 friend had left him that morning for London, but was to return home in
@@ -12852,12 +12320,7 @@ The Bennets were speedily pronounced to be the luckiest family in the
 world; though only a few weeks before, when Lydia had first run away,
 they had been generally proved to be marked out for misfortune.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel LVI
 
 One morning, about a week after Bingley’s engagement with Jane had been
 formed, as he and the females of the family were sitting together in the
@@ -12944,11 +12407,7 @@ that led to the copse; Elizabeth was determined to make no effort for
 conversation with a woman who was now more than usually insolent and
 disagreeable.
 
-[Illustration:
-
-“After a short survey”
-
-[_Copyright 1894 by George Allen._]]
+]
 
 “How could I ever think her like her nephew?” said she, as she looked in
 her face.
@@ -13192,15 +12651,7 @@ nothing particular to say to you, Lizzy?”
 Elizabeth was forced to give in to a little falsehood here; for to
 acknowledge the substance of their conversation was impossible.
 
-
-
-
-[Illustration:
-
-     “But now it comes out”
-]
-
-## [Illustration]
+## Kapitel LVII
 
 The discomposure of spirits which this extraordinary visit threw
 Elizabeth into could not be easily overcome; nor could she for many
@@ -13366,16 +12817,9 @@ what he said of Mr. Darcy’s indifference; and she could do nothing but
 wonder at such a want of penetration, or fear that, perhaps, instead of
 his seeing too _little_, she might have fancied too _much_.
 
+]
 
-
-
-[Illustration:
-
-“The efforts of his aunt”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel LVIII
 
 Instead of receiving any such letter of excuse from his friend, as
 Elizabeth half expected Mr. Bingley to do, he was able to bring Darcy
@@ -13640,16 +13084,9 @@ Bingley, which of course was to be inferior only to his own, he
 continued the conversation till they reached the house. In the hall they
 parted.
 
+]
 
-
-
-[Illustration:
-
-     “Unable to utter a syllable”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel LIX
 
 “My dear Lizzy, where can you have been walking to?” was a question
 which Elizabeth received from Jane as soon as she entered the room, and
@@ -13917,16 +13354,9 @@ every hour in his esteem.
 is my favourite; but I think I shall like _your_ husband quite as well
 as Jane’s.”
 
+]
 
-
-
-[Illustration:
-
-“The obsequious civility.”
-
-[_Copyright 1894 by George Allen._]]
-
-## [Illustration]
+## Kapitel LX
 
 Elizabeth’s spirits soon rising to playfulness again, she wanted Mr.
 Darcy to account for his having ever fallen in love with her. “How could
@@ -14096,12 +13526,7 @@ with delight to the time when they should be removed from society so
 little pleasing to either, to all the comfort and elegance of their
 family party at Pemberley.
 
-
-
-
-[Illustration]
-
-## [Illustration]
+## Kapitel LXI
 
 Happy for all her maternal feelings was the day on which Mrs. Bennet got
 rid of her two most deserving daughters. With what delighted pride she
@@ -14225,14 +13650,7 @@ as well as Elizabeth, really loved them; and they were both ever
 sensible of the warmest gratitude towards the persons who, by bringing
 her into Derbyshire, had been the means of uniting them.
 
-                            [Illustration:
-
-                                  THE
-                                  END
-                                   ]
-
-
-
+                            
 
              CHISWICK PRESS:--CHARLES WHITTINGHAM AND CO.
                   TOOKS COURT, CHANCERY LANE, LONDON.
@@ -14244,84 +13662,83 @@ her into Derbyshire, had been the means of uniting them.
 - elizabeth — 645×
 - which — 568×
 - could — 531×
-- would — 485×
-- their — 456×
-- darcy — 432×
+- would — 484×
+- their — 453×
+- darcy — 431×
 - there — 372×
-- bennet — 339×
-- bingley — 310×
+- bennet — 336×
+- bingley — 309×
 - should — 258×
 - though — 238×
-- herself — 236×
-- never — 230×
+- herself — 234×
 - before — 228×
+- never — 227×
 - other — 222×
 - think — 222×
 - sister — 217×
 - might — 206×
-- after — 205×
+- after — 204×
 - wickham — 200×
 - little — 192×
 - collins — 190×
 - nothing — 187×
 - every — 185×
 - being — 182×
-- again — 182×
-- without — 177×
+- again — 180×
+- without — 176×
 - lydia — 176×
-- illustration — 163×
 - shall — 163×
-- first — 160×
+- first — 159×
 - family — 153×
 - great — 148×
 - mother — 137×
 - however — 136×
 - father — 135×
 - himself — 133×
-- young — 133×
-- catherine — 132×
+- young — 132×
+- catherine — 131×
 - about — 129×
 - always — 126×
 - letter — 118×
-- friend — 115×
 - cannot — 114×
+- friend — 114×
 - thought — 112×
 - enough — 111×
-- house — 110×
+- house — 109×
 - replied — 103×
 - indeed — 100×
 - quite — 98×
 - better — 98×
 - myself — 97×
 - manner — 97×
-- lizzy — 97×
 - gardiner — 97×
+- lizzy — 96×
 - pleasure — 94×
 - having — 94×
-- where — 93×
-- feelings — 92×
-- often — 92×
+- where — 92×
+- feelings — 91×
 - really — 91×
+- often — 91×
 - cried — 91×
 - believe — 90×
-- perhaps — 89×
-- chapter — 89×
+- perhaps — 88×
+- chapter — 88×
 - longbourn — 88×
 - subject — 87×
 - charlotte — 87×
 - heard — 87×
 - daughter — 84×
-- ladies — 83×
 - happy — 83×
 - anything — 81×
 - whole — 80×
 - while — 80×
-- place — 79×
+- ladies — 80×
 - brother — 79×
-- these — 78×
+- place — 78×
 - morning — 78×
 - certainly — 77×
 - still — 77×
+- these — 77×
 - sisters — 77×
 - something — 76×
 - looked — 76×
@@ -14336,15 +13753,15 @@ her into Derbyshire, had been the means of uniting them.
 - happiness — 72×
 - moment — 71×
 - lucas — 71×
-- speak — 70×
 - towards — 70×
 - attention — 70×
 - uncle — 70×
 - character — 69×
 - between — 68×
 - found — 68×
-- colonel — 68×
+- speak — 68×
 - seemed — 67×
+- colonel — 67×
 - opinion — 67×
 - marriage — 67×
 - woman — 66×
@@ -14353,39 +13770,39 @@ her into Derbyshire, had been the means of uniting them.
 - together — 65×
 - those — 64×
 - because — 64×
-- three — 64×
-- leave — 64×
+- three — 63×
 - either — 63×
-- conversation — 63×
+- leave — 63×
 - rather — 62×
+- conversation — 62×
 - acquaintance — 62×
 - affection — 61×
 - others — 61×
 - immediately — 61×
 - passed — 61×
 - received — 61×
-- party — 60×
 - possible — 60×
-- given — 60×
 - another — 60×
 - whose — 60×
 - married — 60×
 - everything — 60×
 - coming — 60×
-- london — 59×
+- party — 59×
 - whether — 59×
+- given — 59×
 - means — 59×
 - since — 59×
 - began — 59×
 - seeing — 59×
+- london — 58×
 - certain — 58×
 - known — 57×
 - going — 57×
 - meryton — 57×
-- pride — 55×
 - pemberley — 55×
 - friends — 55×
 - behaviour — 55×
+- pride — 54×
 - general — 54×
 - perfectly — 53×
 - against — 53×
@@ -14403,33 +13820,32 @@ her into Derbyshire, had been the means of uniting them.
 - people — 50×
 - sense — 49×
 - suppose — 49×
-- agreeable — 49×
 - yourself — 49×
 - rosings — 49×
 - point — 48×
 - manners — 48×
+- agreeable — 48×
 - settled — 48×
 - object — 48×
-- george — 47×
 - business — 47×
 - impossible — 47×
-- girls — 47×
 - heart — 46×
 - marry — 46×
-- called — 46×
-- short — 46×
 - ought — 46×
-- walked — 46×
+- girls — 46×
 - william — 46×
 - right — 45×
-- spoke — 45×
+- called — 45×
+- short — 45×
+- walked — 45×
 - returned — 45×
 - scarcely — 45×
-- civility — 44×
+- spoke — 44×
 - carriage — 44×
 - longer — 44×
 - country — 43×
 - through — 43×
+- civility — 43×
 - expected — 43×
 - turned — 43×
 - doubt — 42×
@@ -14441,3 +13857,5 @@ her into Derbyshire, had been the means of uniting them.
 - sometimes — 41×
 - bourgh — 41×
 - talking — 41×
+- wished — 41×
+- hertfordshire — 41×

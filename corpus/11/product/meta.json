@@ -3,8 +3,8 @@
   "title": "Alice's Adventures in Wonderland",
   "author": "Lewis Carroll",
   "chapters": 25,
-  "chars": 144599,
-  "built": 1784325052,
+  "chars": 144513,
+  "built": 1784351369,
   "files": [
     "content.md",
     "description.md"

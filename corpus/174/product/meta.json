@@ -2,9 +2,9 @@
   "book_id": "174",
   "title": "The Adventures of Tom Sawyer",
   "author": "Mark Twain",
-  "chapters": 32,
-  "chars": 437835,
-  "built": 1784325233,
+  "chapters": 42,
+  "chars": 434603,
+  "built": 1784351369,
   "files": [
     "content.md",
     "description.md"

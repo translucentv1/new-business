@@ -32,33 +32,33 @@ _von Bram Stoker_
 26. Dr. Seward’s Diary
 27. Dr. Seward’s Diary
 28. Mina Harker’s Journal
-29. JONATHAN HARKER’S JOURNAL
-30. JONATHAN HARKER’S JOURNAL--_continued_
-31. JONATHAN HARKER’S JOURNAL--_continued_
-32. JONATHAN HARKER’S JOURNAL--_continued_
-33. _Letter from Miss Mina Murray to Miss Lucy Westenra._
-34. MINA MURRAY’S JOURNAL
-35. CUTTING FROM “THE DAILYGRAPH,” 8 AUGUST
-36. MINA MURRAY’S JOURNAL
-37. _Letter, Mina Harker to Lucy Westenra._
-38. _Letter, Dr. Seward to Hon. Arthur Holmwood._
-39. _Lucy Westenra’s Diary._
-40. DR. SEWARD’S DIARY
-41. DR. SEWARD’S DIARY--_continued_.
-42. MINA HARKER’S JOURNAL
-43. DR. SEWARD’S DIARY--_continued_.
-44. DR. SEWARD’S DIARY--_continued_
-45. DR. SEWARD’S DIARY--_continued_
-46. DR. SEWARD’S DIARY
-47. JONATHAN HARKER’S JOURNAL
-48. JONATHAN HARKER’S JOURNAL
-49. DR. SEWARD’S DIARY
-50. JONATHAN HARKER’S JOURNAL
-51. DR. SEWARD’S DIARY
-52. DR. SEWARD’S PHONOGRAPH DIARY, SPOKEN BY VAN HELSING
-53. DR. SEWARD’S DIARY
-54. DR. SEWARD’S DIARY
-55. MINA HARKER’S JOURNAL
+29. Kapitel I
+30. Kapitel II
+31. Kapitel III
+32. Kapitel IV
+33. Kapitel V
+34. Kapitel VI
+35. Kapitel VII
+36. Kapitel VIII
+37. Kapitel IX
+38. Kapitel X
+39. Kapitel XI
+40. Kapitel XII
+41. Kapitel XIII
+42. Kapitel XIV
+43. Kapitel XV
+44. Kapitel XVI
+45. Kapitel XVII
+46. Kapitel XVIII
+47. Kapitel XIX
+48. Kapitel XX
+49. Kapitel XXI
+50. Kapitel XXII
+51. Kapitel XXIII
+52. Kapitel XXIV
+53. Kapitel XXV
+54. Kapitel XXVI
+55. Kapitel XXVII
 
 ---
 
@@ -66,41 +66,23 @@ _von Bram Stoker_
 
 DRACULA
 
-
-
                                   _by_
-
-
 
                               Bram Stoker
 
-
-
-                        [Illustration: colophon]
-
-
+                        
 
                                 NEW YORK
 
-
-
                             GROSSET & DUNLAP
 
-
-
                               _Publishers_
-
-
 
       Copyright, 1897, in the United States of America, according
 
                    to Act of Congress, by Bram Stoker
 
-
-
                         [_All rights reserved._]
-
-
 
                       PRINTED IN THE UNITED STATES
 
@@ -108,31 +90,11 @@ DRACULA
 
                THE COUNTRY LIFE PRESS, GARDEN CITY, N.Y.
 
-
-
-
-
-
-
-
-
                                    TO
-
-
 
                              MY DEAR FRIEND
 
-
-
                                HOMMY-BEG
-
-
-
-
-
-
-
-
 
 Contents
 
@@ -256,23 +218,13 @@ exactly contemporary, given from the standpoints and within the range
 
 of knowledge of those who made them.
 
-
-
-
-
-
-
-
-
 DRACULA
 
-## JONATHAN HARKER’S JOURNAL
+## Kapitel I
+
+JONATHAN HARKER’S JOURNAL
 
 (_Kept in shorthand._)
-
-
-
-
 
 _3 May. Bistritz._--Left Munich at 8:35 P. M., on 1st May, arriving at
 
@@ -294,8 +246,6 @@ here of noble width and depth, took us among the traditions of Turkish
 
 rule.
 
-
-
 We left in pretty good time, and came after nightfall to Klausenburgh.
 
 Here I stopped for the night at the Hotel Royale. I had for dinner, or
@@ -311,8 +261,6 @@ national dish, I should be able to get it anywhere along the
 Carpathians. I found my smattering of German very useful here; indeed, I
 
 don’t know how I should be able to get on without it.
-
-
 
 Having had some time at my disposal when in London, I had visited the
 
@@ -342,8 +290,6 @@ here some of my notes, as they may refresh my memory when I talk over my
 
 travels with Mina.
 
-
-
 In the population of Transylvania there are four distinct nationalities:
 
 Saxons in the South, and mixed with them the Wallachs, who are the
@@ -363,8 +309,6 @@ horseshoe of the Carpathians, as if it were the centre of some sort of
 imaginative whirlpool; if so my stay may be very interesting. (_Mem._, I
 
 must ask the Count all about them.)
-
-
 
 I did not sleep well, though my bed was comfortable enough, for I had
 
@@ -393,8 +337,6 @@ the station at 7:30 I had to sit in the carriage for more than an hour
 before we began to move. It seems to me that the further east you go the
 
 more unpunctual are the trains. What ought they to be in China?
-
-
 
 All day long we seemed to dawdle through a country which was full of
 
@@ -444,8 +386,6 @@ however, I am told, very harmless and rather wanting in natural
 
 self-assertion.
 
-
-
 It was on the dark side of twilight when we got to Bistritz, which is a
 
 very interesting old place. Being practically on the frontier--for the
@@ -461,8 +401,6 @@ occasions. At the very beginning of the seventeenth century it underwent
 a siege of three weeks and lost 13,000 people, the casualties of war
 
 proper being assisted by famine and disease.
-
-
 
 Count Dracula had directed me to go to the Golden Krone Hotel, which I
 
@@ -486,8 +424,6 @@ who had followed her to the door. He went, but immediately returned with
 
 a letter:--
 
-
-
      “My Friend.--Welcome to the Carpathians. I am anxiously expecting
 
      you. Sleep well to-night. At three to-morrow the diligence will
@@ -500,17 +436,9 @@ a letter:--
 
      will enjoy your stay in my beautiful land.
 
-
-
 “Your friend,
 
-
-
 “DRACULA.”
-
-
-
-
 
 _4 May._--I found that my landlord had got a letter from the Count,
 
@@ -540,13 +468,9 @@ any one else, for it was all very mysterious and not by any means
 
 comforting.
 
-
-
 Just before I was leaving, the old lady came up to my room and said in a
 
 very hysterical way:
-
-
 
 “Must you go? Oh! young Herr, must you go?” She was in such an excited
 
@@ -560,19 +484,13 @@ that I must go at once, and that I was engaged on important business,
 
 she asked again:
 
-
-
 “Do you know what day it is?” I answered that it was the fourth of May.
 
 She shook her head as she said again:
 
-
-
 “Oh, yes! I know that! I know that, but do you know what day it is?” On
 
 my saying that I did not understand, she went on:
-
-
 
 “It is the eve of St. George’s Day. Do you not know that to-night, when
 
@@ -620,11 +538,7 @@ ever reach Mina before I do, let it bring my good-bye. Here comes the
 
 coach!
 
-
-
        *       *       *       *       *
-
-
 
 _5 May. The Castle._--The grey of the morning has passed, and the sun is
 
@@ -649,8 +563,6 @@ style of the London cat’s meat! The wine was Golden Mediasch, which
 produces a queer sting on the tongue, which is, however, not
 
 disagreeable. I had only a couple of glasses of this, and nothing else.
-
-
 
 When I got on the coach the driver had not taken his seat, and I saw him
 
@@ -677,8 +589,6 @@ thing, one being Slovak and the other Servian for something that is
 either were-wolf or vampire. (_Mem._, I must ask the Count about these
 
 superstitions)
-
-
 
 When we started, the crowd round the inn door, which had by this time
 
@@ -711,8 +621,6 @@ the whole front of the box-seat--“gotza” they call them--cracked his big
 whip over his four small horses, which ran abreast, and we set off on
 
 our journey.
-
-
 
 I soon lost sight and recollection of ghostly fears in the beauty of the
 
@@ -758,8 +666,6 @@ Turk should think that they were preparing to bring in foreign troops,
 
 and so hasten the war which was always really at loading point.
 
-
-
 Beyond the green swelling hills of the Mittel Land rose mighty slopes
 
 of forest up to the lofty steeps of the Carpathians themselves. Right
@@ -786,11 +692,7 @@ peak of a mountain, which seemed, as we wound on our serpentine way, to
 
 be right before us:--
 
-
-
 “Look! Isten szek!”--“God’s seat!”--and he crossed himself reverently.
-
-
 
 As we wound on our endless way, and the sun sank lower and lower behind
 
@@ -868,8 +770,6 @@ before you go to sleep.” The only stop he would make was a moment’s
 
 pause to light his lamps.
 
-
-
 When it grew dark there seemed to be some excitement amongst the
 
 passengers, and they kept speaking to him, one after the other, as
@@ -946,8 +846,6 @@ thought it was “An hour less than the time.” Then turning to me, he said
 
 in German worse than my own:--
 
-
-
 “There is no carriage here. The Herr is not expected after all. He will
 
 now come on to Bukovina, and return to-morrow or the next day; better
@@ -972,15 +870,9 @@ could only see the gleam of a pair of very bright eyes, which seemed red
 
 in the lamplight, as he turned to us. He said to the driver:--
 
-
-
 “You are early to-night, my friend.” The man stammered in reply:--
 
-
-
 “The English Herr was in a hurry,” to which the stranger replied:--
-
-
 
 “That is why, I suppose, you wished him to go on to Bukovina. You cannot
 
@@ -992,13 +884,9 @@ very red lips and sharp-looking teeth, as white as ivory. One of my
 
 companions whispered to another the line from Burger’s “Lenore”:--
 
-
-
     “Denn die Todten reiten schnell”--
 
     (“For the dead travel fast.”)
-
-
 
 The strange driver evidently heard the words, for he looked up with a
 
@@ -1031,8 +919,6 @@ strange chill, and a lonely feeling came over me; but a cloak was thrown
 over my shoulders, and a rug across my knees, and the driver said in
 
 excellent German:--
-
-
 
 “The night is chill, mein Herr, and my master the Count bade me take all
 
@@ -1069,8 +955,6 @@ within a few minutes of midnight. This gave me a sort of shock, for I
 suppose the general superstition about midnight was increased by my
 
 recent experiences. I waited with a sick feeling of suspense.
-
-
 
 Then a dog began to howl somewhere in a farmhouse far down the road--a
 
@@ -1116,8 +1000,6 @@ time, after going to the far side of the Pass, he suddenly turned down a
 
 narrow roadway which ran sharply to the right.
 
-
-
 Soon we were hemmed in with trees, which in places arched right over the
 
 roadway till we passed as through a tunnel; and again great frowning
@@ -1143,8 +1025,6 @@ grew dreadfully afraid, and the horses shared my fear. The driver,
 however, was not in the least disturbed; he kept turning his head to
 
 left and right, but I could not see anything through the darkness.
-
-
 
 Suddenly, away on our left, I saw a faint flickering blue flame. The
 
@@ -1184,8 +1064,6 @@ flames, and we sped onwards through the gloom, with the howling of the
 
 wolves around us, as though they were following in a moving circle.
 
-
-
 At last there came a time when the driver went further afield than he
 
 had yet gone, and during his absence, the horses began to tremble worse
@@ -1209,8 +1087,6 @@ For myself, I felt a sort of paralysis of fear. It is only when a man
 feels himself face to face with such horrors that he can understand
 
 their true import.
-
-
 
 All at once the wolves began to howl as though the moonlight had had
 
@@ -1240,8 +1116,6 @@ fell back and back further still. Just then a heavy cloud passed across
 
 the face of the moon, so that we were again in darkness.
 
-
-
 When I could see again the driver was climbing into the calèche, and the
 
 wolves had disappeared. This was all so strange and uncanny that a
@@ -1264,7 +1138,9 @@ and whose broken battlements showed a jagged line against the moonlit
 
 sky.
 
-## JONATHAN HARKER’S JOURNAL--_continued_
+## Kapitel II
+
+JONATHAN HARKER’S JOURNAL--_continued_
 
 _5 May._--I must have been asleep, for certainly if I had been fully
 
@@ -1275,8 +1151,6 @@ the gloom the courtyard looked of considerable size, and as several dark
 ways led from it under great round arches, it perhaps seemed bigger than
 
 it really is. I have not yet been able to see it by daylight.
-
-
 
 When the calèche stopped, the driver jumped down and held out his hand
 
@@ -1299,8 +1173,6 @@ weather. As I stood, the driver jumped again into his seat and shook the
 reins; the horses started forward, and trap and all disappeared down one
 
 of the dark openings.
-
-
 
 I stood in silence where I was, for I did not know what to do. Of bell
 
@@ -1338,8 +1210,6 @@ and among the Carpathians. All I could do now was to be patient, and to
 
 wait the coming of the morning.
 
-
-
 Just as I had come to this conclusion I heard a heavy step approaching
 
 behind the great door, and saw through the chinks the gleam of a coming
@@ -1349,8 +1219,6 @@ light. Then there was the sound of rattling chains and the clanking of
 massive bolts drawn back. A key was turned with the loud grating noise
 
 of long disuse, and the great door swung back.
-
-
 
 Within, stood a tall old man, clean shaven save for a long white
 
@@ -1366,8 +1234,6 @@ open door. The old man motioned me in with his right hand with a courtly
 
 gesture, saying in excellent English, but with a strange intonation:--
 
-
-
 “Welcome to my house! Enter freely and of your own will!” He made no
 
 motion of stepping to meet me, but stood like a statue, as though his
@@ -1382,8 +1248,6 @@ an effect which was not lessened by the fact that it seemed as cold as
 
 ice--more like the hand of a dead than a living man. Again he said:--
 
-
-
 “Welcome to my house. Come freely. Go safely; and leave something of the
 
 happiness you bring!” The strength of the handshake was so much akin to
@@ -1394,11 +1258,7 @@ for a moment I doubted if it were not the same person to whom I was
 
 speaking; so to make sure, I said interrogatively:--
 
-
-
 “Count Dracula?” He bowed in a courtly way as he replied:--
-
-
 
 “I am Dracula; and I bid you welcome, Mr. Harker, to my house. Come in;
 
@@ -1409,8 +1269,6 @@ speaking, he put the lamp on a bracket on the wall, and stepping out,
 took my luggage; he had carried it in before I could forestall him. I
 
 protested but he insisted:--
-
-
 
 “Nay, sir, you are my guest. It is late, and my people are not
 
@@ -1427,8 +1285,6 @@ to see within a well-lit room in which a table was spread for supper,
 and on whose mighty hearth a great fire of logs, freshly replenished,
 
 flamed and flared.
-
-
 
 The Count halted, putting down my bags, closed the door, and crossing
 
@@ -1448,15 +1304,11 @@ left my luggage inside and withdrew, saying, before he closed the
 
 door:--
 
-
-
 “You will need, after your journey, to refresh yourself by making your
 
 toilet. I trust you will find all you wish. When you are ready, come
 
 into the other room, where you will find your supper prepared.”
-
-
 
 The light and warmth and the Count’s courteous welcome seemed to have
 
@@ -1466,21 +1318,15 @@ I discovered that I was half famished with hunger; so making a hasty
 
 toilet, I went into the other room.
 
-
-
 I found supper already laid out. My host, who stood on one side of the
 
 great fireplace, leaning against the stonework, made a graceful wave of
 
 his hand to the table, and said:--
 
-
-
 “I pray you, be seated and sup how you please. You will, I trust, excuse
 
 me that I do not join you; but I have dined already, and I do not sup.”
-
-
 
 I handed to him the sealed letter which Mr. Hawkins had entrusted to me.
 
@@ -1489,8 +1335,6 @@ He opened it and read it gravely; then, with a charming smile, he handed
 it to me to read. One passage of it, at least, gave me a thrill of
 
 pleasure.
-
-
 
 “I must regret that an attack of gout, from which malady I am a constant
 
@@ -1508,8 +1352,6 @@ be ready to attend on you when you will during his stay, and shall take
 
 your instructions in all matters.”
 
-
-
 The Count himself came forward and took off the cover of a dish, and I
 
 fell to at once on an excellent roast chicken. This, with some cheese
@@ -1522,8 +1364,6 @@ questions as to my journey, and I told him by degrees all I had
 
 experienced.
 
-
-
 By this time I had finished my supper, and by my host’s desire had drawn
 
 up a chair by the fire and begun to smoke a cigar which he offered me,
@@ -1533,8 +1373,6 @@ at the same time excusing himself that he did not smoke. I had now an
 opportunity of observing him, and found him of a very marked
 
 physiognomy.
-
-
 
 His face was a strong--a very strong--aquiline, with high bridge of the
 
@@ -1557,8 +1395,6 @@ man of his years. For the rest, his ears were pale, and at the tops
 extremely pointed; the chin was broad and strong, and the cheeks firm
 
 though thin. The general effect was one of extraordinary pallor.
-
-
 
 Hitherto I had noticed the backs of his hands as they lay on his knees
 
@@ -1592,21 +1428,15 @@ down below in the valley the howling of many wolves. The Count’s eyes
 
 gleamed, and he said:--
 
-
-
 “Listen to them--the children of the night. What music they make!”
 
 Seeing, I suppose, some expression in my face strange to him, he
 
 added:--
 
-
-
 “Ah, sir, you dwellers in the city cannot enter into the feelings of the
 
 hunter.” Then he rose and said:--
-
-
 
 “But you must be tired. Your bedroom is all ready, and to-morrow you
 
@@ -1616,19 +1446,13 @@ so sleep well and dream well!” With a courteous bow, he opened for me
 
 himself the door to the octagonal room, and I entered my bedroom....
 
-
-
 I am all in a sea of wonders. I doubt; I fear; I think strange things,
 
 which I dare not confess to my own soul. God keep me, if only for the
 
 sake of those dear to me!
 
-
-
        *       *       *       *       *
-
-
 
 _7 May._--It is again early morning, but I have rested and enjoyed the
 
@@ -1641,8 +1465,6 @@ supped, and found a cold breakfast laid out, with coffee kept hot by the
 pot being placed on the hearth. There was a card on the table, on which
 
 was written:--
-
-
 
 “I have to be absent for a while. Do not wait for me.--D.” I set to and
 
@@ -1688,8 +1510,6 @@ materials; so I opened another door in the room and found a sort of
 
 library. The door opposite mine I tried, but found it locked.
 
-
-
 In the library I found, to my great delight, a vast number of English
 
 books, whole shelves full of them, and bound volumes of magazines and
@@ -1710,15 +1530,11 @@ Army and Navy Lists, and--it somehow gladdened my heart to see it--the
 
 Law List.
 
-
-
 Whilst I was looking at the books, the door opened, and the Count
 
 entered. He saluted me in a hearty way, and hoped that I had had a good
 
 night’s rest. Then he went on:--
-
-
 
 “I am glad you found your way in here, for I am sure there is much that
 
@@ -1740,13 +1556,9 @@ it what it is. But alas! as yet I only know your tongue through books.
 
 To you, my friend, I look that I know it to speak.”
 
-
-
 “But, Count,” I said, “you know and speak English thoroughly!” He bowed
 
 gravely.
-
-
 
 “I thank you, my friend, for your all too-flattering estimate, but yet I
 
@@ -1754,11 +1566,7 @@ fear that I am but a little way on the road I would travel. True, I know
 
 the grammar and the words, but yet I know not how to speak them.”
 
-
-
 “Indeed,” I said, “you speak excellently.”
-
-
 
 “Not so,” he answered. “Well, I know that, did I move and speak in your
 
@@ -1790,15 +1598,11 @@ away so long to-day; but you will, I know, forgive one who has so many
 
 important affairs in hand.”
 
-
-
 Of course I said all I could about being willing, and asked if I might
 
 come into that room when I chose. He answered: “Yes, certainly,” and
 
 added:--
-
-
 
 “You may go anywhere you wish in the castle, except where the doors are
 
@@ -1810,8 +1614,6 @@ my knowledge, you would perhaps better understand.” I said I was sure of
 
 this, and then he went on:--
 
-
-
 “We are in Transylvania; and Transylvania is not England. Our ways are
 
 not your ways, and there shall be to you many strange things. Nay, from
@@ -1819,8 +1621,6 @@ not your ways, and there shall be to you many strange things. Nay, from
 what you have told me of your experiences already, you know something of
 
 what strange things there may be.”
-
-
 
 This led to much conversation; and as it was evident that he wanted to
 
@@ -1868,8 +1668,6 @@ was triumphant he found but little, for whatever there was had been
 
 sheltered in the friendly soil.”
 
-
-
 “But how,” said I, “can it have remained so long undiscovered, when
 
 there is a sure index to it if men will but take the trouble to look?”
@@ -1877,8 +1675,6 @@ there is a sure index to it if men will but take the trouble to look?”
 The Count smiled, and as his lips ran back over his gums, the long,
 
 sharp, canine teeth showed out strangely; he answered:--
-
-
 
 “Because your peasant is at heart a coward and a fool! Those flames only
 
@@ -1894,13 +1690,9 @@ even for his own work. Even you would not, I dare be sworn, be able to
 
 find these places again?”
 
-
-
 “There you are right,” I said. “I know no more than the dead where even
 
 to look for them.” Then we drifted into other matters.
-
-
 
 “Come,” he said at last, “tell me of London and of the house which you
 
@@ -1930,8 +1722,6 @@ subject of the neighbourhood, for he evidently at the end knew very much
 
 more than I did. When I remarked this, he answered:--
 
-
-
 “Well, but, my friend, is it not needful that I should? When I go there
 
 I shall be all alone, and my friend Harker Jonathan--nay, pardon me, I
@@ -1943,8 +1733,6 @@ Jonathan Harker will not be by my side to correct and aid me. He will be
 in Exeter, miles away, probably working at papers of the law with my
 
 other friend, Peter Hawkins. So!”
-
-
 
 We went thoroughly into the business of the purchase of the estate at
 
@@ -1958,8 +1746,6 @@ place. I read to him the notes which I had made at the time, and which I
 
 inscribe here:--
 
-
-
 “At Purfleet, on a by-road, I came across just such a place as seemed to
 
 be required, and where was displayed a dilapidated notice that the place
@@ -1971,8 +1757,6 @@ built of heavy stones, and has not been repaired for a large number of
 years. The closed gates are of heavy old oak and iron, all eaten with
 
 rust.
-
-
 
 “The estate is called Carfax, no doubt a corruption of the old _Quatre
 
@@ -2008,11 +1792,7 @@ large house only recently added to and formed into a private lunatic
 
 asylum. It is not, however, visible from the grounds.”
 
-
-
 When I had finished, he said:--
-
-
 
 “I am glad that it is old and big. I myself am of an old family, and to
 
@@ -2042,8 +1822,6 @@ did not seem to accord, or else it was that his cast of face made his
 
 smile look malignant and saturnine.
 
-
-
 Presently, with an excuse, he left me, asking me to put all my papers
 
 together. He was some little time away, and I began to look at some of
@@ -2059,8 +1837,6 @@ that one was near London on the east side, manifestly where his new
 estate was situated; the other two were Exeter, and Whitby on the
 
 Yorkshire coast.
-
-
 
 It was the better part of an hour when the Count returned. “Aha!” he
 
@@ -2100,8 +1876,6 @@ with preternatural shrillness through the clear morning air; Count
 
 Dracula, jumping to his feet, said:--
 
-
-
 “Why, there is the morning again! How remiss I am to let you stay up so
 
 long. You must make your conversation regarding my dear new country of
@@ -2109,8 +1883,6 @@ long. You must make your conversation regarding my dear new country of
 England less interesting, so that I may not forget how time flies by
 
 us,” and, with a courtly bow, he quickly left me.
-
-
 
 I went into my own room and drew the curtains, but there was little to
 
@@ -2120,11 +1892,7 @@ warm grey of quickening sky. So I pulled the curtains again, and have
 
 written of this day.
 
-
-
        *       *       *       *       *
-
-
 
 _8 May._--I began to fear as I wrote in this book that I was getting too
 
@@ -2147,8 +1915,6 @@ me be prosaic so far as facts can be; it will help me to bear up, and
 imagination must not run riot with me. If it does I am lost. Let me say
 
 at once how I stand--or seem to.
-
-
 
 I only slept a few hours when I went to bed, and feeling that I could
 
@@ -2192,8 +1958,6 @@ held the crucifix. It made an instant change in him, for the fury passed
 
 so quickly that I could hardly believe that it was ever there.
 
-
-
 “Take care,” he said, “take care how you cut yourself. It is more
 
 dangerous than you think in this country.” Then seizing the shaving
@@ -2211,8 +1975,6 @@ of the courtyard far below. Then he withdrew without a word. It is very
 annoying, for I do not see how I am to shave, unless in my watch-case or
 
 the bottom of the shaving-pot, which is fortunately of metal.
-
-
 
 When I went into the dining-room, breakfast was prepared; but I could
 
@@ -2238,8 +2000,6 @@ there are silver threads where the rivers wind in deep gorges through
 
 the forests.
 
-
-
 But I am not in heart to describe beauty, for when I had seen the view I
 
 explored further; doors, doors, doors everywhere, and all locked and
@@ -2248,11 +2008,11 @@ bolted. In no place save from the windows in the castle walls is there
 
 an available exit.
 
-
-
 The castle is a veritable prison, and I am a prisoner!
 
-## JONATHAN HARKER’S JOURNAL--_continued_
+## Kapitel III
+
+JONATHAN HARKER’S JOURNAL--_continued_
 
 When I found that I was a prisoner a sort of wild feeling came over me.
 
@@ -2287,8 +2047,6 @@ open. I am, I know, either being deceived, like a baby, by my own fears,
 or else I am in desperate straits; and if the latter be so, I need, and
 
 shall need, all my brains to get through.
-
-
 
 I had hardly come to this conclusion when I heard the great door below
 
@@ -2342,11 +2100,7 @@ himself, if I turn the conversation that way. I must be very careful,
 
 however, not to awake his suspicion.
 
-
-
        *       *       *       *       *
-
-
 
 _Midnight._--I have had a long talk with the Count. I asked him a few
 
@@ -2377,8 +2131,6 @@ though he would crush it by main strength. One thing he said which I
 shall put down as nearly as I can; for it tells in its way the story of
 
 his race:--
-
-
 
 “We Szekelys have a right to be proud, for in our veins flows the blood
 
@@ -2470,8 +2222,6 @@ Blood is too precious a thing in these days of dishonourable peace; and
 
 the glories of the great races are as a tale that is told.”
 
-
-
 It was by this time close on morning, and we went to bed. (_Mem._, this
 
 diary seems horribly like the beginning of the “Arabian Nights,” for
@@ -2480,11 +2230,7 @@ everything has to break off at cockcrow--or like the ghost of Hamlet’s
 
 father.)
 
-
-
        *       *       *       *       *
-
-
 
 _12 May._--Let me begin with facts--bare, meagre facts, verified by
 
@@ -2506,8 +2252,6 @@ method in the Count’s inquiries, so I shall try to put them down in
 
 sequence; the knowledge may somehow or some time be useful to me.
 
-
-
 First, he asked if a man in England might have two solicitors or more. I
 
 told him he might have a dozen if he wished, but that it would not be
@@ -2527,8 +2271,6 @@ local help were needed in a place far from the home of the banking
 solicitor. I asked him to explain more fully, so that I might not by any
 
 chance mislead him, so he said:--
-
-
 
 “I shall illustrate. Your friend and mine, Mr. Peter Hawkins, from under
 
@@ -2564,17 +2306,11 @@ himself in the hands of one man, could have his wishes carried out by
 
 him without further trouble.
 
-
-
 “But,” said he, “I could be at liberty to direct myself. Is it not so?”
-
-
 
 “Of course,” I replied; and “such is often done by men of business, who
 
 do not like the whole of their affairs to be known by any one person.”
-
-
 
 “Good!” he said, and then went on to ask about the means of making
 
@@ -2598,8 +2334,6 @@ spoken, and I had verified all as well as I could by the books
 
 available, he suddenly stood up and said:--
 
-
-
 “Have you written since your first letter to our friend Mr. Peter
 
 Hawkins, or to any other?” It was with some bitterness in my heart that
@@ -2608,21 +2342,15 @@ I answered that I had not, that as yet I had not seen any opportunity of
 
 sending letters to anybody.
 
-
-
 “Then write now, my young friend,” he said, laying a heavy hand on my
 
 shoulder: “write to our friend and to any other; and say, if it will
 
 please you, that you shall stay with me until a month from now.”
 
-
-
 “Do you wish me to stay so long?” I asked, for my heart grew cold at the
 
 thought.
-
-
 
 “I desire it much; nay, I will take no refusal. When your master,
 
@@ -2631,8 +2359,6 @@ employer, what you will, engaged that someone should come on his behalf,
 it was understood that my needs only were to be consulted. I have not
 
 stinted. Is it not so?”
-
-
 
 What could I do but bow acceptance? It was Mr. Hawkins’s interest, not
 
@@ -2647,8 +2373,6 @@ could have no choice. The Count saw his victory in my bow, and his
 mastery in the trouble of my face, for he began at once to use them, but
 
 in his own smooth, resistless way:--
-
-
 
 “I pray you, my good young friend, that you will not discourse of things
 
@@ -2688,8 +2412,6 @@ under the circumstances I felt that I should protect myself in every way
 
 I could.
 
-
-
 One of the letters was directed to Samuel F. Billington, No. 7, The
 
 Crescent, Whitby, another to Herr Leutner, Varna; the third was to
@@ -2708,15 +2430,11 @@ hand, entered the room. He took up the letters on the table and stamped
 
 them carefully, and then turning to me, said:--
 
-
-
 “I trust you will forgive me, but I have much work to do in private this
 
 evening. You will, I hope, find all things as you wish.” At the door he
 
 turned, and after a moment’s pause said:--
-
-
 
 “Let me advise you, my dear young friend--nay, let me warn you with all
 
@@ -2740,11 +2458,7 @@ dream could be more terrible than the unnatural, horrible net of gloom
 
 and mystery which seemed closing around me.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--I endorse the last words written, but this time there is no
 
@@ -2753,8 +2467,6 @@ doubt in question. I shall not fear to sleep in any place where he is
 not. I have placed the crucifix over the head of my bed--I imagine that
 
 my rest is thus freer from dreams; and there it shall remain.
-
-
 
 When he left me I went to my room. After a little while, not hearing any
 
@@ -2798,8 +2510,6 @@ the case had been there. I drew back behind the stonework, and looked
 
 carefully out.
 
-
-
 What I saw was the Count’s head coming out from the window. I did not
 
 see the face, but I knew the man by the neck and the movement of his
@@ -2830,8 +2540,6 @@ using every projection and inequality move downwards with considerable
 
 speed, just as a lizard moves along a wall.
 
-
-
 What manner of man is this, or what manner of creature is it in the
 
 semblance of man? I feel the dread of this horrible place overpowering
@@ -2840,11 +2548,7 @@ me; I am in fear--in awful fear--and there is no escape for me; I am
 
 encompassed about with terrors that I dare not think of....
 
-
-
        *       *       *       *       *
-
-
 
 _15 May._--Once more have I seen the Count go out in his lizard fashion.
 
@@ -2952,11 +2656,7 @@ senses deceive me, the old centuries had, and have, powers of their own
 
 which mere “modernity” cannot kill.
 
-
-
        *       *       *       *       *
-
-
 
 _Later: the Morning of 16 May._--God preserve my sanity, for to this I
 
@@ -2980,13 +2680,9 @@ have puzzled me. Up to now I never quite knew what Shakespeare meant
 
 when he made Hamlet say:--
 
-
-
     “My tablets! quick, my tablets!
 
     ’Tis meet that I put it down,” etc.,
-
-
 
 for now, feeling as though my own brain were unhinged or as if the shock
 
@@ -2994,15 +2690,11 @@ had come which must end in its undoing, I turn to my diary for repose.
 
 The habit of entering accurately must help to soothe me.
 
-
-
 The Count’s mysterious warning frightened me at the time; it frightens
 
 me more now when I think of it, for in future he has a fearful hold upon
 
 me. I shall fear to doubt what he may say!
-
-
 
 When I had written in my diary and had fortunately replaced the book and
 
@@ -3033,8 +2725,6 @@ asleep; I hope so, but I fear, for all that followed was startlingly
 real--so real that now sitting here in the broad, full sunlight of the
 
 morning, I cannot in the least believe that it was all sleep.
-
-
 
 I was not alone. The room was the same, unchanged in any way since I
 
@@ -3086,13 +2776,9 @@ The fair girl shook her head coquettishly, and the other two urged her
 
 on. One said:--
 
-
-
 “Go on! You are first, and we shall follow; yours is the right to
 
 begin.” The other added:--
-
-
 
 “He is young and strong; there are kisses for us all.” I lay quiet,
 
@@ -3105,8 +2791,6 @@ of her breath upon me. Sweet it was in one sense, honey-sweet, and sent
 the same tingling through the nerves as her voice, but with a bitter
 
 underlying the sweet, a bitter offensiveness, as one smells in blood.
-
-
 
 I was afraid to raise my eyelids, but looked out and saw perfectly under
 
@@ -3140,8 +2824,6 @@ I closed my eyes in a languorous ecstasy and waited--waited with beating
 
 heart.
 
-
-
 But at that instant, another sensation swept through me as quick as
 
 lightning. I was conscious of the presence of the Count, and of his
@@ -3174,8 +2856,6 @@ wolves. In a voice which, though low and almost in a whisper seemed to
 
 cut through the air and then ring round the room he said:--
 
-
-
 “How dare you touch him, any of you? How dare you cast eyes on him when
 
 I had forbidden it? Back, I tell you all! This man belongs to me! Beware
@@ -3183,8 +2863,6 @@ I had forbidden it? Back, I tell you all! This man belongs to me! Beware
 how you meddle with him, or you’ll have to deal with me.” The fair girl,
 
 with a laugh of ribald coquetry, turned to answer him:--
-
-
 
 “You yourself never loved; you never love!” On this the other women
 
@@ -3196,8 +2874,6 @@ of fiends. Then the Count turned, after looking at my face attentively,
 
 and said in a soft whisper:--
 
-
-
 “Yes, I too can love; you yourselves can tell it from the past. Is it
 
 not so? Well, now I promise you that when I am done with him you shall
@@ -3205,8 +2881,6 @@ not so? Well, now I promise you that when I am done with him you shall
 kiss him at your will. Now go! go! I must awaken him, for there is work
 
 to be done.”
-
-
 
 “Are we to have nothing to-night?” said one of them, with a low laugh,
 
@@ -3230,11 +2904,11 @@ moonlight and pass out through the window, for I could see outside the
 
 dim, shadowy forms for a moment before they entirely faded away.
 
-
-
 Then the horror overcame me, and I sank down unconscious.
 
-## JONATHAN HARKER’S JOURNAL--_continued_
+## Kapitel IV
+
+JONATHAN HARKER’S JOURNAL--_continued_
 
 I awoke in my own bed. If it be that I had not dreamt, the Count must
 
@@ -3268,11 +2942,7 @@ sanctuary, for nothing can be more dreadful than those awful women, who
 
 were--who _are_--waiting to suck my blood.
 
-
-
        *       *       *       *       *
-
-
 
 _18 May._--I have been down to look at that room again in daylight, for
 
@@ -3286,11 +2956,7 @@ of the lock had not been shot, but the door is fastened from the inside.
 
 I fear it was no dream, and must act on this surmise.
 
-
-
        *       *       *       *       *
-
-
 
 _19 May._--I am surely in the toils. Last night the Count asked me in
 
@@ -3334,21 +3000,13 @@ him what dates I should put on the letters. He calculated a minute, and
 
 then said:--
 
-
-
 “The first should be June 12, the second June 19, and the third June
 
 29.”
 
-
-
 I know now the span of my life. God help me!
 
-
-
        *       *       *       *       *
-
-
 
 _28 May._--There is a chance of escape, or at any rate of being able to
 
@@ -3370,8 +3028,6 @@ save superstition, and they talk only their own varieties of the Romany
 
 tongue.
 
-
-
 I shall write some letters home, and shall try to get them to have them
 
 posted. I have already spoken them through my window to begin
@@ -3382,11 +3038,7 @@ signs, which, however, I could not understand any more than I could
 
 their spoken language....
 
-
-
        *       *       *       *       *
-
-
 
 I have written the letters. Mina’s is in shorthand, and I simply ask Mr.
 
@@ -3400,11 +3052,7 @@ letters not carry, then the Count shall not yet know my secret or the
 
 extent of my knowledge....
 
-
-
        *       *       *       *       *
-
-
 
 I have given the letters; I threw them through the bars of my window
 
@@ -3416,17 +3064,11 @@ in his cap. I could do no more. I stole back to the study, and began to
 
 read. As the Count did not come in, I have written here....
 
-
-
        *       *       *       *       *
-
-
 
 The Count has come. He sat down beside me, and said in his smoothest
 
 voice as he opened two letters:--
-
-
 
 “The Szgany has given me these, of which, though I know not whence they
 
@@ -3446,8 +3088,6 @@ and envelope in the flame of the lamp till they were consumed. Then he
 
 went on:--
 
-
-
 “The letter to Hawkins--that I shall, of course, send on, since it is
 
 yours. Your letters are sacred to me. Your pardon, my friend, that
@@ -3462,8 +3102,6 @@ he went out of the room I could hear the key turn softly. A minute later
 
 I went over and tried it, and the door was locked.
 
-
-
 When, an hour or two after, the Count came quietly into the room, his
 
 coming awakened me, for I had gone to sleep on the sofa. He was very
@@ -3471,8 +3109,6 @@ coming awakened me, for I had gone to sleep on the sofa. He was very
 courteous and very cheery in his manner, and seeing that I had been
 
 sleeping, he said:--
-
-
 
 “So, my friend, you are tired? Get to bed. There is the surest rest. I
 
@@ -3482,11 +3118,7 @@ to me; but you will sleep, I pray.” I passed to my room and went to bed,
 
 and, strange to say, slept without dreaming. Despair has its own calms.
 
-
-
        *       *       *       *       *
-
-
 
 _31 May._--This morning when I woke I thought I would provide myself
 
@@ -3495,8 +3127,6 @@ with some paper and envelopes from my bag and keep them in my pocket, so
 that I might write in case I should get an opportunity, but again a
 
 surprise, again a shock!
-
-
 
 Every scrap of paper was gone, and with it all my notes, my memoranda,
 
@@ -3508,19 +3138,13 @@ awhile, and then some thought occurred to me, and I made search of my
 
 portmanteau and in the wardrobe where I had placed my clothes.
 
-
-
 The suit in which I had travelled was gone, and also my overcoat and
 
 rug; I could find no trace of them anywhere. This looked like some new
 
 scheme of villainy....
 
-
-
        *       *       *       *       *
-
-
 
 _17 June._--This morning, as I was sitting on the edge of my bed
 
@@ -3541,8 +3165,6 @@ ran to the door, intending to descend and try and join them through the
 main hall, as I thought that way might be opened for them. Again a
 
 shock: my door was fastened on the outside.
-
-
 
 Then I ran to the window and cried to them. They looked up at me
 
@@ -3568,11 +3190,7 @@ it for luck, lazily went each to his horse’s head. Shortly afterwards, I
 
 heard the cracking of their whips die away in the distance.
 
-
-
        *       *       *       *       *
-
-
 
 _24 June, before morning._--Last night the Count left me early, and
 
@@ -3589,8 +3207,6 @@ some kind. I know it, for now and then I hear a far-away muffled sound
 as of mattock and spade, and, whatever it is, it must be the end of some
 
 ruthless villainy.
-
-
 
 I had been at the window somewhat less than half an hour, when I saw
 
@@ -3614,15 +3230,11 @@ letters, and that any wickedness which he may do shall by the local
 
 people be attributed to me.
 
-
-
 It makes me rage to think that this can go on, and whilst I am shut up
 
 here, a veritable prisoner, but without that protection of the law which
 
 is even a criminal’s right and consolation.
-
-
 
 I thought I would watch for the Count’s return, and for a long time sat
 
@@ -3639,8 +3251,6 @@ soothing, and a sort of calm stole over me. I leaned back in the
 embrasure in a more comfortable position, so that I could enjoy more
 
 fully the aërial gambolling.
-
-
 
 Something made me start up, a low, piteous howling of dogs somewhere far
 
@@ -3672,8 +3282,6 @@ safer in my own room, where there was no moonlight and where the lamp
 
 was burning brightly.
 
-
-
 When a couple of hours had passed I heard something stirring in the
 
 Count’s room, something like a sharp wail quickly suppressed; and then
@@ -3683,8 +3291,6 @@ there was silence, deep, awful silence, which chilled me. With a
 beating heart, I tried the door; but I was locked in my prison, and
 
 could do nothing. I sat down and simply cried.
-
-
 
 As I sat I heard a sound in the courtyard without--the agonised cry of a
 
@@ -3698,11 +3304,7 @@ against a corner of the gateway. When she saw my face at the window she
 
 threw herself forward, and shouted in a voice laden with menace:--
 
-
-
 “Monster, give me my child!”
-
-
 
 She threw herself on her knees, and raising up her hands, cried the same
 
@@ -3714,8 +3316,6 @@ emotion. Finally, she threw herself forward, and, though I could not see
 
 her, I could hear the beating of her naked hands against the door.
 
-
-
 Somewhere high overhead, probably on the tower, I heard the voice of the
 
 Count calling in his harsh, metallic whisper. His call seemed to be
@@ -3726,29 +3326,19 @@ had passed a pack of them poured, like a pent-up dam when liberated,
 
 through the wide entrance into the courtyard.
 
-
-
 There was no cry from the woman, and the howling of the wolves was but
 
 short. Before long they streamed away singly, licking their lips.
-
-
 
 I could not pity her, for I knew now what had become of her child, and
 
 she was better dead.
 
-
-
 What shall I do? what can I do? How can I escape from this dreadful
 
 thing of night and gloom and fear?
 
-
-
        *       *       *       *       *
-
-
 
 _25 June, morning._--No man knows till he has suffered from the night
 
@@ -3770,11 +3360,7 @@ series which is to blot out the very traces of my existence from the
 
 earth.
 
-
-
 Let me not think of it. Action!
-
-
 
 It has always been at night-time that I have been molested or
 
@@ -3785,8 +3371,6 @@ Count in the daylight. Can it be that he sleeps when others wake, that
 he may be awake whilst they sleep? If I could only get into his room!
 
 But there is no possible way. The door is always locked, no way for me.
-
-
 
 Yes, there is a way, if one dares to take it. Where his body has gone
 
@@ -3804,11 +3388,7 @@ in my task! Good-bye, Mina, if I fail; good-bye, my faithful friend and
 
 second father; good-bye, all, and last of all Mina!
 
-
-
        *       *       *       *       *
-
-
 
 _Same day, later._--I have made the effort, and God, helping me, have
 
@@ -3862,8 +3442,6 @@ less than three hundred years old. There were also chains and ornaments,
 
 some jewelled, but all of them old and stained.
 
-
-
 At one corner of the room was a heavy door. I tried it, for, since I
 
 could not find the key of the room or the key of the outer door, which
@@ -3906,8 +3484,6 @@ of old coffins and piles of dust; in the third, however, I made a
 
 discovery.
 
-
-
 There, in one of the great boxes, of which there were fifty in all, on a
 
 pile of newly dug earth, lay the Count! He was either dead or asleep, I
@@ -3938,11 +3514,7 @@ wall. Regaining my room, I threw myself panting upon the bed and tried
 
 to think....
 
-
-
        *       *       *       *       *
-
-
 
 _29 June._--To-day is the date of my last letter, and the Count has
 
@@ -3960,13 +3532,9 @@ to see those weird sisters. I came back to the library, and read there
 
 till I fell asleep.
 
-
-
 I was awakened by the Count, who looked at me as grimly as a man can
 
 look as he said:--
-
-
 
 “To-morrow, my friend, we must part. You return to your beautiful
 
@@ -3990,15 +3558,9 @@ Sincerity! It seems like a profanation of the word to write it in
 
 connection with such a monster, so asked him point-blank:--
 
-
-
 “Why may I not go to-night?”
 
-
-
 “Because, dear sir, my coachman and horses are away on a mission.”
-
-
 
 “But I would walk with pleasure. I want to get away at once.” He smiled,
 
@@ -4006,21 +3568,13 @@ such a soft, smooth, diabolical smile that I knew there was some trick
 
 behind his smoothness. He said:--
 
-
-
 “And your baggage?”
 
-
-
 “I do not care about it. I can send for it some other time.”
-
-
 
 The Count stood up, and said, with a sweet courtesy which made me rub my
 
 eyes, it seemed so real:--
-
-
 
 “You English have a saying which is close to my heart, for its spirit is
 
@@ -4036,11 +3590,7 @@ lamp, preceded me down the stairs and along the hall. Suddenly he
 
 stopped.
 
-
-
 “Hark!”
-
-
 
 Close at hand came the howling of many wolves. It was almost as if the
 
@@ -4054,13 +3604,9 @@ the ponderous bolts, unhooked the heavy chains, and began to draw it
 
 open.
 
-
-
 To my intense astonishment I saw that it was unlocked. Suspiciously, I
 
 looked all round, but could see no key of any kind.
-
-
 
 As the door began to open, the howling of the wolves without grew louder
 
@@ -4082,8 +3628,6 @@ was a diabolical wickedness in the idea great enough for the Count, and
 
 as a last chance I cried out:--
 
-
-
 “Shut the door; I shall wait till morning!” and covered my face with my
 
 hands to hide my tears of bitter disappointment. With one sweep of his
@@ -4091,8 +3635,6 @@ hands to hide my tears of bitter disappointment. With one sweep of his
 powerful arm, the Count threw the door shut, and the great bolts clanged
 
 and echoed through the hall as they shot back into their places.
-
-
 
 In silence we returned to the library, and after a minute or two I went
 
@@ -4102,15 +3644,11 @@ to me; with a red light of triumph in his eyes, and with a smile that
 
 Judas in hell might be proud of.
 
-
-
 When I was in my room and about to lie down, I thought I heard a
 
 whispering at my door. I went to it softly and listened. Unless my ears
 
 deceived me, I heard the voice of the Count:--
-
-
 
 “Back, back, to your own place! Your time is not yet come. Wait! Have
 
@@ -4122,19 +3660,13 @@ without the three terrible women licking their lips. As I appeared they
 
 all joined in a horrible laugh, and ran away.
 
-
-
 I came back to my room and threw myself on my knees. It is then so near
 
 the end? To-morrow! to-morrow! Lord, help me, and those to whom I am
 
 dear!
 
-
-
        *       *       *       *       *
-
-
 
 _30 June, morning._--These may be the last words I ever write in this
 
@@ -4143,8 +3675,6 @@ diary. I slept till just before the dawn, and when I woke threw myself
 on my knees, for I determined that if Death came he should find me
 
 ready.
-
-
 
 At last I felt that subtle change in the air, and knew that the morning
 
@@ -4158,8 +3688,6 @@ that trembled with eagerness, I unhooked the chains and drew back the
 
 massive bolts.
 
-
-
 But the door would not move. Despair seized me. I pulled, and pulled, at
 
 the door, and shook it till, massive as it was, it rattled in its
@@ -4167,8 +3695,6 @@ the door, and shook it till, massive as it was, it rattled in its
 casement. I could see the bolt shot. It had been locked after I left the
 
 Count.
-
-
 
 Then a wild desire took me to obtain that key at any risk, and I
 
@@ -4187,8 +3713,6 @@ remained. I went through the door in the corner and down the winding
 stair and along the dark passage to the old chapel. I knew now well
 
 enough where to find the monster I sought.
-
-
 
 The great box was in the same place, close against the wall, but the lid
 
@@ -4260,8 +3784,6 @@ blood-stained and fixed with a grin of malice which would have held its
 
 own in the nethermost hell.
 
-
-
 I thought and thought what should be my next move, but my brain seemed
 
 on fire, and I waited with a despairing feeling growing over me. As I
@@ -4300,8 +3822,6 @@ hopelessly fast. I was again a prisoner, and the net of doom was closing
 
 round me more closely.
 
-
-
 As I write there is in the passage below a sound of many tramping feet
 
 and the crash of weights being set down heavily, doubtless the boxes,
@@ -4312,15 +3832,11 @@ box being nailed down. Now I can hear the heavy feet tramping again
 
 along the hall, with many other idle feet coming behind them.
 
-
-
 The door is shut, and the chains rattle; there is a grinding of the key
 
 in the lock; I can hear the key withdraw: then another door opens and
 
 shuts; I hear the creaking of lock and bolt.
-
-
 
 Hark! in the courtyard and down the rocky way the roll of heavy wheels,
 
@@ -4328,13 +3844,9 @@ the crack of whips, and the chorus of the Szgany as they pass into the
 
 distance.
 
-
-
 I am alone in the castle with those awful women. Faugh! Mina is a woman,
 
 and there is nought in common. They are devils of the Pit!
-
-
 
 I shall not remain alone with them; I shall try to scale the castle wall
 
@@ -4342,15 +3854,11 @@ farther than I have yet attempted. I shall take some of the gold with
 
 me, lest I want it later. I may find a way from this dreadful place.
 
-
-
 And then away for home! away to the quickest and nearest train! away
 
 from this cursed spot, from this cursed land, where the devil and his
 
 children still walk with earthly feet!
-
-
 
 At least God’s mercy is better than that of these monsters, and the
 
@@ -4358,15 +3866,13 @@ precipice is steep and high. At its foot a man may sleep--as a man.
 
 Good-bye, all! Mina!
 
-## _Letter from Miss Mina Murray to Miss Lucy Westenra._
+## Kapitel V
+
+_Letter from Miss Mina Murray to Miss Lucy Westenra._
 
 “_9 May._
 
-
-
 “My dearest Lucy,--
-
-
 
 “Forgive my long delay in writing, but I have been simply overwhelmed
 
@@ -4420,15 +3926,9 @@ countries. I wonder if we--I mean Jonathan and I--shall ever see them
 
 together. There is the ten o’clock bell ringing. Good-bye.
 
-
-
 “Your loving
 
-
-
 “MINA.
-
-
 
 “Tell me all the news when you write. You have not told me anything for
 
@@ -4436,25 +3936,13 @@ a long time. I hear rumours, and especially of a tall, handsome,
 
 curly-haired man???”
 
-
-
-
-
 _Letter, Lucy Westenra to Mina Murray_.
-
-
 
 “_17, Chatham Street_,
 
-
-
 “_Wednesday_.
 
-
-
 “My dearest Mina,--
-
-
 
 “I must say you tax me _very_ unfairly with being a bad correspondent. I
 
@@ -4534,37 +4022,21 @@ that you think about it. Mina, I must stop. Good-night. Bless me in your
 
 prayers; and, Mina, pray for my happiness.
 
-
-
 “LUCY.
-
-
 
 “P.S.--I need not tell you this is a secret. Good-night again.
 
-
-
 “L.”
-
-
 
 _Letter, Lucy Westenra to Mina Murray_.
 
-
-
 “_24 May_.
 
-
-
 “My dearest Mina,--
-
-
 
 “Thanks, and thanks, and thanks again for your sweet letter. It was so
 
 nice to be able to tell you and to have your sympathy.
-
-
 
 “My dear, it never rains but it pours. How true the old proverbs are.
 
@@ -4658,11 +4130,7 @@ quite out of his life. My dear, I must stop here at present, I feel so
 
 miserable, though I am so happy.
 
-
-
 “_Evening._
-
-
 
 “Arthur has just gone, and I feel in better spirits than when I left
 
@@ -4714,8 +4182,6 @@ as happy and jolly as he could, but I could see all the same that he was
 
 very nervous. He took my hand in his, and said ever so sweetly:--
 
-
-
 “‘Miss Lucy, I know I ain’t good enough to regulate the fixin’s of your
 
 little shoes, but I guess if you wait till you find a man that is you
@@ -4725,8 +4191,6 @@ will go join them seven young women with the lamps when you quit. Won’t
 you just hitch up alongside of me and let us go down the long road
 
 together, driving in double harness?’
-
-
 
 “Well, he did look so good-humoured and so jolly that it didn’t seem
 
@@ -4760,8 +4224,6 @@ which checked him, for he suddenly stopped, and said with a sort of
 
 manly fervour that I could have loved him for if I had been free:--
 
-
-
 “‘Lucy, you are an honest-hearted girl, I know. I should not be here
 
 speaking to you as I am now if I did not believe you clean grit, right
@@ -4773,8 +4235,6 @@ to another, is there any one else that you care for? And if there is
 I’ll never trouble you a hair’s breadth again, but will be, if you will
 
 let me, a very faithful friend.’
-
-
 
 “My dear Mina, why are men so noble when we women are so little worthy
 
@@ -4792,8 +4252,6 @@ it. I am glad to say that, though I was crying, I was able to look into
 
 Mr. Morris’s brave eyes, and I told him out straight:--
 
-
-
 “‘Yes, there is some one I love, though he has not told me yet that he
 
 even loves me.’ I was right to speak to him so frankly, for quite a
@@ -4801,8 +4259,6 @@ even loves me.’ I was right to speak to him so frankly, for quite a
 light came into his face, and he put out both his hands and took mine--I
 
 think I put them into his--and said in a hearty way:--
-
-
 
 “‘That’s my brave girl. It’s better worth being late for a chance of
 
@@ -4834,8 +4290,6 @@ kissed him. He stood up with my two hands in his, and as he looked down
 
 into my face--I am afraid I was blushing very much--he said:--
 
-
-
 “‘Little girl, I hold your hand, and you’ve kissed me, and if these
 
 things don’t make us friends nothing ever will. Thank you for your sweet
@@ -4856,15 +4310,9 @@ cannot write of happiness just at once, after telling you of it; and I
 
 don’t wish to tell of the number three until it can be all happy.
 
-
-
 “Ever your loving
 
-
-
 “LUCY.
-
-
 
 “P.S.--Oh, about number Three--I needn’t tell you of number Three, need
 
@@ -4880,21 +4328,11 @@ ungrateful to God for all His goodness to me in sending to me such a
 
 lover, such a husband, and such a friend.
 
-
-
 “Good-bye.”
-
-
-
-
 
 _Dr. Seward’s Diary._
 
-
-
 (Kept in phonograph)
-
-
 
 _25 May._--Ebb tide in appetite to-day. Cannot eat, cannot rest, so
 
@@ -4912,8 +4350,6 @@ determined to understand him as well as I can. To-day I seemed to get
 
 nearer than ever before to the heart of his mystery.
 
-
-
 I questioned him more fully than I had ever done, with a view to making
 
 myself master of the facts of his hallucination. In my manner of doing
@@ -4924,8 +4360,6 @@ him to the point of his madness--a thing which I avoid with the patients
 
 as I would the mouth of hell.
 
-
-
 (_Mem._, under what circumstances would I _not_ avoid the pit of hell?)
 
 _Omnia Romæ venalia sunt._ Hell has its price! _verb. sap._ If there be
@@ -4933,8 +4367,6 @@ _Omnia Romæ venalia sunt._ Hell has its price! _verb. sap._ If there be
 anything behind this instinct it will be valuable to trace it afterwards
 
 _accurately_, so I had better commence to do so, therefore--
-
-
 
 R. M. Renfield, ætat 59.--Sanguine temperament; great physical strength;
 
@@ -4956,21 +4388,11 @@ point, the latter force is paramount, and only accident or a series of
 
 accidents can balance it.
 
-
-
-
-
 _Letter, Quincey P. Morris to Hon. Arthur Holmwood._
-
-
 
 “_25 May._
 
-
-
 “My dear Art,--
-
-
 
 “We’ve told yarns by the camp-fire in the prairies; and dressed one
 
@@ -5000,35 +4422,23 @@ hand. We shall both swear to leave you at home if you drink too deep to
 
 a certain pair of eyes. Come!
 
-
-
 “Yours, as ever and always,
-
-
 
 “QUINCEY P. MORRIS.”
 
-
-
-
-
 _Telegram from Arthur Holmwood to Quincey P. Morris._
 
-
-
 “_26 May._
-
-
 
 “Count me in every time. I bear messages which will make both your ears
 
 tingle.
 
-
-
 “ART.”
 
-## MINA MURRAY’S JOURNAL
+## Kapitel VI
+
+MINA MURRAY’S JOURNAL
 
 _24 July. Whitby._--Lucy met me at the station, looking sweeter and
 
@@ -5088,8 +4498,6 @@ sitting beside me. They seem to do nothing all day but sit up here and
 
 talk.
 
-
-
 The harbour lies below me, with, on the far side, one long granite wall
 
 stretching out into the sea, with a curve outwards at the end of it, in
@@ -5101,8 +4509,6 @@ of it. On the near side, the sea-wall makes an elbow crooked inversely,
 and its end too has a lighthouse. Between the two piers there is a
 
 narrow opening into the harbour, which then suddenly widens.
-
-
 
 It is nice at high water; but when the tide is out it shoals away to
 
@@ -5122,8 +4528,6 @@ lost bells are heard out at sea. I must ask the old man about this; he
 
 is coming this way....
 
-
-
 He is a funny old man. He must be awfully old, for his face is all
 
 gnarled and twisted like the bark of a tree. He tells me that he is
@@ -5135,8 +4539,6 @@ fleet when Waterloo was fought. He is, I am afraid, a very sceptical
 person, for when I asked him about the bells at sea and the White Lady
 
 at the abbey he said very brusquely:--
-
-
 
 “I wouldn’t fash masel’ about them, miss. Them things be all wore out.
 
@@ -5160,8 +4562,6 @@ the whale-fishing in the old days. He was just settling himself to begin
 
 when the clock struck six, whereupon he laboured to get up, and said:--
 
-
-
 “I must gang ageeanwards home now, miss. My grand-daughter doesn’t like
 
 to be kept waitin’ when the tea is ready, for it takes me time to
@@ -5169,8 +4569,6 @@ to be kept waitin’ when the tea is ready, for it takes me time to
 crammle aboon the grees, for there be a many of ’em; an’, miss, I lack
 
 belly-timber sairly by the clock.”
-
-
 
 He hobbled away, and I could see him hurrying, as well as he could, down
 
@@ -5188,11 +4586,7 @@ out visiting with her mother, and as they were only duty calls, I did
 
 not go. They will be home by this.
 
-
-
        *       *       *       *       *
-
-
 
 _1 August._--I came up here an hour ago with Lucy, and we had a most
 
@@ -5221,8 +4615,6 @@ gave me double share instead. I got him on the subject of the legends,
 and he went off at once into a sort of sermon. I must try to remember it
 
 and put it down:--
-
-
 
 “It be all fool-talk, lock, stock, and barrel; that’s what it be, an’
 
@@ -5266,21 +4658,15 @@ trimmlin’ and ditherin’, with their hands that dozzened an’ slippy from
 
 lyin’ in the sea that they can’t even keep their grup o’ them.”
 
-
-
 I could see from the old fellow’s self-satisfied air and the way in
 
 which he looked round for the approval of his cronies that he was
 
 “showing off,” so I put in a word to keep him going:--
 
-
-
 “Oh, Mr. Swales, you can’t be serious. Surely these tombstones are not
 
 all wrong?”
-
-
 
 “Yabblins! There may be a poorish few not wrong, savin’ where they make
 
@@ -5308,13 +4694,9 @@ that one, the aftest abaft the bier-bank: read it!” I went over and
 
 read:--
 
-
-
 “Edward Spencelagh, master mariner, murdered by pirates off the coast of
 
 Andres, April, 1854, æt. 30.” When I came back Mr. Swales went on:--
-
-
 
 “Who brought him home, I wonder, to hap him here? Murdered off the coast
 
@@ -5350,8 +4732,6 @@ evidently local pleasantry, for the old man cackled over it, and his
 
 cronies joined in with gusto.
 
-
-
 “But,” I said, “surely you are not quite correct, for you start on the
 
 assumption that all the poor people, or their spirits, will have to
@@ -5360,15 +4740,9 @@ take their tombstones with them on the Day of Judgment. Do you think
 
 that will be really necessary?”
 
-
-
 “Well, what else be they tombstones for? Answer me that, miss!”
 
-
-
 “To please their relatives, I suppose.”
-
-
 
 “To please their relatives, you suppose!” This he said with intense
 
@@ -5386,8 +4760,6 @@ from where I sat, but Lucy was more opposite to them, so she leant over
 
 and read:--
 
-
-
 “Sacred to the memory of George Canon, who died, in the hope of a
 
 glorious resurrection, on July, 29, 1873, falling from the rocks at
@@ -5399,8 +4771,6 @@ beloved son. ‘He was the only son of his mother, and she was a widow.’
 Really, Mr. Swales, I don’t see anything very funny in that!” She spoke
 
 her comment very gravely and somewhat severely.
-
-
 
 “Ye don’t see aught funny! Ha! ha! But that’s because ye don’t gawm the
 
@@ -5430,21 +4800,15 @@ when Geordie comes pantin’ up the grees with the tombstean balanced on
 
 his hump, and asks it to be took as evidence!”
 
-
-
 I did not know what to say, but Lucy turned the conversation as she
 
 said, rising up:--
-
-
 
 “Oh, why did you tell us of this? It is my favourite seat, and I cannot
 
 leave it; and now I find I must go on sitting over the grave of a
 
 suicide.”
-
-
 
 “That won’t harm ye, my pretty; an’ it may make poor Geordie gladsome to
 
@@ -5462,8 +4826,6 @@ There’s the clock, an’ I must gang. My service to ye, ladies!” And off
 
 he hobbled.
 
-
-
 Lucy and I sat awhile, and it was all so beautiful before us that we
 
 took hands as we sat; and she told me all over again about Arthur and
@@ -5472,11 +4834,7 @@ their coming marriage. That made me just a little heart-sick, for I
 
 haven’t heard from Jonathan for a whole month.
 
-
-
        *       *       *       *       *
-
-
 
 _The same day._ I came up here alone, for I am very sad. There was no
 
@@ -5504,13 +4862,7 @@ both. I wonder where Jonathan is and if he is thinking of me! I wish he
 
 were here.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _5 June._--The case of Renfield grows more interesting the more I get to
 
@@ -5538,11 +4890,7 @@ three days? I shall clear them away.” Of course, I said that would do. I
 
 must watch him.
 
-
-
        *       *       *       *       *
-
-
 
 _18 June._--He has turned his mind now to spiders, and has got several
 
@@ -5554,11 +4902,7 @@ has used half his food in attracting more flies from outside to his
 
 room.
 
-
-
        *       *       *       *       *
-
-
 
 _1 July._--His spiders are now becoming as great a nuisance as his
 
@@ -5594,11 +4938,7 @@ totals added in batches again, as though he were “focussing” some
 
 account, as the auditors put it.
 
-
-
        *       *       *       *       *
-
-
 
 _8 July._--There is a method in his madness, and the rudimentary idea in
 
@@ -5620,11 +4960,7 @@ do remain, however, are well fed, for he still brings in the flies by
 
 tempting them with his food.
 
-
-
        *       *       *       *       *
-
-
 
 _19 July._--We are progressing. My friend has now a whole colony of
 
@@ -5637,8 +4973,6 @@ very great favour; and as he spoke he fawned on me like a dog. I asked
 him what it was, and he said, with a sort of rapture in his voice and
 
 bearing:--
-
-
 
 “A kitten, a nice little, sleek playful kitten, that I can play with,
 
@@ -5653,8 +4987,6 @@ should be wiped out in the same manner as the flies and the spiders; so
 I said I would see about it, and asked him if he would not rather have a
 
 cat than a kitten. His eagerness betrayed him as he answered:--
-
-
 
 “Oh, yes, I would like a cat! I only asked for a kitten lest you should
 
@@ -5672,11 +5004,7 @@ with his present craving and see how it will work out; then I shall know
 
 more.
 
-
-
        *       *       *       *       *
-
-
 
 _10 p. m._--I have visited him again and found him sitting in a corner
 
@@ -5690,11 +5018,7 @@ he went without a word, and sat down, gnawing his fingers, in the corner
 
 where I had found him. I shall see him in the morning early.
 
-
-
        *       *       *       *       *
-
-
 
 _20 July._--Visited Renfield very early, before the attendant went his
 
@@ -5714,11 +5038,7 @@ blood. I said nothing, but went and told the keeper to report to me if
 
 there were anything odd about him during the day.
 
-
-
        *       *       *       *       *
-
-
 
 _11 a. m._--The attendant has just been to me to say that Renfield has
 
@@ -5728,11 +5048,7 @@ doctor,” he said, “that he has eaten his birds, and that he just took
 
 and ate them raw!”
 
-
-
        *       *       *       *       *
-
-
 
 _11 p. m._--I gave Renfield a strong opiate to-night, enough to make
 
@@ -5774,8 +5090,6 @@ cause might turn the scale with me, for may not I too be of an
 
 exceptional brain, congenitally?
 
-
-
 How well the man reasoned; lunatics always do within their own scope. I
 
 wonder at how many lives he values a man, or if at only one. He has
@@ -5783,8 +5097,6 @@ wonder at how many lives he values a man, or if at only one. He has
 closed the account most accurately, and to-day begun a new record. How
 
 many of us begin a new record with each day of our lives?
-
-
 
 To me it seems only yesterday that my whole life ended with my new hope,
 
@@ -5798,19 +5110,11 @@ angry with my friend whose happiness is yours; but I must only wait on
 
 hopeless and work. Work! work!
 
-
-
 If I only could have as strong a cause as my poor mad friend there--a
 
 good, unselfish cause to make me work--that would be indeed happiness.
 
-
-
-
-
 _Mina Murray’s Journal._
-
-
 
 _26 July._--I am anxious, and it soothes me to express myself here; it
 
@@ -5870,11 +5174,7 @@ is the waiting which disturbs her; she will be all right when he
 
 arrives.
 
-
-
        *       *       *       *       *
-
-
 
 _27 July._--No news from Jonathan. I am getting quite uneasy about him,
 
@@ -5900,11 +5200,7 @@ rose-pink. She has lost that anæmic look which she had. I pray it will
 
 all last.
 
-
-
        *       *       *       *       *
-
-
 
 _3 August._--Another week gone, and no news from Jonathan, not even to
 
@@ -5923,8 +5219,6 @@ which I do not understand; even in her sleep she seems to be watching
 me. She tries the door, and finding it locked, goes about the room
 
 searching for the key.
-
-
 
 _6 August._--Another three days, and no news. This suspense is getting
 
@@ -5968,21 +5262,15 @@ making straight for me, and I can see, by the way he lifts his hat, that
 
 he wants to talk....
 
-
-
 I have been quite touched by the change in the poor old man. When he sat
 
 down beside me, he said in a very gentle way:--
-
-
 
 “I want to say something to you, miss.” I could see he was not at ease,
 
 so I took his poor old wrinkled hand in mine and asked him to speak
 
 fully; so he said, leaving his hand in mine:--
-
-
 
 “I’m afraid, my deary, that I must have shocked you by all the wicked
 
@@ -6038,15 +5326,11 @@ up, shook hands with me, and blessed me, and said good-bye, and hobbled
 
 off. It all touched me, and upset me very much.
 
-
-
 I was glad when the coastguard came along, with his spy-glass under his
 
 arm. He stopped to talk with me, as he always does, but all the time
 
 kept looking at a strange ship.
-
-
 
 “I can’t make her out,” he said; “she’s a Russian, by the look of her;
 
@@ -6062,19 +5346,15 @@ changes about with every puff of wind. We’ll hear more of her before
 
 this time to-morrow.”
 
-## CUTTING FROM “THE DAILYGRAPH,” 8 AUGUST
+## Kapitel VII
+
+CUTTING FROM “THE DAILYGRAPH,” 8 AUGUST
 
 (_Pasted in Mina Murray’s Journal._)
 
-
-
 From a Correspondent.
 
-
-
 _Whitby_.
-
-
 
 One of the greatest and suddenest storms on record has just been
 
@@ -6162,11 +5442,7 @@ was seen with sails idly flapping as she gently rolled on the undulating
 
 swell of the sea,
 
-
-
     “As idle as a painted ship upon a painted ocean.”
-
-
 
 Shortly before ten o’clock the stillness of the air grew quite
 
@@ -6181,8 +5457,6 @@ great harmony of nature’s silence. A little after midnight came a
 strange sound from over the sea, and high overhead the air began to
 
 carry a strange, faint, hollow booming.
-
-
 
 Then without warning the tempest broke. With a rapidity which, at the
 
@@ -6230,8 +5504,6 @@ of thunder that the whole sky overhead seemed trembling under the shock
 
 of the footsteps of the storm.
 
-
-
 Some of the scenes thus revealed were of immeasurable grandeur and of
 
 absorbing interest--the sea, running mountains high, threw skywards with
@@ -6261,8 +5533,6 @@ piers. As each boat achieved the safety of the port there was a shout of
 joy from the mass of people on shore, a shout which for a moment seemed
 
 to cleave the gale and was then swept away in its rush.
-
-
 
 Before long the searchlight discovered some distance away a schooner
 
@@ -6332,8 +5602,6 @@ storms into the south-east corner of the pier jutting under the East
 
 Cliff, known locally as Tate Hill Pier.
 
-
-
 There was of course a considerable concussion as the vessel drove up on
 
 the sand heap. Every spar, rope, and stay was strained, and some of the
@@ -6355,8 +5623,6 @@ the Whitby vernacular--actually project over where the sustaining cliff
 has fallen away, it disappeared in the darkness, which seemed
 
 intensified just beyond the focus of the searchlight.
-
-
 
 It so happened that there was no one at the moment on Tate Hill Pier, as
 
@@ -6391,8 +5657,6 @@ courtesy of the chief boatman, I was, as your correspondent, permitted
 to climb on deck, and was one of a small group who saw the dead seaman
 
 whilst actually lashed to the wheel.
-
-
 
 It was no wonder that the coastguard was surprised, or even awed, for
 
@@ -6448,8 +5712,6 @@ noble as that of the young Casabianca--and placed in the mortuary to
 
 await inquest.
 
-
-
 Already the sudden storm is passing, and its fierceness is abating;
 
 crowds are scattering homeward, and the sky is beginning to redden over
@@ -6460,11 +5722,7 @@ details of the derelict ship which found her way so miraculously into
 
 harbour in the storm.
 
-
-
 _Whitby_
-
-
 
 _9 August._--The sequel to the strange arrival of the derelict in the
 
@@ -6520,11 +5778,7 @@ and manifestly had had a savage opponent, for its throat was torn away,
 
 and its belly was slit open as if with a savage claw.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--By the kindness of the Board of Trade inspector, I have been
 
@@ -6556,27 +5810,15 @@ dictation of a clerk of the Russian consul, who kindly translated for
 
 me, time being short.
 
-
-
                          LOG OF THE “DEMETER.”
 
-
-
-
-
 _Varna to Whitby._
-
-
 
 _Written 18 July, things so strange happening, that I shall keep
 
 accurate note henceforth till we land._
 
-
-
        *       *       *       *       *
-
-
 
 On 6 July we finished taking in cargo, silver sand and boxes of earth.
 
@@ -6584,21 +5826,13 @@ At noon set sail. East wind, fresh. Crew, five hands ... two mates,
 
 cook, and myself (captain).
 
-
-
        *       *       *       *       *
-
-
 
 On 11 July at dawn entered Bosphorus. Boarded by Turkish Customs
 
 officers. Backsheesh. All correct. Under way at 4 p. m.
 
-
-
        *       *       *       *       *
-
-
 
 On 12 July through Dardanelles. More Customs officers and flagboat of
 
@@ -6606,21 +5840,13 @@ guarding squadron. Backsheesh again. Work of officers thorough, but
 
 quick. Want us off soon. At dark passed into Archipelago.
 
-
-
        *       *       *       *       *
-
-
 
 On 13 July passed Cape Matapan. Crew dissatisfied about something.
 
 Seemed scared, but would not speak out.
 
-
-
        *       *       *       *       *
-
-
 
 On 14 July was somewhat anxious about crew. Men all steady fellows, who
 
@@ -6632,11 +5858,7 @@ with one of them that day and struck him. Expected fierce quarrel, but
 
 all was quiet.
 
-
-
        *       *       *       *       *
-
-
 
 On 16 July mate reported in the morning that one of crew, Petrofsky, was
 
@@ -6650,11 +5872,7 @@ would not say more than there was _something_ aboard. Mate getting very
 
 impatient with them; feared some trouble ahead.
 
-
-
        *       *       *       *       *
-
-
 
 On 17 July, yesterday, one of the men, Olgaren, came to my cabin, and in
 
@@ -6676,11 +5894,7 @@ spread. To allay it, I shall to-day search entire ship carefully from
 
 stem to stern.
 
-
-
        *       *       *       *       *
-
-
 
 Later in the day I got together the whole crew, and told them, as they
 
@@ -6702,11 +5916,7 @@ search over, and went back to work cheerfully. First mate scowled, but
 
 said nothing.
 
-
-
        *       *       *       *       *
-
-
 
 _22 July_.--Rough weather last three days, and all hands busy with
 
@@ -6716,11 +5926,7 @@ Mate cheerful again, and all on good terms. Praised men for work in bad
 
 weather. Passed Gibralter and out through Straits. All well.
 
-
-
        *       *       *       *       *
-
-
 
 _24 July_.--There seems some doom over this ship. Already a hand short,
 
@@ -6736,11 +5942,7 @@ angry. Fear there will be some trouble, as either he or the men will do
 
 some violence.
 
-
-
        *       *       *       *       *
-
-
 
 _28 July_.--Four days in hell, knocking about in a sort of maelstrom,
 
@@ -6754,11 +5956,7 @@ Wind abating; seas still terrific, but feel them less, as ship is
 
 steadier.
 
-
-
        *       *       *       *       *
-
-
 
 _29 July_.--Another tragedy. Had single watch to-night, as crew too
 
@@ -6770,11 +5968,7 @@ but no one found. Are now without second mate, and crew in a panic. Mate
 
 and I agreed to go armed henceforth and wait for any sign of cause.
 
-
-
        *       *       *       *       *
-
-
 
 _30 July_.--Last night. Rejoiced we are nearing England. Weather fine,
 
@@ -6784,11 +5978,7 @@ me that both man of watch and steersman missing. Only self and mate and
 
 two hands left to work ship.
 
-
-
        *       *       *       *       *
-
-
 
 _1 August_.--Two days of fog, and not a sail sighted. Had hoped when in
 
@@ -6806,11 +5996,7 @@ working stolidly and patiently, with minds made up to worst. They are
 
 Russian, he Roumanian.
 
-
-
        *       *       *       *       *
-
-
 
 _2 August, midnight_.--Woke up from few minutes’ sleep by hearing a cry,
 
@@ -6828,11 +6014,7 @@ only God can guide us in the fog, which seems to move with us; and God
 
 seems to have deserted us.
 
-
-
        *       *       *       *       *
-
-
 
 _3 August_.--At midnight I went to relieve the man at the wheel, and
 
@@ -6880,11 +6062,7 @@ Then, if I can’t steer to any harbour with the wind that is, I shall cut
 
 down sails and lie by, and signal for help....
 
-
-
        *       *       *       *       *
-
-
 
 It is nearly all over now. Just as I was beginning to hope that the mate
 
@@ -6916,11 +6094,7 @@ followed them himself. God help me! How am I to account for all these
 
 horrors when I get to port? _When_ I get to port! Will that ever be?
 
-
-
        *       *       *       *       *
-
-
 
 _4 August._--Still fog, which the sunrise cannot pierce. I know there is
 
@@ -6954,11 +6128,7 @@ and the Blessed Virgin and the saints help a poor ignorant soul trying
 
 to do his duty....
 
-
-
        *       *       *       *       *
-
-
 
 Of course the verdict was an open one. There is no evidence to adduce;
 
@@ -6978,8 +6148,6 @@ of more than a hundred boats have already given in their names as
 
 wishing to follow him to the grave.
 
-
-
 No trace has ever been found of the great dog; at which there is much
 
 mourning, for, with public opinion in its present state, he would, I
@@ -6988,13 +6156,7 @@ believe, be adopted by the town. To-morrow will see the funeral; and so
 
 will end this one more “mystery of the sea.”
 
-
-
-
-
 _Mina Murray’s Journal._
-
-
 
 _8 August._--Lucy was very restless all night, and I, too, could not
 
@@ -7016,8 +6178,6 @@ disappears, and she yields herself almost exactly to the routine of her
 
 life.
 
-
-
 Early in the morning we both got up and went down to the harbour to see
 
 if anything had happened in the night. There were very few people about,
@@ -7036,11 +6196,7 @@ oh, is he on land or sea? Where is he, and how? I am getting fearfully
 
 anxious about him. If I only knew what to do, and could do anything!
 
-
-
        *       *       *       *       *
-
-
 
 _10 August._--The funeral of the poor sea-captain to-day was most
 
@@ -7126,15 +6282,15 @@ touching funeral; the dog, now furious and now in terror--will all
 
 afford material for her dreams.
 
-
-
 I think it will be best for her to go to bed tired out physically, so I
 
 shall take her for a long walk by the cliffs to Robin Hood’s Bay and
 
 back. She ought not to have much inclination for sleep-walking then.
 
-## MINA MURRAY’S JOURNAL
+## Kapitel VIII
+
+MINA MURRAY’S JOURNAL
 
 _Same day, 11 o’clock p. m._--Oh, but I am tired! If it were not that I
 
@@ -7196,11 +6352,7 @@ corner, and that we are over her troubles with dreaming. I should be
 
 quite happy if I only knew if Jonathan.... God bless and keep him.
 
-
-
        *       *       *       *       *
-
-
 
 _11 August, 3 a. m._--Diary again. No sleep now, so I may as well write.
 
@@ -7322,8 +6474,6 @@ of the seat. She was quite alone, and there was not a sign of any living
 
 thing about.
 
-
-
 When I bent over her I could see that she was still asleep. Her lips
 
 were parted, and she was breathing--not softly as usual with her, but in
@@ -7386,8 +6536,6 @@ mud, using each foot in turn on the other, so that as we went home, no
 
 one, in case we should meet any one, should notice my bare feet.
 
-
-
 Fortune favoured us, and we got home without meeting a soul. Once we saw
 
 a man, who seemed not quite sober, passing along a street in front of
@@ -7424,11 +6572,7 @@ my wrist, so perhaps I shall not be again disturbed. Lucy is sleeping
 
 soundly; the reflex of the dawn is high and far over the sea....
 
-
-
        *       *       *       *       *
-
-
 
 _Same day, noon._--All goes well. Lucy slept till I woke her and seemed
 
@@ -7452,11 +6596,7 @@ laughed and petted me, and said she did not even feel it. Fortunately it
 
 cannot leave a scar, as it is so tiny.
 
-
-
        *       *       *       *       *
-
-
 
 _Same day, night._--We passed a happy day. The air was clear, and the
 
@@ -7480,11 +6620,7 @@ and secure the key the same as before, though I do not expect any
 
 trouble to-night.
 
-
-
        *       *       *       *       *
-
-
 
 _12 August._--My expectations were wrong, for twice during the night I
 
@@ -7508,11 +6644,7 @@ somewhat, for, though sympathy can’t alter facts, it can help to make
 
 them more bearable.
 
-
-
        *       *       *       *       *
-
-
 
 _13 August._--Another quiet day, and to bed with the key on my wrist as
 
@@ -7536,11 +6668,7 @@ from the window Lucy had lain down again, and was sleeping peacefully.
 
 She did not stir again all night.
 
-
-
        *       *       *       *       *
-
-
 
 _14 August._--On the East Cliff, reading and writing all day. Lucy seems
 
@@ -7561,8 +6689,6 @@ thrown over on the East Cliff and the old abbey, and seemed to bathe
 everything in a beautiful rosy glow. We were silent for a while, and
 
 suddenly Lucy murmured as if to herself:--
-
-
 
 “His red eyes again! They are just the same.” It was such an odd
 
@@ -7628,13 +6754,9 @@ asleep, and breathing heavily; she was holding her hand to her throat,
 
 as though to protect it from cold.
 
-
-
 I did not wake her, but tucked her up warmly; I have taken care that the
 
 door is locked and the window securely fastened.
-
-
 
 She looks so sweet as she sleeps; but she is paler than is her wont, and
 
@@ -7644,11 +6766,7 @@ fear she is fretting about something. I wish I could find out what it
 
 is.
 
-
-
        *       *       *       *       *
-
-
 
 _15 August._--Rose later than usual. Lucy was languid and tired, and
 
@@ -7674,11 +6792,7 @@ almost sure to kill her. Ah, we were wise to keep from her the affair of
 
 the dreadful night of Lucy’s sleep-walking.
 
-
-
        *       *       *       *       *
-
-
 
 _17 August._--No diary for two whole days. I have not had the heart to
 
@@ -7720,23 +6834,13 @@ red centres. Unless they heal within a day or two, I shall insist on the
 
 doctor seeing about them.
 
-
-
-
-
 _Letter, Samuel F. Billington & Son, Solicitors, Whitby, to Messrs.
 
 Carter, Paterson & Co., London._
 
-
-
 “_17 August._
 
-
-
 “Dear Sirs,--
-
-
 
 “Herewith please receive invoice of goods sent by Great Northern
 
@@ -7745,8 +6849,6 @@ Railway. Same are to be delivered at Carfax, near Purfleet, immediately
 on receipt at goods station King’s Cross. The house is at present empty,
 
 but enclosed please find keys, all of which are labelled.
-
-
 
 “You will please deposit the boxes, fifty in number, which form the
 
@@ -7780,41 +6882,23 @@ house, where the proprietor may get them on his entering the house by
 
 means of his duplicate key.
 
-
-
 “Pray do not take us as exceeding the bounds of business courtesy in
 
 pressing you in all ways to use the utmost expedition.
 
-
-
 _“We are, dear Sirs,
-
-
 
 “Faithfully yours,
 
-
-
 “SAMUEL F. BILLINGTON & SON.”_
-
-
-
-
 
 _Letter, Messrs. Carter, Paterson & Co., London, to Messrs. Billington &
 
 Son, Whitby._
 
-
-
 “_21 August._
 
-
-
 “Dear Sirs,--
-
-
 
 “We beg to acknowledge £10 received and to return cheque £1 17s. 9d,
 
@@ -7824,25 +6908,13 @@ delivered in exact accordance with instructions, and keys left in parcel
 
 in main hall, as directed.
 
-
-
 “We are, dear Sirs,
-
-
 
 “Yours respectfully.
 
-
-
 “_Pro_ CARTER, PATERSON & CO.”
 
-
-
-
-
 _Mina Murray’s Journal._
-
-
 
 _18 August._--I am happy to-day, and write sitting on the seat in the
 
@@ -7864,8 +6936,6 @@ very seat, I found her asleep. As she told me she tapped playfully with
 
 the heel of her boot on the stone slab and said:--
 
-
-
 “My poor little feet didn’t make much noise then! I daresay poor old Mr.
 
 Swales would have told me that it was because I didn’t want to wake up
@@ -7881,8 +6951,6 @@ habit--says he loves; and, indeed, I don’t wonder that he does. Then she
 went on in a half-dreaming kind of way, as if trying to recall it to
 
 herself:--
-
-
 
 “I didn’t quite dream; but it all seemed to be real. I only wanted to be
 
@@ -7916,8 +6984,6 @@ earthquake, and I came back and found you shaking my body. I saw you do
 
 it before I felt you.”
 
-
-
 Then she began to laugh. It seemed a little uncanny to me, and I
 
 listened to her breathlessly. I did not quite like it, and thought it
@@ -7932,11 +6998,7 @@ rosy. Her mother rejoiced when she saw her, and we all spent a very
 
 happy evening together.
 
-
-
        *       *       *       *       *
-
-
 
 _19 August._--Joy, joy, joy! although not all joy. At last, news of
 
@@ -7966,23 +7028,13 @@ to Jonathan, my husband. The letter that he has seen and touched must
 
 comfort me till we meet.
 
-
-
-
-
 _Letter, Sister Agatha, Hospital of St. Joseph and Ste. Mary,
 
 Buda-Pesth, to Miss Wilhelmina Murray._
 
-
-
 “_12 August._
 
-
-
 “Dear Madam,--
-
-
 
 “I write by desire of Mr. Jonathan Harker, who is himself not strong
 
@@ -8006,19 +7058,11 @@ would like to pay for his staying here, so that others who need shall
 
 not be wanting for help.
 
-
-
 “Believe me,
-
-
 
 “Yours, with sympathy and all blessings,
 
-
-
 “SISTER AGATHA.
-
-
 
 “P. S.--My patient being asleep, I open this to let you know something
 
@@ -8048,8 +7092,6 @@ he was English, they gave him a ticket for the furthest station on the
 
 way thither that the train reached.
 
-
-
 “Be assured that he is well cared for. He has won all hearts by his
 
 sweetness and gentleness. He is truly getting on well, and I have no
@@ -8060,13 +7102,7 @@ safety’s sake. There are, I pray God and St. Joseph and Ste. Mary, many,
 
 many, happy years for you both.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _19 August._--Strange and sudden change in Renfield last night. About
 
@@ -8082,13 +7118,9 @@ quite haughty. Would not condescend to talk with him at all. All he
 
 would say was:--
 
-
-
      “I don’t want to talk to you: you don’t count now; the Master is at
 
      hand.”
-
-
 
 The attendant thinks it is some sudden form of religious mania which has
 
@@ -8114,8 +7146,6 @@ from human vanity sees no difference between an eagle and a sparrow. Oh,
 
 if men only knew!
 
-
-
 For half an hour or more Renfield kept getting excited in greater and
 
 greater degree. I did not pretend to be watching him, but I kept strict
@@ -8136,11 +7166,7 @@ lead him to talk of his pets, a theme which had never failed to excite
 
 his attention. At first he made no reply, but at length said testily:--
 
-
-
 “Bother them all! I don’t care a pin about them.”
-
-
 
 “What?” I said. “You don’t mean to tell me you don’t care about
 
@@ -8148,21 +7174,15 @@ spiders?” (Spiders at present are his hobby and the note-book is filling
 
 up with columns of small figures.) To this he answered enigmatically:--
 
-
-
 “The bride-maidens rejoice the eyes that wait the coming of the bride;
 
 but when the bride draweth nigh, then the maidens shine not to the eyes
 
 that are filled.”
 
-
-
 He would not explain himself, but remained obstinately seated on his bed
 
 all the time I remained with him.
-
-
 
 I am weary to-night and low in spirits. I cannot but think of Lucy, and
 
@@ -8176,11 +7196,7 @@ Lucy, and I shall not dishonour her by mixing the two. If need be,
 
 to-night shall be sleepless....
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Glad I made the resolution; gladder that I kept to it. I had
 
@@ -8222,8 +7238,6 @@ of trees I saw a white figure scale the high wall which separates our
 
 grounds from those of the deserted house.
 
-
-
 I ran back at once, told the watchman to get three or four men
 
 immediately and follow me into the grounds of Carfax, in case our friend
@@ -8252,8 +7266,6 @@ him--the more so as my men had now crossed the wall and were closing him
 
 in. I heard him say:--
 
-
-
 “I am here to do Your bidding, Master. I am Your slave, and You will
 
 reward me, for I shall be faithful. I have worshipped You long and afar
@@ -8261,8 +7273,6 @@ reward me, for I shall be faithful. I have worshipped You long and afar
 off. Now that You are near, I await Your commands, and You will not pass
 
 me by, will You, dear Master, in Your distribution of good things?”
-
-
 
 He _is_ a selfish old beggar anyhow. He thinks of the loaves and fishes
 
@@ -8288,29 +7298,21 @@ room. His cries are at times awful, but the silences that follow are
 
 more deadly still, for he means murder in every turn and movement.
 
-
-
 Just now he spoke coherent words for the first time:--
 
-
-
 “I shall be patient, Master. It is coming--coming--coming!”
-
-
 
 So I took the hint, and came too. I was too excited to sleep, but this
 
 diary has quieted me, and I feel I shall get some sleep to-night.
 
-## _Letter, Mina Harker to Lucy Westenra._
+## Kapitel IX
+
+_Letter, Mina Harker to Lucy Westenra._
 
 “_Buda-Pesth, 24 August._
 
-
-
 “My dearest Lucy,--
-
-
 
 “I know you will be anxious to hear all that has happened since we
 
@@ -8372,8 +7374,6 @@ cause of trouble. I am now sitting by his bedside, where I can see his
 
 face while he sleeps. He is waking!...
 
-
-
 “When he woke he asked me for his coat, as he wanted to get something
 
 from the pocket; I asked Sister Agatha, and she brought all his things.
@@ -8389,8 +7389,6 @@ me over to the window, saying he wanted to be quite alone for a moment.
 Then he called me back, and when I came he had his hand over the
 
 note-book, and he said to me very solemnly:--
-
-
 
 “‘Wilhelmina’--I knew then that he was in deadly earnest, for he has
 
@@ -8424,11 +7422,7 @@ have asked Sister Agatha to beg the Superior to let our wedding be this
 
 afternoon, and am waiting her reply....
 
-
-
        *       *       *       *       *
-
-
 
 “She has come and told me that the chaplain of the English mission
 
@@ -8436,11 +7430,7 @@ church has been sent for. We are to be married in an hour, or as soon
 
 after as Jonathan awakes....
 
-
-
        *       *       *       *       *
-
-
 
 “Lucy, the time has come and gone. I feel very solemn, but very, very
 
@@ -8488,8 +7478,6 @@ shall not wonder if at first he mixes up not only the month, but the
 
 year.
 
-
-
 “Well, my dear, what could I say? I could only tell him that I was the
 
 happiest woman in all the wide world, and that I had nothing to give him
@@ -8501,8 +7489,6 @@ and duty for all the days of my life. And, my dear, when he kissed me,
 and drew me to him with his poor weak hands, it was like a very solemn
 
 pledge between us....
-
-
 
 “Lucy dear, do you know why I tell you all this? It is not only because
 
@@ -8528,29 +7514,15 @@ once, and, perhaps, write you very soon again. I must stop, for Jonathan
 
 is waking--I must attend to my husband!
 
-
-
 “Your ever-loving
-
-
 
 “MINA HARKER.”
 
-
-
-
-
 _Letter, Lucy Westenra to Mina Harker._
-
-
 
 “_Whitby, 30 August._
 
-
-
 “My dearest Mina,--
-
-
 
 “Oceans of love and millions of kisses, and may you soon be in your own
 
@@ -8578,23 +7550,13 @@ more than he did then. But this is nonsense. There he is, calling to me.
 
 So no more just at present from your loving
 
-
-
 “LUCY.
-
-
 
 “P. S.--Mother sends her love. She seems better, poor dear.
 
 “P. P. S.--We are to be married on 28 September.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _20 August._--The case of Renfield grows even more interesting. He has
 
@@ -8624,11 +7586,7 @@ coming close to me, he said in a whisper, all the while looking
 
 furtively at them:--
 
-
-
 “They think I could hurt you! Fancy _me_ hurting _you_! The fools!”
-
-
 
 It was soothing, somehow, to the feelings to find myself dissociated
 
@@ -8648,8 +7606,6 @@ only say: “I don’t take any stock in cats. I have more to think of now,
 
 and I can wait; I can wait.”
 
-
-
 After a while I left him. The attendant tells me that he was quiet
 
 until just before dawn, and that then he began to get uneasy, and at
@@ -8658,11 +7614,7 @@ length violent, until at last he fell into a paroxysm which exhausted
 
 him so that he swooned into a sort of coma.
 
-
-
        *       *       *       *       *
-
-
 
 ... Three nights has the same thing happened--violent all day then quiet
 
@@ -8678,11 +7630,7 @@ shall give him a chance, and have the men ready to follow in case they
 
 are required....
 
-
-
        *       *       *       *       *
-
-
 
 _23 August._--“The unexpected always happens.” How well Disraeli knew
 
@@ -8702,11 +7650,7 @@ body will enjoy the relief even if his mind cannot appreciate it. Hark!
 
 The unexpected again! I am called; the patient has once more escaped.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Another night adventure. Renfield artfully waited until the
 
@@ -8738,21 +7682,13 @@ some intention of its own. The patient grew calmer every instant, and
 
 presently said:--
 
-
-
 “You needn’t tie me; I shall go quietly!” Without trouble we came back
 
 to the house. I feel there is something ominous in his calm, and shall
 
 not forget this night....
 
-
-
-
-
 _Lucy Westenra’s Diary_
-
-
 
 _Hillingham, 24 August._--I must imitate Mina, and keep writing things
 
@@ -8774,11 +7710,7 @@ if I could sleep in mother’s room to-night. I shall make an excuse and
 
 try.
 
-
-
        *       *       *       *       *
-
-
 
 _25 August._--Another bad night. Mother did not seem to take to my
 
@@ -8802,21 +7734,11 @@ get air enough. I shall try to cheer up when Arthur comes, or else I
 
 know he will be miserable to see me so.
 
-
-
-
-
 _Letter, Arthur Holmwood to Dr. Seward._
-
-
 
 “_Albemarle Hotel, 31 August._
 
-
-
 “My dear Jack,--
-
-
 
 “I want you to do me a favour. Lucy is ill; that is, she has no special
 
@@ -8852,41 +7774,21 @@ am filled with anxiety, and want to consult with you alone as soon as I
 
 can after you have seen her. Do not fail!
 
-
-
 “ARTHUR.”
-
-
-
-
 
 _Telegram, Arthur Holmwood to Seward._
 
-
-
 “_1 September._
-
-
 
 “Am summoned to see my father, who is worse. Am writing. Write me fully
 
 by to-night’s post to Ring. Wire me if necessary.”
 
-
-
-
-
 _Letter from Dr. Seward to Arthur Holmwood._
-
-
 
 “_2 September._
 
-
-
 “My dear old fellow,--
-
-
 
 “With regard to Miss Westenra’s health I hasten to let you know at once
 
@@ -8907,8 +7809,6 @@ bridge over. I had better tell you exactly what happened, leaving you to
 draw, in a measure, your own conclusions. I shall then say what I have
 
 done and propose doing.
-
-
 
 “I found Miss Westenra in seemingly gay spirits. Her mother was present,
 
@@ -8936,8 +7836,6 @@ high spirits had failed, I at once took advantage of her reaction to
 
 make a diagnosis. She said to me very sweetly:--
 
-
-
 “‘I cannot tell you how I loathe talking about myself.’ I reminded her
 
 that a doctor’s confidence was sacred, but that you were grievously
@@ -8947,8 +7845,6 @@ anxious about her. She caught on to my meaning at once, and settled that
 matter in a word. ‘Tell Arthur everything you choose. I do not care for
 
 myself, but all for him!’ So I am quite free.
-
-
 
 “I could easily see that she is somewhat bloodless, but I could not see
 
@@ -9026,31 +7922,17 @@ to-morrow again. She is to meet me at the Stores, so that I may not
 
 alarm her mother by too early a repetition of my call.
 
-
-
 “Yours always,
 
-
-
 “JOHN SEWARD.”
-
-
-
-
 
 _Letter, Abraham Van Helsing, M. D., D. Ph., D. Lit., etc., etc., to Dr.
 
 Seward._
 
-
-
 “_2 September._
 
-
-
 “My good Friend,--
-
-
 
 “When I have received your letter I am already coming to you. By good
 
@@ -9080,25 +7962,13 @@ night. But if need be I shall come again in three days, and stay longer
 
 if it must. Till then good-bye, my friend John.
 
-
-
  “VAN HELSING.”
-
-
-
-
 
 _Letter, Dr. Seward to Hon. Arthur Holmwood._
 
-
-
 “_3 September._
 
-
-
 “My dear Art,--
-
-
 
 “Van Helsing has come and gone. He came on with me to Hillingham, and
 
@@ -9140,8 +8010,6 @@ student here. I am to get his report to-morrow if he can possibly make
 
 it. In any case I am to have a letter.
 
-
-
 “Well, as to the visit. Lucy was more cheerful than on the day I first
 
 saw her, and certainly looked better. She had lost something of the
@@ -9163,8 +8031,6 @@ geniality that I could see poor Lucy’s pretense of animation merge into
 reality. Then, without any seeming change, he brought the conversation
 
 gently round to his visit, and suavely said:--
-
-
 
 “‘My dear young miss, I have the so great pleasure because you are so
 
@@ -9220,8 +8086,6 @@ is a disease--interest me, and the sweet young dear, she interest me
 
 too. She charm me, and for her, if not for you or disease, I come.’
 
-
-
 “As I tell you, he would not say a word more, even when we were alone.
 
 And so now, Art, you know all I know. I shall keep stern watch. I trust
@@ -9238,13 +8102,7 @@ come at once to Lucy; so do not be over-anxious unless you hear from
 
 me.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _4 September._--Zoöphagous patient still keeps up our interest in him.
 
@@ -9278,11 +8136,7 @@ woe-begone look in his face, which seems rather to indicate than to show
 
 something directly. I cannot quite understand it.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Another change in my patient. At five o’clock I looked in on
 
@@ -9314,8 +8168,6 @@ rise. For a moment or two he looked very sad, and said in a sort of
 
 far-away voice, as though saying it rather to himself than to me:--
 
-
-
 “All over! all over! He has deserted me. No hope for me now unless I do
 
 it for myself!” Then suddenly turning to me in a resolute way, he said:
@@ -9324,11 +8176,7 @@ it for myself!” Then suddenly turning to me in a resolute way, he said:
 
 sugar? I think it would be good for me.”
 
-
-
 “And the flies?” I said.
-
-
 
 “Yes! The flies like it, too, and I like the flies; therefore I like
 
@@ -9338,11 +8186,7 @@ not argue. I procured him a double supply, and left him as happy a man
 
 as, I suppose, any in the world. I wish I could fathom his mind.
 
-
-
        *       *       *       *       *
-
-
 
 _Midnight._--Another change in him. I had been to see Miss Westenra,
 
@@ -9384,8 +8228,6 @@ the window, and crossing over, sat down on his bed. All this surprised
 
 me, so I asked him: “Are you not going to keep flies any more?”
 
-
-
 “No,” said he; “I am sick of all that rubbish!” He certainly is a
 
 wonderfully interesting study. I wish I could get some glimpse of his
@@ -9400,49 +8242,29 @@ periods which affects certain natures--as at times the moon does others?
 
 We shall see.
 
-
-
-
-
 _Telegram, Seward, London, to Van Helsing, Amsterdam._
-
-
 
 “_4 September._--Patient still better to-day.”
 
-
-
-
-
 _Telegram, Seward, London, to Van Helsing, Amsterdam._
-
-
 
 “_5 September._--Patient greatly improved. Good appetite; sleeps
 
 naturally; good spirits; colour coming back.”
 
-
-
-
-
 _Telegram, Seward, London, to Van Helsing, Amsterdam._
-
-
 
 “_6 September._--Terrible change for the worse. Come at once; do not
 
 lose an hour. I hold over telegram to Holmwood till have seen you.”
 
-## _Letter, Dr. Seward to Hon. Arthur Holmwood._
+## Kapitel X
+
+_Letter, Dr. Seward to Hon. Arthur Holmwood._
 
 “_6 September._
 
-
-
 “My dear Art,--
-
-
 
 “My news to-day is not so good. Lucy this morning had gone back a bit.
 
@@ -9470,39 +8292,23 @@ do not hear from me, take it for granted that I am simply waiting for
 
 news. In haste
 
-
-
 “Yours ever,
-
-
 
 “JOHN SEWARD.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _7 September._--The first thing Van Helsing said to me when we met at
 
 Liverpool Street was:--
 
-
-
 “Have you said anything to our young friend the lover of her?”
-
-
 
 “No,” I said. “I waited till I had seen you, as I said in my telegram. I
 
 wrote him a letter simply telling him that you were coming, as Miss
 
 Westenra was not so well, and that I should let him know if need be.”
-
-
 
 “Right, my friend,” he said, “quite right! Better he not know as yet;
 
@@ -9528,13 +8334,9 @@ the same way. “I have for myself thoughts at the present. Later I shall
 
 unfold to you.”
 
-
-
 “Why not now?” I asked. “It may do some good; we may arrive at some
 
 decision.” He stopped and looked at me, and said:--
-
-
 
 “My friend John, when the corn is grown, even before it has
 
@@ -9568,8 +8370,6 @@ off, for he evidently saw that I understood. Then he went on, and very
 
 gravely:--
 
-
-
 “You were always a careful student, and your case-book was ever more
 
 full than the rest. You were only student then; now you are master, and
@@ -9591,8 +8391,6 @@ small. I counsel you, put down in record even your doubts and surmises.
 Hereafter it may be of interest to you to see how true you guess. We
 
 learn from failure, not from success!”
-
-
 
 When I described Lucy’s symptoms--the same as before, but infinitely
 
@@ -9627,8 +8425,6 @@ selfishness, then we should pause before we condemn any one for the vice
 of egoism, for there may be deeper root for its causes than we have
 
 knowledge of.
-
-
 
 I used my knowledge of this phase of spiritual pathology, and laid down
 
@@ -9666,15 +8462,9 @@ action as it should be. There must be transfusion of blood at once. Is
 
 it you or me?”
 
-
-
 “I am younger and stronger, Professor. It must be me.”
 
-
-
 “Then get ready at once. I will bring up my bag. I am prepared.”
-
-
 
 I went downstairs with him, and as we were going there was a knock at
 
@@ -9683,8 +8473,6 @@ the hall-door. When we reached the hall the maid had just opened the
 door, and Arthur was stepping quickly in. He rushed up to me, saying in
 
 an eager whisper:--
-
-
 
 “Jack, I was so anxious. I read between the lines of your letter, and
 
@@ -9702,8 +8490,6 @@ seemed to emanate from him, his eyes gleamed. Without a pause he said to
 
 him gravely as he held out his hand:--
 
-
-
 “Sir, you have come in time. You are the lover of our dear miss. She is
 
 bad, very, very bad. Nay, my child, do not go like that.” For he
@@ -9714,8 +8500,6 @@ help her. You can do more than any that live, and your courage is your
 
 best help.”
 
-
-
 “What can I do?” asked Arthur hoarsely. “Tell me, and I shall do it. My
 
 life is hers, and I would give the last drop of blood in my body for
@@ -9724,11 +8508,7 @@ her.” The Professor has a strongly humorous side, and I could from old
 
 knowledge detect a trace of its origin in his answer:--
 
-
-
 “My young sir, I do not ask so much as that--not the last!”
-
-
 
 “What shall I do?” There was fire in his eyes, and his open nostril
 
@@ -9739,8 +8519,6 @@ he said. “You are a man, and it is a man we want. You are better than
 me, better than my friend John.” Arthur looked bewildered, and the
 
 Professor went on by explaining in a kindly way:--
-
-
 
 “Young miss is bad, very bad. She wants blood, and blood she must have
 
@@ -9760,17 +8538,11 @@ so calm and our blood not so bright than yours!” Arthur turned to him
 
 and said:--
 
-
-
 “If you only knew how gladly I would die for her you would
 
 understand----”
 
-
-
 He stopped, with a sort of choke in his voice.
-
-
 
 “Good boy!” said Van Helsing. “In the not-so-far-off you will be happy
 
@@ -9781,8 +8553,6 @@ shall kiss her once before it is done, but then you must go; and you
 must leave at my sign. Say no word to Madame; you know how it is with
 
 her! There must be no shock; any knowledge of this would be one. Come!”
-
-
 
 We all went up to Lucy’s room. Arthur by direction remained outside.
 
@@ -9796,15 +8566,11 @@ them on a little table out of sight. Then he mixed a narcotic, and
 
 coming over to the bed, said cheerily:--
 
-
-
 “Now, little miss, here is your medicine. Drink it off, like a good
 
 child. See, I lift you so that to swallow is easy. Yes.” She had made
 
 the effort with success.
-
-
 
 It astonished me how long the drug took to act. This, in fact, marked
 
@@ -9822,17 +8588,11 @@ over the table. Friend John, help to me!” So neither of us looked whilst
 
 he bent over her.
 
-
-
 Van Helsing turning to me, said:
-
-
 
 “He is so young and strong and of blood so pure that we need not
 
 defibrinate it.”
-
-
 
 Then with swiftness, but with absolute method, Van Helsing performed the
 
@@ -9861,8 +8621,6 @@ could see how much Arthur was weakened. I dressed the wound and took his
 arm to bring him away, when Van Helsing spoke without turning round--the
 
 man seems to have eyes in the back of his head:--
-
-
 
 “The brave lover, I think, deserve another kiss, which he shall have
 
@@ -9898,8 +8656,6 @@ her all when she is well; she shall love you none the less for what you
 
 have done. Good-bye.”
 
-
-
 When Arthur had gone I went back to the room. Lucy was sleeping gently,
 
 but her breathing was stronger; I could see the counterpane move as her
@@ -9910,15 +8666,9 @@ The velvet band again covered the red mark. I asked the Professor in a
 
 whisper:--
 
-
-
 “What do you make of that mark on her throat?”
 
-
-
 “What do you make of it?”
-
-
 
 “I have not examined it yet,” I answered, and then and there proceeded
 
@@ -9938,11 +8688,7 @@ would have been drenched to a scarlet with the blood which the girl must
 
 have lost to leave such a pallor as she had before the transfusion.
 
-
-
 “Well?” said Van Helsing.
-
-
 
 “Well,” said I, “I can make nothing of it.” The Professor stood up. “I
 
@@ -9952,11 +8698,7 @@ things there which I want. You must remain here all the night, and you
 
 must not let your sight pass from her.”
 
-
-
 “Shall I have a nurse?” I asked.
-
-
 
 “We are the best nurses, you and I. You keep watch all night; see that
 
@@ -9966,11 +8708,7 @@ the night. Later on we can sleep, you and I. I shall be back as soon as
 
 possible. And then we may begin.”
 
-
-
 “May begin?” I said. “What on earth do you mean?”
-
-
 
 “We shall see!” he answered, as he hurried out. He came back a moment
 
@@ -9978,19 +8716,11 @@ later and put his head inside the door and said with warning finger held
 
 up:--
 
-
-
 “Remember, she is your charge. If you leave her, and harm befall, you
 
 shall not sleep easy hereafter!”
 
-
-
-
-
 _Dr. Seward’s Diary--continued._
-
-
 
 _8 September._--I sat up all night with Lucy. The opiate worked itself
 
@@ -10024,53 +8754,33 @@ and with shorter pauses as the time moved on. It was apparent that she
 
 did not want to sleep, so I tackled the subject at once:--
 
-
-
 “You do not want to go to sleep?”
-
-
 
 “No; I am afraid.”
 
-
-
 “Afraid to go to sleep! Why so? It is the boon we all crave for.”
-
-
 
 “Ah, not if you were like me--if sleep was to you a presage of horror!”
 
-
-
 “A presage of horror! What on earth do you mean?”
-
-
 
 “I don’t know; oh, I don’t know. And that is what is so terrible. All
 
 this weakness comes to me in sleep; until I dread the very thought.”
 
-
-
 “But, my dear girl, you may sleep to-night. I am here watching you, and
 
 I can promise that nothing will happen.”
 
-
-
 “Ah, I can trust you!” I seized the opportunity, and said: “I promise
 
 you that if I see any evidence of bad dreams I will wake you at once.”
-
-
 
 “You will? Oh, will you really? How good you are to me. Then I will
 
 sleep!” And almost at the word she gave a deep sigh of relief, and sank
 
 back, asleep.
-
-
 
 All night long I watched by her. She never stirred, but slept on and on
 
@@ -10081,8 +8791,6 @@ slightly parted, and her breast rose and fell with the regularity of a
 pendulum. There was a smile on her face, and it was evident that no bad
 
 dreams had come to disturb her peace of mind.
-
-
 
 In the early morning her maid came, and I left her in her care and took
 
@@ -10104,11 +8812,7 @@ it might be well to be at hand, and stating that he was leaving by the
 
 night mail and would join me early in the morning.
 
-
-
        *       *       *       *       *
-
-
 
 _9 September_.--I was pretty tired and worn out when I got to
 
@@ -10119,8 +8823,6 @@ brain was beginning to feel that numbness which marks cerebral
 exhaustion. Lucy was up and in cheerful spirits. When she shook hands
 
 with me she looked sharply in my face and said:--
-
-
 
 “No sitting up to-night for you. You are worn out. I am quite well
 
@@ -10150,13 +8852,7 @@ So, on her renewing her promise to call me if she should want anything,
 
 I lay on the sofa, and forgot all about everything.
 
-
-
-
-
 _Lucy Westenra’s Diary._
-
-
 
 _9 September._--I feel so happy to-night. I have been so miserably weak,
 
@@ -10184,13 +8880,7 @@ within call. Thank everybody for being so good to me! Thank God!
 
 Good-night, Arthur.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _10 September._--I was conscious of the Professor’s hand on my head, and
 
@@ -10198,25 +8888,15 @@ started awake all in a second. That is one of the things that we learn
 
 in an asylum, at any rate.
 
-
-
 “And how is our patient?”
-
-
 
 “Well, when I left her, or rather when she left me,” I answered.
 
-
-
 “Come, let us see,” he said. And together we went into the room.
-
-
 
 The blind was down, and I went over to raise it gently, whilst Van
 
 Helsing stepped, with his soft, cat-like tread, over to the bed.
-
-
 
 As I raised the blind, and the morning sunlight flooded the room, I
 
@@ -10229,8 +8909,6 @@ his exclamation of horror, “Gott in Himmel!” needed no enforcement from
 his agonised face. He raised his hand and pointed to the bed, and his
 
 iron face was drawn and ashen white. I felt my knees begin to tremble.
-
-
 
 There on the bed, seemingly in a swoon, lay poor Lucy, more horribly
 
@@ -10251,8 +8929,6 @@ He wetted the poor white lips with it, and together we rubbed palm and
 wrist and heart. He felt her heart, and after a few moments of agonising
 
 suspense said:--
-
-
 
 “It is not too late. It beats, though but feebly. All our work is
 
@@ -10290,21 +8966,15 @@ cheeks and lips. No man knows, till he experiences it, what it is to
 
 feel his own life-blood drawn away into the veins of the woman he loves.
 
-
-
 The Professor watched me critically. “That will do,” he said. “Already?”
 
 I remonstrated. “You took a great deal more from Art.” To which he
 
 smiled a sad sort of smile as he replied:--
 
-
-
 “He is her lover, her _fiancé_. You have work, much work, to do for her
 
 and for others; and the present will suffice.”
-
-
 
 When we stopped the operation, he attended to Lucy, whilst I applied
 
@@ -10318,25 +8988,17 @@ myself. As I was leaving the room, he came after me, and half
 
 whispered:--
 
-
-
 “Mind, nothing must be said of this. If our young lover should turn up
 
 unexpected, as before, no word to him. It would at once frighten him and
 
 enjealous him, too. There must be none. So!”
 
-
-
 When I came back he looked at me carefully, and then said:--
-
-
 
 “You are not much the worse. Go into the room, and lie on your sofa, and
 
 rest awhile; then have much breakfast, and come here to me.”
-
-
 
 I followed out his orders, for I knew how right and wise they were. I
 
@@ -10358,8 +9020,6 @@ punctures in her throat and the ragged, exhausted appearance of their
 
 edges--tiny though they were.
 
-
-
 Lucy slept well into the day, and when she woke she was fairly well and
 
 strong, though not nearly so much so as the day before. When Van Helsing
@@ -10370,8 +9030,6 @@ injunctions that I was not to leave her for a moment. I could hear his
 
 voice in the hall, asking the way to the nearest telegraph office.
 
-
-
 Lucy chatted with me freely, and seemed quite unconscious that anything
 
 had happened. I tried to keep her amused and interested. When her mother
@@ -10379,8 +9037,6 @@ had happened. I tried to keep her amused and interested. When her mother
 came up to see her, she did not seem to notice any change whatever, but
 
 said to me gratefully:--
-
-
 
 “We owe you so much, Dr. Seward, for all you have done, but you really
 
@@ -10398,8 +9054,6 @@ imploring eyes on me. I smiled and nodded, and laid my finger on my
 
 lips; with a sigh, she sank back amid her pillows.
 
-
-
 Van Helsing returned in a couple of hours, and presently said to me:
 
 “Now you go home, and eat much and drink enough. Make yourself strong. I
@@ -10411,8 +9065,6 @@ I must watch the case, and we must have none other to know. I have grave
 reasons. No, do not ask them; think what you will. Do not fear to think
 
 even the most not-probable. Good-night.”
-
-
 
 In the hall two of the maids came to me, and asked if they or either of
 
@@ -10434,11 +9086,7 @@ late dinner; went my rounds--all well; and set this down whilst waiting
 
 for sleep. It is coming.
 
-
-
        *       *       *       *       *
-
-
 
 _11 September._--This afternoon I went over to Hillingham. Found Van
 
@@ -10450,15 +9098,9 @@ with much impressment--assumed, of course--and showed a great bundle of
 
 white flowers.
 
-
-
 “These are for you, Miss Lucy,” he said.
 
-
-
 “For me? Oh, Dr. Van Helsing!”
-
-
 
 “Yes, my dear, but not for you to play with. These are medicines.” Here
 
@@ -10482,27 +9124,19 @@ of Lethe, and of that fountain of youth that the Conquistadores sought
 
 for in the Floridas, and find him all too late.”
 
-
-
 Whilst he was speaking, Lucy had been examining the flowers and smelling
 
 them. Now she threw them down, saying, with half-laughter, and
 
 half-disgust:--
 
-
-
 “Oh, Professor, I believe you are only putting up a joke on me. Why,
 
 these flowers are only common garlic.”
 
-
-
 To my surprise, Van Helsing rose up and said with all his sternness, his
 
 iron jaw set and his bushy eyebrows meeting:--
-
-
 
 “No trifling with me! I never jest! There is grim purpose in all I do;
 
@@ -10530,8 +9164,6 @@ where my friend Vanderpool raise herb in his glass-houses all the year.
 
 I had to telegraph yesterday, or they would not have been here.”
 
-
-
 We went into the room, taking the flowers with us. The Professor’s
 
 actions were certainly odd and not to be found in any pharmacopoeia
@@ -10550,21 +9182,15 @@ the fireplace in the same way. It all seemed grotesque to me, and
 
 presently I said:--
 
-
-
 “Well, Professor, I know you always have a reason for what you do, but
 
 this certainly puzzles me. It is well we have no sceptic here, or he
 
 would say that you were working some spell to keep out an evil spirit.”
 
-
-
 “Perhaps I am!” he answered quietly as he began to make the wreath which
 
 Lucy was to wear round her neck.
-
-
 
 We then waited whilst Lucy made her toilet for the night, and when she
 
@@ -10572,13 +9198,9 @@ was in bed he came and himself fixed the wreath of garlic round her
 
 neck. The last words he said to her were:--
 
-
-
 “Take care you do not disturb it; and even if the room feel close, do
 
 not to-night open the window or the door.”
-
-
 
 “I promise,” said Lucy, “and thank you both a thousand times for all
 
@@ -10586,11 +9208,7 @@ your kindness to me! Oh, what have I done to be blessed with such
 
 friends?”
 
-
-
 As we left the house in my fly, which was waiting, Van Helsing said:--
-
-
 
 “To-night I can sleep in peace, and sleep I want--two nights of travel,
 
@@ -10602,8 +9220,6 @@ you call for me, and we come together to see our pretty miss, so much
 
 more strong for my ‘spell’ which I have work. Ho! ho!”
 
-
-
 He seemed so confident that I, remembering my own confidence two nights
 
 before and with the baneful result, felt awe and vague terror. It must
@@ -10612,7 +9228,9 @@ have been my weakness that made me hesitate to tell it to my friend, but
 
 I felt it all the more, like unshed tears.
 
-## _Lucy Westenra’s Diary._
+## Kapitel XI
+
+_Lucy Westenra’s Diary._
 
 _12 September._--How good they all are to me. I quite love that dear Dr.
 
@@ -10644,21 +9262,13 @@ There is peace in its smell; I feel sleep coming already. Good-night,
 
 everybody.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _13 September._--Called at the Berkeley and found Van Helsing, as usual,
 
 up to time. The carriage ordered from the hotel was waiting. The
 
 Professor took his bag, which he always brings with him now.
-
-
 
 Let all be put down exactly. Van Helsing and I arrived at Hillingham at
 
@@ -10674,8 +9284,6 @@ Mrs. Westenra coming out of the morning room. She is always an early
 
 riser. She greeted us warmly and said:--
 
-
-
 “You will be glad to know that Lucy is better. The dear child is still
 
 asleep. I looked into her room and saw her, but did not go in, lest I
@@ -10684,23 +9292,15 @@ should disturb her.” The Professor smiled, and looked quite jubilant. He
 
 rubbed his hands together, and said:--
 
-
-
 “Aha! I thought I had diagnosed the case. My treatment is working,” to
 
 which she answered:--
-
-
 
 “You must not take all the credit to yourself, doctor. Lucy’s state this
 
 morning is due in part to me.”
 
-
-
 “How you do mean, ma’am?” asked the Professor.
-
-
 
 “Well, I was anxious about the dear child in the night, and went into
 
@@ -10718,8 +9318,6 @@ and opened a bit of the window to let in a little fresh air. You will be
 
 pleased with her, I am sure.”
 
-
-
 She moved off into her boudoir, where she usually breakfasted early. As
 
 she had spoken, I watched the Professor’s face, and saw it turn ashen
@@ -10733,8 +9331,6 @@ he actually smiled on her as he held open the door for her to pass into
 her room. But the instant she had disappeared he pulled me, suddenly and
 
 forcibly, into the dining-room and closed the door.
-
-
 
 Then, for the first time in my life, I saw Van Helsing break down. He
 
@@ -10770,8 +9366,6 @@ all the same.” He went to the hall-door for his bag; and together we
 
 went up to Lucy’s room.
 
-
-
 Once again I drew up the blind, whilst Van Helsing went towards the bed.
 
 This time he did not start as he looked on the poor face with the same
@@ -10779,8 +9373,6 @@ This time he did not start as he looked on the poor face with the same
 awful, waxen pallor as before. He wore a look of stern sadness and
 
 infinite pity.
-
-
 
 “As I expected,” he murmured, with that hissing inspiration of his which
 
@@ -10798,15 +9390,11 @@ You are weakened already.” As he spoke he took off his coat and rolled
 
 up his shirt-sleeve.
 
-
-
 Again the operation; again the narcotic; again some return of colour to
 
 the ashy cheeks, and the regular breathing of healthy sleep. This time I
 
 watched whilst Van Helsing recruited himself and rested.
-
-
 
 Presently he took an opportunity of telling Mrs. Westenra that she must
 
@@ -10820,25 +9408,15 @@ himself, saying that he would watch this night and the next and would
 
 send me word when to come.
 
-
-
 After another hour Lucy waked from her sleep, fresh and bright and
 
 seemingly not much the worse for her terrible ordeal.
-
-
 
 What does it all mean? I am beginning to wonder if my long habit of life
 
 amongst the insane is beginning to tell upon my own brain.
 
-
-
-
-
 _Lucy Westenra’s Diary._
-
-
 
 _17 September._--Four days and nights of peace. I am getting so strong
 
@@ -10886,25 +9464,13 @@ although the boughs or bats or something napped almost angrily against
 
 the window-panes.
 
-
-
-
-
 _“The Pall Mall Gazette,” 18 September._
-
-
 
                            THE ESCAPED WOLF.
 
-
-
          PERILOUS ADVENTURE OF OUR INTERVIEWER.
 
-
-
          _Interview with the Keeper in the Zoölogical Gardens._
-
-
 
 After many inquiries and almost as many refusals, and perpetually using
 
@@ -10928,8 +9494,6 @@ until the supper was over, and we were all satisfied. Then when the
 
 table was cleared, and he had lit his pipe, he said:--
 
-
-
 “Now, sir, you can go on and arsk me what you want. You’ll excoose me
 
 refoosin’ to talk of perfeshunal subjects afore meals. I gives the
@@ -10938,13 +9502,9 @@ wolves and the jackals and the hyenas in all our section their tea afore
 
 I begins to arsk them questions.”
 
-
-
 “How do you mean, ask them questions?” I queried, wishful to get him
 
 into a talkative humour.
-
-
 
 “’Ittin’ of them over the ’ead with a pole is one way; scratchin’ of
 
@@ -10970,11 +9530,7 @@ arsk the Superintendent if you might arsk me questions. Without offence
 
 did I tell yer to go to ’ell?”
 
-
-
 “You did.”
-
-
 
 “An’ when you said you’d report me for usin’ of obscene language that
 
@@ -10994,8 +9550,6 @@ Drive along with your questions. I know what yer a-comin’ at, that ’ere
 
 escaped wolf.”
 
-
-
 “Exactly. I want you to give me your view of it. Just tell me how it
 
 happened; and when I know the facts I’ll get you to say what you
@@ -11003,8 +9557,6 @@ happened; and when I know the facts I’ll get you to say what you
 consider was the cause of it, and how you think the whole affair will
 
 end.”
-
-
 
 “All right, guv’nor. This ’ere is about the ’ole story. That ’ere wolf
 
@@ -11018,15 +9570,11 @@ surprised at ’im for wantin’ to get out nor any other animile in the
 
 place. But, there, you can’t trust wolves no more nor women.”
 
-
-
 “Don’t you mind him, sir!” broke in Mrs. Tom, with a cheery laugh. “’E’s
 
 got mindin’ the animiles so long that blest if he ain’t like a old wolf
 
 ’isself! But there ain’t no ’arm in ’im.”
-
-
 
 “Well, sir, it was about two hours after feedin’ yesterday when I first
 
@@ -11050,8 +9598,6 @@ kid gloves on ’is ’ands, and he pointed out the animiles to me and says:
 
 ‘Keeper, these wolves seem upset at something.’
 
-
-
 “‘Maybe it’s you,’ says I, for I did not like the airs as he give
 
 ’isself. He didn’t git angry, as I ’oped he would, but he smiled a kind
@@ -11060,15 +9606,11 @@ of insolent smile, with a mouth full of white, sharp teeth. ‘Oh no, they
 
 wouldn’t like me,’ ’e says.
 
-
-
 “‘Ow yes, they would,’ says I, a-imitatin’ of him. ‘They always likes a
 
 bone or two to clean their teeth on about tea-time, which you ’as a
 
 bagful.’
-
-
 
 “Well, it was a odd thing, but when the animiles see us a-talkin’ they
 
@@ -11078,21 +9620,13 @@ same as ever. That there man kem over, and blessed but if he didn’t put
 
 in his hand and stroke the old wolf’s ears too!
 
-
-
 “‘Tyke care,’ says I. ‘Bersicker is quick.’
 
-
-
 “‘Never mind,’ he says. ‘I’m used to ’em!’
-
-
 
 “‘Are you in the business yourself?’ I says, tyking off my ’at, for a
 
 man what trades in wolves, anceterer, is a good friend to keepers.
-
-
 
 “‘No,’ says he, ‘not exactly in the business, but I ’ave made pets of
 
@@ -11120,11 +9654,7 @@ cage I see the rails broken and twisted about and the cage empty. And
 
 that’s all I know for certing.”
 
-
-
 “Did any one else see anything?”
-
-
 
 “One of our gard’ners was a-comin’ ’ome about that time from a ’armony,
 
@@ -11140,31 +9670,21 @@ night-a-huntin’ of the Park for Bersicker, that he remembered seein’
 
 anything. My own belief was that the ’armony ’ad got into his ’ead.”
 
-
-
 “Now, Mr. Bilder, can you account in any way for the escape of the
 
 wolf?”
-
-
 
 “Well, sir,” he said, with a suspicious sort of modesty, “I think I can;
 
 but I don’t know as ’ow you’d be satisfied with the theory.”
 
-
-
 “Certainly I shall. If a man like you, who knows the animals from
 
 experience, can’t hazard a good guess at any rate, who is even to try?”
 
-
-
 “Well then, sir, I accounts for it this way; it seems to me that ’ere
 
 wolf escaped--simply because he wanted to get out.”
-
-
 
 From the hearty way that both Thomas and his wife laughed at the joke I
 
@@ -11176,15 +9696,11 @@ with the worthy Thomas, but I thought I knew a surer way to his heart,
 
 so I said:--
 
-
-
 “Now, Mr. Bilder, we’ll consider that first half-sovereign worked off,
 
 and this brother of his is waiting to be claimed when you’ve told me
 
 what you think will happen.”
-
-
 
 “Right y’are, sir,” he said briskly. “Ye’ll excoose me, I know, for
 
@@ -11192,11 +9708,7 @@ a-chaffin’ of ye, but the old woman here winked at me, which was as much
 
 as telling me to go on.”
 
-
-
 “Well, I never!” said the old lady.
-
-
 
 “My opinion is this: that ’ere wolf is a-’idin’ of, somewheres. The
 
@@ -11238,21 +9750,15 @@ shouldn’t be surprised if the census is one babby the less. That’s
 
 all.”
 
-
-
 I was handing him the half-sovereign, when something came bobbing up
 
 against the window, and Mr. Bilder’s face doubled its natural length
 
 with surprise.
 
-
-
 “God bless me!” he said. “If there ain’t old Bersicker come back by
 
 ’isself!”
-
-
 
 He went to the door and opened it; a most unnecessary proceeding it
 
@@ -11261,8 +9767,6 @@ seemed to me. I have always thought that a wild animal never looks so
 well as when some obstacle of pronounced durability is between us; a
 
 personal experience has intensified rather than diminished that idea.
-
-
 
 After all, however, there is nothing like custom, for neither Bilder nor
 
@@ -11273,8 +9777,6 @@ itself was as peaceful and well-behaved as that father of all
 picture-wolves--Red Riding Hood’s quondam friend, whilst moving her
 
 confidence in masquerade.
-
-
 
 The whole scene was an unutterable mixture of comedy and pathos. The
 
@@ -11288,8 +9790,6 @@ prodigal son. Old Bilder examined him all over with most tender
 
 solicitude, and when he had finished with his penitent said:--
 
-
-
 “There, I knew the poor old chap would get into some kind of trouble;
 
 didn’t I say it all along? Here’s his head all cut and full of broken
@@ -11300,27 +9800,17 @@ shyme that people are allowed to top their walls with broken bottles.
 
 This ’ere’s what comes of it. Come along, Bersicker.”
 
-
-
 He took the wolf and locked him up in a cage, with a piece of meat that
 
 satisfied, in quantity at any rate, the elementary conditions of the
 
 fatted calf, and went off to report.
 
-
-
 I came off, too, to report the only exclusive information that is given
 
 to-day regarding the strange escapade at the Zoo.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _17 September._--I was engaged after dinner in my study posting up my
 
@@ -11364,8 +9854,6 @@ placidly, simply repeating over and over again: “The blood is the life!
 
 The blood is the life!”
 
-
-
 I cannot afford to lose blood just at present; I have lost too much of
 
 late for my physical good, and then the prolonged strain of Lucy’s
@@ -11378,19 +9866,11 @@ me, so I need not forego my sleep; to-night I could not well do without
 
 it.
 
-
-
-
-
 _Telegram, Van Helsing, Antwerp, to Seward, Carfax._
-
-
 
 (Sent to Carfax, Sussex, as no county given; delivered late by
 
 twenty-two hours.)
-
-
 
 “_17 September._--Do not fail to be at Hillingham to-night. If not
 
@@ -11400,13 +9880,7 @@ placed; very important; do not fail. Shall be with you as soon as
 
 possible after arrival.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _18 September._--Just off for train to London. The arrival of Van
 
@@ -11422,13 +9896,7 @@ should thwart us in all we try to do. I shall take this cylinder with
 
 me, and then I can complete my entry on Lucy’s phonograph.
 
-
-
-
-
 _Memorandum left by Lucy Westenra._
-
-
 
 _17 September. Night._--I write this and leave it to be seen, so that no
 
@@ -11440,13 +9908,9 @@ have barely strength to write, but it must be done if I die in the
 
 doing.
 
-
-
 I went to bed as usual, taking care that the flowers were placed as Dr.
 
 Van Helsing directed, and soon fell asleep.
-
-
 
 I was waked by the flapping at the window, which had begun after that
 
@@ -11480,13 +9944,9 @@ seeing by my moving that I was not asleep, came in, and sat by me. She
 
 said to me even more sweetly and softly than her wont:--
 
-
-
 “I was uneasy about you, darling, and came in to see that you were all
 
 right.”
-
-
 
 I feared she might catch cold sitting there, and asked her to come in
 
@@ -11542,8 +10002,6 @@ which seemed to grow cold already--for her dear heart had ceased to
 
 beat--weighed me down; and I remembered no more for a while.
 
-
-
 The time did not seem long, but very, very awful, till I recovered
 
 consciousness again. Somewhere near, a passing bell was tolling; the
@@ -11586,8 +10044,6 @@ the maids did not come back. I called them, but got no answer, so I went
 
 to the dining-room to look for them.
 
-
-
 My heart sank when I saw what had happened. They all four lay helpless
 
 on the floor, breathing heavily. The decanter of sherry was on the table
@@ -11608,8 +10064,6 @@ dare not go out, for I can hear the low howl of the wolf through the
 
 broken window.
 
-
-
 The air seems full of specks, floating and circling in the draught from
 
 the window, and the lights burn blue and dim. What am I to do? God
@@ -11622,7 +10076,9 @@ gone! It is time that I go too. Good-bye, dear Arthur, if I should not
 
 survive this night. God keep you, dear, and God help me!
 
-## DR. SEWARD’S DIARY
+## Kapitel XII
+
+DR. SEWARD’S DIARY
 
 _18 September._--I drove at once to Hillingham and arrived early.
 
@@ -11654,8 +10110,6 @@ and I went round the house to try if I could find by chance an entry
 
 anywhere.
 
-
-
 I could find no means of ingress. Every window and door was fastened and
 
 locked, and I returned baffled to the porch. As I did so, I heard the
@@ -11666,13 +10120,9 @@ gate, and a few seconds later I met Van Helsing running up the avenue.
 
 When he saw me, he gasped out:--
 
-
-
 “Then it was you, and just arrived. How is she? Are we too late? Did you
 
 not get my telegram?”
-
-
 
 I answered as quickly and coherently as I could that I had only got his
 
@@ -11682,15 +10132,11 @@ and that I could not make any one in the house hear me. He paused and
 
 raised his hat as he said solemnly:--
 
-
-
 “Then I fear we are too late. God’s will be done!” With his usual
 
 recuperative energy, he went on: “Come. If there be no way open to get
 
 in, we must make one. Time is all in all to us now.”
-
-
 
 We went round to the back of the house, where there was a kitchen
 
@@ -11726,8 +10172,6 @@ faces and trembling hands, we opened the door gently, and entered the
 
 room.
 
-
-
 How shall I describe what we saw? On the bed lay two women, Lucy and her
 
 mother. The latter lay farthest in, and she was covered with a white
@@ -11750,11 +10194,7 @@ poor Lucy’s breast; then he gave a quick turn of his head, as of one who
 
 listens, and leaping to his feet, he cried out to me:--
 
-
-
 “It is not yet too late! Quick! quick! Bring the brandy!”
-
-
 
 I flew downstairs and returned with it, taking care to smell and taste
 
@@ -11770,8 +10210,6 @@ occasion, on her lips and gums and on her wrists and the palms of her
 
 hands. He said to me:--
 
-
-
 “I can do this, all that can be at the present. You go wake those maids.
 
 Flick them in the face with a wet towel, and flick them hard. Make them
@@ -11781,8 +10219,6 @@ get heat and fire and a warm bath. This poor soul is nearly as cold as
 that beside her. She will need be heated before we can do anything
 
 more.”
-
-
 
 I went at once, and found little difficulty in waking three of the
 
@@ -11818,8 +10254,6 @@ must wait, for we could see no one now. She went away with the message,
 
 and, engrossed with our work, I clean forgot all about him.
 
-
-
 I never saw in all my experience the Professor work in such deadly
 
 earnest. I knew--as he knew--that it was a stand-up fight with death,
@@ -11828,15 +10262,11 @@ and in a pause told him so. He answered me in a way that I did not
 
 understand, but with the sternest look that his face could wear:--
 
-
-
 “If that were all, I would stop here where we are now, and let her fade
 
 away into peace, for I see no light in life over her horizon.” He went
 
 on with his work with, if possible, renewed and more frenzied vigour.
-
-
 
 Presently we both began to be conscious that the heat was beginning to
 
@@ -11848,11 +10278,7 @@ face almost beamed, and as we lifted her from the bath and rolled her in
 
 a hot sheet to dry her he said to me:--
 
-
-
 “The first gain is ours! Check to the King!”
-
-
 
 We took Lucy into another room, which had by now been prepared, and laid
 
@@ -11864,15 +10290,11 @@ still unconscious, and was quite as bad as, if not worse than, we had
 
 ever seen her.
 
-
-
 Van Helsing called in one of the women, and told her to stay with her
 
 and not to take her eyes off her till we returned, and then beckoned me
 
 out of the room.
-
-
 
 “We must consult as to what is to be done,” he said as we descended the
 
@@ -11892,8 +10314,6 @@ by a look of perplexity. He was evidently torturing his mind about
 
 something, so I waited for an instant, and he spoke:--
 
-
-
 “What are we to do now? Where are we to turn for help? We must have
 
 another transfusion of blood, and that soon, or that poor girl’s life
@@ -11906,11 +10326,7 @@ courage to submit. What are we to do for some one who will open his
 
 veins for her?”
 
-
-
 “What’s the matter with me, anyhow?”
-
-
 
 The voice came from the sofa across the room, and its tones brought
 
@@ -11922,19 +10338,11 @@ glad look came into his eyes as I cried out: “Quincey Morris!” and
 
 rushed towards him with outstretched hands.
 
-
-
 “What brought you here?” I cried as our hands met.
-
-
 
 “I guess Art is the cause.”
 
-
-
 He handed me a telegram:--
-
-
 
 “Have not heard from Seward for three days, and am terribly anxious.
 
@@ -11942,27 +10350,19 @@ Cannot leave. Father still in same condition. Send me word how Lucy is.
 
 Do not delay.--HOLMWOOD.”
 
-
-
 “I think I came just in the nick of time. You know you have only to tell
 
 me what to do.”
 
-
-
 Van Helsing strode forward, and took his hand, looking him straight in
 
 the eyes as he said:--
-
-
 
 “A brave man’s blood is the best thing on this earth when a woman is in
 
 trouble. You’re a man and no mistake. Well, the devil may work against
 
 us for all he’s worth, but God sends us men when we want them.”
-
-
 
 Once again we went through that ghastly operation. I have not the heart
 
@@ -12000,8 +10400,6 @@ He handed me the paper saying only: “It dropped from Lucy’s breast when
 
 we carried her to the bath.”
 
-
-
 When I had read it, I stood looking at the Professor, and after a pause
 
 asked him: “In God’s name, what does it all mean? Was she, or is she,
@@ -12012,8 +10410,6 @@ did not know what to say more. Van Helsing put out his hand and took the
 
 paper, saying:--
 
-
-
 “Do not trouble about it now. Forget it for the present. You shall know
 
 and understand it all in good time; but it will be later. And now what
@@ -12021,8 +10417,6 @@ and understand it all in good time; but it will be later. And now what
 is it that you came to me to say?” This brought me back to fact, and I
 
 was all myself again.
-
-
 
 “I came to speak about the certificate of death. If we do not act
 
@@ -12040,8 +10434,6 @@ fill up the certificate at once, and I shall take it myself to the
 
 registrar and go on to the undertaker.”
 
-
-
 “Good, oh my friend John! Well thought of! Truly Miss Lucy, if she be
 
 sad in the foes that beset her, is at least happy in the friends that
@@ -12052,8 +10444,6 @@ man. Ah yes, I know, friend John; I am not blind! I love you all the
 
 more for it! Now go.”
 
-
-
 In the hall I met Quincey Morris, with a telegram for Arthur telling him
 
 that Mrs. Westenra was dead; that Lucy also had been ill, but was now
@@ -12062,8 +10452,6 @@ going on better; and that Van Helsing and I were with her. I told him
 
 where I was going, and he hurried me out, but as I was going said:--
 
-
-
 “When you come back, Jack, may I have two words with you all to
 
 ourselves?” I nodded in reply and went out. I found no difficulty about
@@ -12071,8 +10459,6 @@ ourselves?” I nodded in reply and went out. I found no difficulty about
 the registration, and arranged with the local undertaker to come up in
 
 the evening to measure for the coffin and to make arrangements.
-
-
 
 When I got back Quincey was waiting for me. I told him I would see him
 
@@ -12091,8 +10477,6 @@ the blinds were not drawn down, and which was a little more cheerful, or
 rather less cheerless, than the other rooms. When we were alone, he said
 
 to me:--
-
-
 
 “Jack Seward, I don’t want to shove myself in anywhere where I’ve no
 
@@ -12116,21 +10500,13 @@ no common matter, and, whatever it is, I have done my part. Is not that
 
 so?”
 
-
-
 “That’s so,” I said, and he went on:--
-
-
 
 “I take it that both you and Van Helsing had done already what I did
 
 to-day. Is not that so?”
 
-
-
 “That’s so.”
-
-
 
 “And I guess Art was in it too. When I saw him four days ago down at his
 
@@ -12166,15 +10542,9 @@ so much, that there could be no reason for not answering, so I answered
 
 in the same phrase: “That’s so.”
 
-
-
 “And how long has this been going on?”
 
-
-
 “About ten days.”
-
-
 
 “Ten days! Then I guess, Jack Seward, that that poor pretty creature
 
@@ -12185,8 +10555,6 @@ of four strong men. Man alive, her whole body wouldn’t hold it.” Then,
 coming close to me, he spoke in a fierce half-whisper: “What took it
 
 out?”
-
-
 
 I shook my head. “That,” I said, “is the crux. Van Helsing is simply
 
@@ -12201,8 +10569,6 @@ not occur again. Here we stay until all be well--or ill.” Quincey held
 out his hand. “Count me in,” he said. “You and the Dutchman will tell me
 
 what to do, and I’ll do it.”
-
-
 
 When she woke late in the afternoon, Lucy’s first movement was to feel
 
@@ -12242,11 +10608,7 @@ the fragments. Van Helsing seemed surprised, and his brows gathered as
 
 if in thought, but he said nothing.
 
-
-
        *       *       *       *       *
-
-
 
 _19 September._--All last night she slept fitfully, being always afraid
 
@@ -12257,8 +10619,6 @@ I took it in turns to watch, and we never left her for a moment
 unattended. Quincey Morris said nothing about his intention, but I knew
 
 that all night long he patrolled round and round the house.
-
-
 
 When the day came, its searching light showed the ravages in poor Lucy’s
 
@@ -12282,8 +10642,6 @@ one. In the afternoon she asked for Arthur, and we telegraphed for him.
 
 Quincey went off to meet him at the station.
 
-
-
 When he arrived it was nearly six o’clock, and the sun was setting full
 
 and warm, and the red light streamed in through the window and gave more
@@ -12304,8 +10662,6 @@ had done since we arrived. He too pulled himself together, and spoke as
 
 cheerily as he could, so that the best was made of everything.
 
-
-
 It was now nearly one o’clock, and he and Van Helsing are sitting with
 
 her. I am to relieve them in a quarter of an hour, and I am entering
@@ -12316,25 +10672,13 @@ fear that to-morrow will end our watching, for the shock has been too
 
 great; the poor child cannot rally. God help us all.
 
-
-
-
-
 _Letter, Mina Harker to Lucy Westenra._
-
-
 
 (Unopened by her.)
 
-
-
 “_17 September._
 
-
-
 “My dearest Lucy,--
-
-
 
 “It seems _an age_ since I heard from you, or indeed since I wrote. You
 
@@ -12350,8 +10694,6 @@ were rooms for us all nice and comfortable, and we dined together. After
 
 dinner Mr. Hawkins said:--
 
-
-
 “‘My dears, I want to drink your health and prosperity; and may every
 
 blessing attend you both. I know you both from children, and have, with
@@ -12363,8 +10705,6 @@ with me. I have left to me neither chick nor child; all are gone, and in
 my will I have left you everything.’ I cried, Lucy dear, as Jonathan and
 
 the old man clasped hands. Our evening was a very, very happy one.
-
-
 
 “So here we are, installed in this beautiful old house, and from both my
 
@@ -12383,8 +10723,6 @@ housekeeping. Jonathan and Mr. Hawkins are busy all day; for, now that
 Jonathan is a partner, Mr. Hawkins wants to tell him all about the
 
 clients.
-
-
 
 “How is your dear mother getting on? I wish I could run up to town for a
 
@@ -12422,31 +10760,17 @@ of the verb, I send you simply his ‘love’ instead. Good-bye, my dearest
 
 Lucy, and all blessings on you.
 
-
-
 “Yours,
 
-
-
 “MINA HARKER.”
-
-
-
-
 
 _Report from Patrick Hennessey, M. D., M. R. C. S. L. K. Q. C. P. I.,
 
 etc., etc., to John Seward, M. D._
 
-
-
 “_20 September._
 
-
-
 “My dear Sir,--
-
-
 
 “In accordance with your wishes, I enclose report of the conditions of
 
@@ -12552,8 +10876,6 @@ room. One of the attendants, Hardy, had a finger broken. However, I set
 
 it all right; and he is going on well.
 
-
-
 “The two carriers were at first loud in their threats of actions for
 
 damages, and promised to rain all the penalties of the law on us. Their
@@ -12592,43 +10914,23 @@ Green. They are both in the employment of Harris & Sons, Moving and
 
 Shipment Company, Orange Master’s Yard, Soho.
 
-
-
 “I shall report to you any matter of interest occurring here, and shall
 
 wire you at once if there is anything of importance.
 
-
-
 “Believe me, dear Sir,
-
-
 
 “Yours faithfully,
 
-
-
 “PATRICK HENNESSEY.”
-
-
-
-
 
 _Letter, Mina Harker to Lucy Westenra_.
 
-
-
 (Unopened by her.)
-
-
 
 “_18 September._
 
-
-
 “My dearest Lucy,--
-
-
 
 “Such a sad blow has befallen us. Mr. Hawkins has died very suddenly.
 
@@ -12680,21 +10982,11 @@ mourner. I shall try to run over to see you, dearest, if only for a few
 
 minutes. Forgive me for troubling you. With all blessings,
 
-
-
 “Your loving
-
-
 
 “MINA HARKER.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _20 September._--Only resolution and habit can let me make an entry
 
@@ -12707,8 +10999,6 @@ this moment the flapping of the wings of the angel of death. And he has
 been flapping those grim wings to some purpose of late--Lucy’s mother
 
 and Arthur’s father, and now.... Let me get on with my work.
-
-
 
 I duly relieved Van Helsing in his watch over Lucy. We wanted Arthur to
 
@@ -12774,8 +11064,6 @@ flowers from her throat. I replaced them as well as I could, and sat
 
 watching her.
 
-
-
 Presently she woke, and I gave her food, as Van Helsing had prescribed.
 
 She took but a little, and that languidly. There did not seem to be with
@@ -12796,8 +11084,6 @@ mistake about this, for in the long hours that followed, she had many
 
 spells of sleeping and waking and repeated both actions many times.
 
-
-
 At six o’clock Van Helsing came to relieve me. Arthur had then fallen
 
 into a doze, and he mercifully let him sleep on. When he saw Lucy’s face
@@ -12816,25 +11102,17 @@ Gott!” as it was smothered in his throat. I bent over and looked, too,
 
 and as I noticed some queer chill came over me.
 
-
-
 The wounds on the throat had absolutely disappeared.
-
-
 
 For fully five minutes Van Helsing stood looking at her, with his face
 
 at its sternest. Then he turned to me and said calmly:--
-
-
 
 “She is dying. It will not be long now. It will be much difference, mark
 
 me, whether she dies conscious or in her sleep. Wake that poor boy, and
 
 let him come and see the last; he trusts us, and we have promised him.”
-
-
 
 I went to the dining-room and waked him. He was dazed for a moment, but
 
@@ -12856,8 +11134,6 @@ said, “my dear old fellow, summon all your fortitude: it will be best
 
 and easiest for her.”
 
-
-
 When we came into Lucy’s room I could see that Van Helsing had, with
 
 his usual forethought, been putting matters straight and making
@@ -12870,15 +11146,11 @@ came into the room she opened her eyes, and seeing him, whispered
 
 softly:--
 
-
-
 “Arthur! Oh, my love, I am so glad you have come!” He was stooping to
 
 kiss her, when Van Helsing motioned him back. “No,” he whispered, “not
 
 yet! Hold her hand; it will comfort her more.”
-
-
 
 So Arthur took her hand and knelt beside her, and she looked her best,
 
@@ -12887,8 +11159,6 @@ with all the soft lines matching the angelic beauty of her eyes. Then
 gradually her eyes closed, and she sank to sleep. For a little bit her
 
 breast heaved softly, and her breath came and went like a tired child’s.
-
-
 
 And then insensibly there came the strange change which I had noticed in
 
@@ -12902,8 +11172,6 @@ were now dull and hard at once, and said in a soft, voluptuous voice,
 
 such as I had never heard from her lips:--
 
-
-
 “Arthur! Oh, my love, I am so glad you have come! Kiss me!” Arthur bent
 
 eagerly over to kiss her; but at that instant Van Helsing, who, like me,
@@ -12916,13 +11184,9 @@ I never thought he could have possessed, and actually hurled him almost
 
 across the room.
 
-
-
 “Not for your life!” he said; “not for your living soul and hers!” And
 
 he stood between them like a lion at bay.
-
-
 
 Arthur was so taken aback that he did not for a moment know what to do
 
@@ -12930,15 +11194,11 @@ or say; and before any impulse of violence could seize him he realised
 
 the place and the occasion, and stood silent, waiting.
 
-
-
 I kept my eyes fixed on Lucy, as did Van Helsing, and we saw a spasm as
 
 of rage flit like a shadow over her face; the sharp teeth champed
 
 together. Then her eyes closed, and she breathed heavily.
-
-
 
 Very shortly after she opened her eyes in all their softness, and
 
@@ -12950,8 +11210,6 @@ faint voice, but with untellable pathos, “My true friend, and his! Oh,
 
 guard him, and give me peace!”
 
-
-
 “I swear it!” he said solemnly, kneeling beside her and holding up his
 
 hand, as one who registers an oath. Then he turned to Arthur, and said
@@ -12960,35 +11218,23 @@ to him: “Come, my child, take her hand in yours, and kiss her on the
 
 forehead, and only once.”
 
-
-
 Their eyes met instead of their lips; and so they parted.
-
-
 
 Lucy’s eyes closed; and Van Helsing, who had been watching closely, took
 
 Arthur’s arm, and drew him away.
 
-
-
 And then Lucy’s breathing became stertorous again, and all at once it
 
 ceased.
 
-
-
 “It is all over,” said Van Helsing. “She is dead!”
-
-
 
 I took Arthur by the arm, and led him away to the drawing-room, where he
 
 sat down, and covered his face with his hands, sobbing in a way that
 
 nearly broke me down to see.
-
-
 
 I went back to the room, and found Van Helsing looking at poor Lucy, and
 
@@ -13004,37 +11250,25 @@ of the heart, had gone to make the harshness of death as little rude as
 
 might be.
 
-
-
     “We thought her dying whilst she slept,
 
         And sleeping when she died.”
 
-
-
 I stood beside Van Helsing, and said:--
-
-
 
 “Ah, well, poor girl, there is peace for her at last. It is the end!”
 
-
-
 He turned to me, and said with grave solemnity:--
-
-
 
 “Not so; alas! not so. It is only the beginning!”
 
-
-
 When I asked him what he meant, he only shook his head and answered:--
-
-
 
 “We can do nothing as yet. Wait and see.”
 
-## DR. SEWARD’S DIARY--_continued_.
+## Kapitel XIII
+
+DR. SEWARD’S DIARY--_continued_.
 
 The funeral was arranged for the next succeeding day, so that Lucy and
 
@@ -13050,15 +11284,11 @@ me, in a confidential, brother-professional way, when she had come out
 
 from the death-chamber:--
 
-
-
 “She makes a very beautiful corpse, sir. It’s quite a privilege to
 
 attend on her. It’s not too much to say that she will do credit to our
 
 establishment!”
-
-
 
 I noticed that Van Helsing never kept far away. This was possible from
 
@@ -13078,8 +11308,6 @@ foreigner, might not be quite aware of English legal requirements, and
 
 so might in ignorance make some unnecessary trouble. He answered me:--
 
-
-
 “I know; I know. You forget that I am a lawyer as well as a doctor. But
 
 this is not altogether for the law. You knew that, when you avoided the
@@ -13088,13 +11316,9 @@ coroner. I have more than him to avoid. There may be papers more--such
 
 as this.”
 
-
-
 As he spoke he took from his pocket-book the memorandum which had been
 
 in Lucy’s breast, and which she had torn in her sleep.
-
-
 
 “When you find anything of the solicitor who is for the late Mrs.
 
@@ -13105,8 +11329,6 @@ here in the room and in Miss Lucy’s old room all night, and I myself
 search for what may be. It is not well that her very thoughts go into
 
 the hands of strangers.”
-
-
 
 I went on with my part of the work, and in another half hour had found
 
@@ -13120,17 +11342,11 @@ letter, when, to my surprise, Van Helsing walked into the room,
 
 saying:--
 
-
-
 “Can I help you, friend John? I am free, and if I may, my service is to
 
 you.”
 
-
-
 “Have you got what you looked for?” I asked, to which he replied:--
-
-
 
 “I did not look for any specific thing. I only hoped to find, and find I
 
@@ -13142,19 +11358,13 @@ nothing of them. I shall see that poor lad to-morrow evening, and, with
 
 his sanction, I shall use some.”
 
-
-
 When we had finished the work in hand, he said to me:--
-
-
 
 “And now, friend John, I think we may to bed. We want sleep, both you
 
 and I, and rest to recuperate. To-morrow we shall have much to do, but
 
 for the to-night there is no need of us. Alas!”
-
-
 
 Before turning in we went to look at poor Lucy. The undertaker had
 
@@ -13178,8 +11388,6 @@ restored the beauty of life, till positively I could not believe my eyes
 
 that I was looking at a corpse.
 
-
-
 The Professor looked sternly grave. He had not loved her as I had, and
 
 there was no need for tears in his eyes. He said to me: “Remain till I
@@ -13196,23 +11404,15 @@ placed it over the mouth. He restored the sheet to its place, and we
 
 came away.
 
-
-
 I was undressing in my own room, when, with a premonitory tap at the
 
 door, he entered, and at once began to speak:--
-
-
 
 “To-morrow I want you to bring me, before night, a set of post-mortem
 
 knives.”
 
-
-
 “Must we make an autopsy?” I asked.
-
-
 
 “Yes and no. I want to operate, but not as you think. Let me tell you
 
@@ -13238,8 +11438,6 @@ unscrew the coffin-lid, and shall do our operation: and then replace
 
 all, so that none know, save we alone.”
 
-
-
 “But why do it at all? The girl is dead. Why mutilate her poor body
 
 without need? And if there is no necessity for a post-mortem and nothing
@@ -13248,13 +11446,9 @@ to gain by it--no good to her, to us, to science, to human
 
 knowledge--why do it? Without such it is monstrous.”
 
-
-
 For answer he put his hand on my shoulder, and said, with infinite
 
 tenderness:--
-
-
 
 “Friend John, I pity your poor bleeding heart; and I love you the more
 
@@ -13282,8 +11476,6 @@ weak, and she kiss my rough old hand and bless me? Yes! And did you not
 
 hear me swear promise to her, that so she closed her eyes grateful? Yes!
 
-
-
 “Well, I have good reason now for all I want to do. You have for many
 
 years trust me; you have believe me weeks past, when there be things so
@@ -13304,8 +11496,6 @@ terrible days before us. Let us not be two, but one, that so we work to
 
 a good end. Will you not have faith in me?”
 
-
-
 I took his hand, and promised him. I held my door open as he went away,
 
 and watched him go into his room and close the door. As I stood without
@@ -13324,11 +11514,7 @@ alone by the bier of the mistress whom she loved, so that the poor clay
 
 might not be lonely till laid to eternal rest....
 
-
-
        *       *       *       *       *
-
-
 
 I must have slept long and soundly, for it was broad daylight when Van
 
@@ -13336,27 +11522,17 @@ Helsing waked me by coming into my room. He came over to my bedside and
 
 said:--
 
-
-
 “You need not trouble about the knives; we shall not do it.”
-
-
 
 “Why not?” I asked. For his solemnity of the night before had greatly
 
 impressed me.
 
-
-
 “Because,” he said sternly, “it is too late--or too early. See!” Here he
 
 held up the little golden crucifix. “This was stolen in the night.”
 
-
-
 “How, stolen,” I asked in wonder, “since you have it now?”
-
-
 
 “Because I get it back from the worthless wretch who stole it, from the
 
@@ -13366,13 +11542,9 @@ come, but not through me; she knew not altogether what she did and thus
 
 unknowing, she only stole. Now we must wait.”
 
-
-
 He went away on the word, leaving me with a new mystery to think of, a
 
 new puzzle to grapple with.
-
-
 
 The forenoon was a dreary time, but at noon the solicitor came: Mr.
 
@@ -13393,8 +11565,6 @@ issue, went back to a distant branch of the family, the whole estate,
 real and personal, was left absolutely to Arthur Holmwood. When he had
 
 told us so much he went on:--
-
-
 
 “Frankly we did our best to prevent such a testamentary disposition, and
 
@@ -13434,15 +11604,11 @@ rights, for sentimental reasons regarding an entire stranger. I assure
 
 you, my dear sirs, I am rejoiced at the result, perfectly rejoiced.”
 
-
-
 He was a good fellow, but his rejoicing at the one little part--in which
 
 he was officially interested--of so great a tragedy, was an
 
 object-lesson in the limitations of sympathetic understanding.
-
-
 
 He did not remain long, but said he would look in later in the day and
 
@@ -13474,8 +11640,6 @@ the night before, so that when Arthur came such shocks to his feelings
 
 as we could avoid were saved.
 
-
-
 Poor fellow! He looked desperately sad and broken; even his stalwart
 
 manhood seemed to have shrunk somewhat under the strain of his
@@ -13496,27 +11660,19 @@ felt he would like to be quite alone with her, but he took my arm and
 
 led me in, saying huskily:--
 
-
-
 “You loved her too, old fellow; she told me all about it, and there was
 
 no friend had a closer place in her heart than you. I don’t know how to
 
 thank you for all you have done for her. I can’t think yet....”
 
-
-
 Here he suddenly broke down, and threw his arms round my shoulders and
 
 laid his head on my breast, crying:--
 
-
-
 “Oh, Jack! Jack! What shall I do! The whole of life seems gone from me
 
 all at once, and there is nothing in the wide world for me to live for.”
-
-
 
 I comforted him as well as I could. In such cases men do not need much
 
@@ -13528,11 +11684,7 @@ heart. I stood still and silent till his sobs died away, and then I said
 
 softly to him:--
 
-
-
 “Come and look at her.”
-
-
 
 Together we moved over to the bed, and I lifted the lawn from her face.
 
@@ -13544,11 +11696,7 @@ fell a-trembling, and finally was shaken with doubt as with an ague. At
 
 last, after a long pause, he said to me in a faint whisper:--
 
-
-
 “Jack, is she really dead?”
-
-
 
 I assured him sadly that it was so, and went on to suggest--for I felt
 
@@ -13572,8 +11720,6 @@ and kissed it, and bent over and kissed her forehead. He came away,
 
 fondly looking back over his shoulder at her as he came.
 
-
-
 I left him in the drawing-room, and told Van Helsing that he had said
 
 good-bye; so the latter went to the kitchen to tell the undertaker’s men
@@ -13584,11 +11730,7 @@ came out of the room again I told him of Arthur’s question, and he
 
 replied:--
 
-
-
 “I am not surprised. Just now I doubted for a moment myself!”
-
-
 
 We all dined together, and I could see that poor Art was trying to make
 
@@ -13596,11 +11738,7 @@ the best of things. Van Helsing had been silent all dinner-time; but
 
 when we had lit our cigars he said--
 
-
-
 “Lord----”; but Arthur interrupted him:--
-
-
 
 “No, no, not that, for God’s sake! not yet at any rate. Forgive me, sir:
 
@@ -13608,11 +11746,7 @@ I did not mean to speak offensively; it is only because my loss is so
 
 recent.”
 
-
-
 The Professor answered very sweetly:--
-
-
 
 “I only used that name because I was in doubt. I must not call you
 
@@ -13620,11 +11754,7 @@ The Professor answered very sweetly:--
 
 Arthur.”
 
-
-
 Arthur held out his hand, and took the old man’s warmly.
-
-
 
 “Call me what you will,” he said. “I hope I may always have the title of
 
@@ -13638,11 +11768,7 @@ rude or in any way wanting at that time you acted so--you remember”--the
 
 Professor nodded--“you must forgive me.”
 
-
-
 He answered with a grave kindness:--
-
-
 
 “I know it was hard for you to quite trust me then, for to trust such
 
@@ -13662,37 +11788,23 @@ first to last for your own sake, and for the sake of others and for her
 
 dear sake to whom I swore to protect.”
 
-
-
 “And, indeed, indeed, sir,” said Arthur warmly, “I shall in all ways
 
 trust you. I know and believe you have a very noble heart, and you are
 
 Jack’s friend, and you were hers. You shall do what you like.”
 
-
-
 The Professor cleared his throat a couple of times, as though about to
 
 speak, and finally said:--
 
-
-
 “May I ask you something now?”
-
-
 
 “Certainly.”
 
-
-
 “You know that Mrs. Westenra left you all her property?”
 
-
-
 “No, poor dear; I never thought of it.”
-
-
 
 “And as it is all yours, you have a right to deal with it as you will. I
 
@@ -13714,11 +11826,7 @@ to you. It’s a hard thing I ask, but you will do it, will you not, for
 
 Lucy’s sake?”
 
-
-
 Arthur spoke out heartily, like his old self:--
-
-
 
 “Dr. Van Helsing, you may do what you will. I feel that in saying this I
 
@@ -13726,11 +11834,7 @@ am doing what my dear one would have approved. I shall not trouble you
 
 with questions till the time comes.”
 
-
-
 The old Professor stood up as he said solemnly:--
-
-
 
 “And you are right. There will be pain for us all; but it will not be
 
@@ -13742,8 +11846,6 @@ reach the sweet. But we must be brave of heart and unselfish, and do our
 
 duty, and all will be well!”
 
-
-
 I slept on a sofa in Arthur’s room that night. Van Helsing did not go to
 
 bed at all. He went to and fro, as if patrolling the house, and was
@@ -13754,17 +11856,9 @@ the wild garlic flowers, which sent, through the odour of lily and rose,
 
 a heavy, overpowering smell into the night.
 
-
-
-
-
 _Mina Harker’s Journal._
 
-
-
 _22 September._--In the train to Exeter. Jonathan sleeping.
-
-
 
 It seems only yesterday that the last entry was made, and yet how much
 
@@ -13782,8 +11876,6 @@ unexpected prosperity does for us--so it may be as well to freshen it up
 
 again with an exercise anyhow....
 
-
-
 The service was very simple and very solemn. There were only ourselves
 
 and the servants there, one or two old friends of his from Exeter, his
@@ -13793,8 +11885,6 @@ London agent, and a gentleman representing Sir John Paxton, the
 President of the Incorporated Law Society. Jonathan and I stood hand in
 
 hand, and we felt that our best and dearest friend was gone from us....
-
-
 
 We came back to town quietly, taking a ’bus to Hyde Park Corner.
 
@@ -13828,8 +11918,6 @@ fear that some nervous fit may upset him again; so I turned to him
 
 quickly, and asked him what it was that disturbed him.
 
-
-
 He was very pale, and his eyes seemed bulging out as, half in terror and
 
 half in amazement, he gazed at a tall, thin man, with a beaky nose and
@@ -13852,19 +11940,13 @@ Jonathan why he was disturbed, and he answered, evidently thinking that
 
 I knew as much about it as he did: “Do you see who it is?”
 
-
-
 “No, dear,” I said; “I don’t know him; who is it?” His answer seemed to
 
 shock and thrill me, for it was said as if he did not know that it was
 
 to me, Mina, to whom he was speaking:--
 
-
-
 “It is the man himself!”
-
-
 
 The poor dear was evidently terrified at something--very greatly
 
@@ -13879,8 +11961,6 @@ off. The dark man kept his eyes fixed on her, and when the carriage
 moved up Piccadilly he followed in the same direction, and hailed a
 
 hansom. Jonathan kept looking after him, and said, as if to himself:--
-
-
 
 “I believe it is the Count, but he has grown young. My God, if this be
 
@@ -13904,8 +11984,6 @@ was the best thing for him, so did not disturb him. In about twenty
 
 minutes he woke up, and said to me quite cheerfully:--
 
-
-
 “Why, Mina, have I been asleep! Oh, do forgive me for being so rude.
 
 Come, and we’ll have a cup of tea somewhere.” He had evidently forgotten
@@ -13924,11 +12002,7 @@ must open that parcel, and know what is written. Oh, Jonathan, you will,
 
 I know, forgive me if I do wrong, but it is for your own dear sake.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--A sad home-coming in every way--the house empty of the dear
 
@@ -13938,13 +12012,9 @@ relapse of his malady; and now a telegram from Van Helsing, whoever he
 
 may be:--
 
-
-
 “You will be grieved to hear that Mrs. Westenra died five days ago, and
 
 that Lucy died the day before yesterday. They were both buried to-day.”
-
-
 
 Oh, what a wealth of sorrow in a few words! Poor Mrs. Westenra! poor
 
@@ -13954,13 +12024,7 @@ lost such sweetness out of his life! God help us all to bear our
 
 troubles.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _22 September._--It is all over. Arthur has gone back to Ring, and has
 
@@ -14026,8 +12090,6 @@ His reply was in a way characteristic of him, for it was logical and
 
 forceful and mysterious. He said:--
 
-
-
 “Ah, you don’t comprehend, friend John. Do not think that I am not sad,
 
 though I laugh. See, I have cried even when the laugh did choke me. But
@@ -14092,8 +12154,6 @@ sunshine, and he ease off the strain again; and we bear to go on with
 
 our labour, what it may be.”
 
-
-
 I did not like to wound him by pretending not to see his idea; but, as I
 
 did not yet understand the cause of his laughter, I asked him. As he
@@ -14101,8 +12161,6 @@ did not yet understand the cause of his laughter, I asked him. As he
 answered me his face grew stern, and he said in quite a different
 
 tone:--
-
-
 
 “Oh, it was the grim irony of it all--this so lovely lady garlanded with
 
@@ -14122,8 +12180,6 @@ their eyes never on the page; and all of us with the bowed head. And all
 
 for what? She is dead; so! Is it not?”
 
-
-
 “Well, for the life of me, Professor,” I said, “I can’t see anything to
 
 laugh at in all that. Why, your explanation makes it a harder puzzle
@@ -14132,17 +12188,11 @@ than before. But even if the burial service was comic, what about poor
 
 Art and his trouble? Why, his heart was simply breaking.”
 
-
-
 “Just so. Said he not that the transfusion of his blood to her veins had
 
 made her truly his bride?”
 
-
-
 “Yes, and it was a sweet and comforting idea for him.”
-
-
 
 “Quite so. But there was a difficulty, friend John. If so that, then
 
@@ -14154,15 +12204,11 @@ no wits, all gone--even I, who am faithful husband to this now-no-wife,
 
 am bigamist.”
 
-
-
 “I don’t see where the joke comes in there either!” I said; and I did
 
 not feel particularly pleased with him for saying such things. He laid
 
 his hand on my arm, and said:--
-
-
 
 “Friend John, forgive me if I pain. I showed not my feeling to others
 
@@ -14178,15 +12224,9 @@ he go far, far away from me, and for a long, long time--maybe you would
 
 perhaps pity me the most of all.”
 
-
-
 I was touched by the tenderness of his tone, and asked why.
 
-
-
 “Because I know!”
-
-
 
 And now we are all scattered; and for many a long day loneliness will
 
@@ -14198,8 +12238,6 @@ London; where the air is fresh, and the sun rises over Hampstead Hill,
 
 and where wild flowers grow of their own accord.
 
-
-
 So I can finish this diary; and God only knows if I shall ever begin
 
 another. If I do, or if I even open this again, it will be to deal with
@@ -14210,23 +12248,11 @@ romance of my life is told, ere I go back to take up the thread of my
 
 life-work, I say sadly and without hope,
 
-
-
                         “FINIS.”
-
-
-
-
 
 _“The Westminster Gazette,” 25 September._
 
-
-
                           A HAMPSTEAD MYSTERY.
-
-
-
-
 
 The neighbourhood of Hampstead is just at present exercised with a
 
@@ -14278,8 +12304,6 @@ these grubby-faced little children pretend--and even imagine
 
 themselves--to be.
 
-
-
 There is, however, possibly a serious side to the question, for some of
 
 the children, indeed all who have been missed at night, have been
@@ -14298,29 +12322,15 @@ when very young, in and around Hampstead Heath, and for any stray dog
 
 which may be about.
 
-
-
-
-
                _“The Westminster Gazette,” 25 September._
-
-
 
                             _Extra Special._
 
-
-
                          THE HAMPSTEAD HORROR.
-
-
 
                          ANOTHER CHILD INJURED.
 
-
-
                          _The “Bloofer Lady.”_
-
-
 
 We have just received intelligence that another child, missed last
 
@@ -14336,7 +12346,9 @@ looked quite emaciated. It too, when partially restored, had the common
 
 story to tell of being lured away by the “bloofer lady.”
 
-## MINA HARKER’S JOURNAL
+## Kapitel XIV
+
+MINA HARKER’S JOURNAL
 
 _23 September_.--Jonathan is better after a bad night. I am so glad that
 
@@ -14355,10 +12367,6 @@ him. He will be away all day till late, for he said he could not lunch
 at home. My household work is done, so I shall take his foreign journal,
 
 and lock myself up in my room and read it....
-
-
-
-
 
 _24 September_.--I hadn’t the heart to write last night; that terrible
 
@@ -14402,25 +12410,13 @@ over the nervousness he may want to tell me of it all, and I can ask him
 
 questions and find out things, and see how I may comfort him.
 
-
-
-
-
 _Letter, Van Helsing to Mrs. Harker._
-
-
 
 “_24 September._
 
-
-
 (_Confidence_)
 
-
-
 “Dear Madam,--
-
-
 
 “I pray you to pardon my writing, in that I am so far friend as that I
 
@@ -14452,31 +12448,17 @@ you are and how your husband suffer; so I pray you, if it may be,
 
 enlighten him not, lest it may harm. Again your pardon, and forgive me.
 
-
-
 “VAN HELSING.”
 
-
-
-
-
 _Telegram, Mrs. Harker to Van Helsing._
-
-
 
 “_25 September._--Come to-day by quarter-past ten train if you can catch
 
 it. Can see you any time you call.
 
-
-
 “WILHELMINA HARKER.”
 
-
-
 MINA HARKER’S JOURNAL.
-
-
 
 _25 September._--I cannot help feeling terribly excited as the time
 
@@ -14514,8 +12496,6 @@ Helsing will not blame me; I have had so much trouble and anxiety of
 
 late that I feel I cannot bear more just at present.
 
-
-
 I suppose a cry does us all good at times--clears the air as other rain
 
 does. Perhaps it was reading the journal yesterday that upset me, and
@@ -14534,11 +12514,7 @@ so glad I have type-written out my own journal, so that, in case he asks
 
 about Lucy, I can hand it to him; it will save much questioning.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--He has come and gone. Oh, what a strange meeting, and how it
 
@@ -14584,15 +12560,11 @@ spoken, even if you had to refine some of it afterwards. Here was a rare
 
 interview; I shall try to record it _verbatim_.
 
-
-
 It was half-past two o’clock when the knock came. I took my courage _à
 
 deux mains_ and waited. In a few minutes Mary opened the door, and
 
 announced “Dr. Van Helsing.”
-
-
 
 I rose and bowed, and he came towards me; a man of medium weight,
 
@@ -14622,29 +12594,19 @@ widely apart, and are quick and tender or stern with the man’s moods. He
 
 said to me:--
 
-
-
 “Mrs. Harker, is it not?” I bowed assent.
 
-
-
 “That was Miss Mina Murray?” Again I assented.
-
-
 
 “It is Mina Murray that I came to see that was friend of that poor dear
 
 child Lucy Westenra. Madam Mina, it is on account of the dead I come.”
-
-
 
 “Sir,” I said, “you could have no better claim on me than that you were
 
 a friend and helper of Lucy Westenra.” And I held out my hand. He took
 
 it and said tenderly:--
-
-
 
 “Oh, Madam Mina, I knew that the friend of that poor lily girl must be
 
@@ -14653,8 +12615,6 @@ good, but I had yet to learn----” He finished his speech with a courtly
 bow. I asked him what it was that he wanted to see me about, so he at
 
 once began:--
-
-
 
 “I have read your letters to Miss Lucy. Forgive me, but I had to begin
 
@@ -14672,23 +12632,15 @@ great perplexity then I come to you, and ask you out of your so much
 
 kindness to tell me all of it that you can remember.”
 
-
-
 “I can tell you, I think, Dr. Van Helsing, all about it.”
-
-
 
 “Ah, then you have good memory for facts, for details? It is not always
 
 so with young ladies.”
 
-
-
 “No, doctor, but I wrote it all down at the time. I can show it to you
 
 if you like.”
-
-
 
 “Oh, Madam Mina, I will be grateful; you will do me much favour.” I
 
@@ -14700,17 +12652,11 @@ mouths--so I handed him the shorthand diary. He took it with a grateful
 
 bow, and said:--
 
-
-
 “May I read it?”
-
-
 
 “If you wish,” I answered as demurely as I could. He opened it, and for
 
 an instant his face fell. Then he stood up and bowed.
-
-
 
 “Oh, you so clever woman!” he said. “I knew long that Mr. Jonathan was a
 
@@ -14724,8 +12670,6 @@ and I was almost ashamed; so I took the typewritten copy from my
 
 workbasket and handed it to him.
 
-
-
 “Forgive me,” I said: “I could not help it; but I had been thinking that
 
 it was of dear Lucy that you wished to ask, and so that you might not
@@ -14734,13 +12678,9 @@ have time to wait--not on my account, but because I know your time must
 
 be precious--I have written it out on the typewriter for you.”
 
-
-
 He took it and his eyes glistened. “You are so good,” he said. “And may
 
 I read it now? I may want to ask you some things when I have read.”
-
-
 
 “By all means,” I said, “read it over whilst I order lunch; and then you
 
@@ -14755,8 +12695,6 @@ disturbed. When I came back, I found him walking hurriedly up and down
 the room, his face all ablaze with excitement. He rushed up to me and
 
 took me by both hands.
-
-
 
 “Oh, Madam Mina,” he said, “how can I say what I owe to you? This paper
 
@@ -14780,11 +12718,7 @@ you are one of the lights. You will have happy life and good life, and
 
 your husband will be blessed in you.”
 
-
-
 “But, doctor, you praise me too much, and--and you do not know me.”
-
-
 
 “Not know you--I, who am old, and who have studied all my life men and
 
@@ -14812,31 +12746,21 @@ is he strong and hearty?” I saw here an opening to ask him about
 
 Jonathan, so I said:--
 
-
-
 “He was almost recovered, but he has been greatly upset by Mr. Hawkins’s
 
 death.” He interrupted:--
-
-
 
 “Oh, yes, I know, I know. I have read your last two letters.” I went
 
 on:--
 
-
-
 “I suppose this upset him, for when we were in town on Thursday last he
 
 had a sort of shock.”
 
-
-
 “A shock, and after brain fever so soon! That was not good. What kind of
 
 a shock was it?”
-
-
 
 “He thought he saw some one who recalled something terrible, something
 
@@ -14855,8 +12779,6 @@ him, and implored him to make my husband well again. He took my hands
 and raised me up, and made me sit on the sofa, and sat by me; he held my
 
 hand in his, and said to me with, oh, such infinite sweetness:--
-
-
 
 “My life is a barren and lonely one, and so full of work that I have not
 
@@ -14900,11 +12822,7 @@ husband Jonathan’s trouble so far as you can, but not yet. You must eat
 
 now; afterwards you shall tell me all.”
 
-
-
 After lunch, when we went back to the drawing-room, he said to me:--
-
-
 
 “And now tell me all about him.” When it came to speaking to this great
 
@@ -14916,8 +12834,6 @@ on. But he was so sweet and kind, and he had promised to help, and I
 
 trusted him, so I said:--
 
-
-
 “Dr. Van Helsing, what I have to tell you is so queer that you must not
 
 laugh at me or at my husband. I have been since yesterday in a sort of
@@ -14927,8 +12843,6 @@ fever of doubt; you must be kind to me, and not think me foolish that I
 have even half believed some very strange things.” He reassured me by
 
 his manner as well as his words when he said:--
-
-
 
 “Oh, my dear, if you only know how strange is the matter regarding which
 
@@ -14941,8 +12855,6 @@ an open mind; and it is not the ordinary things of life that could close
 it, but the strange things, the extraordinary things, the things that
 
 make one doubt if they be mad or sane.”
-
-
 
 “Thank you, thank you, a thousand times! You have taken a weight off my
 
@@ -14958,13 +12870,9 @@ judge. And then when I see you, perhaps, you will be very kind and tell
 
 me what you think.”
 
-
-
 “I promise,” he said as I gave him the papers; “I shall in the morning,
 
 so soon as I can, come to see you and your husband, if I may.”
-
-
 
 “Jonathan will be here at half-past eleven, and you must come to lunch
 
@@ -14978,29 +12886,17 @@ up all the trains to and from Exeter, so that I may help Jonathan in
 
 case he is in a hurry.
 
-
-
 So he took the papers with him and went away, and I sit here
 
 thinking--thinking I don’t know what.
 
-
-
        *       *       *       *       *
-
-
 
 _Letter (by hand), Van Helsing to Mrs. Harker._
 
-
-
 “_25 September, 6 o’clock._
 
-
-
 “Dear Madam Mina,--
-
-
 
 “I have read your husband’s so wonderful diary. You may sleep without
 
@@ -15024,29 +12920,15 @@ I have learn all at once so much that again I am dazzle--dazzle more
 
 than ever, and I must think.
 
-
-
 “Yours the most faithful,
-
-
 
 “ABRAHAM VAN HELSING.”
 
-
-
-
-
 _Letter, Mrs. Harker to Van Helsing._
-
-
 
 “_25 September, 6:30 p. m._
 
-
-
 “My dear Dr. Van Helsing,--
-
-
 
 “A thousand thanks for your kind letter, which has taken a great weight
 
@@ -15070,25 +12952,13 @@ you to Paddington by 2:35. Do not answer this, as I shall take it that,
 
 if I do not hear, you will come to breakfast.
 
-
-
 “Believe me,
-
-
 
 “Your faithful and grateful friend,
 
-
-
 “MINA HARKER.”
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _26 September._--I thought never to write in this diary again, but the
 
@@ -15116,15 +12986,11 @@ Mina says. We sat late, and talked it all over. Mina is dressing, and I
 
 shall call at the hotel in a few minutes and bring him over....
 
-
-
 He was, I think, surprised to see me. When I came into the room where he
 
 was, and introduced myself, he took me by the shoulder, and turned my
 
 face round to the light, and said, after a sharp scrutiny:--
-
-
 
 “But Madam Mina told me you were ill, that you had had a shock.” It was
 
@@ -15132,15 +12998,9 @@ so funny to hear my wife called “Madam Mina” by this kindly,
 
 strong-faced old man. I smiled, and said:--
 
-
-
 “I _was_ ill, I _have_ had a shock; but you have cured me already.”
 
-
-
 “And how?”
-
-
 
 “By your letter to Mina last night. I was in doubt, and then everything
 
@@ -15158,8 +13018,6 @@ yourself. No, you don’t; you couldn’t with eyebrows like yours.” He
 
 seemed pleased, and laughed as he said:--
 
-
-
 “So! You are physiognomist. I learn more here with each hour. I am with
 
 so much pleasure coming to you to breakfast; and, oh, sir, you will
@@ -15169,8 +13027,6 @@ pardon praise from an old man, but you are blessed in your wife.” I
 would listen to him go on praising Mina for a day, so I simply nodded
 
 and stood silent.
-
-
 
 “She is one of God’s women, fashioned by His own hand to show us men and
 
@@ -15190,13 +13046,9 @@ will give me your hand, will you not? And let us be friends for all our
 
 lives.”
 
-
-
 We shook hands, and he was so earnest and so kind that it made me quite
 
 choky.
-
-
 
 “And now,” he said, “may I ask you for some more help? I have a great
 
@@ -15206,15 +13058,9 @@ Can you tell me what went before your going to Transylvania? Later on I
 
 may ask more help, and of a different kind; but at first this will do.”
 
-
-
 “Look here, sir,” I said, “does what you have to do concern the Count?”
 
-
-
 “It does,” he said solemnly.
-
-
 
 “Then I am with you heart and soul. As you go by the 10:30 train, you
 
@@ -15222,23 +13068,15 @@ will not have time to read them; but I shall get the bundle of papers.
 
 You can take them with you and read them in the train.”
 
-
-
 After breakfast I saw him to the station. When we were parting he
 
 said:--
-
-
 
 “Perhaps you will come to town if I send to you, and take Madam Mina
 
 too.”
 
-
-
 “We shall both come when you will,” I said.
-
-
 
 I had got him the morning papers and the London papers of the previous
 
@@ -15260,13 +13098,7 @@ the window and waved his hand, calling out: “Love to Madam Mina; I shall
 
 write so soon as ever I can.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _26 September._--Truly there is no such thing as finality. Not a week
 
@@ -15308,13 +13140,9 @@ back, and almost bounded into the room at about half-past five o’clock,
 
 and thrust last night’s “Westminster Gazette” into my hand.
 
-
-
 “What do you think of that?” he asked as he stood back and folded his
 
 arms.
-
-
 
 I looked over the paper, for I really did not know what he meant; but he
 
@@ -15326,25 +13154,15 @@ passage where it described small punctured wounds on their throats. An
 
 idea struck me, and I looked up. “Well?” he said.
 
-
-
 “It is like poor Lucy’s.”
 
-
-
 “And what do you make of it?”
-
-
 
 “Simply that there is some cause in common. Whatever it was that injured
 
 her has injured them.” I did not quite understand his answer:--
 
-
-
 “That is true indirectly, but not directly.”
-
-
 
 “How do you mean, Professor?” I asked. I was a little inclined to take
 
@@ -15356,13 +13174,9 @@ when I saw his face, it sobered me. Never, even in the midst of our
 
 despair about poor Lucy, had he looked more stern.
 
-
-
 “Tell me!” I said. “I can hazard no opinion. I do not know what to
 
 think, and I have no data on which to found a conjecture.”
-
-
 
 “Do you mean to tell me, friend John, that you have no suspicion as to
 
@@ -15370,17 +13184,11 @@ what poor Lucy died of; not after all the hints given, not only by
 
 events, but by me?”
 
-
-
 “Of nervous prostration following on great loss or waste of blood.”
-
-
 
 “And how the blood lost or waste?” I shook my head. He stepped over and
 
 sat down beside me, and went on:--
-
-
 
 “You are clever man, friend John; you reason well, and your wit is bold;
 
@@ -15411,8 +13219,6 @@ believe in corporeal transference. No? Nor in materialisation. No? Nor
 in astral bodies. No? Nor in the reading of thought. No? Nor in
 
 hypnotism----”
-
-
 
 “Yes,” I said. “Charcot has proved that pretty well.” He smiled as he
 
@@ -15470,8 +13276,6 @@ it is hot, flit down on them, and then--and then in the morning are
 
 found dead men, white as even Miss Lucy was?”
 
-
-
 “Good God, Professor!” I said, starting up. “Do you mean to tell me that
 
 Lucy was bitten by such a bat; and that such a thing is here in London
@@ -15479,8 +13283,6 @@ Lucy was bitten by such a bat; and that such a thing is here in London
 in the nineteenth century?” He waved his hand for silence, and went
 
 on:--
-
-
 
 “Can you tell me why the tortoise lives more long than generations of
 
@@ -15522,8 +13324,6 @@ thought in mind all the time. But now I was without this help, yet I
 
 wanted to follow him, so I said:--
 
-
-
 “Professor, let me be your pet student again. Tell me the thesis, so
 
 that I may apply your knowledge as you go on. At present I am going in
@@ -15536,17 +13336,11 @@ from one tussock to another in the mere blind effort to move on without
 
 knowing where I am going.”
 
-
-
 “That is good image,” he said. “Well, I shall tell you. My thesis is
 
 this: I want you to believe.”
 
-
-
 “To believe what?”
-
-
 
 “To believe in things that you cannot. Let me illustrate. I heard once
 
@@ -15564,15 +13358,11 @@ him; but all the same we must not let him think himself all the truth in
 
 the universe.”
 
-
-
 “Then you want me not to let some previous conviction injure the
 
 receptivity of my mind with regard to some strange matter. Do I read
 
 your lesson aright?”
-
-
 
 “Ah, you are my favourite pupil still. It is worth to teach you. Now
 
@@ -15582,39 +13372,29 @@ understand. You think then that those so small holes in the children’s
 
 throats were made by the same that made the hole in Miss Lucy?”
 
-
-
 “I suppose so.” He stood up and said solemnly:--
-
-
 
 “Then you are wrong. Oh, would it were so! but alas! no. It is worse,
 
 far, far worse.”
 
-
-
 “In God’s name, Professor Van Helsing, what do you mean?” I cried.
-
-
 
 He threw himself with a despairing gesture into a chair, and placed his
 
 elbows on the table, covering his face with his hands as he spoke:--
 
-
-
 “They were made by Miss Lucy!”
 
-## DR. SEWARD’S DIARY--_continued_.
+## Kapitel XV
+
+DR. SEWARD’S DIARY--_continued_.
 
 For a while sheer anger mastered me; it was as if he had during her life
 
 struck Lucy on the face. I smote the table hard and rose up as I said to
 
 him:--
-
-
 
 “Dr. Van Helsing, are you mad?” He raised his head and looked at me, and
 
@@ -15632,11 +13412,7 @@ now so late, revenge for that time when you saved my life, and from a
 
 fearful death? Ah no!”
 
-
-
 “Forgive me,” said I. He went on:--
-
-
 
 “My friend, it was because I wished to be gentle in the breaking to you,
 
@@ -15652,21 +13428,13 @@ concrete truth, and of such a one as Miss Lucy. To-night I go to prove
 
 it. Dare you come with me?”
 
-
-
 This staggered me. A man does not like to prove such a truth; Byron
 
 excepted from the category, jealousy.
 
-
-
     “And prove the very truth he most abhorred.”
 
-
-
 He saw my hesitation, and spoke:--
-
-
 
 “The logic is simple, no madman’s logic this time, jumping from tussock
 
@@ -15688,8 +13456,6 @@ will not let two friends. We shall tell him nothing, but only that we
 
 wish to learn. And then----”
 
-
-
 “And then?” He took a key from his pocket and held it up. “And then we
 
 spend the night, you and I, in the churchyard where Lucy lies. This is
@@ -15703,8 +13469,6 @@ ordeal before us. I could do nothing, however, so I plucked up what
 heart I could and said that we had better hasten, as the afternoon was
 
 passing....
-
-
 
 We found the child awake. It had had a sleep and taken some food, and
 
@@ -15746,8 +13510,6 @@ might go away. When she asked him why he wanted to go, he said he wanted
 
 to play with the ‘bloofer lady.’”
 
-
-
 “I hope,” said Van Helsing, “that when you are sending the child home
 
 you will caution its parents to keep strict watch over it. These fancies
@@ -15758,13 +13520,9 @@ night, it would probably be fatal. But in any case I suppose you will
 
 not let it away for some days?”
 
-
-
 “Certainly not, not for a week at least; longer if the wound is not
 
 healed.”
-
-
 
 Our visit to the hospital took more time than we had reckoned on, and
 
@@ -15772,13 +13530,9 @@ the sun had dipped before we came out. When Van Helsing saw how dark it
 
 was, he said:--
 
-
-
 “There is no hurry. It is more late than I thought. Come, let us seek
 
 somewhere that we may eat, and then we shall go on our way.”
-
-
 
 We dined at “Jack Straw’s Castle” along with a little crowd of
 
@@ -15838,8 +13592,6 @@ imagined. It conveyed irresistibly the idea that life--animal life--was
 
 not the only thing which could pass away.
 
-
-
 Van Helsing went about his work systematically. Holding his candle so
 
 that he could read the coffin plates, and so holding it that the sperm
@@ -15850,11 +13602,7 @@ made assurance of Lucy’s coffin. Another search in his bag, and he took
 
 out a turnscrew.
 
-
-
 “What are you going to do?” I asked.
-
-
 
 “To open the coffin. You shall yet be convinced.” Straightway he began
 
@@ -15890,11 +13638,7 @@ coffin, and holding up the candle into the aperture, motioned to me to
 
 look.
 
-
-
 I drew near and looked. The coffin was empty.
-
-
 
 It was certainly a surprise to me, and gave me a considerable shock, but
 
@@ -15904,33 +13648,21 @@ and so emboldened to proceed in his task. “Are you satisfied now, friend
 
 John?” he asked.
 
-
-
 I felt all the dogged argumentativeness of my nature awake within me as
 
 I answered him:--
-
-
 
 “I am satisfied that Lucy’s body is not in that coffin; but that only
 
 proves one thing.”
 
-
-
 “And what is that, friend John?”
 
-
-
 “That it is not there.”
-
-
 
 “That is good logic,” he said, “so far as it goes. But how do you--how
 
 can you--account for it not being there?”
-
-
 
 “Perhaps a body-snatcher,” I suggested. “Some of the undertaker’s people
 
@@ -15939,8 +13671,6 @@ may have stolen it.” I felt that I was speaking folly, and yet it was
 the only real cause which I could suggest. The Professor sighed. “Ah
 
 well!” he said, “we must have more proof. Come with me.”
-
-
 
 He put on the coffin-lid again, gathered up all his things and placed
 
@@ -15966,8 +13696,6 @@ figure move until the intervening headstones and trees hid it from my
 
 sight.
 
-
-
 It was a lonely vigil. Just after I had taken my place I heard a distant
 
 clock strike twelve, and in time came one and two. I was chilled and
@@ -15979,8 +13707,6 @@ and with myself for coming. I was too cold and too sleepy to be keenly
 observant, and not sleepy enough to betray my trust so altogether I had
 
 a dreary, miserable time.
-
-
 
 Suddenly, as I turned round, I thought I saw something like a white
 
@@ -16008,31 +13734,19 @@ coming over, found the Professor holding in his arms a tiny child. When
 
 he saw me he held it out to me, and said:--
 
-
-
 “Are you satisfied now?”
-
-
 
 “No,” I said, in a way that I felt was aggressive.
 
-
-
 “Do you not see the child?”
-
-
 
 “Yes, it is a child, but who brought it here? And is it wounded?” I
 
 asked.
 
-
-
 “We shall see,” said the Professor, and with one impulse we took our way
 
 out of the churchyard, he carrying the sleeping child.
-
-
 
 When we had got some little distance away, we went into a clump of
 
@@ -16040,15 +13754,9 @@ trees, and struck a match, and looked at the child’s throat. It was
 
 without a scratch or scar of any kind.
 
-
-
 “Was I right?” I asked triumphantly.
 
-
-
 “We were just in time,” said the Professor thankfully.
-
-
 
 We had now to decide what we were to do with the child, and so consulted
 
@@ -16074,19 +13782,13 @@ of astonishment, and then we went away silently. By good chance we got a
 
 cab near the “Spaniards,” and drove to town.
 
-
-
 I cannot sleep, so I make this entry. But I must try to get a few hours’
 
 sleep, as Van Helsing is to call for me at noon. He insists that I shall
 
 go with him on another expedition.
 
-
-
        *       *       *       *       *
-
-
 
 _27 September._--It was two o’clock before we found a suitable
 
@@ -16130,8 +13832,6 @@ He bent over and again forced back the leaden flange; and then a shock
 
 of surprise and dismay shot through me.
 
-
-
 There lay Lucy, seemingly just as we had seen her the night before her
 
 funeral. She was, if possible, more radiantly beautiful than ever; and I
@@ -16140,19 +13840,13 @@ could not believe that she was dead. The lips were red, nay redder than
 
 before; and on the cheeks was a delicate bloom.
 
-
-
 “Is this a juggle?” I said to him.
-
-
 
 “Are you convinced now?” said the Professor in response, and as he spoke
 
 he put over his hand, and in a way that made me shudder, pulled back the
 
 dead lips and showed the white teeth.
-
-
 
 “See,” he went on, “see, they are even sharper than before. With this
 
@@ -16166,19 +13860,11 @@ accept such an overwhelming idea as he suggested; so, with an attempt to
 
 argue of which I was even at the moment ashamed, I said:--
 
-
-
 “She may have been placed here since last night.”
-
-
 
 “Indeed? That is so, and by whom?”
 
-
-
 “I do not know. Some one has done it.”
-
-
 
 “And yet she has been dead one week. Most peoples in that time would not
 
@@ -16191,8 +13877,6 @@ triumph. He was looking intently at the face of the dead woman, raising
 the eyelids and looking at the eyes, and once more opening the lips and
 
 examining the teeth. Then he turned to me and said:--
-
-
 
 “Here, there is one thing which is different from all recorded; here is
 
@@ -16224,17 +13908,11 @@ idea of killing her? He looked up at me, and evidently saw the change in
 
 my face, for he said almost joyously:--
 
-
-
 “Ah, you believe now?”
-
-
 
 I answered: “Do not press me too hard all at once. I am willing to
 
 accept. How will you do this bloody work?”
-
-
 
 “I shall cut off her head and fill her mouth with garlic, and I shall
 
@@ -16250,15 +13928,11 @@ called it, and to loathe it. Is it possible that love is all subjective,
 
 or all objective?
 
-
-
 I waited a considerable time for Van Helsing to begin, but he stood as
 
 if wrapped in thought. Presently he closed the catch of his bag with a
 
 snap, and said:--
-
-
 
 “I have been thinking, and have made up my mind as to what is best. If I
 
@@ -16332,33 +14006,19 @@ shall all have work to do. I come with you so far as Piccadilly and
 
 there dine, for I must be back here before the sun set.”
 
-
-
 So we locked the tomb and came away, and got over the wall of the
 
 churchyard, which was not much of a task, and drove back to Piccadilly.
-
-
-
-
 
 _Note left by Van Helsing in his portmanteau, Berkeley Hotel directed to
 
 John Seward, M. D._
 
-
-
 (Not delivered.)
-
-
 
 “_27 September._
 
-
-
 “Friend John,--
-
-
 
 “I write this in case anything should happen. I go alone to watch in
 
@@ -16404,8 +14064,6 @@ hunting ground is more full of game than the churchyard where the
 
 Un-Dead woman sleep, and the one old man watch.
 
-
-
 “Therefore I write this in case.... Take the papers that are with this,
 
 the diaries of Harker and the rest, and read them, and then find this
@@ -16414,23 +14072,11 @@ great Un-Dead, and cut off his head and burn his heart or drive a stake
 
 through it, so that the world may rest from him.
 
-
-
 “If it be so, farewell.
-
-
 
 “VAN HELSING.”
 
-
-
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _28 September._--It is wonderful what a good night’s sleep will do for
 
@@ -16456,11 +14102,7 @@ Helsing was mad; but anyhow I shall watch him carefully. I may get some
 
 light on the mystery.
 
-
-
        *       *       *       *       *
-
-
 
 _29 September, morning._.... Last night, at a little before ten o’clock,
 
@@ -16476,8 +14118,6 @@ there. You were doubtless surprised at my letter?” This query was
 
 directly addressed to Lord Godalming.
 
-
-
 “I was. It rather upset me for a bit. There has been so much trouble
 
 around my house of late that I could do without any more. I have been
@@ -16488,11 +14128,7 @@ more we talked, the more puzzled we got, till now I can say for myself
 
 that I’m about up a tree as to any meaning about anything.”
 
-
-
 “Me too,” said Quincey Morris laconically.
-
-
 
 “Oh,” said the Professor, “then you are nearer the beginning, both of
 
@@ -16500,15 +14136,11 @@ you, than friend John here, who has to go a long way back before he can
 
 even get so far as to begin.”
 
-
-
 It was evident that he recognised my return to my old doubting frame of
 
 mind without my saying a word. Then, turning to the other two, he said
 
 with intense gravity:--
-
-
 
 “I want your permission to do what I think good this night. It is, I
 
@@ -16522,15 +14154,11 @@ time--I must not disguise from myself the possibility that such may
 
 be--you shall not blame yourselves for anything.”
 
-
-
 “That’s frank anyhow,” broke in Quincey. “I’ll answer for the Professor.
 
 I don’t quite see his drift, but I swear he’s honest; and that’s good
 
 enough for me.”
-
-
 
 “I thank you, sir,” said Van Helsing proudly. “I have done myself the
 
@@ -16538,11 +14166,7 @@ honour of counting you one trusting friend, and such endorsement is dear
 
 to me.” He held out a hand, which Quincey took.
 
-
-
 Then Arthur spoke out:--
-
-
 
 “Dr. Van Helsing, I don’t quite like to ‘buy a pig in a poke,’ as they
 
@@ -16556,8 +14180,6 @@ these two, then I give my consent at once; though for the life of me, I
 
 cannot understand what you are driving at.”
 
-
-
 “I accept your limitation,” said Van Helsing, “and all I ask of you is
 
 that if you feel it necessary to condemn any act of mine, you will first
@@ -16566,33 +14188,21 @@ consider it well and be satisfied that it does not violate your
 
 reservations.”
 
-
-
 “Agreed!” said Arthur; “that is only fair. And now that the
 
 _pourparlers_ are over, may I ask what it is we are to do?”
-
-
 
 “I want you to come with me, and to come in secret, to the churchyard at
 
 Kingstead.”
 
-
-
 Arthur’s face fell as he said in an amazed sort of way:--
-
-
 
 “Where poor Lucy is buried?” The Professor bowed. Arthur went on: “And
 
 when there?”
 
-
-
 “To enter the tomb!” Arthur stood up.
-
-
 
 “Professor, are you in earnest; or it is some monstrous joke? Pardon me,
 
@@ -16602,15 +14212,9 @@ he sat firmly and proudly, as one who is on his dignity. There was
 
 silence until he asked again:--
 
-
-
 “And when in the tomb?”
 
-
-
 “To open the coffin.”
-
-
 
 “This is too much!” he said, angrily rising again. “I am willing to be
 
@@ -16620,23 +14224,15 @@ of the grave--of one who----” He fairly choked with indignation. The
 
 Professor looked pityingly at him.
 
-
-
 “If I could spare you one pang, my poor friend,” he said, “God knows I
 
 would. But this night our feet must tread in thorny paths; or later, and
 
 for ever, the feet you love must walk in paths of flame!”
 
-
-
 Arthur looked up with set white face and said:--
 
-
-
 “Take care, sir, take care!”
-
-
 
 “Would it not be well to hear what I have to say?” said Van Helsing.
 
@@ -16644,25 +14240,15 @@ Arthur looked up with set white face and said:--
 
 on?”
 
-
-
 “That’s fair enough,” broke in Morris.
 
-
-
 After a pause Van Helsing went on, evidently with an effort:--
-
-
 
 “Miss Lucy is dead; is it not so? Yes! Then there can be no wrong to
 
 her. But if she be not dead----”
 
-
-
 Arthur jumped to his feet.
-
-
 
 “Good God!” he cried. “What do you mean? Has there been any mistake; has
 
@@ -16670,27 +14256,19 @@ she been buried alive?” He groaned in anguish that not even hope could
 
 soften.
 
-
-
 “I did not say she was alive, my child; I did not think it. I go no
 
 further than to say that she might be Un-Dead.”
 
-
-
 “Un-Dead! Not alive! What do you mean? Is this all a nightmare, or what
 
 is it?”
-
-
 
 “There are mysteries which men can only guess at, which age by age they
 
 may solve only in part. Believe me, we are now on the verge of one. But
 
 I have not done. May I cut off the head of dead Miss Lucy?”
-
-
 
 “Heavens and earth, no!” cried Arthur in a storm of passion. “Not for
 
@@ -16710,13 +14288,9 @@ duty to do in protecting her grave from outrage; and, by God, I shall do
 
 it!”
 
-
-
 Van Helsing rose up from where he had all the time been seated, and
 
 said, gravely and sternly:--
-
-
 
 “My Lord Godalming, I, too, have a duty to do, a duty to others, a duty
 
@@ -16735,8 +14309,6 @@ hold myself at your disposal to render an account to you, when and where
 you will.” His voice broke a little, and he went on with a voice full of
 
 pity:--
-
-
 
 “But, I beseech you, do not go forth in anger with me. In a long life of
 
@@ -16770,13 +14342,13 @@ said this with a very grave, sweet pride, and Arthur was much affected
 
 by it. He took the old man’s hand and said in a broken voice:--
 
-
-
 “Oh, it is hard to think of it, and I cannot understand; but at least I
 
 shall go with you and wait.”
 
-## DR. SEWARD’S DIARY--_continued_
+## Kapitel XVI
+
+DR. SEWARD’S DIARY--_continued_
 
 It was just a quarter before twelve o’clock when we got into the
 
@@ -16804,17 +14376,11 @@ He then lit a dark lantern and pointed to the coffin. Arthur stepped
 
 forward hesitatingly; Van Helsing said to me:--
 
-
-
 “You were with me here yesterday. Was the body of Miss Lucy in that
 
 coffin?”
 
-
-
 “It was.” The Professor turned to the rest saying:--
-
-
 
 “You hear; and yet there is no one who does not believe with me.” He
 
@@ -16834,17 +14400,11 @@ Van Helsing forced back the leaden flange, and we all looked in and
 
 recoiled.
 
-
-
 The coffin was empty!
-
-
 
 For several minutes no one spoke a word. The silence was broken by
 
 Quincey Morris:--
-
-
 
 “Professor, I answered for you. Your word is all I want. I wouldn’t ask
 
@@ -16853,8 +14413,6 @@ such a thing ordinarily--I wouldn’t so dishonour you as to imply a
 doubt; but this is a mystery that goes beyond any honour or dishonour.
 
 Is this your doing?”
-
-
 
 “I swear to you by all that I hold sacred that I have not removed nor
 
@@ -16868,11 +14426,7 @@ saw something white come through the trees. The next day we came here in
 
 day-time, and she lay there. Did she not, friend John?”
 
-
-
 “Yes.”
-
-
 
 “That night we were just in time. One more so small child was missing,
 
@@ -16899,8 +14453,6 @@ So”--here he shut the dark slide of his lantern--“now to the outside.”
 He opened the door, and we filed out, he coming last and locking the
 
 door behind him.
-
-
 
 Oh! but it seemed fresh and pure in the night air after the terror of
 
@@ -16950,27 +14502,17 @@ asked him what it was that he was doing. Arthur and Quincey drew near
 
 also, as they too were curious. He answered:--
 
-
-
 “I am closing the tomb, so that the Un-Dead may not enter.”
-
-
 
 “And is that stuff you have put there going to do it?” asked Quincey.
 
 “Great Scott! Is this a game?”
 
-
-
 “It is.”
-
-
 
 “What is that which you are using?” This time the question was by
 
 Arthur. Van Helsing reverently lifted his hat as he answered:--
-
-
 
 “The Host. I brought it from Amsterdam. I have an Indulgence.” It was an
 
@@ -16999,8 +14541,6 @@ or grass wave or rustle so ominously; never did bough creak so
 mysteriously; and never did the far-away howling of dogs send such a
 
 woeful presage through the night.
-
-
 
 There was a long spell of silence, a big, aching void, and then from the
 
@@ -17046,15 +14586,11 @@ were crimson with fresh blood, and that the stream had trickled over her
 
 chin and stained the purity of her lawn death-robe.
 
-
-
 We shuddered with horror. I could see by the tremulous light that even
 
 Van Helsing’s iron nerve had failed. Arthur was next to me, and if I had
 
 not seized his arm and held him up, he would have fallen.
-
-
 
 When Lucy--I call the thing that was before us Lucy because it bore her
 
@@ -17086,19 +14622,13 @@ she advanced to him with outstretched arms and a wanton smile he fell
 
 back and hid his face in his hands.
 
-
-
 She still advanced, however, and with a languorous, voluptuous grace,
 
 said:--
 
-
-
 “Come to me, Arthur. Leave these others and come to me. My arms are
 
 hungry for you. Come, and we can rest together. Come, my husband, come!”
-
-
 
 There was something diabolically sweet in her tones--something of the
 
@@ -17115,8 +14645,6 @@ them his little golden crucifix. She recoiled from it, and, with a
 suddenly distorted face, full of rage, dashed past him as if to enter
 
 the tomb.
-
-
 
 When within a foot or two of the door, however, she stopped, as if
 
@@ -17140,25 +14668,17 @@ the Greeks and Japanese. If ever a face meant death--if looks could
 
 kill--we saw it at that moment.
 
-
-
 And so for full half a minute, which seemed an eternity, she remained
 
 between the lifted crucifix and the sacred closing of her means of
 
 entry. Van Helsing broke the silence by asking Arthur:--
 
-
-
 “Answer me, oh my friend! Am I to proceed in my work?”
-
-
 
 Arthur threw himself on his knees, and hid his face in his hands, as he
 
 answered:--
-
-
 
 “Do as you will, friend; do as you will. There can be no horror like
 
@@ -17182,11 +14702,7 @@ relief when we saw the Professor calmly restoring the strings of putty
 
 to the edges of the door.
 
-
-
 When this was done, he lifted the child and said:
-
-
 
 “Come now, my friends; we can do no more till to-morrow. There is a
 
@@ -17204,8 +14720,6 @@ him, as on the other night; and then to home.” Coming close to Arthur,
 
 he said:--
 
-
-
 “My friend Arthur, you have had a sore trial; but after, when you look
 
 back, you will see how it was necessary. You are now in the bitter
@@ -17216,19 +14730,13 @@ passed them, and have drunk of the sweet waters; so do not mourn
 
 overmuch. Till then I shall not ask you to forgive me.”
 
-
-
 Arthur and Quincey came home with me, and we tried to cheer each other
 
 on the way. We had left the child in safety, and were tired; so we all
 
 slept with more or less reality of sleep.
 
-
-
        *       *       *       *       *
-
-
 
 _29 September, night._--A little before twelve o’clock we three--Arthur,
 
@@ -17251,8 +14759,6 @@ ourselves. Van Helsing, instead of his little black bag, had with him a
 long leather one, something like a cricketing bag; it was manifestly of
 
 fair weight.
-
-
 
 When we were alone and had heard the last of the footsteps die out up
 
@@ -17278,17 +14784,11 @@ soul. I could see even Arthur’s face grow hard as he looked. Presently
 
 he said to Van Helsing:--
 
-
-
 “Is this really Lucy’s body, or only a demon in her shape?”
-
-
 
 “It is her body, and yet not it. But wait a while, and you all see her
 
 as she was, and is.”
-
-
 
 She seemed like a nightmare of Lucy as she lay there; the pointed teeth,
 
@@ -17324,11 +14824,7 @@ to cause them a sort of consternation. They both, however, kept their
 
 courage, and remained silent and quiet.
 
-
-
 When all was ready, Van Helsing said:--
-
-
 
 “Before we do anything, let me tell you this; it is out of the lore and
 
@@ -17390,8 +14886,6 @@ herself have chosen, had it been to her to choose?’ Tell me if there be
 
 such a one amongst us?”
 
-
-
 We all looked at Arthur. He saw, too, what we all did, the infinite
 
 kindness which suggested that his should be the hand which would restore
@@ -17402,15 +14896,11 @@ said bravely, though his hand trembled, and his face was as pale as
 
 snow:--
 
-
-
 “My true friend, from the bottom of my broken heart I thank you. Tell me
 
 what I am to do, and I shall not falter!” Van Helsing laid a hand on his
 
 shoulder, and said:--
-
-
 
 “Brave lad! A moment’s courage, and it is done. This stake must be
 
@@ -17426,11 +14916,7 @@ think that we, your true friends, are round you, and that we pray for
 
 you all the time.”
 
-
-
 “Go on,” said Arthur hoarsely. “Tell me what I am to do.”
-
-
 
 “Take this stake in your left hand, ready to place the point over the
 
@@ -17442,8 +14928,6 @@ follow--strike in God’s name, that so all may be well with the dead that
 
 we love and that the Un-Dead pass away.”
 
-
-
 Arthur took the stake and the hammer, and when once his mind was set on
 
 action his hands never trembled nor even quivered. Van Helsing opened
@@ -17453,8 +14937,6 @@ his missal and began to read, and Quincey and I followed as well as we
 could. Arthur placed the point over the heart, and as I looked I could
 
 see its dint in the white flesh. Then he struck with all his might.
-
-
 
 The Thing in the coffin writhed; and a hideous, blood-curdling screech
 
@@ -17476,15 +14958,11 @@ gave us courage so that our voices seemed to ring through the little
 
 vault.
 
-
-
 And then the writhing and quivering of the body became less, and the
 
 teeth seemed to champ, and the face to quiver. Finally it lay still. The
 
 terrible task was over.
-
-
 
 The hammer fell from Arthur’s hand. He reeled and would have fallen had
 
@@ -17508,8 +14986,6 @@ strange light broke over his face and dispelled altogether the gloom of
 
 horror that lay upon it.
 
-
-
 There, in the coffin lay no longer the foul Thing that we had so dreaded
 
 and grown to hate that the work of her destruction was yielded as a
@@ -17528,23 +15004,15 @@ sunshine over the wasted face and form was only an earthly token and
 
 symbol of the calm that was to reign for ever.
 
-
-
 Van Helsing came and laid his hand on Arthur’s shoulder, and said to
 
 him:--
 
-
-
 “And now, Arthur my friend, dear lad, am I not forgiven?”
-
-
 
 The reaction of the terrible strain came as he took the old man’s hand
 
 in his, and raising it to his lips, pressed it, and said:--
-
-
 
 “Forgiven! God bless you that you have given my dear one her soul again,
 
@@ -17554,8 +15022,6 @@ his head on his breast, cried for a while silently, whilst we stood
 
 unmoving. When he raised his head Van Helsing said to him:--
 
-
-
 “And now, my child, you may kiss her. Kiss her dead lips if you will, as
 
 she would have you to, if for her to choose. For she is not a grinning
@@ -17563,8 +15029,6 @@ she would have you to, if for her to choose. For she is not a grinning
 devil now--not any more a foul Thing for all eternity. No longer she is
 
 the devil’s Un-Dead. She is God’s true dead, whose soul is with Him!”
-
-
 
 Arthur bent and kissed her, and then we sent him and Quincey out of the
 
@@ -17578,8 +15042,6 @@ and gathering up our belongings, came away. When the Professor locked
 
 the door he gave the key to Arthur.
 
-
-
 Outside the air was sweet, the sun shone, and the birds sang, and it
 
 seemed as if all nature were tuned to a different pitch. There was
@@ -17588,11 +15050,7 @@ gladness and mirth and peace everywhere, for we were at rest ourselves
 
 on one account, and we were glad, though it was with a tempered joy.
 
-
-
 Before we moved away Van Helsing said:--
-
-
 
 “Now, my friends, one step of our work is done, one the most harrowing
 
@@ -17608,13 +15066,9 @@ of us--is it not so? And since so, do we not see our duty? Yes! And do
 
 we not promise to go on to the bitter end?”
 
-
-
 Each in turn, we took his hand, and the promise was made. Then said the
 
 Professor as we moved off:--
-
-
 
 “Two nights hence you shall meet with me and dine together at seven of
 
@@ -17636,19 +15090,17 @@ terrible task before us, and once our feet are on the ploughshare we
 
 must not draw back.”
 
-## DR. SEWARD’S DIARY--_continued_
+## Kapitel XVII
+
+DR. SEWARD’S DIARY--_continued_
 
 When we arrived at the Berkeley Hotel, Van Helsing found a telegram
 
 waiting for him:--
 
-
-
      “Am coming up by train. Jonathan at Whitby. Important news.--MINA
 
      HARKER.”
-
-
 
 The Professor was delighted. “Ah, that wonderful Madam Mina,” he said,
 
@@ -17657,8 +15109,6 @@ The Professor was delighted. “Ah, that wonderful Madam Mina,” he said,
 house, friend John. You must meet her at the station. Telegraph her _en
 
 route_, so that she may be prepared.”
-
-
 
 When the wire was despatched he had a cup of tea; over it he told me of
 
@@ -17694,8 +15144,6 @@ took my way to Paddington, where I arrived about fifteen minutes before
 
 the train came in.
 
-
-
 The crowd melted away, after the bustling fashion common to arrival
 
 platforms; and I was beginning to feel uneasy, lest I might miss my
@@ -17704,19 +15152,13 @@ guest, when a sweet-faced, dainty-looking girl stepped up to me, and,
 
 after a quick glance, said: “Dr. Seward, is it not?”
 
-
-
 “And you are Mrs. Harker!” I answered at once; whereupon she held out
 
 her hand.
 
-
-
 “I knew you from the description of poor dear Lucy; but----” She stopped
 
 suddenly, and a quick blush overspread her face.
-
-
 
 The blush that rose to my own cheeks somehow set us both at ease, for it
 
@@ -17728,15 +15170,11 @@ sent a wire to my housekeeper to have a sitting-room and bedroom
 
 prepared at once for Mrs. Harker.
 
-
-
 In due time we arrived. She knew, of course, that the place was a
 
 lunatic asylum, but I could see that she was unable to repress a shudder
 
 when we entered.
-
-
 
 She told me that, if she might, she would come presently to my study, as
 
@@ -17754,13 +15192,7 @@ what a task we have in hand. I must be careful not to frighten her. Here
 
 she is!
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _29 September._--After I had tidied myself, I went down to Dr. Seward’s
 
@@ -17770,8 +15202,6 @@ with some one. As, however, he had pressed me to be quick, I knocked at
 
 the door, and on his calling out, “Come in,” I entered.
 
-
-
 To my intense surprise, there was no one with him. He was quite alone,
 
 and on the table opposite him was what I knew at once from the
@@ -17780,37 +15210,23 @@ description to be a phonograph. I had never seen one, and was much
 
 interested.
 
-
-
 “I hope I did not keep you waiting,” I said; “but I stayed at the door
 
 as I heard you talking, and thought there was some one with you.”
 
-
-
 “Oh,” he replied with a smile, “I was only entering my diary.”
 
-
-
 “Your diary?” I asked him in surprise.
-
-
 
 “Yes,” he answered. “I keep it in this.” As he spoke he laid his hand on
 
 the phonograph. I felt quite excited over it, and blurted out:--
 
-
-
 “Why, this beats even shorthand! May I hear it say something?”
-
-
 
 “Certainly,” he replied with alacrity, and stood up to put it in train
 
 for speaking. Then he paused, and a troubled look overspread his face.
-
-
 
 “The fact is,” he began awkwardly, “I only keep my diary in it; and as
 
@@ -17820,31 +15236,21 @@ is, I mean----” He stopped, and I tried to help him out of his
 
 embarrassment:--
 
-
-
 “You helped to attend dear Lucy at the end. Let me hear how she died;
 
 for all that I know of her, I shall be very grateful. She was very, very
 
 dear to me.”
 
-
-
 To my surprise, he answered, with a horrorstruck look in his face:--
 
-
-
 “Tell you of her death? Not for the wide world!”
-
-
 
 “Why not?” I asked, for some grave, terrible feeling was coming over me.
 
 Again he paused, and I could see that he was trying to invent an excuse.
 
 At length he stammered out:--
-
-
 
 “You see, I do not know how to pick out any particular part of the
 
@@ -17868,19 +15274,13 @@ something to add to the sum of our knowledge of that terrible Being, and
 
 I said boldly:--
 
-
-
 “Then, Dr. Seward, you had better let me copy it out for you on my
 
 typewriter.” He grew to a positively deathly pallor as he said:--
 
-
-
 “No! no! no! For all the world, I wouldn’t let you know that terrible
 
 story!”
-
-
 
 Then it was terrible; my intuition was right! For a moment I thought,
 
@@ -17892,8 +15292,6 @@ the table. His eyes caught the look in mine, and, without his thinking,
 
 followed their direction. As they saw the parcel he realised my meaning.
 
-
-
 “You do not know me,” I said. “When you have read those papers--my own
 
 diary and my husband’s also, which I have typed--you will know me
@@ -17904,8 +15302,6 @@ this cause; but, of course, you do not know me--yet; and I must not
 
 expect you to trust me so far.”
 
-
-
 He is certainly a man of noble nature; poor dear Lucy was right about
 
 him. He stood up and opened a large drawer, in which were arranged in
@@ -17913,8 +15309,6 @@ him. He stood up and opened a large drawer, in which were arranged in
 order a number of hollow cylinders of metal covered with dark wax, and
 
 said:--
-
-
 
 “You are quite right. I did not trust you because I did not know you.
 
@@ -17938,13 +15332,7 @@ pleasant, I am sure; for it will tell me the other side of a true love
 
 episode of which I know one side already....
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _29 September._--I was so absorbed in that wonderful diary of Jonathan
 
@@ -17966,11 +15354,7 @@ now the sight of those sweet eyes, brightened with recent tears, went
 
 straight to my heart. So I said as gently as I could:--
 
-
-
 “I greatly fear I have distressed you.”
-
-
 
 “Oh, no, not distressed me,” she replied, “but I have been more touched
 
@@ -17986,21 +15370,13 @@ words on my typewriter, and none other need now hear your heart beat, as
 
 I did.”
 
-
-
 “No one need ever know, shall ever know,” I said in a low voice. She
 
 laid her hand on mine and said very gravely:--
 
-
-
 “Ah, but they must!”
 
-
-
 “Must! But why?” I asked.
-
-
 
 “Because it is a part of the terrible story, a part of poor dear Lucy’s
 
@@ -18052,13 +15428,7 @@ which you do not understand, though it was apparent to us who were
 
 present.”
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _29 September._--After dinner I came with Dr. Seward to his study. He
 
@@ -18073,8 +15443,6 @@ I should want to pause. Then he very thoughtfully took a chair, with his
 back to me, so that I might be as free as possible, and began to read. I
 
 put the forked metal to my ears and listened.
-
-
 
 When the terrible story of Lucy’s death, and--and all that followed, was
 
@@ -18101,8 +15469,6 @@ believed. As it was, I didn’t know what to believe, and so got out of my
 difficulty by attending to something else. I took the cover off my
 
 typewriter, and said to Dr. Seward:--
-
-
 
 “Let me write this all out now. We must be ready for Dr. Van Helsing
 
@@ -18150,13 +15516,7 @@ through the evening papers since then, and perhaps I shall get some new
 
 light. I am not sleepy, and the work will help to keep me quiet.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _30 September._--Mr. Harker arrived at nine o’clock. He had got his
 
@@ -18174,11 +15534,7 @@ prepared to meet a good specimen of manhood, but hardly the quiet,
 
 business-like gentleman who came here to-day.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--After lunch Harker and his wife went back to their own room,
 
@@ -18195,8 +15551,6 @@ carriers in London who took charge of them. He is now reading his wife’s
 typescript of my diary. I wonder what they make out of it. Here it
 
 is....
-
-
 
      Strange that it never struck me that the very next house might be
 
@@ -18223,8 +15577,6 @@ is....
      that Mrs. Harker put my cylinders into type! We never could have
 
      found the dates otherwise....
-
-
 
      I found Renfield sitting placidly in his room with his hands
 
@@ -18268,13 +15620,7 @@ is....
 
      have a strait-waistcoat ready in case of need.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _29 September, in train to London._--When I received Mr. Billington’s
 
@@ -18350,11 +15696,7 @@ before leaving to lift, for ever and adequately, this source of
 
 reproach.
 
-
-
        *       *       *       *       *
-
-
 
 _30 September._--The station-master was good enough to give me a line to
 
@@ -18371,8 +15713,6 @@ invoice. The opportunities of acquiring an abnormal thirst had been here
 limited; a noble use of them had, however, been made, and again I was
 
 compelled to deal with the result in an _ex post facto_ manner.
-
-
 
 From thence I went on to Carter Paterson’s central office, where I met
 
@@ -18400,8 +15740,6 @@ through the medium of the currency of the realm, of the allaying, at a
 
 later period, this beneficial evil, one of the men remarked:--
 
-
-
 “That ’ere ’ouse, guv’nor, is the rummiest I ever was in. Blyme! but it
 
 ain’t been touched sence a hundred years. There was dust that thick in
@@ -18416,13 +15754,9 @@ and my mate, we thort we wouldn’t never git out quick enough. Lor’, I
 
 wouldn’t take less nor a quid a moment to stay there arter dark.”
 
-
-
 Having been in the house, I could well believe him; but if he knew what
 
 I know, he would, I think, have raised his terms.
-
-
 
 Of one thing I am now satisfied: that _all_ the boxes which arrived at
 
@@ -18432,31 +15766,19 @@ chapel at Carfax. There should be fifty of them there, unless any have
 
 since been removed--as from Dr. Seward’s diary I fear.
 
-
-
 I shall try to see the carter who took away the boxes from Carfax when
 
 Renfield attacked them. By following up this clue we may learn a good
 
 deal.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Mina and I have worked all day, and we have put all the papers
 
 into order.
 
-
-
-
-
 _Mina Harker’s Journal_
-
-
 
 _30 September._--I am so glad that I hardly know how to contain myself.
 
@@ -18488,11 +15810,7 @@ death, and what followed, is enough to dry up the springs of pity in
 
 one’s heart.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Lord Godalming and Mr. Morris arrived earlier than we
 
@@ -18530,15 +15848,9 @@ I gave them each a copy to read in the library. When Lord Godalming got
 
 his and turned it over--it does make a pretty good pile--he said:--
 
-
-
 “Did you write all this, Mrs. Harker?”
 
-
-
 I nodded, and he went on:--
-
-
 
 “I don’t quite see the drift of it; but you people are all so good and
 
@@ -18574,8 +15886,6 @@ _know_ he never will--he is too true a gentleman. I said to him, for I
 
 could see that his heart was breaking:--
 
-
-
 “I loved dear Lucy, and I know what she was to you, and what you were to
 
 her. She and I were like sisters; and now she is gone, will you not let
@@ -18587,8 +15897,6 @@ had, though I cannot measure the depth of them. If sympathy and pity can
 help in your affliction, won’t you let me be of some little service--for
 
 Lucy’s sake?”
-
-
 
 In an instant the poor dear fellow was overwhelmed with grief. It seemed
 
@@ -18606,8 +15914,6 @@ head on my shoulder and cried like a wearied child, whilst he shook with
 
 emotion.
 
-
-
 We women have something of the mother in us that makes us rise above
 
 smaller matters when the mother-spirit is invoked; I felt this big
@@ -18617,8 +15923,6 @@ sorrowing man’s head resting on me, as though it were that of the baby
 that some day may lie on my bosom, and I stroked his hair as though he
 
 were my own child. I never thought at the time how strange it all was.
-
-
 
 After a little bit his sobs ceased, and he raised himself with an
 
@@ -18644,8 +15948,6 @@ now, my gratitude will grow with my understanding. You will let me be
 
 like a brother, will you not, for all our lives--for dear Lucy’s sake?”
 
-
-
 “For dear Lucy’s sake,” I said as we clasped hands. “Ay, and for your
 
 own sake,” he added, “for if a man’s esteem and gratitude are ever worth
@@ -18662,11 +15964,7 @@ will let me know.” He was so earnest, and his sorrow was so fresh, that
 
 I felt it would comfort him, so I said:--
 
-
-
 “I promise.”
-
-
 
 As I came along the corridor I saw Mr. Morris looking out of a window.
 
@@ -18678,15 +15976,11 @@ old fellow! he needs it. No one but a woman can help a man when he is in
 
 trouble of the heart; and he had no one to comfort him.”
 
-
-
 He bore his own trouble so bravely that my heart bled for him. I saw the
 
 manuscript in his hand, and I knew that when he read it he would realise
 
 how much I knew; so I said to him:--
-
-
 
 “I wish I could comfort all who suffer from the heart. Will you let me
 
@@ -18702,19 +15996,17 @@ bent over and kissed him. The tears rose in his eyes, and there was a
 
 momentary choking in his throat; he said quite calmly:--
 
-
-
 “Little girl, you will never regret that true-hearted kindness, so long
 
 as ever you live!” Then he went into the study to his friend.
-
-
 
 “Little girl!”--the very words he had used to Lucy, and oh, but he
 
 proved himself a friend!
 
-## DR. SEWARD’S DIARY
+## Kapitel XVIII
+
+DR. SEWARD’S DIARY
 
 _30 September._--I got home at five o’clock, and found that Godalming
 
@@ -18732,8 +16024,6 @@ have lived in it, this old house seemed like _home_. When we had
 
 finished, Mrs. Harker said:--
 
-
-
 “Dr. Seward, may I ask a favour? I want to see your patient, Mr.
 
 Renfield. Do let me see him. What you have said of him in your diary
@@ -18745,8 +16035,6 @@ could not refuse her, and there was no possible reason why I should; so
 I took her with me. When I went into the room, I told the man that a
 
 lady would like to see him; to which he simply answered: “Why?”
-
-
 
 “She is going through the house, and wants to see every one in it,” I
 
@@ -18780,8 +16068,6 @@ people most respect. She walked over to him, smiling pleasantly, and
 
 held out her hand.
 
-
-
 “Good-evening, Mr. Renfield,” said she. “You see, I know you, for Dr.
 
 Seward has told me of you.” He made no immediate reply, but eyed her all
@@ -18792,37 +16078,23 @@ of wonder, which merged in doubt; then, to my intense astonishment, he
 
 said:--
 
-
-
 “You’re not the girl the doctor wanted to marry, are you? You can’t be,
 
 you know, for she’s dead.” Mrs. Harker smiled sweetly as she replied:--
-
-
 
 “Oh no! I have a husband of my own, to whom I was married before I ever
 
 saw Dr. Seward, or he me. I am Mrs. Harker.”
 
-
-
 “Then what are you doing here?”
-
-
 
 “My husband and I are staying on a visit with Dr. Seward.”
 
-
-
 “Then don’t stay.”
-
-
 
 “But why not?” I thought that this style of conversation might not be
 
 pleasant to Mrs. Harker, any more than it was to me, so I joined in:--
-
-
 
 “How did you know I wanted to marry any one?” His reply was simply
 
@@ -18830,19 +16102,13 @@ contemptuous, given in a pause in which he turned his eyes from Mrs.
 
 Harker to me, instantly turning them back again:--
 
-
-
 “What an asinine question!”
-
-
 
 “I don’t see that at all, Mr. Renfield,” said Mrs. Harker, at once
 
 championing me. He replied to her with as much courtesy and respect as
 
 he had shown contempt to me:--
-
-
 
 “You will, of course, understand, Mrs. Harker, that when a man is so
 
@@ -18874,8 +16140,6 @@ way due to her unconscious influence, she must have some rare gift or
 
 power.
 
-
-
 We continued to talk for some time; and, seeing that he was seemingly
 
 quite reasonable, she ventured, looking at me questioningly as she
@@ -18887,8 +16151,6 @@ he addressed himself to the question with the impartiality of the
 completest sanity; he even took himself as an example when he mentioned
 
 certain things.
-
-
 
 “Why, I myself am an instance of a man who had a strange belief. Indeed,
 
@@ -18930,13 +16192,9 @@ under auspices pleasanter to yourself,” to which, to my astonishment, he
 
 replied:--
 
-
-
 “Good-bye, my dear. I pray God I may never see your sweet face again.
 
 May He bless and keep you!”
-
-
 
 When I went to the station to meet Van Helsing I left the boys behind
 
@@ -18946,13 +16204,9 @@ ill, and Quincey is more like his own bright self than he has been for
 
 many a long day.
 
-
-
 Van Helsing stepped from the carriage with the eager nimbleness of a
 
 boy. He saw me at once, and rushed up to me, saying:--
-
-
 
 “Ah, friend John, how goes all? Well? So! I have been busy, for I come
 
@@ -18962,15 +16216,11 @@ much to tell. Madam Mina is with you? Yes. And her so fine husband? And
 
 Arthur and my friend Quincey, they are with you, too? Good!”
 
-
-
 As I drove to the house I told him of what had passed, and of how my own
 
 diary had come to be of some use through Mrs. Harker’s suggestion; at
 
 which the Professor interrupted me:--
-
-
 
 “Ah, that wonderful Madam Mina! She has man’s brain--a brain that a man
 
@@ -19016,19 +16266,13 @@ lasted till we entered my own gateway. Before we went to prepare for
 
 dinner he said to Mrs. Harker:--
 
-
-
 “I am told, Madam Mina, by my friend John that you and your husband have
 
 put up in exact order all things that have been, up to this moment.”
 
-
-
 “Not up to this moment, Professor,” she said impulsively, “but up to
 
 this morning.”
-
-
 
 “But why not up to now? We have seen hitherto how good light all the
 
@@ -19036,13 +16280,9 @@ little things have made. We have told our secrets, and yet no one who
 
 has told is the worse for it.”
 
-
-
 Mrs. Harker began to blush, and taking a paper from her pockets, she
 
 said:--
-
-
 
 “Dr. Van Helsing, will you read this, and tell me if it must go in. It
 
@@ -19054,8 +16294,6 @@ what is personal. Must it go in?” The Professor read it over gravely,
 
 and handed it back, saying:--
 
-
-
 “It need not go in if you do not wish it; but I pray that it may. It can
 
 but make your husband love you the more, and all us, your friends, more
@@ -19063,8 +16301,6 @@ but make your husband love you the more, and all us, your friends, more
 honour you--as well as more esteem and love.” She took it back with
 
 another blush and a bright smile.
-
-
 
 And so now, up to this very hour, all the records we have are complete
 
@@ -19078,13 +16314,7 @@ be informed as to facts, and can arrange our plan of battle with this
 
 terrible and mysterious enemy.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _30 September._--When we met in Dr. Seward’s study two hours after
 
@@ -19102,13 +16332,9 @@ Morris--Lord Godalming being next the Professor, and Dr. Seward in the
 
 centre. The Professor said:--
 
-
-
 “I may, I suppose, take it that we are all acquainted with the facts
 
 that are in these papers.” We all expressed assent, and he went on:--
-
-
 
 “Then it were, I think good that I tell you something of the kind of
 
@@ -19119,8 +16345,6 @@ something of the history of this man, which has been ascertained for me.
 So we then can discuss how we shall act, and can take our measure
 
 according.
-
-
 
 “There are such beings as vampires; some of us have evidence that they
 
@@ -19200,8 +16424,6 @@ young. Some have seen sorrow; but there are fair days yet in store. What
 
 say you?”
 
-
-
 Whilst he was speaking, Jonathan had taken my hand. I feared, oh so
 
 much, that the appalling nature of our danger was overcoming him when I
@@ -19212,27 +16434,17 @@ strong, so self-reliant, so resolute. A brave man’s hand can speak for
 
 itself; it does not even need a woman’s love to hear its music.
 
-
-
 When the Professor had done speaking my husband looked in my eyes, and I
 
 in his; there was no need for speaking between us.
 
-
-
 “I answer for Mina and myself,” he said.
 
-
-
 “Count me in, Professor,” said Mr. Quincey Morris, laconically as usual.
-
-
 
 “I am with you,” said Lord Godalming, “for Lucy’s sake, if for no other
 
 reason.”
-
-
 
 Dr. Seward simply nodded. The Professor stood up and, after laying his
 
@@ -19252,8 +16464,6 @@ had begun. It was to be taken as gravely, and in as businesslike a way,
 
 as any other transaction of life:--
 
-
-
 “Well, you know what we have to contend against; but we, too, are not
 
 without strength. We have on our side power of combination--a power
@@ -19268,15 +16478,11 @@ free to use them. We have self-devotion in a cause, and an end to
 
 achieve which is not a selfish one. These things are much.
 
-
-
 “Now let us see how far the general powers arrayed against us are
 
 restrict, and how the individual cannot. In fine, let us consider the
 
 limitations of the vampire in general, and of this one in particular.
-
-
 
 “All we have to go upon are traditions and superstitions. These do not
 
@@ -19414,8 +16620,6 @@ him, we know already of its peace; or the cut-off head that giveth rest.
 
 We have seen it with our eyes.
 
-
-
 “Thus when we find the habitation of this man-that-was, we can confine
 
 him to his coffin and destroy him, if we obey what we know. But he is
@@ -19460,15 +16664,11 @@ is not the least of its terrors that this evil thing is rooted deep in
 
 all good; in soil barren of holy memories it cannot rest.”
 
-
-
 Whilst they were talking Mr. Morris was looking steadily at the window,
 
 and he now got up quietly, and went out of the room. There was a little
 
 pause, and then the Professor went on:--
-
-
 
 “And now we must settle what we do. We have here much data, and we must
 
@@ -19486,8 +16686,6 @@ where we look to-day; or whether any more have been removed. If the
 
 latter, we must trace----”
 
-
-
 Here we were interrupted in a very startling way. Outside the house came
 
 the sound of a pistol-shot; the glass of the window was shattered with a
@@ -19502,13 +16700,9 @@ window and threw up the sash. As he did so we heard Mr. Morris’s voice
 
 without:--
 
-
-
 “Sorry! I fear I have alarmed you. I shall come in and tell you about
 
 it.” A minute later he came in and said:--
-
-
 
 “It was an idiotic thing of me to do, and I ask your pardon, Mrs.
 
@@ -19524,19 +16718,13 @@ have a shot, as I have been doing of late of evenings, whenever I have
 
 seen one. You used to laugh at me for it then, Art.”
 
-
-
 “Did you hit it?” asked Dr. Van Helsing.
-
-
 
 “I don’t know; I fancy not, for it flew away into the wood.” Without
 
 saying any more he took his seat, and the Professor began to resume his
 
 statement:--
-
-
 
 “We must trace each of these boxes; and when we are ready, we must
 
@@ -19547,8 +16735,6 @@ speak, sterilise the earth, so that no more he can seek safety in it.
 Thus in the end we may find him in his form of man between the hours of
 
 noon and sunset, and so engage with him when he is at his most weak.
-
-
 
 “And now for you, Madam Mina, this night is the end until all be well.
 
@@ -19562,8 +16748,6 @@ shall act all the more free that you are not in the danger, such as we
 
 are.”
 
-
-
 All the men, even Jonathan, seemed relieved; but it did not seem to me
 
 good that they should brave danger and, perhaps, lessen their
@@ -19574,19 +16758,13 @@ minds were made up, and, though it was a bitter pill for me to swallow,
 
 I could say nothing, save to accept their chivalrous care of me.
 
-
-
 Mr. Morris resumed the discussion:--
-
-
 
 “As there is no time to lose, I vote we have a look at his house right
 
 now. Time is everything with him; and swift action on our part may save
 
 another victim.”
-
-
 
 I own that my heart began to fail me when the time for action came so
 
@@ -19598,21 +16776,13 @@ me out of their counsels altogether. They have now gone off to Carfax,
 
 with means to get into the house.
 
-
-
 Manlike, they had told me to go to bed and sleep; as if a woman can
 
 sleep when those she loves are in danger! I shall lie down and pretend
 
 to sleep, lest Jonathan have added anxiety about me when he returns.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _1 October, 4 a. m._--Just as we were about to leave the house, an
 
@@ -19624,8 +16794,6 @@ I told the messenger to say that I would attend to his wishes in the
 
 morning; I was busy just at the moment. The attendant added:--
 
-
-
 “He seems very importunate, sir. I have never seen him so eager. I don’t
 
 know but what, if you don’t see him soon, he will have one of his
@@ -19636,8 +16804,6 @@ cause, so I said: “All right; I’ll go now”; and I asked the others to
 
 wait a few minutes for me, as I had to go and see my “patient.”
 
-
-
 “Take me with you, friend John,” said the Professor. “His case in your
 
 diary interest me much, and it had bearing, too, now and again on _our_
@@ -19646,17 +16812,11 @@ case. I should much like to see him, and especial when his mind is
 
 disturbed.”
 
-
-
 “May I come also?” asked Lord Godalming.
-
-
 
 “Me too?” said Quincey Morris. “May I come?” said Harker. I nodded, and
 
 we all went down the passage together.
-
-
 
 We found him in a state of considerable excitement, but far more
 
@@ -19689,8 +16849,6 @@ the habit of equality, that I at once made the introduction: “Lord
 Godalming; Professor Van Helsing; Mr. Quincey Morris, of Texas; Mr.
 
 Renfield.” He shook hands with each of them, saying in turn:--
-
-
 
 “Lord Godalming, I had the honour of seconding your father at the
 
@@ -19738,8 +16896,6 @@ appeal with a courtly air of conviction which was not without its own
 
 charm.
 
-
-
 I think we were all staggered. For my own part, I was under the
 
 conviction, despite my knowledge of the man’s character and history,
@@ -19764,8 +16920,6 @@ meeting his wishes. This did not at all satisfy him, for he said
 
 quickly:--
 
-
-
 “But I fear, Dr. Seward, that you hardly apprehend my wish. I desire to
 
 go at once--here--now--this very hour--this very moment, if I may. Time
@@ -19782,17 +16936,11 @@ seeing the negative in my face, turned to the others, and scrutinised
 
 them closely. Not meeting any sufficient response, he went on:--
 
-
-
 “Is it possible that I have erred in my supposition?”
-
-
 
 “You have,” I said frankly, but at the same time, as I felt, brutally.
 
 There was a considerable pause, and then he said slowly:--
-
-
 
 “Then I suppose I must only shift my ground of request. Let me ask for
 
@@ -19828,8 +16976,6 @@ which did not surprise me at the time, but only when I thought of it
 
 afterwards--for it was as of one addressing an equal:--
 
-
-
 “Can you not tell frankly your real reason for wishing to be free
 
 to-night? I will undertake that if you will satisfy even me--a stranger,
@@ -19841,8 +16987,6 @@ Seward will give you, at his own risk and on his own responsibility, the
 privilege you seek.” He shook his head sadly, and with a look of
 
 poignant regret on his face. The Professor went on:--
-
-
 
 “Come, sir, bethink yourself. You claim the privilege of reason in the
 
@@ -19860,8 +17004,6 @@ us; and if we can we shall aid you to achieve your wish.” He still shook
 
 his head as he said:--
 
-
-
 “Dr. Van Helsing, I have nothing to say. Your argument is complete, and
 
 if I were free to speak I should not hesitate a moment; but I am not my
@@ -19874,11 +17016,7 @@ time to end the scene, which was becoming too comically grave, so I went
 
 towards the door, simply saying:--
 
-
-
 “Come, my friends, we have work to do. Good-night.”
-
-
 
 As, however, I got near the door, a new change came over the patient. He
 
@@ -19918,8 +17056,6 @@ torrent of entreaty, with the tears rolling down his cheeks, and his
 
 whole face and form expressive of the deepest emotion:--
 
-
-
 “Let me entreat you, Dr. Seward, oh, let me implore you, to let me out
 
 of this house at once. Send me away how you will and where you will;
@@ -19946,19 +17082,13 @@ earnest now; that I am no lunatic in a mad fit, but a sane man fighting
 
 for his soul? Oh, hear me! hear me! Let me go! let me go! let me go!”
 
-
-
 I thought that the longer this went on the wilder he would get, and so
 
 would bring on a fit; so I took him by the hand and raised him up.
 
-
-
 “Come,” I said sternly, “no more of this; we have had quite enough
 
 already. Get to your bed and try to behave more discreetly.”
-
-
 
 He suddenly stopped and looked at me intently for several moments. Then,
 
@@ -19968,19 +17098,17 @@ bed. The collapse had come, as on former occasion, just as I had
 
 expected.
 
-
-
 When I was leaving the room, last of our party, he said to me in a
 
 quiet, well-bred voice:--
-
-
 
 “You will, I trust, Dr. Seward, do me the justice to bear in mind, later
 
 on, that I did what I could to convince you to-night.”
 
-## JONATHAN HARKER’S JOURNAL
+## Kapitel XIX
+
+JONATHAN HARKER’S JOURNAL
 
 _1 October, 5 a. m._--I went with the party to the search with an easy
 
@@ -20004,8 +17132,6 @@ room we were silent till we got back to the study. Then Mr. Morris said
 
 to Dr. Seward:--
 
-
-
 “Say, Jack, if that man wasn’t attempting a bluff, he is about the
 
 sanest lunatic I ever saw. I’m not sure, but I believe that he had some
@@ -20013,8 +17139,6 @@ sanest lunatic I ever saw. I’m not sure, but I believe that he had some
 serious purpose, and if he had, it was pretty rough on him not to get a
 
 chance.” Lord Godalming and I were silent, but Dr. Van Helsing added:--
-
-
 
 “Friend John, you know more of lunatics than I do, and I’m glad of it,
 
@@ -20027,8 +17151,6 @@ our present task we must take no chance, as my friend Quincey would say.
 All is best as they are.” Dr. Seward seemed to answer them both in a
 
 dreamy kind of way:--
-
-
 
 “I don’t know but that I agree with you. If that man had been an
 
@@ -20056,8 +17178,6 @@ help to unnerve a man.” The Professor stepped over, and laying his hand
 
 on his shoulder, said in his grave, kindly way:--
 
-
-
 “Friend John, have no fear. We are trying to do our duty in a very sad
 
 and terrible case; we can only do as we deem best. What else have we to
@@ -20067,8 +17187,6 @@ hope for, except the pity of the good God?” Lord Godalming had slipped
 away for a few minutes, but now he returned. He held up a little silver
 
 whistle, as he remarked:--
-
-
 
 “That old place may be full of rats, and if so, I’ve got an antidote on
 
@@ -20081,8 +17199,6 @@ out. When we got to the porch the Professor opened his bag and took out
 a lot of things, which he laid on the step, sorting them into four
 
 little groups, evidently one for each. Then he spoke:--
-
-
 
 “My friends, we are going into a terrible danger, and we need arms of
 
@@ -20120,8 +17236,6 @@ skeleton keys? If so that we can open the door, we need not break house
 
 by the window, as before at Miss Lucy’s.”
 
-
-
 Dr. Seward tried one or two skeleton keys, his mechanical dexterity as a
 
 surgeon standing him in good stead. Presently he got one to suit; after
@@ -20140,8 +17254,6 @@ shrank back. The Professor was the first to move forward, and stepped
 
 into the open door.
 
-
-
 “_In manus tuas, Domine!_” he said, crossing himself as he passed over
 
 the threshold. We closed the door behind us, lest when we should have
@@ -20153,8 +17265,6 @@ Professor carefully tried the lock, lest we might not be able to open it
 from within should we be in a hurry making our exit. Then we all lit our
 
 lamps and proceeded on our search.
-
-
 
 The light from the tiny lamps fell in all sorts of odd forms, as the
 
@@ -20171,8 +17281,6 @@ experience in Transylvania. I think the feeling was common to us all,
 for I noticed that the others kept looking over their shoulders at every
 
 sound and every new shadow, just as I felt myself doing.
-
-
 
 The whole place was thick with dust. The floor was seemingly inches
 
@@ -20193,8 +17301,6 @@ had been used several times, for on the table were several similar rents
 in the blanket of dust, similar to that exposed when the Professor
 
 lifted them. He turned to me and said:--
-
-
 
 “You know this place, Jonathan. You have copied maps of it, and you know
 
@@ -20242,8 +17348,6 @@ exhaled by that monster seemed to have clung to the place and
 
 intensified its loathsomeness.
 
-
-
 Under ordinary circumstances such a stench would have brought our
 
 enterprise to an end; but this was no ordinary case, and the high and
@@ -20256,13 +17360,9 @@ consequent on the first nauseous whiff, we one and all set about our
 
 work as though that loathsome place were a garden of roses.
 
-
-
 We made an accurate examination of the place, the Professor saying as we
 
 began:--
-
-
 
 “The first thing is to see how many of the boxes are left; we must then
 
@@ -20273,8 +17373,6 @@ clue as to what has become of the rest.” A glance was sufficient to show
 how many remained, for the great earth chests were bulky, and there was
 
 no mistaking them.
-
-
 
 There were only twenty-nine left out of the fifty! Once I got a fright,
 
@@ -20300,8 +17398,6 @@ walls of the passage, there could be no hiding-place even for _him_. I
 
 took it that fear had helped imagination, and said nothing.
 
-
-
 A few minutes later I saw Morris step suddenly back from a corner, which
 
 he was examining. We all followed his movements with our eyes, for
@@ -20311,8 +17407,6 @@ undoubtedly some nervousness was growing on us, and we saw a whole mass
 of phosphorescence, which twinkled like stars. We all instinctively drew
 
 back. The whole place was becoming alive with rats.
-
-
 
 For a moment or two we stood appalled, all save Lord Godalming, who was
 
@@ -20350,8 +17444,6 @@ their noses, began to howl in most lugubrious fashion. The rats were
 
 multiplying in thousands, and we moved out.
 
-
-
 Lord Godalming lifted one of the dogs, and carrying him in, placed him
 
 on the floor. The instant his feet touched the ground he seemed to
@@ -20363,8 +17455,6 @@ him so fast that before he had shaken the life out of a score, the other
 dogs, who had by now been lifted in the same manner, had but small prey
 
 ere the whole mass had vanished.
-
-
 
 With their going it seemed as if some evil presence had departed, for
 
@@ -20398,8 +17488,6 @@ we returned to the chapel they frisked about as though they had been
 
 rabbit-hunting in a summer wood.
 
-
-
 The morning was quickening in the east when we emerged from the front.
 
 Dr. Van Helsing had taken the key of the hall-door from the bunch, and
@@ -20407,8 +17495,6 @@ Dr. Van Helsing had taken the key of the hall-door from the bunch, and
 locked the door in orthodox fashion, putting the key into his pocket
 
 when he had done.
-
-
 
 “So far,” he said, “our night has been eminently successful. No harm has
 
@@ -20452,8 +17538,6 @@ ordained that we have many nights and days to follow, if full of peril;
 
 but we must go on, and from no danger shall we shrink.”
 
-
-
 The house was silent when we got back, save for some poor creature who
 
 was screaming away in one of the distant wards, and a low, moaning sound
@@ -20461,8 +17545,6 @@ was screaming away in one of the distant wards, and a low, moaning sound
 from Renfield’s room. The poor wretch was doubtless torturing himself,
 
 after the manner of the insane, with needless thoughts of pain.
-
-
 
 I came tiptoe into our own room, and found Mina asleep, breathing so
 
@@ -20494,11 +17576,7 @@ dark over to-night’s doings, and shall refuse to speak of anything that
 
 has happened. I rest on the sofa, so as not to disturb her.
 
-
-
        *       *       *       *       *
-
-
 
 _1 October, later._--I suppose it was natural that we should have all
 
@@ -20526,13 +17604,7 @@ sooner the matter is attended to the better. I shall look up Thomas
 
 Snelling to-day.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _1 October._--It was towards noon when I was awakened by the Professor
 
@@ -20543,8 +17615,6 @@ is quite evident that last night’s work has helped to take some of the
 brooding weight off his mind. After going over the adventure of the
 
 night he suddenly said:--
-
-
 
 “Your patient interests me much. May it be that with you I visit him
 
@@ -20567,8 +17637,6 @@ want him to talk of himself and of his delusion as to consuming live
 things. He said to Madam Mina, as I see in your diary of yesterday, that
 
 he had once had such a belief. Why do you smile, friend John?”
-
-
 
 “Excuse me,” I said, “but the answer is here.” I laid my hand on the
 
@@ -20596,21 +17664,13 @@ Van Helsing back in the study. “Do I interrupt?” he asked politely as he
 
 stood at the door.
 
-
-
 “Not at all,” I answered. “Come in. My work is finished, and I am free.
 
 I can go with you now, if you like.
 
-
-
 “It is needless; I have seen him!”
 
-
-
 “Well?”
-
-
 
 “I fear that he does not appraise me at much. Our interview was short.
 
@@ -20644,8 +17704,6 @@ worried with our terrible things. Though we shall much miss her help, it
 
 is better so.”
 
-
-
 “I agree with you with all my heart,” I answered earnestly, for I did
 
 not want him to weaken in this matter. “Mrs. Harker is better out of it.
@@ -20658,21 +17716,13 @@ and if she had remained in touch with the affair, it would in time
 
 infallibly have wrecked her.”
 
-
-
 So Van Helsing has gone to confer with Mrs. Harker and Harker; Quincey
 
 and Art are all out following up the clues as to the earth-boxes. I
 
 shall finish my round of work and we shall meet to-night.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _1 October._--It is strange to me to be kept in the dark as I am to-day;
 
@@ -20700,8 +17750,6 @@ crying like a silly fool, when I _know_ it comes from my husband’s great
 
 love and from the good, good wishes of those other strong men.
 
-
-
 That has done me good. Well, some day Jonathan will tell me all; and
 
 lest it should ever be that he should think for a moment that I kept
@@ -20715,8 +17763,6 @@ heart put down for his dear eyes to read. I feel strangely sad and
 low-spirited to-day. I suppose it is the reaction from the terrible
 
 excitement.
-
-
 
 Last night I went to bed when the men had gone, simply because they told
 
@@ -20753,8 +17799,6 @@ fellow would fret his heart out. I shall put a bold face on, and if I do
 feel weepy, he shall never see it. I suppose it is one of the lessons
 
 that we poor women have to learn....
-
-
 
 I can’t quite remember how I fell asleep last night. I remember hearing
 
@@ -20809,8 +17853,6 @@ little time to realise where I was, and that it was Jonathan who was
 bending over me. My dream was very peculiar, and was almost typical of
 
 the way that waking thoughts become merged in, or continued in, dreams.
-
-
 
 I thought that I was asleep, and waiting for Jonathan to come back. I
 
@@ -20896,11 +17938,7 @@ cannot hurt me for once, and it will give me a good night’s sleep. Last
 
 night tired me more than if I had not slept at all.
 
-
-
        *       *       *       *       *
-
-
 
 _2 October 10 p. m._--Last night I slept, but did not dream. I must have
 
@@ -20948,7 +17986,9 @@ comes: that I may have been foolish in thus depriving myself of the
 
 power of waking. I might want it. Here comes sleep. Good-night.
 
-## JONATHAN HARKER’S JOURNAL
+## Kapitel XX
+
+JONATHAN HARKER’S JOURNAL
 
 _1 October, evening._--I found Thomas Snelling in his house at Bethnal
 
@@ -21004,11 +18044,7 @@ to Smollet, and asked him if he could tell us if any other boxes had
 
 been taken from Carfax.
 
-
-
 He replied:--
-
-
 
 “Well, guv’nor, you’ve treated me wery ’an’some”--I had given him half a
 
@@ -21030,8 +18066,6 @@ of his tea and stood up, saying that he was going to begin the search
 
 then and there. At the door he stopped, and said:--
 
-
-
 “Look ’ere, guv’nor, there ain’t no sense in me a-keepin’ you ’ere. I
 
 may find Sam soon, or I mayn’t; but anyhow he ain’t like to be in a way
@@ -21045,8 +18079,6 @@ it, I’ll find out where Sam is to be found and post it ye to-night. But
 ye’d better be up arter ’im soon in the mornin’, or maybe ye won’t ketch
 
 ’im; for Sam gets off main early, never mind the booze the night afore.”
-
-
 
 This was all practical, so one of the children went off with a penny to
 
@@ -21080,11 +18112,7 @@ herself has become reticent on the subject, and has not spoken of the
 
 Count or his doings ever since we told her of our decision.
 
-
-
        *       *       *       *       *
-
-
 
 _2 October, evening._--A long and trying and exciting day. By the first
 
@@ -21092,13 +18120,9 @@ post I got my directed envelope with a dirty scrap of paper enclosed, on
 
 which was written with a carpenter’s pencil in a sprawling hand:--
 
-
-
 “Sam Bloxam, Korkrans, 4, Poters Cort, Bartel Street, Walworth. Arsk for
 
 the depite.”
-
-
 
 I got the letter in bed, and rose without waking Mina. She looked heavy
 
@@ -21133,8 +18157,6 @@ of that kind livin’ ere or anywheres.” I took out Smollet’s letter, and
 as I read it it seemed to me that the lesson of the spelling of the name
 
 of the court might guide me. “What are you?” I asked.
-
-
 
 “I’m the depity,” he answered. I saw at once that I was on the right
 
@@ -21184,8 +18206,6 @@ asked him if he could tell me the number of the house in Piccadilly, to
 
 which he replied:--
 
-
-
 “Well, guv’nor, I forgits the number, but it was only a few doors from a
 
 big white church or somethink of the kind, not long built. It was a
@@ -21194,11 +18214,7 @@ dusty old ’ouse, too, though nothin’ to the dustiness of the ’ouse we
 
 tooked the bloomin’ boxes from.”
 
-
-
 “How did you get into the houses if they were both empty?”
-
-
 
 “There was the old party what engaged me a-waitin’ in the ’ouse at
 
@@ -21210,11 +18226,7 @@ with a white moustache, one that thin you would think he couldn’t throw
 
 a shadder.”
 
-
-
 How this phrase thrilled through me!
-
-
 
 “Why, ’e took up ’is end o’ the boxes like they was pounds of tea, and
 
@@ -21222,11 +18234,7 @@ me a-puffin’ an’ a-blowin’ afore I could up-end mine anyhow--an’ I’m n
 
 chicken, neither.”
 
-
-
 “How did you get into the house in Piccadilly?” I asked.
-
-
 
 “He was there too. He must ’a’ started off and got there afore me, for
 
@@ -21234,11 +18242,7 @@ when I rung of the bell he kem an’ opened the door ’isself an’ ’elped me
 
 to carry the boxes into the ’all.”
 
-
-
 “The whole nine?” I asked.
-
-
 
 “Yus; there was five in the first load an’ four in the second. It was
 
@@ -21246,21 +18250,13 @@ main dry work, an’ I don’t so well remember ’ow I got ’ome.” I
 
 interrupted him:--
 
-
-
 “Were the boxes left in the hall?”
-
-
 
 “Yus; it was a big ’all, an’ there was nothin’ else in it.” I made one
 
 more attempt to further matters:--
 
-
-
 “You didn’t have any key?”
-
-
 
 “Never used no key nor nothink. The old gent, he opened the door ’isself
 
@@ -21268,11 +18264,7 @@ an’ shut it again when I druv off. I don’t remember the last time--but
 
 that was the beer.”
 
-
-
 “And you can’t remember the number of the house?”
-
-
 
 “No, sir. But ye needn’t have no difficulty about that. It’s a ’igh ’un
 
@@ -21330,8 +18322,6 @@ but feel that if I could find the former owner there might be some means
 
 discovered of gaining access to the house.
 
-
-
 There was at present nothing to be learned from the Piccadilly side, and
 
 nothing could be done; so I went round to the back to see if anything
@@ -21364,8 +18354,6 @@ Candy from a directory at the Berkeley, I was soon at their office in
 
 Sackville Street.
 
-
-
 The gentleman who saw me was particularly suave in manner, but
 
 uncommunicative in equal proportion. Having once told me that the
@@ -21378,27 +18366,17 @@ asked who had purchased it, he opened his eyes a thought wider, and
 
 paused a few seconds before replying:--
 
-
-
 “It is sold, sir.”
-
-
 
 “Pardon me,” I said, with equal politeness, “but I have a special reason
 
 for wishing to know who purchased it.”
 
-
-
 Again he paused longer, and raised his eyebrows still more. “It is sold,
 
 sir,” was again his laconic reply.
 
-
-
 “Surely,” I said, “you do not mind letting me know so much.”
-
-
 
 “But I do mind,” he answered. “The affairs of their clients are
 
@@ -21407,8 +18385,6 @@ absolutely safe in the hands of Mitchell, Sons, & Candy.” This was
 manifestly a prig of the first water, and there was no use arguing with
 
 him. I thought I had best meet him on his own ground, so I said:--
-
-
 
 “Your clients, sir, are happy in having so resolute a guardian of their
 
@@ -21421,8 +18397,6 @@ Lord Godalming, who wishes to know something of the property which was,
 he understood, lately for sale.” These words put a different complexion
 
 on affairs. He said:--
-
-
 
 “I would like to oblige you if I could, Mr. Harker, and especially would
 
@@ -21440,8 +18414,6 @@ deviate from our rules as to give the required information to his
 
 lordship.”
 
-
-
 I wanted to secure a friend, and not to make an enemy, so I thanked him,
 
 gave the address at Dr. Seward’s and came away. It was now dark, and I
@@ -21449,8 +18421,6 @@ gave the address at Dr. Seward’s and came away. It was now dark, and I
 was tired and hungry. I got a cup of tea at the Aërated Bread Company
 
 and came down to Purfleet by the next train.
-
-
 
 I found all the others at home. Mina was looking tired and pale, but she
 
@@ -21474,8 +18444,6 @@ made our resolution in time, as with such a feeling as this, our growing
 
 knowledge would be torture to her.
 
-
-
 I could not tell the others of the day’s discovery till we were alone;
 
 so after dinner--followed by a little music to save appearances even
@@ -21490,8 +18458,6 @@ came away. Thank God, the ceasing of telling things has made no
 
 difference between us.
 
-
-
 When I came down again I found the others all gathered round the fire in
 
 the study. In the train I had written my diary so far, and simply read
@@ -21499,8 +18465,6 @@ the study. In the train I had written my diary so far, and simply read
 it off to them as the best means of letting them get abreast of my own
 
 information; when I had finished Van Helsing said:--
-
-
 
 “This has been a great day’s work, friend Jonathan. Doubtless we are on
 
@@ -21514,15 +18478,9 @@ wretch to his real death.” We all sat silent awhile and all at once Mr.
 
 Morris spoke:--
 
-
-
 “Say! how are we going to get into that house?”
 
-
-
 “We got into the other,” answered Lord Godalming quickly.
-
-
 
 “But, Art, this is different. We broke house at Carfax, but we had night
 
@@ -21540,15 +18498,11 @@ about the room. By-and-by he stopped and said, turning from one to
 
 another of us:--
 
-
-
 “Quincey’s head is level. This burglary business is getting serious; we
 
 got off once all right; but we have now a rare job on hand--unless we
 
 can find the Count’s key basket.”
-
-
 
 As nothing could well be done before morning, and as it would be at
 
@@ -21562,8 +18516,6 @@ bearings; I took the opportunity of bringing this diary right up to the
 
 moment. I am very sleepy and shall go to bed....
 
-
-
 Just a line. Mina sleeps soundly and her breathing is regular. Her
 
 forehead is puckered up into little wrinkles, as though she thinks even
@@ -21574,13 +18526,7 @@ did this morning. To-morrow will, I hope, mend all this; she will be
 
 herself at home in Exeter. Oh, but I am sleepy!
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _1 October._--I am puzzled afresh about Renfield. His moods change so
 
@@ -21602,15 +18548,11 @@ thought I would improve the occasion and learn something, so I asked
 
 him:--
 
-
-
 “What about the flies these times?” He smiled on me in quite a superior
 
 sort of way--such a smile as would have become the face of Malvolio--as
 
 he answered me:--
-
-
 
 “The fly, my dear sir, has one striking feature; its wings are typical
 
@@ -21618,21 +18560,15 @@ of the aërial powers of the psychic faculties. The ancients did well
 
 when they typified the soul as a butterfly!”
 
-
-
 I thought I would push his analogy to its utmost logically, so I said
 
 quickly:--
-
-
 
 “Oh, it is a soul you are after now, is it?” His madness foiled his
 
 reason, and a puzzled look spread over his face as, shaking his head
 
 with a decision which I had but seldom seen in him, he said:--
-
-
 
 “Oh, no, oh no! I want no souls. Life is all I want.” Here he brightened
 
@@ -21642,17 +18578,11 @@ have all I want. You must get a new patient, doctor, if you wish to
 
 study zoöphagy!”
 
-
-
 This puzzled me a little, so I drew him on:--
-
-
 
 “Then you command life; you are a god, I suppose?” He smiled with an
 
 ineffably benign superiority.
-
-
 
 “Oh no! Far be it from me to arrogate to myself the attributes of the
 
@@ -21668,17 +18598,11 @@ Enoch’s appositeness; so I had to ask a simple question, though I felt
 
 that by so doing I was lowering myself in the eyes of the lunatic:--
 
-
-
 “And why with Enoch?”
-
-
 
 “Because he walked with God.” I could not see the analogy, but did not
 
 like to admit it; so I harked back to what he had denied:--
-
-
 
 “So you don’t care about life and you don’t want souls. Why not?” I put
 
@@ -21689,8 +18613,6 @@ The effort succeeded; for an instant he unconsciously relapsed into his
 old servile manner, bent low before me, and actually fawned upon me as
 
 he replied:--
-
-
 
 “I don’t want any souls, indeed, indeed! I don’t. I couldn’t use them if
 
@@ -21710,8 +18632,6 @@ inexpressible cunning. “I know that I shall never lack the means of
 
 life!”
 
-
-
 I think that through the cloudiness of his insanity he saw some
 
 antagonism in me, for he at once fell back on the last refuge of such as
@@ -21719,8 +18639,6 @@ antagonism in me, for he at once fell back on the last refuge of such as
 he--a dogged silence. After a short time I saw that for the present it
 
 was useless to speak to him. He was sulky, and so I came away.
-
-
 
 Later in the day he sent for me. Ordinarily I would not have come
 
@@ -21746,8 +18664,6 @@ might not speak so freely before a third person as when he and I were
 
 alone.
 
-
-
 I found him sitting out in the middle of the floor on his stool, a pose
 
 which is generally indicative of some mental energy on his part. When I
@@ -21755,8 +18671,6 @@ which is generally indicative of some mental energy on his part. When I
 came in, he said at once, as though the question had been waiting on his
 
 lips:--
-
-
 
 “What about souls?” It was evident then that my surmise had been
 
@@ -21770,29 +18684,19 @@ him, and up and down, as though he expected to find some inspiration for
 
 an answer.
 
-
-
 “I don’t want any souls!” he said in a feeble, apologetic way. The
 
 matter seemed preying on his mind, and so I determined to use it--to “be
 
 cruel only to be kind.” So I said:--
 
-
-
 “You like life, and you want life?”
 
-
-
 “Oh yes! but that is all right; you needn’t worry about that!”
-
-
 
 “But,” I asked, “how are we to get the life without getting the soul
 
 also?” This seemed to puzzle him, so I followed it up:--
-
-
 
 “A nice time you’ll have some time when you’re flying out there, with
 
@@ -21822,31 +18726,21 @@ go with him. The first step was to restore confidence, so I asked him,
 
 speaking pretty loud so that he would hear me through his closed ears:--
 
-
-
 “Would you like some sugar to get your flies round again?” He seemed to
 
 wake up all at once, and shook his head. With a laugh he replied:--
-
-
 
 “Not much! flies are poor things, after all!” After a pause he added,
 
 “But I don’t want their souls buzzing round me, all the same.”
 
-
-
 “Or spiders?” I went on.
-
-
 
 “Blow spiders! What’s the use of spiders? There isn’t anything in them
 
 to eat or”--he stopped suddenly, as though reminded of a forbidden
 
 topic.
-
-
 
 “So, so!” I thought to myself, “this is the second time he has suddenly
 
@@ -21855,8 +18749,6 @@ stopped at the word ‘drink’; what does it mean?” Renfield seemed himself
 aware of having made a lapse, for he hurried on, as though to distract
 
 my attention from it:--
-
-
 
 “I don’t take any stock at all in such matters. ‘Rats and mice and such
 
@@ -21870,13 +18762,9 @@ interest me about the lesser carnivora, when I know of what is before
 
 me.”
 
-
-
 “I see,” I said. “You want big things that you can make your teeth meet
 
 in? How would you like to breakfast on elephant?”
-
-
 
 “What ridiculous nonsense you are talking!” He was getting too wide
 
@@ -21884,13 +18772,9 @@ awake, so I thought I would press him hard. “I wonder,” I said
 
 reflectively, “what an elephant’s soul is like!”
 
-
-
 The effect I desired was obtained, for he at once fell from his
 
 high-horse and became a child again.
-
-
 
 “I don’t want an elephant’s soul, or any soul at all!” he said. For a
 
@@ -21907,8 +18791,6 @@ without thinking of souls!” He looked so hostile that I thought he was
 in for another homicidal fit, so I blew my whistle. The instant,
 
 however, that I did so he became calm, and said apologetically:--
-
-
 
 “Forgive me, Doctor; I forgot myself. You do not need any help. I am so
 
@@ -21928,8 +18810,6 @@ watched them go; when the door was closed he said, with considerable
 
 dignity and sweetness:--
 
-
-
 “Dr. Seward, you have been very considerate towards me. Believe me that
 
 I am very, very grateful to you!” I thought it well to leave him in this
@@ -21942,25 +18822,15 @@ interviewer calls “a story,” if one could only get them in proper order.
 
 Here they are:--
 
-
-
 Will not mention “drinking.”
-
-
 
 Fears the thought of being burdened with the “soul” of anything.
 
-
-
 Has no dread of wanting “life” in the future.
-
-
 
 Despises the meaner forms of life altogether, though he dreads being
 
 haunted by their souls.
-
-
 
 Logically all these things point one way! he has assurance of some kind
 
@@ -21968,21 +18838,13 @@ that he will acquire some higher life. He dreads the consequence--the
 
 burden of a soul. Then it is a human life he looks to!
 
-
-
 And the assurance--?
-
-
 
 Merciful God! the Count has been to him, and there is some new scheme of
 
 terror afoot!
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--I went after my round to Van Helsing and told him my
 
@@ -22006,25 +18868,13 @@ got a scrap of paper and was folding it into a note-book. We had to come
 
 away as ignorant as we went in.
 
-
-
 His is a curious case indeed; we must watch him to-night.
-
-
-
-
 
 _Letter, Mitchell, Sons and Candy to Lord Godalming._
 
-
-
 _“1 October._
 
-
-
 “My Lord,
-
-
 
 “We are at all times only too happy to meet your wishes. We beg, with
 
@@ -22044,25 +18894,13 @@ us using so vulgar an expression. Beyond this we know nothing whatever
 
 of him.
 
-
-
 “We are, my Lord,
-
-
 
 “Your Lordship’s humble servants,
 
-
-
 “MITCHELL, SONS & CANDY.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _2 October._--I placed a man in the corridor last night, and told him to
 
@@ -22078,15 +18916,11 @@ and discoveries of the day. Harker was the only one who had any result,
 
 and we are in great hopes that his clue may be an important one.
 
-
-
 Before going to bed I went round to the patient’s room and looked in
 
 through the observation trap. He was sleeping soundly, and his heart
 
 rose and fell with regular respiration.
-
-
 
 This morning the man on duty reported to me that a little after midnight
 
@@ -22101,8 +18935,6 @@ he had been asleep. He denied sleep, but admitted to having “dozed” for
 a while. It is too bad that men cannot be trusted unless they are
 
 watched.
-
-
 
 To-day Harker is out following up his clue, and Art and Quincey are
 
@@ -22124,17 +18956,11 @@ and the Professor is searching for witch and demon cures which may be
 
 useful to us later.
 
-
-
 I sometimes think we must be all mad and that we shall wake to sanity in
 
 strait-waistcoats.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--We have met again. We seem at last to be on the track, and our
 
@@ -22154,11 +18980,7 @@ valuable clue. He is now seemingly quiet for a spell.... Is he?---- That
 
 wild yell seemed to come from his room....
 
-
-
        *       *       *       *       *
-
-
 
 The attendant came bursting into my room and told me that Renfield had
 
@@ -22168,15 +18990,15 @@ to him found him lying on his face on the floor, all covered with blood.
 
 I must go at once....
 
-## DR. SEWARD’S DIARY
+## Kapitel XXI
+
+DR. SEWARD’S DIARY
 
 _3 October._--Let me put down with exactness all that happened, as well
 
 as I can remember it, since last I made an entry. Not a detail that I
 
 can recall must be forgotten; in all calmness I must proceed.
-
-
 
 When I came to Renfield’s room I found him lying on the floor on his
 
@@ -22196,8 +19018,6 @@ originated. The attendant who was kneeling beside the body said to me as
 
 we turned him over:--
 
-
-
 “I think, sir, his back is broken. See, both his right arm and leg and
 
 the whole side of his face are paralysed.” How such a thing could have
@@ -22205,8 +19025,6 @@ the whole side of his face are paralysed.” How such a thing could have
 happened puzzled the attendant beyond measure. He seemed quite
 
 bewildered, and his brows were gathered in as he said:--
-
-
 
 “I can’t understand the two things. He could mark his face like that by
 
@@ -22224,8 +19042,6 @@ face was like that before the fall out of bed, there would be marks of
 
 it.” I said to him:--
 
-
-
 “Go to Dr. Van Helsing, and ask him to kindly come here at once. I want
 
 him without an instant’s delay.” The man ran off, and within a few
@@ -22238,15 +19054,11 @@ then turned to me. I think he recognised my thought in my eyes, for he
 
 said very quietly, manifestly for the ears of the attendant:--
 
-
-
 “Ah, a sad accident! He will need very careful watching, and much
 
 attention. I shall stay with you myself; but I shall first dress myself.
 
 If you will remain I shall in a few minutes join you.”
-
-
 
 The patient was now breathing stertorously and it was easy to see that
 
@@ -22258,21 +19070,15 @@ evidently been thinking and had his mind made up; for, almost before he
 
 looked at the patient, he whispered to me:--
 
-
-
 “Send the attendant away. We must be alone with him when he becomes
 
 conscious, after the operation.” So I said:--
-
-
 
 “I think that will do now, Simmons. We have done all that we can at
 
 present. You had better go your round, and Dr. Van Helsing will operate.
 
 Let me know instantly if there be anything unusual anywhere.”
-
-
 
 The man withdrew, and we went into a strict examination of the patient.
 
@@ -22281,8 +19087,6 @@ The wounds of the face was superficial; the real injury was a depressed
 fracture of the skull, extending right up through the motor area. The
 
 Professor thought a moment and said:--
-
-
 
 “We must reduce the pressure and get back to normal conditions, as far
 
@@ -22297,8 +19101,6 @@ too late.” As he was speaking there was a soft tapping at the door. I
 went over and opened it and found in the corridor without, Arthur and
 
 Quincey in pajamas and slippers: the former spoke:--
-
-
 
 “I heard your man call up Dr. Van Helsing and tell him of an accident.
 
@@ -22318,8 +19120,6 @@ attitude and state of the patient, and noted the horrible pool on the
 
 floor, he said softly:--
 
-
-
 “My God! what has happened to him? Poor, poor devil!” I told him
 
 briefly, and added that we expected he would recover consciousness after
@@ -22330,15 +19130,11 @@ down on the edge of the bed, with Godalming beside him; we all watched
 
 in patience.
 
-
-
 “We shall wait,” said Van Helsing, “just long enough to fix the best
 
 spot for trephining, so that we may most quickly and perfectly remove
 
 the blood clot; for it is evident that the hæmorrhage is increasing.”
-
-
 
 The minutes during which we waited passed with fearful slowness. I had a
 
@@ -22374,8 +19170,6 @@ some dread bell would peal out powerfully when we should least expect
 
 it.
 
-
-
 At last there came a time when it was evident that the patient was
 
 sinking fast; he might die at any moment. I looked up at the Professor
@@ -22384,15 +19178,11 @@ and caught his eyes fixed on mine. His face was sternly set as he
 
 spoke:--
 
-
-
 “There is no time to lose. His words may be worth many lives; I have
 
 been thinking so, as I stood here. It may be there is a soul at stake!
 
 We shall operate just above the ear.”
-
-
 
 Without another word he made the operation. For a few moments the
 
@@ -22408,8 +19198,6 @@ surprise, and from the lips came a sigh of relief. He moved
 
 convulsively, and as he did so, said:--
 
-
-
 “I’ll be quiet, Doctor. Tell them to take off the strait-waistcoat. I
 
 have had a terrible dream, and it has left me so weak that I cannot
@@ -22422,13 +19210,9 @@ eyes seemed to grow glassy again so I gently put it back. Then Van
 
 Helsing said in a quiet grave tone:--
 
-
-
 “Tell us your dream, Mr. Renfield.” As he heard the voice his face
 
 brightened, through its mutilation, and he said:--
-
-
 
 “That is Dr. Van Helsing. How good it is of you to be here. Give me some
 
@@ -22448,15 +19232,11 @@ conscious, he looked at me piercingly with an agonised confusion which I
 
 shall never forget, and said:--
 
-
-
 “I must not deceive myself; it was no dream, but all a grim reality.”
 
 Then his eyes roved round the room; as they caught sight of the two
 
 figures sitting patiently on the edge of the bed he went on:--
-
-
 
 “If I were not sure already, I would know from them.” For an instant his
 
@@ -22465,8 +19245,6 @@ eyes closed--not with pain or sleep but voluntarily, as though he were
 bringing all his faculties to bear; when he opened them he said,
 
 hurriedly, and with more energy than he had yet displayed:--
-
-
 
 “Quick, Doctor, quick. I am dying! I feel that I have but a few minutes;
 
@@ -22494,8 +19272,6 @@ gripped it hard. He did not, however, betray himself; he nodded slightly
 
 and said: “Go on,” in a low voice. Renfield proceeded:--
 
-
-
 “He came up to the window in the mist, as I had seen him often before;
 
 but he was solid then--not a ghost, and his eyes were fierce like a
@@ -22512,11 +19288,7 @@ Then he began promising me things--not in words but by doing them.” He
 
 was interrupted by a word from the Professor:--
 
-
-
 “How?”
-
-
 
 “By making them happen; just as he used to send in the flies when the
 
@@ -22526,13 +19298,9 @@ wings; and big moths, in the night, with skull and cross-bones on their
 
 backs.” Van Helsing nodded to him as he whispered to me unconsciously:--
 
-
-
 “The _Acherontia Aitetropos of the Sphinges_--what you call the
 
 ‘Death’s-head Moth’?” The patient went on without stopping.
-
-
 
 “Then he began to whisper: ‘Rats, rats, rats! Hundreds, thousands,
 
@@ -22574,8 +19342,6 @@ the tiniest crack and has stood before me in all her size and
 
 splendour.”
 
-
-
 His voice was weaker, so I moistened his lips with the brandy again, and
 
 he continued; but it seemed as though his memory had gone on working in
@@ -22587,8 +19353,6 @@ back to the point, but Van Helsing whispered to me: “Let him go on. Do
 not interrupt him; he cannot go back, and maybe could not proceed at all
 
 if once he lost the thread of his thought.” He proceeded:--
-
-
 
 “All day I waited to hear from him, but he did not send me anything, not
 
@@ -22606,8 +19370,6 @@ as he went by me. I couldn’t hold him. I thought that, somehow, Mrs.
 
 Harker had come into the room.”
 
-
-
 The two men sitting on the bed stood up and came over, standing behind
 
 him so that he could not see them, but where they could hear better.
@@ -22618,15 +19380,11 @@ however, grew grimmer and sterner still. Renfield went on without
 
 noticing:--
 
-
-
 “When Mrs. Harker came in to see me this afternoon she wasn’t the same;
 
 it was like tea after the teapot had been watered.” Here we all moved,
 
 but no one said a word; he went on:--
-
-
 
 “I didn’t know that she was here till she spoke; and she didn’t look the
 
@@ -22662,8 +19420,6 @@ to steal away under the door.” His voice was becoming fainter and his
 
 breath more stertorous. Van Helsing stood up instinctively.
 
-
-
 “We know the worst now,” he said. “He is here, and we know his purpose.
 
 It may not be too late. Let us be armed--the same as we were the other
@@ -22678,8 +19434,6 @@ had when we entered the Count’s house. The Professor had his ready, and
 
 as we met in the corridor he pointed to them significantly as he said:--
 
-
-
 “They never leave me; and they shall not till this unhappy business is
 
 over. Be wise also, my friends. It is no common enemy that we deal with.
@@ -22690,29 +19444,19 @@ voice was breaking, and I do not know if rage or terror predominated in
 
 my own heart.
 
-
-
 Outside the Harkers’ door we paused. Art and Quincey held back, and the
 
 latter said:--
 
-
-
 “Should we disturb her?”
-
-
 
 “We must,” said Van Helsing grimly. “If the door be locked, I shall
 
 break it in.”
 
-
-
 “May it not frighten her terribly? It is unusual to break into a lady’s
 
 room!”
-
-
 
 Van Helsing said solemnly, “You are always right; but this is life and
 
@@ -22723,8 +19467,6 @@ are all as one to me to-night. Friend John, when I turn the handle, if
 the door does not open, do you put your shoulder down and shove; and you
 
 too, my friends. Now!”
-
-
 
 He turned the handle as he spoke, but the door did not yield. We threw
 
@@ -22737,8 +19479,6 @@ across him as he gathered himself up from hands and knees. What I saw
 appalled me. I felt my hair rise like bristles on the back of my neck,
 
 and my heart seemed to stand still.
-
-
 
 The moonlight was so bright that through the thick yellow blind the room
 
@@ -22824,8 +19564,6 @@ over her body, whilst Art, after looking at her face for an instant
 
 despairingly, ran out of the room. Van Helsing whispered to me:--
 
-
-
 “Jonathan is in a stupor such as we know the Vampire can produce. We can
 
 do nothing with poor Madam Mina for a few moments till she recovers
@@ -22860,8 +19598,6 @@ however, she drew them in again, and putting her elbows together, held
 
 her hands before her face, and shuddered till the bed beneath her shook.
 
-
-
 “In God’s name what does this mean?” Harker cried out. “Dr. Seward, Dr.
 
 Van Helsing, what is it? What has happened? What is wrong? Mina, dear,
@@ -22886,8 +19622,6 @@ and horror and distress, saw some sure danger to him: instantly
 
 forgetting her own grief, she seized hold of him and cried out:--
 
-
-
 “No! no! Jonathan, you must not leave me. I have suffered enough
 
 to-night, God knows, without the dread of his harming you. You must stay
@@ -22898,13 +19632,9 @@ expression became frantic as she spoke; and, he yielding to her, she
 
 pulled him down sitting on the bed side, and clung to him fiercely.
 
-
-
 Van Helsing and I tried to calm them both. The Professor held up his
 
 little golden crucifix, and said with wonderful calmness:--
-
-
 
 “Do not fear, my dear. We are here; and whilst this is close to you no
 
@@ -22922,15 +19652,11 @@ saw it she drew back, with a low wail, and whispered, amidst choking
 
 sobs:--
 
-
-
 “Unclean, unclean! I must touch him or kiss him no more. Oh, that it
 
 should be that it is I who am now his worst enemy, and whom he may have
 
 most cause to fear.” To this he spoke out resolutely:--
-
-
 
 “Nonsense, Mina. It is a shame to me to hear such a word. I would not
 
@@ -22951,8 +19677,6 @@ while her sobs became less frequent and more faint, and then he said to
 me, speaking with a studied calmness which I felt tried his nervous
 
 power to the utmost:--
-
-
 
 “And now, Dr. Seward, tell me all about it. Too well I know the broad
 
@@ -22984,8 +19708,6 @@ to him he asked them what they had seen or done. To which Lord Godalming
 
 answered:--
 
-
-
 “I could not see him anywhere in the passage, or in any of our rooms. I
 
 looked in the study but, though he had been there, he had gone. He had,
@@ -22994,13 +19716,9 @@ however----” He stopped suddenly, looking at the poor drooping figure on
 
 the bed. Van Helsing said gravely:--
 
-
-
 “Go on, friend Arthur. We want here no more concealments. Our hope now
 
 is in knowing all. Tell freely!” So Art went on:--
-
-
 
 “He had been there, and though it could only have been for a few
 
@@ -23026,19 +19744,13 @@ is dead.” Mrs. Harker raised her head, looking from one to the other of
 
 us she said solemnly:--
 
-
-
 “God’s will be done!” I could not but feel that Art was keeping back
 
 something; but, as I took it that it was with a purpose, I said nothing.
 
 Van Helsing turned to Morris and asked:--
 
-
-
 “And you, friend Quincey, have you any to tell?”
-
-
 
 “A little,” he answered. “It may be much eventually, but at present I
 
@@ -23054,8 +19766,6 @@ will not be back to-night; for the sky is reddening in the east, and the
 
 dawn is close. We must work to-morrow!”
 
-
-
 He said the latter words through his shut teeth. For a space of perhaps
 
 a couple of minutes there was silence, and I could fancy that I could
@@ -23063,8 +19773,6 @@ a couple of minutes there was silence, and I could fancy that I could
 hear the sound of our hearts beating; then Van Helsing said, placing his
 
 hand very tenderly on Mrs. Harker’s head:--
-
-
 
 “And now, Madam Mina--poor, dear, dear Madam Mina--tell us exactly what
 
@@ -23077,8 +19785,6 @@ quick and sharp, and in deadly earnest. The day is close to us that must
 end all, if it may be so; and now is the chance that we may live and
 
 learn.”
-
-
 
 The poor, dear lady shivered, and I could see the tension of her nerves
 
@@ -23095,8 +19801,6 @@ of her husband, who held his other arm thrown round her protectingly.
 After a pause in which she was evidently ordering her thoughts, she
 
 began:--
-
-
 
 “I took the sleeping draught which you had so kindly given me, but for a
 
@@ -23160,8 +19864,6 @@ paralysed. In the pause he spoke in a sort of keen, cutting whisper,
 
 pointing as he spoke to Jonathan:--
 
-
-
 “‘Silence! If you make a sound I shall take him and dash his brains out
 
 before your very eyes.’ I was appalled and was too bewildered to do or
@@ -23186,8 +19888,6 @@ again. She clasped his hand harder, and looked at him pityingly, as if
 
 he were the injured one, and went on:--
 
-
-
 “I felt my strength fading away, and I was in a half swoon. How long
 
 this horrible thing lasted I know not; but it seemed that a long time
@@ -23201,8 +19901,6 @@ overpower her, and she drooped and would have sunk down but for her
 husband’s sustaining arm. With a great effort she recovered herself and
 
 went on:--
-
-
 
 “Then he spoke to me mockingly, ‘And so you, like the others, would play
 
@@ -23252,8 +19950,6 @@ and in mercy pity those to whom she is dear!” Then she began to rub her
 
 lips as though to cleanse them from pollution.
 
-
-
 As she was telling her terrible story, the eastern sky began to quicken,
 
 and everything became more and more clear. Harker was still and quiet;
@@ -23266,19 +19962,17 @@ red streak of the coming dawn shot up, the flesh stood darkly out
 
 against the whitening hair.
 
-
-
 We have arranged that one of us is to stay within call of the unhappy
 
 pair till we can meet together and arrange about taking action.
-
-
 
 Of this I am sure: the sun rises to-day on no more miserable house in
 
 all the great round of its daily course.
 
-## JONATHAN HARKER’S JOURNAL
+## Kapitel XXII
+
+JONATHAN HARKER’S JOURNAL
 
 _3 October._--As I must do something or go mad, I write this diary. It
 
@@ -23304,8 +19998,6 @@ faith is tested--that we must keep on trusting; and that God will aid us
 
 up to the end. The end! oh my God! what end?... To work! To work!
 
-
-
 When Dr. Van Helsing and Dr. Seward had come back from seeing poor
 
 Renfield, we went gravely into what was to be done. First, Dr. Seward
@@ -23315,8 +20007,6 @@ told us that when he and Dr. Van Helsing had gone down to the room below
 they had found Renfield lying on the floor, all in a heap. His face was
 
 all bruised and crushed in, and the bones of the neck were broken.
-
-
 
 Dr. Seward asked the attendant who was on duty in the passage if he had
 
@@ -23352,8 +20042,6 @@ coroner should demand it, there would be a formal inquest, necessarily
 
 to the same result.
 
-
-
 When the question began to be discussed as to what should be our next
 
 step, the very first thing we decided was that Mina should be in full
@@ -23376,8 +20064,6 @@ Van Helsing was looking at her fixedly as she spoke, and said, suddenly
 
 but quietly:--
 
-
-
 “But dear Madam Mina, are you not afraid; not for yourself, but for
 
 others from yourself, after what has happened?” Her face grew set in its
@@ -23386,11 +20072,7 @@ lines, but her eyes shone with the devotion of a martyr as she
 
 answered:--
 
-
-
 “Ah no! for my mind is made up!”
-
-
 
 “To what?” he asked gently, whilst we were all very still; for each in
 
@@ -23398,17 +20080,11 @@ our own way we had a sort of vague idea of what she meant. Her answer
 
 came with direct simplicity, as though she were simply stating a fact:--
 
-
-
 “Because if I find in myself--and I shall watch keenly for it--a sign of
 
 harm to any that I love, I shall die!”
 
-
-
 “You would not kill yourself?” he asked, hoarsely.
-
-
 
 “I would; if there were no friend who loved me, who would save me such a
 
@@ -23417,8 +20093,6 @@ pain, and so desperate an effort!” She looked at him meaningly as she
 spoke. He was sitting down; but now he rose and came close to her and
 
 put his hand on her head as he said solemnly:
-
-
 
 “My child, there is such an one if it were for your good. For myself I
 
@@ -23429,8 +20103,6 @@ even at this moment if it were best. Nay, were it safe! But my
 child----” For a moment he seemed choked, and a great sob rose in his
 
 throat; he gulped it down and went on:--
-
-
 
 “There are here some who would stand between you and death. You must not
 
@@ -23458,8 +20130,6 @@ silent; we could do nothing. At length she grew more calm and turning to
 
 him said, sweetly, but oh! so sorrowfully, as she held out her hand:--
 
-
-
 “I promise you, my dear friend, that if God will let me live, I shall
 
 strive to do so; till, if it may be in His good time, this horror may
@@ -23478,13 +20148,9 @@ She was pleased with the prospect of anything to do--if “pleased” could
 
 be used in connection with so grim an interest.
 
-
-
 As usual Van Helsing had thought ahead of everyone else, and was
 
 prepared with an exact ordering of our work.
-
-
 
 “It is perhaps well,” he said, “that at our meeting after our visit to
 
@@ -23556,37 +20222,23 @@ friend Arthur call, in his phrases of hunt ‘stop the earths’ and so we
 
 run down our old fox--so? is it not?”
 
-
-
 “Then let us come at once,” I cried, “we are wasting the precious,
 
 precious time!” The Professor did not move, but simply said:--
 
-
-
 “And how are we to get into that house in Piccadilly?”
-
-
 
 “Any way!” I cried. “We shall break in if need be.”
 
-
-
 “And your police; where will they be, and what will they say?”
-
-
 
 I was staggered; but I knew that if he wished to delay he had a good
 
 reason for it. So I said, as quietly as I could:--
 
-
-
 “Don’t wait more than need be; you know, I am sure, what torture I am
 
 in.”
-
-
 
 “Ah, my child, that I do; and indeed there is no wish of me to add to
 
@@ -23598,29 +20250,19 @@ seems to me that the simplest way is the best of all. Now we wish to get
 
 into the house, but we have no key; is it not so?” I nodded.
 
-
-
 “Now suppose that you were, in truth, the owner of that house, and could
 
 not still get in; and think there was to you no conscience of the
 
 housebreaker, what would you do?”
 
-
-
 “I should get a respectable locksmith, and set him to work to pick the
 
 lock for me.”
 
-
-
 “And your police, they would interfere, would they not?”
 
-
-
 “Oh, no! not if they knew the man was properly employed.”
-
-
 
 “Then,” he looked at me as keenly as he spoke, “all that is in doubt is
 
@@ -23672,15 +20314,11 @@ about, and such things would be done were we indeed owners of the
 
 house.”
 
-
-
 I could not but see how right he was and the terrible despair of Mina’s
 
 face became relaxed a thought; there was hope in such good counsel. Van
 
 Helsing went on:--
-
-
 
 “When once within that house we may find more clues; at any rate some of
 
@@ -23688,15 +20326,11 @@ us can remain there whilst the rest find the other places where there be
 
 more earth-boxes--at Bermondsey and Mile End.”
 
-
-
 Lord Godalming stood up. “I can be of some use here,” he said. “I shall
 
 wire to my people to have horses and carriages where they will be most
 
 convenient.”
-
-
 
 “Look here, old fellow,” said Morris, “it is a capital idea to have all
 
@@ -23710,15 +20344,11 @@ It seems to me that we ought to take cabs when we go south or east; and
 
 even leave them somewhere near the neighbourhood we are going to.”
 
-
-
 “Friend Quincey is right!” said the Professor. “His head is what you
 
 call in plane with the horizon. It is a difficult thing that we go to
 
 do, and we do not want no peoples to watch us if so it may.”
-
-
 
 Mina took a growing interest in everything and I was rejoiced to see
 
@@ -23738,8 +20368,6 @@ yet there was no sign of the teeth growing sharper; but the time as yet
 
 was short, and there was time for fear.
 
-
-
 When we came to the discussion of the sequence of our efforts and of the
 
 disposition of our forces, there were new sources of doubt. It was
@@ -23753,8 +20381,6 @@ should thus be still ahead of him in our work of destruction; and his
 presence in his purely material shape, and at his weakest, might give us
 
 some new clue.
-
-
 
 As to the disposal of forces, it was suggested by the Professor that,
 
@@ -23802,21 +20428,13 @@ are losing time. The Count may come to Piccadilly earlier than we
 
 think.”
 
-
-
 “Not so!” said Van Helsing, holding up his hand.
 
-
-
 “But why?” I asked.
-
-
 
 “Do you forget,” he said, with actually a smile, “that last night he
 
 banqueted heavily, and will sleep late?”
-
-
 
 Did I forget! shall I ever--can I ever! Can any of us ever forget that
 
@@ -23842,8 +20460,6 @@ forget it, will you not?” He bent low beside her as he spoke; she took
 
 his hand, and looking at him through her tears, said hoarsely:--
 
-
-
 “No, I shall not forget, for it is well that I remember; and with it I
 
 have so much in memory of you that is sweet, that I take it all
@@ -23852,15 +20468,11 @@ together. Now, you must all be going soon. Breakfast is ready, and we
 
 must all eat that we may be strong.”
 
-
-
 Breakfast was a strange meal to us all. We tried to be cheerful and
 
 encourage each other, and Mina was the brightest and most cheerful of
 
 us. When it was over, Van Helsing stood up and said:--
-
-
 
 “Now, my dear friends, we go forth to our terrible enterprise. Are we
 
@@ -23882,8 +20494,6 @@ yourself. On your forehead I touch this piece of Sacred Wafer in the
 
 name of the Father, the Son, and----”
 
-
-
 There was a fearful scream which almost froze our hearts to hear. As he
 
 had placed the Wafer on Mina’s forehead, it had seared it--had burned
@@ -23904,8 +20514,6 @@ knees on the floor in an agony of abasement. Pulling her beautiful hair
 
 over her face, as the leper of old his mantle, she wailed out:--
 
-
-
 “Unclean! Unclean! Even the Almighty shuns my polluted flesh! I must
 
 bear this mark of shame upon my forehead until the Judgment Day.” They
@@ -23921,8 +20529,6 @@ their eyes that ran tears silently. Then Van Helsing turned and said
 gravely; so gravely that I could not help feeling that he was in some
 
 way inspired, and was stating things outside himself:--
-
-
 
 “It may be that you may have to bear that mark till God himself see fit,
 
@@ -23948,8 +20554,6 @@ through stripes and shame; through tears and blood; through doubts and
 
 fears, and all that makes the difference between God and man.”
 
-
-
 There was hope in his words, and comfort; and they made for resignation.
 
 Mina and I both felt so, and simultaneously we each took one of the old
@@ -23964,13 +20568,9 @@ head of her whom, each in his own way, we loved; and we prayed for help
 
 and guidance in the terrible task which lay before us.
 
-
-
 It was then time to start. So I said farewell to Mina, a parting which
 
 neither of us shall forget to our dying day; and we set out.
-
-
 
 To one thing I have made up my mind: if we find out that Mina must be a
 
@@ -23981,8 +20581,6 @@ land alone. I suppose it is thus that in old times one vampire meant
 many; just as their hideous bodies could only rest in sacred earth, so
 
 the holiest love was the recruiting sergeant for their ghastly ranks.
-
-
 
 We entered Carfax without trouble and found all things the same as on
 
@@ -23999,8 +20597,6 @@ with our task. We found no papers, or any sign of use in the house; and
 in the old chapel the great boxes looked just as we had seen them last.
 
 Dr. Van Helsing said to us solemnly as we stood before them:--
-
-
 
 “And now, my friends, we have a duty here to do. We must sterilise this
 
@@ -24024,27 +20620,19 @@ Sacred Wafer he laid it reverently on the earth, and then shutting down
 
 the lid began to screw it home, we aiding him as he worked.
 
-
-
 One by one we treated in the same way each of the great boxes, and left
 
 them as we had found them to all appearance; but in each was a portion
 
 of the Host.
 
-
-
 When we closed the door behind us, the Professor said solemnly:--
-
-
 
 “So much is already done. If it may be that with all the others we can
 
 be so successful, then the sunset of this evening may shine on Madam
 
 Mina’s forehead all white as ivory and with no stain!”
-
-
 
 As we passed across the lawn on our way to the station to catch our
 
@@ -24062,21 +20650,13 @@ and just caught the train, which was steaming in as we reached the
 
 platform.
 
-
-
 I have written this in the train.
 
-
-
        *       *       *       *       *
-
-
 
 _Piccadilly, 12:30 o’clock._--Just before we reached Fenchurch Street
 
 Lord Godalming said to me:--
-
-
 
 “Quincey and I will find a locksmith. You had better not come with us in
 
@@ -24102,8 +20682,6 @@ the smith has gone away, do you all come across. We shall be on the
 
 lookout for you, and shall let you in.”
 
-
-
 “The advice is good!” said Van Helsing, so we said no more. Godalming
 
 and Morris hurried off in a cab, we following in another. At the corner
@@ -24121,8 +20699,6 @@ within good view, and began to smoke cigars so as to attract as little
 attention as possible. The minutes seemed to pass with leaden feet as we
 
 waited for the coming of the others.
-
-
 
 At length we saw a four-wheeler drive up. Out of it, in leisurely
 
@@ -24172,15 +20748,11 @@ coat and departed; not a soul took the slightest notice of the whole
 
 transaction.
 
-
-
 When the man had fairly gone, we three crossed the street and knocked at
 
 the door. It was immediately opened by Quincey Morris, beside whom stood
 
 Lord Godalming lighting a cigar.
-
-
 
 “The place smells so vilely,” said the latter as we came in. It did
 
@@ -24218,8 +20790,6 @@ Count was not at present in the house, and we proceeded to search for
 
 any of his effects.
 
-
-
 After a cursory glance at the rest of the rooms, from basement to attic,
 
 we came to the conclusion that the dining-room contained any effects
@@ -24254,7 +20824,9 @@ are, with what patience we can, waiting their return--or the coming of
 
 the Count.
 
-## DR. SEWARD’S DIARY
+## Kapitel XXIII
+
+DR. SEWARD’S DIARY
 
 _3 October._--The time seemed terribly long whilst we were waiting for
 
@@ -24287,8 +20859,6 @@ this well enough, and is doing his best to keep his mind active. What he
 has been saying was, under the circumstances, of absorbing interest. So
 
 well as I can remember, here it is:--
-
-
 
 “I have studied, over and over again since they came into my hands, all
 
@@ -24326,13 +20896,9 @@ fail--the father or furtherer of a new order of beings, whose road must
 
 lead through Death, not Life.”
 
-
-
 Harker groaned and said, “And this is all arrayed against my darling!
 
 But how is he experimenting? The knowledge may help us to defeat him!”
-
-
 
 “He has all along, since his coming, been trying his power, slowly but
 
@@ -24346,17 +20912,11 @@ to succeed, and a man who has centuries before him can afford to wait
 
 and to go slow. _Festina lente_ may well be his motto.”
 
-
-
 “I fail to understand,” said Harker wearily. “Oh, do be more plain to
 
 me! Perhaps grief and trouble are dulling my brain.”
 
-
-
 The Professor laid his hand tenderly on his shoulder as he spoke:--
-
-
 
 “Ah, my child, I will be plain. Do you not see how, of late, this
 
@@ -24406,8 +20966,6 @@ day, and we must go sure, if slow, and lose no chance. See! there are
 
 five of us when those absent ones return.”
 
-
-
 Whilst he was speaking we were startled by a knock at the hall door, the
 
 double postman’s knock of the telegraph boy. We all moved out to the
@@ -24420,37 +20978,25 @@ despatch. The Professor closed the door again, and, after looking at the
 
 direction, opened it and read aloud.
 
-
-
 “Look out for D. He has just now, 12:45, come from Carfax hurriedly and
 
 hastened towards the South. He seems to be going the round and may want
 
 to see you: Mina.”
 
-
-
 There was a pause, broken by Jonathan Harker’s voice:--
-
-
 
 “Now, God be thanked, we shall soon meet!” Van Helsing turned to him
 
 quickly and said:--
 
-
-
 “God will act in His own way and time. Do not fear, and do not rejoice
 
 as yet; for what we wish for at the moment may be our undoings.”
 
-
-
 “I care for nothing now,” he answered hotly, “except to wipe out this
 
 brute from the face of creation. I would sell my soul to do it!”
-
-
 
 “Oh, hush, hush, my child!” said Van Helsing. “God does not purchase
 
@@ -24473,8 +21019,6 @@ here--see, it is twenty minutes past one--and there are yet some times
 before he can hither come, be he never so quick. What we must hope for
 
 is that my Lord Arthur and Quincey arrive first.”
-
-
 
 About half an hour after we had received Mrs. Harker’s telegram, there
 
@@ -24500,29 +21044,19 @@ the door behind them, the former saying, as they moved along the
 
 hall:--
 
-
-
 “It is all right. We found both places; six boxes in each and we
 
 destroyed them all!”
 
-
-
 “Destroyed?” asked the Professor.
 
-
-
 “For him!” We were silent for a minute, and then Quincey said:--
-
-
 
 “There’s nothing to do but to wait here. If, however, he doesn’t turn up
 
 by five o’clock, we must start off; for it won’t do to leave Mrs. Harker
 
 alone after sunset.”
-
-
 
 “He will be here before long now,” said Van Helsing, who had been
 
@@ -24551,8 +21085,6 @@ we may throw away no chance. Hush, there is no time now. Have all your
 arms! Be ready!” He held up a warning hand as he spoke, for we all could
 
 hear a key softly inserted in the lock of the hall door.
-
-
 
 I could not but admire, even at such a moment, the way in which a
 
@@ -24583,8 +21115,6 @@ seconds pass with nightmare slowness. The slow, careful steps came along
 the hall; the Count was evidently prepared for some surprise--at least
 
 he feared it.
-
-
 
 Suddenly with a single bound he leaped into the room, winning a way past
 
@@ -24656,15 +21186,11 @@ shivering glass I could hear the “ting” of the gold, as some of the
 
 sovereigns fell on the flagging.
 
-
-
 We ran over and saw him spring unhurt from the ground. He, rushing up
 
 the steps, crossed the flagged yard, and pushed open the stable door.
 
 There he turned and spoke to us:--
-
-
 
 “You think to baffle me, you--with your pale faces all in a row, like
 
@@ -24688,8 +21214,6 @@ to speak was the Professor, as, realising the difficulty of following
 
 him through the stable, we moved toward the hall.
 
-
-
 “We have learnt something--much! Notwithstanding his brave words, he
 
 fears us; he fear time, he fear want! For if not, why he hurry so? His
@@ -24708,8 +21232,6 @@ remaining things into the open fireplace, where he set fire to them with
 
 a match.
 
-
-
 Godalming and Morris had rushed out into the yard, and Harker had
 
 lowered himself from the window to follow the Count. He had, however,
@@ -24720,15 +21242,11 @@ was no sign of him. Van Helsing and I tried to make inquiry at the back
 
 of the house; but the mews was deserted and no one had seen him depart.
 
-
-
 It was now late in the afternoon, and sunset was not far off. We had to
 
 recognise that our game was up; with heavy hearts we agreed with the
 
 Professor when he said:--
-
-
 
 “Let us go back to Madam Mina--poor, poor dear Madam Mina. All we can do
 
@@ -24744,8 +21262,6 @@ down; now and again he gave a low groan which he could not suppress--he
 
 was thinking of his wife.
 
-
-
 With sad hearts we came back to my house, where we found Mrs. Harker
 
 waiting us, with an appearance of cheerfulness which did honour to her
@@ -24756,8 +21272,6 @@ pale as death: for a second or two her eyes were closed as if she were
 
 in secret prayer; and then she said cheerfully:--
 
-
-
 “I can never thank you all enough. Oh, my poor darling!” As she spoke,
 
 she took her husband’s grey head in her hands and kissed it--“Lay your
@@ -24767,8 +21281,6 @@ poor head here and rest it. All will yet be well, dear! God will protect
 us if He so will it in His good intent.” The poor fellow groaned. There
 
 was no place for words in his sublime misery.
-
-
 
 We had a sort of perfunctory supper together, and I think it cheered us
 
@@ -24814,8 +21326,6 @@ we, knowing that so far as symbols went, she with all her goodness and
 
 purity and faith, was outcast from God.
 
-
-
 “Jonathan,” she said, and the word sounded like music on her lips it was
 
 so full of love and tenderness, “Jonathan dear, and you all my true,
@@ -24836,8 +21346,6 @@ spiritual immortality. You must be pitiful to him, too, though it may
 
 not hold your hands from his destruction.”
 
-
-
 As she spoke I could see her husband’s face darken and draw together, as
 
 though the passion in him were shrivelling his being to its core.
@@ -24852,15 +21360,11 @@ than ever. As she stopped speaking he leaped to his feet, almost tearing
 
 his hand from hers as he spoke:--
 
-
-
 “May God give him into my hand just for long enough to destroy that
 
 earthly life of him which we are aiming at. If beyond it I could send
 
 his soul for ever and ever to burning hell I would do it!”
-
-
 
 “Oh, hush! oh, hush! in the name of the good God. Don’t say such things,
 
@@ -24884,8 +21388,6 @@ of what he has suffered, who all his life has done no wrong, and on whom
 
 so many sorrows have come.”
 
-
-
 We men were all in tears now. There was no resisting them, and we wept
 
 openly. She wept, too, to see that her sweeter counsels had prevailed.
@@ -24897,8 +21399,6 @@ round her, hid his face in the folds of her dress. Van Helsing beckoned
 to us and we stole out of the room, leaving the two loving hearts alone
 
 with their God.
-
-
 
 Before they retired the Professor fixed up the room against any coming
 
@@ -24924,13 +21424,7 @@ for his is the second watch. Now that my work is done I, too, shall go
 
 to bed.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _3-4 October, close to midnight._--I thought yesterday would never end.
 
@@ -24978,11 +21472,7 @@ for there is to-morrow to think of, and there is no rest for me
 
 until....
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--I must have fallen asleep, for I was awaked by Mina, who was
 
@@ -24992,25 +21482,17 @@ for we did not leave the room in darkness; she had placed a warning hand
 
 over my mouth, and now she whispered in my ear:--
 
-
-
 “Hush! there is someone in the corridor!” I got up softly, and crossing
 
 the room, gently opened the door.
-
-
 
 Just outside, stretched on a mattress, lay Mr. Morris, wide awake. He
 
 raised a warning hand for silence as he whispered to me:--
 
-
-
 “Hush! go back to bed; it is all right. One of us will be here all
 
 night. We don’t mean to take any chances!”
-
-
 
 His look and gesture forbade discussion, so I came back and told Mina.
 
@@ -25018,17 +21500,11 @@ She sighed and positively a shadow of a smile stole over her poor, pale
 
 face as she put her arms round me and said softly:--
 
-
-
 “Oh, thank God for good brave men!” With a sigh she sank back again to
 
 sleep. I write this now as I am not sleepy, though I must try again.
 
-
-
        *       *       *       *       *
-
-
 
 _4 October, morning._--Once again during the night I was wakened by
 
@@ -25038,15 +21514,9 @@ dawn was making the windows into sharp oblongs, and the gas flame was
 
 like a speck rather than a disc of light. She said to me hurriedly:--
 
-
-
 “Go, call the Professor. I want to see him at once.”
 
-
-
 “Why?” I asked.
-
-
 
 “I have an idea. I suppose it must have come in the night, and matured
 
@@ -25058,19 +21528,11 @@ went to the door. Dr. Seward was resting on the mattress, and, seeing
 
 me, he sprang to his feet.
 
-
-
 “Is anything wrong?” he asked, in alarm.
-
-
 
 “No,” I replied; “but Mina wants to see Dr. Van Helsing at once.”
 
-
-
 “I will go,” he said, and hurried into the Professor’s room.
-
-
 
 In two or three minutes later Van Helsing was in the room in his
 
@@ -25082,8 +21544,6 @@ positive smile ousted the anxiety of his face; he rubbed his hands as he
 
 said:--
 
-
-
 “Oh, my dear Madam Mina, this is indeed a change. See! friend Jonathan,
 
 we have got our dear Madam Mina, as of old, back to us to-day!” Then
@@ -25092,15 +21552,11 @@ turning to her, he said, cheerfully: “And what am I do for you? For at
 
 this hour you do not want me for nothings.”
 
-
-
 “I want you to hypnotise me!” she said. “Do it before the dawn, for I
 
 feel that then I can speak, and speak freely. Be quick, for the time is
 
 short!” Without a word he motioned her to sit up in bed.
-
-
 
 Looking fixedly at her, he commenced to make passes in front of her,
 
@@ -25132,11 +21588,7 @@ stillness was broken by Van Helsing’s voice speaking in a low level tone
 
 which would not break the current of her thoughts:--
 
-
-
 “Where are you?” The answer came in a neutral way:--
-
-
 
 “I do not know. Sleep has no place it can call its own.” For several
 
@@ -25152,39 +21604,25 @@ just upon us. A red streak shot up, and a rosy light seemed to diffuse
 
 itself through the room. On the instant the Professor spoke again:--
 
-
-
 “Where are you now?” The answer came dreamily, but with intention; it
 
 were as though she were interpreting something. I have heard her use the
 
 same tone when reading her shorthand notes.
 
-
-
 “I do not know. It is all strange to me!”
-
-
 
 “What do you see?”
 
-
-
 “I can see nothing; it is all dark.”
-
-
 
 “What do you hear?” I could detect the strain in the Professor’s patient
 
 voice.
 
-
-
 “The lapping of water. It is gurgling by, and little waves leap. I can
 
 hear them on the outside.”
-
-
 
 “Then you are on a ship?” We all looked at each other, trying to glean
 
@@ -25192,15 +21630,9 @@ something each from the other. We were afraid to think. The answer came
 
 quick:--
 
-
-
 “Oh, yes!”
 
-
-
 “What else do you hear?”
-
-
 
 “The sound of men stamping overhead as they run about. There is the
 
@@ -25208,17 +21640,11 @@ creaking of a chain, and the loud tinkle as the check of the capstan
 
 falls into the rachet.”
 
-
-
 “What are you doing?”
-
-
 
 “I am still--oh, so still. It is like death!” The voice faded away into
 
 a deep breath as of one sleeping, and the open eyes closed again.
-
-
 
 By this time the sun had risen, and we were all in the full light of
 
@@ -25236,15 +21662,11 @@ was eager to know what she had told. The Professor repeated the
 
 conversation, and she said:--
 
-
-
 “Then there is not a moment to lose: it may not be yet too late!” Mr.
 
 Morris and Lord Godalming started for the door but the Professor’s calm
 
 voice called them back:--
-
-
 
 “Stay, my friends. That ship, wherever it was, was weighing anchor
 
@@ -25292,25 +21714,17 @@ and which we can eat comfortably since he be not in the same land with
 
 us.” Mina looked at him appealingly as she asked:--
 
-
-
 “But why need we seek him further, when he is gone away from us?” He
 
 took her hand and patted it as he replied:--
-
-
 
 “Ask me nothings as yet. When we have breakfast, then I answer all
 
 questions.” He would say no more, and we separated to dress.
 
-
-
 After breakfast Mina repeated her question. He looked at her gravely for
 
 a minute and then said sorrowfully:--
-
-
 
 “Because my dear, dear Madam Mina, now more than ever must we find him
 
@@ -25318,11 +21732,7 @@ even if we have to follow him to the jaws of Hell!” She grew paler as
 
 she asked faintly:--
 
-
-
 “Why?”
-
-
 
 “Because,” he answered solemnly, “he can live for centuries, and you are
 
@@ -25330,15 +21740,13 @@ but mortal woman. Time is now to be dreaded--since once he put that mark
 
 upon your throat.”
 
-
-
 I was just in time to catch her as she fell forward in a faint.
 
-## DR. SEWARD’S PHONOGRAPH DIARY, SPOKEN BY VAN HELSING
+## Kapitel XXIV
+
+DR. SEWARD’S PHONOGRAPH DIARY, SPOKEN BY VAN HELSING
 
 This to Jonathan Harker.
-
-
 
 You are to stay with your dear Madam Mina. We shall go to make our
 
@@ -25394,17 +21802,9 @@ but begun, and in the end we shall win--so sure as that God sits on high
 
 to watch over His children. Therefore be of much comfort till we return.
 
-
-
 VAN HELSING.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _4 October._--When I read to Mina, Van Helsing’s message in the
 
@@ -25421,8 +21821,6 @@ believe in it. Even my own terrible experiences in Castle Dracula seem
 like a long-forgotten dream. Here in the crisp autumn air in the bright
 
 sunlight----
-
-
 
 Alas! how can I disbelieve! In the midst of my thought my eye fell on
 
@@ -25446,19 +21844,11 @@ yet of the future. It is better to wait till we see the Professor and
 
 the others after their investigations.
 
-
-
 The day is running by more quickly than I ever thought a day could run
 
 for me again. It is now three o’clock.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _5 October, 5 p. m._--Our meeting for report. Present: Professor Van
 
@@ -25466,13 +21856,9 @@ Helsing, Lord Godalming, Dr. Seward, Mr. Quincey Morris, Jonathan
 
 Harker, Mina Harker.
 
-
-
 Dr. Van Helsing described what steps were taken during the day to
 
 discover on what boat and whither bound Count Dracula made his escape:--
-
-
 
 “As I knew that he wanted to get back to Transylvania, I felt sure that
 
@@ -25519,8 +21905,6 @@ have been no more thirsty. They say much of blood and bloom, and of
 others which I comprehend not, though I guess what they mean; but
 
 nevertheless they tell us all things which we want to know.
-
-
 
 “They make known to us among them, how last afternoon at about five
 
@@ -25578,8 +21962,6 @@ where there might be close at hand a ship where he might purchase ship
 
 forms, he departed.
 
-
-
 “No one knew where he went ‘or bloomin’ well cared,’ as they said, for
 
 they had something else to think of--well with blood again; for it soon
@@ -25626,8 +22008,6 @@ went out on the ebb tide; and was doubtless by morning far down the
 
 river mouth. She was by then, when they told us, well out to sea.
 
-
-
 “And so, my dear Madam Mina, it is that we have to rest for a time, for
 
 our enemy is on the sea, with the fog at his command, on his way to the
@@ -25658,8 +22038,6 @@ for police or of the customs. It must be done by us alone and in our own
 
 way.”
 
-
-
 When Dr. Van Helsing had done speaking, I asked him if he were certain
 
 that the Count had remained on board the ship. He replied: “We have the
@@ -25679,8 +22057,6 @@ forceful, till in the end we could not but see wherein was at least some
 of that personal dominance which made him so long a master amongst
 
 men:--
-
-
 
 “Yes, it is necessary--necessary--necessary! For your sake in the first,
 
@@ -25758,15 +22134,11 @@ more. Like them we shall travel towards the sunrise; and like them, if
 
 we fall, we fall in good cause.” He paused and I said:--
 
-
-
 “But will not the Count take his rebuff wisely? Since he has been driven
 
 from England, will he not avoid it, as a tiger does the village from
 
 which he has been hunted?”
-
-
 
 “Aha!” he said, “your simile of the tiger good, for me, and I shall
 
@@ -25830,8 +22202,6 @@ for the safety of one we love--for the good of mankind, and for the
 
 honour and glory of God.”
 
-
-
 After a general discussion it was determined that for to-night nothing
 
 be definitely settled; that we should all sleep on the facts, and try to
@@ -25842,17 +22212,11 @@ meet again, and, after making our conclusions known to one another, we
 
 shall decide on some definite cause of action.
 
-
-
        *       *       *       *       *
-
-
 
 I feel a wonderful peace and rest to-night. It is as if some haunting
 
 presence were removed from me. Perhaps ...
-
-
 
 My surmise was not finished, could not be; for I caught sight in the
 
@@ -25860,13 +22224,7 @@ mirror of the red mark upon my forehead; and I knew that I was still
 
 unclean.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _5 October._--We all rose early, and I think that sleep did much for
 
@@ -25875,8 +22233,6 @@ each and all of us. When we met at early breakfast there was more
 general cheerfulness than any of us had ever expected to experience
 
 again.
-
-
 
 It is really wonderful how much resilience there is in human nature. Let
 
@@ -25934,17 +22290,11 @@ power that compels her silence may compel her speech. I dare not think
 
 further; for so I should in my thoughts dishonour a noble woman!
 
-
-
 Van Helsing is coming to my study a little before the others. I shall
 
 try to open the subject with him.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--When the Professor came in, we talked over the state of
 
@@ -25954,23 +22304,17 @@ say, but felt some hesitancy about broaching the subject. After beating
 
 about the bush a little, he said suddenly:--
 
-
-
 “Friend John, there is something that you and I must talk of alone, just
 
 at the first at any rate. Later, we may have to take the others into our
 
 confidence”; then he stopped, so I waited; he went on:--
 
-
-
 “Madam Mina, our poor, dear Madam Mina is changing.” A cold shiver ran
 
 through me to find my worst fears thus endorsed. Van Helsing
 
 continued:--
-
-
 
 “With the sad experience of Miss Lucy, we must this time be warned
 
@@ -26000,8 +22344,6 @@ will, compel her mind to disclose to him that which she know?” I nodded
 
 acquiescence; he went on:--
 
-
-
 “Then, what we must do is to prevent this; we must keep her ignorant of
 
 our intent, and so she cannot tell what she know not. This is a painful
@@ -26024,19 +22366,13 @@ any rate it would take away the pain of doubt. I told him, and the
 
 effect was as I expected.
 
-
-
 It is now close to the time of our general gathering. Van Helsing has
 
 gone away to prepare for the meeting, and his painful part of it. I
 
 really believe his purpose is to be able to pray alone.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--At the very outset of our meeting a great personal relief was
 
@@ -26062,8 +22398,6 @@ confer alone again. We went at once into our Plan of Campaign. Van
 
 Helsing roughly put the facts before us first:--
 
-
-
 “The _Czarina Catherine_ left the Thames yesterday morning. It will take
 
 her at the quickest speed she has ever made at least three weeks to
@@ -26088,8 +22422,6 @@ against evil things, spiritual as well as physical.” Here Quincey Morris
 
 added:--
 
-
-
 “I understand that the Count comes from a wolf country, and it may be
 
 that he shall get there before us. I propose that we add Winchesters to
@@ -26101,8 +22433,6 @@ trouble of that sort around. Do you remember, Art, when we had the pack
 after us at Tobolsk? What wouldn’t we have given then for a repeater
 
 apiece!”
-
-
 
 “Good!” said Van Helsing, “Winchesters it shall be. Quincey’s head is
 
@@ -26118,21 +22448,15 @@ To-night and to-morrow we can get ready, and then, if all be well, we
 
 four can set out on our journey.”
 
-
-
 “We four?” said Harker interrogatively, looking from one to another of
 
 us.
-
-
 
 “Of course!” answered the Professor quickly, “you must remain to take
 
 care of your so sweet wife!” Harker was silent for awhile and then said
 
 in a hollow voice:--
-
-
 
 “Let us talk of that part of it in the morning. I want to consult with
 
@@ -26144,13 +22468,7 @@ significantly and coughed. For answer he put his finger on his lips and
 
 turned away.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _5 October, afternoon._--For some time after our meeting this morning I
 
@@ -26172,11 +22490,7 @@ and sweetly like a little child. Her lips are curved and her face beams
 
 with happiness. Thank God, there are such moments still for her.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--How strange it all is. I sat watching Mina’s happy sleep, and
 
@@ -26188,8 +22502,6 @@ lower, the silence of the room grew more and more solemn to me. All at
 
 once Mina opened her eyes, and looking at me tenderly, said:--
 
-
-
 “Jonathan, I want you to promise me something on your word of honour. A
 
 promise made to me, but made holily in God’s hearing, and not to be
@@ -26198,13 +22510,9 @@ broken though I should go down on my knees and implore you with bitter
 
 tears. Quick, you must make it to me at once.”
 
-
-
 “Mina,” I said, “a promise like that, I cannot make at once. I may have
 
 no right to make it.”
-
-
 
 “But, dear one,” she said, with such spiritual intensity that her eyes
 
@@ -26216,15 +22524,11 @@ do as you will. Nay, more, if you all agree, later, you are absolved
 
 from the promise.”
 
-
-
 “I promise!” I said, and for a moment she looked supremely happy; though
 
 to me all happiness for her was denied by the red scar on her forehead.
 
 She said:--
-
-
 
 “Promise me that you will not tell me anything of the plans formed for
 
@@ -26236,17 +22540,11 @@ solemnly pointed to the scar. I saw that she was in earnest, and said
 
 solemnly:--
 
-
-
 “I promise!” and as I said it I felt that from that instant a door had
 
 been shut between us.
 
-
-
        *       *       *       *       *
-
-
 
 _Later, midnight._--Mina has been bright and cheerful all the evening.
 
@@ -26266,11 +22564,7 @@ Perhaps her example may affect me as her gaiety did to-night. I shall
 
 try it. Oh! for a dreamless sleep.
 
-
-
        *       *       *       *       *
-
-
 
 _6 October, morning._--Another surprise. Mina woke me early, about the
 
@@ -26286,29 +22580,19 @@ opening of the door of our room. He came at once; as he passed into the
 
 room, he asked Mina if the others might come, too.
 
-
-
 “No,” she said quite simply, “it will not be necessary. You can tell
 
 them just as well. I must go with you on your journey.”
-
-
 
 Dr. Van Helsing was as startled as I was. After a moment’s pause he
 
 asked:--
 
-
-
 “But why?”
-
-
 
 “You must take me with you. I am safer with you, and you shall be safer,
 
 too.”
-
-
 
 “But why, dear Madam Mina? You know that your safety is our solemnest
 
@@ -26318,11 +22602,7 @@ any of us from--from circumstances--things that have been.” He paused,
 
 embarrassed.
 
-
-
 As she replied, she raised her finger and pointed to her forehead:--
-
-
 
 “I know. That is why I must go. I can tell you now, whilst the sun is
 
@@ -26340,8 +22620,6 @@ hand. I could not speak; my emotion was too great for even the relief of
 
 tears. She went on:--
 
-
-
 “You men are brave and strong. You are strong in your numbers, for you
 
 can defy that which would break down the human endurance of one who had
@@ -26351,8 +22629,6 @@ to guard alone. Besides, I may be of service, since you can hypnotise me
 and so learn that which even I myself do not know.” Dr. Van Helsing said
 
 very gravely:--
-
-
 
 “Madam Mina, you are, as always, most wise. You shall with us come; and
 
@@ -26370,8 +22646,6 @@ a minute Lord Godalming, Dr. Seward, and Mr. Morris were with us also.
 
 He told them what Mina had said, and went on:--
 
-
-
 “In the morning we shall leave for Varna. We have now to deal with a
 
 new factor: Madam Mina. Oh, but her soul is true. It is to her an agony
@@ -26382,13 +22656,9 @@ warned in time. There must be no chance lost, and in Varna we must be
 
 ready to act the instant when that ship arrives.”
 
-
-
 “What shall we do exactly?” asked Mr. Morris laconically. The Professor
 
 paused before replying:--
-
-
 
 “We shall at the first board that ship; then, when we have identified
 
@@ -26404,8 +22674,6 @@ when we get the opportunity that we seek, when none are near to see, we
 
 shall open the box, and--and all will be well.”
 
-
-
 “I shall not wait for any opportunity,” said Morris. “When I see the box
 
 I shall open it and destroy the monster, though there were a thousand
@@ -26415,8 +22683,6 @@ men looking on, and if I am to be wiped out for it the next moment!” I
 grasped his hand instinctively and found it as firm as a piece of steel.
 
 I think he understood my look; I hope he did.
-
-
 
 “Good boy,” said Dr. Van Helsing. “Brave boy. Quincey is all man. God
 
@@ -26444,25 +22710,17 @@ arrangements for the travel. I shall have all tickets and so forth for
 
 our journey.”
 
-
-
 There was nothing further to be said, and we parted. I shall now settle
 
 up all my affairs of earth, and be ready for whatever may come....
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--It is all done; my will is made, and all complete. Mina if she
 
 survive is my sole heir. If it should not be so, then the others who
 
 have been so good to us shall have remainder.
-
-
 
 It is now drawing towards the sunset; Mina’s uneasiness calls my
 
@@ -26480,17 +22738,15 @@ not hear them now; but if it may be that she can see them again, they
 
 shall be ready.
 
-
-
 She is calling to me.
 
-## DR. SEWARD’S DIARY
+## Kapitel XXV
+
+DR. SEWARD’S DIARY
 
 _11 October, Evening._--Jonathan Harker has asked me to note this, as he
 
 says he is hardly equal to the task, and he wants an exact record kept.
-
-
 
 I think that none of us were surprised when we were asked to see Mrs.
 
@@ -26516,8 +22772,6 @@ change-back or relapse comes quickly, preceded only by a spell of
 
 warning silence.
 
-
-
 To-night, when we met, she was somewhat constrained, and bore all the
 
 signs of an internal struggle. I put it down myself to her making a
@@ -26531,8 +22785,6 @@ her husband to sit beside her on the sofa where she was half reclining,
 she made the rest of us bring chairs up close. Taking her husband’s hand
 
 in hers began:--
-
-
 
 “We are all here together in freedom, for perhaps the last time! I know,
 
@@ -26560,13 +22812,9 @@ is one way out for me, you must not and I must not take it!” She looked
 
 appealingly to us all in turn, beginning and ending with her husband.
 
-
-
 “What is that way?” asked Van Helsing in a hoarse voice. “What is that
 
 way, which we must not--may not--take?”
-
-
 
 “That I may die now, either by my own hand or that of another, before
 
@@ -26594,8 +22842,6 @@ faces of the others were set and Harker’s grew ashen grey; perhaps he
 
 guessed better than any of us what was coming. She continued:--
 
-
-
 “This is what I can give into the hotch-pot.” I could not but note the
 
 quaint legal phrase which she used in such a place, and with all
@@ -26616,13 +22862,9 @@ connection between us now. You must promise me, one and all--even you,
 
 my beloved husband--that, should the time come, you will kill me.”
 
-
-
 “What is that time?” The voice was Quincey’s, but it was low and
 
 strained.
-
-
 
 “When you shall be convinced that I am so changed that it is better that
 
@@ -26632,13 +22874,9 @@ without a moment’s delay, drive a stake through me and cut off my head;
 
 or do whatever else may be wanting to give me rest!”
 
-
-
 Quincey was the first to rise after the pause. He knelt down before her
 
 and taking her hand in his said solemnly:--
-
-
 
 “I’m only a rough fellow, who hasn’t, perhaps, lived as a man should to
 
@@ -26652,17 +22890,11 @@ certain, for if I am only doubtful I shall take it that the time has
 
 come!”
 
-
-
 “My true friend!” was all she could say amid her fast-falling tears, as,
 
 bending over, she kissed his hand.
 
-
-
 “I swear the same, my dear Madam Mina!” said Van Helsing.
-
-
 
 “And I!” said Lord Godalming, each of them in turn kneeling to her to
 
@@ -26672,11 +22904,7 @@ wan-eyed and with a greenish pallor which subdued the snowy whiteness of
 
 his hair, and asked:--
 
-
-
 “And must I, too, make such a promise, oh, my wife?”
-
-
 
 “You too, my dearest,” she said, with infinite yearning of pity in her
 
@@ -26708,15 +22936,11 @@ it a happy memory of my husband’s life that it was his loving hand which
 
 set me free from the awful thrall upon me.”
 
-
-
 “Again I swear!” came the Professor’s resonant voice. Mrs. Harker
 
 smiled, positively smiled, as with a sigh of relief she leaned back and
 
 said:--
-
-
 
 “And now one word of warning, a warning which you must never forget:
 
@@ -26728,8 +22952,6 @@ time I myself might be--nay! if the time ever comes, _shall be_--leagued
 
 with your enemy against you.”
 
-
-
 “One more request;” she became very solemn as she said this, “it is not
 
 vital and necessary like the other, but I want you to do one thing for
@@ -26737,8 +22959,6 @@ vital and necessary like the other, but I want you to do one thing for
 me, if you will.” We all acquiesced, but no one spoke; there was no need
 
 to speak:--
-
-
 
 “I want you to read the Burial Service.” She was interrupted by a deep
 
@@ -26752,27 +22972,17 @@ thought to all or some of us. You, my dearest, will I hope read it, for
 
 then it will be in your voice in my memory for ever--come what may!”
 
-
-
 “But oh, my dear one,” he pleaded, “death is afar off from you.”
-
-
 
 “Nay,” she said, holding up a warning hand. “I am deeper in death at
 
 this moment than if the weight of an earthly grave lay heavy upon me!”
 
-
-
 “Oh, my wife, must I read it?” he said, before he began.
-
-
 
 “It would comfort me, my husband!” was all she said; and he began to
 
 read when she had got the book ready.
-
-
 
 “How can I--how could any one--tell of that strange scene, its
 
@@ -26792,11 +23002,7 @@ had to pause, he read the simple and beautiful service from the Burial
 
 of the Dead. I--I cannot go on--words--and--v-voice--f-fail m-me!”
 
-
-
        *       *       *       *       *
-
-
 
 She was right in her instinct. Strange as it all was, bizarre as it may
 
@@ -26808,13 +23014,7 @@ relapse from her freedom of soul, did not seem so full of despair to any
 
 of us as we had dreaded.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _15 October, Varna._--We left Charing Cross on the morning of the 12th,
 
@@ -26850,11 +23050,7 @@ these particular moments to simply will, and her thoughts obey him. He
 
 always asks her what she can see and hear. She answers to the first:--
 
-
-
 “Nothing; all is dark.” And to the second:--
-
-
 
 “I can hear the waves lapping against the ship, and the water rushing
 
@@ -26877,8 +23073,6 @@ send him every day a telegram saying if the ship had been reported. He
 was to have a message even if she were not reported, so that he might be
 
 sure that there was a watch being kept at the other end of the wire.
-
-
 
 We had dinner and went to bed early. To-morrow we are to see the
 
@@ -26912,11 +23106,7 @@ warned, and we shall be safe. Judge Moneybag will settle this case, I
 
 think!
 
-
-
        *       *       *       *       *
-
-
 
 _16 October._--Mina’s report still the same: lapping waves and rushing
 
@@ -26926,11 +23116,7 @@ when we hear of the _Czarina Catherine_ we shall be ready. As she must
 
 pass the Dardanelles we are sure to have some report.
 
-
-
        *       *       *       *       *
-
-
 
 _17 October._--Everything is pretty well fixed now, I think, to welcome
 
@@ -26978,11 +23164,7 @@ _Czarina Catherine_ is seen, we are to be informed by a special
 
 messenger.
 
-
-
        *       *       *       *       *
-
-
 
 _24 October._--A whole week of waiting. Daily telegrams to Godalming,
 
@@ -26992,27 +23174,15 @@ hypnotic answer is unvaried: lapping waves, rushing water, and creaking
 
 masts.
 
-
-
 _Telegram, October 24th._
-
-
 
 _Rufus Smith, Lloyd’s, London, to Lord Godalming, care of H. B. M.
 
 Vice-Consul, Varna._
 
-
-
 “_Czarina Catherine_ reported this morning from Dardanelles.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _25 October._--How I miss my phonograph! To write diary with a pen is
 
@@ -27060,8 +23230,6 @@ neither of us shrink from the task--awful though it be to contemplate.
 
 whoever invented it.
 
-
-
 It is only about 24 hours’ sail from the Dardanelles to here, at the
 
 rate the _Czarina Catherine_ has come from London. She should therefore
@@ -27072,11 +23240,7 @@ before then, we are all about to retire early. We shall get up at one
 
 o’clock, so as to be ready.
 
-
-
        *       *       *       *       *
-
-
 
 _25 October, Noon_.--No news yet of the ship’s arrival. Mrs. Harker’s
 
@@ -27093,8 +23257,6 @@ which he now always carries with him. It will be a bad lookout for the
 Count if the edge of that “Kukri” ever touches his throat, driven by
 
 that stern, ice-cold hand!
-
-
 
 Van Helsing and I were a little alarmed about Mrs. Harker to-day. About
 
@@ -27116,11 +23278,7 @@ anything else. Poor girl, she has so much to forget that it is no wonder
 
 that sleep, if it brings oblivion to her, does her good.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Our opinion was justified, for when after a refreshing sleep
 
@@ -27132,11 +23290,7 @@ may be in the Black Sea, the Count is hurrying to his destination. To
 
 his doom, I trust!
 
-
-
        *       *       *       *       *
-
-
 
 _26 October._--Another day and no tidings of the _Czarina Catherine_.
 
@@ -27152,11 +23306,7 @@ both to north and south of the port. We must continue our watching, as
 
 the ship may now be signalled any moment.
 
-
-
        *       *       *       *       *
-
-
 
 _27 October, Noon._--Most strange; no news yet of the ship we wait for.
 
@@ -27170,8 +23320,6 @@ report.” Van Helsing is terribly anxious, and told me just now that he
 
 fears the Count is escaping us. He added significantly:--
 
-
-
 “I did not like that lethargy of Madam Mina’s. Souls and memories can do
 
 strange things during trance.” I was about to ask him more, but Harker
@@ -27180,29 +23328,17 @@ just then came in, and he held up a warning hand. We must try to-night
 
 at sunset to make her speak more fully when in her hypnotic state.
 
-
-
        *       *       *       *       *
-
-
 
      _28 October._--Telegram. _Rufus Smith, London, to Lord Godalming,
 
      care H. B. M. Vice Consul, Varna._
 
-
-
      “_Czarina Catherine_ reported entering Galatz at one o’clock
 
      to-day.”
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _28 October._--When the telegram came announcing the arrival in Galatz I
 
@@ -27252,17 +23388,11 @@ the great Kukri knife and rested there. “When does the next train start
 
 for Galatz?” said Van Helsing to us generally.
 
-
-
 “At 6:30 to-morrow morning!” We all started, for the answer came from
 
 Mrs. Harker.
 
-
-
 “How on earth do you know?” said Art.
-
-
 
 “You forget--or perhaps you do not know, though Jonathan does and so
 
@@ -27280,11 +23410,7 @@ learned the times very carefully. Unhappily there are not many to learn,
 
 as the only train to-morrow leaves as I say.”
 
-
-
 “Wonderful woman!” murmured the Professor.
-
-
 
 “Can’t we get a special?” asked Lord Godalming. Van Helsing shook his
 
@@ -27314,8 +23440,6 @@ may be delayed; and it will not matter when the sun set, since I am here
 
 with Madam to make report.”
 
-
-
 “And I,” said Mrs. Harker brightly, and more like her old self than she
 
 had been for many a long day, “shall try to be of use in all ways, and
@@ -27332,8 +23456,6 @@ each other, met each a grave and troubled glance. We said nothing at the
 
 time, however.
 
-
-
 When the three men had gone out to their tasks Van Helsing asked Mrs.
 
 Harker to look up the copy of the diaries and find him the part of
@@ -27342,25 +23464,15 @@ Harker’s journal at the Castle. She went away to get it; when the door
 
 was shut upon her he said to me:--
 
-
-
 “We mean the same! speak out!”
-
-
 
 “There is some change. It is a hope that makes me sick, for it may
 
 deceive us.”
 
-
-
 “Quite so. Do you know why I asked her to get the manuscript?”
 
-
-
 “No!” said I, “unless it was to get an opportunity of seeing me alone.”
-
-
 
 “You are in part right, friend John, but only in part. I want to tell
 
@@ -27381,8 +23493,6 @@ then that we are here; for she have more to tell in her open life with
 eyes to see and ears to hear than he, shut, as he is, in his coffin-box.
 
 Now he make his most effort to escape us. At present he want her not.
-
-
 
 “He is sure with his so great knowledge that she will come at his call;
 
@@ -27412,8 +23522,6 @@ learn. Oh, John, my friend, we are in awful straits. I fear, as I never
 
 feared before. We can only trust the good God. Silence! here she comes!”
 
-
-
 I thought that the Professor was going to break down and have hysterics,
 
 just as he had when Lucy died, but with a great effort he controlled
@@ -27429,8 +23537,6 @@ of typewriting to Van Helsing. He looked over them gravely, his face
 brightening up as he read. Then holding the pages between his finger and
 
 thumb he said:--
-
-
 
 “Friend John, to you with so much of experience already--and you, too,
 
@@ -27452,8 +23558,6 @@ sail nobly on big wings, when the time come for him to try them. See I
 
 read here what Jonathan have written:--
 
-
-
 “That other of his race who, in a later age, again and again, brought
 
 his forces over The Great River into Turkey Land; who, when he was
@@ -27463,8 +23567,6 @@ beaten back, came again, and again, and again, though he had to come
 alone from the bloody field where his troops were being slaughtered,
 
 since he knew that he alone could ultimately triumph.”
-
-
 
 “What does this tell us? Not much? no! The Count’s child-thought see
 
@@ -27526,8 +23628,6 @@ opened, and that to you the lightning flash show all the leagues,” for
 
 Mrs. Harker began to clap her hands and her eyes sparkled. He went on:--
 
-
-
 “Now you shall speak. Tell us two dry men of science what you see with
 
 those so bright eyes.” He took her hand and held it whilst she spoke.
@@ -27535,8 +23635,6 @@ those so bright eyes.” He took her hand and held it whilst she spoke.
 His finger and thumb closed on her pulse, as I thought instinctively and
 
 unconsciously, as she spoke:--
-
-
 
 “The Count is a criminal and of criminal type. Nordau and Lombroso would
 
@@ -27562,8 +23660,6 @@ the sea to his home; just as formerly he had fled back over the Danube
 
 from Turkey Land.”
 
-
-
 “Good, good! oh, you so clever lady!” said Van Helsing,
 
 enthusiastically, as he stooped and kissed her hand. A moment later he
@@ -27572,13 +23668,9 @@ said to me, as calmly as though we had been having a sick-room
 
 consultation:--
 
-
-
 “Seventy-two only; and in all this excitement. I have hope.” Turning to
 
 her again, he said with keen expectation:--
-
-
 
 “But go on. Go on! there is more to tell if you will. Be not afraid;
 
@@ -27586,15 +23678,9 @@ John and I know. I do in any case, and shall tell you if you are right.
 
 Speak, without fear!”
 
-
-
 “I will try to; but you will forgive me if I seem egotistical.”
 
-
-
 “Nay! fear not, you must be egotist, for it is of you that we think.”
-
-
 
 “Then, as he is criminal he is selfish; and as his intellect is small
 
@@ -27615,8 +23701,6 @@ is freer than it has been since that awful hour; and all that haunts me
 is a fear lest in some trance or dream he may have used my knowledge for
 
 his ends.” The Professor stood up:--
-
-
 
 “He has so used your mind; and by it he has left us here in Varna,
 
@@ -27666,13 +23750,13 @@ and write him all down, so that when the others return from their work
 
 you can give it to them; then they shall know as we do.”
 
-
-
 And so I have written it whilst we wait their return, and Mrs. Harker
 
 has written with her typewriter all since she brought the MS. to us.
 
-## DR. SEWARD’S DIARY
+## Kapitel XXVI
+
+DR. SEWARD’S DIARY
 
 _29 October._--This is written in the train from Varna to Galatz. Last
 
@@ -27694,8 +23778,6 @@ this time the Professor had to ask her questions, and to ask them pretty
 
 resolutely, before we could learn anything; at last her answer came:--
 
-
-
 “I can see nothing; we are still; there are no waves lapping, but only a
 
 steady swirl of water softly running against the hawser. I can hear
@@ -27709,8 +23791,6 @@ There is tramping of feet overhead, and ropes and chains are dragged
 along. What is this? There is a gleam of light; I can feel the air
 
 blowing upon me.”
-
-
 
 Here she stopped. She had risen, as if impulsively, from where she lay
 
@@ -27728,15 +23808,11 @@ passing; but we felt that it was useless to say anything. Suddenly she
 
 sat up, and, as she opened her eyes, said sweetly:--
 
-
-
 “Would none of you like a cup of tea? You must all be so tired!” We
 
 could only make her happy, and so acquiesced. She bustled off to get
 
 tea; when she had gone Van Helsing said:--
-
-
 
 “You see, my friends. _He_ is close to land: he has left his
 
@@ -27762,13 +23838,9 @@ on him in daytime, boxed up and at our mercy; for he dare not be his
 
 true self, awake and visible, lest he be discovered.”
 
-
-
 There was no more to be said, so we waited in patience until the dawn;
 
 at which time we might learn more from Mrs. Harker.
-
-
 
 Early this morning we listened, with breathless anxiety, for her
 
@@ -27782,15 +23854,11 @@ soul into the effort; at last, in obedience to his will she made
 
 reply:--
 
-
-
 “All is dark. I hear lapping water, level with me, and some creaking as
 
 of wood on wood.” She paused, and the red sun shot up. We must wait till
 
 to-night.
-
-
 
 And so it is that we are travelling towards Galatz in an agony of
 
@@ -27804,11 +23872,7 @@ hypnotic messages from Mrs. Harker; either or both may possibly throw
 
 more light on what is happening.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Sunset has come and gone. Fortunately it came at a time when
 
@@ -27834,8 +23898,6 @@ a happy thought; but I am afraid that it may not be so. When she did
 
 speak, her words were enigmatical:--
 
-
-
 “Something is going out; I can feel it pass me like a cold wind. I can
 
 hear, far off, confused sounds--as of men talking in strange tongues,
@@ -27856,11 +23918,7 @@ when she was told, she pondered over it deeply for a long time and in
 
 silence.
 
-
-
        *       *       *       *       *
-
-
 
 _30 October, 7 a. m._--We are near Galatz now, and I may not have time
 
@@ -27876,15 +23934,11 @@ greater difficulty, only a minute before the sun rose. The Professor
 
 lost no time in his questioning; her answer came with equal quickness:--
 
-
-
 “All is dark. I hear water swirling by, level with my ears, and the
 
 creaking of wood on wood. Cattle low far off. There is another sound, a
 
 queer one like----” She stopped and grew white, and whiter still.
-
-
 
 “Go on; go on! Speak, I command you!” said Van Helsing in an agonised
 
@@ -27896,15 +23950,11 @@ all started as she said, sweetly and seemingly with the utmost
 
 unconcern:--
 
-
-
 “Oh, Professor, why ask me to do what you know I can’t? I don’t remember
 
 anything.” Then, seeing the look of amazement on our faces, she said,
 
 turning from one to the other with a troubled look:--
-
-
 
 “What have I said? What have I done? I know nothing, only that I was
 
@@ -27914,8 +23964,6 @@ It seemed so funny to hear you order me about, as if I were a bad
 
 child!”
 
-
-
 “Oh, Madam Mina,” he said, sadly, “it is proof, if proof be needed, of
 
 how I love and honour you, when a word for your good, spoken more
@@ -27924,19 +23972,11 @@ earnest than ever, can seem so strange because it is to order her whom I
 
 am proud to obey!”
 
-
-
 The whistles are sounding; we are nearing Galatz. We are on fire with
 
 anxiety and eagerness.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _30 October._--Mr. Morris took me to the hotel where our rooms had been
 
@@ -27954,11 +23994,7 @@ doctors went to the shipping agent to learn particulars of the arrival
 
 of the _Czarina Catherine_.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Lord Godalming has returned. The Consul is away, and the
 
@@ -27966,13 +24002,7 @@ Vice-Consul sick; so the routine work has been attended to by a clerk.
 
 He was very obliging, and offered to do anything in his power.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _30 October._--At nine o’clock Dr. Van Helsing, Dr. Seward, and I called
 
@@ -27991,8 +24021,6 @@ harbour. There we saw the Captain, Donelson by name, who told us of his
 voyage. He said that in all his life he had never had so favourable a
 
 run.
-
-
 
 “Man!” he said, “but it made us afeard, for we expeckit that we should
 
@@ -28028,15 +24056,11 @@ hinderin’ him.” This mixture of simplicity and cunning, of superstition
 
 and commercial reasoning, aroused Van Helsing, who said:--
 
-
-
 “Mine friend, that Devil is more clever than he is thought by some; and
 
 he know when he meet his match!” The skipper was not displeased with the
 
 compliment, and went on:--
-
-
 
 “When we got past the Bosphorus the men began to grumble; some o’ them,
 
@@ -28098,13 +24122,9 @@ did have any luggage aboord the ship, I’m thinkin’ it was nane ither
 
 than that same!”
 
-
-
 “What was the name of the man who took it?” asked Dr. Van Helsing with
 
 restrained eagerness.
-
-
 
 “I’ll be tellin’ ye quick!” he answered, and, stepping down to his
 
@@ -28113,8 +24133,6 @@ cabin, produced a receipt signed “Immanuel Hildesheim.” Burgen-strasse
 16 was the address. We found out that this was all the Captain knew; so
 
 with thanks we came away.
-
-
 
 We found Hildesheim in his office, a Hebrew of rather the Adelphi
 
@@ -28142,8 +24160,6 @@ the ship and handed over the box, so as to save porterage. That was all
 
 he knew.
 
-
-
 We then sought for Skinsky, but were unable to find him. One of his
 
 neighbours, who did not seem to bear him any affection, said that he had
@@ -28155,8 +24171,6 @@ his landlord, who had received by messenger the key of the house
 together with the rent due, in English money. This had been between ten
 
 and eleven o’clock last night. We were at a standstill again.
-
-
 
 Whilst we were talking one came running and breathlessly gasped out that
 
@@ -28170,8 +24184,6 @@ women crying out “This is the work of a Slovak!” We hurried away lest we
 
 should have been in some way drawn into the affair, and so detained.
 
-
-
 As we came home we could arrive at no definite conclusion. We were all
 
 convinced that the box was on its way, by water, to somewhere; but where
@@ -28179,8 +24191,6 @@ convinced that the box was on its way, by water, to somewhere; but where
 that might be we would have to discover. With heavy hearts we came home
 
 to the hotel to Mina.
-
-
 
 When we met together, the first thing was to consult as to taking Mina
 
@@ -28190,13 +24200,7 @@ least a chance, though a hazardous one. As a preliminary step, I was
 
 released from my promise to her.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _30 October, evening._--They were so tired and worn out and dispirited
 
@@ -28212,8 +24216,6 @@ me. I should have felt quite astray doing the work if I had to write
 
 with a pen....
 
-
-
 It is all done; poor dear, dear Jonathan, what he must have suffered,
 
 what must he be suffering now. He lies on the sofa hardly seeming to
@@ -28226,8 +24228,6 @@ see his face all wrinkled up with the concentration of his thoughts. Oh!
 
 if I could only help at all.... I shall do what I can.
 
-
-
 I have asked Dr. Van Helsing, and he has got me all the papers that I
 
 have not yet seen.... Whilst they are resting, I shall go over all
@@ -28238,21 +24238,13 @@ follow the Professor’s example, and think without prejudice on the facts
 
 before me....
 
-
-
        *       *       *       *       *
-
-
 
 I do believe that under God’s providence I have made a discovery. I
 
 shall get the maps and look over them....
 
-
-
        *       *       *       *       *
-
-
 
 I am more than ever sure that I am right. My new conclusion is ready, so
 
@@ -28260,23 +24252,13 @@ I shall get our party together and read it. They can judge it; it is
 
 well to be accurate, and every minute is precious.
 
-
-
-
-
 _Mina Harker’s Memorandum._
 
-
-
 (Entered in her Journal.)
-
-
 
 _Ground of inquiry._--Count Dracula’s problem is to get back to his own
 
 place.
-
-
 
 (_a_) He must be _brought back_ by some one. This is evident; for had he
 
@@ -28288,37 +24270,25 @@ interference, in the state of helplessness in which he must be--confined
 
 as he is between dawn and sunset in his wooden box.
 
-
-
 (_b_) _How is he to be taken?_--Here a process of exclusions may help
 
 us. By road, by rail, by water?
-
-
 
 1. _By Road._--There are endless difficulties, especially in leaving the
 
 city.
 
-
-
 (_x_) There are people; and people are curious, and investigate. A hint,
 
 a surmise, a doubt as to what might be in the box, would destroy him.
 
-
-
 (_y_) There are, or there may be, customs and octroi officers to pass.
-
-
 
 (_z_) His pursuers might follow. This is his highest fear; and in order
 
 to prevent his being betrayed he has repelled, so far as he can, even
 
 his victim--me!
-
-
 
 2. _By Rail._--There is no one in charge of the box. It would have to
 
@@ -28329,8 +24299,6 @@ on the track. True, he might escape at night; but what would he be, if
 left in a strange place with no refuge that he could fly to? This is not
 
 what he intends; and he does not mean to risk it.
-
-
 
 3. _By Water._--Here is the safest way, in one respect, but with most
 
@@ -28346,19 +24314,13 @@ unfriendly land, wherein he was not free to move, his position would
 
 still be desperate.
 
-
-
 We know from the record that he was on the water; so what we have to do
 
 is to ascertain _what_ water.
 
-
-
 The first thing is to realise exactly what he has done as yet; we may,
 
 then, get a light on what his later task is to be.
-
-
 
 _Firstly._--We must differentiate between what he did in London as part
 
@@ -28366,13 +24328,9 @@ of his general plan of action, when he was pressed for moments and had
 
 to arrange as best he could.
 
-
-
 _Secondly_ we must see, as well as we can surmise it from the facts we
 
 know of, what he has done here.
-
-
 
 As to the first, he evidently intended to arrive at Galatz, and sent
 
@@ -28389,8 +24347,6 @@ also the instruction to Petrof Skinsky. These we must only guess at; but
 there must have been some letter or message, since Skinsky came to
 
 Hildesheim.
-
-
 
 That, so far, his plans were successful we know. The _Czarina Catherine_
 
@@ -28412,13 +24368,9 @@ moving along. The customs and the octroi, if there be any, have been
 
 avoided.
 
-
-
 Now we come to what the Count must have done after his arrival--_on
 
 land_, at Galatz.
-
-
 
 The box was given to Skinsky before sunrise. At sunrise the Count could
 
@@ -28431,8 +24383,6 @@ with the Slovaks who trade down the river to the port; and the man’s
 remark, that the murder was the work of a Slovak, showed the general
 
 feeling against his class. The Count wanted isolation.
-
-
 
 My surmise is, this: that in London the Count decided to get back to his
 
@@ -28454,8 +24404,6 @@ he knew that all was in train, he blotted out his traces, as he thought,
 
 by murdering his agent.
 
-
-
 I have examined the map and find that the river most suitable for the
 
 Slovaks to have ascended is either the Pruth or the Sereth. I read in
@@ -28470,8 +24418,6 @@ poles, for the banks are near and it is working against stream. There
 
 would be no such sound if floating down stream.
 
-
-
 Of course it may not be either the Sereth or the Pruth, but we may
 
 possibly investigate further. Now of these two, the Pruth is the more
@@ -28482,19 +24428,11 @@ which runs up round the Borgo Pass. The loop it makes is manifestly as
 
 close to Dracula’s castle as can be got by water.
 
-
-
-
-
 _Mina Harker’s Journal--continued._
-
-
 
 When I had done reading, Jonathan took me in his arms and kissed me. The
 
 others kept shaking me by both hands, and Dr. Van Helsing said:--
-
-
 
 “Our dear Madam Mina is once more our teacher. Her eyes have been where
 
@@ -28514,17 +24452,11 @@ to our Council of War; for, here and now, we must plan what each and all
 
 shall do.”
 
-
-
 “I shall get a steam launch and follow him,” said Lord Godalming.
-
-
 
 “And I, horses to follow on the bank lest by chance he land,” said Mr.
 
 Morris.
-
-
 
 “Good!” said the Professor, “both good. But neither must go alone. There
 
@@ -28533,8 +24465,6 @@ must be force to overcome force if need be; the Slovak is strong and
 rough, and he carries rude arms.” All the men smiled, for amongst them
 
 they carried a small arsenal. Said Mr. Morris:--
-
-
 
 “I have brought some Winchesters; they are pretty handy in a crowd, and
 
@@ -28545,8 +24475,6 @@ precautions; he made some requisitions on others that Mrs. Harker could
 not quite hear or understand. We must be ready at all points.” Dr.
 
 Seward said:--
-
-
 
 “I think I had better go with Quincey. We have been accustomed to hunt
 
@@ -28571,8 +24499,6 @@ boat service would, most likely, be the one which would destroy the ...
 the ... the ... Vampire. (Why did I hesitate to write the word?) He was
 
 silent awhile, and during his silence Dr. Van Helsing spoke:--
-
-
 
 “Friend Jonathan, this is to you for twice reasons. First, because you
 
@@ -28618,8 +24544,6 @@ made sanctify, so that that nest of vipers be obliterated.” Here
 
 Jonathan interrupted him hotly:--
 
-
-
 “Do you mean to say, Professor Van Helsing, that you would bring Mina,
 
 in her sad case and tainted as she is with that devil’s illness, right
@@ -28627,8 +24551,6 @@ in her sad case and tainted as she is with that devil’s illness, right
 into the jaws of his death-trap? Not for the world! Not for Heaven or
 
 Hell!” He became almost speechless for a minute, and then went on:--
-
-
 
 “Do you know what the place is? Have you seen that awful den of hellish
 
@@ -28647,8 +24569,6 @@ down on the sofa in a collapse of misery. The Professor’s voice, as he
 spoke in clear, sweet tones, which seemed to vibrate in the air, calmed
 
 us all:--
-
-
 
 “Oh, my friend, it is because I would save Madam Mina from that awful
 
@@ -28680,17 +24600,11 @@ possibly my life? If it were that any one went into that place to stay,
 
 it is I who would have to go to keep them company.”
 
-
-
 “Do as you will,” said Jonathan, with a sob that shook him all over, “we
 
 are in the hands of God!”
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Oh, it did me good to see the way that these brave men worked.
 
@@ -28742,11 +24656,7 @@ colder every hour, and there are snow-flurries which come and go as
 
 warnings.
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--It took all my courage to say good-bye to my darling. We may
 
@@ -28756,13 +24666,7 @@ his look is a warning. There must be no tears now--unless it may be that
 
 God will let them fall in gladness.
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _October 30. Night._--I am writing this in the light from the furnace
 
@@ -28816,8 +24720,6 @@ can mount our whole party. One of the saddles has a movable horn, and
 
 can be easily adapted for Mina, if required.
 
-
-
 It is a wild adventure we are on. Here, as we are rushing along through
 
 the darkness, with the cold from the river seeming to rise up and strike
@@ -28830,11 +24732,7 @@ a whole world of dark and dreadful things. Godalming is shutting the
 
 furnace door....
 
-
-
        *       *       *       *       *
-
-
 
 _31 October._--Still hurrying along. The day has come, and Godalming is
 
@@ -28850,11 +24748,7 @@ time we turned our electric lamp on them, and fell on their knees and
 
 prayed.
 
-
-
        *       *       *       *       *
-
-
 
 _1 November, evening._--No news all day; we have found nothing of the
 
@@ -28892,11 +24786,7 @@ shall keep the first watch. God bless him for all his goodness to poor
 
 dear Mina and me.
 
-
-
        *       *       *       *       *
-
-
 
 _2 November, morning._--It is broad daylight. That good fellow would not
 
@@ -28938,13 +24828,7 @@ them; for if by that time we have not overtaken the Count, it may be
 
 necessary to take counsel together what to do next.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _2 November._--Three days on the road. No news, and no time to write it
 
@@ -28956,11 +24840,7 @@ Those adventurous days of ours are turning up useful. We must push on;
 
 we shall never feel happy till we get the launch in sight again.
 
-
-
        *       *       *       *       *
-
-
 
 _3 November._--We heard at Fundu that the launch had gone up the
 
@@ -28970,11 +24850,7 @@ if it falls heavy it will stop us. In such case we must get a sledge and
 
 go on, Russian fashion.
 
-
-
        *       *       *       *       *
-
-
 
 _4 November._--To-day we heard of the launch having been detained by an
 
@@ -28996,13 +24872,7 @@ stopping every now and again so long as she was in sight. We must push
 
 on harder than ever; our help may be wanted soon.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _31 October._--Arrived at Veresti at noon. The Professor tells me that
 
@@ -29028,11 +24898,7 @@ picturesqueness of the whole wild, beautiful country and the quaint
 
 people! But, alas!--
 
-
-
        *       *       *       *       *
-
-
 
 _Later._--Dr. Van Helsing has returned. He has got the carriage and
 
@@ -29050,11 +24916,7 @@ and wraps, and all sorts of warm things. There will not be any chance of
 
 our being cold.
 
-
-
        *       *       *       *       *
-
-
 
 We shall soon be off. I am afraid to think what may happen to us. We are
 
@@ -29068,7 +24930,9 @@ loved him and honoured him more than I can say, and that my latest and
 
 truest thought will be always for him.
 
-## MINA HARKER’S JOURNAL
+## Kapitel XXVII
+
+MINA HARKER’S JOURNAL
 
 _1 November._--All day long we have travelled, and at a good speed. The
 
@@ -29130,11 +24994,7 @@ and we must not break down when most of all his strength will be
 
 needed.... All is ready; we are off shortly.
 
-
-
        *       *       *       *       *
-
-
 
 _2 November, morning._--I was successful, and we took turns driving all
 
@@ -29152,11 +25012,7 @@ they ascend. I do hope that my darling will not run any chance of
 
 danger--more than need be; but we are in God’s hands.
 
-
-
        *       *       *       *       *
-
-
 
 _2 November, night._--All day long driving. The country gets wilder as
 
@@ -29198,13 +25054,7 @@ to let me stand forth in His sight as one of those who have not incurred
 
 His wrath.
 
-
-
-
-
 _Memorandum by Abraham Van Helsing._
-
-
 
 _4 November._--This to my old and true friend John Seward, M.D., of
 
@@ -29238,15 +25088,11 @@ less and less with each day, and to-night it fail me altogether. Well,
 
 God’s will be done--whatever it may be, and whithersoever it may lead!
 
-
-
 Now to the historical, for as Madam Mina write not in her stenography, I
 
 must, in my cumbrous old fashion, that so each day of us may not go
 
 unrecorded.
-
-
 
 We got to the Borgo Pass just after sunrise yesterday morning. When I
 
@@ -29266,21 +25112,13 @@ At this time and place, she become all on fire with zeal; some new
 
 guiding power be in her manifested, for she point to a road and say:--
 
-
-
 “This is the way.”
 
-
-
 “How know you it?” I ask.
-
-
 
 “Of course I know it,” she answer, and with a pause, add: “Have not my
 
 Jonathan travelled it and wrote of his travel?”
-
-
 
 At first I think somewhat strange, but soon I see that there be only one
 
@@ -29289,8 +25127,6 @@ such by-road. It is used but little, and very different from the coach
 road from the Bukovina to Bistritz, which is more wide and hard, and
 
 more of use.
-
-
 
 So we came down this road; when we meet other ways--not always were we
 
@@ -29327,8 +25163,6 @@ so that we throw great long shadow on where the mountain rise so steep.
 For we are going up, and up; and all is oh! so wild and rocky, as though
 
 it were the end of the world.
-
-
 
 Then I arouse Madam Mina. This time she wake with not much trouble, and
 
@@ -29386,11 +25220,7 @@ to think but I must go on my way. The stake we play for is life and
 
 death, or more than these, and we must not flinch.
 
-
-
        *       *       *       *       *
-
-
 
 _5 November, morning._--Let me be accurate in everything, for though you
 
@@ -29399,8 +25229,6 @@ and I have seen some strange things together, you may at the first think
 that I, Van Helsing, am mad--that the many horrors and the so long
 
 strain on nerves has at the last turn my brain.
-
-
 
 All yesterday we travel, ever getting closer to the mountains, and
 
@@ -29433,8 +25261,6 @@ steep-rising hill, on summit of which was such a castle as Jonathan tell
 of in his diary. At once I exulted and feared; for now, for good or ill,
 
 the end was near.
-
-
 
 I woke Madam Mina, and again tried to hypnotise her; but alas!
 
@@ -29470,15 +25296,11 @@ feet with a tremor that was pain to feel. I said to her presently, when
 
 she had grown more quiet:--
 
-
-
 “Will you not come over to the fire?” for I wished to make a test of
 
 what she could. She rose obedient, but when she have made a step she
 
 stopped, and stood as one stricken.
-
-
 
 “Why not go on?” I asked. She shook her head, and, coming back, sat
 
@@ -29486,15 +25308,11 @@ down in her place. Then, looking at me with open eyes, as of one waked
 
 from sleep, she said simply:--
 
-
-
 “I cannot!” and remained silent. I rejoiced, for I knew that what she
 
 could not, none of those that we dreaded could. Though there might be
 
 danger to her body, yet her soul was safe!
-
-
 
 Presently the horses began to scream, and tore at their tethers till I
 
@@ -29548,19 +25366,13 @@ me back, and whispered, like a voice that one hears in a dream, so low
 
 it was:--
 
-
-
 “No! No! Do not go without. Here you are safe!” I turned to her, and
 
 looking in her eyes, said:--
 
-
-
 “But you? It is for you that I fear!” whereat she laughed--a laugh, low
 
 and unreal, and said:--
-
-
 
 “Fear for _me_! Why fear for me? None safer in all the world from them
 
@@ -29590,8 +25402,6 @@ her, and said in those so sweet tingling tones that Jonathan said were
 
 of the intolerable sweetness of the water-glasses:--
 
-
-
 “Come, sister. Come to us. Come! Come!” In fear I turned to my poor
 
 Madam Mina, and my heart with gladness leapt like flame; for oh! the
@@ -29618,8 +25428,6 @@ them softly, and they grew whiter. I knew that there was for the poor
 
 beasts no more of terror.
 
-
-
 And so we remained till the red of the dawn to fall through the
 
 snow-gloom. I was desolate and afraid, and full of woe and terror; but
@@ -29631,8 +25439,6 @@ At the first coming of the dawn the horrid figures melted in the
 whirling mist and snow; the wreaths of transparent gloom moved away
 
 towards the castle, and were lost.
-
-
 
 Instinctively, with the dawn coming, I turned to Madam Mina, intending
 
@@ -29650,21 +25456,13 @@ may be places where I must go, where that sunlight, though snow and mist
 
 obscure it, will be to me a safety.
 
-
-
 I will strengthen me with breakfast, and then I will to my terrible
 
 work. Madam Mina still sleeps; and, God be thanked! she is calm in her
 
 sleep....
 
-
-
-
-
 _Jonathan Harker’s Journal._
-
-
 
 _4 November, evening._--The accident to the launch has been a terrible
 
@@ -29682,13 +25480,7 @@ Morris and Seward were with us. We must only hope! If I write no more
 
 Good-bye, Mina! God bless and keep you.
 
-
-
-
-
 _Dr. Seward’s Diary._
-
-
 
 _5 November._--With the dawn we saw the body of Szgany before us dashing
 
@@ -29708,13 +25500,7 @@ and we are soon off. We ride to death of some one. God alone knows who,
 
 or where, or what, or when, or how it may be....
 
-
-
-
-
 _Dr. Van Helsing’s Memorandum._
-
-
 
 _5 November, afternoon._--I am at least sane. Thank God for that mercy
 
@@ -29742,8 +25528,6 @@ Then I bethought me of my dear Madam Mina, and I was in terrible plight.
 
 The dilemma had me between his horns.
 
-
-
 Her, I had not dare to take into this place, but left safe from the
 
 Vampire in that Holy circle; and yet even there would be the wolf! I
@@ -29757,8 +25541,6 @@ freedom beyond. So did I choose for her. Had it but been for myself the
 choice had been easy, the maw of the wolf were better to rest in than
 
 the grave of the Vampire! So I make my choice to go on with my work.
-
-
 
 I knew that there were at least three graves to find--graves that are
 
@@ -29784,8 +25566,6 @@ kiss--and man is weak. And there remain one more victim in the Vampire
 
 fold; one more to swell the grim and grisly ranks of the Un-Dead!...
 
-
-
 There is some fascination, surely, when I am moved by the mere presence
 
 of such an one, even lying as she lay in a tomb fretted with age and
@@ -29809,8 +25589,6 @@ to a sweet fascination, when there came through the snow-stilled air a
 long, low wail, so full of woe and pity that it woke me like the sound
 
 of a clarion. For it was the voice of my dear Madam Mina that I heard.
-
-
 
 Then I braced myself again to my horrid task, and found by wrenching
 
@@ -29846,11 +25624,7 @@ There was one great tomb more lordly than all the rest; huge it was, and
 
 nobly proportioned. On it was but one word
 
-
-
                                 DRACULA.
-
-
 
 This then was the Un-Dead home of the King-Vampire, to whom so many more
 
@@ -29861,8 +25635,6 @@ Before I began to restore these women to their dead selves through my
 awful work, I laid in Dracula’s tomb some of the Wafer, and so banished
 
 him from it, Un-Dead, for ever.
-
-
 
 Then began my terrible task, and I dreaded it. Had it been but one, it
 
@@ -29875,8 +25647,6 @@ Miss Lucy, what would it not be with these strange ones who had survived
 through centuries, and who had been strengthened by the passing of the
 
 years; who would, if they could, have fought for their foul lives....
-
-
 
 Oh, my friend John, but it was butcher work; had I not been nerved by
 
@@ -29910,19 +25680,13 @@ centuries agone had at last assert himself and say at once and loud “I
 
 am here!”
 
-
-
 Before I left the castle I so fixed its entrances that never more can
 
 the Count enter there Un-Dead.
 
-
-
 When I stepped into the circle where Madam Mina slept, she woke from her
 
 sleep, and, seeing, me, cried out in pain that I had endured too much.
-
-
 
 “Come!” she said, “come away from this awful place! Let us go to meet my
 
@@ -29934,21 +25698,13 @@ glad to see her paleness and her illness, for my mind was full of the
 
 fresh horror of that ruddy vampire sleep.
 
-
-
 And so with trust and hope, and yet full of fear, we go eastward to meet
 
 our friends--and _him_--whom Madam Mina tell me that she _know_ are
 
 coming to meet us.
 
-
-
-
-
 _Mina Harker’s Journal._
-
-
 
 _6 November._--It was late in the afternoon when the Professor and I
 
@@ -29992,8 +25748,6 @@ exposed in case of attack. The rough roadway still led downwards; we
 
 could trace it through the drifted snow.
 
-
-
 In a little while the Professor signalled to me, so I got up and joined
 
 him. He had found a wonderful spot, a sort of natural hollow in a rock,
@@ -30015,8 +25769,6 @@ not bring myself to the attempt. He looked very sad, but did not
 reproach me. Taking his field-glasses from the case, he stood on the top
 
 of the rock, and began to search the horizon. Suddenly he called out:--
-
-
 
 “Look! Madam Mina, look! look!” I sprang up and stood beside him on the
 
@@ -30046,8 +25798,6 @@ snow as they were, I could see from the men’s clothes that they were
 
 peasants or gypsies of some kind.
 
-
-
 On the cart was a great square chest. My heart leaped as I saw it, for I
 
 felt that the end was coming. The evening was now drawing close, and
@@ -30064,8 +25814,6 @@ the rock he had drawn a circle, such as we had found shelter in last
 
 night. When he had completed it he stood beside me again, saying:--
 
-
-
 “At least you shall be safe here from _him_!” He took the glasses from
 
 me, and at the next lull of the snow swept the whole space below us.
@@ -30076,8 +25824,6 @@ galloping as hard as they can.” He paused and went on in a hollow
 
 voice:--
 
-
-
 “They are racing for the sunset. We may be too late. God’s will be
 
 done!” Down came another blinding rush of driving snow, and the whole
@@ -30085,8 +25831,6 @@ done!” Down came another blinding rush of driving snow, and the whole
 landscape was blotted out. It soon passed, however, and once more his
 
 glasses were fixed on the plain. Then came a sudden cry:--
-
-
 
 “Look! Look! Look! See, two horsemen follow fast, coming up from the
 
@@ -30128,8 +25872,6 @@ see here and there dots moving singly and in twos and threes and larger
 
 numbers--the wolves were gathering for their prey.
 
-
-
 Every instant seemed an age whilst we waited. The wind came now in
 
 fierce bursts, and the snow was driven with fury as it swept upon us in
@@ -30164,8 +25906,6 @@ seemed, however, to hasten with redoubled speed as the sun dropped lower
 
 and lower on the mountain tops.
 
-
-
 Closer and closer they drew. The Professor and I crouched down behind
 
 our rock, and held our weapons ready; I could see that he was determined
@@ -30173,8 +25913,6 @@ our rock, and held our weapons ready; I could see that he was determined
 that they should not pass. One and all were quite unaware of our
 
 presence.
-
-
 
 All at once two voices shouted out to: “Halt!” One was my Jonathan’s,
 
@@ -30208,8 +25946,6 @@ gypsy party drew what weapon he carried, knife or pistol, and held
 
 himself in readiness to attack. Issue was joined in an instant.
 
-
-
 The leader, with a quick movement of his rein, threw his horse out in
 
 front, and pointing first to the sun--now close down on the hill
@@ -30233,8 +25969,6 @@ formed round the cart in a sort of undisciplined endeavour, each one
 shouldering and pushing the other in his eagerness to carry out the
 
 order.
-
-
 
 In the midst of this I could see that Jonathan on one side of the ring
 
@@ -30286,8 +26020,6 @@ lid began to yield; the nails drew with a quick screeching sound, and
 
 the top of the box was thrown back.
 
-
-
 By this time the gypsies, seeing themselves covered by the Winchesters,
 
 and at the mercy of Lord Godalming and Dr. Seward, had given in and made
@@ -30304,13 +26036,9 @@ image, and the red eyes glared with the horrible vindictive look which I
 
 knew too well.
 
-
-
 As I looked, the eyes saw the sinking sun, and the look of hate in them
 
 turned to triumph.
-
-
 
 But, on the instant, came the sweep and flash of Jonathan’s great knife.
 
@@ -30318,15 +26046,11 @@ I shrieked as I saw it shear through the throat; whilst at the same
 
 moment Mr. Morris’s bowie knife plunged into the heart.
 
-
-
 It was like a miracle; but before our very eyes, and almost in the
 
 drawing of a breath, the whole body crumbled into dust and passed from
 
 our sight.
-
-
 
 I shall be glad as long as I live that even in that moment of final
 
@@ -30334,15 +26058,11 @@ dissolution, there was in the face a look of peace, such as I never
 
 could have imagined might have rested there.
 
-
-
 The Castle of Dracula now stood out against the red sky, and every stone
 
 of its broken battlements was articulated against the light of the
 
 setting sun.
-
-
 
 The gypsies, taking us as in some way the cause of the extraordinary
 
@@ -30355,8 +26075,6 @@ leiter-wagon and shouted to the horsemen not to desert them. The wolves,
 which had withdrawn to a safe distance, followed in their wake, leaving
 
 us alone.
-
-
 
 Mr. Morris, who had sunk to the ground, leaned on his elbow, holding his
 
@@ -30372,15 +26090,11 @@ in that of his own which was unstained. He must have seen the anguish of
 
 my heart in my face, for he smiled at me and said:--
 
-
-
 “I am only too happy to have been of any service! Oh, God!” he cried
 
 suddenly, struggling up to a sitting posture and pointing to me, “It was
 
 worth for this to die! Look! look!”
-
-
 
 The sun was now right down upon the mountain top, and the red gleams
 
@@ -30392,31 +26106,15 @@ as their eyes followed the pointing of his finger. The dying man
 
 spoke:--
 
-
-
 “Now God be thanked that all has not been in vain! See! the snow is not
 
 more stainless than her forehead! The curse has passed away!”
-
-
 
 And, to our bitter grief, with a smile and in silence, he died, a
 
 gallant gentleman.
 
-
-
-
-
-
-
-
-
                                   NOTE
-
-
-
-
 
 Seven years ago we all went through the flames; and the happiness of
 
@@ -30432,8 +26130,6 @@ him. His bundle of names links all our little band of men together; but
 
 we call him Quincey.
 
-
-
 In the summer of this year we made a journey to Transylvania, and went
 
 over the old ground which was, and is, to us so full of vivid and
@@ -30445,8 +26141,6 @@ which we had seen with our own eyes and heard with our own ears were
 living truths. Every trace of all that had been was blotted out. The
 
 castle stood as before, reared high above a waste of desolation.
-
-
 
 When we got home we were talking of the old time--which we could all
 
@@ -30468,8 +26162,6 @@ proofs of so wild a story. Van Helsing summed it all up as he said, with
 
 our boy on his knee:--
 
-
-
 “We want no proofs; we ask none to believe us! This boy will some day
 
 know what a brave and gallant woman his mother is. Already he knows her
@@ -30478,23 +26170,13 @@ sweetness and loving care; later on he will understand how some men so
 
 loved her, that they did dare much for her sake.”
 
-
-
 JONATHAN HARKER.
-
-
 
                                 THE END
 
-
-
        *       *       *       *       *
 
-
-
                        _There’s More to Follow!_
-
-
 
      More stories of the sort you like; more, probably, by the author of
 
@@ -30508,13 +26190,9 @@ JONATHAN HARKER.
 
      want--some, possibly, that you have _always_ wanted.
 
-
-
      It is a _selected_ list; every book in it has achieved a certain
 
      measure of _success_.
-
-
 
      The Grosset & Dunlap list is not only the greatest Index of Good
 
@@ -30522,91 +26200,47 @@ JONATHAN HARKER.
 
      Standard of Value. It will pay you to
 
-
-
                 _Look on the Other Side of the Wrapper!_
-
-
 
      _In case the wrapper is lost write to the publishers for a complete
 
      catalog_
 
-
-
        *       *       *       *       *
-
-
 
 DETECTIVE STORIES BY J. S. FLETCHER
 
-
-
 May be had wherever books are sold. Ask for Grosset & Dunlap’s list
-
-
-
-
 
 THE SECRET OF THE BARBICAN
 
-
-
 THE ANNEXATION SOCIETY
-
-
 
 THE WOLVES AND THE LAMB
 
-
-
 GREEN INK
-
-
 
 THE KING versus WARGRAVE
 
-
-
 THE LOST MR. LINTHWAITE
-
-
 
 THE MILL OF MANY WINDOWS
 
-
-
 THE HEAVEN-KISSED HILL
-
-
 
 THE MIDDLE TEMPLE MURDER
 
-
-
 RAVENSDENE COURT
-
-
 
 THE RAYNER-SLADE AMALGAMATION
 
-
-
 THE SAFETY PIN
-
-
 
 THE SECRET WAY
 
-
-
 THE VALLEY OF HEADSTRONG MEN
 
-
-
 _Ask for Complete free list of G. & D. Popular Copyrighted Fiction_
-
-
 
 GROSSET & DUNLAP, _Publishers_, NEW YORK
 

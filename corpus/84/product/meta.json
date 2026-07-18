@@ -2,9 +2,9 @@
   "book_id": "84",
   "title": "Frankenstein",
   "author": "Mary Shelley",
-  "chapters": 37,
-  "chars": 419336,
-  "built": 1784325234,
+  "chapters": 49,
+  "chars": 419194,
+  "built": 1784351369,
   "files": [
     "content.md",
     "description.md"

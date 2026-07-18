@@ -16,9 +16,38 @@ import os, re, json, time
 CORPUS = os.path.join(os.path.dirname(__file__), "..", "corpus")
 
 # Kapitel-Erkennung (EN/DE, römisch + arabisch)
+# Nur horizontaler Whitespace ([ \t]) um den Titel — NICHT \s, sonst frisst
+# die Gruppe Zeilenumbrueche und kapert die erste Textzeile als Kapiteltitel.
 CHAPTER_RE = re.compile(
-    r"^\s*(?:chapter|kapitel|book|buch|teil|part)\s+([IVXLC\d]+)\.?\s*[-–:]?\s*(.*)$",
+    r"^[ \t]*(?:chapter|kapitel|book|buch|teil|part)\s+([IVXLC\d]+)\.?[ \t]*[-–:]?[ \t]*(.*)$",
     re.IGNORECASE | re.MULTILINE)
+
+# Gutenberg-Boilerplate + Bild-Marker vor der Gliederung entfernen.
+# Grund: beim VERKAUF muessen alle "Project Gutenberg"-Referenzen raus
+# (PG-Lizenz), und [Illustration]-Bloecke sind kein Kapiteltext -> sonst
+# landen sie als Muell im Inhaltsverzeichnis. (ADR-Legalitaet + Produkt-QA.)
+_PG_START = re.compile(r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG.*?\*\*\*",
+                       re.IGNORECASE | re.DOTALL)
+_PG_END = re.compile(r"\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG.*",
+                     re.IGNORECASE | re.DOTALL)
+_ILLUS = re.compile(r"\[Illustration\b.*?\]", re.IGNORECASE | re.DOTALL)
+_PG_LINE = re.compile(r"^.*(?:project gutenberg|gutenberg-tm|gutenberg\.(?:org|net)).*$",
+                      re.IGNORECASE | re.MULTILINE)
+
+def clean_source(text: str) -> str:
+    """Rohtext verkaufsfertig machen: PG-Header/Footer weg, Bild-Marker weg,
+    restliche Gutenberg-Erwaehnungen (Transkriptor-Notizen) zeilenweise raus."""
+    m = _PG_START.search(text)
+    if m:
+        text = text[m.end():]
+    m = _PG_END.search(text)
+    if m:
+        text = text[:m.start()]
+    text = _ILLUS.sub("", text)
+    text = _PG_LINE.sub("", text)
+    # durch das Loeschen entstandene Mehrfach-Leerzeilen eindampfen
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
 
 def split_chapters(text: str):
     parts = CHAPTER_RE.split(text)
@@ -68,6 +97,7 @@ def build_product(book_id: str):
     if not os.path.exists(text_path):
         raise FileNotFoundError(f"no text for {book_id}")
     text = open(text_path, encoding="utf-8").read()
+    text = clean_source(text)
     meta = json.load(open(meta_path, encoding="utf-8"))
     chapters = split_chapters(text)
     idx = build_index(chapters)
