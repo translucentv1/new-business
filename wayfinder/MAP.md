@@ -41,6 +41,13 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   STORE total=5 drafts=5 published=0; 3 Drafts fehlen (Moby-Dick/Dracula/Frankenstein).
   04:00-Retry-Cron (58f0ebc08d11) läuft weiter, kein manueller Push (Limit = hart, kein ToS-Bypass).
   Nächster echter Sale läuft jetzt über Stripe-Links (nicht Gumroad-Publish) → T3/T5-Fokus.
+- **Last ~2h (autonomous, 2026-07-18 10:00–12:00)** — 2 neue PD-Bücher live (Stripe-Rail):
+  TB-14 "A Tale of Two Cities" (Gutenberg 98) + ADR-0014 (create_link-Redirect-Fix auf Deliverable);
+  TB-15 "Jane Eyre" (Gutenberg 1260) + ADR-0015. Jeweils Preview-Landingpage, Deliverable (Download-Gate),
+  Stripe-Kauf-Link. Pipeline jetzt 10 Bücher (8 + 2 neu), alle via Stripe verkaufbar.
+  **T2 status-check 12:00 (2h-cron)** — STORE unverändert total=5 drafts=5 published=0;
+  jetzt 5 Drafts fehlen (Moby-Dick/Dracula/Frankenstein + neu: A Tale of Two Cities, Jane Eyre),
+  weiter BLOCKED durch Gumroad 10/Tag-Limit (04:00-Retry-Cron). Pages HTTP 200. 0 Sales (sales.log fehlt).
 
 ## Open Tickets (Frontier)
 
