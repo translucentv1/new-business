@@ -19,3 +19,6 @@ corpus/
 sale_webhook.py
 .stripe_secrets
 stripe_links.json
+
+# Download-Gate Salt (ADR-0013) - lokal, nie committen
+.dl_salt
