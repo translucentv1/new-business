@@ -101,6 +101,12 @@ def main():
         if os.path.isdir(p) and os.path.exists(os.path.join(p, "product", "meta.json"))
     )
     for bid in bids:
+        # ADR-0013 fix: idempotent — reuse an existing link so repeated
+        # runs don't accumulate dead Payment Links (Stripe links don't
+        # expire). Only creates a new link when none is recorded yet.
+        if bid in links and links.get(bid):
+            print(f"  {bid}: REUSE existing {links[bid]}")
+            continue
         ok, det = create_link(bid)
         if ok:
             links[bid] = det

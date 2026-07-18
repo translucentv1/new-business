@@ -48,6 +48,14 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   **T2 status-check 12:00 (2h-cron)** — STORE unverändert total=5 drafts=5 published=0;
   jetzt 5 Drafts fehlen (Moby-Dick/Dracula/Frankenstein + neu: A Tale of Two Cities, Jane Eyre),
   weiter BLOCKED durch Gumroad 10/Tag-Limit (04:00-Retry-Cron). Pages HTTP 200. 0 Sales (sales.log fehlt).
+- **2h-cron status-check 14:01 (2026-07-18)** — KEINE neuen Produkte/Verkäufe in 12:00–14:00.
+  STORE unverändert total=5 drafts=5 published=0; T2 weiter BLOCKED (Gumroad 10/Tag-Limit:
+  `upload_missing_drafts.py` meldet DAILY LIMIT HIT, alle 8 Drafts fehlen; 04:00-Retry-Cron
+  `58f0ebc08d11` läuft, Fenster resettet ~24h nach erstem Create heute früh — kein manueller Push,
+  kein ToS-Bypass). Pages HTTP 200 (erreichbar). 0 Sales (sales.log fehlt).
+  **Sale-Rail MEASURED funktionsfähig (unterstützt T4/T5):** 3 Stripe-Buy-Links → HTTP 200;
+  4 Download-Gates (/dl/<hash>/<slug>.html) → HTTP 200; robots.txt Disallow /dl/ korrekt,
+  sitemap.xml vorhanden. Erster Sale über Stripe-Links jederzeit möglich sobald Traffic da.
 
 ## Open Tickets (Frontier)
 
