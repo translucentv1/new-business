@@ -84,6 +84,31 @@ def extract_preview(content: str):
     return toc_text, chapter_text
 
 
+def companion_preview(bid: str) -> str:
+    """ADR-0018: Vorgeschmack aus der gefuellten study_guide.json.
+    Zeigt Zusammenfassung + 2 Diskussionsfragen als Kauf-Anreiz (kein Rohtext)."""
+    sg_p = os.path.join(CORPUS, bid, "product", "study_guide.json")
+    if not os.path.exists(sg_p):
+        return '    <p><em>Lese-Begleiter wird gerade erstellt …</em></p>'
+    sg = json.load(open(sg_p, encoding="utf-8"))
+    if not sg.get("filled"):
+        return '    <p><em>Lese-Begleiter wird gerade erstellt …</em></p>'
+    parts = []
+    if sg.get("summary"):
+        parts.append(f"    <p>{_esc(sg['summary'])}</p>")
+    if sg.get("characters"):
+        items = "\n".join(f"      <li>{_esc(c)}</li>" for c in sg["characters"][:5])
+        parts.append(f"    <h3>Figuren (Auszug)</h3>\n    <ul>\n{items}\n    </ul>")
+    if sg.get("questions"):
+        items = "\n".join(f"      <li>{_esc(q)}</li>" for q in sg["questions"][:2])
+        parts.append(f"    <h3>Diskussionsfragen (Beispiel)</h3>\n    <ol>\n{items}\n    </ol>"
+                     f"\n    <p><em>… und 3 weitere im vollstaendigen Begleiter.</em></p>")
+    if sg.get("reading_plan"):
+        parts.append(f"    <p><strong>30-Tage-Leseplan</strong> inklusive – "
+                     f"ca. 1 Kapitel/Tag bis zum Ziel.</p>")
+    return "\n".join(parts)
+
+
 def _render_preview(toc_text: str, chapter_text: str) -> str:
     parts = []
     if toc_text:
@@ -116,19 +141,19 @@ def product_html(bid, meta, desc, content, buy_url):
     blurb = _esc(desc.strip().split("\n")[0][:300])
     chapters = meta.get("chapters", "?")
     chars = meta.get("chars", 0)
-    # TB-11: sharpened SEO title/description (long-tail aligned).
-    seo_title = f"{title} von {author}{year_s} – eBook als Download (Public Domain)"
-    seo_desc = (f"{title} von {author}{year_s}: aufbereitete Public-Domain-Ausgabe "
-                f"als eBook kaufen. Mit Leseprobe (Inhaltsverzeichnis + erstes Kapitel). "
-                f"{chapters} Kapitel, ca. {chars:,} Zeichen.")
-    # TB-11: JSON-LD Product schema for rich results.
+    # ADR-0018: Produkt = Lese-Begleiter (differenzierender Mehrwert), nicht Rohtext.
+    seo_title = f"{title} von {author}{year_s} – Lese-Begleiter & Analyse (Public Domain)"
+    seo_desc = (f"{title} von {author}{year_s}: KI-gestuetzter Lese-Begleiter mit "
+                f"Zusammenfassung, Figurenliste, Diskussionsfragen und 30-Tage-Leseplan. "
+                f"Plus bereinigter Originaltext (gemeinfrei). Jetzt kaufen.")
+    # JSON-LD: Produkt = Begleiter
     price_eur = _price_eur().replace(",", ".")
     json_ld = (
         '<script type="application/ld+json">\n'
         '{\n'
         '  "@context": "https://schema.org/",\n'
         '  "@type": "Product",\n'
-        f'  "name": {json.dumps(meta["title"] + " – eBook (Public Domain)")},\n'
+        f'  "name": {json.dumps(meta["title"] + " – Lese-Begleiter (Public Domain)")},\n'
         f'  "author": {{"@type": "Person", "name": {json.dumps(meta.get("author", "Unbekannt"))}}},\n'
         f'  "description": {json.dumps(seo_desc)},\n'
         '  "offers": {\n'
@@ -143,7 +168,7 @@ def product_html(bid, meta, desc, content, buy_url):
     if buy_url:
         buy_btn = (
             f'    <p class="buy"><a class="buy-btn" href="{buy_url}">'
-            f'Jetzt als eBook kaufen (&euro;{_price_eur()})</a></p>'
+            f'Jetzt den Lese-Begleiter kaufen (&euro;{_price_eur()})</a></p>'
         )
     else:
         buy_btn = (
@@ -151,9 +176,7 @@ def product_html(bid, meta, desc, content, buy_url):
             'Die Bestelllinks werden gerade aktiviert &mdash; komm in '
             'Kuerze zurueck.</p>'
         )
-    # ADR-0013: PREVIEW only (TOC + first chapter), never full text.
-    # Corrupt bundles (PG credit / no chapter structure) get a placeholder
-    # preview instead of a leaky broken page.
+    # ADR-0018: Preview = Begleiter-Vorgeschmack, nicht Rohtext-Kapitel.
     from deliverable_gen import is_corrupt
     if is_corrupt(content):
         preview = (
@@ -161,8 +184,7 @@ def product_html(bid, meta, desc, content, buy_url):
             'aufbereitet und ist demnaechst mit Leseprobe erhaeltlich.</em></p>'
         )
     else:
-        toc_text, chapter_text = extract_preview(content)
-        preview = _render_preview(toc_text, chapter_text)
+        preview = companion_preview(bid)
     return f"""<!DOCTYPE html>
 <html lang="{LANG}">
 <head>
@@ -170,8 +192,8 @@ def product_html(bid, meta, desc, content, buy_url):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{seo_title}</title>
   <meta name="description" content="{_esc(seo_desc)}">
-  <meta property="og:title" content="{title} von {author}">
-  <meta property="og:description" content="Aufbereitete Public-Domain-Ausgabe – als eBook erhaeltlich.">
+  <meta property="og:title" content="{title} von {author} – Lese-Begleiter">
+  <meta property="og:description" content="KI-gestuetzter Lese-Begleiter mit Zusammenfassung, Figurenliste und Leseplan.">
   <meta property="og:type" content="website">
   <meta name="robots" content="index,follow">
   {json_ld}
@@ -192,9 +214,10 @@ def product_html(bid, meta, desc, content, buy_url):
     <p class="byline">von {author}{year_s}</p>
     <p>{blurb}</p>
     {buy_btn}
-    <h2>Leseprobe</h2>
+    <h2>Was dich erwartet</h2>
 {preview}
-    <div class="gate-note">Das vollstaendige, offline lesbare eBook erhaelst du
+    <div class="gate-note">Den vollstaendigen Lese-Begleiter (Zusammenfassung, Figuren,
+       Diskussionsfragen, 30-Tage-Leseplan + bereinigter Originaltext) erhaelst du
        direkt nach dem Kauf &mdash; Stripe leitet dich zum Download weiter.</div>
     <p class="back"><a href="../index.html">Zurueck zur Uebersicht</a></p>
   </article>
@@ -254,13 +277,15 @@ def index_html(entries):
 <html lang="{LANG}">
 <head>
   <meta charset="utf-8">
-  <title>Public-Domain eBooks kaufen – Leseproben & Download (Frankenstein, Dracula, Moby-Dick u.a.)</title>
-  <meta name="description" content="Aufbereitete Public-Domain-Klassiker als eBook kaufen – mit Leseprobe. Frankenstein, Dracula, Moby-Dick, Pride and Prejudice, Alice im Wunderland u.a.">
+  <title>Public-Domain Lese-Begleiter kaufen – Zusammenfassung, Figuren, Leseplan (Frankenstein, Dracula, Moby-Dick u.a.)</title>
+  <meta name="description" content="KI-gestuetzte Lese-Begleiter zu Public-Domain-Klassikern kaufen – mit Zusammenfassung, Figurenliste und 30-Tage-Leseplan. Frankenstein, Dracula, Moby-Dick, Pride and Prejudice, Alice im Wunderland u.a.">
   <meta name="robots" content="index,follow">
   {json_ld}
 </head>
 <body>
-  <h1>Public-Domain eBooks</h1>
+  <h1>Public-Domain Lese-Begleiter</h1>
+  <p>KI-gestuetzte Begleiter zu den groessten Klassikern – mit Zusammenfassung, Figurenliste,
+     Diskussionsfragen und 30-Tage-Leseplan. Plus bereinigter Originaltext.</p>
   <ul>
 {rows}
   </ul>

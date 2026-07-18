@@ -116,6 +116,83 @@ def _md_to_html(text: str) -> str:
     return "\n".join(out)
 
 
+def build_companion_html(book_id: str, meta: dict, content: str) -> str:
+    """ADR-0018: das verkaufsfaehige Deliverable ist der Lese-Begleiter
+    (gefuellte study_guide.json), nicht der Rohtext. Rohtext wird als
+    optionale 'Volltext'-Sektion unten angehaengt (ebenfalls PD, bereinigt)."""
+    sg_p = os.path.join(CORPUS, book_id, "product", "study_guide.json")
+    esc = lambda s: (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+    title = meta.get("title", book_id)
+    author = meta.get("author", "Unbekannt")
+    year = meta.get("year", "")
+    year_s = f" ({year})" if year else ""
+
+    if not os.path.exists(sg_p):
+        # Fallback: nur Rohtext
+        return None
+    sg = json.load(open(sg_p, encoding="utf-8"))
+
+    # Begleiter-Bloecke
+    parts = []
+    if sg.get("summary"):
+        parts.append(f"<h2>Zusammenfassung</h2>\n<p>{esc(sg['summary'])}</p>")
+    if sg.get("setting"):
+        parts.append(f"<h2>Zeit & Setting</h2>\n<p>{esc(sg['setting'])}</p>")
+    if sg.get("characters"):
+        items = "\n".join(f"<li>{esc(c)}</li>" for c in sg["characters"])
+        parts.append(f"<h2>Figurenliste</h2>\n<ul>{items}</ul>")
+    if sg.get("questions"):
+        items = "\n".join(f"<li>{esc(q)}</li>" for q in sg["questions"])
+        parts.append(f"<h2>Diskussionsfragen</h2>\n<ol>{items}</ol>")
+    if sg.get("reading_plan"):
+        items = "\n".join(f"<li>{esc(p)}</li>" for p in sg["reading_plan"])
+        parts.append(f"<h2>30-Tage-Leseplan</h2>\n<ol>{items}</ol>")
+    # Kapiteluebersicht (Geruest aus study_guide)
+    if sg.get("chapters"):
+        items = "\n".join(
+            f"<li>Kap. {b['nr']}: {esc(b['title'])}</li>" for b in sg["chapters"][:60])
+        parts.append(f"<h2>Kapiteluebersicht</h2>\n<ol>{items}</ol>")
+
+    companion = "\n".join(parts)
+
+    # Volltext (bereinigt) als optionale Sektion
+    full_html = _md_to_html(content)
+    full_section = (
+        '<hr>\n<h2>Volltext (Public Domain)</h2>\n<p class="note">Der vollständige, '
+        'bereinigte Originaltext – gemeinfrei.</p>\n' + full_html
+    ) if content.strip() else ""
+
+    html = f"""<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{esc(title)} – Lese-Begleiter von {esc(author)}{year_s}</title>
+  <style>
+    body{{font-family:Georgia,serif;max-width:42em;margin:2em auto;padding:0 1em;line-height:1.7;color:#1a1a1a}}
+    h1{{font-size:1.9em}} h2{{font-size:1.4em;margin-top:1.6em}} h3{{font-size:1.15em}}
+    .byline{{color:#666;font-style:italic;margin-top:-.4em}}
+    .note{{margin:1.4em 0;padding:1em;background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;font-size:.9em}}
+    hr{{border:none;border-top:1px solid #eee;margin:2em 0}}
+    li{{margin:.3em 0}}
+  </style>
+</head>
+<body>
+  <article>
+    <h1>Lese-Begleiter: {esc(title)}</h1>
+    <p class="byline">von {esc(author)}{year_s}</p>
+    <div class="note">Dein gekaufter Lese-Begleiter (KI-gestützte Analyse + gemeinfreier
+       Originaltext). Offline lesbar, nur hier verfügbar.</div>
+    <hr>
+    {companion}
+    {full_section}
+  </article>
+</body>
+</html>
+"""
+    return html
+
+
 def build_one(book_id: str):
     meta_p = os.path.join(CORPUS, book_id, "product", "meta.json")
     content_p = os.path.join(CORPUS, book_id, "product", "content.md")
@@ -130,15 +207,24 @@ def build_one(book_id: str):
     salt = _load_salt()
     h = download_hash(book_id, salt)
     slug = slug_for(meta, book_id)
-    title = meta.get("title", book_id)
-    author = meta.get("author", "Unbekannt")
-    year = meta.get("year", "")
-    year_s = f" ({year})" if year else ""
-
-    body_html = _md_to_html(content)
-    esc = lambda s: (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
-
-    html = f"""<!DOCTYPE html>
+    # ADR-0018: Begleiter als Haupt-Deliverable, wenn gefuellt
+    sg_p = os.path.join(CORPUS, book_id, "product", "study_guide.json")
+    html = None
+    if os.path.exists(sg_p):
+        try:
+            html = build_companion_html(book_id, meta, content)
+        except Exception as e:
+            print(f"  {book_id}: companion build warn {e!r} -> fallback rohtext")
+            html = None
+    if html is None:
+        # Fallback auf reinen Rohtext (altes Verhalten)
+        body_html = _md_to_html(content)
+        esc = lambda s: (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+        title = meta.get("title", book_id)
+        author = meta.get("author", "Unbekannt")
+        year = meta.get("year", "")
+        year_s = f" ({year})" if year else ""
+        html = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -150,7 +236,6 @@ def build_one(book_id: str):
     .byline{{color:#666;font-style:italic;margin-top:-.4em}}
     .note{{margin:1.4em 0;padding:1em;background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;font-size:.9em}}
     hr{{border:none;border-top:1px solid #eee;margin:2em 0}}
-    a{{color:#2962ff}}
   </style>
 </head>
 <body>
