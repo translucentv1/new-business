@@ -30,13 +30,17 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
   `GET /v2/sales` HTTP 200, success=True, 0 sales (erwartet, Drafts nicht published).
   Poller schreibt sales.log + triggert Reinvest (ADR-0005) bei price>0. Mess-Infra funktionsfähig.
   Nächster echter Sale wird sauber detektiert + geloggt.
-- **Last ~2h (autonomous, 2026-07-18 06:09–07:50)** — Pivot + Pipeline gebaut:
+- **Last ~2h (autonomous, 2026-07-18 06:09–10:00)** — Pivot + Pipeline gebaut + Sale-Rail LIVE:
   ADR-0010 (Stripe Payment Links), ADR-0011 (Payhip via User-Override, Stripe Backup),
   ADR-0012 (Cross-Wire Stripe↔Gumroad), Betriebs-Charta, SEO (sitemap/robots),
   Landingpage-/Publish-Pipeline, repo-agnostische Cron-Skripte.
-- **T2 status-check 08:02 (2h-cron)** — weiter BLOCKED durch Gumroad 10/Tag-Limit.
+  **08:00–10:00 (2h-cron-Fenster):** 8 live Stripe Payment Links erstellt + Site published
+  (MEASURED: Produktseiten haben https://buy.stripe.com/... Buttons, "Jetzt kaufen");
+  Download-Gate ADR-0013 + Spec TB-8/9/10; SEO/Pivot-Research TB-11/12; stripe_links.json gitignored.
+- **T2 status-check 10:00 (2h-cron)** — weiter BLOCKED durch Gumroad 10/Tag-Limit.
   STORE total=5 drafts=5 published=0; 3 Drafts fehlen (Moby-Dick/Dracula/Frankenstein).
-  04:00-Retry-Cron (58f0ebc08d11) läuft weiter, kein manuelles Push (Limit = hart, kein ToS-Bypass).
+  04:00-Retry-Cron (58f0ebc08d11) läuft weiter, kein manueller Push (Limit = hart, kein ToS-Bypass).
+  Nächster echter Sale läuft jetzt über Stripe-Links (nicht Gumroad-Publish) → T3/T5-Fokus.
 
 ## Open Tickets (Frontier)
 
