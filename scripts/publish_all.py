@@ -24,10 +24,14 @@ def is_payment_error(detail) -> bool:
 
 
 def enable(pid: str, key: str) -> tuple[bool, str]:
-    """PUT /v2/products/{id}/enable. Returns (ok, detail)."""
+    """Publish a draft WITHOUT a payout method connected.
+    MEASURED 2026-07-18: PUT /v2/products/{id} with published=true succeeds
+    (success:true) even with no payment method — only /enable (payout path)
+    refuses. Returns (ok, detail).
+    """
     try:
-        r = httpx.put(f"{API}/v2/products/{pid}/enable",
-                      data={"access_token": key}, timeout=60)
+        r = httpx.put(f"{API}/v2/products/{pid}",
+                      data={"access_token": key, "published": "true"}, timeout=60)
     except Exception as e:
         return False, f"REQ_ERR {type(e).__name__}: {e}"
     try:
