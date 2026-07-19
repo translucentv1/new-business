@@ -116,7 +116,7 @@ def _md_to_html(text: str) -> str:
     return "\n".join(out)
 
 
-def build_companion_html(book_id: str, meta: dict, content: str) -> str:
+def build_companion_html(book_id: str, meta: dict, content: str, epub_href: str = "") -> str:
     """ADR-0018: das verkaufsfaehige Deliverable ist der Lese-Begleiter
     (gefuellte study_guide.json), nicht der Rohtext. Rohtext wird als
     optionale 'Volltext'-Sektion unten angehaengt (ebenfalls PD, bereinigt)."""
@@ -173,6 +173,9 @@ def build_companion_html(book_id: str, meta: dict, content: str) -> str:
     h1{{font-size:1.9em}} h2{{font-size:1.4em;margin-top:1.6em}} h3{{font-size:1.15em}}
     .byline{{color:#666;font-style:italic;margin-top:-.4em}}
     .note{{margin:1.4em 0;padding:1em;background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;font-size:.9em}}
+    .epub-dl{{margin:1.2em 0}}
+    .epub-dl a{{display:inline-block;background:#2962ff;color:#fff;padding:.6em 1.1em;border-radius:6px;text-decoration:none;font-weight:bold}}
+    .epub-dl a:hover{{background:#1c44b2}}
     hr{{border:none;border-top:1px solid #eee;margin:2em 0}}
     li{{margin:.3em 0}}
   </style>
@@ -182,7 +185,8 @@ def build_companion_html(book_id: str, meta: dict, content: str) -> str:
     <h1>Lese-Begleiter: {esc(title)}</h1>
     <p class="byline">von {esc(author)}{year_s}</p>
     <div class="note">Dein gekaufter Lese-Begleiter (KI-gestützte Analyse + gemeinfreier
-       Originaltext). Offline lesbar, nur hier verfügbar.</div>
+       Originaltext). Offline lesbar, nur hier verfügbar – als HTML und EPUB.</div>
+    <p class="epub-dl"><a href="{epub_href}">⬇ EPUB-Version herunterladen (Kindle / Apple Books / Tolino)</a></p>
     <hr>
     {companion}
     {full_section}
@@ -207,12 +211,13 @@ def build_one(book_id: str):
     salt = _load_salt()
     h = download_hash(book_id, salt)
     slug = slug_for(meta, book_id)
+    epub_href = f"{slug}.epub"
     # ADR-0018: Begleiter als Haupt-Deliverable, wenn gefuellt
     sg_p = os.path.join(CORPUS, book_id, "product", "study_guide.json")
     html = None
     if os.path.exists(sg_p):
         try:
-            html = build_companion_html(book_id, meta, content)
+            html = build_companion_html(book_id, meta, content, epub_href)
         except Exception as e:
             print(f"  {book_id}: companion build warn {e!r} -> fallback rohtext")
             html = None
@@ -235,6 +240,9 @@ def build_one(book_id: str):
     h1{{font-size:1.9em}} h2{{font-size:1.4em;margin-top:1.6em}} h3{{font-size:1.15em}}
     .byline{{color:#666;font-style:italic;margin-top:-.4em}}
     .note{{margin:1.4em 0;padding:1em;background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;font-size:.9em}}
+    .epub-dl{{margin:1.2em 0}}
+    .epub-dl a{{display:inline-block;background:#2962ff;color:#fff;padding:.6em 1.1em;border-radius:6px;text-decoration:none;font-weight:bold}}
+    .epub-dl a:hover{{background:#1c44b2}}
     hr{{border:none;border-top:1px solid #eee;margin:2em 0}}
   </style>
 </head>
@@ -243,7 +251,8 @@ def build_one(book_id: str):
     <h1>{esc(title)}</h1>
     <p class="byline">von {esc(author)}{year_s}</p>
     <div class="note">Dies ist dein gekauftes eBook (Public Domain, neu gegliedert und
-       mit Register versehen). Es liegt nur hier und ist offline lesbar.</div>
+       mit Register versehen). Es liegt nur hier und ist offline lesbar – als HTML und EPUB.</div>
+    <p class="epub-dl"><a href="{epub_href}">⬇ EPUB-Version herunterladen (Kindle / Apple Books / Tolino)</a></p>
     <hr>
     {body_html}
   </article>
@@ -255,6 +264,14 @@ def build_one(book_id: str):
     dest = os.path.join(dest_dir, f"{slug}.html")
     with open(dest, "w", encoding="utf-8") as f:
         f.write(html)
+    # Tier-2 (ADR-0013): EPUB-Deliverable ins selbe (nicht verlinkte) Gate-Verzeichnis.
+    try:
+        from epub_gen import build_epub
+        ep = build_epub(book_id)
+        if ep:
+            print(f"  + EPUB {book_id} -> {ep}")
+    except Exception as e:
+        print(f"  {book_id}: EPUB build warn {e!r}")
     return dest
 
 

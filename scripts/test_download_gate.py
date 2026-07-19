@@ -164,6 +164,29 @@ class DownloadGateTest(unittest.TestCase):
             marker = _last_chapter_marker(content)
             self.assertIn(marker, html, f"{bid}: deliverable missing full-text {marker!r}")
 
+    def test_deliverable_epub_exists_and_linked(self):
+        # ADR-0013 Tier-2: jedes gesunde Produkt bekommt ein EPUB im selben
+        # (nicht verlinkten) Gate-Verzeichnis, und das HTML-Deliverable verlinkt
+        # es relativ (kein /dl/, kein http://), damit Kaeufer es post-purchase
+        # als echtes eBook (Kindle/Apple Books/Tolino) laden koennen.
+        corrupt = set(_corrupt_ids())
+        from epub_gen import epub_path
+        for bid in _product_ids():
+            if bid in corrupt:
+                continue
+            ep = epub_path(bid)
+            self.assertTrue(os.path.exists(ep), f"{bid}: EPUB deliverable missing at {ep}")
+            raw = open(ep, "rb").read()
+            self.assertIn(b"application/epub+zip", raw,
+                          f"{bid}: EPUB mimetype entry missing")
+            # HTML-Deliverable muss relativ aufs EPUB zeigen, nicht external.
+            from deliverable_gen import deliverable_path
+            html = open(deliverable_path(bid), encoding="utf-8").read()
+            self.assertIn("EPUB-Version herunterladen", html,
+                          f"{bid}: deliverable missing EPUB download link")
+            self.assertIn(".epub", html, f"{bid}: deliverable missing .epub href")
+            self.assertNotRegex(html, r'https?://', f"{bid}: EPUB link must be relative, not external")
+
     def test_hash_deterministic(self):
         from deliverable_gen import download_hash, _load_salt
         salt = _load_salt()
