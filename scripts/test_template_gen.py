@@ -12,9 +12,10 @@ class TestTemplateGen(unittest.TestCase):
         # generate all 3 specs + deliverables
         self.out = tg.generate()
 
-    def test_all_three_generated(self):
+    def test_all_specs_generated(self):
         self.assertEqual(set(self.out.keys()),
-                         {"finanz-tracker-dach", "kleingewerbe-steuer", "adhs-wochenplaner"})
+                         {"finanz-tracker-dach", "kleingewerbe-steuer",
+                          "adhs-wochenplaner", "rechnungsvorlage-kleinunternehmer"})
 
     def test_sheets_has_formula_and_no_placeholder(self):
         p = self.out["finanz-tracker-dach"]

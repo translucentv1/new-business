@@ -10,7 +10,7 @@ GitHub Pages serves the branch root, so <id>/index.html and index.html go to
 the top of the gh-pages tree (not under docs/). Only public landing pages are
 published; secrets and raw corpus text are excluded.
 """
-import os, sys, shutil, subprocess, json
+import os, sys, shutil, subprocess, json, glob
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, ".."))
@@ -107,7 +107,11 @@ def main():
     # TB-24: build template landingpages + deliverables so they ship in this publish
     try:
         import template_landing, deliverable_gen
-        for t in ("finanz-tracker-dach", "kleingewerbe-steuer", "adhs-wochenplaner"):
+        tpl_root = os.path.join(REPO, "products", "templates")
+        for t in sorted(
+            os.path.basename(p) for p in glob.glob(os.path.join(tpl_root, "*"))
+            if os.path.isdir(p) and os.path.exists(os.path.join(p, "spec.json"))
+        ):
             deliverable_gen.build_template_deliverable(t)
         tl = template_landing.build_all()
         print(f"Built {len(tl)} template pages.")

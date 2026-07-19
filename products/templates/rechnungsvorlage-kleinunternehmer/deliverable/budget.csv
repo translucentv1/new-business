@@ -1,0 +1,7 @@
+Kategorie,Betrag (EUR)
+Leistung,0
+Betrag,0
+Rechnungsnummer,0
+Datum,0
+Zahlungsziel,0
+SUMME,=SUM(B2:B6)

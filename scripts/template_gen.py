@@ -70,6 +70,23 @@ def _ensure_specs():
             ],
             "categories": [],
         },
+        "rechnungsvorlage-kleinunternehmer": {
+            "id": "rechnungsvorlage-kleinunternehmer",
+            "title": "Rechnungsvorlage für Kleinunternehmer (§19 UStG)",
+            "type": "sheets",
+            "price_eur": 5.99,
+            "lang": "de",
+            "audience": "DE-Kleingewerbler & Freelancer mit Kleinunternehmerregelung, die rechtskonforme Rechnungen schreiben wollen",
+            "sections": [
+                "Absender & Empfänger (Briefkopf)",
+                "Rechnungsnummer & Datum",
+                "Leistungsbeschreibung (Positionen)",
+                "Brutto-Beträge je Position",
+                "Hinweis §19 UStG: 'Stellt frei von Umsatzsteuer gem. §19 UStG'",
+                "Zahlungsziel & Bankdaten",
+            ],
+            "categories": ["Leistung", "Betrag", "Rechnungsnummer", "Datum", "Zahlungsziel"],
+        },
     }
     for sid, spec in specs.items():
         p = os.path.join(TPL_ROOT, sid)
