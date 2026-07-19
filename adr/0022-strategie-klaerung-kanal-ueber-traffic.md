@@ -130,3 +130,33 @@ Bitte eine Wahl treffen (keine weitere Arbeit ohne Entscheid — Handoff §3(4))
 3. **Ablehnen / eigenen Vorschlag** — du nennst die Richtung, ich grill sie erneut.
 
 **Nicht bauen vor der Wahl.** Offene Blocker (WA-Bridge, 2h-Report-cfg) bleiben eigenständig zu fixen.
+
+---
+
+## 7. NACHTSCHICHT-UPDATE (MEASURED 2026-07-19, autonom ausgeführt)
+
+Der User gab Max-Autonomie ("grill dich selbst, arbeite bis zum ersten Geld").
+Folgende Fakten wurden neu MEASURED und ändern die Lage:
+
+- **OpenRouter-Key FUNKTIONIERT** (ADR-0021 meldete ihn als fehlend — falsch:
+  Key war in `.env`, nicht in env-Variable). → LLM-Fill aller 13 Study-Guides
+  (top-level `summary`/`characters`/`questions`/`reading_plan`) + pro-Kapitel-
+  `summary_placeholder` (580 Kapitel) mit echtem Inhalt. Charta-Bug
+  "Platzhalter im Vorzeige-Produkt" BEHOBEN (Live-Check: 0 Platzhalter auf /98/, /1342/).
+- **Stripe ist der EINZIGE live Sale-Rail:** Account `charges_enabled=True`,
+  `payouts_enabled=True` (DE), 13/13 Links `active=True`, 3,99 €, HTTP 200.
+- **Gumroad blockt:** alle Produkte `published=False`, `payments_enabled=None`
+  → KEIN Payout verbunden (USER-Hard-Stop). Nicht der Sale-Pfad.
+- **SEO-Masse maximiert (einziger autonomer Traffic-Hebel):** Sitemap
+  53 → **698 URLs** (684 SEO: 8 Themen × 13 + 580 pro-Kapitel-Long-Tail).
+  Gepusht auf gh-pages. Google/Bing-Ping-Endpunkte deprecated (404/410,
+  MEASURED) — Indexierung läuft über robots.txt-Sitemap-Direktive.
+- **Stand:** Kanal sauber + kaufbereit + 698 indexierbare URLs live. Sale-Poll
+  läuft (0 Sales — Traffic braucht Google-Indexierung + ggf. Backlinks).
+
+**Ehrliche Neubewertung:** Bei 0 Traffic heute ist der erste Sale durch Bauen
+allein NICHT garantiert. Der schnellste reale Hebel ist EIN von dir gesetzter
+Link in eine reale Community/Forum (dein Account, kein Hard-Stop-Verstoß meinerseits
+— ich darf nur nicht autonom posten). Alles andere (Seiten, Links, Poll) ist
+bereit. **K2 (Marketplace) bleibt die strategische Empfehlung für skalierten Traffic,
+sobald du den Account anlegst.**
