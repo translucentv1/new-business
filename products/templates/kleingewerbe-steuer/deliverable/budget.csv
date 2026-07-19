@@ -1,0 +1,10 @@
+Kategorie,Betrag (EUR)
+Rechnung,0
+Bar,0
+Online,0
+Büro,0
+Software,0
+Werbung,0
+Fahrten,0
+Privatentnahme,0
+SUMME,=SUM(B2:B9)

@@ -304,3 +304,73 @@ if __name__ == "__main__":
     print(f"Generated {len(paths)} download deliverables under {DL_ROOT}")
     for p in paths:
         print("  " + p)
+
+
+# ---------------------------------------------------------------------------
+# TEMPLATE deliverables (TB-22/23): Notion .md / Sheets .csv -> self-contained
+# HTML download page, served only post-payment via Stripe redirect. Same hash/
+# salt + dl/ scheme as books (excluded from sitemap, disallowed in robots).
+# ---------------------------------------------------------------------------
+TPL_ROOT = os.path.join(HERE, "..", "products", "templates")
+
+
+def _tpl_slug(tpl_id: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", tpl_id.lower()).strip("-") or tpl_id
+
+
+def template_deliverable_url(tpl_id: str) -> str:
+    salt = _load_salt()
+    h = download_hash("tpl:" + tpl_id, salt)
+    slug = _tpl_slug(tpl_id)
+    return f"{GH_PAGES_BASE}/dl/{h}/{slug}.html"
+
+
+def build_template_deliverable(tpl_id: str) -> str:
+    """Generate a self-contained HTML page embedding the template file(s).
+    Returns the local path, or None if spec/deliverable missing."""
+    spec_p = os.path.join(TPL_ROOT, tpl_id, "spec.json")
+    if not os.path.exists(spec_p):
+        return None
+    spec = json.load(open(spec_p, encoding="utf-8"))
+    deliv = os.path.join(TPL_ROOT, tpl_id, "deliverable")
+    if not os.path.isdir(deliv):
+        return None
+    # collect generated files
+    files = sorted(f for f in os.listdir(deliv) if not f.startswith("."))
+    if not files:
+        return None
+    salt = _load_salt()
+    h = download_hash("tpl:" + tpl_id, salt)
+    slug = _tpl_slug(tpl_id)
+    out_dir = os.path.join(DL_ROOT, h)
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, f"{slug}.html")
+    # embed each file as a <pre> block (csv/md are plain text)
+    blocks = []
+    for fn in files:
+        txt = open(os.path.join(deliv, fn), encoding="utf-8").read()
+        blocks.append(
+            f'<h2>{fn}</h2>\n<pre style="white-space:pre-wrap;word-break:break-word;'
+            f'background:#f6f8fa;padding:1em;border-radius:6px;overflow:auto">'
+            f'{_esc_html(txt)}</pre>')
+    html = (
+        f'<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
+        f'<title>{_esc_html(spec["title"])} – Download</title></head><body>'
+        f'<h1>{_esc_html(spec["title"])}</h1>'
+        f'<p>Danke fuer den Kauf. Kopiere den Inhalt in Google Sheets / Notion.</p>'
+        f'{"".join(blocks)}'
+        f'<p><a href="{GH_PAGES_BASE}/">Zurueck</a></p></body></html>')
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    return out_path
+
+
+def _esc_html(s: str) -> str:
+    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+if __name__ == "__main__":
+    paths = build_all()
+    print(f"Generated {len(paths)} download deliverables under {DL_ROOT}")
+    for p in paths:
+        print("  " + p)

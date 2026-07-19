@@ -1,0 +1,11 @@
+Kategorie,Betrag (EUR)
+Gehalt,0
+Nebenjob,0
+Miete,0
+Versicherung,0
+Lebensmittel,0
+Freizeit,0
+Transport,0
+Abo,0
+Sparziel,0
+SUMME,=SUM(B2:B10)

@@ -1,0 +1,25 @@
+{
+  "id": "kleingewerbe-steuer",
+  "title": "Kleingewerbe Steuer-Planner (§19 UStG)",
+  "type": "sheets",
+  "price_eur": 9.99,
+  "lang": "de",
+  "audience": "DE-Kleingewerbler mit Kleinunternehmerregelung",
+  "sections": [
+    "Einnahmen (Rechnungen, Bar, Online)",
+    "Betriebsausgaben (Büro, Software, Werbung, Fahrten)",
+    "Privatentnahmen",
+    "Umsatzsteuer-Hinweis (§19 UStG: keine USt berechnen/anmelden)",
+    "Gewinn = Einnahmen - Ausgaben (fuer EÜR / Steuer)"
+  ],
+  "categories": [
+    "Rechnung",
+    "Bar",
+    "Online",
+    "Büro",
+    "Software",
+    "Werbung",
+    "Fahrten",
+    "Privatentnahme"
+  ]
+}

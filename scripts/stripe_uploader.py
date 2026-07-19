@@ -43,24 +43,34 @@ def get_key():
     return _read_secrets()
 
 
-def create_link(book_id: str) -> tuple[bool, str]:
-    """Create a Payment Link with fulfillment redirect to the book landing page.
+def create_link(book_id: str, tpl_id: str = None) -> tuple[bool, str]:
+    """Create a Payment Link with fulfillment redirect to the book/template landing page.
 
     Returns (ok, url_or_detail).
     """
     key = get_key()
     if not key:
         return False, "NO_KEY: STRIPE_SECRET_KEY fehlt in .stripe_secrets"
-    meta_p = os.path.join(CORPUS, book_id, "product", "meta.json")
-    if not os.path.exists(meta_p):
-        return False, f"NO_META {meta_p}"
-    meta = json.load(open(meta_p, encoding="utf-8"))
-    title = meta["title"]
-    price_cents = pricing.get_price_cents()
-    # ADR-0013: fulfillment = the hidden download deliverable, NOT the public
-    # landing page (which only shows a preview). Point the post-purchase
-    # redirect at the obscure, per-book deliverable URL.
-    redirect_url = deliverable_url(book_id)
+    # template vs book
+    if tpl_id:
+        spec_p = os.path.join(CORPUS, "..", "products", "templates", tpl_id, "spec.json")
+        if not os.path.exists(spec_p):
+            return False, f"NO_TPL_SPEC {spec_p}"
+        spec = json.load(open(spec_p, encoding="utf-8"))
+        title = spec["title"]
+        price_cents = int(round(spec["price_eur"] * 100))
+        redirect_url = deliverable_url(tpl_id) if False else None
+        # use template deliverable url
+        from deliverable_gen import template_deliverable_url as _tdlv
+        redirect_url = _tdlv(tpl_id)
+    else:
+        meta_p = os.path.join(CORPUS, book_id, "product", "meta.json")
+        if not os.path.exists(meta_p):
+            return False, f"NO_META {meta_p}"
+        meta = json.load(open(meta_p, encoding="utf-8"))
+        title = meta["title"]
+        price_cents = pricing.get_price_cents()
+        redirect_url = deliverable_url(book_id)
     try:
         r = httpx.post(
             f"{STRIPE_API}/payment_links",
@@ -113,6 +123,23 @@ def main():
             print(f"  {bid}: OK {det}")
         else:
             print(f"  {bid}: FAIL {det}")
+    # Templates (TB-22/23): separate keys "tpl:<id>"
+    tpl_root = os.path.join(CORPUS, "..", "products", "templates")
+    tids = sorted(
+        os.path.basename(p) for p in glob.glob(os.path.join(tpl_root, "*"))
+        if os.path.isdir(p) and os.path.exists(os.path.join(p, "spec.json"))
+    )
+    for tid in tids:
+        key = f"tpl:{tid}"
+        if key in links and links.get(key):
+            print(f"  {key}: REUSE existing {links[key]}")
+            continue
+        ok, det = create_link(None, tpl_id=tid)
+        if ok:
+            links[key] = det
+            print(f"  {key}: OK {det}")
+        else:
+            print(f"  {key}: FAIL {det}")
     json.dump(links, open(LINKS, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"Wrote {len(links)} links to {LINKS}")
 

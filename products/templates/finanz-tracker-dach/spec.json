@@ -1,0 +1,26 @@
+{
+  "id": "finanz-tracker-dach",
+  "title": "Finanz-Tracker DACH (Monatsbudget)",
+  "type": "sheets",
+  "price_eur": 4.99,
+  "lang": "de",
+  "audience": "DE-Sparer, die Ausgaben pro Monat im Blick behalten wollen",
+  "sections": [
+    "Einnahmen (Gehalt, Nebenjobs, sonstiges)",
+    "Fixkosten (Miete, Versicherungen, Abos)",
+    "Variable Kosten (Lebensmittel, Freizeit, Transport)",
+    "Sparziele (Notgroschen, Urlaub, Anschaffungen)",
+    "Automatische Monatsbilanz (Einnahmen - Ausgaben)"
+  ],
+  "categories": [
+    "Gehalt",
+    "Nebenjob",
+    "Miete",
+    "Versicherung",
+    "Lebensmittel",
+    "Freizeit",
+    "Transport",
+    "Abo",
+    "Sparziel"
+  ]
+}

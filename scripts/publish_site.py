@@ -104,6 +104,15 @@ def export_to_ghpages():
 def main():
     n = rebuild_pages()
     print(f"Rebuilt {n} pages.")
+    # TB-24: build template landingpages + deliverables so they ship in this publish
+    try:
+        import template_landing, deliverable_gen
+        for t in ("finanz-tracker-dach", "kleingewerbe-steuer", "adhs-wochenplaner"):
+            deliverable_gen.build_template_deliverable(t)
+        tl = template_landing.build_all()
+        print(f"Built {len(tl)} template pages.")
+    except Exception as e:
+        print(f"template build skipped: {e}")
     if not _have_links():
         print("NO_LINKS: stripe_links.json empty/fehlt -> Site NICHT gepusht "
               "(waere Platzhalter). Erst Stripe-Links erstellen, dann erneut "

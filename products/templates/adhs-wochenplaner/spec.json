@@ -1,0 +1,17 @@
+{
+  "id": "adhs-wochenplaner",
+  "title": "ADHS-Wochenplaner (Fokus & Struktur)",
+  "type": "notion",
+  "price_eur": 6.99,
+  "lang": "de",
+  "audience": "Menschen mit ADHS / exec. Dysfunction, die Struktur wollen",
+  "sections": [
+    "Wochen-Fokus (1 Kernziel)",
+    "Brain-Dump (alles, was im Kopf schwirrt)",
+    "Dopamin-Tasks (kleine Siege)",
+    "Mo-So Tagesplan (max 3 Prios/Tag)",
+    "Rejection-Sensitivity-Notiz",
+    "Wochendebrief (was lief, was nicht)"
+  ],
+  "categories": []
+}

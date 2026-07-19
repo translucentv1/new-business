@@ -5,12 +5,21 @@ und Specs: bei Widerspruch gilt diese Charta. Bewusst kurz (kostet Tokens
 pro Anfrage). Verfasst/gepflegt vom leitenden Kopf (Claude Code).
 
 ## Was ist das Projekt?
-Autonomes, legales Micro-Business: gemeinfreie (Public-Domain) Buecher von
-Project Gutenberg aufbereiten (Gliederung + Register) und als digitale
-Produkte verkaufen. Ziel der aktuellen Phase: **der erste echte Sale** —
-auch nur wenige Cent zaehlen als Beweis, dass der Kanal traegt. Auszahlung
-ist erst ab 100 EUR moeglich und wird bewusst aufgeschoben; das ist KEIN
-Blocker und kein Grund zu warten.
+Autonomes, legales Micro-Business (DE, Kleingewerbe, §19 UStG). Verkauf von
+**digitalen Produkten mit echter Nachfrage**: Notion-Templates + Google-Sheets-
+Budget-Tracker (DE-Nischen: "Finanz-Tracker DACH", "Kleingewerbe-Steuer-
+Planner", "ADHS-Wochenplaner"). Public-Domain-Buecher waren der warm-up-
+Pivot (0 Sales wegen Free-Substitute Gutenberg); Templates sind der aktive
+Kanal (MEASURED: 11k+ Notion-Listings Gumroad, 2k-3k Etsy-Reviews).
+Ziel: **der erste echte Sale** (auch Cent zaehlen). Auszahlung ab 100 EUR
+bewusst aufgeschoben — KEIN Blocker.
+
+**Produkt-Stack (autonom, 0 Budget):**
+- `scripts/template_gen.py` -> `products/templates/<id>/deliverable/*.csv|.md`
+- `scripts/deliverable_gen.build_template_deliverable()` -> `docs/dl/<hash>/<id>.html`
+- `scripts/template_landing.py` -> `docs/t/<id>/index.html` (Kaufbutton)
+- `scripts/stripe_uploader.py` -> Links unter Key `tpl:<id>` in `stripe_links.json`
+- Verkauf via Stripe Payment Links (autonom, kein fremder Account nötig).
 
 ## Anti-Halluzinations-Gesetz (oberste Regel)
 Der teuerste Fehler dieses Projekts war "technisch alles gruen", waehrend
