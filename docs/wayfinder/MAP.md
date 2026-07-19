@@ -87,12 +87,26 @@ Dahinter: Distribution-Kanäle (SEO / Pinterest / Reddit) als einzelne MEASURED 
 ## Open Tickets (Frontier)
 
 - ~~**T1 — GitHub Pages Deployment** (`task`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
-- **T2 — 3 fehlende Drafts live** (`task`, AFK via Cron): 2701/345/84 warten auf 04:00-Retry-Cron
-  (`58f0ebc08d11`). BLOCKED by Gumroad 10/Tag-Limit (MEASURED: Fenster resettet ~24h nach
-  erstem Create heute früh). Resolve wenn STORE: total=8 drafts=8 published=0.
+- **T2 — fehlende Drafts live** (`task`, AFK via Cron): 4 Drafts fehlen noch
+  (Pride and Prejudice/1342, Emma, Tom Sawyer, A Tale of Two Cities) — warten auf 04:00-Retry-Cron
+  (`58f0ebc08d11`). BLOCKED by Gumroad 10/Tag-Limit (MEASURED 04:01: STORE total=10 drafts=10
+  published=0; API 'can only create 10 products per day' HIT). Resolve wenn alle lokalen
+  Registry-Drafts als Draft auf Gumroad sind (aktuell 4 fehlend).
 - ~~**T3 — Distribution-Kanal-Entscheidung** (`grilling`) — RESOLVED 2026-07-18 (siehe Decisions so far).~~
   Kanal = SEO-Landingpages (Charta: kein autonomes Social-Posting). Pinterest/Reddit -> Out-of-Scope.
   **Nächstes offenes Ticket: T5** (Publish-Strategie).
+- **2h-cron status-check 04:01 (2026-07-19)** — letzte ~2h (02:01–04:01): autonom TB-20 abgearbeitet
+  + TB-21/ADR-0021 GRILL BLOCKED. TB-20: Landingpages regeneriert — Buch 1342 (Pride and Prejudice)
+  Preview jetzt mit Inhaltsverzeichnis, keine Platzhalter mehr; Preview-Fallback auf ADR-0013
+  Buch-Leseprobe (kein Platzhalter, fix 1342); download-gate Tests an ADR-0018-Modell angepasst.
+  TB-21/ADR-0021 (GRILL 'neue PD-Buecher') bewusst BLOCKED: OPENROUTER_API_KEY fehlt fuer
+  Study-Guide LLM-Fill → Platzhalter-Regression (TB-20) vermeiden; Status 'warte, beobachte Sales'.
+  STORE (Skript MEASURED): total=10 drafts=10 published=0; 4 Drafts fehlen noch
+  (Pride and Prejudice/1342, Emma, Tom Sawyer, A Tale of Two Cities) — Gumroad 10/Tag-Limit erneut
+  HIT, T2 weiter BLOCKED (04:00-Retry-Cron `58f0ebc08d11` laeuft, kein manueller Push, kein ToS-Bypass).
+  Pages HTTP 200 (erreichbar). 0 Sales (sales.log fehlt; Sale-Rail Stripe+Gumroad messbereit,
+  detektiert price>0). **Naechstes offenes Wayfinder-Ticket: T5 (Publish-Strategie)** — braucht
+  Nutzer-Entscheidung (Publish allein = 0 Traffic; Gumroad Discover braucht $100 Sales + Risk-Review).
 - ~~**T4 — First-Sale-Measurement** (`research`) — RESOLVED 2026-07-18.~~ (siehe Decisions so far)
 - **T5 — Publish-Strategie** (`grilling`) — NÄCHSTES OFFENES TICKET: wann/wie Drafts→published? Discover braucht $100 Sales
   + Risk-Review → Publish allein bringt 0 Traffic. Bewusster separater Schritt.
