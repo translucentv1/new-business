@@ -24,7 +24,7 @@ Die Datei ist NUR ueber den Stripe-after_completion-Redirect erreichbar
 (genau wie das HTML). Sie liegt unter /dl/ (robots.txt Disallow, nicht in
 sitemap.xml).
 """
-import os, re, json, zipfile, hashlib
+import os, re, json, zipfile, hashlib, glob
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
