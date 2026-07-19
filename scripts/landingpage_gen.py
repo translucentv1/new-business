@@ -151,7 +151,30 @@ def _render_preview(toc_text: str, chapter_text: str) -> str:
     return "\n".join(parts)
 
 
-def product_html(bid, meta, desc, content, buy_url):
+def related_books_html(current_bid, entries):
+    """Cross-Sell / interne Verlinkung (GRILL erlaubt): bis zu 4 andere
+    Produkte verlinken, um Crawling (SEO-Topical-Cluster) und Cross-Sell zu
+    staerken. Reine Relative-Links ../<id>/index.html, keine externen Calls."""
+    others = [(b, m) for (b, m, *_ ) in entries if b != current_bid]
+    picks = others[:4]
+    if not picks:
+        return ""
+    items = "\n".join(
+        f'      <li><a href="../{b}/index.html">{_esc(m.get("title", b))}</a>'
+        f' – {_esc(m.get("author", ""))}</li>'
+        for b, m in picks
+    )
+    return (
+        '    <section class="related">\n'
+        '      <h2>Weitere Klassiker aus dem Sortiment</h2>\n'
+        '      <ul>\n'
+        f'{items}\n'
+        '      </ul>\n'
+        '    </section>'
+    )
+
+
+def product_html(bid, meta, desc, content, buy_url, all_entries=None):
     title = _esc(meta["title"])
     author = _esc(meta.get("author", "Unbekannt"))
     year = meta.get("year", "")
@@ -159,6 +182,7 @@ def product_html(bid, meta, desc, content, buy_url):
     blurb = _esc(desc.strip().split("\n")[0][:300])
     chapters = meta.get("chapters", "?")
     chars = meta.get("chars", 0)
+    related = related_books_html(bid, all_entries) if all_entries else ""
     # ADR-0018: Produkt = Lese-Begleiter (differenzierender Mehrwert), nicht Rohtext.
     seo_title = f"{title} von {author}{year_s} – Lese-Begleiter & Analyse (Public Domain)"
     seo_desc = (f"{title} von {author}{year_s}: KI-gestuetzter Lese-Begleiter mit "
@@ -223,6 +247,8 @@ def product_html(bid, meta, desc, content, buy_url):
     .buy-btn:hover{{background:#1c44b2}}
     ul.toc{{line-height:1.8}}
     .back{{margin-top:2em;font-size:.9em}}
+    .related{{margin-top:2em;padding:1em;background:#f0f4f8;border-left:4px solid #607d8b;border-radius:6px}}
+    .related ul{{line-height:1.9}}
     .gate-note{{margin-top:1.4em;padding:1em;background:#fff7e6;border-left:4px solid #ff9800;border-radius:6px;font-size:.92em}}
   </style>
 </head>
@@ -237,6 +263,7 @@ def product_html(bid, meta, desc, content, buy_url):
     <div class="gate-note">Den vollstaendigen Lese-Begleiter (Zusammenfassung, Figuren,
        Diskussionsfragen, 30-Tage-Leseplan + bereinigter Originaltext) erhaelst du
        direkt nach dem Kauf &mdash; Stripe leitet dich zum Download weiter.</div>
+{related}
     <p class="back"><a href="../index.html">Zurueck zur Uebersicht</a></p>
   </article>
 </body>
@@ -325,10 +352,11 @@ def build():
     entries = []
     for bid, meta, desc, content in bundles:
         url = links.get(bid)
+        entries.append((bid, meta, desc, content, url))
+    for bid, meta, desc, content, url in entries:
         os.makedirs(os.path.join(SITE, bid), exist_ok=True)
         with open(os.path.join(SITE, bid, "index.html"), "w", encoding="utf-8") as f:
-            f.write(product_html(bid, meta, desc, content, url))
-        entries.append((bid, meta, desc, content, url))
+            f.write(product_html(bid, meta, desc, content, url, entries))
     with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html(entries))
     # SEO: sitemap + robots (Download-Gate-Pfad excluded).
