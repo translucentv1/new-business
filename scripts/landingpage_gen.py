@@ -109,6 +109,24 @@ def companion_preview(bid: str) -> str:
     return "\n".join(parts)
 
 
+def _preview_for(bid: str, content: str) -> str:
+    """ADR-0013/0018: Begleiter-Teaser wenn ein gefuellter Study-Guide da ist,
+    sonst die ADR-0013 Buch-Leseprobe (TOC + erstes Kapitel). Niemals einen
+    leeren 'wird erstellt'-Platzhalter ausliefern — auch nicht fuer Produkte,
+    deren Guide noch nicht per LLM gefuellt wurde."""
+    sg_p = os.path.join(CORPUS, bid, "product", "study_guide.json")
+    if os.path.exists(sg_p):
+        try:
+            sg = json.load(open(sg_p, encoding="utf-8"))
+        except (ValueError, OSError):
+            sg = {}
+        if sg.get("filled") and sg.get("summary"):
+            return companion_preview(bid)
+    # Fallback: echte Buch-Leseprobe aus content.md (TOC + erstes Kapitel).
+    toc, ch = extract_preview(content)
+    return _render_preview(toc, ch)
+
+
 def _render_preview(toc_text: str, chapter_text: str) -> str:
     parts = []
     if toc_text:
@@ -184,7 +202,7 @@ def product_html(bid, meta, desc, content, buy_url):
             'aufbereitet und ist demnaechst mit Leseprobe erhaeltlich.</em></p>'
         )
     else:
-        preview = companion_preview(bid)
+        preview = _preview_for(bid, content)
     return f"""<!DOCTYPE html>
 <html lang="{LANG}">
 <head>

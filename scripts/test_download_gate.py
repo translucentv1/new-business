@@ -77,18 +77,26 @@ class DownloadGateTest(unittest.TestCase):
         landingpage_gen.build()
 
     def test_corrupt_bundles_excluded(self):
-        # Known corrupt bundle 25913 (data error: PG credit + mashed content).
-        # It must NOT be published as a deliverable or a leaky preview.
+        # ADR-0013 quality guard: is_corrupt() must flag PG boilerplate and
+        # chapter-less content. We test the predicate deterministically rather
+        # than relying on a live corrupt fixture (25913 was repaired in TB-13).
+        from deliverable_gen import is_corrupt
+        self.assertTrue(
+            is_corrupt("This edition still carries a Project Gutenberg credit line."),
+            "is_corrupt must flag Project Gutenberg boilerplate",
+        )
+        self.assertTrue(
+            is_corrupt("# Title\n\nA single paragraph with no chapter headings at all."),
+            "is_corrupt must flag content without '## ' chapters",
+        )
+        # Healthy state: NONE of the current real bundles is corrupt. If a PG
+        # line or broken structure sneaks back in, this assertion fails -> the
+        # regression is caught before anything ships.
         corrupt = _corrupt_ids()
-        self.assertTrue(corrupt, "expected at least one corrupt bundle to be detected")
+        self.assertEqual(corrupt, [], "unexpected corrupt bundle in current corpus")
         for bid in corrupt:
-            dp = os.path.join(SITE, bid, "index.html")
-            self.assertFalse(
-                os.path.exists(os.path.join(SITE, "dl")) and
-                any(bid in p for p in []),  # placeholder; real check below
-                f"{bid}: should not produce a deliverable"
-            )
-            # No deliverable file should exist for a corrupt bundle.
+            # Defensive: a corrupt bundle must never produce a deliverable.
+            dp = deliverable_path(bid) if "deliverable_path" in dir() else None
             dl_dir = os.path.join(SITE, "dl")
             if os.path.isdir(dl_dir):
                 for root, _, files in os.walk(dl_dir):
@@ -116,13 +124,23 @@ class DownloadGateTest(unittest.TestCase):
                 f"LEAK: preview for {bid} contains full-text body fragment {marker!r}"
             )
 
-    def test_preview_has_toc_and_first_chapter(self):
+    def test_preview_has_real_content(self):
+        # ADR-0018 changed the product to a Lese-Begleiter: filled products show
+        # a companion teaser ("Was dich erwartet"), unfilled ones fall back to the
+        # ADR-0013 book preview ("Inhaltsverzeichnis"). Both are valid; what must
+        # NEVER happen is an empty "wird gerade erstellt" placeholder (1342 had
+        # this bug). Assert real content + no placeholder.
         corrupt = set(_corrupt_ids())
+        placeholder = "wird gerade erstellt"
         for bid in _product_ids():
             if bid in corrupt:
                 continue
             prev = open(os.path.join(SITE, bid, "index.html"), encoding="utf-8").read()
-            self.assertIn("Inhaltsverzeichnis", prev, f"{bid}: preview missing TOC")
+            self.assertNotIn(placeholder, prev, f"{bid}: preview is empty placeholder")
+            self.assertTrue(
+                ("Inhaltsverzeichnis" in prev) or ("Was dich erwartet" in prev),
+                f"{bid}: preview has neither TOC nor companion teaser",
+            )
 
     def test_deliverable_exists_self_contained_full(self):
         corrupt = set(_corrupt_ids())
