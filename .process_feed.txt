@@ -1,19 +1,23 @@
-🔧 PROCESSES [04:55] — STATUS KORRIGIERT (MEASURED 2026-07-19)
-• 30min Observer: ⚠️ GATEWAY-NAMESPACE (siehe unten) — nicht über cronjob erreichbar
-• 15min Feed: ⚠️ GATEWAY-NAMESPACE (siehe unten)
-• 2h Report: ⚠️ GATEWAY-NAMESPACE (siehe unten)
-• wa-watchdog: ✅ Bridge IST UP (Port 3000 Listen, /health HTTP 200, "connected",
-  uptime ~42h). "down (jidDecode)" im alten Feed WAR IRREFÜHREND — jidDecode
-  kommt 0x in bridge.log vor. Reale, harmlose Bridge-Warnung: fehlendes
-  'link-preview-js' (nur Link-Preview in fremden Gruppen) — betrifft NICHT
-  Owner-Self-Chat/Bot.
-• Stripe Boot: ok | next 05:00
-• Stripe Poll: ok | next 05:00
-• Nachtschicht: ✅ gepinnt auf openrouter/tencent/hy3:free (cfg-drift behoben)
-• Store: Stripe 13/13 Links active=True, kaufbereit. "10/10 drafts" = GUMROAD
-  (Backup-Rail), NICHT der Sale-Pfad. Sales: 0 (Traffic-Engpass, nicht Store).
-• Offener Punkt: die 3 Gateway-Watchdogs (2h/30min/15min) liegen NICHT in
-  cron/jobs.json — sie sind Gateway-interne Scheduler-Jobs (Job-IDs a89ac41273b2 /
-  fa55dfa332e5 / 0dffa096f072 aus gateway-stdio.log). cfg-drift-Schutz
-  überspringt sie. Fix nur über Gateway-Restart oder Gateway-internen Reschedule
-  — NICHT autonom via cronjob möglich (außerhalb Namespace).
+🔧 PROCESSES [07:30] — NACHTSCHICHT STATUS (MEASURED)
+• Stripe Sale-Poll: ✅ LÄUFT (BG-Loop proc_6aadd94627f3, alle 5min; bei Sale -> "ERSTER SALE" in /tmp/salepoll.log)
+• Stripe Boot: ok
+• Nachtschicht: ✅ gepinnt openrouter/tencent/hy3:free
+• wa-watchdog: ✅ Bridge UP (Port 3000, /health 200) — alte "jidDecode"-Warnung irreführend
+• Store: Stripe 13/13 active=True, kaufbereit. 698 URLs live (SEO-Masse x13).
+• Sales: 0 (Traffic-Engpass, nicht Store).
+
+## Was NACHTS autonom erledigt wurde
+1. OpenRouter-Key getestet + FUNKTIONIERT -> alle 13 Study-Guides mit echtem
+   LLM-Inhalt gefüllt (top-level + 580 pro-Kapitel-Zusammenfassungen).
+   Charta-Bug "Platzhalter im Vorzeige-Produkt" BEHOBEN (Live-Check 0 Platzhalter).
+2. SEO-Masse: 53 -> 698 indexierbare URLs (8 Themen/Buch + 580 Kapitel-Long-Tail).
+   Gepusht auf gh-pages. Sitemap rekursiv gepatcht.
+3. ADR-0022 um Nachtschicht-Update ergänzt (neue MEASURED-Fakten).
+4. Quell-Stand auf master gepusht (keine Secrets).
+
+## Offen / USER-Entscheidung
+- Erster Sale hängt an Traffic (Google-Indexierung + ggf. 1 Community-Link von dir).
+- K2 (Marketplace Etsy/eBay) bleibt Empfehlung für skalierten Traffic — braucht
+  deinen Verkäufer-Account (Hard Stop, nur du).
+- 3 Gateway-Watchdogs (2h/30min/15min) liegen außerhalb cronjob-Namespace;
+  cfg-drift-Schutz überspringt sie. Fix: `hermes gateway restart` in frischer Shell.

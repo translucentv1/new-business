@@ -16,8 +16,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CORPUS = os.path.join(HERE, "..", "corpus")
 SITE = os.path.join(HERE, "..", "docs")
 SEO_ROOT = os.path.join(SITE, "seo")
+LINKS_P = os.path.join(HERE, "..", "stripe_links.json")
 PAGE_BASE = "https://translucentv1.github.io/new-business"
 LANG = "de"
+
+LINKS = {}
+if os.path.exists(LINKS_P):
+    try:
+        LINKS = json.load(open(LINKS_P, encoding="utf-8"))
+    except (ValueError, OSError):
+        LINKS = {}
 
 
 def _esc(s: str) -> str:
@@ -45,6 +53,8 @@ def build():
         overall = guide.get("summary", "")
         chars = guide.get("characters", [])
         product_url = f"{PAGE_BASE}/{bid}/"
+        # direct Stripe buy link (conversion: 1 click to purchase)
+        buy_url = LINKS.get(bid, product_url) if os.path.exists(LINKS_P) else product_url
         char_html = "".join(f"<li>{_esc(c)}</li>" for c in chars[:10]) or "<li>siehe Lese-Begleiter</li>"
         for i, ch in enumerate(guide.get("chapters", []), 1):
             summ = ch.get("summary_placeholder", "")
@@ -65,7 +75,7 @@ def build():
                 topic=_esc(f"{title} {ch_title} Zusammenfassung"),
                 desc=_esc(f"{title} {ch_title}: Zusammenfassung und Einordnung."),
                 lead=_esc(f"Kapitelzusammenfassung zu {title} ({author})."),
-                body=body, cta="Zum Lese-Begleiter", product_url=product_url,
+                body=body, cta="Jetzt als eBook kaufen (3,99 €)", product_url=buy_url,
                 canonical=f"{PAGE_BASE}/seo/{slug}/kapitel/{i}/", base=PAGE_BASE,
             )
             with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
