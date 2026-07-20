@@ -46,6 +46,56 @@ def build_one(tid, spec, link):
     return p
 
 
+def build_portal(entries):
+    """ADR-na: Portal-Index docs/t/index.html — der Funnel-Einstieg.
+    entries: list of (tid, spec, link). Zeigt alle Templates mit Kaufbutton."""
+    rows = []
+    for tid, spec, link in entries:
+        title = spec.get("title", tid)
+        price = spec.get("price_eur", "")
+        price_s = f"&euro;{price:.2f}".replace(".", ",") if price else ""
+        btn = (f'<a class="buy" href="{link}">Jetzt kaufen ({price_s})</a>'
+               if link else '<span class="soon">bald erhaeltlich</span>')
+        rows.append(
+            f'    <li>\n'
+            f'      <h3><a href="{tid}/">{title}</a></h3>\n'
+            f'      <p>{btn}</p>\n'
+            f'    </li>'
+        )
+    body = "\n".join(rows)
+    html = f"""<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produktivitaets-Templates kaufen – Finanz-Tracker, Steuer, ADHS-Planer (DE)</title>
+  <meta name="description" content="Digitale DE-Nischen-Templates kaufen: Finanz-Tracker DACH, Kleingewerbe-Steuer-Planer, ADHS-Wochenplaner, Rechnungsvorlage. Sofort-Download nach Kauf.">
+  <meta name="robots" content="index,follow">
+  <style>
+    body{{font-family:Georgia,serif;max-width:42em;margin:2em auto;padding:0 1em;line-height:1.6;color:#1a1a1a}}
+    h1{{font-size:1.9em}} h3{{font-size:1.2em;margin-bottom:.2em}}
+    ul{{list-style:none;padding:0}} li{{margin:1.2em 0;padding:1em;background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px}}
+    .buy{{display:inline-block;background:#2962ff;color:#fff;padding:.6em 1.1em;border-radius:6px;text-decoration:none;font-weight:bold}}
+    .soon{{color:#888;font-style:italic}}
+  </style>
+</head>
+<body>
+  <h1>Produktivitaets-Templates (DE)</h1>
+  <p>Sofort nutzbare Vorlagen fuer Finanzen, Steuern und Planung – als Markdown + CSV.
+     Direkt nach dem Kauf herunterladbar.</p>
+  <ul>
+{body}
+  </ul>
+</body>
+</html>
+"""
+    dest = os.path.join(SITE, "t", "index.html")
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    with open(dest, "w", encoding="utf-8") as f:
+        f.write(html)
+    return dest
+
+
 def build_all():
     links = _load_links()
     out = []
@@ -56,8 +106,10 @@ def build_all():
             continue
         spec = json.load(open(spec_p, encoding="utf-8"))
         link = links.get(f"tpl:{tid}", "")
-        out.append(build_one(tid, spec, link))
-    return out
+        out.append((tid, spec, link, build_one(tid, spec, link)))
+    portal = build_portal([(tid, spec, link) for tid, spec, link, _ in out])
+    print(f"Portal index -> {portal}")
+    return [e[3] for e in out]
 
 
 if __name__ == "__main__":

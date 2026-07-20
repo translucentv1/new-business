@@ -22,3 +22,7 @@ stripe_links.json
 
 # Download-Gate Salt (ADR-0013) - lokal, nie committen
 .dl_salt
+
+# Python cache
+__pycache__/
+*.pyc

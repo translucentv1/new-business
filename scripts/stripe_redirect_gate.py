@@ -32,7 +32,17 @@ def _current_links():
     if not key:
         return None, "NO_KEY"
     headers = {"Authorization": f"Bearer {key}"}
+    # lokale Buy-URLs (stripe_links.json) -> key, um Template-Links zu matchen
+    local_map = {}
+    if os.path.exists(s.LINKS):
+        try:
+            for k, v in json.load(open(s.LINKS, encoding="utf-8")).items():
+                if isinstance(v, str) and v.startswith("https://buy.stripe.com/"):
+                    local_map[v.strip("/")] = k
+        except (ValueError, OSError):
+            pass
     links = {}
+    seen_urls = set()
     url = f"{STRIPE_API}/payment_links?limit=100"
     while url:
         r = httpx.get(url, headers=headers, timeout=30)
@@ -43,6 +53,11 @@ def _current_links():
             bid = (pl.get("metadata") or {}).get("book_id")
             if bid:
                 links[bid] = pl["id"]
+                continue
+            # Template-Links: ueber Buy-URL matchen (kein metadata.book_id)
+            buy = (pl.get("url") or "").strip("/")
+            if buy in local_map:
+                links[local_map[buy]] = pl["id"]
         url = d.get("next_page") and (
             f"{STRIPE_API}/payment_links?limit=100&starting_after={d['data'][-1]['id']}"
         )
@@ -90,17 +105,24 @@ def main():
         return
     print(f"Remote Payment Links gefunden: {remote}")
 
-    # Local deliverable URLs only for books that actually have one.
+    # Local deliverable URLs only for books/templates that actually have one.
     results = []
     for bid, plink_id in sorted(remote.items()):
-        # Re-read content to detect corruption consistently with build.
-        cp = os.path.join(s.CORPUS, bid, "product", "content.md")
-        corrupt = os.path.exists(cp) and is_corrupt(open(cp, encoding="utf-8").read())
-        if corrupt:
-            print(f"  {bid}: SKIP (corrupt bundle, kein Deliverable) -> Link unveraendert")
-            results.append((bid, "skipped-corrupt", None))
-            continue
-        target = deliverable_url(bid)
+        # Template-IDs tragen das Praefix 'tpl:' im Link-Key, aber die
+        # deliverable-Funktion erkennt den Ordner selbst. Korpus-Buecher
+        # brauchen den Korruptions-Check, Templates nicht.
+        is_template = bid.startswith("tpl:") or os.path.isdir(
+            os.path.join(s.HERE, "..", "products", "templates", bid.replace("tpl:", "")))
+        if not is_template:
+            cp = os.path.join(s.CORPUS, bid, "product", "content.md")
+            corrupt = os.path.exists(cp) and is_corrupt(open(cp, encoding="utf-8").read())
+            if corrupt:
+                print(f"  {bid}: SKIP (corrupt bundle, kein Deliverable) -> Link unveraendert")
+                results.append((bid, "skipped-corrupt", None))
+                continue
+        # normalize: deliverable_url erwartet die bare id (ohne tpl:-Praefix)
+        target_bid = bid.replace("tpl:", "")
+        target = deliverable_url(target_bid)
         ok, det = set_redirect(bid, plink_id, target)
         if not ok:
             print(f"  {bid}: UPDATE FAIL {det}")

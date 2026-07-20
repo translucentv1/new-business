@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Commit Message Writer — Cover</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .card {
+    width: 1000px; height: 1000px; background: #ffffff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .badge {
+    position: absolute; align-self: flex-end; margin: 40px 40px 0 0;
+    background: #10a37f; color: #fff; font-weight: 700; font-size: 22px;
+    padding: 8px 16px; border-radius: 999px; letter-spacing: .5px;
+  }
+  .term {
+    width: 720px; background: #0d1117; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,.18); border: 1px solid #30363d;
+  }
+  .bar { background: #161b22; padding: 14px 18px; display: flex; gap: 8px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; }
+  .r { background: #ff5f56; } .y { background: #ffbd2e; } .g { background: #27c93f; }
+  .body { padding: 26px 28px; font-family: "SF Mono", Consolas, monospace; font-size: 22px; line-height: 1.7; color: #c9d1d9; }
+  .green { color: #3fb950; }
+  .mut { color: #8b949e; }
+  .add { color: #3fb950; }
+  .del { color: #f85149; }
+  .h1 { margin-top: 34px; font-size: 40px; font-weight: 800; color: #0d1117; }
+  .sub { margin-top: 10px; font-size: 22px; color: #57606a; }
+</style>
+</head>
+<body>
+  <div class="card" style="position:relative;">
+    <div class="badge">ChatGPT Skill</div>
+    <div class="term">
+      <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+      <div class="body">
+        <span class="green">$ git commit -m</span><br>
+        <span class="add">feat: add login retry with backoff</span><br>
+        <span class="mut"># why: auth was failing in loops under load</span><br><br>
+        <span class="del">- old single-try call</span><br>
+        <span class="add">+ retry(attempts=3, backoff=2**n)</span>
+      </div>
+    </div>
+    <div class="h1">Commit Message Writer</div>
+    <div class="sub">Clean, conventional commits from any diff — in 5 seconds.</div>
+  </div>
+</body>
+</html>

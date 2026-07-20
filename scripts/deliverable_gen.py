@@ -68,12 +68,22 @@ def slug_for(meta: dict, book_id: str) -> str:
     return s or book_id
 
 
+def _hash_key(book_id: str) -> str:
+    """Consistent mit build_template_deliverable: Templates werden als
+    'tpl:<id>' gehasht, corpus-Buecher als '<id>'. Erkennt anhand des
+    Produkt-Ordners, welcher Fall vorliegt."""
+    tpl_dir = os.path.join(HERE, "..", "products", "templates", book_id)
+    if os.path.isdir(tpl_dir):
+        return "tpl:" + book_id
+    return book_id
+
+
 def deliverable_path(book_id: str) -> str:
     """Local absolute path of the generated download file (no existence check)."""
     meta_p = os.path.join(CORPUS, book_id, "product", "meta.json")
     meta = json.load(open(meta_p, encoding="utf-8")) if os.path.exists(meta_p) else {}
     salt = _load_salt()
-    h = download_hash(book_id, salt)
+    h = download_hash(_hash_key(book_id), salt)
     slug = slug_for(meta, book_id)
     return os.path.join(DL_ROOT, h, f"{slug}.html")
 
@@ -83,7 +93,7 @@ def deliverable_url(book_id: str) -> str:
     meta_p = os.path.join(CORPUS, book_id, "product", "meta.json")
     meta = json.load(open(meta_p, encoding="utf-8")) if os.path.exists(meta_p) else {}
     salt = _load_salt()
-    h = download_hash(book_id, salt)
+    h = download_hash(_hash_key(book_id), salt)
     slug = slug_for(meta, book_id)
     return f"{GH_PAGES_BASE}/dl/{h}/{slug}.html"
 
