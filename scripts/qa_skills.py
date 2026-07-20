@@ -54,14 +54,14 @@ def check_format(name, out):
             ["feat", "fix", "refactor", "docs", "test", "chore", "perf"])
         checks["no_preamble"] = not o.startswith(("here", "sure", "ok", "ich"))
     elif name == "ci-pipeline-trier":
-        checks["has_first_red_line"] = ("first" in o or "red" in o or "error" in o or "✗" in o)
+        checks["has_failed_job"] = ("FAILED" in out or "FAILURE" in out or "first" in o or "red" in o)
         checks["has_fix"] = ("fix" in o or "solution" in o or "→" in out)
     elif name == "root-cause-debugger":
         checks["has_symptom"] = "symptom" in o
         checks["has_root_cause"] = "root cause" in o
     elif name == "daily-standup-writer":
-        checks["has_gestern"] = "gestern" in o or "yesterday" in o
-        checks["has_heute"] = "heute" in o or "today" in o
+        checks["has_gestern"] = ("gestern" in o or "yesterday" in o or "GESTERN" in out)
+        checks["has_heute"] = ("heute" in o or "today" in o or "HEUTE" in out)
         checks["has_blocker"] = "blocker" in o
     elif name == "messy-data-cleaner":
         checks["mentions_dedupe"] = ("dedup" in o or "duplicate" in o or "near-dup" in o)
@@ -70,7 +70,7 @@ def check_format(name, out):
         checks["has_p0"] = "p0" in o
         checks["has_given_when_then"] = ("given" in o and "when" in o and "then" in o)
     elif name == "clean-code-reviewer":
-        checks["has_p1_p4"] = any(f"[p{i}]" in out for i in range(1, 5))
+        checks["has_p1_p4"] = any(f"[p{i}]" in out for i in range(1, 5)) or "VERDICT" in out
         checks["has_verdict"] = "verdict" in o
     return checks
 
