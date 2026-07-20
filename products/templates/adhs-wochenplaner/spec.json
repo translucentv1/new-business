@@ -2,7 +2,7 @@
   "id": "adhs-wochenplaner",
   "title": "ADHS-Wochenplaner (Fokus & Struktur)",
   "type": "notion",
-  "price_eur": 2.99,
+  "price_eur": 6.99,
   "lang": "de",
   "audience": "Menschen mit ADHS / exec. Dysfunction, die Struktur wollen",
   "sections": [
@@ -13,18 +13,5 @@
     "Rejection-Sensitivity-Notiz",
     "Wochendebrief (was lief, was nicht)"
   ],
-  "categories": [],
-  "keywords": [
-    "ADHS Wochenplaner",
-    "Wochenplan ADHS",
-    "Fokus Struktur Vorlage",
-    "ADHS Selbstorganisation",
-    "Wochenplan kostenlos",
-    "Struktur für den Alltag"
-  ],
-  "benefits": [
-    "Struktur für Woche ohne Überforderung",
-    "Ein Ort für Termine, Tasks und Fokus",
-    "Flexibel, nicht starr – ADHS-freundlich"
-  ]
+  "categories": []
 }

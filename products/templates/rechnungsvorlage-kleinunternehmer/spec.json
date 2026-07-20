@@ -2,7 +2,7 @@
   "id": "rechnungsvorlage-kleinunternehmer",
   "title": "Rechnungsvorlage für Kleinunternehmer (§19 UStG)",
   "type": "sheets",
-  "price_eur": 2.99,
+  "price_eur": 5.99,
   "lang": "de",
   "audience": "DE-Kleingewerbler & Freelancer mit Kleinunternehmerregelung, die rechtskonforme Rechnungen schreiben wollen",
   "sections": [
@@ -19,18 +19,5 @@
     "Rechnungsnummer",
     "Datum",
     "Zahlungsziel"
-  ],
-  "keywords": [
-    "Rechnungsvorlage Kleinunternehmer",
-    "Rechnung §19 UStG",
-    "Rechnung schreiben Vorlage",
-    "Kleinunternehmer Rechnung",
-    "Rechnung ohne USt",
-    "Rechnungsvorlage Word"
-  ],
-  "benefits": [
-    "Rechnung in 2 Min statt Word-Suche",
-    "Rechtssicher nach §19 UStG",
-    "Wiederkehrende Kunden schnell abrechnen"
   ]
 }

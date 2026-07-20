@@ -72,6 +72,13 @@ def build_one(tid, spec, link):
 <h2>Was ist enthalten</h2>
 <ul>{sections}</ul>
 {benefit_block}
+<h2>So funktioniert's</h2>
+<ol>
+  <li>Kauf über den Button (Sofort-Kasse, keine Anmeldung nötig).</li>
+  <li>Du wirst direkt zur Download-Seite weitergeleitet.</li>
+  <li>Vorlage als Markdown + CSV – sofort nutzbar in Notion, Excel, Google Sheets.</li>
+</ol>
+<p class="trust">✓ Sofort-Download · ✓ Kein Abo · ✓ Rechnung auf Wunsch (§19 UStG)</p>
 <p class="price">Preis: {price:.2f} € · sofort downloadbar nach Kauf</p>
 {btn}
 <p class="back"><a href="/new-business/t/">← Alle Templates</a> · <a href="/new-business/">Alle Produkte</a></p>

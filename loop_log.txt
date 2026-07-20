@@ -38,3 +38,21 @@ TB-12 DONE: docs/research/2026-07-18-pivot-optionen.md (NUR Recherche, MEASURED-
 TB-13 TODO (USER): 25913-Bundle korrupt (Inhalt=TALES OF FOLK AND FAIRIES, nicht Metamorphosen) -> nicht autonom gebaut, nur vermerkt.
 SALE-CHECK: 0 new sales (poll ok; kein Traffic/Social per Hard Stop).
 Cron Sicherheitsnetz: 'new-business: Nachtschicht' alle 30min (job 230dc6956129) angelegt, pusht per ADR-0013-Nachtrag, Stopp 16:00.
+2026-07-20 18:50:44 === autonomous loop tick ===
+2026-07-20 18:50:44 no fresh works, corpus stable
+2026-07-20 18:50:47 upload 2701: OK DRAFT pid=tLV8hhs80uoF1TrPDycYxA== price=399 short_url=https://philippbehnisch.gumroad.com/l/sqbma
+2026-07-20 18:50:50 upload 244: OK DRAFT pid=DAnGXFejsU492sdNAYKoZA== price=399 short_url=https://philippbehnisch.gumroad.com/l/pojpat
+2026-07-20 18:50:53 upload 345: OK DRAFT pid=QF-va82e7P9trs3MGjioSQ== price=399 short_url=https://philippbehnisch.gumroad.com/l/sxopq
+2026-07-20 18:50:55 upload 98: OK DRAFT pid=vrTHU0SBvKUJ-JPQfmvVfA== price=399 short_url=https://philippbehnisch.gumroad.com/l/wtxwbx
+2026-07-20 18:50:57 upload 215: OK DRAFT pid=yRFGO8nnPaUzOvUD78C1GA== price=399 short_url=https://philippbehnisch.gumroad.com/l/tmmbu
+2026-07-20 18:51:00 upload 1260: OK DRAFT pid=BMdBF331nWzpQlLm2-t4AQ== price=399 short_url=https://philippbehnisch.gumroad.com/l/rapec
+2026-07-20 18:51:02 upload 11: OK DRAFT pid=JfZR1QWKhBqSCKBkC9zkyA== price=399 short_url=https://philippbehnisch.gumroad.com/l/tvwuoq
+2026-07-20 18:51:05 upload 76: OK DRAFT pid=SCt8b37tSF5F4PWovK8p1g== price=399 short_url=https://philippbehnisch.gumroad.com/l/wpctvb
+2026-07-20 18:51:08 upload 768: OK DRAFT pid=78BuzATPYPqlzHg-uMAMaw== price=399 short_url=https://philippbehnisch.gumroad.com/l/gwafbw
+2026-07-20 18:51:10 upload 84: OK DRAFT pid=Glw8CK17yUbLG3TlhYRS0g== price=399 short_url=https://philippbehnisch.gumroad.com/l/ncnxfc
+2026-07-20 18:51:10 upload 1342: BLOCK CREATE API 200: {"success":false,"message":"Sorry, you can only create 10 products per day."}
+2026-07-20 18:51:10 upload 158: BLOCK CREATE API 200: {"success":false,"message":"Sorry, you can only create 10 products per day."}
+2026-07-20 18:51:10 upload 174: BLOCK CREATE API 200: {"success":false,"message":"Sorry, you can only create 10 products per day."}
+2026-07-20 18:51:11 upload 25913: BLOCK CREATE API 200: {"success":false,"message":"Sorry, you can only create 10 products per day."}
+2026-07-20 18:51:11 sales poll: poll ok, 0 new sales
+2026-07-20 18:51:11 loop tick done

@@ -2,7 +2,7 @@
   "id": "kleingewerbe-steuer",
   "title": "Kleingewerbe Steuer-Planner (§19 UStG)",
   "type": "sheets",
-  "price_eur": 2.99,
+  "price_eur": 9.99,
   "lang": "de",
   "audience": "DE-Kleingewerbler mit Kleinunternehmerregelung",
   "sections": [
@@ -21,18 +21,5 @@
     "Werbung",
     "Fahrten",
     "Privatentnahme"
-  ],
-  "keywords": [
-    "Kleingewerbe Steuer",
-    "§19 UStG Vorlage",
-    "Einnahmenüberschussrechnung",
-    "Kleinunternehmer Steuer",
-    "Betriebsausgaben erfassen",
-    "Steuer selbst machen"
-  ],
-  "benefits": [
-    "EÜR-Hilfe ohne teuren Steuerberater",
-    "Betriebsausgaben sauber getrennt von privat",
-    "§19 UStG konform, keine USt ausweisen"
   ]
 }
