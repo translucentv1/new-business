@@ -355,19 +355,26 @@ def build_template_deliverable(tpl_id: str) -> str:
     out_dir = os.path.join(DL_ROOT, h)
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, f"{slug}.html")
-    # embed each file as a <pre> block (csv/md are plain text)
+    # embed each file as a <pre> block (csv/md are plain text) + download button
+    import base64
     blocks = []
     for fn in files:
-        txt = open(os.path.join(deliv, fn), encoding="utf-8").read()
+        raw = open(os.path.join(deliv, fn), encoding="utf-8").read()
+        b64 = base64.b64encode(raw.encode("utf-8")).decode("ascii")
         blocks.append(
-            f'<h2>{fn}</h2>\n<pre style="white-space:pre-wrap;word-break:break-word;'
+            f'<h2>{fn}</h2>\n'
+            f'<a download="{fn}" href="data:text/plain;base64,{b64}" '
+            f'style="display:inline-block;background:#2962ff;color:#fff;'
+            f'padding:.5em 1em;border-radius:6px;text-decoration:none;'
+            f'font-weight:bold;margin:.4em 0">⬇ {fn} herunterladen</a>\n'
+            f'<pre style="white-space:pre-wrap;word-break:break-word;'
             f'background:#f6f8fa;padding:1em;border-radius:6px;overflow:auto">'
-            f'{_esc_html(txt)}</pre>')
+            f'{_esc_html(raw)}</pre>')
     html = (
         f'<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
         f'<title>{_esc_html(spec["title"])} – Download</title></head><body>'
         f'<h1>{_esc_html(spec["title"])}</h1>'
-        f'<p>Danke fuer den Kauf. Kopiere den Inhalt in Google Sheets / Notion.</p>'
+        f'<p>Danke fuer den Kauf. Datei(en) direkt herunterladen:</p>'
         f'{"".join(blocks)}'
         f'<p><a href="{GH_PAGES_BASE}/">Zurueck</a></p></body></html>')
     with open(out_path, "w", encoding="utf-8") as f:
