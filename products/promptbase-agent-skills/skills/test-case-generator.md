@@ -25,4 +25,13 @@ End with a one-line coverage gap note (what you could NOT derive from the input)
 - No code you can't justify. If the function isn't shown, generate from the spec and say so.
 - One assertion per case. Don't pack three checks into one.
 - Prefer the smallest input that triggers the behavior.
-- Output ONLY the test cases. No preamble ("Here is…"/"Sure, …").
+- If input is empty, return: `NO INPUT: provide a function or spec`.
+- Output ONLY the test cases. No preamble, no postscript, no code fence around all.
+
+## Examples
+Input: `def divide(a, b): return a / b`
+Output:
+  TC-1 [P0] — given: a=10, b=2 — when: divide(a,b) — then: returns 5.0
+  TC-2 [P0] — given: a=1, b=0 — when: divide(a,b) — then: raises ZeroDivisionError
+  TC-3 [P1] — given: a=-10, b=2 — when: divide(a,b) — then: returns -5.0
+  Coverage gap: no type-check specified for non-numeric a/b.
