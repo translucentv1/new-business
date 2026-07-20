@@ -1,0 +1,30 @@
+{
+  "title": "Umzug-Budget-Planer (DE)",
+  "type": "sheets",
+  "price_eur": 2.99,
+  "lang": "de",
+  "audience": "DE-Privathaushalte, die einen Umzug kostenkontrolliert planen wollen",
+  "sections": [
+    "Umzugskosten (Mietwagen, Hilfe, Material)",
+    "Kaution & Nebenkosten",
+    "Ein-/Ausgaben-Tracking",
+    "Sparpotenzial (DIY vs Dienstleister)",
+    "Budget-Bilanz"
+  ],
+  "categories": [
+    "Mietwagen",
+    "Hilfe",
+    "Material",
+    "Kaution",
+    "Nebenkosten",
+    "Sparziel"
+  ],
+  "keywords": [
+    "umzug budget planer",
+    "umzug kosten rechner",
+    "umzug finanzierung",
+    "umzug kosten sparen",
+    "umzugsbudget vorlage"
+  ],
+  "benefits": "Plane deinen Umzug ohne Kosten-Uberraschung - alle Posten in einer Vorlage."
+}

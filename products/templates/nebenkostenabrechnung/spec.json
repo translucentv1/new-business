@@ -1,0 +1,29 @@
+{
+  "title": "Nebenkostenabrechnung Vorlage (Vermieter/Mieter)",
+  "type": "sheets",
+  "price_eur": 2.99,
+  "lang": "de",
+  "audience": "Mieter & Vermieter, die NK sauber erfassen wollen",
+  "sections": [
+    "Heizkosten",
+    "Wasserkosten",
+    "Grundsteuer/Versicherung",
+    "Sonstige Betriebskosten",
+    "Umlageschluessel",
+    "Abrechnung pro Partei"
+  ],
+  "categories": [
+    "Heizung",
+    "Wasser",
+    "Versicherung",
+    "Grundsteuer",
+    "Umlage"
+  ],
+  "keywords": [
+    "nebenkostenabrechnung vorlage",
+    "nebenkosten abrechnung excel",
+    "betriebskostenabrechnung",
+    "nk abrechnung mieter"
+  ],
+  "benefits": "Nebenkosten rechtssicher erfassen - Umlageschluessel inklusive."
+}
