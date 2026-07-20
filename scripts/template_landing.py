@@ -141,21 +141,12 @@ def build_portal(entries):
 
 
 def build_sitemap(entries):
-    """ADR-na: docs/sitemap.xml — hilft Google, alle Template-LPs + Portal zu
-    indexieren (Long-Tail-SEO). Vollautonom, keine Accounts."""
-    base = "https://translucentv1.github.io/new-business"
-    urls = [f"{base}/t/"]
-    for tid, spec, link in entries:
-        urls.append(f"{base}/t/{tid}/")
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
-        xml.append(f"  <url><loc>{u}</loc></url>")
-    xml.append("</urlset>")
-    dest = os.path.join(SITE, "sitemap.xml")
-    with open(dest, "w", encoding="utf-8") as f:
-        f.write("\n".join(xml) + "\n")
-    return dest
+    """DELEGIERT an landingpage_gen.rebuild_sitemap() (Single Source of Truth).
+    Schreibt das KOMPLETTE Sitemap (root + PD + /seo/ + /t/), nicht nur die
+    9 Template-LPs — sonst wird das korrekte Sitemap bei jedem Publish
+    ueberschrieben (Regression: live hatte nur 9 statt ~950 URLs)."""
+    import landingpage_gen
+    return landingpage_gen.rebuild_sitemap()
 
 
 def build_all():

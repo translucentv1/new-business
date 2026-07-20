@@ -292,9 +292,35 @@ def _sitemap(entries):
             if "index.html" in files:
                 rel = os.path.relpath(root, seo_root).replace(os.sep, "/")
                 urls.append(f"  <url><loc>{base}/seo/{rel}/</loc></url>")
+    # Template-Produkt-Landingpages (t/) rekursiv aufnehmen, damit alle
+    # Template-LPs (Finanz-Tracker, ADHS-Planer, Agent-Skills u.a.) indexiert
+    # werden. Regression-Fix: zuvor fehlten sie komplett im Sitemap
+    # (~9 statt ~950 URLs live) -> SEO-Discovery der Templates tot.
+    t_root = os.path.join(SITE, "t")
+    if os.path.isdir(t_root):
+        for root, dirs, files in os.walk(t_root):
+            if "index.html" in files:
+                rel = os.path.relpath(root, t_root).replace(os.sep, "/")
+                urls.append(f"  <url><loc>{base}/t/{rel}/</loc></url>")
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(urls) + "\n</urlset>\n")
+
+
+def rebuild_sitemap():
+    """Schreibt das KOMPLETTE Sitemap (root + PD-Previews + /seo/ + /t/)
+    nach docs/sitemap.xml. Single Source of Truth — alle anderen Writer
+    (template_landing.build_sitemap, seo_scale*.py, template_seo.py) muessen
+    delegieren, sonst ueberschreiben sie sich gegenseitig (Regression:
+    live hatte nur 9 statt ~950 URLs)."""
+    links = _load_links()
+    entries = []
+    for bid, meta, desc, content in _product_bundles():
+        entries.append((bid, meta, desc, content, links.get(bid)))
+    dest = os.path.join(SITE, "sitemap.xml")
+    with open(dest, "w", encoding="utf-8") as f:
+        f.write(_sitemap(entries))
+    return dest
 
 
 def _robots():

@@ -102,16 +102,9 @@ def build():
 
 if __name__ == "__main__":
     built = build()
-    base = "https://translucentv1.github.io/new-business"
-    urls = []
-    for root, dirs, files in os.walk(SITE):
-        if "index.html" in files:
-            rel = os.path.relpath(root, SITE).replace(os.sep, "/")
-            urls.append(f"{base}/" if rel == "." else f"{base}/{rel}/")
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
-        xml.append(f"  <url><loc>{u}</loc></url>")
-    xml.append("</urlset>")
-    open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(xml) + "\n")
-    print(f"SCALE2 built: {built} | Sitemap total: {len(urls)}")
+    # Sitemap — DELEGAT an landingpage_gen.rebuild_sitemap() (Single Source of
+    # Truth): vollstaendig OHNE /dl/-Leak, keine Ueberschreib-Konflikte.
+    import landingpage_gen
+    dest = landingpage_gen.rebuild_sitemap()
+    n = open(dest, encoding="utf-8").read().count("<loc>")
+    print(f"SCALE2 built: {built} | Sitemap total: {n}")

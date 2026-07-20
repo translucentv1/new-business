@@ -83,23 +83,12 @@ def build_seo_pages():
 
 
 def rebuild_sitemap_recursive():
-    """Sitemap rekursiv über docs/ (deckt alle SEO-Subpages + Kapitel)."""
-    base = "https://translucentv1.github.io/new-business"
-    urls = []
-    for root, dirs, files in os.walk(SITE):
-        if "index.html" in files:
-            rel = os.path.relpath(root, SITE).replace(os.sep, "/")
-            if rel == ".":
-                urls.append(f"{base}/")
-            else:
-                urls.append(f"{base}/{rel}/")
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>',
-           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
-        xml.append(f"  <url><loc>{u}</loc></url>")
-    xml.append("</urlset>")
-    open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(xml) + "\n")
-    return len(urls)
+    """DELEGAT an landingpage_gen.rebuild_sitemap() (Single Source of Truth).
+    Bisher os.walk(SITE) -> schrieb AUCH docs/dl/ in die Sitemap (/dl/-Leak,
+    widerspricht ADR-0013 Download-Gate). Jetzt vollstaendig + sauber."""
+    import landingpage_gen
+    dest = landingpage_gen.rebuild_sitemap()
+    return open(dest, encoding="utf-8").read().count("<loc>")
 
 
 if __name__ == "__main__":
