@@ -341,6 +341,17 @@ def index_html(entries):
   <ul>
 {rows}
   </ul>
+  <hr>
+  <h2>Produktivitäts-Templates (DE)</h2>
+  <p>Sofort nutzbare Vorlagen für Finanzen, Steuern und Planung – als Markdown + CSV,
+     direkt nach dem Kauf herunterladbar:</p>
+  <ul>
+    <li><a href="t/finanz-tracker-dach/">Finanz-Tracker DACH (Monatsbudget)</a></li>
+    <li><a href="t/kleingewerbe-steuer/">Kleingewerbe Steuer-Planner (§19 UStG)</a></li>
+    <li><a href="t/adhs-wochenplaner/">ADHS-Wochenplaner (Fokus &amp; Struktur)</a></li>
+    <li><a href="t/rechnungsvorlage-kleinunternehmer/">Rechnungsvorlage Kleinunternehmer (§19 UStG)</a></li>
+    <li><a href="t/agent-skills-bundle/">Agent-Skills Bundle – 7 fertige Dev-Skills</a></li>
+  </ul>
 </body>
 </html>
 """
