@@ -30,5 +30,10 @@
     "Dev Skills Bundle",
     "KI Agent Skill",
     "vorgefertigte Skills"
+  ],
+  "benefits": [
+    "7 fertige Dev-Skills sofort einsatzbereit",
+    "Code-Review, Debug, Tests, Git – abgedeckt",
+    "Kein Prompt-Engineering nötig"
   ]
 }

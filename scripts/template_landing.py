@@ -28,6 +28,8 @@ def build_one(tid, spec, link):
     sections = "\n".join(f"<li>{s}</li>" for s in spec["sections"])
     keywords = ", ".join(spec.get("keywords", [])[:8])
     slug = tid
+    benefits = "\n".join(f"<li>{b}</li>" for b in spec.get("benefits", []))
+    benefit_block = f"<h2>Wofür das ist</h2>\n<ul>{benefits}</ul>" if benefits else ""
     # JSON-LD Product/Offer (rich results, price in EUR)
     ld = json.dumps({
         "@context": "https://schema.org",
@@ -69,6 +71,7 @@ def build_one(tid, spec, link):
 <p class="lead">{audience}</p>
 <h2>Was ist enthalten</h2>
 <ul>{sections}</ul>
+{benefit_block}
 <p class="price">Preis: {price:.2f} € · sofort downloadbar nach Kauf</p>
 {btn}
 <p class="back"><a href="/new-business/t/">← Alle Templates</a> · <a href="/new-business/">Alle Produkte</a></p>
