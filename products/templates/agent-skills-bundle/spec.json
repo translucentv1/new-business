@@ -1,0 +1,26 @@
+{
+  "id": "agent-skills-bundle",
+  "title": "Agent-Skills Bundle – 7 fertige Dev-Skills (Claude/ChatGPT)",
+  "type": "skill-bundle",
+  "price_eur": 6.99,
+  "lang": "de",
+  "audience": "Entwickler:innen, die Code-Review, Commit-Messages, CI-Debugging & mehr als sofort kopierbare SKILL.md-Dateien nutzen wollen",
+  "sections": [
+    "Commit Message Writer – saubere, konventionelle Git-Commits",
+    "CI/CD Failure Trier – warum dein Build brach (Root-Failure)",
+    "Root-Cause Debugger – Symptom → Root Cause → Fix",
+    "Daily Standup Writer – Standup-Notes aus deinen Commits",
+    "Messy CSV Cleaner – Dedupe, Fix & Normalize",
+    "Test Case Generator – Edge Cases & Coverage",
+    "Senior Code Reviewer – Bugs vor dem Ship finden"
+  ],
+  "categories": [
+    "Claude",
+    "ChatGPT",
+    "Agent Skill",
+    "Code Review",
+    "Git",
+    "CI/CD",
+    "Debugging"
+  ]
+}
