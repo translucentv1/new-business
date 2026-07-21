@@ -5,12 +5,17 @@ liegen beim NUTZER — Hermes hat nichts davon getan. Jeder Schritt sagt: was
 klicken + welches Artefakt kopieren. Quellen: MEASURED (promptbase.com/sell,
 promptbase.com/popular-models) bzw. ASSUMED (noch nicht im Account geprüft).
 
-Arbeitsordner mit allen Artefakten:
-C:\Users\phili\AppData\Local\Temp\claude\arbeit-2026-07-19\k3-promptbase\
+Arbeitsordner mit allen Artefakten (MEASURED 2026-07-21, korrigiert):
+C:\\Users\\phili\\new-business\\products\\promptbase-agent-skills\\
   - LISTING-TEXTE.md              (9 copy-paste-ready Listings, scharf nach SEO)
-  - skills\*.md                    (7 fertige Standalone-SKILL.md, 1:1 Upload)
-  - PAKET-A / -B / -C             (Hintergrund + volle SKILL.md-Inhalte)
+  - skills\\*.md                    (7 fertige Standalone-SKILL.md, 1:1 Upload)
+  - covers\\*.png                   (3 fertige Cover-PNGs, PIL gerendert, verifiziert)
   - GO-LIVE-PLAYBOOK.md            (dies hier)
+  - PAKET-A / -B / -C             (Hintergrund + volle SKILL.md-Inhalte)
+
+ACHTUNG: PromptBase cappt neue Sellers bei 2 PENDING Listings (MEASURED).
+Heisst: erst 2 hochladen, abwarten bis review frei gibt (Stunden bis 1-2 Tage),
+dann die restlichen 5. Liste 1+2 zuerst (geringste Konkurrenz).
 
 ================================================================================
 SCHRITT 1 — PromptBase-Account anlegen
@@ -53,7 +58,7 @@ Für JEDES der 3 Listings gleich ablaufen:
      "(Claude Skill)" / "(ChatGPT Skill)" — exakter Suchbegriff steht VORN.
 3.2  MODELL: Claude bzw. ChatGPT (wie im Listing angegeben).
 3.3  KATEGORIE: wie im Listing (Git/DevOps/Debugging).
-3.4  PREIS: wie im Listing ($3.99 / $6.99 / $7.99).
+3.4  PREIS: $2.99 (Sprint-Preis fuer alle 7 Skills, einheitlich - User-Entscheidung TB-28)
 3.5  BESCHREIBUNG: kompletten Block aus LISTING-TEXTE.md kopieren
      (inkl. "Commercial use included. Money-back via PromptBase.").
 3.6  TAGS: alle Tags aus LISTING-TEXTE.md 1:1 uebernehmen (Komma-getrennt).
@@ -71,31 +76,18 @@ Für JEDES der 3 Listings gleich ablaufen:
 ARTERAKT: 3 Agent-Skill-Listings live, mit eigenem Verkaufslink.
 
 ================================================================================
-SCHRITT 4 — Preview-Bilder rendern (Cover je Listing)
+SCHRITT 4 — Preview-Bilder (Cover je Listing) — 3 BEREITS VORHANDEN
 ================================================================================
-HARD-STOP (Hermes): KEINE Bilder generiert. Du renderst sie selbst — entweder
-mit ChatGPT Image / Midjourney (Konto bei dir) oder einem simplen Canva/Slides
-Mockup. Je Listing ein Cover (1:1 oder 4:3, ~1000px).
+MEASURED: 3 fertige Cover-PNGs (1000x1000, PIL-gerendert, verifiziert) liegen in:
+C:\\Users\\phili\\new-business\\products\\promptbase-agent-skills\\covers\\
+  - cover-commit-message-writer.png  (ChatGPT Skill, blau)
+  - cover-ci-pipeline-trier.png       (Claude Skill, rot fix)
+  - cover-root-cause-debugger.png     (Claude Skill, Lupe)
 
-Empfohlene Cover-Konzepte + Render-Prompt:
-- Listing 1 (Commit): Terminal-Fenster mit farbigem `feat:`-Commit ueber einem
-  Diff, Badge "ChatGPT Skill". Render-Prompt (ChatGPT Image):
-  "Clean product mockup: a dark terminal window showing a green 'feat: add
-  login retry' git commit above a short diff, minimal, centered badge
-  'ChatGPT Skill', flat modern SaaS style, white background, 1:1"
-- Listing 2 (CI/CD): CI-Log mit rot markierter "FIRST RED"-Zeile + gruenem
-  "FIX"-Vorschlag, Badge "Claude Skill".
-  "Clean product mockup: a CI log screenshot with one red-highlighted error
-  line labeled FIRST RED and a green FIX suggestion box beside it, badge
-  'Claude Skill', flat SaaS style, white background, 1:1"
-- Listing 3 (Debug): Split-Screen "Symptom vs Root Cause" mit Stack-Trace
-  + Lupe auf eine Zeile, Badge "Claude Skill".
-  "Clean product mockup: split screen, left 'Symptom' error box, right
-  'Root Cause' with a magnifier on one code line, badge 'Claude Skill', flat
-  SaaS style, white background, 1:1"
-
-Einfache Alternative ohne KI: PowerPoint/Slides — Kasten-Layout + Screenshot
-+ Badge-Text, als PNG exportieren. Reicht fuer den ersten Live-Gang.
+Einfach als Preview-Bild bei PromptBase hochladen. Fuer die restlichen 4 Skills
+(Listing 4-7) musst du Cover selbst rendern (Canva/Slides/PIL) ODER die 3
+vorhandenen mit anderem Titel-Namen nachbaun. PromptBase akzeptiert Listings
+auch OHNE Cover, aber Cover steigern CTR deutlich.
 
 ================================================================================
 SCHRITT 5 — Eigener Link (0%) vs Marketplace (20%)

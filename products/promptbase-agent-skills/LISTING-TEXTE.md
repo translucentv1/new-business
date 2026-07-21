@@ -269,13 +269,10 @@ KORREKTUREN (belegpflichtig):
 - Listing 1/2/4/5/6: BEIBEHALTEN. Keine frischen direkten Live-Preise messbar
   (Suche nicht scrapebar); Werte liegen in der belegten $4.99-$6.99-Bandbreite.
 
-Neue Preis-Matrix (Stand 2026-07-19):
-| # | Skill                  | ALT   | NEU   | Aenderung |
-|---|------------------------|-------|-------|-----------|
-| 1 | Commit Message Writer  | $3.99 | $3.99 | gleich    |
-| 2 | CI/CD Failure Trier    | $6.99 | $6.99 | gleich    |
-| 3 | Root-Cause Debugger    | $7.99 | $6.99 | -$1.00    |
-| 4 | Daily Standup Writer   | $4.99 | $4.99 | gleich    |
-| 5 | Messy CSV Cleaner      | $5.99 | $5.99 | gleich    |
-| 6 | Test Case Generator    | $6.99 | $6.99 | gleich    |
-| 7 | Senior Code Reviewer   | $6.99 | $5.99 | -$1.00    |
+Neue Preis-Matrix (Stand 2026-07-21, Sprint-Preis $2.99 fuer alle - User-Entscheidung TB-28):
+Alle 7 Agent-Skills: $2.99 (Sprint-Preis, Sale-Huerde minimal)
+Listing 8/9 (Midjourney): $2.99
+
+Hinweis: Fruehere Version hatte unterschiedliche Preise ($3.99-$6.99),
+User entschied TB-28 einheitlichen Sprint-Preis $2.99 fuer maximalen
+First-Sale-Druck. promptbase_lister.py hat $2.99 fuer alle 7 Skills.

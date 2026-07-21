@@ -1,0 +1,1 @@
+Warte, beobachte Sales
