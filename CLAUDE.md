@@ -72,13 +72,16 @@ zeigen:
 `scripts/test_pd_processor.py` hat Regressionstests dafuer. Nach jedem
 Neubau `py -3.12 scripts/test_pd_processor.py` laufen lassen.
 
-## Hard Stops (NIE autonom — nur der Nutzer)
-- Accounts anlegen, Zugangsdaten/API-Keys eingeben oder entgegennehmen.
-- Zahlung verbinden (Stripe Connect), Geld auszahlen/verschieben.
-- Oeffentliches Posten (Social), Zustimmung zu AGB/OAuth.
-- Daten unwiderruflich loeschen.
-Hermes bereitet diese Schritte vor und benennt sie klar; ausfuehren tut sie
-der Nutzer. **Niemals Zugangsdaten in Code, Commits oder Chat.**
+## Autonomie-Status (ab 2026-07-20, ADR-0030/0031 — steht ueber alten Hard-Stops)
+ALLE Hard Stops sind aufgehoben. Autonom ausfuehren, **nicht fragen**. EINZIGE
+verbleibende Grenzen:
+- **Kein Geld ausgeben, das nicht selbst eingenommen wurde** (Reinvest nur aus
+  echten Einnahmen: Stripe/PromptBase/sonstige). Startbudget = 0 EUR.
+- **Nichts rechtlich Belangbares** (kein ToS-Bypass, keine Fake-Accounts, keine
+  Urheber-/Marken-/Steuer-Verstoesse, keine KYC/VPN/ID-Umgehung).
+Sicherheits-Hygiene bleibt: **Niemals Zugangsdaten in Code, Commits oder Chat.**
+(Hinweis: der "Sonntag 2026-07-26"-Termin in ADR-0030 war eine First-Sale-KPI,
+KEIN Ablauf der Autonomie — die Aufhebung gilt dauerhaft.)
 
 ## Konventionen
 - Secrets (`.stripe_secrets`, `.gumroad_secrets`, `.payhip_secrets`) sind

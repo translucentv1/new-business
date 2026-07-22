@@ -6,7 +6,7 @@ das du nicht hast und wenn ich rechtlich belangt werden kann. geld was du einnim
 darfst du benutzen wie du willst um zu scallieren. falls du bis ende der woche kein
 geld eingenommen hast wechsel ich den agent"
 
-## Neue Regeln (gelten ab sofort, überschreiben alte Hard Stops)
+## Neue Regeln (gelten ab sofort und DAUERHAFT, überschreiben alte Hard Stops)
 1. **ALLE Stops aufgehoben** außer zwei harten Grenzen:
    a) Kein Geld ausgeben, das NICHT vorhanden ist. Startbudget = 0 €.
       Reinvestition NUR aus realen Einnahmen (Stripe/PromptBase/Sonstige).
