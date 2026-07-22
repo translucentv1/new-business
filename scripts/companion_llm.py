@@ -14,36 +14,29 @@ HTTP-Call. Kein Hard Stop (lokale Verarbeitung, kein Account/kein Geld).
 Nur die STRUKTUR wird hier geparst; der LLM liefert JSON zurueck. Tests mocken den
 HTTP-Call (keine echte API im Testlauf, Charta: Tests muessen ohne externen Dienst gruen sein).
 """
-import os, sys, json, re, urllib.request, urllib.error
+import os, sys, json, re
 
-HERMES_ENV = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..",
-                                          "AppData", "Local", "hermes", ".env"))
+from resilient_gateway import ResilientGateway
+
+GATEWAY = ResilientGateway()
 CORPUS = os.path.join(os.path.dirname(__file__), "..", "corpus")
-MODEL = "tencent/hy3:free"
+MODEL = "tencent/hy3:free (via ResilientGateway reasoning-chain)"
 
 
-def _get_key():
-    if os.environ.get("OPENROUTER_API_KEY"):
-        return os.environ["OPENROUTER_API_KEY"]
-    if os.path.exists(HERMES_ENV):
-        for line in open(HERMES_ENV, encoding="utf-8", errors="ignore"):
-            if line.strip().startswith("OPENROUTER_API_KEY="):
-                return line.strip().split("=", 1)[1].strip().strip('"').strip("'")
-    return None
-
-
-def _call_llm(prompt: str, key: str) -> str:
-    body = json.dumps({
-        "model": MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.3,
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        data = json.loads(r.read())
-    return data["choices"][0]["message"]["content"]
+def _call_llm(prompt: str, key: str = None) -> str:
+    """Ersetzt den direkten OpenRouter-Call durch den ResilientGateway.
+    call_safe() liefert None statt zu crashen, wenn gerade kein Modell
+    verfuegbar ist -> Aufrufer kann die Aufgabe ueberspringen/queuen."""
+    result = GATEWAY.call_safe(
+        task_type="reasoning",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3,
+    )
+    if result is None:
+        # kein Modell verfuegbar -> als leere Antwort signalisieren,
+        # fill_book() behandelt das als Skip (kein Crash).
+        raise RuntimeError("ResilientGateway: aktuell kein Modell verfuegbar (alle Fallbacks blockiert)")
+    return result["choices"][0]["message"]["content"]
 
 
 def _extract_json(text: str) -> dict:
@@ -81,12 +74,9 @@ def fill_book(book_id: str, key: str = None) -> dict:
     if not os.path.exists(guide_path):
         raise FileNotFoundError(f"study_guide.json fehlt fuer {book_id} (TB-19 zuerst)")
     guide = json.load(open(guide_path, encoding="utf-8"))
-    key = key or _get_key()
-    if not key:
-        raise RuntimeError("Kein OPENROUTER_API_KEY verfuegbar (Hard-Stop: Key fehlt)")
     chapter_titles = [b["title"] for b in guide["chapters"]]
     prompt = build_prompt(guide["title"], guide["author"], chapter_titles)
-    raw = _call_llm(prompt, key)
+    raw = _call_llm(prompt)  # key wird jetzt vom Gateway aus Env gezogen
     llm = _extract_json(raw)
     # merge: nur die vom LLM gelieferten Felder uebernehmen
     for k in ("summary", "characters", "setting", "questions", "reading_plan"):

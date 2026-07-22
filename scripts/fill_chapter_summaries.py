@@ -11,35 +11,24 @@ den Platzhalter-Text durch echten Inhalt.
 
 Kein Hard Stop: lokale Verarbeitung, OpenRouter hy3:free.
 """
-import os, sys, json, re, glob, urllib.request, urllib.error
+import os, sys, json, re, glob
 
-HERMES_ENV = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..",
-                                          "AppData", "Local", "hermes", ".env"))
+from resilient_gateway import ResilientGateway
+
+GATEWAY = ResilientGateway()
 CORPUS = os.path.join(os.path.dirname(__file__), "..", "corpus")
-MODEL = "tencent/hy3:free"
+MODEL = "tencent/hy3:free (via ResilientGateway reasoning-chain)"
 
 
-def _get_key():
-    if os.environ.get("OPENROUTER_API_KEY"):
-        return os.environ["OPENROUTER_API_KEY"]
-    if os.path.exists(HERMES_ENV):
-        for line in open(HERMES_ENV, encoding="utf-8", errors="ignore"):
-            if line.strip().startswith("OPENROUTER_API_KEY="):
-                return line.strip().split("=", 1)[1].strip().strip('"').strip("'")
-    return None
-
-
-def _call(prompt, key):
-    body = json.dumps({
-        "model": MODEL,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.3,
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read())["choices"][0]["message"]["content"]
+def _call(prompt, key=None):
+    result = GATEWAY.call_safe(
+        task_type="reasoning",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3,
+    )
+    if result is None:
+        return None
+    return result["choices"][0]["message"]["content"]
 
 
 def _extract_list(text):
@@ -69,7 +58,9 @@ def fill(bid, key):
         "(exakt so viele Elemente wie Kapitel oben), kein Markdown, keine Erklaerung.\n"
         "Deutsch. Beispiel: [\"Kapitel 1 ...\", \"Kapitel 2 ...\"]"
     )
-    raw = _call(prompt, key)
+    raw = _call(prompt)
+    if raw is None:
+        return False, "gateway: kein Modell verfuegbar (alle Fallbacks blockiert) -> uebersprungen"
     summaries = _extract_list(raw)
     n = min(len(summaries), len(chapters))
     for i in range(n):
@@ -81,10 +72,10 @@ def fill(bid, key):
 
 
 if __name__ == "__main__":
-    key = _get_key()
-    if not key:
-        print("NO_KEY"); sys.exit(1)
+    if not (os.environ.get("OPENROUTER_API_KEY") or os.environ.get("NVIDIA_API_KEY")):
+        print("NO_KEY: weder OPENROUTER_API_KEY noch NVIDIA_API_KEY gesetzt")
+        sys.exit(1)
     bids = sys.argv[1:] or [os.path.basename(p) for p in glob.glob(os.path.join(CORPUS, "*"))]
     for bid in bids:
-        ok, msg = fill(bid, key)
+        ok, msg = fill(bid)
         print(f"{bid}: {'OK' if ok else 'FAIL'} {msg}")

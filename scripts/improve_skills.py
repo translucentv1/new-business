@@ -3,16 +3,13 @@ Jeder Skill wird vom LLM (hy3) auf Schwachstellen geprueft; Verbesserungen werde
 in die SKILL.md uebernommen. Bessere Skills = hoehere Conversion auf PromptBase.
 Autonom, kostenlos (Free-Tier), legal.
 """
-import os, json, urllib.request, re
+import os, json, re
 
+from resilient_gateway import ResilientGateway
+
+GATEWAY = ResilientGateway()
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKILL_DIR = os.path.join(REPO, "products", "promptbase-agent-skills", "skills")
-KEY = None
-for p in [os.path.join(REPO, ".env"), r"C:\Users\phili\AppData\Local\hermes\.env"]:
-    if os.path.exists(p):
-        for line in open(p, encoding="utf-8"):
-            if line.startswith("OPENROUTER_API_KEY="):
-                KEY = line.strip().split("=", 1)[1]
 
 IMPROVE_PROMPT = """Du bist ein Senior-Prompt-Ingenieur. Pruefe diese SKILL.md auf:
 1. Mehrdeutige Formulierungen im Output-Format
@@ -28,20 +25,17 @@ Antworte NUR mit dem Codeblock, keine Einleitung."""
 
 
 def call(skill_text):
-    body = json.dumps({
-        "model": "tencent/hy3:free",
-        "messages": [
+    result = GATEWAY.call_safe(
+        task_type="reasoning",
+        messages=[
             {"role": "system", "content": IMPROVE_PROMPT},
             {"role": "user", "content": f"SKILL.md zu pruefen:\n\n{skill_text}"},
         ],
-        "max_tokens": 1200,
-    }).encode()
-    req = urllib.request.Request(
-        "https://openrouter.ai/api/v1/chat/completions", data=body,
-        headers={"Authorization": f"Bearer {KEY}", "Content-Type": "application/json"})
-    r = urllib.request.urlopen(req, timeout=60)
-    j = json.loads(r.read())
-    ch = j["choices"][0]
+        max_tokens=1200,
+    )
+    if result is None:
+        return ""
+    ch = result["choices"][0]
     out = ch.get("message", {}).get("content")
     if not out:
         out = ch.get("message", {}).get("reasoning") or ""

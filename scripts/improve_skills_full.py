@@ -3,16 +3,13 @@ Pro Skill: alte SKILL.md -> hy3 -> verbesserte Version (selbe Struktur,
 deutlichere Formate, Edge-Cases, Beispiele, strikteres 'Output ONLY').
 Speichert nach *_improved.md. Agent verifiziert danach via QA (qa_skills.py).
 """
-import os, json, urllib.request, time
+import os, json, time
 
+from resilient_gateway import ResilientGateway
+
+GATEWAY = ResilientGateway()
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKILL_DIR = os.path.join(REPO, "products", "promptbase-agent-skills", "skills")
-KEY = None
-for p in [os.path.join(REPO, ".env"), r"C:\Users\phili\AppData\Local\hermes\.env"]:
-    if os.path.exists(p):
-        for line in open(p, encoding="utf-8"):
-            if line.startswith("OPENROUTER_API_KEY="):
-                KEY = line.strip().split("=", 1)[1]
 
 SYS = """Du bist Senior-Prompt-Ingenieur. Nimm diese SKILL.md und gib die VERBESSERTE Version zurueck.
 Regeln:
@@ -24,15 +21,16 @@ Regeln:
 - Keine neuen Halluzinations-Risiken. Antworte NUR mit der verbesserten SKILL.md (inkl. frontmatter)."""
 
 def call(text):
-    body = json.dumps({"model": "tencent/hy3:free",
-        "messages": [{"role":"system","content":SYS},
-                     {"role":"user","content":f"SKILL.md:\n\n{text}"}],
-        "max_tokens": 2500}).encode()
-    req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
-        data=body, headers={"Authorization": f"Bearer {KEY}", "Content-Type":"application/json"})
-    r = urllib.request.urlopen(req, timeout=90)
-    j = json.loads(r.read()); ch = j["choices"][0]
-    return (ch.get("message",{}).get("content") or ch.get("message",{}).get("reasoning") or "")
+    result = GATEWAY.call_safe(
+        task_type="reasoning",
+        messages=[{"role": "system", "content": SYS},
+                  {"role": "user", "content": f"SKILL.md:\n\n{text}"}],
+        max_tokens=2500,
+    )
+    if result is None:
+        return ""
+    ch = result["choices"][0]
+    return (ch.get("message", {}).get("content") or ch.get("message", {}).get("reasoning") or "")
 
 if __name__ == "__main__":
     for fn in sorted(os.listdir(SKILL_DIR)):
