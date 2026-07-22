@@ -1,6 +1,7 @@
-Kategorie,Betrag,Notiz
-Freibetrag,0,
-Tagesgeld,0,
-Aktien,0,
-Verlusttopf,0,
-Guenstigerpruefung,0,
+Kategorie,Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez,Summe
+Freibetrag,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B2:M2)
+Tagesgeld,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B3:M3)
+Aktien,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B4:M4)
+Verlusttopf,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B5:M5)
+Guenstigerpruefung,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B6:M6)
+GESAMT,=SUM(B2:B6),=SUM(C2:C6),=SUM(D2:D6),=SUM(E2:E6),=SUM(F2:F6),=SUM(G2:G6),=SUM(H2:H6),=SUM(I2:I6),=SUM(J2:J6),=SUM(K2:K6),=SUM(L2:L6),=SUM(M2:M6),=SUM(N2:N6)

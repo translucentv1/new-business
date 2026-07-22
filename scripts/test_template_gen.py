@@ -22,11 +22,18 @@ class TestTemplateGen(unittest.TestCase):
         self.assertTrue(os.path.exists(p))
         with open(p, encoding="utf-8") as f:
             rows = list(csv.reader(f))
-        # header + 9 cats + SUMME row
+        # header + 9 cats + GESAMT row
         self.assertGreaterEqual(len(rows), 11)
+        # header has 12 month columns + Kategorie + Summe = 14 cols
+        self.assertEqual(rows[0][0], "Kategorie")
+        self.assertEqual(rows[0][-1], "Summe")
+        self.assertEqual(len(rows[0]), 14, f"expected 14 cols, got {rows[0]}")
+        # last row is the GESAMT totals row with sum formulas
         last = rows[-1]
-        self.assertTrue(last[0] == "SUMME" and last[1].startswith("=SUM"),
-                        f"no sum formula: {last}")
+        self.assertEqual(last[0], "GESAMT")
+        self.assertTrue(last[1].startswith("=SUM"), f"no sum formula in GESAMT: {last}")
+        # each category row ends with a per-row Summe formula
+        self.assertTrue(rows[1][-1].startswith("=SUM"), f"no per-row sum: {rows[1]}")
         blob = " ".join(" ".join(r) for r in rows)
         self.assertNotIn("XXX", blob)
         self.assertNotIn("ZUSAMMENFASSUNG", blob)

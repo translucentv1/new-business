@@ -24,12 +24,52 @@ def build_one(tid, spec, link):
     os.makedirs(out_dir, exist_ok=True)
     title = spec["title"]
     price = spec["price_eur"]
+    price_de = f"{price:.2f}".replace(".", ",") + " €"
     audience = spec["audience"]
     sections = "\n".join(f"<li>{s}</li>" for s in spec["sections"])
-    keywords = ", ".join(spec.get("keywords", [])[:8])
+    # keywords: Fallback wenn leer (verhindert <meta keywords="">)
+    kw = spec.get("keywords") or []
+    if not kw:
+        kw = [title] + spec.get("sections", [])[:5] + ["Vorlage", "Template", "DE"]
+    keywords = ", ".join(kw[:10])
     slug = tid
-    benefits = "\n".join(f"<li>{b}</li>" for b in spec.get("benefits", []))
-    benefit_block = f"<h2>Wofür das ist</h2>\n<ul>{benefits}</ul>" if benefits else ""
+    benefits = spec.get("benefits", "")
+    benefits_html = ""
+    if benefits:
+        blist = benefits if isinstance(benefits, list) else [benefits]
+        benefits_html = "\n".join(f"<li>{b}</li>" for b in blist)
+    benefit_block = f"<h2>Wofür das ist</h2>\n<ul>{benefits_html}</ul>" if benefits_html else ""
+    # Echtes Produkt-Preview aus der CSV (Kauflift: Kaeufer sehen das Grid)
+    preview_rows = ""
+    csv_path = os.path.join(TPL_ROOT, tid, "deliverable", "budget.csv")
+    if os.path.exists(csv_path):
+        try:
+            import csv
+            with open(csv_path, encoding="utf-8") as fh:
+                rows = list(csv.reader(fh))
+            if rows:
+                head = "".join(f"<th>{c}</th>" for c in rows[0][:6])  # erst 6 Spalten (Kat+5 Monate)
+                body_rows = []
+                for r in rows[1:6]:  # erste 5 Kategorien als Vorschau
+                    body_rows.append("<tr>" + "".join(f"<td>{c}</td>" for c in r[:6]) + "</tr>")
+                if body_rows:
+                    preview_rows = (
+                        '<h2>So sieht deine Tabelle aus</h2>\n'
+                        '<table class="preview">\n<thead><tr>' + head + "</tr></thead>\n"
+                        "<tbody>\n" + "\n".join(body_rows) + "\n</tbody>\n</table>\n"
+                        '<p class="hint">Vollständig: 12 Monatsspalten + automatische Jahres- und Gesamtsumme.</p>'
+                    )
+        except Exception:
+            preview_rows = ""
+    # FAQ (Kaufangst senken)
+    faq = (
+        '<h2>Häufige Fragen</h2>\n<dl class="faq">\n'
+        "<dt>Ist das ein Abo?</dt><dd>Nein. Einmal kaufen, lebenslang nutzen. Kein Abo, keine Folgekosten.</dd>\n"
+        "<dt>In welchem Format?</dt><dd>Markdown + CSV – sofort nutzbar in Notion, Excel und Google Sheets. Kein Tool zum Lernen.</dd>\n"
+        "<dt>Bekomme ich eine Rechnung?</dt><dd>Ja, auf Wunsch (Kleinunternehmer-Regelung §19 UStG, keine USt ausgewiesen).</dd>\n"
+        "<dt>Was, wenn es nicht passt?</dt><dd>Schreib mir – unkomplizierte Rückerstattung, da digitales Produkt.</dd>\n"
+        "</dl>"
+    )
     # JSON-LD Product/Offer (rich results, price in EUR)
     ld = json.dumps({
         "@context": "https://schema.org",
@@ -44,7 +84,7 @@ def build_one(tid, spec, link):
             "url": link or ""
         }
     }, ensure_ascii=False)
-    btn = (f'<a class="buy" href="{link}">Jetzt kaufen – {price:.2f} €</a>'
+    btn = (f'<a class="buy" href="{link}">Jetzt kaufen – {price_de}</a>'
            if link else '<p class="soon">Demnächst verfügbar</p>')
     html = f"""<!DOCTYPE html>
 <html lang="de">
@@ -64,6 +104,11 @@ def build_one(tid, spec, link):
   .buy{{display:inline-block;background:#2962ff;color:#fff;padding:.7em 1.3em;border-radius:6px;text-decoration:none;font-weight:bold;margin:.8em 0}}
   .price{{font-size:1.1em;font-weight:bold}}
   .back a{{color:#2962ff}}
+  table.preview{{border-collapse:collapse;width:100%;margin:.6em 0;font-size:.95em}}
+  table.preview th,table.preview td{{border:1px solid #cdd6f4;padding:.4em .6em;text-align:left}}
+  table.preview th{{background:#eef2ff}}
+  .hint{{color:#555;font-size:.9em}}
+  dl.faq dt{{font-weight:bold;margin-top:1em}} dl.faq dd{{margin:0 0 .4em 0;color:#333}}
 </style>
 </head>
 <body>
@@ -72,14 +117,16 @@ def build_one(tid, spec, link):
 <h2>Was ist enthalten</h2>
 <ul>{sections}</ul>
 {benefit_block}
+{preview_rows}
 <h2>So funktioniert's</h2>
 <ol>
   <li>Kauf über den Button (Sofort-Kasse, keine Anmeldung nötig).</li>
   <li>Du wirst direkt zur Download-Seite weitergeleitet.</li>
   <li>Vorlage als Markdown + CSV – sofort nutzbar in Notion, Excel, Google Sheets.</li>
 </ol>
+{faq}
 <p class="trust">✓ Sofort-Download · ✓ Kein Abo · ✓ Rechnung auf Wunsch (§19 UStG)</p>
-<p class="price">Preis: {price:.2f} € · sofort downloadbar nach Kauf</p>
+<p class="price">Preis: {price_de} · sofort downloadbar nach Kauf</p>
 {btn}
 <p class="back"><a href="/new-business/t/">← Alle Templates</a> · <a href="/new-business/">Alle Produkte</a></p>
 </body>

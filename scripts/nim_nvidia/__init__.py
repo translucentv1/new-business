@@ -13,7 +13,7 @@ Modelle:
 from .router import TaskType, ModelEndpoint, ModelRouter
 from .rate_limiter import TokenBucket, SlidingWindowLimiter, PerModelLimiter, MultiModelRateLimiter, RateLimiter
 from .backoff import ExponentialBackoff, RetryState
-from .queue import PriorityLevel, PrioritizedRequest, RequestQueue
+from .request_queue import PriorityLevel, PrioritizedRequest, RequestQueue
 from .cache import ResponseCache, CacheEntry, BatchDetector
 from .monitor import ModelStats, Monitor
 from .client import NIMClient, NIMConfig

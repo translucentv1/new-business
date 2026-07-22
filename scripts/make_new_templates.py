@@ -38,13 +38,13 @@ NEW = {
         "type": "sheets",
         "price_eur": 2.99,
         "lang": "de",
-        "audience": "DE-Sparer, die Freibetraege (801/1608 EUR) optimal nutzen",
+        "audience": "DE-Sparer, die Freibetraege (1000/2000 EUR) optimal nutzen",
         "sections": ["Freibetrag (Tagesgeld/Aktien)", "Sparerpauschbetrag-Check",
                      "Guenstigerpruefung", "Verlusttopf-Nutzung", "Jahresbilanz"],
         "categories": ["Freibetrag", "Tagesgeld", "Aktien", "Verlusttopf", "Guenstigerpruefung"],
-        "keywords": ["sparerpauschbetrag ausnutzen", "steuerfreibetrag 801 euro",
+        "keywords": ["sparerpauschbetrag ausnutzen", "steuerfreibetrag 1000 euro",
                      "freibetrag aktien", "steuern sparen vorlage"],
-        "benefits": "Hole dir deine 801/1608 EUR zurueck - automatischer Freibetrags-Check.",
+        "benefits": "Hole dir deine 1000/2000 EUR zurueck - automatischer Freibetrags-Check (Stand 2023, Sparer-Pauschbetrag lt. \u00a720 EStG).",
     },
 }
 
@@ -53,10 +53,51 @@ for tid, spec in NEW.items():
     os.makedirs(os.path.join(d, "deliverable"), exist_ok=True)
     json.dump(spec, open(os.path.join(d, "spec.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
-    csv = "Kategorie,Betrag,Notiz\n" + "\n".join(f"{c},0," for c in spec["categories"])
-    open(os.path.join(d, "deliverable", "budget.csv"), "w", encoding="utf-8").write(csv)
-    md = f"# {spec['title']}\n\n{spec['benefits']}\n\nKategorien:\n" + "\n".join(f"- {c}" for c in spec["categories"])
-    open(os.path.join(d, "deliverable", "ANLEITUNG.md"), "w", encoding="utf-8").write(md)
+    cats = spec["categories"]
+    # Reichhaltige CSV: 12 Monatsspalten + Jahressumme-Formel + Beispielwert-Hinweis
+    header = ["Kategorie", "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+              "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", "Summe"]
+    lines = [",".join(header)]
+    for i, c in enumerate(cats):
+        row = [c] + ["0"] * 12
+        r = i + 2  # 1-basierte Zeile inkl. Header
+        row.append(f"=SUM(B{r}:M{r})")
+        lines.append(",".join(row))
+    # Summenzeile ueber alle Kategorien
+    last = len(cats) + 1
+    sumrow = ["GESAMT"] + [f"=SUM({col}2:{col}{last})" for col in
+              ["B","C","D","E","F","G","H","I","J","K","L","M"]] + [f"=SUM(N2:N{last})"]
+    lines.append(",".join(sumrow))
+    open(os.path.join(d, "deliverable", "budget.csv"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
+    # Reichhaltige Anleitung mit Schritten, Sektionen, Tipps
+    secs = spec.get("sections", [])
+    md = []
+    md.append(f"# {spec['title']}\n")
+    md.append(f"> {spec['benefits']}\n")
+    md.append(f"**Fuer wen:** {spec['audience']}\n")
+    md.append("## Was du bekommst\n")
+    md.append("- `budget.csv` – fertige Tabelle mit 12 Monatsspalten + automatischer Jahres- und Gesamtsumme (Google Sheets / Excel / LibreOffice).")
+    md.append("- Diese Anleitung mit Schritt-fuer-Schritt-Nutzung und Praxis-Tipps.\n")
+    md.append("## In 3 Minuten startklar\n")
+    md.append("1. **Oeffnen:** `budget.csv` in Google Sheets (Datei > Importieren > Hochladen) oder direkt in Excel/LibreOffice.")
+    md.append("2. **Eintragen:** Trage deine Betraege in die Monatsspalten (B–M) ein. Die Spalte **Summe** (N) rechnet je Kategorie automatisch, die Zeile **GESAMT** summiert alle Kategorien.")
+    md.append("3. **Auswerten:** Du siehst sofort Monats- und Jahreswerte. Nichts manuell rechnen.\n")
+    md.append("## Kategorien im Ueberblick\n")
+    for c in cats:
+        md.append(f"- **{c}**")
+    md.append("")
+    if secs:
+        md.append("## Enthaltene Bereiche\n")
+        for s in secs:
+            md.append(f"- {s}")
+        md.append("")
+    md.append("## Praxis-Tipps\n")
+    md.append("- Trage Werte **monatlich am selben Tag** ein (z. B. am 1.) – so wird es zur Routine.")
+    md.append("- Nutze in Google Sheets *Ansicht > Fixieren > 1 Zeile*, damit die Kopfzeile beim Scrollen sichtbar bleibt.")
+    md.append("- Kopiere das Blatt pro Jahr (Tab-Duplikat), um einen sauberen Jahresvergleich zu behalten.\n")
+    md.append("---")
+    md.append("*Digitales Produkt, keine Steuer-/Rechtsberatung. Angaben ohne Gewaehr.*")
+    open(os.path.join(d, "deliverable", "ANLEITUNG.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
     print("created", tid)
 
 print("done:", len(NEW), "new templates")

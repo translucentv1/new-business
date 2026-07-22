@@ -29,7 +29,7 @@ from scripts.nim_nvidia.rate_limiter import (
     MultiModelRateLimiter,
 )
 from scripts.nim_nvidia.backoff import ExponentialBackoff, RetryState
-from scripts.nim_nvidia.queue import PriorityLevel, RequestQueue, PrioritizedRequest
+from scripts.nim_nvidia.request_queue import PriorityLevel, RequestQueue, PrioritizedRequest
 from scripts.nim_nvidia.cache import ResponseCache, BatchDetector, hash_prompt, normalize_prompt
 from scripts.nim_nvidia.monitor import Monitor, ModelStats, estimate_cost
 
@@ -475,7 +475,7 @@ class TestQueueRateLimitIntegration(unittest.TestCase):
         """Queue + Rate-Limiter: 10 Requests in <5s dauern länger als 5s bei 1 RPM."""
         from scripts.nim_nvidia.router import ModelEndpoint, TaskType
         from scripts.nim_nvidia.rate_limiter import MultiModelRateLimiter
-        from scripts.nim_nvidia.queue import RequestQueue, PriorityLevel
+        from scripts.nim_nvidia.request_queue import RequestQueue, PriorityLevel
 
         queue = RequestQueue()
         limiter = MultiModelRateLimiter([

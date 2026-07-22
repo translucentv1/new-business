@@ -1,11 +1,42 @@
 # Umzug-Budget-Planer (DE)
 
-Plane deinen Umzug ohne Kosten-Uberraschung - alle Posten in einer Vorlage.
+> Plane deinen Umzug ohne Kosten-Uberraschung - alle Posten in einer Vorlage.
 
-Kategorien:
-- Mietwagen
-- Hilfe
-- Material
-- Kaution
-- Nebenkosten
-- Sparziel
+**Fuer wen:** DE-Privathaushalte, die einen Umzug kostenkontrolliert planen wollen
+
+## Was du bekommst
+
+- `budget.csv` – fertige Tabelle mit 12 Monatsspalten + automatischer Jahres- und Gesamtsumme (Google Sheets / Excel / LibreOffice).
+- Diese Anleitung mit Schritt-fuer-Schritt-Nutzung und Praxis-Tipps.
+
+## In 3 Minuten startklar
+
+1. **Oeffnen:** `budget.csv` in Google Sheets (Datei > Importieren > Hochladen) oder direkt in Excel/LibreOffice.
+2. **Eintragen:** Trage deine Betraege in die Monatsspalten (B–M) ein. Die Spalte **Summe** (N) rechnet je Kategorie automatisch, die Zeile **GESAMT** summiert alle Kategorien.
+3. **Auswerten:** Du siehst sofort Monats- und Jahreswerte. Nichts manuell rechnen.
+
+## Kategorien im Ueberblick
+
+- **Mietwagen**
+- **Hilfe**
+- **Material**
+- **Kaution**
+- **Nebenkosten**
+- **Sparziel**
+
+## Enthaltene Bereiche
+
+- Umzugskosten (Mietwagen, Hilfe, Material)
+- Kaution & Nebenkosten
+- Ein-/Ausgaben-Tracking
+- Sparpotenzial (DIY vs Dienstleister)
+- Budget-Bilanz
+
+## Praxis-Tipps
+
+- Trage Werte **monatlich am selben Tag** ein (z. B. am 1.) – so wird es zur Routine.
+- Nutze in Google Sheets *Ansicht > Fixieren > 1 Zeile*, damit die Kopfzeile beim Scrollen sichtbar bleibt.
+- Kopiere das Blatt pro Jahr (Tab-Duplikat), um einen sauberen Jahresvergleich zu behalten.
+
+---
+*Digitales Produkt, keine Steuer-/Rechtsberatung. Angaben ohne Gewaehr.*

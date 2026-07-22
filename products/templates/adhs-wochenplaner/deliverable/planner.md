@@ -1,20 +1,40 @@
 # ADHS-Wochenplaner (Fokus & Struktur)
 > Zielgruppe: Menschen mit ADHS / exec. Dysfunction, die Struktur wollen
 
+## So nutzt du diese Vorlage
+1. In Notion: *Import > Markdown* und diese Datei hochladen (oder Inhalt in eine neue Seite kopieren).
+2. Jede Sektion unten ist eine Checkliste – hake ab oder ergaenze eigene Zeilen.
+3. Dupliziere die Seite woechentlich fuer eine fortlaufende Historie.
+
 ## Wochen-Fokus (1 Kernziel)
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Brain-Dump (alles, was im Kopf schwirrt)
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Dopamin-Tasks (kleine Siege)
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Mo-So Tagesplan (max 3 Prios/Tag)
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Rejection-Sensitivity-Notiz
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Wochendebrief (was lief, was nicht)
-- [ ] _
+- [ ] 
+- [ ] 
+- [ ] 
+
+---
+*Digitales Produkt. Persoenliche Nutzung.*

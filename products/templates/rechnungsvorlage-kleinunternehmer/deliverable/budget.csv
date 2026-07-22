@@ -1,7 +1,7 @@
-Kategorie,Betrag (EUR)
-Leistung,0
-Betrag,0
-Rechnungsnummer,0
-Datum,0
-Zahlungsziel,0
-SUMME,=SUM(B2:B6)
+Kategorie,Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez,Summe
+Leistung,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B2:M2)
+Betrag,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B3:M3)
+Rechnungsnummer,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B4:M4)
+Datum,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B5:M5)
+Zahlungsziel,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B6:M6)
+GESAMT,=SUM(B2:B6),=SUM(C2:C6),=SUM(D2:D6),=SUM(E2:E6),=SUM(F2:F6),=SUM(G2:G6),=SUM(H2:H6),=SUM(I2:I6),=SUM(J2:J6),=SUM(K2:K6),=SUM(L2:L6),=SUM(M2:M6),=SUM(N2:N6)

@@ -97,39 +97,62 @@ def _ensure_specs():
 
 
 def generate_sheets(spec, out_dir):
-    """Erzeugt budget.csv mit Summen-Formeln (A=Kategorie,B=Betrag)."""
+    """Erzeugt budget.csv mit 12 Monatsspalten + Summen-Formeln + reiche Anleitung."""
     os.makedirs(out_dir, exist_ok=True)
     cats = spec["categories"]
-    rows = [["Kategorie", "Betrag (EUR)"]]
-    for c in cats:
-        rows.append([c, 0])
-    n = len(cats)
-    # Summen-Zeile mit Excel-Formel
-    rows.append(["SUMME", f"=SUM(B2:B{n+1})"])
+    header = ["Kategorie", "Jan", "Feb", "Mar", "Apr", "Mai", "Jun",
+              "Jul", "Aug", "Sep", "Okt", "Nov", "Dez", "Summe"]
+    rows = [header]
+    for i, c in enumerate(cats):
+        r = i + 2
+        rows.append([c] + [0] * 12 + [f"=SUM(B{r}:M{r})"])
+    last = len(cats) + 1
+    rows.append(["GESAMT"] + [f"=SUM({col}2:{col}{last})" for col in
+                 ["B","C","D","E","F","G","H","I","J","K","L","M"]] + [f"=SUM(N2:N{last})"])
     path = os.path.join(out_dir, "budget.csv")
     with open(path, "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerows(rows)
-    # Begleit-Readme
+    # Reiche Begleit-Anleitung
     with open(os.path.join(out_dir, "ANLEITUNG.md"), "w", encoding="utf-8") as f:
         f.write(f"# {spec['title']}\n\n")
-        f.write(f"Zielgruppe: {spec['audience']}\n\n")
-        f.write("So nutzt du die Tabelle:\n")
-        f.write("1. Oeffne budget.csv in Google Sheets oder Excel.\n")
-        f.write("2. Trage deine Betraege in Spalte B ein.\n")
-        f.write("3. Die Zelle 'SUMME' rechnet automatisch ( =SUMME(B2:B%d) ).\n" % (n + 1))
-        f.write("\nSektionen: " + " | ".join(spec["sections"]) + "\n")
+        f.write(f"**Fuer wen:** {spec['audience']}\n\n")
+        f.write("## Was du bekommst\n\n")
+        f.write("- `budget.csv` – Tabelle mit 12 Monatsspalten, automatischer Zeilen- (Summe) "
+                "und Gesamtsumme (GESAMT) fuer Google Sheets / Excel / LibreOffice.\n")
+        f.write("- Diese Anleitung mit Schritt-fuer-Schritt-Nutzung.\n\n")
+        f.write("## In 3 Minuten startklar\n\n")
+        f.write("1. **Oeffnen:** `budget.csv` in Google Sheets (Datei > Importieren > Hochladen) "
+                "oder direkt in Excel/LibreOffice.\n")
+        f.write("2. **Eintragen:** Betraege in die Monatsspalten (B–M). Die Spalte **Summe** (N) "
+                "rechnet je Kategorie automatisch, die Zeile **GESAMT** summiert alle Kategorien.\n")
+        f.write("3. **Auswerten:** Monats- und Jahreswerte sofort sichtbar – nichts manuell rechnen.\n\n")
+        f.write("## Enthaltene Bereiche\n\n")
+        for sec in spec["sections"]:
+            f.write(f"- {sec}\n")
+        f.write("\n## Praxis-Tipps\n\n")
+        f.write("- Werte **monatlich am selben Tag** eintragen – so wird es Routine.\n")
+        f.write("- In Google Sheets *Ansicht > Fixieren > 1 Zeile* fuer eine feste Kopfzeile.\n")
+        f.write("- Pro Jahr das Blatt duplizieren (Tab-Kopie) fuer einen sauberen Jahresvergleich.\n\n")
+        f.write("---\n*Digitales Produkt, keine Steuer-/Rechtsberatung. Angaben ohne Gewaehr.*\n")
     return path
 
 
 def generate_notion(spec, out_dir):
-    """Erzeugt planner.md (Notion-importfaehig)."""
+    """Erzeugt planner.md (Notion-importfaehig) mit Anleitung + strukturierten Sektionen."""
     os.makedirs(out_dir, exist_ok=True)
     lines = [f"# {spec['title']}\n"]
     lines.append(f"> Zielgruppe: {spec['audience']}\n")
+    lines.append("\n## So nutzt du diese Vorlage\n")
+    lines.append("1. In Notion: *Import > Markdown* und diese Datei hochladen (oder Inhalt in eine neue Seite kopieren).\n")
+    lines.append("2. Jede Sektion unten ist eine Checkliste – hake ab oder ergaenze eigene Zeilen.\n")
+    lines.append("3. Dupliziere die Seite woechentlich fuer eine fortlaufende Historie.\n")
     for sec in spec["sections"]:
         lines.append(f"\n## {sec}\n")
-        lines.append("- [ ] _\n")
+        lines.append("- [ ] \n")
+        lines.append("- [ ] \n")
+        lines.append("- [ ] \n")
+    lines.append("\n---\n*Digitales Produkt. Persoenliche Nutzung.*\n")
     path = os.path.join(out_dir, "planner.md")
     with open(path, "w", encoding="utf-8") as f:
         f.writelines(lines)

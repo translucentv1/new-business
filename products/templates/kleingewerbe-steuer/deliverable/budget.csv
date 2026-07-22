@@ -1,10 +1,10 @@
-Kategorie,Betrag (EUR)
-Rechnung,0
-Bar,0
-Online,0
-Büro,0
-Software,0
-Werbung,0
-Fahrten,0
-Privatentnahme,0
-SUMME,=SUM(B2:B9)
+Kategorie,Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez,Summe
+Rechnung,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B2:M2)
+Bar,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B3:M3)
+Online,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B4:M4)
+Büro,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B5:M5)
+Software,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B6:M6)
+Werbung,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B7:M7)
+Fahrten,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B8:M8)
+Privatentnahme,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B9:M9)
+GESAMT,=SUM(B2:B9),=SUM(C2:C9),=SUM(D2:D9),=SUM(E2:E9),=SUM(F2:F9),=SUM(G2:G9),=SUM(H2:H9),=SUM(I2:I9),=SUM(J2:J9),=SUM(K2:K9),=SUM(L2:L9),=SUM(M2:M9),=SUM(N2:N9)

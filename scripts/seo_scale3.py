@@ -81,7 +81,7 @@ GUIDES_ALL = {
         ("nk-wasserkosten-umlage", "Wasserkosten Umlage", "Kalt-/Warmwasser korrekt umlegen."),
     ],
     "steuerfreibetrag-optimierer": [
-        ("freibetrag-tagesgeld", "Freibetrag Tagesgeld", "801€ optimal setzen."),
+        ("freibetrag-tagesgeld", "Freibetrag Tagesgeld", "1000€ optimal setzen."),
         ("verlusttopf-nutzen", "Verlusttopf nutzen", "Verluste steuerlich mitnehmen."),
         ("sparerpauschbetrag-ausnutzen", "Sparerpauschbetrag ausnutzen", "Kein Cent verschenken."),
         ("freibetrag-aktien", "Freibetrag Aktien", "Aktiengewinne steuerfrei halten."),

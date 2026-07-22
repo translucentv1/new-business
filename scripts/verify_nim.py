@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from nim_nvidia.router import TaskType, ModelRouter
 from nim_nvidia.rate_limiter import TokenBucket, PerModelLimiter, MultiModelRateLimiter
 from nim_nvidia.backoff import ExponentialBackoff, RetryState
-from nim_nvidia.queue import PriorityLevel, PrioritizedRequest, RequestQueue
+from nim_nvidia.request_queue import PriorityLevel, PrioritizedRequest, RequestQueue
 from nim_nvidia.cache import ResponseCache, BatchDetector
 from nim_nvidia.monitor import Monitor, estimate_cost
 from nim_nvidia.client import NIMConfig

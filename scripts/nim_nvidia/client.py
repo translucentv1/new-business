@@ -18,7 +18,7 @@ import aiohttp
 from .router import TaskType, ModelEndpoint, ModelRouter
 from .rate_limiter import MultiModelRateLimiter
 from .backoff import ExponentialBackoff
-from .queue import PriorityLevel, RequestQueue
+from .request_queue import PriorityLevel, RequestQueue
 from .cache import ResponseCache, BatchDetector
 from .monitor import Monitor
 
@@ -246,7 +246,7 @@ class NIMClient:
         Worker-Funktion: wird von der Queue für jeden Request aufgerufen.
         Enthält Rate-Limiting + API-Call + Logging.
         """
-        from .queue import PrioritizedRequest as PReq
+        from .request_queue import PrioritizedRequest as PReq
         req: PReq = request
 
         model_name = req.model_name
@@ -386,7 +386,7 @@ class NIMClient:
         Feuert einen Background-Request ab (Logging, Zusammenfassung).
         Gibt sofort ein Future zurück.
         """
-        from .queue import PrioritizedRequest as PReq
+        from .request_queue import PrioritizedRequest as PReq
         task_type = kwargs.pop("task_type", None)
         endpoint = self.router.resolve(task_type or TaskType.UNKNOWN)
 

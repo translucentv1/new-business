@@ -26,3 +26,5 @@ stripe_links.json
 # Python cache
 __pycache__/
 *.pyc
+.venv/
+cognee_data/

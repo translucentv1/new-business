@@ -280,10 +280,14 @@ def _price_eur() -> str:
 
 
 def _sitemap(entries):
+    import datetime
     base = "https://translucentv1.github.io/new-business"
-    urls = [f"  <url><loc>{base}/</loc></url>"]
+    today = datetime.date.today().isoformat()
+    def u(loc):
+        return f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod></url>"
+    urls = [u(f"{base}/")]
     for bid, m, g, c, url in entries:
-        urls.append(f"  <url><loc>{base}/{bid}/</loc></url>")
+        urls.append(u(f"{base}/{bid}/"))
     # Long-Tail-SEO-Seiten (TB-SEO) rekursiv aufnehmen, damit alle
     # index.html (inkl. pro-Kapitel-Seiten seo/<slug>/kapitel/<n>/) indexiert werden.
     seo_root = os.path.join(SITE, "seo")
@@ -291,7 +295,7 @@ def _sitemap(entries):
         for root, dirs, files in os.walk(seo_root):
             if "index.html" in files:
                 rel = os.path.relpath(root, seo_root).replace(os.sep, "/")
-                urls.append(f"  <url><loc>{base}/seo/{rel}/</loc></url>")
+                urls.append(u(f"{base}/seo/{rel}/"))
     # Template-Produkt-Landingpages (t/) rekursiv aufnehmen, damit alle
     # Template-LPs (Finanz-Tracker, ADHS-Planer, Agent-Skills u.a.) indexiert
     # werden. Regression-Fix: zuvor fehlten sie komplett im Sitemap
@@ -301,7 +305,7 @@ def _sitemap(entries):
         for root, dirs, files in os.walk(t_root):
             if "index.html" in files:
                 rel = os.path.relpath(root, t_root).replace(os.sep, "/")
-                urls.append(f"  <url><loc>{base}/t/{rel}/</loc></url>")
+                urls.append(u(f"{base}/t/{rel}/"))
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(urls) + "\n</urlset>\n")

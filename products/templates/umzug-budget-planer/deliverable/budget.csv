@@ -1,7 +1,8 @@
-Kategorie,Betrag,Notiz
-Mietwagen,0,
-Hilfe,0,
-Material,0,
-Kaution,0,
-Nebenkosten,0,
-Sparziel,0,
+Kategorie,Jan,Feb,Mar,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez,Summe
+Mietwagen,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B2:M2)
+Hilfe,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B3:M3)
+Material,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B4:M4)
+Kaution,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B5:M5)
+Nebenkosten,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B6:M6)
+Sparziel,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B7:M7)
+GESAMT,=SUM(B2:B7),=SUM(C2:C7),=SUM(D2:D7),=SUM(E2:E7),=SUM(F2:F7),=SUM(G2:G7),=SUM(H2:H7),=SUM(I2:I7),=SUM(J2:J7),=SUM(K2:K7),=SUM(L2:L7),=SUM(M2:M7),=SUM(N2:N7)
