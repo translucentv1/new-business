@@ -1,0 +1,17 @@
+{
+  "id": "einkommensteuer-ausfuellhilfe",
+  "title": "Einkommensteuer 2025 — Ausfüllhilfe (Anlage-Basis)",
+  "type": "notion",
+  "price_eur": 7.99,
+  "lang": "de",
+  "audience": "Angestellte + Kleingewerbe DE, die die Steuererklärung 2025 selbst machen",
+  "sections": [
+    "Checkliste Unterlagen (Lohnsteuerbescheinigung, Spesen, Werbungskosten)",
+    "Werbungskosten-Sammler (Home-Office-Pauschale, Fahrten, Arbeitsmittel)",
+    "Sonderausgaben & Vorsorge (Versicherungen, Altersvorsorge)",
+    "Kleingewerbe: EÜR-Hinweise (Einnahmen-Überschuss)",
+    "Häufige Fehler & Tipps (Freibeträge nutzen)",
+    "Ablaufplan (wann welches Feld)"
+  ],
+  "categories": ["steuer", "finanzen", "2025"]
+}

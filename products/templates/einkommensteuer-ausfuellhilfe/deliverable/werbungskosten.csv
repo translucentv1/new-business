@@ -1,0 +1,10 @@
+Position,Typ,Betrag EUR,Hinweis
+Gehalt,Lohnsteuerbescheinigung,0,"Brutto aus 2025"
+Kapitalertraege,Bank,0,"Zinsen/Aktien"
+Home-Office-Pauschale,Werbungskosten,0,"max 1260 EUR (6 EUR x 210 Tage)"
+Fahrten zur Arbeit,Werbungskosten,0,"0,30 EUR/km x Tage"
+Arbeitsmittel,Werbungskosten,0,"Laptop, Buecher"
+Spenden,Sonderausgaben,0,"gemeinnuetzig mit Besch."
+Vorsorge,Sonderausgaben,0,"KV/RV Beitraege"
+Gewerbe-Einnahmen,Kleingewerbe,0,"nur bei Gewerbe"
+Gewerbe-Ausgaben,Kleingewerbe,0,"Buerokosten, Software"

@@ -1,0 +1,17 @@
+{
+  "id": "haushaltsbuch-klassisch",
+  "title": "Haushaltsbuch klassisch (Monatliches Budget)",
+  "type": "sheets",
+  "price_eur": 4.99,
+  "lang": "de",
+  "audience": "Privathaushalte DE, die Ausgaben pro Monat tracken wollen",
+  "sections": [
+    "Einnahmen (Gehalt, Nebenjob, Sonstiges)",
+    "Fixkosten (Miete, Versicherung, Abos)",
+    "Variable Kosten (Lebensmittel, Freizeit, Transport)",
+    "Sparziele & Rücklagen",
+    "Monatsbilanz (Einnahmen - Ausgaben)",
+    "Auto-Kategorien mit Warnfarbe bei Überziehung"
+  ],
+  "categories": ["finanzen", "haushalt", "budget"]
+}

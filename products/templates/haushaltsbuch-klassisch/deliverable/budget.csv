@@ -1,0 +1,12 @@
+Kategorie,Jan,Feb,Mrz,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez,Summe
+Gehalt,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B2:M2)
+Nebenjob,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B3:M3)
+Sonstige Einnahmen,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B4:M4)
+Miete,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B5:M5)
+Versicherung,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B6:M6)
+Lebensmittel,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B7:M7)
+Freizeit,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B8:M8)
+Transport,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B9:M9)
+Abos,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B10:M10)
+Sparziel,0,0,0,0,0,0,0,0,0,0,0,0,=SUM(B11:M11)
+GESAMT,=SUM(B2:B11),=SUM(C2:C11),=SUM(D2:D11),=SUM(E2:E11),=SUM(F2:F11),=SUM(G2:G11),=SUM(H2:H11),=SUM(I2:I11),=SUM(J2:J11),=SUM(K2:K11),=SUM(L2:L11),=SUM(M2:M11),=SUM(N2:N11)
