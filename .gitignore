@@ -28,3 +28,4 @@ __pycache__/
 *.pyc
 .venv/
 cognee_data/
+.ebay_secrets
