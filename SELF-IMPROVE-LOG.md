@@ -25,3 +25,47 @@
    muss GROESSE/Substanz messen, nicht nur "keine Platzhalter".
 
 **Naechster Hebel (menschlicher 1-Schritt):** Etsy-Listings aus docs/social/outbound/ einstellen.
+
+## 2026-07-22 (self_improve_pass.py, kostenlos)
+**Sales:** 0 | **Landingpages:** 15
+**Findings:** 2
+- [HIGH] meta L2 Regel 4 (Erfolg = Sales): 0 echte Sales trotz 22 live Links + Funnel 8/8 sauber.
+  - Ursache: Traffic-Fehler: Loop baut SEO/Produkte, aber KEINE echte Traffic-Aktion (Regel 1+2 verletzt: 'keine Session ohne Traffic-Aktion').
+  - Fix: Naechste Session MUSS eine echte Distribution-Aktion ausfuehren, keine weitere SEO-Seite. Outbound-Kit (docs/social/outbound) liegt bereit.
+- [HIGH] meta L2 Regel 2 (Traffic > SEO-Masse): 15 Landingpages live, aber 0 Sales -> SEO-Masse bringt keinen Sale.
+  - Ursache: Verteilung (Traffic) ist der Flaschenhals, nicht mehr Seiten.
+  - Fix: Arbeit stoppt SEO-Aufbau; verteilt stattdessen die existierenden 8 Produkte.
+**Gepatchte Skills:** keine (nur Analyse, keine sicheren Patches).
+
+## 2026-07-22 (self_improve_pass.py, kostenlos)
+**Sales:** 0 | **Landingpages:** 15
+**Findings:** 2
+- [HIGH] meta L2 Regel 4 (Erfolg = Sales): 0 echte Sales trotz 22 live Links + Funnel 8/8 sauber.
+  - Ursache: Traffic-Fehler: Loop baut SEO/Produkte, aber KEINE echte Traffic-Aktion (Regel 1+2 verletzt: 'keine Session ohne Traffic-Aktion').
+  - Fix: Naechste Session MUSS eine echte Distribution-Aktion ausfuehren, keine weitere SEO-Seite. Outbound-Kit (docs/social/outbound) liegt bereit.
+- [HIGH] meta L2 Regel 2 (Traffic > SEO-Masse): 15 Landingpages live, aber 0 Sales -> SEO-Masse bringt keinen Sale.
+  - Ursache: Verteilung (Traffic) ist der Flaschenhals, nicht mehr Seiten.
+  - Fix: Arbeit stoppt SEO-Aufbau; verteilt stattdessen die existierenden 8 Produkte.
+**Gepatchte Skills:** keine (nur Analyse, keine sicheren Patches).
+
+## 2026-07-22 (self_improve_pass.py, kostenlos)
+**Sales:** 0 | **Landingpages:** 15
+**Findings:** 2
+- [HIGH] meta L2 Regel 4 (Erfolg = Sales): 0 echte Sales trotz 22 live Links + Funnel 8/8 sauber.
+  - Ursache: Traffic-Fehler: Loop baut SEO/Produkte, aber KEINE echte Traffic-Aktion (Regel 1+2 verletzt: 'keine Session ohne Traffic-Aktion').
+  - Fix: Naechste Session MUSS eine echte Distribution-Aktion ausfuehren, keine weitere SEO-Seite. Outbound-Kit (docs/social/outbound) liegt bereit.
+- [HIGH] meta L2 Regel 2 (Traffic > SEO-Masse): 15 Landingpages live, aber 0 Sales -> SEO-Masse bringt keinen Sale.
+  - Ursache: Verteilung (Traffic) ist der Flaschenhals, nicht mehr Seiten.
+  - Fix: Arbeit stoppt SEO-Aufbau; verteilt stattdessen die existierenden 8 Produkte.
+**Gepatchte Skills:** keine (nur Analyse, keine sicheren Patches).
+
+## 2026-07-22 (self_improve_pass.py, kostenlos)
+**Sales:** 0 | **Landingpages:** 15
+**Findings:** 2
+- [HIGH] meta L2 Regel 4 (Erfolg = Sales): 0 echte Sales trotz 22 live Links + Funnel 8/8 sauber.
+  - Ursache: Traffic-Fehler: Loop baut SEO/Produkte, aber KEINE echte Traffic-Aktion (Regel 1+2 verletzt: 'keine Session ohne Traffic-Aktion').
+  - Fix: Naechste Session MUSS eine echte Distribution-Aktion ausfuehren, keine weitere SEO-Seite. Outbound-Kit (docs/social/outbound) liegt bereit.
+- [HIGH] meta L2 Regel 2 (Traffic > SEO-Masse): 15 Landingpages live, aber 0 Sales -> SEO-Masse bringt keinen Sale.
+  - Ursache: Verteilung (Traffic) ist der Flaschenhals, nicht mehr Seiten.
+  - Fix: Arbeit stoppt SEO-Aufbau; verteilt stattdessen die existierenden 8 Produkte.
+**Gepatchte Skills:** keine (nur Analyse, keine sicheren Patches).

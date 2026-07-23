@@ -60,3 +60,13 @@ Reihenfolge nach erwarteter Geschwindigkeit (Details: docs/research/first-sale-l
 ## Naechster Sale-kritischer Schritt (fuer den Nutzer, 1x manuell)
 Etsy-Account + 2-3 Listings aus `docs/social/outbound/*.md` einstellen (hoechster
 autonom-vorbereiteter Kaufintent). Danach FB/Reddit-Entwuerfe posten.
+
+## Nachtrag: Landingpage-Conversion (nach erstem Deploy)
+- Bug gefixt: 4/8 Specs hatten leeres `keywords` -> LPs emittierten
+  `<meta name="keywords" content="">`. Generator jetzt mit Fallback (title+sections+DE).
+- Preis-Format DE: `4.99 €` -> `4,99 €` (LP + Button + JSON-LD price bleibt .2f fuer Rich-Result).
+- Echtes Produkt-Preview: LPs zeigen jetzt die ersten 5 Kategorien des echten `budget.csv`
+  als Tabelle (Kauflift: Kaeufer sehen das Grid, nicht nur Text).
+- FAQ-Block (Abo/Format/Rechnung/Rueckerstattung) gegen Kaufangst.
+- generator: scripts/template_landing.py::build_one. LIVE verifiziert (grep 4,99 €,
+  "So sieht deine Tabelle aus", "Häufige Fragen", keywords nicht leer).
