@@ -1,0 +1,26 @@
+[
+  {
+    "query": "vintage wecker",
+    "deals": [
+      {
+        "price_eur": 4.0,
+        "median_eur": 30.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.kleinanzeigen.de/s-suchanfrage/vintage%20wecker/k0",
+    "alerted_at": "2026-07-23T20:39:38.868479+00:00"
+  },
+  {
+    "query": "macbook pro 2019",
+    "deals": [
+      {
+        "price_eur": 80.0,
+        "median_eur": 450.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.kleinanzeigen.de/s-suchanfrage/macbook%20pro%202019/k0",
+    "alerted_at": "2026-07-23T20:39:41.334477+00:00"
+  }
+]
