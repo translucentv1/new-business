@@ -22,5 +22,73 @@
     ],
     "url": "https://www.kleinanzeigen.de/s-suchanfrage/macbook%20pro%202019/k0",
     "alerted_at": "2026-07-23T20:39:41.334477+00:00"
+  },
+  {
+    "query": "vintage wecker",
+    "deals": [
+      {
+        "price_eur": 4.0,
+        "median_eur": 30.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.kleinanzeigen.de/s-suchanfrage/vintage%20wecker/k0",
+    "alerted_at": "2026-07-23T20:47:13.206095+00:00"
+  },
+  {
+    "query": "macbook pro 2019",
+    "deals": [
+      {
+        "price_eur": 80.0,
+        "median_eur": 450.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.kleinanzeigen.de/s-suchanfrage/macbook%20pro%202019/k0",
+    "alerted_at": "2026-07-23T20:47:15.718445+00:00"
+  },
+  {
+    "query": "spiele (2-5EUR)",
+    "deals": [
+      {
+        "price_eur": 1.0,
+        "median_eur": 5.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      },
+      {
+        "price_eur": 1.0,
+        "median_eur": 5.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.medimops.de/spiele-C0300992/?fcCatSearchPrice=2+EUR+-+5+EUR",
+    "alerted_at": "2026-07-23T20:47:22.659569+00:00"
+  },
+  {
+    "query": "(startseite)",
+    "deals": [
+      {
+        "price_eur": 0.63,
+        "median_eur": 14.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      },
+      {
+        "price_eur": 0.63,
+        "median_eur": 14.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      },
+      {
+        "price_eur": 0.63,
+        "median_eur": 14.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      },
+      {
+        "price_eur": 0.63,
+        "median_eur": 14.0,
+        "note": "verdaechtig tief vs Median -> manuell pruefen"
+      }
+    ],
+    "url": "https://www.mein-deal.com/",
+    "alerted_at": "2026-07-23T20:47:24.955235+00:00"
   }
 ]
