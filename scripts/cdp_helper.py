@@ -15,7 +15,26 @@ def _tabs():
     return json.loads(urllib.request.urlopen(f"{CDP}/json", timeout=10).read())
 
 
+def find_pb_sell_tab():
+    """Find the PromptBase /sell tab precisely (not just any 'sell' substring).
+    Returns the tab dict or None."""
+    for t in _tabs():
+        if t.get("type") != "page":
+            continue
+        url = (t.get("url") or "").lower()
+        if "promptbase.com/sell" in url:
+            return t
+    # fallback: any promptbase page
+    for t in _tabs():
+        if t.get("type") == "page" and "promptbase" in (t.get("url") or "").lower():
+            return t
+    return None
+
+
 def find_tab(keyword: str):
+    # precise: prefer exact sell match
+    if keyword == "sell":
+        return find_pb_sell_tab()
     for t in _tabs():
         if t.get("type") == "page" and keyword in (t.get("url") or "").lower():
             return t
