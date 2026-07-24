@@ -1,0 +1,137 @@
+{
+  "generated": "2026-07-24",
+  "gigs": [
+    {
+      "niche": "Finanz-Tracker / Haushaltsbuch (DE)",
+      "title": "Erstelle dir ein persönliches Haushaltsbuch & Finanz-Tracker in Excel/Google Sheets",
+      "subtitle": "Mit automatischer Kategorisierung, Monatsauswertung und Spar-Ziel-Tracking",
+      "category": "Personal Assistance / Financial Consulting",
+      "tags": [
+        "haushaltsbuch",
+        "finanzen",
+        "excel",
+        "budget",
+        "sheets"
+      ],
+      "description": "Du brauchst Finanz-Tracker / Haushaltsbuch (DE)? Ich liefere dir ein sofort nutzbares Digital-Produkt, das ich aus meiner fertigen Vorlagen-Bibliothek für deutsche Nutzer erstelle.\n\nWas du bekommst:\n- Mit automatischer Kategorisierung, Monatsauswertung und Spar-Ziel-Tracking\n- Direkt einsatzbereit (Sheets/Notion/CSV/Markdown)\n- Deutsche Anleitung inklusive\n\nQuelle: kuratierte DE-Nischen-Templates (Finanzen, Steuern, ADHS, Dev-Skills).",
+      "packages": {
+        "basic": {
+          "name": "Starter",
+          "price_usd": 5,
+          "desc": "1 fertiges Google-Sheet Haushaltsbuch mit 3 Kategorien + Anleitung"
+        },
+        "standard": {
+          "name": "Pro",
+          "price_usd": 15,
+          "desc": "Haushaltsbuch + Finanz-Tracker mit Charts + Spar-Ziel + 1 Revision"
+        },
+        "premium": {
+          "name": "Premium",
+          "price_usd": 30,
+          "desc": "Alles + Umzug-Budget-Planer + Steuerfreibetrag-Optimierer + 2 Revisionen"
+        }
+      },
+      "deliverable_source": "products/templates/ (Haushaltsbuch, Finanz-Tracker DACH, Umzug, Steuerfreibetrag)",
+      "status": "DRAFT_READY — USER pastes into fiverr.com/seller and publishes"
+    },
+    {
+      "niche": "Kleinunternehmer Rechnung & Steuer (§19 UStG)",
+      "title": "Erstelle deine Rechnungsvorlage & Kleingewerbe Steuer-Planner als Sheets/CSV",
+      "subtitle": "GoBD-konforme Rechnung + USt-Voranmeldung-Planer für deutsche Kleinunternehmer",
+      "category": "Business / Accounting & Finance",
+      "tags": [
+        "rechnung",
+        "kleingewerbe",
+        "steuer",
+        "ustg",
+        "freelancer"
+      ],
+      "description": "Du brauchst Kleinunternehmer Rechnung & Steuer (§19 UStG)? Ich liefere dir ein sofort nutzbares Digital-Produkt, das ich aus meiner fertigen Vorlagen-Bibliothek für deutsche Nutzer erstelle.\n\nWas du bekommst:\n- GoBD-konforme Rechnung + USt-Voranmeldung-Planer für deutsche Kleinunternehmer\n- Direkt einsatzbereit (Sheets/Notion/CSV/Markdown)\n- Deutsche Anleitung inklusive\n\nQuelle: kuratierte DE-Nischen-Templates (Finanzen, Steuern, ADHS, Dev-Skills).",
+      "packages": {
+        "basic": {
+          "name": "Rechnung",
+          "price_usd": 5,
+          "desc": "1 GoBD-Rechnungsvorlage (.docx/.xlsx) inkl. Impressum-Felder"
+        },
+        "standard": {
+          "name": "Steuer-Planner",
+          "price_usd": 15,
+          "desc": "Rechnungsvorlage + §19-UStG Planer + Nebenkostenabrechnung"
+        },
+        "premium": {
+          "name": "Full Setup",
+          "price_usd": 30,
+          "desc": "Alles + 1 Stunde Einrichtungs-Support per PDF/Video"
+        }
+      },
+      "deliverable_source": "products/templates/ (Rechnungsvorlage, Kleingewerbe Steuer-Planner, NK-Abrechnung)",
+      "status": "DRAFT_READY — USER pastes into fiverr.com/seller and publishes"
+    },
+    {
+      "niche": "ADHS Wochenplaner",
+      "title": "Erstelle dir einen ADHS-Wochenplaner mit Fokus & Struktur (Notion/Sheets)",
+      "subtitle": "Visueller Wochenrhythmus, Prioritäten-Matrix und Energie-Tracking",
+      "category": "Lifestyle / Productivity",
+      "tags": [
+        "adhs",
+        "wochenplaner",
+        "notion",
+        "produktivität",
+        "fokus"
+      ],
+      "description": "Du brauchst ADHS Wochenplaner? Ich liefere dir ein sofort nutzbares Digital-Produkt, das ich aus meiner fertigen Vorlagen-Bibliothek für deutsche Nutzer erstelle.\n\nWas du bekommst:\n- Visueller Wochenrhythmus, Prioritäten-Matrix und Energie-Tracking\n- Direkt einsatzbereit (Sheets/Notion/CSV/Markdown)\n- Deutsche Anleitung inklusive\n\nQuelle: kuratierte DE-Nischen-Templates (Finanzen, Steuern, ADHS, Dev-Skills).",
+      "packages": {
+        "basic": {
+          "name": "Template",
+          "price_usd": 5,
+          "desc": "1 ADHS-Wochenplaner-Template (Notion oder Sheets)"
+        },
+        "standard": {
+          "name": "Pro",
+          "price_usd": 15,
+          "desc": "Wochenplaner + Monatsrückblick + 1 Anpassung"
+        },
+        "premium": {
+          "name": "Coaching-Set",
+          "price_usd": 30,
+          "desc": "Alles + Umzug-Budget-Planer + 2 Anpassungen"
+        }
+      },
+      "deliverable_source": "products/templates/ (ADHS-Wochenplaner, Umzug-Budget-Planer)",
+      "status": "DRAFT_READY — USER pastes into fiverr.com/seller and publishes"
+    },
+    {
+      "niche": "Dev-Skills / Prompts (Claude/ChatGPT)",
+      "title": "Schreibe dir wiederverwendbare Claude/ChatGPT Dev-Skills (Code-Review, Debug, Tests)",
+      "subtitle": "7 fertige Skills als Markdown — sofort einsatzbereit, kein Prompt-Engineering nötig",
+      "category": "Programming / Other",
+      "tags": [
+        "claude",
+        "chatgpt",
+        "dev-skills",
+        "prompts",
+        "coding"
+      ],
+      "description": "Du brauchst Dev-Skills / Prompts (Claude/ChatGPT)? Ich liefere dir ein sofort nutzbares Digital-Produkt, das ich aus meiner fertigen Vorlagen-Bibliothek für deutsche Nutzer erstelle.\n\nWas du bekommst:\n- 7 fertige Skills als Markdown — sofort einsatzbereit, kein Prompt-Engineering nötig\n- Direkt einsatzbereit (Sheets/Notion/CSV/Markdown)\n- Deutsche Anleitung inklusive\n\nQuelle: kuratierte DE-Nischen-Templates (Finanzen, Steuern, ADHS, Dev-Skills).",
+      "packages": {
+        "basic": {
+          "name": "1 Skill",
+          "price_usd": 5,
+          "desc": "1 maßgeschneiderte Dev-Skill (z.B. Code Reviewer)"
+        },
+        "standard": {
+          "name": "Bundle",
+          "price_usd": 15,
+          "desc": "3 Dev-Skills deiner Wahl"
+        },
+        "premium": {
+          "name": "Full Pack",
+          "price_usd": 30,
+          "desc": "Alle 7 Skills + Anleitung zur Einbindung"
+        }
+      },
+      "deliverable_source": "products/templates/ (Agent-Skills Bundle – 7 Dev-Skills)",
+      "status": "DRAFT_READY — USER pastes into fiverr.com/seller and publishes"
+    }
+  ]
+}
