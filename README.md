@@ -1,0 +1,1 @@
+Der teuerste Fehler dieses Projekts war "technisch alles gruen", waehrend das Vorzeige-Produkt kaputt war. Deshalb: MEASURED belegen (Testausgabe/HTTP-Code/Dateiinhalt). Skript ohne Fehler != korrekt -> Ergebnis pruefen. Bei Code-Aenderung: relevante Tests gruen halten, dann committen + pushen (publish_site.py) + Live-Check per curl (HTTP 200 auf geaenderte URLs).
