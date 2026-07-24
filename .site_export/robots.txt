@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Download-Gate Deliverables nicht crawlen/indexieren (ADR-0013)
-Disallow: /dl/
-
-Sitemap: https://translucentv1.github.io/new-business/sitemap.xml
