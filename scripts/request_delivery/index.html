@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wunsch erfüllen – custom Deliverables</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;line-height:1.6}
+  h1{font-size:2rem;margin-bottom:.2em}
+  textarea,input{width:100%;padding:8px;margin:6px 0;font:inherit}
+  button{background:#111;color:#fff;border:0;padding:12px 20px;font-size:1rem;cursor:pointer;border-radius:6px}
+  .note{color:#666;font-size:.9rem;margin-top:2em;border-top:1px solid #eee;padding-top:1em}
+</style>
+</head>
+<body>
+<h1>Was brauchst du?</h1>
+<p>Beschreibe, was wir dir liefern sollen – ein Text, ein Template, ein Code-Snippet,
+ein Study-Guide, eine Design-Idee. Du bekommst ein fertiges Lieferobjekt.</p>
+
+<form action="/request" method="post">
+  <label>Deine Anfrage:<br>
+  <textarea name="req" rows="6" placeholder="z.B. Ein 3-Seiten Study-Guide zu Kapitel 5 von Frankenstein mit Zusammenfassung, Charakteren und 5 Verständnisfragen"></textarea></label>
+  <label>Preis (EUR): <input name="price" value="3.99" size="6"></label>
+  <button type="submit">Anfrage senden</button>
+</form>
+
+<div class="note">
+  <p><strong>Rechtliches:</strong> Anbieter i.S.d. § 5 TMG: [DEIN NAME], [STRASSE],
+  [PLZ ORT], Deutschland. Kontakt: [EMAIL]. Umsatzsteuer-ID: sobald vorhanden.</p>
+  <p><strong>AGB:</strong> Es gelten unsere Allgemeinen Geschäftsbedingungen
+  (Link folgt). Bestellung = bindendes Angebot. Lieferung digital nach Zahlungseingang.</p>
+  <p>Dies ist ein kostenpflichtiger Service. Impressum und AGB vor öffentlichem
+  Launch vervollständigen (siehe adr/0035).</p>
+</div>
+</body>
+</html>
