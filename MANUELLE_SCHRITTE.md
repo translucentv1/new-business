@@ -20,8 +20,9 @@ Autonom erstellt: 2026-07-25. Hermes kann diese nicht (Rechte/Accounts/Externe S
 
 3. **Gewerbeanmeldung / Impressum / AGB**
    - Service-Verkauf (RTD) braucht bei Regelmäßigkeit Gewerbeschein (DE).
-   - `scripts/request_delivery/index.html` hat Platzhalter `[DEIN NAME]` etc. ausfüllen.
-   - AGB-Template erstellen (Link im Impressum).
+   - Templates liegen bereit (autonom erstellt 2026-07-26): `impressum.html` + `agb.html` (Repo-Root, gh-pages).
+   - Du: Platzhalter `[DEIN NAME]`, `[EMAIL]` etc. ausfüllen, gelben TODO-Kasten + `noindex`-Meta entfernen.
+   - Wichtig aus AGB §5: Widerrufs-Erlöschen-Checkbox (§ 356 Abs. 5 BGB) muss vor Launch in den Bestellprozess.
    - Erst NACH diesen Schritten öffentlich launchen.
 
 ## 🟡 MITTEL (Traffic = Engine)
