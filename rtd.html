@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wunsch erfüllen – custom Deliverables on Demand</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;line-height:1.6;color:#1a1a1a}
+  h1{font-size:2rem;margin-bottom:.2em}
+  .box{background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;padding:1em;margin:1.4em 0}
+  label{display:block;margin:1em 0 .3em;font-weight:600}
+  textarea,input,select{width:100%;padding:8px;font:inherit;border:1px solid #ccc;border-radius:4px}
+  button{background:#111;color:#fff;border:0;padding:12px 20px;font-size:1rem;cursor:pointer;border-radius:6px;margin-top:1em}
+  .note{color:#666;font-size:.9rem;margin-top:2em;border-top:1px solid #eee;padding-top:1em}
+  code{background:#f0f0f0;padding:2px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>Was brauchst du?</h1>
+<p>Beschreibe deine Anfrage – wir liefern ein fertiges Ergebnis.
+Texte, Templates, Code-Snippets, Study-Guides, Design-Ideen.</p>
+
+<div class="box">
+  <form id="rtd" action="https://buy.stripe.com/demo/rtd" method="post" onsubmit="return false;">
+    <label>Deine Anfrage</label>
+    <textarea id="req" rows="6" placeholder="z.B. 3-Seiten Study-Guide zu Kapitel 5 von Frankenstein mit Zusammenfassung, Charakteren und 5 Verständnisfragen"></textarea>
+
+    <label>Leistungsumfang (Preisstufe)</label>
+    <select id="tier">
+      <option value="3.99">Basis – 3,99 € (kurzes Deliverable)</option>
+      <option value="7.99">Standard – 7,99 € (mittel, inkl. 1 Revision)</option>
+      <option value="14.99">Premium – 14,99 € (ausführlich, 2 Revisionen)</option>
+    </select>
+
+    <button type="button" onclick="submitRtd()">Anfrage absenden</button>
+  </form>
+  <p id="status" style="margin-top:1em;color:#2962ff"></p>
+</div>
+
+<p><strong>So funktioniert's:</strong> Du beschreibst deinen Wunsch, wählst eine
+Preisstufe, bezahlst bequem per Stripe. Nach Zahlungseingang erhältst du dein
+fertiges Deliverable (digital).</p>
+
+<div class="note">
+  <p><strong>Rechtliches:</strong> Anbieter i.S.d. § 5 TMG: [DEIN NAME], [STRASSE],
+  [PLZ ORT], Deutschland. Kontakt: [EMAIL]. Umsatzsteuer-ID: folgt.</p>
+  <p><strong>AGB:</strong> Bestellung = bindendes Angebot. Lieferung digital nach
+  Zahlungseingang. Impressum und AGB vor öffentlichem Launch vervollständigen
+  (siehe <code>adr/0035-request-to-delivery.md</code> + <code>MANUELLE_SCHRITTE.md</code>).</p>
+  <p>Dies ist ein kostenpflichtiger Service. Aktuell im Aufbau – echter Checkout
+  nach Freischaltung des Live-Stripe-Keys.</p>
+</div>
+
+<script>
+// Client-side: posts to the RTD backend if reachable, else shows demo info.
+// The backend (scripts/request_delivery/app.py) creates a real Stripe Payment Link.
+async function submitRtd(){
+  const req = document.getElementById('req').value.trim();
+  const price = document.getElementById('tier').value;
+  const status = document.getElementById('status');
+  if(!req){ status.textContent = 'Bitte beschreibe deine Anfrage.'; return; }
+  status.textContent = 'Sende…';
+  try{
+    const r = await fetch('https://rtd.philipp-behnisch.de/request', {
+      method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: new URLSearchParams({req, price})
+    });
+    if(r.ok){ status.textContent = 'Anfrage gesendet! Du erhältst gleich deinen Bezahllink.'; }
+    else { status.textContent = 'Demo-Modus: Backend nicht erreichbar. Anfrage notiert.'; }
+  }catch(e){
+    status.textContent = 'Demo-Modus: Backend offline. Anfrage notiert (wird manuell bearbeitet).';
+  }
+}
+</script>
+</body>
+</html>
