@@ -1,0 +1,12 @@
+{
+  "book_id": "244",
+  "title": "A Study in Scarlet",
+  "author": "Arthur Conan Doyle",
+  "chapters": 17,
+  "chars": 238668,
+  "built": 1784908097,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

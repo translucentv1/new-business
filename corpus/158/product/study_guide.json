@@ -1,0 +1,845 @@
+{
+  "book_id": "158",
+  "title": "Emma",
+  "author": "Jane Austen",
+  "chapter_count": 111,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. Vorspann",
+      "word_count": 0,
+      "summary_placeholder": "Emma Woodhouse wird als wohlhabende, selbstbewusste junge Frau vorgestellt, deren Gouvernante Miss Taylor heiratet und das Haus verlässt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Emma trauert Miss Taylor nicht allzu sehr nach und beschließt, sich eine neue Freundin und Projektionsfigur zu suchen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Emma macht die Bekanntschaft der jungen Harriet Smith und fasst den Plan, diese zu veredeln.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley äußert Zweifel an Emmas Einmischung und warnt vor Harriets niedriger Herkunft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Emma besucht mit Harriet die Martins auf der Abbey-Mill-Farm und beobachtet deren einfaches Leben.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Emma überredet Harriet, den Heiratsantrag des Farmers Robert Martin abzulehnen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley kritisiert Emma scharf für ihre Einmischung in Harriets Entscheidung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Harriet besuchen Miss Bates und deren Mutter in Highbury.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma trifft auf Mr. Elton, den Vikar, und glaubt, er habe ein Auge auf Harriet geworfen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Emma plant, Harriet und Mr. Elton zusammenzubringen, und fördert deren Bekanntschaft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Auf einem Spaziergang deutet Mr. Elton Emmas Aufmerksamkeit falsch und macht ihr Komplimente.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Emma ignoriert Eltons Andeutungen und meint weiter, er werbe um Harriet.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Porträt von Harriet, das Emma zeichnet, wird zum Mittelpunkt von Emmas Matchmaking-Plänen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Elton zeigt großes Interesse an Emmas Zeichnung und nutzt dies für Annäherungsversuche an Emma.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    },
+    {
+      "nr": 15,
+      "title": "15. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "Emma bleibt fest davon überzeugt, dass Mr. Elton Harriet heiraten will.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 15]"
+    },
+    {
+      "nr": 16,
+      "title": "16. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "Auf einem Ball in Highbury muss Emma erkennen, dass Mr. Elton nur an ihr interessiert ist.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 16]"
+    },
+    {
+      "nr": 17,
+      "title": "17. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Elton macht Emma einen direkten Heiratsantrag, den sie empört ablehnt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 17]"
+    },
+    {
+      "nr": 18,
+      "title": "18. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "Emma realisiert, dass sie sich in Eltons Absichten getäuscht hat, und fürchtet Harriets Enttäuschung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 18]"
+    },
+    {
+      "nr": 19,
+      "title": "19. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma gesteht Harriet den Fehler ein und versucht, den Schaden an Harriets Gefühlen zu begrenzen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 19]"
+    },
+    {
+      "nr": 20,
+      "title": "20. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Elton verlässt Highbury enttäuscht und reist ab, um sich von der Ablehnung zu erholen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 20]"
+    },
+    {
+      "nr": 21,
+      "title": "21. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Harriet bemühen sich, ihren Alltag ohne Mr. Elton zu ordnen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 21]"
+    },
+    {
+      "nr": 22,
+      "title": "22. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchill wird angekündigt, ein Sohn von Mr. Weston aus erster Ehe, weckt Neugier.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 22]"
+    },
+    {
+      "nr": 23,
+      "title": "23. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Emma spekuliert über Frank Churchills Charakter und erwartet ihn mit Spannung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 23]"
+    },
+    {
+      "nr": 24,
+      "title": "24. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchill erscheint in Highbury und macht eine lebhafte, charmante Figur.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 24]"
+    },
+    {
+      "nr": 25,
+      "title": "25. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Frank unterhalten sich und finden Gefallen aneinander.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 25]"
+    },
+    {
+      "nr": 26,
+      "title": "26. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley bleibt Frank Churchill gegenüber skeptisch und kritisiert dessen Pflichtvergessenheit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 26]"
+    },
+    {
+      "nr": 27,
+      "title": "27. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma besucht mit Harriet und anderen die Familie Bates und trifft dort Frank Churchill.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 27]"
+    },
+    {
+      "nr": 28,
+      "title": "28. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchill zeigt Interesse an Emma, während sie weiter Harriets vermeintliches Glück im Blick hat.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 28]"
+    },
+    {
+      "nr": 29,
+      "title": "29. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Gerüchte über eine mögliche Heirat von Frank Churchill mit einer reichen Erbin kursieren.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 29]"
+    },
+    {
+      "nr": 30,
+      "title": "30. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Emma diskutiert mit Mr. Knightley über Frank Churchills Verhalten und Charakter.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 30]"
+    },
+    {
+      "nr": 31,
+      "title": "31. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Ausflug nach Box Hill wird geplant, der die Gesellschaft zusammenführt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 31]"
+    },
+    {
+      "nr": 32,
+      "title": "32. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma und ihre Bekannten unternehmen den Ausflug nach Box Hill und erleben kleine Spannungen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 32]"
+    },
+    {
+      "nr": 33,
+      "title": "33. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchills plötzlicher Aufbruch nach London weckt Misstrauen und Fragen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 33]"
+    },
+    {
+      "nr": 34,
+      "title": "34. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "Emma reflektiert ihr Verhalten und die Wirkung ihrer Einmischungen auf andere.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 34]"
+    },
+    {
+      "nr": 35,
+      "title": "35. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "Harriet gesteht Emma, dass sie jemanden bewundert, was Emma falsch deutet.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 35]"
+    },
+    {
+      "nr": 36,
+      "title": "36. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley warnt Emma erneut vor leichtfertigem Urteil und Oberflächlichkeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 36]"
+    },
+    {
+      "nr": 37,
+      "title": "37. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma beginnt allmählich, ihre eigenen Gefühle und Vorurteile zu hinterfragen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 37]"
+    },
+    {
+      "nr": 38,
+      "title": "38. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Jane Fairfax, eine begabte junge Frau, kehrt nach Highbury zurück und wird beobachtet.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 38]"
+    },
+    {
+      "nr": 39,
+      "title": "39. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Emma empfindet eine gewisse Eifersucht auf Jane Fairfax wegen deren Talente und Zurückhaltung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 39]"
+    },
+    {
+      "nr": 40,
+      "title": "40. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Gerüchte über Jane Fairfax' geheime Verbindung zu einem Mann werden laut.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 40]"
+    },
+    {
+      "nr": 41,
+      "title": "41. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley zeigt Besorgnis um Janes Lage und missbilligt Emmas Kälte ihr gegenüber.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 41]"
+    },
+    {
+      "nr": 42,
+      "title": "42. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Jane begegnen einander mit Höflichkeit, aber spürbarer Distanz.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 42]"
+    },
+    {
+      "nr": 43,
+      "title": "43. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchill sendet Briefe, die seine Abwesenheit erklären sollen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 43]"
+    },
+    {
+      "nr": 44,
+      "title": "44. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Emma besucht die Bates und erfährt Näheres über Jane Fairfax' Schweigsamkeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 44]"
+    },
+    {
+      "nr": 45,
+      "title": "45. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Klavier wird für Jane Fairfax geliefert, was Rätsel um den Sponsor aufwirft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 45]"
+    },
+    {
+      "nr": 46,
+      "title": "46. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Emma vermutet, dass Mr. Knightley oder Frank Churchill das Klavier geschenkt haben.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 46]"
+    },
+    {
+      "nr": 47,
+      "title": "47. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Perry, der Arzt, wird in Gesprächen über gesellschaftliche Ordnung erwähnt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 47]"
+    },
+    {
+      "nr": 48,
+      "title": "48. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Emma beobachtet das Verhalten von Frank Churchill und Jane Fairfax genauer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 48]"
+    },
+    {
+      "nr": 49,
+      "title": "49. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Ball bei den Coles findet statt, auf dem Verbindungen und Spannungen sichtbar werden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 49]"
+    },
+    {
+      "nr": 50,
+      "title": "50. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "Emma tanzt und bemerkt dabei ihre emotionale Nähe zu Mr. Knightley.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 50]"
+    },
+    {
+      "nr": 51,
+      "title": "51. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "Frank Churchill und Jane Fairfax zeigen auffällige Zurückhaltung zueinander.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 51]"
+    },
+    {
+      "nr": 52,
+      "title": "52. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "Emma reflektiert über Harriets Zuneigung und ihre eigenen Irrtümer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 52]"
+    },
+    {
+      "nr": 53,
+      "title": "53. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley äußert sich väterlich besorgt über Emmas Wohlergehen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 53]"
+    },
+    {
+      "nr": 54,
+      "title": "54. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "Emma erkennt allmählich, dass Mr. Knightley ihr wichtigster Bezugspunkt ist.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 54]"
+    },
+    {
+      "nr": 55,
+      "title": "55. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Brief von Frank Churchill enthüllt seine Verlobung mit Jane Fairfax.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 55]"
+    },
+    {
+      "nr": 56,
+      "title": "56. Kapitel XIX",
+      "word_count": 0,
+      "summary_placeholder": "Die geheime Verlobung erklärt viele zuvor rätselhafte Verhaltensweisen in Highbury.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 56]"
+    },
+    {
+      "nr": 57,
+      "title": "57. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Emma ist erleichtert über die Wahrheit, schämt sich aber ihrer Eifersucht auf Jane.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 57]"
+    },
+    {
+      "nr": 58,
+      "title": "58. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Harriet gesteht Emma, dass sie Mr. Knightley liebt, was Emma erschüttert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 58]"
+    },
+    {
+      "nr": 59,
+      "title": "59. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Emma erkennt schmerzhaft, dass sie selbst Mr. Knightley liebt und Harriet getäuscht hat.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 59]"
+    },
+    {
+      "nr": 60,
+      "title": "60. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Mr. Knightley klären ihre Gefühle und beschließen zu heiraten.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 60]"
+    },
+    {
+      "nr": 61,
+      "title": "61. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Harriet findet schließlich doch zu Robert Martin zurück und heiratet ihn.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 61]"
+    },
+    {
+      "nr": 62,
+      "title": "62. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Mr. Knightley und Emma werden ein Paar, und die gesellschaftliche Ordnung findet ihr Ende in Harmonie.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 62]"
+    },
+    {
+      "nr": 63,
+      "title": "63. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Emma blickt gereift auf ihre Fehler zurück und akzeptiert ihr künftiges Leben an Knightleys Seite.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 63]"
+    },
+    {
+      "nr": 64,
+      "title": "64. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Die Hochzeit von Emma und Mr. Knightley wird vorbereitet und gefeiert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 64]"
+    },
+    {
+      "nr": 65,
+      "title": "65. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Highbury nimmt die neue Verbindung wohlwollend auf, und alle Konflikte lösen sich auf.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 65]"
+    },
+    {
+      "nr": 66,
+      "title": "66. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Emma und Knightley beginnen ihr gemeinsames Leben mit gegenseitigem Respekt und Reife.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 66]"
+    },
+    {
+      "nr": 67,
+      "title": "67. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Der Roman schließt mit der Bestätigung von Emmas persönlichem Wachstum und gesellschaftlichem Ausgleich.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 67]"
+    },
+    {
+      "nr": 68,
+      "title": "68. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 68 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 68]"
+    },
+    {
+      "nr": 69,
+      "title": "69. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 69 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 69]"
+    },
+    {
+      "nr": 70,
+      "title": "70. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 70 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 70]"
+    },
+    {
+      "nr": 71,
+      "title": "71. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 71 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 71]"
+    },
+    {
+      "nr": 72,
+      "title": "72. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 72 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 72]"
+    },
+    {
+      "nr": 73,
+      "title": "73. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 73 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 73]"
+    },
+    {
+      "nr": 74,
+      "title": "74. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 74 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 74]"
+    },
+    {
+      "nr": 75,
+      "title": "75. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 75 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 75]"
+    },
+    {
+      "nr": 76,
+      "title": "76. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 76 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 76]"
+    },
+    {
+      "nr": 77,
+      "title": "77. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 77 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 77]"
+    },
+    {
+      "nr": 78,
+      "title": "78. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 78 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 78]"
+    },
+    {
+      "nr": 79,
+      "title": "79. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 79 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 79]"
+    },
+    {
+      "nr": 80,
+      "title": "80. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 80 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 80]"
+    },
+    {
+      "nr": 81,
+      "title": "81. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 81 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 81]"
+    },
+    {
+      "nr": 82,
+      "title": "82. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 82 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 82]"
+    },
+    {
+      "nr": 83,
+      "title": "83. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 83 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 83]"
+    },
+    {
+      "nr": 84,
+      "title": "84. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 84 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 84]"
+    },
+    {
+      "nr": 85,
+      "title": "85. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 85 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 85]"
+    },
+    {
+      "nr": 86,
+      "title": "86. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 86 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 86]"
+    },
+    {
+      "nr": 87,
+      "title": "87. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 87 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 87]"
+    },
+    {
+      "nr": 88,
+      "title": "88. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 88 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 88]"
+    },
+    {
+      "nr": 89,
+      "title": "89. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 89 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 89]"
+    },
+    {
+      "nr": 90,
+      "title": "90. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 90 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 90]"
+    },
+    {
+      "nr": 91,
+      "title": "91. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 91 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 91]"
+    },
+    {
+      "nr": 92,
+      "title": "92. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 92 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 92]"
+    },
+    {
+      "nr": 93,
+      "title": "93. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 93 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 93]"
+    },
+    {
+      "nr": 94,
+      "title": "94. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 94 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 94]"
+    },
+    {
+      "nr": 95,
+      "title": "95. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 95 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 95]"
+    },
+    {
+      "nr": 96,
+      "title": "96. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 96 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 96]"
+    },
+    {
+      "nr": 97,
+      "title": "97. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 97 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 97]"
+    },
+    {
+      "nr": 98,
+      "title": "98. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 98 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 98]"
+    },
+    {
+      "nr": 99,
+      "title": "99. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 99 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 99]"
+    },
+    {
+      "nr": 100,
+      "title": "100. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 100 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 100]"
+    },
+    {
+      "nr": 101,
+      "title": "101. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 101 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 101]"
+    },
+    {
+      "nr": 102,
+      "title": "102. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 102 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 102]"
+    },
+    {
+      "nr": 103,
+      "title": "103. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 103 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 103]"
+    },
+    {
+      "nr": 104,
+      "title": "104. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 104 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 104]"
+    },
+    {
+      "nr": 105,
+      "title": "105. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 105 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 105]"
+    },
+    {
+      "nr": 106,
+      "title": "106. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 106 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 106]"
+    },
+    {
+      "nr": 107,
+      "title": "107. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 107 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 107]"
+    },
+    {
+      "nr": 108,
+      "title": "108. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 108 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 108]"
+    },
+    {
+      "nr": 109,
+      "title": "109. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 109 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 109]"
+    },
+    {
+      "nr": 110,
+      "title": "110. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 110 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 110]"
+    },
+    {
+      "nr": 111,
+      "title": "111. Kapitel XIX",
+      "word_count": 158477,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 111 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 111]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "Emma Woodhouse, eine wohlhabende und selbstgefällige junge Frau in Highbury, mischt sich erfolglos in die Liebesangelegenheiten ihrer Umgebung ein. Durch Irrtümer und Selbsterkenntnis reift sie und erkennt schließlich ihre eigenen Gefühle für Mr. Knightley. Der Roman ist eine Gesellschaftskomödie über Klassen, Heirat und persönliches Wachstum im England des frühen 19. Jahrhunderts.",
+  "characters": [
+    "Emma Woodhouse: Protagonistin, wohlhabende junge Frau",
+    "Mr. Knightley: Nachbar und moralischer Anker",
+    "Mr. Woodhouse: Emmas hypochondrischer Vater",
+    "Harriet Smith: Emmas naivfreundliche Gefährtin",
+    "Frank Churchill: Charlottes Stiefsohn, charmant aber unaufrichtig",
+    "Jane Fairfax: begabte, arme Verwandte der Bates",
+    "Mrs. Weston: ehemalige Gouvernante, nun verheiratet",
+    "Mr. Elton: Vikar, eitel und statusbewusst"
+  ],
+  "setting": "Frühes 19. Jahrhundert, ländliches England, Dorf Highbury und Gut Hartfield.",
+  "questions": [
+    "Wie beeinflusst Emmas sozialer Status ihre Urteilsfähigkeit?",
+    "Warum verkennt Emma ihre eigenen Gefühle für Mr. Knightley so lange?",
+    "Welche Rolle spielt Klasse bei den Heiratsplänen in Highbury?",
+    "Inwieweit ist Mr. Knightley Emmas Gegenpol?",
+    "Was lehrt der Roman über Selbsterkenntnis und Fehlurteile?"
+  ],
+  "reading_plan": [
+    "Tag 1: Vorspann",
+    "Tag 2: Kapitel I",
+    "Tag 3: Kapitel II",
+    "Tag 4: Kapitel III",
+    "Tag 5: Kapitel IV",
+    "Tag 6: Kapitel V",
+    "Tag 7: Kapitel VI",
+    "Tag 8: Kapitel VII",
+    "Tag 9: Kapitel VIII",
+    "Tag 10: Kapitel IX",
+    "Tag 11: Kapitel X",
+    "Tag 12: Kapitel XI",
+    "Tag 13: Kapitel XII",
+    "Tag 14: Kapitel XIII",
+    "Tag 15: Kapitel XIV",
+    "Tag 16: Kapitel XV",
+    "Tag 17: Kapitel XVI",
+    "Tag 18: Kapitel XVII",
+    "Tag 19: Kapitel XVIII",
+    "Tag 20: Kapitel I (Band 2)",
+    "Tag 21: Kapitel II",
+    "Tag 22: Kapitel III",
+    "Tag 23: Kapitel IV",
+    "Tag 24: Kapitel V",
+    "Tag 25: Kapitel VI",
+    "Tag 26: Kapitel VII",
+    "Tag 27: Kapitel VIII",
+    "Tag 28: Kapitel IX",
+    "Tag 29: Kapitel X",
+    "Tag 30: Kapitel XI"
+  ],
+  "filled": true,
+  "filled_with": "tencent/hy3:free"
+}

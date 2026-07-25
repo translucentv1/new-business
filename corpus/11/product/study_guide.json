@@ -1,0 +1,241 @@
+{
+  "book_id": "11",
+  "title": "Alice's Adventures in Wonderland",
+  "author": "Lewis Carroll",
+  "chapter_count": 25,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. Vorspann",
+      "word_count": 0,
+      "summary_placeholder": "Alice sitzt mit ihrer Schwester am Ufer und beginnt sich zu langweilen, bevor sie das weiße Kaninchen mit Weste und Uhr entdeckt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. Down the Rabbit-Hole",
+      "word_count": 0,
+      "summary_placeholder": "Alice folgt dem weißen Kaninchen in einen Bau und fällt in einen langen Schacht in das Wunderland.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. The Pool of Tears",
+      "word_count": 0,
+      "summary_placeholder": "Alice wächst durch einen Trank und weint einen ganzen Tränensee, in dem sie später mit Tieren schwimmt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. A Caucus-Race and a Long Tale",
+      "word_count": 0,
+      "summary_placeholder": "Nach dem Schwimmen veranstalten die Tiere eine Caucus-Race und ein Maus erzählt eine verworrene Geschichte.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. The Rabbit Sends in a Little Bill",
+      "word_count": 0,
+      "summary_placeholder": "Das Kaninchen schickt Alice in sein Haus, um etwas zu holen; dort wächst sie und blockiert den Raum, bis sie schrumpft und flieht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. Advice from a Caterpillar",
+      "word_count": 0,
+      "summary_placeholder": "Alice trifft eine Raupe auf einem Pilz, die ihr rätselhafte Ratschläge zu Wachstum und Identität gibt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. Pig and Pepper",
+      "word_count": 0,
+      "summary_placeholder": "Alice gelangt zum Haus des Herzogs, erlebt ein chaotisches Szenario mit einem Baby, das sich in ein Schwein verwandelt, und der Köchin.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. A Mad Tea-Party",
+      "word_count": 0,
+      "summary_placeholder": "Alice nimmt an einer unendlichen Teeparty mit dem Hutmacher, dem Märzhasen und dem Schlafmützen-Mäuschen teil, voller Wortspiele.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. The Queen’s Croquet-Ground",
+      "word_count": 0,
+      "summary_placeholder": "Alice begegnet der Herzogin und der Königin, deren Croquet-Spiel mit lebenden Flamingos und Igeln absolut willkürlich abläuft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. The Mock Turtle’s Story",
+      "word_count": 0,
+      "summary_placeholder": "Die Grinsekatze führt Alice zum falschen Schildkröten, der seine traurige Schulzeit als Schildkrötensuppe erzählt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. The Lobster Quadrille",
+      "word_count": 0,
+      "summary_placeholder": "Die falsche Schildkröte und der Löwenkopf-Fisch erklären den Lobster-Quadrille-Tanz, den sie mit Alice aufführen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. Who Stole the Tarts?",
+      "word_count": 0,
+      "summary_placeholder": "Ein Gerichtsprozess beginnt: Die Königin beschuldigt den Bäcker, die Tartes gestohlen zu haben, und Alice wird als Zeugin gerufen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. Alice’s Evidence",
+      "word_count": 0,
+      "summary_placeholder": "Alice wird befragt, widerspricht der absurden Logik des Gerichts und wächst, woraufhin alle gegen sie losgehen und sie aufwacht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Alice beginnt ihre Geschichte mit dem Fallen in den Kaninchenbau und den ersten Veränderungen ihrer Größe.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    },
+    {
+      "nr": 15,
+      "title": "15. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Alice trifft verschiedene Tiere am Ufer des Tränensees und erlebt die erste seltsame Kommunikation im Wunderland.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 15]"
+    },
+    {
+      "nr": 16,
+      "title": "16. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Alice begegnet der Maus und anderen Tieren, die ihr viktorianische Bildung auf absurde Weise vermitteln wollen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 16]"
+    },
+    {
+      "nr": 17,
+      "title": "17. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Alice gelangt in den Garten des Kaninchens und erlebt dort Verwechslungen mit dem Diener Bill.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 17]"
+    },
+    {
+      "nr": 18,
+      "title": "18. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Alice spricht mit der Raupe und lernt, wie sie durch den Pilz ihre Größe kontrollieren kann.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 18]"
+    },
+    {
+      "nr": 19,
+      "title": "19. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Alice besucht das Haus der Herzogin und erlebt das pepperige Chaos mit dem Schwein-Baby.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 19]"
+    },
+    {
+      "nr": 20,
+      "title": "20. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Alice nimmt an der verrückten Teeparty teil und diskutiert über Zeit und Wahnsinn.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 20]"
+    },
+    {
+      "nr": 21,
+      "title": "21. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Alice betritt das Croquet-Feld der Königin und erkennt die Grausamkeit und Willkür der Herrscherin.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 21]"
+    },
+    {
+      "nr": 22,
+      "title": "22. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Alice trifft die falsche Schildkröte und hört deren parodistische Lebensgeschichte.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 22]"
+    },
+    {
+      "nr": 23,
+      "title": "23. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Alice übt mit den Kreaturen den Lobster-Quadrille und erlebt weitere sprachliche Spielereien.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 23]"
+    },
+    {
+      "nr": 24,
+      "title": "24. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Alice erscheint vor Gericht und erlebt den Höhepunkt der absurden viktorianischen Justizsatire.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 24]"
+    },
+    {
+      "nr": 25,
+      "title": "25. Kapitel XII",
+      "word_count": 27333,
+      "summary_placeholder": "Alice widersetzt sich der Königin, erwacht aus dem Traum und kehrt in die reale Welt zurück.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 25]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "Alice folgt einem weißen Kaninchen in ein unterirdisches Wunderland und erlebt absurde Abenteuer mit seltsamen Kreaturen. Sie wächst und schrumpft, nimmt an skurrilen Teepartys und Gerichtsprozessen teil und hinterfragt ständig die Logik ihrer Umgebung. Das Werk ist eine satirische Parodie auf viktorianische Erziehung und Sprache.",
+  "characters": [
+    "Alice: Protagonistin, neugieriges Mädchen",
+    "White Rabbit: Kaninchen, das Alice in Wonderland führt",
+    "Cheshire Cat: grinsende Katze mit philosophischen Ratschlägen",
+    "Mad Hatter: verrückter Hutmacher bei der Teeparty",
+    "Queen of Hearts: tyrannische Herrscherin von Wonderland",
+    "Caterpillar: Raupe, die Alice über Identität befragt"
+  ],
+  "setting": "Viktorianisches England, überwiegend in der fantastischen Unterwelt Wonderland",
+  "questions": [
+    "Warum folgt Alice dem weißen Kaninchen trotz der Gefahr?",
+    "Wie spiegelt das Wachsen und Schrumpfen Alices Entwicklung wider?",
+    "Was kritisiert Carroll an der viktorianischen Gesellschaft?",
+    "Welche Rolle spielt Sprache als Machtinstrument in Wonderland?",
+    "Ist Alices Erwachen ein Ende oder ein neuer Anfang?"
+  ],
+  "reading_plan": [
+    "Tag 1: Vorspann",
+    "Tag 2: Down the Rabbit-Hole",
+    "Tag 3: The Pool of Tears",
+    "Tag 4: A Caucus-Race and a Long Tale",
+    "Tag 5: The Rabbit Sends in a Little Bill",
+    "Tag 6: Advice from a Caterpillar",
+    "Tag 7: Pig and Pepper",
+    "Tag 8: A Mad Tea-Party",
+    "Tag 9: The Queen’s Croquet-Ground",
+    "Tag 10: The Mock Turtle’s Story",
+    "Tag 11: The Lobster Quadrille",
+    "Tag 12: Who Stole the Tarts?",
+    "Tag 13: Alice’s Evidence",
+    "Tag 14: Kapitel I",
+    "Tag 15: Kapitel II",
+    "Tag 16: Kapitel III",
+    "Tag 17: Kapitel IV",
+    "Tag 18: Kapitel V",
+    "Tag 19: Kapitel VI",
+    "Tag 20: Kapitel VII",
+    "Tag 21: Kapitel VIII",
+    "Tag 22: Kapitel IX",
+    "Tag 23: Kapitel X",
+    "Tag 24: Kapitel XI",
+    "Tag 25: Kapitel XII",
+    "Tag 26: Wiederholung Kapitel 1-5",
+    "Tag 27: Wiederholung Kapitel 6-10",
+    "Tag 28: Wiederholung Kapitel 11-15",
+    "Tag 29: Wiederholung Kapitel 16-20",
+    "Tag 30: Abschlussbetrachtung und Fragen"
+  ],
+  "filled": true,
+  "filled_with": "tencent/hy3:free"
+}

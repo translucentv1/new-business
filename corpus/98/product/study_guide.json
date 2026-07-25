@@ -1,0 +1,704 @@
+{
+  "book_id": "98",
+  "title": "A Tale of Two Cities",
+  "author": "Charles Dickens",
+  "chapter_count": 91,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. Vorspann",
+      "word_count": 0,
+      "summary_placeholder": "Der Vorspann liefert das berühmte Kontrast-Motiv von Zeit und Ort als Einstieg in die Erzählung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. The Period",
+      "word_count": 0,
+      "summary_placeholder": "Die Epoche von 1775 wird als Zeit extremer Gegensätze in London und Paris eingeführt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. The Mail",
+      "word_count": 0,
+      "summary_placeholder": "Eine Postkutsche reist nachts durch England und trägt Spannung sowie erste Figuren ein.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. The Night Shadows",
+      "word_count": 0,
+      "summary_placeholder": "Unbekannte Schattengestalten kündigen das Schicksal und geheime Verbindungen zwischen den Charakteren an.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. The Preparation",
+      "word_count": 0,
+      "summary_placeholder": "Vorbereitungen für Begegnungen und Reisen werden getroffen, die das weitere Geschehen prägen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. The Wine-shop",
+      "word_count": 0,
+      "summary_placeholder": "Ein Pariser Weinshop wird als Treffpunkt der Revolutionäre und Schauplatz des Elends gezeigt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. The Shoemaker",
+      "word_count": 0,
+      "summary_placeholder": "Dr. Manette wird als gebrochener Schuhmacher nach jahrelanger Haft im Bastille-Keller vorgestellt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. Five Years Later",
+      "word_count": 0,
+      "summary_placeholder": "Fünf Jahre später hat sich die Lage in England und Frankreich weiter zugespitzt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. A Sight",
+      "word_count": 0,
+      "summary_placeholder": "Eine öffentliche Hinrichtung verdeutlicht die Brutalität und das Volkstheater der Zeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. A Disappointment",
+      "word_count": 0,
+      "summary_placeholder": "Enttäuschung begleitet eine erhoffte Wiedervereinigung oder Nachricht, die nicht eintritt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. Congratulatory",
+      "word_count": 0,
+      "summary_placeholder": "Glückwünsche zu einer Verlobung oder einem Ereignis stehen im Kontrast zur politischen Lage.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. The Jackal",
+      "word_count": 0,
+      "summary_placeholder": "Der Anwalt Carton wird als fauler, aber nützlicher Helfer ('Jackal') von Stryver eingeführt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. Hundreds of People",
+      "word_count": 0,
+      "summary_placeholder": "Viele Menschen bewegen sich in den Salons und Gerichtssälen, wodurch das Netz der Beziehungen wächst.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. Monseigneur in Town",
+      "word_count": 0,
+      "summary_placeholder": "Ein adliger Monseigneur repräsentiert in der Stadt die Arroganz des Ancien Régime.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    },
+    {
+      "nr": 15,
+      "title": "15. Monseigneur in the Country",
+      "word_count": 0,
+      "summary_placeholder": "Auf dem Land zeigt derselbe Adlige vollends die Gleichgültigkeit gegenüber dem Leid der Bauern.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 15]"
+    },
+    {
+      "nr": 16,
+      "title": "16. The Gorgon’s Head",
+      "word_count": 0,
+      "summary_placeholder": "Das Bild des Gorgonenkopfes symbolisiert Schrecken und Erstarrung durch Herrschaft und Terror.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 16]"
+    },
+    {
+      "nr": 17,
+      "title": "17. Two Promises",
+      "word_count": 0,
+      "summary_placeholder": "Zwei Versprechen werden gegeben, die later das Handeln von Charles Darnay und anderen bestimmen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 17]"
+    },
+    {
+      "nr": 18,
+      "title": "18. A Companion Picture",
+      "word_count": 0,
+      "summary_placeholder": "Ein parallel geführtes Bild einer Familie vertieft den Kontrast zwischen den Schichten.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 18]"
+    },
+    {
+      "nr": 19,
+      "title": "19. The Fellow of Delicacy",
+      "word_count": 0,
+      "summary_placeholder": "Ein feiner Herr offenbart durch Höflichkeit seine moralische Kälte in gesellschaftlichen Belangen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 19]"
+    },
+    {
+      "nr": 20,
+      "title": "20. The Fellow of no Delicacy",
+      "word_count": 0,
+      "summary_placeholder": "Ein rücksichtsloser Charakter zeigt das Fehlen von Delikatesse im Umgang mit Menschen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 20]"
+    },
+    {
+      "nr": 21,
+      "title": "21. The Honest Tradesman",
+      "word_count": 0,
+      "summary_placeholder": "Ein ehrlicher Handwerker wird zum Teil der revolutionären Maschinerie und Spitzelarbeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 21]"
+    },
+    {
+      "nr": 22,
+      "title": "22. Knitting",
+      "word_count": 0,
+      "summary_placeholder": "Madame Defarge strickt Namen der Opfer in ihr Register für die Guillotine ein.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 22]"
+    },
+    {
+      "nr": 23,
+      "title": "23. Still Knitting",
+      "word_count": 0,
+      "summary_placeholder": "Das Stricken geht weiter und verknüpft das Schicksal der Verurteilten mit dem der Revolution.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 23]"
+    },
+    {
+      "nr": 24,
+      "title": "24. One Night",
+      "word_count": 0,
+      "summary_placeholder": "In einer Nacht verdichten sich die Anzeichen für den bevorstehenden Ausbruch der Gewalt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 24]"
+    },
+    {
+      "nr": 25,
+      "title": "25. Nine Days",
+      "word_count": 0,
+      "summary_placeholder": "Neun Tage markieren eine Phase der Unruhe und der Vorbereitung des Aufstands.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 25]"
+    },
+    {
+      "nr": 26,
+      "title": "26. An Opinion",
+      "word_count": 0,
+      "summary_placeholder": "Eine Einschätzung zur politischen Lage wird von einer Figur als Warnung geäußert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 26]"
+    },
+    {
+      "nr": 27,
+      "title": "27. A Plea",
+      "word_count": 0,
+      "summary_placeholder": "Ein Plädoyer vor Gericht zeigt die Mechanismen von Recht und Willkür in der Zeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 27]"
+    },
+    {
+      "nr": 28,
+      "title": "28. Echoing Footsteps",
+      "word_count": 0,
+      "summary_placeholder": "Widerhallende Schritte deuten auf nahende Veränderungen und Verfolgung hin.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 28]"
+    },
+    {
+      "nr": 29,
+      "title": "29. The Sea Still Rises",
+      "word_count": 0,
+      "summary_placeholder": "Die Woge des Volkszorns steigt wie das Meer und wird unaufhaltsam.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 29]"
+    },
+    {
+      "nr": 30,
+      "title": "30. Fire Rises",
+      "word_count": 0,
+      "summary_placeholder": "Das Feuer des Aufstands bricht aus und erfasst Paris mit zerstörerischer Kraft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 30]"
+    },
+    {
+      "nr": 31,
+      "title": "31. Drawn to the Loadstone Rock",
+      "word_count": 0,
+      "summary_placeholder": "Figuren werden wie von einem Magnet zum Schauplatz des Geschehens hingezogen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 31]"
+    },
+    {
+      "nr": 32,
+      "title": "32. In Secret",
+      "word_count": 0,
+      "summary_placeholder": "Im Geheimen werden Pläne und Rettungsversuche für die Familie Manette gesponnen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 32]"
+    },
+    {
+      "nr": 33,
+      "title": "33. The Grindstone",
+      "word_count": 0,
+      "summary_placeholder": "Der Schleifstein der Revolution wird für Waffen und Guillotine geschärft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 33]"
+    },
+    {
+      "nr": 34,
+      "title": "34. The Shadow",
+      "word_count": 0,
+      "summary_placeholder": "Ein Schatten des Todes und der Vergeltung liegt über den Handelnden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 34]"
+    },
+    {
+      "nr": 35,
+      "title": "35. Calm in Storm",
+      "word_count": 0,
+      "summary_placeholder": "Ruhe mitten im Sturm zeigt Momente menschlicher Normalität trotz Umsturz.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 35]"
+    },
+    {
+      "nr": 36,
+      "title": "36. The Wood-sawyer",
+      "word_count": 0,
+      "summary_placeholder": "Ein Holzsäger verkörpert die alltägliche Grausamkeit der revolutionären Straße.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 36]"
+    },
+    {
+      "nr": 37,
+      "title": "37. Triumph",
+      "word_count": 0,
+      "summary_placeholder": "Ein triumphales Ereignis der Revolutionäre steht im Zeichen des Sieges über die Adligen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 37]"
+    },
+    {
+      "nr": 38,
+      "title": "38. A Knock at the Door",
+      "word_count": 0,
+      "summary_placeholder": "Ein Klopfen an die Tür kündigt Verhaftung oder bedrohliche Begegnung an.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 38]"
+    },
+    {
+      "nr": 39,
+      "title": "39. A Hand at Cards",
+      "word_count": 0,
+      "summary_placeholder": "Eine Kartenmetapher beschreibt das taktische Spiel um Leben und Tod.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 39]"
+    },
+    {
+      "nr": 40,
+      "title": "40. The Game Made",
+      "word_count": 0,
+      "summary_placeholder": "Das Spiel ist entschieden, und das Schicksal einer Figur wird besiegelt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 40]"
+    },
+    {
+      "nr": 41,
+      "title": "41. The Substance of the Shadow",
+      "word_count": 0,
+      "summary_placeholder": "Der Kern des vorausgesagten Schattens wird als reale Gefahr greifbar.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 41]"
+    },
+    {
+      "nr": 42,
+      "title": "42. Dusk",
+      "word_count": 0,
+      "summary_placeholder": "Die Dämmerung senkt sich über die Stadt und die Gemüter der Protagonisten.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 42]"
+    },
+    {
+      "nr": 43,
+      "title": "43. Darkness",
+      "word_count": 0,
+      "summary_placeholder": "Die Dunkelheit bringt Entscheidungen und die Ausweglosigkeit der Lage.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 43]"
+    },
+    {
+      "nr": 44,
+      "title": "44. Fifty-two",
+      "word_count": 0,
+      "summary_placeholder": "Die Zahl Fünfzig-zwei markiert Verurteilte oder eine Gruppe im Gefängnis.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 44]"
+    },
+    {
+      "nr": 45,
+      "title": "45. The Knitting Done",
+      "word_count": 0,
+      "summary_placeholder": "Das Stricken ist beendet, das Todesurteil über viele ist festgeschrieben.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 45]"
+    },
+    {
+      "nr": 46,
+      "title": "46. The Footsteps Die Out For Ever",
+      "word_count": 0,
+      "summary_placeholder": "Die Schritte der Verfolgten verstummen für immer durch die Guillotine.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 46]"
+    },
+    {
+      "nr": 47,
+      "title": "47. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel I des Buchs III eröffnet den finalen Teil um Rettung und Opfer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 47]"
+    },
+    {
+      "nr": 48,
+      "title": "48. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel II vertieft die Flucht- und Rettungsbemühungen in Paris.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 48]"
+    },
+    {
+      "nr": 49,
+      "title": "49. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel III zeigt die Gefangenschaft und die Bedrohung durch das Tribunal.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 49]"
+    },
+    {
+      "nr": 50,
+      "title": "50. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel IV behandelt Verhandlungen und das Eingreifen von Verbündeten.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 50]"
+    },
+    {
+      "nr": 51,
+      "title": "51. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel V führt die Anhörung vor der revolutionären Gerichtsbarkeit vor.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 51]"
+    },
+    {
+      "nr": 52,
+      "title": "52. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel VI beschreibt die Verurteilung und die aussichtslose Lage des Gefangenen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 52]"
+    },
+    {
+      "nr": 53,
+      "title": "53. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel I (späterer Teil) setzt die Erzählung um Cartons Plan fort.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 53]"
+    },
+    {
+      "nr": 54,
+      "title": "54. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel II zeigt Vorbereitungen für das finale Opfer und die Täuschung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 54]"
+    },
+    {
+      "nr": 55,
+      "title": "55. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel III thematisiert die Ausführung und das Schicksal der Familie.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 55]"
+    },
+    {
+      "nr": 56,
+      "title": "56. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel IV beschreibt die letzten Stunden und Cartons innere Erlösung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 56]"
+    },
+    {
+      "nr": 57,
+      "title": "57. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel V führt die gerettete Familie und die Folgen des Opfers vor.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 57]"
+    },
+    {
+      "nr": 58,
+      "title": "58. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel VI zeigt die Rückkehr nach England und den Neuanfang im Frieden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 58]"
+    },
+    {
+      "nr": 59,
+      "title": "59. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel VII gipfelt in Cartons berühmtem Opfer an der Guillotine.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 59]"
+    },
+    {
+      "nr": 60,
+      "title": "60. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel VIII beschreibt die Wirkung des Opfers auf die Überlebenden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 60]"
+    },
+    {
+      "nr": 61,
+      "title": "61. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel IX schließt das Werk mit Reflexion über Erlösung und Erinnerung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 61]"
+    },
+    {
+      "nr": 62,
+      "title": "62. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 62 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 62]"
+    },
+    {
+      "nr": 63,
+      "title": "63. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 63 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 63]"
+    },
+    {
+      "nr": 64,
+      "title": "64. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 64 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 64]"
+    },
+    {
+      "nr": 65,
+      "title": "65. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 65 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 65]"
+    },
+    {
+      "nr": 66,
+      "title": "66. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 66 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 66]"
+    },
+    {
+      "nr": 67,
+      "title": "67. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 67 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 67]"
+    },
+    {
+      "nr": 68,
+      "title": "68. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 68 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 68]"
+    },
+    {
+      "nr": 69,
+      "title": "69. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 69 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 69]"
+    },
+    {
+      "nr": 70,
+      "title": "70. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 70 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 70]"
+    },
+    {
+      "nr": 71,
+      "title": "71. Kapitel XIX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 71 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 71]"
+    },
+    {
+      "nr": 72,
+      "title": "72. Kapitel XX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 72 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 72]"
+    },
+    {
+      "nr": 73,
+      "title": "73. Kapitel XXI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 73 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 73]"
+    },
+    {
+      "nr": 74,
+      "title": "74. Kapitel XXII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 74 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 74]"
+    },
+    {
+      "nr": 75,
+      "title": "75. Kapitel XXIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 75 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 75]"
+    },
+    {
+      "nr": 76,
+      "title": "76. Kapitel XXIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 76 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 76]"
+    },
+    {
+      "nr": 77,
+      "title": "77. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 77 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 77]"
+    },
+    {
+      "nr": 78,
+      "title": "78. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 78 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 78]"
+    },
+    {
+      "nr": 79,
+      "title": "79. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 79 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 79]"
+    },
+    {
+      "nr": 80,
+      "title": "80. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 80 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 80]"
+    },
+    {
+      "nr": 81,
+      "title": "81. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 81 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 81]"
+    },
+    {
+      "nr": 82,
+      "title": "82. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 82 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 82]"
+    },
+    {
+      "nr": 83,
+      "title": "83. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 83 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 83]"
+    },
+    {
+      "nr": 84,
+      "title": "84. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 84 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 84]"
+    },
+    {
+      "nr": 85,
+      "title": "85. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 85 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 85]"
+    },
+    {
+      "nr": 86,
+      "title": "86. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 86 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 86]"
+    },
+    {
+      "nr": 87,
+      "title": "87. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 87 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 87]"
+    },
+    {
+      "nr": 88,
+      "title": "88. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 88 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 88]"
+    },
+    {
+      "nr": 89,
+      "title": "89. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 89 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 89]"
+    },
+    {
+      "nr": 90,
+      "title": "90. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 90 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 90]"
+    },
+    {
+      "nr": 91,
+      "title": "91. Kapitel XV",
+      "word_count": 136695,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 91 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 91]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "A Tale of Two Cities erzählt vor dem Hintergrund der Französischen Revolution von der Verstrickung englischer und französischer Schicksale, insbesondere der Familie Manette und des Anwalts Carton. Das Werk thematisiert Gewalt, Opferbereitschaft und Erlösung angesichts gesellschaftlicher Umbrüche. Im Zentrum steht die Frage, ob individuelles Opfer den Terror überwinden kann.",
+  "characters": [
+    "Charles Darnay: französischer Adliger und Emigrant",
+    "Sydney Carton: zynischer englischer Anwalt mit opferbereitem Ende",
+    "Dr. Manette: ehemaliger Bastille-Häftling und Vater von Lucie",
+    "Lucie Manette: Tochter des Arztes und moralisches Zentrum",
+    "Madame Defarge: revolutionäre Tricoteuse und Rächerin",
+    "Mr. Lorry: Bankangestellter und Vertrauter der Familie",
+    "Jerry Cruncher: Botenjunge und Nachtwächter"
+  ],
+  "setting": "London und Paris, circa 1775 bis 1793, während der Französischen Revolution",
+  "questions": [
+    "Wie spiegelt sich die Doppelstruktur des Titels in den Handlungsorten wider?",
+    "Welche Funktion hat Dr. Manettes Trauma für den Plot?",
+    "Inwiefern ist Sydney Cartons Opfer eine christliche Erlösungsfigur?",
+    "Wie wird die Revolution bei Dickens moralisch bewertet?",
+    "Was bedeutet Madame Defarges Stricken symbolisch?"
+  ],
+  "reading_plan": [
+    "Tag 1: Kapitel 1 Vorspann",
+    "Tag 2: Kapitel 2 The Period",
+    "Tag 3: Kapitel 3 The Mail",
+    "Tag 4: Kapitel 4 The Night Shadows",
+    "Tag 5: Kapitel 5 The Preparation",
+    "Tag 6: Kapitel 6 The Wine-shop",
+    "Tag 7: Kapitel 7 The Shoemaker",
+    "Tag 8: Kapitel 8 Five Years Later",
+    "Tag 9: Kapitel 9 A Sight",
+    "Tag 10: Kapitel 10 A Disappointment",
+    "Tag 11: Kapitel 11 Congratulatory",
+    "Tag 12: Kapitel 12 The Jackal",
+    "Tag 13: Kapitel 13 Hundreds of People",
+    "Tag 14: Kapitel 14 Monseigneur in Town",
+    "Tag 15: Kapitel 15 Monseigneur in the Country",
+    "Tag 16: Kapitel 16 The Gorgon’s Head",
+    "Tag 17: Kapitel 17 Two Promises",
+    "Tag 18: Kapitel 18 A Companion Picture",
+    "Tag 19: Kapitel 19 The Fellow of Delicacy",
+    "Tag 20: Kapitel 20 The Fellow of no Delicacy",
+    "Tag 21: Kapitel 21 The Honest Tradesman",
+    "Tag 22: Kapitel 22 Knitting",
+    "Tag 23: Kapitel 23 Still Knitting",
+    "Tag 24: Kapitel 24 One Night",
+    "Tag 25: Kapitel 25 Nine Days",
+    "Tag 26: Kapitel 26 An Opinion",
+    "Tag 27: Kapitel 27 A Plea",
+    "Tag 28: Kapitel 28 Echoing Footsteps",
+    "Tag 29: Kapitel 29 The Sea Still Rises",
+    "Tag 30: Kapitel 30 Fire Rises"
+  ],
+  "filled": true,
+  "filled_with": "tencent/hy3:free"
+}

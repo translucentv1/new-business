@@ -1,0 +1,12 @@
+{
+  "book_id": "768",
+  "title": "Wuthering Heights",
+  "author": "Emily Brontë",
+  "chapters": 35,
+  "chars": 645457,
+  "built": 1784908097,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

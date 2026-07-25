@@ -1,0 +1,171 @@
+{
+  "book_id": "215",
+  "title": "The Call of the Wild",
+  "author": "Jack London",
+  "chapter_count": 15,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. Vorspann",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 1 führt Buck als zufriedenen Haushund in Kalifornien ein, bevor er durch Verrat in den Norden verschleppt wird.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. Into the Primitive",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 2 zeigt Bucks Ankunft im Yukon und seinen ersten Kontakt mit der harten Primitivität und dem Überlebenkampf.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. The Law of Club and Fang",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 3 lehrt Buck durch Gewalt und die Regeln der Wildnis, dass nur der Starke überlebt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. The Dominant Primordial Beast",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 4 weckt in Buck den dominanten Urinstinkt und den Drang, sich durchzusetzen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. Who Has Won to Mastership",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 5 beschreibt, wie Buck durch Stärke und List die Führung im Hundegeschirr erringt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. The Toil of Trace and Trail",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 6 schildert die entbehrungsreiche Arbeit vor dem Schlitten auf den beschwerlichen Trails.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. For the Love of a Man",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 7 zeigt Bucks tiefe Bindung an seinen Herrn John Thornton und die Liebe zu einem Menschen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. The Sounding of the Call",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 8 kündigt das immer lauter werdende Rufen der Wildnis an, das Buck magisch anzieht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. Into the Primitive",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 9 wiederholt Bucks endgültigen Schritt zurück in die Primitivität ohne menschliche Zivilisation.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. The Law of Club and Fang",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 10 spiegelt erneut das Gesetz von Keule und Zahn wider, als Buck vollends wild lebt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. The Dominant Primordial Beast",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 11 lässt das dominante Urwesen in Buck als Anführer eines Wolfsrudels erwachen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. Who Has Won to Mastership",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 12 zeigt, dass Buck die wahre Meisterschaft über die Wildnis gewonnen hat.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. The Toil of Trace and Trail",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 13 umfasst die Mühen des Lebens als wildes Tier in der freien Natur.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. For the Love of a Man",
+      "word_count": 0,
+      "summary_placeholder": "Kapitel 14 thematisiert Bucks bleibende Erinnerung an die Liebe zu Thornton trotz seiner Wildheit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    },
+    {
+      "nr": 15,
+      "title": "15. The Sounding of the Call",
+      "word_count": 32619,
+      "summary_placeholder": "Kapitel 15 beschreibt das endgültige Erhören des Rufs und Bucks vollständiges Aufgehen in der Wildnis.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 15]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "The Call of the Wild erzählt von Buck, einem domestizierten Hund, der aus dem kalifornischen Komfort in den Yukon verschleppt wird und dort durch Gewalt und Überlebenstrieb zum wilden Leittier wird. Er durchläuft den Abstieg in die Primitivität und findet schließlich zu seinem Ursprung zurück. Die strukturierte Kapitelwiederholung spiegelt seinen zyklischen Rückweg in die Wildnis wider.",
+  "characters": [
+    "Buck: Protagonist, ein Kreuzungshund, der zum wilden Anführer wird",
+    "John Thornton: Bucks geliebter Herr und Retter",
+    "Spitz: Dominanter Leithund und Rivale von Buck",
+    "François und Perrault: Erste Treiber im Schlittenhundeteam",
+    "Hal, Charles, Mercedes: Inkompente und grausame Besitzer",
+    "Skeet und Nig: Freundliche Hunde bei Thornton"
+  ],
+  "setting": "Spätes 19. Jahrhundert, Kalifornien (Santa Clara Valley) und Klondike/Yukon während des Goldrauschs",
+  "questions": [
+    "Wie verändert sich Bucks Verständnis von Moral im Kontrast zur 'Law of Club and Fang'?",
+    "Inwiefern ist die Kapitelstruktur mit Wiederholungen ein Symbol für Bucks Rückkehr zur Natur?",
+    "Welche Rolle spielt John Thornton für Bucks Spannung zwischen Zivilisation und Wildnis?",
+    "Wie kritisiert London durch die Figuren Hal, Charles und Mercedes den zivilisatorischen Menschen?",
+    "Was bedeutet das 'Sounding of the Call' als finale Transformation Bucks?"
+  ],
+  "reading_plan": [
+    "Tag 1: Kapitel 1 - Vorspann",
+    "Tag 2: Kapitel 2 - Into the Primitive",
+    "Tag 3: Kapitel 3 - The Law of Club and Fang",
+    "Tag 4: Kapitel 4 - The Dominant Primordial Beast",
+    "Tag 5: Kapitel 5 - Who Has Won to Mastership",
+    "Tag 6: Kapitel 6 - The Toil of Trace and Trail",
+    "Tag 7: Kapitel 7 - For the Love of a Man",
+    "Tag 8: Kapitel 8 - The Sounding of the Call",
+    "Tag 9: Kapitel 9 - Into the Primitive",
+    "Tag 10: Kapitel 10 - The Law of Club and Fang",
+    "Tag 11: Kapitel 11 - The Dominant Primordial Beast",
+    "Tag 12: Kapitel 12 - Who Has Won to Mastership",
+    "Tag 13: Kapitel 13 - The Toil of Trace and Trail",
+    "Tag 14: Kapitel 14 - For the Love of a Man",
+    "Tag 15: Kapitel 15 - The Sounding of the Call",
+    "Tag 16: Reflexion der ersten Zyklen und Charakterentwicklung",
+    "Tag 17: Analyse der Naturdarstellung im Yukon",
+    "Tag 18: Vergleich von Bucks ersten und zweiten Primitivitätsphase",
+    "Tag 19: Untersuchung des Themas Dominanz und Hierarchie",
+    "Tag 20: Betrachtung der Meisterschafts-Konzepte",
+    "Tag 21: Arbeit und Strapazen im Schlittenhundeteam analysieren",
+    "Tag 22: Thorntons Bedeutung vertiefen",
+    "Tag 23: Das Rufen der Wildnis als Motiv deuten",
+    "Tag 24: Wiederholungsstruktur als literarisches Mittel bewerten",
+    "Tag 25: Sozialkritik am Goldrauschmarkt lesen",
+    "Tag 26: Bucks Identitätswandel zusammenfassen",
+    "Tag 27: Symbolik der Tiere im Werk erarbeiten",
+    "Tag 28: Sprachstil und Erzählperspektive untersuchen",
+    "Tag 29: Gesamtinterpretation der Transformation",
+    "Tag 30: Abschluss und offene Fragen klären"
+  ],
+  "filled": true,
+  "filled_with": "tencent/hy3:free"
+}

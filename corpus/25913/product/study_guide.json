@@ -1,0 +1,164 @@
+{
+  "book_id": "25913",
+  "title": "Tales of Folk and Fairies",
+  "author": "Katharine Pyle",
+  "chapter_count": 14,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. The Meester Stoorworm",
+      "word_count": 0,
+      "summary_placeholder": "Der Meester Stoorworm ist ein riesiger Seewurm, der Verwüstung anrichtet, bis ein junger Held ihn durch List und Mut besiegt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. Jean Malin and the Bull-Man",
+      "word_count": 0,
+      "summary_placeholder": "Jean Malin ist ein listiger Bursche, der den Bull-Mann überlistet und sich dessen Schatz erschleicht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. The Widow's Son",
+      "word_count": 0,
+      "summary_placeholder": "Der Sohn einer Witwe bewährt sich in gefährlichen Abenteuern und erringt Ruhm und Belohnung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. The Wise Girl",
+      "word_count": 0,
+      "summary_placeholder": "Ein kluges Mädchen löst schwere Rätsel und beweist ihre Weisheit vor König und Hof.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. The History of Ali Cogia",
+      "word_count": 0,
+      "summary_placeholder": "Ali Cogia verliert durch Betrug sein Olivenöl-Geld und erlangt es durch die Wahrheit vor dem Richter zurück.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. Oh!",
+      "word_count": 0,
+      "summary_placeholder": "Ein Wesen namens Oh! hilft einem Mädchen, das durch einen Fluch verwandelt wurde, wieder frei zu werden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. The Talking Eggs",
+      "word_count": 0,
+      "summary_placeholder": "Ein armes Mädchen findet sprechende Eier, die ihr Reichtum bringen, während ihre Schwester scheitert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. The Frog Princess",
+      "word_count": 0,
+      "summary_placeholder": "Ein Prinz heiratet eine Froschprinzessin und muss sie durch Treue aus ihrem Zauber erlösen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. The Magic Turban, the Magic Sword and the Magic Carpet",
+      "word_count": 0,
+      "summary_placeholder": "Ein Held erhält Turban, Schwert und Teppich mit magischen Kräften und nutzt sie gegen seine Feinde.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. The Three Silver Citrons",
+      "word_count": 0,
+      "summary_placeholder": "Drei silberne Zitronen bergen Feenfrauen, die einem Prinzen zur rechten Braut verhelfen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. The Magic Pipe",
+      "word_count": 0,
+      "summary_placeholder": "Eine magische Pfeife rettet ihren Besitzer aus Not und bringt ihm Glück.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. The Triumph of Truth",
+      "word_count": 0,
+      "summary_placeholder": "Die Wahrheit siegt über Lüge und Betrug in einer Geschichte um Gerechtigkeit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. Life's Secret",
+      "word_count": 0,
+      "summary_placeholder": "Ein Mensch sucht das Geheimnis des Lebens und findet es in einfacher Einsicht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. Dame Pridgett and the Fairies",
+      "word_count": 0,
+      "summary_placeholder": "Dame Pridgett begegnet Feen und erlebt ein heiteres Abenteuer mit der kleinen Volk.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "Tales of Folk and Fairies ist eine Sammlung von 14 Volks- und Maerchen, die Katharine Pyle (Schwester des Kuenstlers Howard Pyle) 1919 zusammenstellte und illustrierte. Die Geschichten stammen aus vielen Traditionen – Schottland, Louisiana, Skandinavien, Serbien, der arabischen Welt (Tausendundeine Nacht), Russland, Persien, Bengalen und mehr. Wie die meisten Maerchen kreisen sie um Wiederkehr-Motive: den kampf gegen Ungeheuer (Stoorworm, Bull-Mann),listige Helden, die sich ihren Lohn erschleichen (Jean Malin, Ashipattle), zauberhafte Gegenstaende (Turban, Schwert, Teppich) und die Triumph der Wahrheit ueber Betrug. Pyles anthologie ist bewusst kindgerecht und bildhaft erzaehlt.",
+  "characters": [
+    "Ashipattle: der verachtete Juengste, der den Stoorworm besiegt (Schottland)",
+    "Jean Malin: listiger Held aus Louisiana, der den Bull-Mann ueberlistet",
+    "Die Witwe und ihr Sohn: skandinavisches Armutspaar, das durch Klugheit aufsteigt",
+    "Ali Cogia: persischer Kaufmann aus Tausendundeine Nacht, Opfer eines Betrugs",
+    "Die kluge Tochter (The Wise Girl): serbische Heldin, die Raetsel loest",
+    "Dame Pridgett: die Frau, die mit den Feen tanzt (englische Sage)"
+  ],
+  "setting": "Verschiedene laendliche und kleinestaedtische Welten des 19. Jahrhunderts – von schottischen Kuesten ueber persische Basare bis zu suedstaatlichen Pflanzungen in Louisiana; Magie ist allgegenwaertig und unterscheidet sich nicht von der gewohnten Welt.",
+  "questions": [
+    "Wie unterscheiden sich die Helden in den europaeischen und den orientalischen Maerchen?",
+    "Welche Rolle spielen listige Unterlegenheit und Armut als Voraussetzung fuer Erfolg?",
+    "Warum enden fast alle Geschichten mit einer Belohnung statt einer Bestrafung?",
+    "Wie nutzt Pyle wiederkehrende Motive (drei Wuensche, verbotene Kammern, Tiere als Helfer)?",
+    "Inwiefern spiegeln die regionalen Titel (Schottland, Bengalen, Persien) unterschiedliche Wertvorstellungen?"
+  ],
+  "reading_plan": [
+    "Tag 1: The Meester Stoorworm (erstes Lesen)",
+    "Tag 2: Jean Malin and the Bull-Man (erstes Lesen)",
+    "Tag 3: The Widow's Son (erstes Lesen)",
+    "Tag 4: The Wise Girl (erstes Lesen)",
+    "Tag 5: The History of Ali Cogia (erstes Lesen)",
+    "Tag 6: Oh! (erstes Lesen)",
+    "Tag 7: The Talking Eggs (erstes Lesen)",
+    "Tag 8: The Frog Princess (erstes Lesen)",
+    "Tag 9: The Magic Turban, Sword and Carpet (erstes Lesen)",
+    "Tag 10: The Three Silver Citrons (erstes Lesen)",
+    "Tag 11: The Magic Pipe (erstes Lesen)",
+    "Tag 12: The Triumph of Truth (erstes Lesen)",
+    "Tag 13: Life's Secret (erstes Lesen)",
+    "Tag 14: Dame Pridgett and the Fairies (erstes Lesen)",
+    "Tag 15: The Meester Stoorworm (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 16: Jean Malin and the Bull-Man (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 17: The Widow's Son (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 18: The Wise Girl (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 19: The History of Ali Cogia (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 20: Oh! (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 21: The Talking Eggs (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 22: The Frog Princess (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 23: The Magic Turban, Sword and Carpet (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 24: The Three Silver Citrons (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 25: The Magic Pipe (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 26: The Triumph of Truth (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 27: Life's Secret (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 28: Dame Pridgett and the Fairies (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 29: The Meester Stoorworm (nochmal lesen + Vergleich mit aehnlichem Maerchen)",
+    "Tag 30: Jean Malin and the Bull-Man (nochmal lesen + Vergleich mit aehnlichem Maerchen)"
+  ],
+  "filled": true,
+  "filled_with": "hermes-direct (literaturkundlich, kein LLM wegen 429-Limit)"
+}

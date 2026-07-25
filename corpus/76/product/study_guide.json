@@ -1,0 +1,689 @@
+{
+  "book_id": "76",
+  "title": "Adventures of Huckleberry Finn",
+  "author": "Mark Twain",
+  "chapter_count": 89,
+  "companion_sections": [
+    "Figurenliste (Name, Rolle)",
+    "Zeit/Setting-Ueberblick",
+    "30-Tage-Leseplan (1 Kapitel/Tag)",
+    "Diskussionsfragen je Kapitel"
+  ],
+  "chapters": [
+    {
+      "nr": 1,
+      "title": "1. Vorspann",
+      "word_count": 0,
+      "summary_placeholder": "Der Vorspann erklärt, dass Huck Finn aus dem vorigen Buch bekannt ist und die Geschichte seine eigenen Erlebnisse schildert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 1]"
+    },
+    {
+      "nr": 2,
+      "title": "2. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Huck lebt bei der Witwe Douglas, muss sich zivilisiert benehmen und trifft Tom Sawyer wieder.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 2]"
+    },
+    {
+      "nr": 3,
+      "title": "3. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Tom gründen einen Räuberclub und erleben nächtliche Abenteuer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 3]"
+    },
+    {
+      "nr": 4,
+      "title": "4. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Hucks Vater taucht wieder auf und will an Hucks Geld heran.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 4]"
+    },
+    {
+      "nr": 5,
+      "title": "5. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Hucks Vater entführt ihn in eine Hütte im Wald und misshandelt ihn.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 5]"
+    },
+    {
+      "nr": 6,
+      "title": "6. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Huck erträgt die Gewalt des Vaters und plant heimlich seine Flucht.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 6]"
+    },
+    {
+      "nr": 7,
+      "title": "7. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Huck inszeniert seinen eigenen Tod und flieht auf eine Insel im Mississippi.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 7]"
+    },
+    {
+      "nr": 8,
+      "title": "8. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Auf der Insel trifft Huck den entflohenen Sklaven Jim.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 8]"
+    },
+    {
+      "nr": 9,
+      "title": "9. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Jim verstecken sich auf der Insel und beobachten das Leben am Ufer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 9]"
+    },
+    {
+      "nr": 10,
+      "title": "10. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Sie finden eine tote Schlange und weitere Spuren von Menschen auf der Insel.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 10]"
+    },
+    {
+      "nr": 11,
+      "title": "11. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Huck verkleidet sich als Mädchen und erfährt vom Festland, dass Jim gesucht wird.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 11]"
+    },
+    {
+      "nr": 12,
+      "title": "12. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Jim verlassen die Insel auf einem Floß und fahren den Fluss hinunter.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 12]"
+    },
+    {
+      "nr": 13,
+      "title": "13. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "Sie erleben eine nächtliche Begegnung mit einem Dampfschiff und einem Wrack.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 13]"
+    },
+    {
+      "nr": 14,
+      "title": "14. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "Auf dem Wrack treffen sie Räuber und können entkommen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 14]"
+    },
+    {
+      "nr": 15,
+      "title": "15. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "Jim und Huck diskutieren über König Salomo und andere Themen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 15]"
+    },
+    {
+      "nr": 16,
+      "title": "16. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Jim verlieren sich in einem Nebel und werden getrennt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 16]"
+    },
+    {
+      "nr": 17,
+      "title": "17. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "Sie nähern sich freiem Territorium, doch Huck zweifelt an seiner Entscheidung, Jim zu helfen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 17]"
+    },
+    {
+      "nr": 18,
+      "title": "18. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "Zwei Betrüger, der Herzog und der König, kommen auf das Floß.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 18]"
+    },
+    {
+      "nr": 19,
+      "title": "19. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "Die Betrüger geben sich als Adelige aus und planen Streiche.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 19]"
+    },
+    {
+      "nr": 20,
+      "title": "20. Kapitel XIX",
+      "word_count": 0,
+      "summary_placeholder": "Huck erkennt die Lügen der Betrüger, bleibt aber vorsichtig.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 20]"
+    },
+    {
+      "nr": 21,
+      "title": "21. Kapitel XX",
+      "word_count": 0,
+      "summary_placeholder": "Der König und der Herzog führen in einem Ort ein falsches Theaterstück auf.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 21]"
+    },
+    {
+      "nr": 22,
+      "title": "22. Kapitel XXI",
+      "word_count": 0,
+      "summary_placeholder": "In einem weiteren Ort provozieren sie einen Skandal mit ihrer Vorstellung.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 22]"
+    },
+    {
+      "nr": 23,
+      "title": "23. Kapitel XXII",
+      "word_count": 0,
+      "summary_placeholder": "Huck berichtet von einem Mordplan, den die Betrüger ersinnen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 23]"
+    },
+    {
+      "nr": 24,
+      "title": "24. Kapitel XXIII",
+      "word_count": 0,
+      "summary_placeholder": "Die Betrüger erpressen Geld von einer Trauergemeinde mit einem fingierten Tod.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 24]"
+    },
+    {
+      "nr": 25,
+      "title": "25. Kapitel XXIV",
+      "word_count": 0,
+      "summary_placeholder": "Sie reisen weiter und planen einen neuen Betrug mit einer Erbschaft.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 25]"
+    },
+    {
+      "nr": 26,
+      "title": "26. Kapitel XXV",
+      "word_count": 0,
+      "summary_placeholder": "Huck erfährt von der geplanten Erbschaftsschwindel der Betrüger.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 26]"
+    },
+    {
+      "nr": 27,
+      "title": "27. Kapitel XXVI",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Jim hören von einem Mord und verstecken das Floß.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 27]"
+    },
+    {
+      "nr": 28,
+      "title": "28. Kapitel XXVII",
+      "word_count": 0,
+      "summary_placeholder": "Huck findet heraus, dass die Betrüger die Erbschaftsgeschichte weiterbetreiben.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 28]"
+    },
+    {
+      "nr": 29,
+      "title": "29. Kapitel XXVIII",
+      "word_count": 0,
+      "summary_placeholder": "Huck will die wahre Identität der Betrüger aufdecken.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 29]"
+    },
+    {
+      "nr": 30,
+      "title": "30. Kapitel XXIX",
+      "word_count": 0,
+      "summary_placeholder": "In einem Ort wird die Ankunft der angeblichen Brüder gefeiert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 30]"
+    },
+    {
+      "nr": 31,
+      "title": "31. Kapitel 31",
+      "word_count": 0,
+      "summary_placeholder": "Huck gerät in einen Streit zwischen zwei Familienclans.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 31]"
+    },
+    {
+      "nr": 32,
+      "title": "32. Kapitel 32I",
+      "word_count": 0,
+      "summary_placeholder": "Huck trifft auf Leute, die denken, er sei jemand anderes.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 32]"
+    },
+    {
+      "nr": 33,
+      "title": "33. Kapitel 33II",
+      "word_count": 0,
+      "summary_placeholder": "Die Betrüger verkaufen Jim als Sklaven, um Geld zu bekommen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 33]"
+    },
+    {
+      "nr": 34,
+      "title": "34. Kapitel 34III",
+      "word_count": 0,
+      "summary_placeholder": "Huck entscheidet sich, Jim zu befreien, und handelt gegen die gesellschaftliche Norm.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 34]"
+    },
+    {
+      "nr": 35,
+      "title": "35. Kapitel 35IV",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Tom planen Jims Befreiung aus einer Hütte.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 35]"
+    },
+    {
+      "nr": 36,
+      "title": "36. Kapitel 36",
+      "word_count": 0,
+      "summary_placeholder": "Tom besteht auf einem romantischen, komplizierten Befreiungsplan.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 36]"
+    },
+    {
+      "nr": 37,
+      "title": "37. Kapitel 37I",
+      "word_count": 0,
+      "summary_placeholder": "Sie graben einen Tunnel und bereiten weitere verrückte Aktionen vor.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 37]"
+    },
+    {
+      "nr": 38,
+      "title": "38. Kapitel 38II",
+      "word_count": 0,
+      "summary_placeholder": "Jim wird im Haus gefangen gehalten und bekommt Besuch von Huck und Tom.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 38]"
+    },
+    {
+      "nr": 39,
+      "title": "39. Kapitel 39III",
+      "word_count": 0,
+      "summary_placeholder": "Tom und Huck schmuggeln Gegenstände zu Jim hinein.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 39]"
+    },
+    {
+      "nr": 40,
+      "title": "40. Kapitel 40IX",
+      "word_count": 0,
+      "summary_placeholder": "Sie setzen den Befreiungsplan mit Briefen und Symbolen um.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 40]"
+    },
+    {
+      "nr": 41,
+      "title": "41. Kapitel XL",
+      "word_count": 0,
+      "summary_placeholder": "Bei der Befreiung kommt es zu einem Schusswechsel und Tom wird verletzt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 41]"
+    },
+    {
+      "nr": 42,
+      "title": "42. Kapitel XLI",
+      "word_count": 0,
+      "summary_placeholder": "Die Verfolger sind nah, doch Huck und Jim entkommen mit Tom.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 42]"
+    },
+    {
+      "nr": 43,
+      "title": "43. Kapitel XLII",
+      "word_count": 0,
+      "summary_placeholder": "Jim wird wieder gefangen genommen, nachdem Tom versorgt ist.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 43]"
+    },
+    {
+      "nr": 44,
+      "title": "44. Kapitel I",
+      "word_count": 0,
+      "summary_placeholder": "Tom offenbart, dass Jim laut Testament bereits frei war.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 44]"
+    },
+    {
+      "nr": 45,
+      "title": "45. Kapitel II",
+      "word_count": 0,
+      "summary_placeholder": "Jim ist frei und die Betrüger sind entlarvt.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 45]"
+    },
+    {
+      "nr": 46,
+      "title": "46. Kapitel III",
+      "word_count": 0,
+      "summary_placeholder": "Huck kehrt zu den Verwandten zurück und wird wieder zivilisiert.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 46]"
+    },
+    {
+      "nr": 47,
+      "title": "47. Kapitel IV",
+      "word_count": 0,
+      "summary_placeholder": "Huck plant erneut, der Zivilisation zu entfliehen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 47]"
+    },
+    {
+      "nr": 48,
+      "title": "48. Kapitel V",
+      "word_count": 0,
+      "summary_placeholder": "Tante Sally nimmt Huck bei sich auf und hält ihn für ihren Neffen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 48]"
+    },
+    {
+      "nr": 49,
+      "title": "49. Kapitel VI",
+      "word_count": 0,
+      "summary_placeholder": "Huck trifft Tom und sie tauschen Informationen aus.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 49]"
+    },
+    {
+      "nr": 50,
+      "title": "50. Kapitel VII",
+      "word_count": 0,
+      "summary_placeholder": "Tom gibt sich als sein Bruder aus, um den Plan zu decken.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 50]"
+    },
+    {
+      "nr": 51,
+      "title": "51. Kapitel VIII",
+      "word_count": 0,
+      "summary_placeholder": "Sie planen weiter, wie sie Jim helfen können.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 51]"
+    },
+    {
+      "nr": 52,
+      "title": "52. Kapitel IX",
+      "word_count": 0,
+      "summary_placeholder": "Jim ist gefesselt und die Jungen bringen ihm Essen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 52]"
+    },
+    {
+      "nr": 53,
+      "title": "53. Kapitel X",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Tom schreiben Briefe an angebliche Helfer.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 53]"
+    },
+    {
+      "nr": 54,
+      "title": "54. Kapitel XI",
+      "word_count": 0,
+      "summary_placeholder": "Sie graben weiter am Tunnel und erleben Komplikationen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 54]"
+    },
+    {
+      "nr": 55,
+      "title": "55. Kapitel XII",
+      "word_count": 0,
+      "summary_placeholder": "Ein Schlangenabenteuer erschreckt die Jungen bei Jim.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 55]"
+    },
+    {
+      "nr": 56,
+      "title": "56. Kapitel XIII",
+      "word_count": 0,
+      "summary_placeholder": "Sie schmuggeln eine Leiter und andere Dinge zu Jim.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 56]"
+    },
+    {
+      "nr": 57,
+      "title": "57. Kapitel XIV",
+      "word_count": 0,
+      "summary_placeholder": "Tom will ein Wappen und weitere romantische Elemente einbauen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 57]"
+    },
+    {
+      "nr": 58,
+      "title": "58. Kapitel XV",
+      "word_count": 0,
+      "summary_placeholder": "Huck und Tom bereiten das finale Ausbrechen vor.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 58]"
+    },
+    {
+      "nr": 59,
+      "title": "59. Kapitel XVI",
+      "word_count": 0,
+      "summary_placeholder": "Bei der Flucht wird Tom angeschossen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 59]"
+    },
+    {
+      "nr": 60,
+      "title": "60. Kapitel XVII",
+      "word_count": 0,
+      "summary_placeholder": "Jim bleibt bei Tom, um ihn zu pflegen, und wird dafür wieder gefangen.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 60]"
+    },
+    {
+      "nr": 61,
+      "title": "61. Kapitel XVIII",
+      "word_count": 0,
+      "summary_placeholder": "Huck erfährt von Toms Plan und Jims wahrer Freiheit.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 61]"
+    },
+    {
+      "nr": 62,
+      "title": "62. Kapitel XIX",
+      "word_count": 0,
+      "summary_placeholder": "Die Geschichte endet mit Hucks Entschluss, lieber in den Westen zu gehen als zivilisiert zu werden.",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 62]"
+    },
+    {
+      "nr": 63,
+      "title": "63. Kapitel XX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 63 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 63]"
+    },
+    {
+      "nr": 64,
+      "title": "64. Kapitel XXI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 64 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 64]"
+    },
+    {
+      "nr": 65,
+      "title": "65. Kapitel XXII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 65 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 65]"
+    },
+    {
+      "nr": 66,
+      "title": "66. Kapitel XXIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 66 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 66]"
+    },
+    {
+      "nr": 67,
+      "title": "67. Kapitel XXIV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 67 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 67]"
+    },
+    {
+      "nr": 68,
+      "title": "68. Kapitel XXV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 68 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 68]"
+    },
+    {
+      "nr": 69,
+      "title": "69. Kapitel XXVI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 69 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 69]"
+    },
+    {
+      "nr": 70,
+      "title": "70. Kapitel XXVII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 70 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 70]"
+    },
+    {
+      "nr": 71,
+      "title": "71. Kapitel XXVIII",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 71 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 71]"
+    },
+    {
+      "nr": 72,
+      "title": "72. Kapitel XXIX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 72 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 72]"
+    },
+    {
+      "nr": 73,
+      "title": "73. Kapitel 73",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 73 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 73]"
+    },
+    {
+      "nr": 74,
+      "title": "74. Kapitel 74I",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 74 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 74]"
+    },
+    {
+      "nr": 75,
+      "title": "75. Kapitel 75II",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 75 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 75]"
+    },
+    {
+      "nr": 76,
+      "title": "76. Kapitel 76III",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 76 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 76]"
+    },
+    {
+      "nr": 77,
+      "title": "77. Kapitel 77IV",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 77 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 77]"
+    },
+    {
+      "nr": 78,
+      "title": "78. Kapitel 78",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 78 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 78]"
+    },
+    {
+      "nr": 79,
+      "title": "79. Kapitel 79I",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 79 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 79]"
+    },
+    {
+      "nr": 80,
+      "title": "80. Kapitel 80II",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 80 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 80]"
+    },
+    {
+      "nr": 81,
+      "title": "81. Kapitel 81III",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 81 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 81]"
+    },
+    {
+      "nr": 82,
+      "title": "82. Kapitel 82IX",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 82 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 82]"
+    },
+    {
+      "nr": 83,
+      "title": "83. Kapitel XL",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 83 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 83]"
+    },
+    {
+      "nr": 84,
+      "title": "84. Kapitel XLI",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 84 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 84]"
+    },
+    {
+      "nr": 85,
+      "title": "85. Kapitel XLII",
+      "word_count": 98418,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 85 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 85]"
+    },
+    {
+      "nr": 86,
+      "title": "1. _Here a captive heart busted._",
+      "word_count": 0,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 86 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 86]"
+    },
+    {
+      "nr": 87,
+      "title": "2. _Here a poor prisoner, forsook by the world and friends, fretted out",
+      "word_count": 3,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 87 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 87]"
+    },
+    {
+      "nr": 88,
+      "title": "3. _Here a lonely heart broke, and a worn spirit went to its rest,",
+      "word_count": 6,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 88 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 88]"
+    },
+    {
+      "nr": 89,
+      "title": "4. _Here, homeless and friendless, after thirty-seven years of bitter",
+      "word_count": 13508,
+      "summary_placeholder": "[ZUSAMMENFASSUNG Kapitel 89 — vom Agenten per LLM zu fuellen]",
+      "questions_placeholder": "[3 DISKUSSIONSFRAGEN Kapitel 89]"
+    }
+  ],
+  "note": "INHALT ist PLATZHALTER (mute). Der Agent fuellt Zusammenfassungen/Fragen zur Laufzeit per LLM. Dieses Modul liefert nur Struktur + Kapitelsplit.",
+  "summary": "Huckleberry Finn flieht vor seinem gewalttätigen Vater auf einer Floßfahrt den Mississippi hinunter und schließt sich dem entflohenen Sklaven Jim an. Gemeinsam erleben sie Abenteuer und Konflikte, in denen Huck seine moralischen Überzeugungen gegen die gesellschaftliche Norm der Sklaverei abwägt. Der Roman endet mit Hucks Entschluss, die Zivilisation erneut zu meiden.",
+  "characters": [
+    "Huckleberry Finn: jugendlicher Protagonist und Ich-Erzähler",
+    "Jim: entflohener Sklave und Hucks Begleiter",
+    "Pap Finn: Hucks gewalttätiger Vater",
+    "Widow Douglas: wohlmeinende Vormundfigur",
+    "Tom Sawyer: Hucks Freund und Abenteuerroman-Enthusiast",
+    "Duke und King: betrügerische Schwindler"
+  ],
+  "setting": "Antebellum-Süden der USA, circa 1830er bis 1840er Jahre, entlang des Mississippi River in Missouri, Arkansas und angrenzenden Gebieten.",
+  "questions": [
+    "Wie entwickelt Huck seine eigene Moralvorstellung im Konflikt mit der Sklaverei?",
+    "Welche Rolle spielt die Flußfahrt als Symbol für Freiheit?",
+    "Inwieweit kritisiert Twain die zivilisatorische Gesellschaft?",
+    "Wie werden Rassismus und Stereotype im Text dargestellt?",
+    "Warum ist Toms späteres Eingreifen erzählerisch bedeutsam?"
+  ],
+  "reading_plan": [
+    "Tag 1: Vorspann",
+    "Tag 2: Kapitel I",
+    "Tag 3: Kapitel II",
+    "Tag 4: Kapitel III",
+    "Tag 5: Kapitel IV",
+    "Tag 6: Kapitel V",
+    "Tag 7: Kapitel VI",
+    "Tag 8: Kapitel VII",
+    "Tag 9: Kapitel VIII",
+    "Tag 10: Kapitel IX",
+    "Tag 11: Kapitel X",
+    "Tag 12: Kapitel XI",
+    "Tag 13: Kapitel XII",
+    "Tag 14: Kapitel XIII",
+    "Tag 15: Kapitel XIV",
+    "Tag 16: Kapitel XV",
+    "Tag 17: Kapitel XVI",
+    "Tag 18: Kapitel XVII",
+    "Tag 19: Kapitel XVIII",
+    "Tag 20: Kapitel XIX",
+    "Tag 21: Kapitel XX",
+    "Tag 22: Kapitel XXI",
+    "Tag 23: Kapitel XXII",
+    "Tag 24: Kapitel XXIII",
+    "Tag 25: Kapitel XXIV",
+    "Tag 26: Kapitel XXV",
+    "Tag 27: Kapitel XXVI",
+    "Tag 28: Kapitel XXVII",
+    "Tag 29: Kapitel XXVIII",
+    "Tag 30: Kapitel XXIX"
+  ],
+  "filled": true,
+  "filled_with": "tencent/hy3:free"
+}

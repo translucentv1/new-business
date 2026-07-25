@@ -1,0 +1,12 @@
+{
+  "book_id": "215",
+  "title": "The Call of the Wild",
+  "author": "Jack London",
+  "chapters": 15,
+  "chars": 177899,
+  "built": 1784908096,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

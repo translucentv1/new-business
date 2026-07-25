@@ -1,0 +1,12 @@
+{
+  "book_id": "98",
+  "title": "A Tale of Two Cities",
+  "author": "Charles Dickens",
+  "chapters": 91,
+  "chars": 757406,
+  "built": 1784908097,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

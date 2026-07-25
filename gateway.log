@@ -1,0 +1,56 @@
+2026-07-22 02:51:56,290 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:52:02,912 | INFO | OK [openrouter/tencent/hy3] duration=6.62s prompt_tokens=36 completion_tokens=249
+2026-07-22 02:52:03,913 | INFO | Cache-Hit fuer task_type=reasoning
+2026-07-22 02:52:04,914 | INFO | Cache-Hit fuer task_type=reasoning
+2026-07-22 02:52:05,916 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe deepseek/deepseek-v4-pro
+2026-07-22 02:52:08,372 | INFO | OK [openrouter/poolside/laguna-s-2.1] duration=2.45s prompt_tokens=65 completion_tokens=256
+2026-07-22 02:52:51,824 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:52:55,742 | INFO | OK [openrouter/tencent/hy3] duration=3.92s prompt_tokens=42 completion_tokens=256
+2026-07-22 02:52:56,743 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:53:04,202 | INFO | OK [openrouter/tencent/hy3] duration=7.45s prompt_tokens=42 completion_tokens=256
+2026-07-22 02:53:05,203 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:53:14,000 | INFO | OK [openrouter/tencent/hy3] duration=8.80s prompt_tokens=42 completion_tokens=256
+2026-07-22 02:53:15,001 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe deepseek/deepseek-v4-pro
+2026-07-22 02:53:17,406 | INFO | OK [openrouter/poolside/laguna-s-2.1] duration=2.39s prompt_tokens=71 completion_tokens=256
+2026-07-22 02:53:18,407 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe deepseek/deepseek-v4-pro
+2026-07-22 02:53:22,335 | INFO | OK [openrouter/poolside/laguna-s-2.1] duration=3.92s prompt_tokens=71 completion_tokens=256
+2026-07-22 02:53:23,339 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe deepseek/deepseek-v4-pro
+2026-07-22 02:53:32,144 | INFO | OK [openrouter/poolside/laguna-s-2.1] duration=8.81s prompt_tokens=71 completion_tokens=256
+2026-07-22 02:53:33,145 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe nvidia/nemotron-3-ultra
+2026-07-22 02:53:34,707 | INFO | OK [openrouter/nvidia/nemotron-3-ultra-550b-a55b] duration=1.56s prompt_tokens=53 completion_tokens=108
+2026-07-22 02:53:35,708 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe nvidia/nemotron-3-ultra
+2026-07-22 02:53:37,993 | INFO | OK [openrouter/nvidia/nemotron-3-ultra-550b-a55b] duration=2.28s prompt_tokens=53 completion_tokens=136
+2026-07-22 02:53:38,994 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe nvidia/nemotron-3-ultra
+2026-07-22 02:53:40,438 | INFO | OK [openrouter/nvidia/nemotron-3-ultra-550b-a55b] duration=1.44s prompt_tokens=53 completion_tokens=122
+2026-07-22 02:53:41,439 | WARNING | Circuit OPEN fuer nvidia_nim:z-ai/glm-5.2 (Cooldown 60s)
+2026-07-22 02:53:41,440 | WARNING | TEST: Circuit OPEN fuer nvidia_nim/z-ai/glm-5.2 erzwungen (simulierter 429-Cooldown)
+2026-07-22 02:53:41,440 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:53:47,438 | INFO | OK [openrouter/tencent/hy3] duration=6.00s prompt_tokens=42 completion_tokens=256
+2026-07-22 02:53:47,439 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:53:47,440 | WARNING | [openrouter] Kein API-Key (OPENROUTER_API_KEY) gesetzt, ueberspringe tencent/hy3
+2026-07-22 02:53:47,440 | WARNING | [nvidia_nim] Kein API-Key (NVIDIA_API_KEY) gesetzt, ueberspringe z-ai/glm-5.2
+2026-07-22 02:53:47,440 | WARNING | [openrouter] Kein API-Key (OPENROUTER_API_KEY) gesetzt, ueberspringe stepfun/step-3.7-flash
+2026-07-22 02:53:47,440 | ERROR | call_safe: Alle Fallbacks fuer task_type='reasoning' fehlgeschlagen. Letzter Fehler: None
+2026-07-22 02:53:47,440 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:53:47,441 | WARNING | [openrouter] Kein API-Key (OPENROUTER_API_KEY) gesetzt, ueberspringe tencent/hy3
+2026-07-22 02:53:47,441 | WARNING | [nvidia_nim] Kein API-Key (NVIDIA_API_KEY) gesetzt, ueberspringe z-ai/glm-5.2
+2026-07-22 02:53:47,441 | WARNING | [openrouter] Kein API-Key (OPENROUTER_API_KEY) gesetzt, ueberspringe stepfun/step-3.7-flash
+2026-07-22 02:57:22,923 | INFO | === resilient loop gestartet (PID 4196) ===
+2026-07-22 02:57:22,924 | ERROR | Unerwarteter Fehler in work_fn (in Folge: 1):
+Traceback (most recent call last):
+  File "C:\Users\phili\new-business\resilient_gateway.py", line 507, in run_forever
+    work_fn()
+  File "C:\Users\phili\new-business\gateway_forever_demo.py", line 44, in limited
+    orig()
+  File "C:\Users\phili\new-business\gateway_forever_demo.py", line 28, in one_step
+    raise RuntimeError("SIMULIERTER BUG in work_fn (zyklus 1)")
+RuntimeError: SIMULIERTER BUG in work_fn (zyklus 1)
+
+2026-07-22 02:57:22,924 | INFO | Warte 4s vor naechstem Versuch
+2026-07-22 02:57:26,925 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:57:28,728 | INFO | OK [openrouter/tencent/hy3] duration=1.80s prompt_tokens=25 completion_tokens=64
+2026-07-22 02:57:30,729 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:57:33,616 | INFO | OK [openrouter/tencent/hy3] duration=2.89s prompt_tokens=25 completion_tokens=64
+2026-07-22 02:57:35,617 | WARNING | [nous_portal] Kein API-Key (NOUS_PORTAL_API_KEY) gesetzt, ueberspringe zai-org/glm-5.2
+2026-07-22 02:57:37,390 | INFO | OK [openrouter/tencent/hy3] duration=1.77s prompt_tokens=25 completion_tokens=64
+2026-07-22 02:57:37,390 | INFO | Manuell gestoppt (KeyboardInterrupt). Beende sauber.

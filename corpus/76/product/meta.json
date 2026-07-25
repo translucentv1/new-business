@@ -1,0 +1,12 @@
+{
+  "book_id": "76",
+  "title": "Adventures of Huckleberry Finn",
+  "author": "Mark Twain",
+  "chapters": 85,
+  "chars": 570864,
+  "built": 1784908097,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}

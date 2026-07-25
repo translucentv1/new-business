@@ -1,0 +1,12 @@
+{
+  "book_id": "1260",
+  "title": "Jane Eyre",
+  "author": "Charlotte Brontë",
+  "chapters": 39,
+  "chars": 1022193,
+  "built": 1784908096,
+  "files": [
+    "content.md",
+    "description.md"
+  ]
+}
