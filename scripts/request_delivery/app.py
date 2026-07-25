@@ -185,8 +185,48 @@ class H(BaseHTTPRequestHandler):
             else:
                 msg = f"Bezahlen Sie hier: <a href='{url}'>{url}</a>"
             self._send(200, f"<p>{msg}</p><p><a href='/'>zurueck</a></p>")
+        elif self.path == "/webhook":
+            self._handle_webhook()
         else:
             self._send(404, "not found")
+
+    def _handle_webhook(self):
+        import hmac as _hmac
+        import hashlib as _hash
+        length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(length)
+        sig = self.headers.get("Stripe-Signature", "")
+        secret = os.environ.get("STRIPE_WEBHOOK_SECRET")
+        if not secret and os.path.exists(os.path.join(ROOT, ".stripe_secrets")):
+            for line in open(os.path.join(ROOT, ".stripe_secrets"), encoding="utf-8", errors="ignore"):
+                if line.strip().startswith("STRIPE_WEBHOOK_SECRET") and "=" in line:
+                    secret = line.split("=", 1)[1].strip().strip('"').strip("'")
+        if secret:
+            exp = _hmac.new(secret.encode(), body, _hash.sha256).hexdigest()
+            if not _hmac.compare_digest(exp, sig or ""):
+                self._send(400, "bad signature")
+                return
+        try:
+            event = json.loads(body.decode("utf-8"))
+        except Exception:
+            self._send(400, "bad json")
+            return
+        if event.get("type") in ("payment_link.created", "checkout.session.completed"):
+            obj = event.get("data", {}).get("object", {})
+            oid = obj.get("metadata", {}).get("order_id")
+            if oid:
+                d = load_orders()
+                if oid in d:
+                    d[oid]["status"] = "paid"
+                    d[oid]["paid_at"] = datetime.now().isoformat()
+                    try:
+                        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+                        from generator import generate
+                        d[oid]["deliverable"] = generate(d[oid]["request"])
+                    except Exception as e:
+                        d[oid]["deliverable"] = f"GENERATION_ERR: {e}"
+                    save_orders(d)
+        self._send(200, "ok")
 
 def main():
     port = int(os.environ.get("PORT", "8080"))
