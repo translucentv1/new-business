@@ -7,19 +7,26 @@ Flow:
   2. POST /request       -> validate, create Stripe Payment Link via REST API,
                             store order, return checkout URL
   3. GET  /status/<id>   -> order status (pending / paid / fulfilled)
-  4. POST /webhook       -> Stripe webhook: mark order paid, trigger generation+delivery
+  4. POST /webhook       -> Stripe webhook: verify signature (Stripe scheme
+                            t=..,v1=.. over "{t}.{body}"), mark order paid,
+                            run generator, save deliverable, set fulfilled.
 
 Stripe secret is read from .stripe_secrets (STRIPE_SECRET_KEY=...). If empty,
 the app runs in DEMO mode: it returns a fake checkout URL and logs the order,
 so the flow is testable without credentials. NEVER hardcode or invent keys.
+DEMO orders carry "demo": true in orders.json (label travels with the data).
 
 Legal: this is a paid service. Operator must add Impressum + AGB + (if regular
 income) Gewerbeanmeldung before public launch. See ADR-0035.
 """
 import os
+import sys
 import json
 import time
 import uuid
+import hmac
+import hashlib
+import urllib.parse
 import urllib.request
 import urllib.error
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -28,6 +35,7 @@ from datetime import datetime
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 ORDERS = os.path.join(HERE, "orders.json")
+DELIVERABLES = os.path.join(HERE, "deliverables")
 SECRETS = os.path.join(ROOT, ".stripe_secrets")
 PRICE_DEFAULT = 399  # cents (3,99 EUR) -- adjustable per request later
 
@@ -43,18 +51,27 @@ def _is_real_key(v):
         return False
     return True
 
-def get_stripe_key():
-    env = os.environ.get("STRIPE_SECRET_KEY")
-    if _is_real_key(env):
-        return env
+def _secret_from_file(name):
     if os.path.exists(SECRETS):
         for line in open(SECRETS, encoding="utf-8", errors="ignore"):
             s = line.strip()
-            if s.startswith("STRIPE_SECRET_KEY") and "=" in s:
+            if s.startswith(name) and "=" in s:
                 v = s.split("=", 1)[1].strip().strip('"').strip("'")
                 if _is_real_key(v):
                     return v
     return None
+
+def get_stripe_key():
+    env = os.environ.get("STRIPE_SECRET_KEY")
+    if _is_real_key(env):
+        return env
+    return _secret_from_file("STRIPE_SECRET_KEY")
+
+def get_webhook_secret():
+    env = os.environ.get("STRIPE_WEBHOOK_SECRET")
+    if _is_real_key(env):
+        return env
+    return _secret_from_file("STRIPE_WEBHOOK_SECRET")
 
 # ---- order store ------------------------------------------------------------
 def load_orders():
@@ -68,14 +85,14 @@ def load_orders():
 def save_orders(d):
     json.dump(d, open(ORDERS, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 
-def add_order(req_text, price_cents, checkout_url, demo=False):
+def add_order(oid, req_text, price_cents, checkout_url, demo=False, payment_link_id=None):
     d = load_orders()
-    oid = uuid.uuid4().hex[:12]
     d[oid] = {
         "id": oid,
         "request": req_text,
         "price_cents": price_cents,
         "checkout_url": checkout_url,
+        "payment_link_id": payment_link_id,
         "status": "pending",
         "demo": demo,
         "created": datetime.now().isoformat(),
@@ -91,16 +108,19 @@ def create_payment_link(req_text, price_cents):
     # Only a real LIVE key may hit the API. Test keys (sk_test_*), placeholders
     # (***), or empty -> DEMO mode. We never use keys we cannot verify belong
     # to the operator (Hard Stop: no foreign credentials).
+    oid = uuid.uuid4().hex[:12]
     if not key or not key.startswith("sk_live_"):
-        oid = uuid.uuid4().hex[:12]
-        demo_url = f"https://buy.stripe.com/demo/{oid}"
-        add_order(req_text, price_cents, demo_url, demo=True)
+        demo_url = f"https://buy.stripe.com/demo/{oid}"  # [DEMO] not a real link
+        add_order(oid, req_text, price_cents, demo_url, demo=True)
         return demo_url, True
 
-    # Real path: create a Price then a Payment Link via Stripe REST API.
-    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/x-www-form-urlencoded"}
+    # Real path: create Product -> Price -> Payment Link via Stripe REST API.
+    # order_id goes into the Payment Link metadata; Stripe copies Payment-Link
+    # metadata onto the Checkout Session, so checkout.session.completed events
+    # carry it back to us (plus payment_link id as fallback match).
+    headers = {"Authorization": f"Bearer {key}",
+               "Content-Type": "application/x-www-form-urlencoded"}
 
-    # 1) create product
     prod_body = urllib.parse.urlencode({
         "name": f"Custom deliverable: {req_text[:40]}",
         "metadata[request]": req_text[:500],
@@ -112,7 +132,6 @@ def create_payment_link(req_text, price_cents):
     except urllib.error.HTTPError as e:
         return f"STRIPE_ERR_PRODUCT:{e.read().decode()[:200]}", False
 
-    # 2) create price
     price_body = urllib.parse.urlencode({
         "product": prod["id"],
         "unit_amount": price_cents,
@@ -122,18 +141,84 @@ def create_payment_link(req_text, price_cents):
                                  data=price_body, headers=headers, method="POST")
     price = json.load(urllib.request.urlopen(req, timeout=20))
 
-    # 3) create payment link
     link_body = urllib.parse.urlencode({
         "line_items[0][price]": price["id"],
         "line_items[0][quantity]": "1",
+        "metadata[order_id]": oid,
         "after_completion[type]": "redirect",
         "after_completion[redirect][url]": "https://translucentv1.github.io/thanks.html",
     }).encode()
     req = urllib.request.Request("https://api.stripe.com/v1/payment_links",
                                  data=link_body, headers=headers, method="POST")
     link = json.load(urllib.request.urlopen(req, timeout=20))
-    oid = add_order(req_text, price_cents, link["url"], demo=False)
+    add_order(oid, req_text, price_cents, link["url"], demo=False,
+              payment_link_id=link.get("id"))
     return link["url"], False
+
+# ---- webhook signature (Stripe scheme) --------------------------------------
+def verify_stripe_signature(body: bytes, sig_header: str, secret: str,
+                            tolerance: int = 300) -> bool:
+    """Stripe-Signature: t=<ts>,v1=<hexsig>[,v1=...].
+    Signed payload is b"{t}." + body, HMAC-SHA256 with the endpoint secret."""
+    if not sig_header:
+        return False
+    t = None
+    sigs = []
+    for part in sig_header.split(","):
+        k, _, v = part.strip().partition("=")
+        if k == "t":
+            t = v
+        elif k == "v1":
+            sigs.append(v)
+    if not t or not sigs:
+        return False
+    try:
+        ts = int(t)
+    except ValueError:
+        return False
+    if tolerance and abs(time.time() - ts) > tolerance:
+        return False
+    expected = hmac.new(secret.encode(), f"{t}.".encode() + body,
+                        hashlib.sha256).hexdigest()
+    return any(hmac.compare_digest(expected, s) for s in sigs)
+
+# ---- fulfillment -------------------------------------------------------------
+def fulfill(oid: str) -> dict:
+    """Mark order paid, generate deliverable, save it, set fulfilled."""
+    d = load_orders()
+    order = d.get(oid)
+    if not order:
+        return {}
+    order["status"] = "paid"
+    order["paid_at"] = datetime.now().isoformat()
+    try:
+        sys.path.insert(0, HERE)
+        from generator import generate
+        content = generate(order["request"])
+        os.makedirs(DELIVERABLES, exist_ok=True)
+        path = os.path.join(DELIVERABLES, f"{oid}.md")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(content)
+        order["deliverable"] = path
+        order["status"] = "fulfilled"
+    except Exception as e:
+        order["deliverable"] = f"GENERATION_ERR: {e}"  # stays "paid" for retry
+    save_orders(d)
+    return order
+
+def find_order_for_event(obj: dict) -> str | None:
+    """Match a checkout.session object to an order: metadata.order_id first,
+    then payment_link id fallback."""
+    oid = (obj.get("metadata") or {}).get("order_id")
+    d = load_orders()
+    if oid and oid in d:
+        return oid
+    plink = obj.get("payment_link")
+    if plink:
+        for k, v in d.items():
+            if v.get("payment_link_id") == plink:
+                return k
+    return None
 
 # ---- HTTP handler -----------------------------------------------------------
 FORM = """<!doctype html><html lang=de><head><meta charset=utf-8>
@@ -152,6 +237,10 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Content-Type", ctype)
         self.end_headers()
         self.wfile.write(body.encode("utf-8"))
+
+    def log_message(self, fmt, *args):  # quiet in tests
+        if os.environ.get("RTD_QUIET") != "1":
+            super().log_message(fmt, *args)
 
     def do_GET(self):
         if self.path == "/" or self.path == "":
@@ -191,41 +280,28 @@ class H(BaseHTTPRequestHandler):
             self._send(404, "not found")
 
     def _handle_webhook(self):
-        import hmac as _hmac
-        import hashlib as _hash
         length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(length)
-        sig = self.headers.get("Stripe-Signature", "")
-        secret = os.environ.get("STRIPE_WEBHOOK_SECRET")
-        if not secret and os.path.exists(os.path.join(ROOT, ".stripe_secrets")):
-            for line in open(os.path.join(ROOT, ".stripe_secrets"), encoding="utf-8", errors="ignore"):
-                if line.strip().startswith("STRIPE_WEBHOOK_SECRET") and "=" in line:
-                    secret = line.split("=", 1)[1].strip().strip('"').strip("'")
+        secret = get_webhook_secret()
         if secret:
-            exp = _hmac.new(secret.encode(), body, _hash.sha256).hexdigest()
-            if not _hmac.compare_digest(exp, sig or ""):
+            sig = self.headers.get("Stripe-Signature", "")
+            if not verify_stripe_signature(body, sig, secret):
                 self._send(400, "bad signature")
                 return
+        # No secret configured -> accept unverified (pre-launch/local only).
+        # Before public launch STRIPE_WEBHOOK_SECRET MUST be set.
         try:
             event = json.loads(body.decode("utf-8"))
         except Exception:
             self._send(400, "bad json")
             return
-        if event.get("type") in ("payment_link.created", "checkout.session.completed"):
+        # Only checkout.session.completed means "customer paid".
+        # (payment_link.created fires on link creation, NOT on payment.)
+        if event.get("type") == "checkout.session.completed":
             obj = event.get("data", {}).get("object", {})
-            oid = obj.get("metadata", {}).get("order_id")
+            oid = find_order_for_event(obj)
             if oid:
-                d = load_orders()
-                if oid in d:
-                    d[oid]["status"] = "paid"
-                    d[oid]["paid_at"] = datetime.now().isoformat()
-                    try:
-                        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-                        from generator import generate
-                        d[oid]["deliverable"] = generate(d[oid]["request"])
-                    except Exception as e:
-                        d[oid]["deliverable"] = f"GENERATION_ERR: {e}"
-                    save_orders(d)
+                fulfill(oid)
         self._send(200, "ok")
 
 def main():

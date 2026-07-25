@@ -1,3 +1,7 @@
 
 # Request-to-Delivery runtime data (contains orders, no secrets)
 scripts/request_delivery/orders.json
+__pycache__/
+*.pyc
+scripts/request_delivery/orders_test.json
+scripts/request_delivery/deliverables/
