@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 scripts/request_delivery/orders_test.json
 scripts/request_delivery/deliverables/
+
+# Stripe secrets (local only, never commit)
+.stripe_secrets
