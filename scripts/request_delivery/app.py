@@ -20,6 +20,7 @@ Legal: this is a paid service. Operator must add Impressum + AGB + (if regular
 income) Gewerbeanmeldung before public launch. See ADR-0035.
 """
 import os
+import re
 import sys
 import json
 import time
@@ -40,6 +41,9 @@ SECRETS = os.path.join(ROOT, ".stripe_secrets")
 PRICE_DEFAULT = 399  # cents (3,99 EUR) -- adjustable per request later
 
 # ---- secrets ----------------------------------------------------------------
+_PLACEHOLDER_WORDS = ("FUELL", "FÜLL", "EINF", "VERF", "HIER", "XXXX",
+                      "CHANGE", "REDACT", "PLATZHALTER", "TODO", "DEIN")
+
 def _is_real_key(v):
     # reject obvious placeholders
     if not v:
@@ -48,6 +52,14 @@ def _is_real_key(v):
     if v in ("***", "REDACTED", "CHANGEME", ""):
         return False
     if v.startswith("'") or v.startswith('"'):
+        return False
+    # Real Stripe keys/secrets are pure ASCII [A-Za-z0-9_]. Anything with
+    # umlauts, spaces or placeholder words (sk_live_HIER_EINFUELLEN...) is
+    # a template value -> treat as absent so DEMO mode engages cleanly.
+    if not re.fullmatch(r"[A-Za-z0-9_]+", v):
+        return False
+    vu = v.upper()
+    if any(w in vu for w in _PLACEHOLDER_WORDS):
         return False
     return True
 
