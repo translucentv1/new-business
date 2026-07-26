@@ -67,9 +67,9 @@ async function submitRtd(){
       body: new URLSearchParams({req, price})
     });
     if(r.ok){ status.textContent = 'Anfrage gesendet! Du erhältst gleich deinen Bezahllink.'; }
-    else { status.textContent = 'Demo-Modus: Backend nicht erreichbar. Anfrage notiert.'; }
+    else { status.textContent = 'Der Bestell-Service ist noch nicht freigeschaltet. Deine Anfrage wurde NICHT übermittelt – bitte versuche es später erneut.'; }
   }catch(e){
-    status.textContent = 'Demo-Modus: Backend offline. Anfrage notiert (wird manuell bearbeitet).';
+    status.textContent = 'Der Bestell-Service ist noch nicht freigeschaltet. Deine Anfrage wurde NICHT übermittelt – bitte versuche es später erneut. (Es werden keine Daten gespeichert.)';
   }
 }
 </script>
