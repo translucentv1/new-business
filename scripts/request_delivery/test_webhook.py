@@ -39,6 +39,14 @@ os.environ.pop("STRIPE_SECRET_KEY", None)  # force DEMO mode
 # use a scratch orders file so we don't pollute the real store
 import app  # noqa: E402
 app.ORDERS = os.path.join(HERE, "orders_test.json")
+# CRITICAL test isolation: get_stripe_key() falls back to the .stripe_secrets
+# FILE when the env var is missing. Without this override a valid live key on
+# disk makes the test create REAL Stripe payment links (happened 2026-07-28,
+# plink_1TxyIqFajs0YddhP...). Point SECRETS at a nonexistent path so the test
+# can never reach the live API.
+app.SECRETS = os.path.join(HERE, ".stripe_secrets_DOES_NOT_EXIST_test_only")
+assert app.get_stripe_key() is None, (
+    "test isolation broken: a live Stripe key is still reachable")
 if os.path.exists(app.ORDERS):
     os.remove(app.ORDERS)
 
