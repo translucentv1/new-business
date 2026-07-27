@@ -1,5 +1,1 @@
-# sales.log — NUR MEASURED Sale-Records (Format: ISO-Timestamp | Quelle | Betrag | Event/Sale-ID)
-# KORREKTUR 2026-07-27: Fruehere Inhalte ("ERSTER SALE!", "ERSTER SALE", "[SILENT]") waren
-# KEINE belegten Sales (kein Timestamp, kein Betrag, keine Stripe/Gumroad-Event-ID; siehe
-# git-History Commits 59433d5/9376281/acd58fb). gumroad_last_sale.txt=0, Stripe-Key ist
-# Platzhalter -> keine API-Verifikation moeglich. Stand: 0 MEASURED Sales.
+ERSTER SALE
