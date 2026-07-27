@@ -158,7 +158,7 @@ def create_payment_link(req_text, price_cents):
         "line_items[0][quantity]": "1",
         "metadata[order_id]": oid,
         "after_completion[type]": "redirect",
-        "after_completion[redirect][url]": "https://translucentv1.github.io/thanks.html",
+        "after_completion[redirect][url]": "https://translucentv1.github.io/new-business/thanks.html",
     }).encode()
     req = urllib.request.Request("https://api.stripe.com/v1/payment_links",
                                  data=link_body, headers=headers, method="POST")
