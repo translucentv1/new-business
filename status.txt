@@ -1,0 +1,8 @@
+The current status is: 
+
+* Handoff-/ADR-Claims: pending
+* Next unblocked ticket: pending
+* MEASURED belegen: pending
+* Relevant tests: pending
+* Sale-Check: pending
+* Kurzer deutscher Statusbericht: pending
