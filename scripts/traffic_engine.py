@@ -21,7 +21,7 @@ KEYWORDS = [
     ("text schreiben lassen guenstig", "Texte zum Festpreis", "Blog, Produkttext oder E-Mail — fertig ab 3,99 EUR."),
     ("python skript erstellen lassen", "Python-Skript auf Auftrag", "Automatisierung, CSV/JSON, API — kleines Script, feste Preis."),
     ("study guide erstellen lassen", "Study-Guide als Deliverable", "Zusammenfassung, Charaktere, Verstaendnisfragen zu jedem Buch."),
-    ("赢利 instagram caption ki", "Social-Media-Posts von KI", "Instagram/TikTok-Captions, die Klicks bringen."),
+    ("instagram caption ki", "Social-Media-Posts von KI", "Instagram/TikTok-Captions, die Klicks bringen."),
 ]
 
 def slug(kw):
