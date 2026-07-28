@@ -30,6 +30,9 @@ KEYWORDS = [
     # 2026-07-28 Tick: Nachfrage ASSUMED (web_search blockiert, Firecrawl 402) — Intents analog zu bewerbung/text
     ("lebenslauf erstellen lassen ki", "KI-Lebenslauf in 24h", "Moderner, ATS-tauglicher Lebenslauf – von KI erstellt, geprueft, in 24h geliefert."),
     ("produktbeschreibung schreiben lassen", "Produkttexte fuer deinen Shop", "Verkaufsstarke Produktbeschreibungen fuer Shopify, Etsy oder Amazon – Festpreis ab 3,99 EUR."),
+    # 2026-07-28 Tick 2: Nachfrage ASSUMED (web_search weiterhin 402) — Intents analog zu produktbeschreibung/text
+    ("newsletter schreiben lassen", "KI-Newsletter auf Auftrag", "E-Mail-Newsletter, der geoeffnet wird – Betreff, Text, CTA, fertig in 24h ab 3,99 EUR."),
+    ("excel tabelle erstellen lassen", "Excel/Sheets auf Auftrag", "Tabelle mit Formeln, Auswertung oder Dashboard – fertig aufgebaut, in 24h geliefert."),
 ]
 
 def slug(kw):
