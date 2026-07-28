@@ -58,8 +58,8 @@ das fertige Deliverable nach Zahlung – erstellt von einer KI, geprüft, liefer
 <a class="cta" href="{GIG}">Jetzt Auftrag geben &rarr;</a>
 <p style="margin-top:1.5em">Weitere Beispiele: Bewerbungen, Notion-Templates, Python-Skripte,
 Study-Guides, Social-Media-Posts – alles als Festpreis-Deliverable.</p>
-<div class="note">Anbieter i.S.d. § 5 TMG: [DEIN NAME], [STRASSE], [PLZ ORT], Deutschland.
-Umsatzsteuer-ID folgt. Impressum/AGB vor öffentlichem Launch vervollständigen.</div>
+<p id="rtd-crosslink" style="margin-top:2em;padding-top:1em;border-top:1px solid #eee;font-size:.9rem">Nicht gefunden, was du suchst? <a href="/new-business/rtd.html">Individuelles Deliverable anfragen (Study-Guide, Template, Text) &rarr;</a></p>
+<div class="note"><a href="/new-business/impressum.html">Impressum</a> &middot; <a href="/new-business/agb.html">AGB</a></div>
 </body>
 </html>"""
     os.makedirs(BLOG, exist_ok=True)
