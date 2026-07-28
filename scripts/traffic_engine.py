@@ -27,6 +27,9 @@ KEYWORDS = [
     ("linkedin post schreiben lassen", "KI-LinkedIn-Posts", "Posts, die Reichweite bringen – fuer Recruiter sichtbar."),
     ("expose schreiben lassen ki", "KI-Expose Immobilien", "Verkaufsfertiges Expose fuer Vermieter und Makler."),
     ("quiz fragen erstellen lassen", "KI-Quiz-Fragen", "Für Schulung, Event oder Lead-Gen – fertige Fragen."),
+    # 2026-07-28 Tick: Nachfrage ASSUMED (web_search blockiert, Firecrawl 402) — Intents analog zu bewerbung/text
+    ("lebenslauf erstellen lassen ki", "KI-Lebenslauf in 24h", "Moderner, ATS-tauglicher Lebenslauf – von KI erstellt, geprueft, in 24h geliefert."),
+    ("produktbeschreibung schreiben lassen", "Produkttexte fuer deinen Shop", "Verkaufsstarke Produktbeschreibungen fuer Shopify, Etsy oder Amazon – Festpreis ab 3,99 EUR."),
 ]
 
 def slug(kw):
