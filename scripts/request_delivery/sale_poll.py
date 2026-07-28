@@ -27,4 +27,12 @@ sessions = api("checkout/sessions?limit=20")["data"]
 paid = [s for s in sessions if s.get("payment_status") == "paid"]
 print("checkout sessions (last 20):", len(sessions), "| paid:", len(paid))
 for s in paid:
-    print(" PAID:", s["id"], s.get("amount_total"), s.get("currency"))
+    email = (s.get("customer_details") or {}).get("email")
+    # custom_fields: rtd.html links carry key "anfrage" (the customer's request
+    # text, entered in Stripe Checkout) -- needed to fulfill the order.
+    anfrage = None
+    for f in s.get("custom_fields") or []:
+        if f.get("key") == "anfrage":
+            anfrage = (f.get("text") or {}).get("value")
+    print(" PAID:", s["id"], s.get("amount_total"), s.get("currency"),
+          "| email:", email, "| anfrage:", anfrage)

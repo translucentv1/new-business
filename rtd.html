@@ -65,9 +65,12 @@ function goCheckout(){
   const tier = document.getElementById('tier').value;
   const status = document.getElementById('status');
   if(!req){ status.textContent = 'Bitte beschreibe deine Anfrage.'; return; }
-  status.textContent = 'Weiterleitung zu Stripe…';
+  // Stripe Payment Links koennen custom_fields nicht per URL vorbefuellen.
+  // Der Checkout hat ein Pflichtfeld "Deine Anfrage" -> Text in die
+  // Zwischenablage kopieren, Kunde fuegt ihn dort ein (Ctrl+V).
+  if(navigator.clipboard){ navigator.clipboard.writeText(req).catch(function(){}); }
   window.open(LINKS[tier], '_blank');
-  status.textContent = 'In neuem Tab geöffnet. Nach Zahlung erhältst du dein Deliverable.';
+  status.innerHTML = 'In neuem Tab geöffnet. <strong>Wichtig:</strong> Deine Anfrage wurde kopiert – füge sie im Bezahlformular ins Pflichtfeld „Deine Anfrage“ ein (Strg+V). Nach Zahlung erhältst du dein Deliverable per E-Mail.';
 }
 </script>
 </body>
