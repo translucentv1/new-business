@@ -116,7 +116,7 @@ def wait_live(url, tries=18, pause=10):
     return False
 
 
-def fulfill_session(s, state, push=True):
+def fulfill_session(s, state, push=True, persist=True):
     sid = s["id"]
     email = (s.get("customer_details") or {}).get("email")
     anfrage = None
@@ -133,7 +133,8 @@ def fulfill_session(s, state, push=True):
     state[sid] = {"ts": int(time.time()), "email": email,
                   "amount": s.get("amount_total"), "url": url,
                   "llm_err": err, "final": err is None}
-    save_state(state)
+    if persist:
+        save_state(state)
     print(f"FULFILLED {sid} -> {path}")
     if push:
         ok = git_publish(f"RTD auto-fulfill {sid_hash(sid)} (LIVE sale)")
@@ -156,8 +157,7 @@ def main():
                 "customer_details": {"email": "selftest@example.com"},
                 "custom_fields": [{"key": "anfrage", "text": {
                     "value": "Schreibe 3 Instagram-Captions fuer ein Cafe in Berlin."}}]}
-        st = {}
-        url = fulfill_session(fake, st, push=False)
+        url = fulfill_session(fake, {}, push=False, persist=False)
         h = sid_hash(fake["id"])
         p = os.path.join(DL_DIR, h + ".html")
         size = os.path.getsize(p)
