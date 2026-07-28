@@ -1,0 +1,114 @@
+{
+  "id": "acct_1TuRDHFajs0YddhP",
+  "object": "account",
+  "business_profile": {
+    "annual_revenue": null,
+    "estimated_worker_count": null,
+    "mcc": "5815",
+    "minority_owned_business_designation": null,
+    "name": "hermler",
+    "support_address": null,
+    "support_email": null,
+    "support_phone": "+4915237977826",
+    "support_url": null,
+    "url": "https://translucentv1.github.io/new-business/"
+  },
+  "business_type": "individual",
+  "capabilities": {
+    "amazon_pay_payments": "active",
+    "bancontact_payments": "active",
+    "blik_payments": "active",
+    "card_payments": "active",
+    "cartes_bancaires_payments": "pending",
+    "eps_payments": "active",
+    "kakao_pay_payments": "active",
+    "klarna_payments": "active",
+    "link_payments": "active",
+    "mb_way_payments": "active",
+    "naver_pay_payments": "active",
+    "payco_payments": "active",
+    "pix_payments": "active",
+    "revolut_pay_payments": "active",
+    "samsung_pay_payments": "active",
+    "satispay_payments": "active",
+    "scalapay_payments": "active",
+    "transfers": "active"
+  },
+  "charges_enabled": true,
+  "company": {
+    "name": null
+  },
+  "controller": {
+    "type": "account"
+  },
+  "country": "DE",
+  "default_currency": "eur",
+  "details_submitted": true,
+  "email": "philippbehnisch@gmail.com",
+  "individual": {
+    "id": "person_1TuRySFajs0YddhPg6Ql1NQB",
+    "object": "person",
+    "account": "acct_1TuRDHFajs0YddhP",
+    "created": 1784357029,
+    "email": "philippbehnisch@gmail.com",
+    "first_name": "Philipp",
+    "last_name": "Behnisch",
+    "relationship": {
+      "authorizer": false,
+      "director": false,
+      "executive": false,
+      "legal_guardian": false,
+      "owner": false,
+      "percent_ownership": null,
+      "representative": true,
+      "title": null
+    }
+  },
+  "payouts_enabled": true,
+  "settings": {
+    "bacs_debit_payments": {
+      "display_name": "Stripe",
+      "service_user_number": "449900"
+    },
+    "branding": {
+      "icon": null,
+      "logo": null,
+      "primary_color": null,
+      "secondary_color": null
+    },
+    "card_issuing": {
+      "tos_acceptance": {
+        "date": null,
+        "ip": null
+      }
+    },
+    "card_payments": {
+      "statement_descriptor_prefix": null,
+      "statement_descriptor_prefix_kana": null,
+      "statement_descriptor_prefix_kanji": null
+    },
+    "dashboard": {
+      "display_name": "hermler",
+      "timezone": "Europe/Berlin"
+    },
+    "invoices": {
+      "default_account_tax_ids": null,
+      "hosted_payment_method_save": "offer"
+    },
+    "payments": {
+      "statement_descriptor": "GUMROAD",
+      "statement_descriptor_kana": null,
+      "statement_descriptor_kanji": null
+    },
+    "payouts": {
+      "debit_negative_balances": true,
+      "schedule": {
+        "delay_days": 3,
+        "interval": "manual"
+      },
+      "statement_descriptor": null
+    },
+    "sepa_debit_payments": {}
+  },
+  "type": "standard"
+}

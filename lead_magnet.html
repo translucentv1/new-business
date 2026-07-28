@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KI-Schreiber – gratis Text & Brief generieren</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#1a1a1a}
+  h1{font-size:2rem;margin-bottom:.1em}
+  .tag{color:#2962ff;font-weight:600;margin-bottom:1.5em}
+  label{display:block;margin:1em 0 .3em;font-weight:600}
+  textarea,select{width:100%;padding:8px;font:inherit;border:1px solid #ccc;border-radius:4px}
+  button{background:#111;color:#fff;border:0;padding:12px 20px;font-size:1rem;cursor:pointer;border-radius:6px;margin-top:1em}
+  .out{background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;padding:1em;margin-top:1.4em;white-space:pre-wrap;min-height:80px;font-family:inherit}
+  .upsell{background:#fff7e6;border:1px solid #ffd591;border-radius:6px;padding:1em;margin-top:1.4em}
+  .upsell a{background:#111;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;display:inline-block;margin-top:.5em}
+  .note{color:#666;font-size:.85rem;margin-top:2em;border-top:1px solid #eee;padding-top:1em}
+  code{background:#f0f0f0;padding:2px 4px;border-radius:3px}
+</style>
+</head>
+<body>
+<h1>KI-Schreiber</h1>
+<div class="tag">Gratis · sofort · ohne Anmeldung</div>
+
+<p>Beschreibe, was du schreiben brauchst – die KI erstellt dir einen ersten Entwurf.
+Kostenlos. Wenn du willst, veredeln wir ihn gegen Bezahlung.</p>
+
+<label>Was soll ich schreiben?</label>
+<textarea id="topic" rows="4" placeholder="z.B. eine Bewerbung als Werkstudentin, ein Beschwerdebrief an Vermieter wegen Heizung, ein Instagram-Caption für meine Bäckerei"></textarea>
+
+<label>Typ</label>
+<select id="kind">
+  <option value="Text">Allgemeiner Text</option>
+  <option value="Brief">Brief / E-Mail</option>
+  <option value="Social">Social-Media-Post</option>
+  <option value="Produkttext">Produktbeschreibung</option>
+  <option value="Lernhilfe">Lernhilfe / Zusammenfassung</option>
+</select>
+
+<button type="button" onclick="generate()">Gratis Entwurf erstellen</button>
+
+<div class="out" id="out">Dein Entwurf erscheint hier…</div>
+
+<div class="upsell">
+  <strong>Brauchst du es professionell, länger oder mit Recherche?</strong>
+  <p>Wir liefern ein fertiges, geprüftes Deliverable – inkl. Recherche, Struktur
+  und 1 Revision. Ab 3,99 €.</p>
+  <a href="rtd.html">Individuelles Deliverable anfragen &rarr;</a>
+</div>
+
+<div class="note">
+  <p><strong>Rechtliches:</strong> Anbieter i.S.d. § 5 TMG: [DEIN NAME], [STRASSE],
+  [PLZ ORT], Deutschland. Kontakt: [EMAIL]. Umsatzsteuer-ID: folgt.</p>
+  <p>Dieser Generator läuft lokal in deinem Browser (Template-Engine, kein KI-API).
+  Für KI-generierte Texte mit Recherche nutze den kostenpflichtigen Service oben.</p>
+</div>
+
+<script>
+// Client-side template engine: builds a usable draft from the input.
+// No API key, no server — $0, instant. Upsell drives to rtd.html.
+const TEMPLATES = {
+  "Brief": (t) => `Betreff: ${t}\n\nSehr geehrte Damen und Herren,\n\nhiermit wende ich mich an Sie bezüglich: ${t}.\n\n[Ausgangslage kurz schildern]\n[Was ich mir als Ergebnis wünsche]\n\nIch bitte um eine Rückmeldung bis zum [Datum].\n\nMit freundlichen Grüßen\n[Dein Name]`,
+  "Social": (t) => `🚀 ${t}\n\n[Hook in einem Satz]\n\n✅ [Nutzen 1]\n✅ [Nutzen 2]\n✅ [Nutzen 3]\n\n👉 Mehr dazu in den Kommentaren. #tipps #produktivität`,
+  "Produkttext": (t) => `🔥 ${t}\n\nDas Problem: [Zielgruppe] kämpft mit [Schmerzpunkt].\nUnsere Lösung: [Produkt] hilft dir, [Nutzen] – schnell und unkompliziert.\n\n✔ [Feature 1]\n✔ [Feature 2]\n✔ [Feature 3]\n\nJetzt ausprobieren und [Ergebnis] erreichen.`,
+  "Lernhilfe": (t) => `📚 Zusammenfassung: ${t}\n\n1. Kernpunkt: [Hauptaussage]\n2. Kontext: [Einordnung]\n3. 3 Verständnisfragen:\n   a) ...\n   b) ...\n   c) ...\n\nTipp: Markiere die 3 wichtigsten Begriffe und erkläre sie mit eigenen Worten.`,
+  "Text": (t) => `${t}\n\n[Einleitung: worum es geht]\n[Hauptteil: 2–3 klare Punkte]\n[Fazit: Was der Leser mitnimmt]\n\n(Platzhalter in eckigen Klammern sind mit deinen Infos zu füllen.)`
+};
+function generate(){
+  const topic = document.getElementById('topic').value.trim();
+  const kind = document.getElementById('kind').value;
+  const out = document.getElementById('out');
+  if(!topic){ out.textContent = 'Bitte beschreibe zuerst, was ich schreiben soll.'; return; }
+  out.textContent = 'Erstelle Entwurf…';
+  setTimeout(()=>{
+    const fn = TEMPLATES[kind] || TEMPLATES["Text"];
+    out.textContent = fn(topic);
+  }, 250);
+}
+</script>
+</body>
+</html>
