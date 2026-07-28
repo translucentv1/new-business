@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KI-Deliverables in 24h – Text, Code, Templates</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;line-height:1.6;color:#1a1a1a}
+  h1{font-size:2rem;margin-bottom:.1em}
+  .tag{color:#2962ff;font-weight:600}
+  .box{background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;padding:1em;margin:1.4em 0}
+  label{display:block;margin:1em 0 .3em;font-weight:600}
+  textarea,select{width:100%;padding:8px;font:inherit;border:1px solid #ccc;border-radius:4px}
+  button{background:#111;color:#fff;border:0;padding:12px 20px;font-size:1rem;cursor:pointer;border-radius:6px;margin-top:1em}
+  .out{background:#fff;border:1px solid #ddd;border-radius:6px;padding:1em;margin-top:1.4em;white-space:pre-wrap;min-height:80px}
+  .note{color:#666;font-size:.85rem;margin-top:2em;border-top:1px solid #eee;padding-top:1em}
+  a{color:#2962ff}
+</style>
+</head>
+<body>
+<h1>KI-Deliverables in 24h</h1>
+<div class="tag">Texte · Code · Templates · Study-Guides — feste Preise, sofort</div>
+
+<p>Beschreibe deinen Auftrag. Du bekommst sofort einen Entwurf (kostenlos
+zum Anschauen) und kannst das fertige Deliverable per Stripe ab 3,99 € freikaufen.</p>
+
+<div class="box">
+  <label>Dein Auftrag</label>
+  <textarea id="req" rows="5" placeholder="z.B. Eine Bewerbung als Data Analyst, ein Python-Skript das CSV in JSON wandelt, ein Notion-Template für Projektplanung"></textarea>
+  <label>Leistungsumfang</label>
+  <select id="tier">
+    <option value="3.99">Basis – 3,99 € (kurzer Text / kleines Script)</option>
+    <option value="7.99">Standard – 7,99 € (mittel, inkl. 1 Revision)</option>
+    <option value="14.99">Premium – 14,99 € (ausführlich, 2 Revisionen)</option>
+  </select>
+  <button type="button" onclick="preview()">Gratis Vorschau erzeugen</button>
+  <button type="button" onclick="buy()" style="background:#2962ff">Bezahlen &amp; fertiges Deliverable</button>
+</div>
+
+<div class="out" id="out">Deine Vorschau erscheint hier…</div>
+
+<div class="note">
+  <p><strong>Rechtliches:</strong> Anbieter i.S.d. § 5 TMG: [DEIN NAME], [STRASSE],
+  [PLZ ORT], Deutschland. Kontakt: [EMAIL]. Umsatzsteuer-ID: folgt.</p>
+  <p>Dies ist ein kostenpflichtiger Service (ab 3,99 €). Die Gratis-Vorschau ist
+  ein KI-Entwurf zur Ansicht — das fertige, geprüfte Deliverable erhältst du nach
+  Zahlung. Impressum/AGB vor öffentlichem Launch vervollständigen.</p>
+</div>
+
+<script>
+const LINKS = {
+  "3.99":  "https://buy.stripe.com/fZu4gz6NzdLl08y0WL6c00L",
+  "7.99":  "https://buy.stripe.com/3cIaEXb3P0Yz7B06h56c00M",
+  "14.99": "https://buy.stripe.com/8x214n2xj5ePdZoaxl6c00N"
+};
+async function preview(){
+  const req = document.getElementById('req').value.trim();
+  const out = document.getElementById('out');
+  if(!req){ out.textContent = 'Bitte beschreibe deinen Auftrag.'; return; }
+  out.textContent = 'Erzeuge Vorschau…';
+  try{
+    const r = await fetch('https://translucentv1.github.io/new-business/api/preview',
+      {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({req})});
+    if(r.ok){ const d = await r.json(); out.textContent = d.text; }
+    else { out.textContent = 'Vorschau temporär nicht verfügbar. Nutze direkt "Bezahlen".'; }
+  }catch(e){ out.textContent = 'Vorschau temporär nicht verfügbar. Nutze direkt "Bezahlen".'; }
+}
+function buy(){
+  const req = document.getElementById('req').value.trim();
+  const tier = document.getElementById('tier').value;
+  if(!req){ document.getElementById('out').textContent='Bitte beschreibe deinen Auftrag.'; return; }
+  window.open(LINKS[tier], '_blank');
+}
+</script>
+</body>
+</html>
