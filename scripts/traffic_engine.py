@@ -22,6 +22,11 @@ KEYWORDS = [
     ("python skript erstellen lassen", "Python-Skript auf Auftrag", "Automatisierung, CSV/JSON, API — kleines Script, feste Preis."),
     ("study guide erstellen lassen", "Study-Guide als Deliverable", "Zusammenfassung, Charaktere, Verstaendnisfragen zu jedem Buch."),
     ("instagram caption ki", "Social-Media-Posts von KI", "Instagram/TikTok-Captions, die Klicks bringen."),
+    ("hausarbeit schreiben lassen ki", "KI-Hausarbeit-Entwurf", "Struktur, Quellen, Gliederung – KI-Entwurf als Lernhilfe."),
+    ("ebook cover erstellen lassen", "Ebook-Cover von KI", "Professionelles Cover fuer Self-Publishing, in 24h."),
+    ("linkedin post schreiben lassen", "KI-LinkedIn-Posts", "Posts, die Reichweite bringen – fuer Recruiter sichtbar."),
+    ("expose schreiben lassen ki", "KI-Expose Immobilien", "Verkaufsfertiges Expose fuer Vermieter und Makler."),
+    ("quiz fragen erstellen lassen", "KI-Quiz-Fragen", "Für Schulung, Event oder Lead-Gen – fertige Fragen."),
 ]
 
 def slug(kw):
