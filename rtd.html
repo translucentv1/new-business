@@ -21,7 +21,7 @@
 Texte, Templates, Code-Snippets, Study-Guides, Design-Ideen.</p>
 
 <div class="box">
-  <form id="rtd" action="https://buy.stripe.com/demo/rtd" method="post" onsubmit="return false;">
+  <form id="rtd" onsubmit="return false;">
     <label>Deine Anfrage</label>
     <textarea id="req" rows="6" placeholder="z.B. 3-Seiten Study-Guide zu Kapitel 5 von Frankenstein mit Zusammenfassung, Charakteren und 5 Verständnisfragen"></textarea>
 
@@ -32,10 +32,10 @@ Texte, Templates, Code-Snippets, Study-Guides, Design-Ideen.</p>
       <option value="14.99">Premium – 14,99 € (ausführlich, 2 Revisionen)</option>
     </select>
 
-    <button type="button" onclick="submitRtd()">Anfrage absenden</button>
+    <button type="button" onclick="goCheckout()">Anfrage absenden &amp; bezahlen</button>
   </form>
   <p id="status" style="margin-top:1em;color:#2962ff"></p>
-</div>
+  </div>
 
 <p><strong>So funktioniert's:</strong> Du beschreibst deinen Wunsch, wählst eine
 Preisstufe, bezahlst bequem per Stripe. Nach Zahlungseingang erhältst du dein
@@ -53,24 +53,21 @@ fertiges Deliverable (digital).</p>
 </div>
 
 <script>
-// Client-side: posts to the RTD backend if reachable, else shows demo info.
-// The backend (scripts/request_delivery/app.py) creates a real Stripe Payment Link.
-async function submitRtd(){
+// Direct checkout: opens the real Stripe Payment Link for the selected tier.
+// No backend needed -> no dead domain, real buyer = first MEASURED sale.
+const LINKS = {
+  "3.99":  "https://buy.stripe.com/fZu4gz6NzdLl08y0WL6c00L", // Basis 3,99 EUR (LIVE)
+  "7.99":  "https://buy.stripe.com/3cIaEXb3P0Yz7B06h56c00M", // Standard 7,99 EUR (LIVE)
+  "14.99": "https://buy.stripe.com/8x214n2xj5ePdZoaxl6c00N"  // Premium 14,99 EUR (LIVE)
+};
+function goCheckout(){
   const req = document.getElementById('req').value.trim();
-  const price = document.getElementById('tier').value;
+  const tier = document.getElementById('tier').value;
   const status = document.getElementById('status');
   if(!req){ status.textContent = 'Bitte beschreibe deine Anfrage.'; return; }
-  status.textContent = 'Sende…';
-  try{
-    const r = await fetch('https://rtd.philipp-behnisch.de/request', {
-      method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body: new URLSearchParams({req, price})
-    });
-    if(r.ok){ status.textContent = 'Anfrage gesendet! Du erhältst gleich deinen Bezahllink.'; }
-    else { status.textContent = 'Der Bestell-Service ist noch nicht freigeschaltet. Deine Anfrage wurde NICHT übermittelt – bitte versuche es später erneut.'; }
-  }catch(e){
-    status.textContent = 'Der Bestell-Service ist noch nicht freigeschaltet. Deine Anfrage wurde NICHT übermittelt – bitte versuche es später erneut. (Es werden keine Daten gespeichert.)';
-  }
+  status.textContent = 'Weiterleitung zu Stripe…';
+  window.open(LINKS[tier], '_blank');
+  status.textContent = 'In neuem Tab geöffnet. Nach Zahlung erhältst du dein Deliverable.';
 }
 </script>
 </body>
