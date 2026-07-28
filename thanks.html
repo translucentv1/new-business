@@ -22,7 +22,36 @@
   <p>Sollte innerhalb weniger Minuten nichts ankommen, prüfe deinen Spam-Ordner
   oder melde dich kurz – siehe Kontakt im Impressum.</p>
 </div>
+<div id="rtd" style="display:none" class="box">
+  <p><strong>Dein individuelles Deliverable wird gerade erstellt…</strong>
+  <span id="rtdstate">Diese Seite prüft automatisch alle 30&nbsp;Sekunden.
+  Erstellung dauert i.&nbsp;d.&nbsp;R. wenige Minuten – Seite offen lassen.</span></p>
+  <p id="rtdlink"></p>
+</div>
 <p><a class="btn" href="index.html">Zurück zur Übersicht</a></p>
+<script>
+(async function(){
+  const sid = new URLSearchParams(location.search).get('sid');
+  if(!sid || !window.crypto || !crypto.subtle) return;
+  document.getElementById('rtd').style.display = 'block';
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(sid));
+  const hex = Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').slice(0,16);
+  const url = 'dl/rtd/' + hex + '.html';
+  async function check(){
+    try{
+      const r = await fetch(url, {method:'HEAD', cache:'no-store'});
+      if(r.ok){
+        document.getElementById('rtdstate').textContent = 'Fertig!';
+        document.getElementById('rtdlink').innerHTML =
+          '<a class="btn" href="'+url+'">Deliverable jetzt öffnen →</a>';
+        return;
+      }
+    }catch(e){}
+    setTimeout(check, 30000);
+  }
+  check();
+})();
+</script>
 <div class="note">
   <p><a href="impressum.html">Impressum</a> · <a href="agb.html">AGB</a></p>
 </div>
