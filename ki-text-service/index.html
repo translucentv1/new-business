@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KI-Text Service: Texte, Briefe, Templates in 24h – ab 3,99 €</title>
+<meta name="description" content="Beschreibe deinen Wunschtext – wir liefern dir in 24h einen fertigen Text, Brief, Code-Snippet oder ein Template. KI-gestützt, preiswert, sofort nutzbar. Ab 3,99 €.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://translucentv1.github.io/new-business/ki-text-service/">
+<style>
+  body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 16px;line-height:1.6;color:#1a1a1a}
+  h1{font-size:2rem;margin-bottom:.2em}
+  h2{font-size:1.3rem;margin-top:1.8em}
+  .tag{color:#2962ff;font-weight:600;margin-bottom:1em;display:inline-block}
+  .box{background:#f4f7ff;border-left:4px solid #2962ff;border-radius:6px;padding:1em;margin:1.4em 0}
+  label{display:block;margin:1em 0 .3em;font-weight:600}
+  textarea,select{width:100%;padding:8px;font:inherit;border:1px solid #ccc;border-radius:4px}
+  button{background:#111;color:#fff;border:0;padding:12px 20px;font-size:1rem;cursor:pointer;border-radius:6px;margin-top:1em}
+  button.secondary{background:#2962ff}
+  .out{background:#fff;border:1px solid #ddd;border-radius:6px;padding:1em;margin-top:1.4em;white-space:pre-wrap;min-height:80px;font-family:inherit}
+  .note{color:#666;font-size:.85rem;margin-top:2em;border-top:1px solid #eee;padding-top:1em}
+  code{background:#f0f0f0;padding:2px 4px;border-radius:3px}
+  .faq dt{font-weight:600;margin-top:1em}
+  .faq dd{margin-left:0}
+</style>
+</head>
+<body>
+<h1>KI-Text Service</h1>
+<div class="tag">Texte · Briefe · Code · Templates — in 24h geliefert</div>
+
+<p>Beschreibe, was du brauchst. Die KI erstellt dir einen ersten Entwurf
+(kostenlos zum Anschauen). Wenn dir das passt, veredelst du ihn gegen
+eine geringe Gebühr zu einem fertigen, geprüften Deliverable.</p>
+
+<div class="box">
+  <label>Was brauchst du?</label>
+  <textarea id="req" rows="5" placeholder="z.B. Eine Bewerbung als Data Analyst, ein Python-Skript das CSV in JSON wandelt, ein Notion-Template für Projektplanung, ein Beschwerdebrief an den Vermieter wegen Heizung"></textarea>
+  <label>Leistungsumfang</label>
+  <select id="tier">
+    <option value="3.99">Basis – 3,99 € (kurzer Text / kleines Script)</option>
+    <option value="7.99">Standard – 7,99 € (mittel, inkl. 1 Revision)</option>
+    <option value="14.99">Premium – 14,99 € (ausführlich, 2 Revisionen)</option>
+  </select>
+  <button type="button" onclick="preview()">Gratis Vorschau erstellen</button>
+  <button type="button" onclick="buy()" class="secondary">Bezahlen &amp; fertiges Deliverable</button>
+</div>
+
+<div class="out" id="out">Deine Vorschau erscheint hier…</div>
+
+<h2>Wie es funktioniert</h2>
+<ol>
+  <li><strong>Beschreibe</strong> deinen Auftrag in 1–3 Sätzen.</li>
+  <li><strong>Sieh dir</strong> den kostenlosen KI-Entwurf an.</li>
+  <li><strong>Bezahle</strong> per Stripe (ab 3,99 €) und erhalte das fertige, geprüfte Deliverable.</li>
+</ol>
+
+<h2>Was Kunden brauchen</h2>
+<p>Studenten, die eine <strong>Bewerbung</strong> brauchen. Kleinunternehmer, die eine
+<strong>Rechnung</strong> oder <strong>AGB</strong> brauchen. Entwickler, die ein
+<strong>Python-Skript</strong> brauchen. Content-Creator, die <strong>Instagram-Captions</strong>
+brauchen. Jeder, der schnell einen <strong>Text, Brief oder ein Template</strong> braucht.</p>
+
+<h2>Häufige Anwendungen</h2>
+<ul>
+  <li>Bewerbung &amp; Lebenslauf (Basis 3,99 €)</li>
+  <li>Rechnung &amp; AGB für Kleinunternehmer (Standard 7,99 €)</li>
+  <li>Python-Skript für CSV/JSON-Konvertierung (Basis 3,99 €)</li>
+  <li>Notion-Template für Projektplanung (Standard 7,99 €)</li>
+  <li>Instagram-Caption für Café/Bäckerei (Basis 3,99 €)</li>
+  <li>Study-Guide zu einem Buch (Premium 14,99 €)</li>
+</ul>
+
+<dl class="faq">
+  <dt>Wie schnell bekomme ich es?</dt>
+  <dd>In der Regel innerhalb von 24 Stunden nach Zahlungseingang.</dd>
+  <dt>Kann ich vorher eine Probe sehen?</dt>
+  <dd>Ja — die Gratis-Vorschau zeigt dir einen KI-Entwurf, den du vor dem Kauf prüfen kannst.</dd>
+  <dt>Was kostet das?</dt>
+  <dd>3,99 € (Basis), 7,99 € (Standard), 14,99 € (Premium). Keine versteckten Gebühren.</dd>
+  <dt>Wie wird bezahlt?</dt>
+  <dd>Sicher per Stripe (Kreditkarte, Apple Pay, PayPal via Stripe).</dd>
+</dl>
+
+<div class="note">
+  <p><strong>Rechtliches:</strong> Anbieter i.S.d. § 5 TMG: Philipp Behnisch,
+  [Straße Hausnummer], [PLZ Ort], Deutschland. Kontakt: philippbehnisch@gmail.com.
+  Als Kleinunternehmer gem. § 19 UStG keine Umsatzsteuer.</p>
+  <p><a href="https://translucentv1.github.io/new-business/rtd.html">Individuelles Deliverable anfragen (Request-to-Delivery)</a> ·
+  <a href="https://translucentv1.github.io/new-business/impressum.html">Impressum</a> ·
+  <a href="https://translucentv1.github.io/new-business/agb.html">AGB</a></p>
+</div>
+
+<script>
+const LINKS = {
+  "3.99":  "https://buy.stripe.com/fZu4gz6NzdLl08y0WL6c00L",
+  "7.99":  "https://buy.stripe.com/3cIaEXb3P0Yz7B06h56c00M",
+  "14.99": "https://buy.stripe.com/8x214n2xj5ePdZoaxl6c00N"
+};
+const TEMPLATES = {
+  "Text": (t) => `${t}\n\n[Einleitung: worum es geht]\n[Hauptteil: 2–3 klare Punkte]\n[Fazit: Was der Leser mitnimmt]\n\n(Platzhalter in eckigen Klammern sind mit deinen Infos zu füllen.)`,
+  "Brief": (t) => `Betreff: ${t}\n\nSehr geehrte Damen und Herren,\n\nhiermit wende ich mich an Sie bezüglich: ${t}.\n\n[Ausgangslage kurz schildern]\n[Was ich mir als Ergebnis wünsche]\n\nIch bitte um eine Rückmeldung bis zum [Datum].\n\nMit freundlichen Grüßen\n[Dein Name]`,
+  "Social": (t) => `🚀 ${t}\n\n[Hook in einem Satz]\n\n✅ [Nutzen 1]\n✅ [Nutzen 2]\n✅ [Nutzen 3]\n\n👉 Mehr dazu in den Kommentaren. #tipps #produktivität`,
+  "Produkttext": (t) => `🔥 ${t}\n\nDas Problem: [Zielgruppe] kämpft mit [Schmerzpunkt].\nUnsere Lösung: [Produkt] hilft dir, [Nutzen] – schnell und unkompliziert.\n\n✔ [Feature 1]\n✔ [Feature 2]\n✔ [Feature 3]\n\nJetzt ausprobieren und [Ergebnis] erreichen.`,
+  "Lernhilfe": (t) => `📚 Zusammenfassung: ${t}\n\n1. Kernpunkt: [Hauptaussage]\n2. Kontext: [Einordnung]\n3. 3 Verständnisfragen:\n   a) ...\n   b) ...\n   c) ...\n\nTipp: Markiere die 3 wichtigsten Begriffe und erkläre sie mit eigenen Worten.`,
+  "Code": (t) => `# ${t}\n\ndef main():\n    # TODO: implementiere die Logik\n    pass\n\nif __name__ == "__main__":\n    main()`
+};
+async function preview(){
+  const req = document.getElementById('req').value.trim();
+  const out = document.getElementById('out');
+  if(!req){ out.textContent = 'Bitte beschreibe zuerst, was ich schreiben soll.'; return; }
+  out.textContent = 'Erstelle Entwurf…';
+  setTimeout(() => {
+    const fn = TEMPLATES["Text"];
+    out.textContent = fn(req);
+  }, 250);
+}
+function buy(){
+  const req = document.getElementById('req').value.trim();
+  const tier = document.getElementById('tier').value;
+  if(!req){ document.getElementById('out').textContent='Bitte beschreibe zuerst, was du brauchst.'; return; }
+  if(navigator.clipboard){ navigator.clipboard.writeText(req).catch(function(){}); }
+  window.open(LINKS[tier], '_blank');
+  document.getElementById('out').textContent = 'In neuem Tab geöffnet. Wichtig: Deine Anfrage wurde kopiert – füge sie im Bezahlformular ins Feld „Deine Anfrage“ ein (Strg+V). Nach Zahlung erhältst du dein Deliverable.';
+}
+</script>
+</body>
+</html>
