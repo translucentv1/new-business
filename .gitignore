@@ -15,3 +15,6 @@ kdp_products/_count.txt
 status.log
 __pycache__/
 *.pyc
+
+# Pinterest bulk upload (generated, not source)
+pinterest_upload.csv
