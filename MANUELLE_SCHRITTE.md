@@ -23,7 +23,7 @@ aber er ist bei Google noch LIVE.
 RTD läuft im DEMO-Modus, bis hier ein `sk_live_`-Key steht.
 
 - Datei bereits vorbereitet: `C:\Users\phili\new-business\.stripe_secrets`
-- Öffne sie, ersetze `sk_live_XXX_FÜLLEN_SOBALD_VERFÜGBR` mit deinem echten Key
+- Öffne sie, ersetze `sk_liv...ga3P` (Platzhalter) mit deinem vollständigen `sk_live_`-Key (ca. 32–40 Zeichen, nicht gekürzt)
 - Key holen: https://dashboard.stripe.com/apikeys → **Secret key** (zeigen + kopieren)
 - Speichern. Fertig — RTD erzeugt jetzt echte Payment-Links.
 

@@ -8,3 +8,10 @@ scripts/request_delivery/deliverables/
 
 # Stripe secrets (local only, never commit)
 .stripe_secrets
+
+# Generated artifacts (prep only, not source)
+kdp_products/*.json
+kdp_products/_count.txt
+status.log
+__pycache__/
+*.pyc
