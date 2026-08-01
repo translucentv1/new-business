@@ -10,7 +10,9 @@ der einzige echte Money-Maker (Soul, Teil 2). Wir spiegeln das legal als Fiverr-
    + RTD-Engine. Käufer beschreibt, wir liefern Deliverable. Echte Nachfrage
    (fiverr.com/categories/programming-tech MEASURED live).
 2. **Gumroad: Notion-Templates** — 11.330 Listings unter Tag = Nachfrage bewiesen.
-   Sobald Payout frei (Watcher läuft).
+   Status 2026-08-01 MEASURED: Watcher **läuft NICHT** — `scripts/gumroad_sale_poll.py`
+   gibt `NO TOKEN` aus, es existiert nur `.gumroad_secrets.template`, kein echtes
+   Token. Blocker sind also ZWEI: Payout-Freischaltung *und* API-Token (beide USER).
 3. **Lead-Magnet** (lead_magnet.html) = Top-of-Funnel, bleibt.
 
 ## Warum das funktioniert (Bens eigene Lektion)
