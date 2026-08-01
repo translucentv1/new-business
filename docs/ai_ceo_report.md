@@ -1,5 +1,77 @@
 # AI-CEO Daily Report
 
+## 2026-08-01 (Tick ~13:00 lokal, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+Heute Nachmittag: **Die Landingpages aus der Waisen-Rolle holen.** Sie waren
+alle live, aber die Startseite (die staerkste Seite der Domain) verlinkte
+**keine einzige** davon und erwaehnte den Gig gar nicht. Ausserdem 2 neue
+Landingpages mit belegter Nachfrage. Wochenziel unveraendert: erster MEASURED
+Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, alle HTTP 200):
+- `GET /v1/events?limit=5` -> nur `payment_link.created` / `price.created` /
+  `product.created` (evt_1TzIID..., evt_1TzI5f...). Kein `checkout.session.completed`.
+- `GET /v1/checkout/sessions?limit=10` -> **0 Sessions, 0 paid**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebuehr = garantierter Verlust). sales.log unveraendert leer.
+
+### BEFUND + FIX: die Startseite fuehrte nirgendwohin (wichtigster Punkt)
+MEASURED: `grep -c 'blog/' index.html gig.html` -> **0 / 0**. Die 17 Landingpages
+zeigten korrekt *auf* gig.html, aber nichts zeigte auf sie zurueck. Fuer Google
+haengen sie damit nur an der sitemap.xml (1197 URLs, Landingpages darin
+untergegangen), nicht an der internen Linkstruktur. Zusaetzlich war
+`<title>` der Startseite noch komplett auf das tote Buch-Produkt getextet.
+
+**Fix (0 EUR):** index.html hat jetzt oben eine Gig-Sektion (H1 "KI-Aufgaben
+erledigen lassen – ab 3,99 EUR, in 24h", CTA auf gig.html) plus eine
+zweispaltige Liste mit internen Links auf **alle 19** Landingpages. Titel und
+Meta-Description auf den Gig umgestellt, alter Buch-H1 zu H2 degradiert
+(nur noch ein H1 pro Seite).
+**Beleg live:** `curl https://translucentv1.github.io/new-business/ | grep -c
+gig-top` -> **1**, HTTP **200**.
+
+### TRAFFIC: +2 Landingpages, Nachfrage MEASURED statt geraten
+`scripts/kw_demand.py` (Google Autocomplete, hl=de/gl=de, 0 EUR, kein Key):
+- `anschreiben erstellen lassen` -> **7** Vorschlaege, u.a. "...ki",
+  "...professionell", "lebenslauf und anschreiben erstellen lassen"
+- `rede schreiben lassen` -> **7** Vorschlaege, u.a. "...ki", "...ki kostenlos",
+  "trauzeugin rede schreiben lassen"
+Beide Deliverables sind **reiner Text** -> lokal mit Ollama lieferbar, kein
+Bild-/API-Budget noetig. (Ebenfalls geprueft und *bewusst verworfen*:
+"logo erstellen lassen ki" — 10 Treffer, aber Bild-Deliverable, das wir nicht
+verlaesslich zu 0 EUR liefern koennen. Kein Versprechen ohne Lieferfaehigkeit.)
+Neu: `blog/anschreiben-erstellen-lassen-ki.html`, `blog/rede-schreiben-lassen-ki.html`.
+
+### Live-Check (MEASURED, curl)
+- alle **19** blog-Seiten -> HTTP **200** (17 alte + 2 neue, keine 404)
+- `gig.html` -> **200**, Startseite -> **200**
+- sitemap: 19 blog-URLs eingetragen, XML valide, keine Duplikate
+- `python scripts/verify.py` -> **32 ok, 0 fail, 0 skip**
+- Commit `8965b37` auf gh-pages gepusht
+
+### Fiverr (Schritt 3)
+`docs/fiverr_gig.md` geprueft: Titel (DE+EN), Kategorie, 5 Tags, Beschreibung,
+3 Pakete **3,99 / 7,99 / 14,99 EUR**, FAQ, Requirements — copy-paste-fertig.
+Offen bleibt ausschliesslich USER: Account + KYC + Veroeffentlichen.
+
+### Gumroad (Schritt 4)
+`python scripts/gumroad_sale_poll.py` -> **NO TOKEN** (MEASURED).
+`.gumroad_secrets` existiert nicht, nur das Template. Zwei USER-Blocker
+unveraendert: Payout-Freischaltung **und** API-Token. Watcher laeuft folglich
+**nicht** — das ist kein Bug, sondern der fehlende Token.
+
+### Next
+1. Weitere Autocomplete-Intents pruefen und pro Tick 1-2 Seiten nachlegen
+   (nur Text-Deliverables).
+2. Interne Verlinkung ausbauen: Landingpages untereinander thematisch verlinken
+   (Bewerbung <-> Anschreiben <-> Lebenslauf) — naechster $0-SEO-Hebel.
+3. Weiter jeden Tick Stripe pollen. Erster Eintrag in sales.log nur mit echter ID.
+
+---
+
 ## 2026-08-01 (Tick ~06:37 lokal, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
