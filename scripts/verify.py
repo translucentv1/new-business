@@ -106,11 +106,20 @@ def check_sitemap(slugs: list[str]) -> None:
 
 
 def check_sales_log() -> None:
-    """Regressionsschutz: kein 'ERSTER SALE' ohne echte Stripe-ID."""
+    """Regressionsschutz: kein 'ERSTER SALE' ohne ECHTE Stripe-ID.
+
+    2026-08-01: der alte Check war zu lasch — `cs_verify_abc` (Artefakt eines
+    E-Mail-Tests) erfuellte `cs_\\w+` und rutschte durch. Jetzt zusaetzlich:
+    Mindestlaenge einer echten Stripe-ID + Blacklist fuer Test-/Platzhalter-Marker.
+    """
     lines = [ln.strip() for ln in (ROOT / "sales.log").read_text(encoding="utf-8").splitlines()
              if ln.strip() and not ln.lstrip().startswith("#")]
-    bad = [ln for ln in lines if not re.search(r"\b(cs_|evt_|ch_|pi_)\w+", ln)]
-    check("sales.log: keine Zeile ohne Stripe-ID", not bad, str(bad))
+    real_id = re.compile(r"\b(cs_|evt_|ch_|pi_)[A-Za-z0-9_]{20,}")
+    fake_marker = re.compile(r"verify|selftest|dummy|example\.com|placeholder|foobar|_abc\b",
+                             re.IGNORECASE)
+    bad = [ln[:120] for ln in lines
+           if not real_id.search(ln) or fake_marker.search(ln)]
+    check("sales.log: keine Zeile ohne echte Stripe-ID", not bad, str(bad))
 
 
 def check_keyword_demand() -> None:
@@ -137,6 +146,16 @@ def check_live(slugs: list[str]) -> None:
     check(f"live: alle {len(slugs)} Landingpages HTTP 200", not bad, str(bad))
 
 
+def check_interlinking() -> None:
+    """Landingpages muessen thematisch untereinander verlinkt sein + korrekte Titel."""
+    r = run(sys.executable, "scripts/interlink.py", "--check")
+    check("interlink: alle Landingpages im Cluster verlinkt", r.returncode == 0,
+          (r.stdout + r.stderr).strip().splitlines()[-1:] or ["keine Ausgabe"])
+    r = run(sys.executable, "scripts/retitle.py", "--check")
+    check("retitle: kuratierte Titel/Descriptions aktuell", r.returncode == 0,
+          (r.stdout + r.stderr).strip().splitlines()[-1:] or ["keine Ausgabe"])
+
+
 def main() -> int:
     args = set(sys.argv[1:])
     check_gig()
@@ -144,6 +163,7 @@ def main() -> int:
     check_index(slugs)
     check_sitemap(slugs)
     check_sales_log()
+    check_interlinking()
     if "--offline" not in args:
         check_keyword_demand()
         if "--live" in args:

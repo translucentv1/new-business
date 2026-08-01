@@ -16,37 +16,47 @@ GIG = "/new-business/gig.html"
 
 # echte DE-Suchintents (kuratiert, MEASURED: diese Phrasen haben Bezahlwillen)
 KEYWORDS = [
-    ("bewerbung schreiben lassen ki", "KI-Bewerbung in 24h", "Eine uberzeugende Bewerbung, von KI geschrieben und in 24h geliefert."),
-    ("notion template erstellen lassen", "Notion-Template auf Auftrag", "Individuelles Notion-Template, das genau deinen Workflow abbildet."),
-    ("text schreiben lassen guenstig", "Texte zum Festpreis", "Blog, Produkttext oder E-Mail — fertig ab 3,99 EUR."),
-    ("python skript erstellen lassen", "Python-Skript auf Auftrag", "Automatisierung, CSV/JSON, API — kleines Script, feste Preis."),
-    ("study guide erstellen lassen", "Study-Guide als Deliverable", "Zusammenfassung, Charaktere, Verstaendnisfragen zu jedem Buch."),
-    ("instagram caption ki", "Social-Media-Posts von KI", "Instagram/TikTok-Captions, die Klicks bringen."),
-    ("hausarbeit schreiben lassen ki", "KI-Hausarbeit-Entwurf", "Struktur, Quellen, Gliederung – KI-Entwurf als Lernhilfe."),
-    ("ebook cover erstellen lassen", "Ebook-Cover von KI", "Professionelles Cover fuer Self-Publishing, in 24h."),
-    ("linkedin post schreiben lassen", "KI-LinkedIn-Posts", "Posts, die Reichweite bringen – fuer Recruiter sichtbar."),
-    ("expose schreiben lassen ki", "KI-Expose Immobilien", "Verkaufsfertiges Expose fuer Vermieter und Makler."),
-    ("quiz fragen erstellen lassen", "KI-Quiz-Fragen", "Für Schulung, Event oder Lead-Gen – fertige Fragen."),
+    ("bewerbung schreiben lassen ki", "Bewerbung schreiben lassen (KI)", "Eine uberzeugende Bewerbung, von KI geschrieben und in 24h geliefert."),
+    ("notion template erstellen lassen", "Notion-Template erstellen lassen", "Individuelles Notion-Template, das genau deinen Workflow abbildet."),
+    ("text schreiben lassen guenstig", "Text schreiben lassen – guenstig ab 3,99 EUR", "Blog, Produkttext oder E-Mail — fertig ab 3,99 EUR."),
+    ("python skript erstellen lassen", "Python-Skript erstellen lassen", "Automatisierung, CSV/JSON, API — kleines Script, feste Preis."),
+    ("study guide erstellen lassen", "Study-Guide erstellen lassen", "Zusammenfassung, Charaktere, Verstaendnisfragen zu jedem Buch."),
+    ("instagram caption ki", "Instagram-Caption mit KI erstellen lassen", "Instagram/TikTok-Captions, die Klicks bringen."),
+    ("hausarbeit schreiben lassen ki", "Hausarbeit schreiben lassen (KI-Entwurf)", "Struktur, Quellen, Gliederung – KI-Entwurf als Lernhilfe."),
+    ("ebook cover erstellen lassen", "Ebook-Cover erstellen lassen", "Professionelles Cover fuer Self-Publishing, in 24h."),
+    ("linkedin post schreiben lassen", "LinkedIn-Post schreiben lassen", "Posts, die Reichweite bringen – fuer Recruiter sichtbar."),
+    ("expose schreiben lassen ki", "Expose schreiben lassen (KI)", "Verkaufsfertiges Expose fuer Vermieter und Makler."),
+    ("quiz fragen erstellen lassen", "Quiz-Fragen erstellen lassen", "Für Schulung, Event oder Lead-Gen – fertige Fragen."),
     # 2026-07-28 Tick: Nachfrage ASSUMED (web_search blockiert, Firecrawl 402) — Intents analog zu bewerbung/text
-    ("lebenslauf erstellen lassen ki", "KI-Lebenslauf in 24h", "Moderner, ATS-tauglicher Lebenslauf – von KI erstellt, geprueft, in 24h geliefert."),
-    ("produktbeschreibung schreiben lassen", "Produkttexte fuer deinen Shop", "Verkaufsstarke Produktbeschreibungen fuer Shopify, Etsy oder Amazon – Festpreis ab 3,99 EUR."),
+    ("lebenslauf erstellen lassen ki", "Lebenslauf erstellen lassen (KI)", "Moderner, ATS-tauglicher Lebenslauf – von KI erstellt, geprueft, in 24h geliefert."),
+    ("produktbeschreibung schreiben lassen", "Produktbeschreibung schreiben lassen", "Verkaufsstarke Produktbeschreibungen fuer Shopify, Etsy oder Amazon – Festpreis ab 3,99 EUR."),
     # 2026-07-28 Tick 2: Nachfrage ASSUMED (web_search weiterhin 402) — Intents analog zu produktbeschreibung/text
-    ("newsletter schreiben lassen", "KI-Newsletter auf Auftrag", "E-Mail-Newsletter, der geoeffnet wird – Betreff, Text, CTA, fertig in 24h ab 3,99 EUR."),
-    ("excel tabelle erstellen lassen", "Excel/Sheets auf Auftrag", "Tabelle mit Formeln, Auswertung oder Dashboard – fertig aufgebaut, in 24h geliefert."),
+    ("newsletter schreiben lassen", "Newsletter schreiben lassen", "E-Mail-Newsletter, der geoeffnet wird – Betreff, Text, CTA, fertig in 24h ab 3,99 EUR."),
+    ("excel tabelle erstellen lassen", "Excel-Tabelle erstellen lassen", "Tabelle mit Formeln, Auswertung oder Dashboard – fertig aufgebaut, in 24h geliefert."),
     # 2026-08-01 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, DE).
     # "powerpoint erstellen lassen" -> Vorschlaege u.a. "...ki", "...kosten",
     # "...fuer 10 EUR"  => Bezahlwille belegt, Preisniveau passt zu 3,99-14,99 EUR.
-    ("powerpoint erstellen lassen ki", "PowerPoint von KI erstellen lassen", "Fertige Praesentation mit Struktur, Text und Sprechernotizen – ab 3,99 EUR, in 24h geliefert."),
+    ("powerpoint erstellen lassen ki", "PowerPoint erstellen lassen (KI)", "Fertige Praesentation mit Struktur, Text und Sprechernotizen – ab 3,99 EUR, in 24h geliefert."),
     # "businessplan erstellen lassen" -> Vorschlaege u.a. "...ki", "...kosten",
     # "...professionell"  => kommerzieller Intent belegt.
-    ("businessplan erstellen lassen ki", "Businessplan von KI erstellen lassen", "Gliederung, Marktanalyse und Finanzteil als Entwurf – guenstiger Festpreis statt Berater-Stundensatz."),
+    ("businessplan erstellen lassen ki", "Businessplan erstellen lassen (KI)", "Gliederung, Marktanalyse und Finanzteil als Entwurf – guenstiger Festpreis statt Berater-Stundensatz."),
     # 2026-08-01 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
     # "anschreiben erstellen lassen" -> 7 Vorschlaege, u.a. "...ki", "...professionell",
     # "...bewerbung"  => kommerzieller Intent + KI-Akzeptanz belegt. Deliverable = reiner Text.
-    ("anschreiben erstellen lassen ki", "Anschreiben von KI erstellen lassen", "Professionelles Bewerbungs-Anschreiben, auf die Stellenanzeige zugeschnitten – ab 3,99 EUR, in 24h."),
+    ("anschreiben erstellen lassen ki", "Anschreiben erstellen lassen (KI)", "Professionelles Bewerbungs-Anschreiben, auf die Stellenanzeige zugeschnitten – ab 3,99 EUR, in 24h."),
     # "rede schreiben lassen" -> 7 Vorschlaege, u.a. "...ki", "...ki kostenlos",
     # "trauzeugin rede schreiben lassen"  => Anlassrede = hohe Zahlungsbereitschaft, Deliverable = reiner Text.
-    ("rede schreiben lassen ki", "Rede schreiben lassen – von KI, in 24h", "Hochzeit, Geburtstag, Firmenfeier oder Trauzeugen-Rede: fertiger Redetext mit Aufbau und Pointen, ab 3,99 EUR."),
+    ("rede schreiben lassen ki", "Rede schreiben lassen (KI)", "Hochzeit, Geburtstag, Firmenfeier oder Trauzeugen-Rede: fertiger Redetext mit Aufbau und Pointen, ab 3,99 EUR."),
+    # 2026-08-01 Tick 3: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "protokoll schreiben lassen" -> 6 Vorschlaege ("...ki", "chatgpt...", "copilot...",
+    # "teams protokoll schreiben lassen"); "meeting protokoll ki" -> 9 Vorschlaege
+    # (teams, zoom, deutsch, dsgvo, app)  => B2B-Intent + KI-Akzeptanz belegt.
+    # Deliverable = reiner Text (Ollama, 0 EUR).
+    ("protokoll schreiben lassen ki", "Meeting-Protokoll schreiben lassen", "Aus deinen Stichpunkten oder dem Transkript ein sauberes Protokoll: Teilnehmer, Beschluesse, To-dos mit Verantwortlichen – ab 3,99 EUR, in 24h."),
+    # "motivationsschreiben ki" -> 10 Vorschlaege (u.a. "...generator"),
+    # "motivationsschreiben schreiben lassen" -> "...ki"  => Bewerbungs-Intent belegt,
+    # passt zum bereits laufenden Cluster Bewerbung/Anschreiben/Lebenslauf.
+    ("motivationsschreiben schreiben lassen ki", "Motivationsschreiben schreiben lassen", "Studium, Stipendium oder Job: individuelles Motivationsschreiben auf deine Ausschreibung zugeschnitten – ab 3,99 EUR, in 24h."),
 ]
 
 def slug(kw):

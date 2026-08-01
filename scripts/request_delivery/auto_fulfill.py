@@ -24,6 +24,7 @@ import hashlib
 import html
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -68,6 +69,21 @@ Rueckfragen: siehe <a href="../../impressum.html">Impressum</a>.</p></div>
 
 def sid_hash(sid: str) -> str:
     return hashlib.sha256(sid.encode()).hexdigest()[:16]
+
+
+_FAKE_SID = re.compile(r"verify|selftest|dummy|placeholder|foobar|_abc\b", re.IGNORECASE)
+
+
+def _is_real_session_id(sid: str) -> bool:
+    """True nur fuer plausible echte Stripe-Checkout-Session-IDs.
+
+    Schutz gegen Fake-Sales in sales.log (Vorfall 2026-08-01: sid='cs_verify_abc'
+    aus einem E-Mail-Test landete als 'ERSTER SALE' im Log).
+    """
+    sid = (sid or "").strip()
+    return (sid.startswith("cs_")
+            and len(sid) >= 20
+            and not _FAKE_SID.search(sid))
 
 
 def load_state():
@@ -215,15 +231,22 @@ def fulfill_session(s, state, push=True, persist=True):
         ok = git_publish(f"RTD auto-fulfill {sid_hash(sid)} (LIVE sale)")
         live = ok and wait_live(url)
         print(f"  push={ok} live200={live} url={url}")
-        # Sale-Log (MEASURED)
-        with open(os.path.join(ROOT, "sales.log"), "a", encoding="utf-8") as f:
-            f.write(json.dumps({"ts": int(time.time()), "source": "stripe_rtd",
-                                "sid": sid, "amount": s.get("amount_total"),
-                                "currency": s.get("currency"), "email": email,
-                                "deliverable": url,
-                                "email_sent": email_sent,
-                                "email_err": email_err},
-                               ensure_ascii=False) + "\n")
+        # Sale-Log (MEASURED) — NUR bei echter Stripe-Session-ID.
+        # 2026-08-01: ein Verifikationslauf mit sid="cs_verify_abc" hatte einen
+        # Fake-Sale in sales.log geschrieben. Guard: echte cs_-ID (>=20 Zeichen)
+        # und kein Test-/Platzhalter-Marker, sonst wird NICHT geloggt.
+        if _is_real_session_id(sid):
+            with open(os.path.join(ROOT, "sales.log"), "a", encoding="utf-8") as f:
+                f.write(json.dumps({"ts": int(time.time()), "source": "stripe_rtd",
+                                    "sid": sid, "amount": s.get("amount_total"),
+                                    "currency": s.get("currency"), "email": email,
+                                    "deliverable": url,
+                                    "email_sent": email_sent,
+                                    "email_err": email_err},
+                                   ensure_ascii=False) + "\n")
+        else:
+            print(f"  sales.log NICHT geschrieben: sid '{sid}' ist keine echte "
+                  f"Stripe-Session-ID (Testlauf).")
     return url
 
 

@@ -1,1 +1,16 @@
-ERSTER SALE
+# sales.log — NUR MEASURED Sales. Eine Zeile = ein echter Stripe-Sale.
+# REGEL: kein Eintrag ohne echte Stripe-ID (cs_live_/cs_test_/evt_/ch_/pi_ + >=20 Zeichen).
+# Testlaeufe, Selftests und Verifikationen duerfen hier NIEMALS landen.
+#
+# 2026-08-01 19:17 — KORREKTUR #7 (AI-CEO Tick):
+#   Diese Datei enthielt (a) die nackte Zeile "ERSTER SALE" (Commit b1b63e0,
+#   13:36) ohne jede ID und (b) einen angehaengten Fake-Datensatz mit
+#   sid="cs_verify_abc", email="buyer@example.com" — ein Artefakt aus dem
+#   E-Mail-Feature-Test (auto_fulfill.py mit push=True auf einer erfundenen
+#   Session). Beides GEGENBEWIESEN durch Stripe REST (sk_live_, HTTP 200):
+#     GET /v1/events?limit=100 -> 0 payment-Events
+#       (nur payment_link.created 55x, payment_link.updated 17x,
+#        price.created 13x, product.created 13x, account/capability.updated)
+#     GET /v1/charges?limit=10 -> 0 Charges
+#     GET /v1/balance          -> available 0 EUR, pending 0 EUR
+#   Stand jetzt: 0 Sales, 0,00 EUR.
