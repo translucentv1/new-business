@@ -1,1 +1,11 @@
-ERSTER SALE
+# sales.log — NUR MEASURED Sales mit echter Stripe-ID (evt_/cs_/ch_).
+# Ein Eintrag hier ist ein BELEG, keine Absichtserklaerung.
+# Format: <ISO-Datum> | <cs_/evt_/ch_-ID> | <Betrag> <Waehrung> | <Quelle>
+
+# 2026-08-01: Eintrag "ERSTER SALE" (ohne jede ID) entfernt — war unbelegt.
+# Gegenpruefung MEASURED am 2026-08-01 via Stripe REST (HTTP 200):
+#   GET /v1/charges?limit=5            -> 0 Charges
+#   GET /v1/checkout/sessions?limit=10 -> 0 Sessions, 0 paid
+#   GET /v1/balance                    -> available 0 EUR, pending 0 EUR
+#   GET /v1/events?limit=5             -> nur payment_link/price/product.created
+# => Stand 2026-08-01: 0 (null) Sales. Keine Zeile unterhalb dieser Marke.

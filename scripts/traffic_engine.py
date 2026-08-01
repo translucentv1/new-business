@@ -33,6 +33,13 @@ KEYWORDS = [
     # 2026-07-28 Tick 2: Nachfrage ASSUMED (web_search weiterhin 402) — Intents analog zu produktbeschreibung/text
     ("newsletter schreiben lassen", "KI-Newsletter auf Auftrag", "E-Mail-Newsletter, der geoeffnet wird – Betreff, Text, CTA, fertig in 24h ab 3,99 EUR."),
     ("excel tabelle erstellen lassen", "Excel/Sheets auf Auftrag", "Tabelle mit Formeln, Auswertung oder Dashboard – fertig aufgebaut, in 24h geliefert."),
+    # 2026-08-01 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, DE).
+    # "powerpoint erstellen lassen" -> Vorschlaege u.a. "...ki", "...kosten",
+    # "...fuer 10 EUR"  => Bezahlwille belegt, Preisniveau passt zu 3,99-14,99 EUR.
+    ("powerpoint erstellen lassen ki", "PowerPoint von KI erstellen lassen", "Fertige Praesentation mit Struktur, Text und Sprechernotizen – ab 3,99 EUR, in 24h geliefert."),
+    # "businessplan erstellen lassen" -> Vorschlaege u.a. "...ki", "...kosten",
+    # "...professionell"  => kommerzieller Intent belegt.
+    ("businessplan erstellen lassen ki", "Businessplan von KI erstellen lassen", "Gliederung, Marktanalyse und Finanzteil als Entwurf – guenstiger Festpreis statt Berater-Stundensatz."),
 ]
 
 def slug(kw):
@@ -86,5 +93,8 @@ if __name__ == "__main__":
             print("ALLE KEYWORDS BELEGT — neue recherchieren.")
             sys.exit(0)
         title = f"KI: {nxt.title()}"
-        created, path = page(nxt, title, dict((k,d) for k,_,d in KEYWORDS)[nxt])
+        by_kw = {k: (t, d) for k, t, d in KEYWORDS}
+        # kuratierten Titel nutzen (vorher wurde er ignoriert -> "KI: Powerpoint Erstellen Lassen Ki")
+        title, desc = by_kw[nxt]
+        created, path = page(nxt, title, desc)
     print(f"{'NEU' if created else 'EXISTIERT'}: {path}")
