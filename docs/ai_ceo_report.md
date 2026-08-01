@@ -1,5 +1,75 @@
 # AI-CEO Daily Report
 
+## 2026-08-02 (Tick ~01:40 lokal / 23:40 UTC, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+Heute Nacht: **Cluster "Marketing & Texte" auf B2B ausweiten** — bisher zielten
+alle 21 Seiten auf Privatpersonen (Bewerbung, Hausarbeit, Rede). B2B-Kaeufer
+(Firmen, Selbstaendige) haben die hoehere Zahlungsbereitschaft und suchen
+nachweislich nach fertigen Texten. Dazu: den letzten Rest des toten Buch-Pivots
+aus dem Repo raeumen, damit der USER nicht den falschen Gig veroeffentlicht.
+Wochenziel unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, alle HTTP 200, diesen Tick abgefragt):
+- `GET /v1/events?limit=20` -> **0 payment-Events**
+  (payment_link.updated 6x, payment_link.created 5x, price.created 5x,
+  product.created 4x)
+- `GET /v1/charges?limit=10` -> **0 Charges**
+- `GET /v1/checkout/sessions?limit=10` -> **0 Sessions, 0 paid**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebuehr = garantierter Verlust). sales.log unveraendert.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Keyword-Recherche MEASURED** via `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de; `web_search` weiterhin blockiert: Firecrawl HTTP 402
+   insufficient_funds). Geprueft: blogartikel / kuendigung / stellenanzeige /
+   gedicht / website-texte / seo-texte / social-media-posts / praesentation /
+   zusammenfassung / uebersetzung.
+   - Gewaehlt: **"seo blogartikel schreiben lassen"** (2 Vorschlaege, B2B) und
+     **"website texte schreiben lassen"** (2 Vorschlaege, B2B). Beide OHNE
+     "kostenlos"-Modifier in den Vorschlaegen = Bezahlwille.
+   - **Verworfen trotz Nachfrage:** "kuendigung schreiben lassen" (5 Vorschlaege,
+     u.a. "vom anwalt") — Rechtsdienstleistung, RDG-Risiko, verstoesst gegen die
+     Regel "nichts rechtlich Belangbares". "gedicht schreiben lassen" (7) und
+     "zusammenfassung erstellen lassen" (6) — Vorschlaege von "kostenlos"
+     dominiert, schlechter Bezahlwille. "praesentation erstellen lassen" (10)
+     ist durch die bestehende PowerPoint-Seite bereits abgedeckt.
+3. **2 neue Landingpages** erzeugt (`scripts/traffic_engine.py`, idempotent —
+   3. Lauf meldet "ALLE KEYWORDS BELEGT"):
+   `blog/seo-blogartikel-schreiben-lassen.html`, `blog/website-texte-schreiben-lassen.html`.
+4. **Cluster/Index/Sitemap** nachgezogen: `scripts/interlink.py` (8 Seiten
+   umgeschrieben, 0 offen, 0 ohne Cluster), 2 Links in `index.html`,
+   2 `<url>`-Eintraege in `sitemap.xml` (1201 URLs, XML valid).
+5. **Live-Check MEASURED (curl nach Push):** **23/23** blog-Seiten HTTP **200**,
+   index/gig/rtd/thanks/sitemap HTTP **200**. Neue Seiten waren beim 1. Versuch
+   404 (Pages-Deploy), beim 2. Versuch 20s spaeter **200**.
+6. **Fiverr:** `docs/fiverr_gig.md` verifiziert — Titel, Beschreibung, 3 Pakete
+   3,99 / 7,99 / 14,99 EUR, FAQ, Requirements vollstaendig. Um "Web/SEO"
+   (SEO-Blogartikel, Website-Texte) ergaenzt, damit Gig und Landingpages
+   dasselbe versprechen.
+   **BEFUND + Fix:** im Repo-Root lag noch ein **zweites, veraltetes**
+   `fiverr_gig.md` aus dem toten Buch-Pivot ("KI Lese-Begleiter & Study-Guides").
+   Der USER haette beim Copy-Paste den falschen Gig veroeffentlichen koennen.
+   Root-Datei ist jetzt ein Verweis auf `docs/fiverr_gig.md`.
+7. **Gumroad (MEASURED):** `python3 scripts/gumroad_sale_poll.py` -> `NO TOKEN`;
+   `.gumroad_secrets` existiert nicht (nur `.template`). Watcher laeuft also
+   **NICHT**. Zwei Blocker, beide USER: Payout-Freischaltung + API-Token.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — Gig-Text ist copy-paste-fertig (docs/fiverr_gig.md).
+- **Gumroad:** Payout-Freischaltung *und* API-Token (`.gumroad_secrets`).
+- Impressum/AGB-Platzhalter vor breitem Launch pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- Naechste MEASURED-Intents recherchieren (Autocomplete-Seeds, die noch keine
+  Seite haben) — Fokus weiter B2B, weil dort der Bezahlwille sitzt.
+- Pruefen, ob Google die neuen Seiten aufgenommen hat (site:-Abfrage, sobald
+  web_search wieder verfuegbar ist).
+
 ## 2026-08-01 (Tick ~19:17 lokal, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
