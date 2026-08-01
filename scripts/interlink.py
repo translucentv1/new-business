@@ -43,6 +43,8 @@ CLUSTERS: dict[str, list[str]] = {
         "linkedin-post-schreiben-lassen",
         "instagram-caption-ki",
         "expose-schreiben-lassen-ki",
+        "seo-blogartikel-schreiben-lassen",
+        "website-texte-schreiben-lassen",
     ],
     "Lernen & Studium": [
         "hausarbeit-schreiben-lassen-ki",

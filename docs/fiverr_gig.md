@@ -22,6 +22,8 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN)
 - Business: PowerPoint-Präsentationen, Businessplan-Entwürfe, Meeting-Protokolle,
   Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts
+- Web/SEO: SEO-Blogartikel (keyword-optimiert, mit Meta-Description), Website-Texte
+  (Startseite, Über-mich, Leistungen)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 

@@ -57,6 +57,14 @@ KEYWORDS = [
     # "motivationsschreiben schreiben lassen" -> "...ki"  => Bewerbungs-Intent belegt,
     # passt zum bereits laufenden Cluster Bewerbung/Anschreiben/Lebenslauf.
     ("motivationsschreiben schreiben lassen ki", "Motivationsschreiben schreiben lassen", "Studium, Stipendium oder Job: individuelles Motivationsschreiben auf deine Ausschreibung zugeschnitten – ab 3,99 EUR, in 24h."),
+    # 2026-08-02 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "blogartikel schreiben lassen" -> 2 Vorschlaege, darunter explizit
+    # "seo blogartikel schreiben lassen"  => B2B-Intent (Firmen kaufen SEO-Texte ein),
+    # KEIN "kostenlos"-Modifier in den Vorschlaegen = Bezahlwille. Deliverable = reiner Text.
+    ("seo blogartikel schreiben lassen", "SEO-Blogartikel schreiben lassen", "Keyword-optimierter Blogartikel mit Struktur, Zwischenueberschriften und Meta-Description – ab 3,99 EUR, in 24h geliefert."),
+    # "website texte schreiben lassen" -> 2 Vorschlaege ("...", "texte fuer website schreiben lassen").
+    # Ebenfalls B2B / Selbstaendige, kein "kostenlos"-Modifier. Deliverable = reiner Text.
+    ("website texte schreiben lassen", "Website-Texte schreiben lassen", "Startseite, Ueber-mich und Leistungen: verkaufsstarke Website-Texte in deiner Tonalitaet – ab 3,99 EUR, in 24h."),
 ]
 
 def slug(kw):
