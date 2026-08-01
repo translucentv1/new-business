@@ -77,6 +77,20 @@ def check_pages() -> list[str]:
     return slugs
 
 
+def check_index(slugs: list[str]) -> None:
+    """index.html ist der Hub: ein H1, Gig-Titel, Link auf jede Landingpage."""
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    title = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+    check("index: genau ein H1", len(re.findall(r"<h1[\s>]", html)) == 1)
+    check("index: Titel bewirbt den Gig", "KI-Aufgaben erledigen lassen" in title, title[:52])
+    check("index: CTA auf gig.html", "/new-business/gig.html" in html)
+    linked = set(re.findall(r'href="/new-business/blog/(.+?)\.html"', html))
+    check("index: verlinkt jede Landingpage", set(slugs) <= linked,
+          str(sorted(set(slugs) - linked)))
+    dead = sorted(s for s in linked if not (ROOT / "blog" / f"{s}.html").exists())
+    check("index: kein toter blog-Link", not dead, str(dead))
+
+
 def check_sitemap(slugs: list[str]) -> None:
     sm = ROOT / "sitemap.xml"
     try:
@@ -109,6 +123,9 @@ def check_keyword_demand() -> None:
 
 
 def check_live(slugs: list[str]) -> None:
+    code, home = fetch(f"{BASE}/")
+    check("live: Startseite HTTP 200", code == 200, str(code))
+    check("live: Startseite verlinkt den Gig", 'id="gig-top"' in home)
     code, body = fetch(f"{BASE}/gig.html")
     if code != 200:
         SKIP.append(f"live: gig.html nicht erreichbar (HTTP {code})")
@@ -124,6 +141,7 @@ def main() -> int:
     args = set(sys.argv[1:])
     check_gig()
     slugs = check_pages()
+    check_index(slugs)
     check_sitemap(slugs)
     check_sales_log()
     if "--offline" not in args:
