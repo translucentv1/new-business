@@ -1,5 +1,121 @@
 # AI-CEO Daily Report
 
+## 2026-08-01 (Tick ~19:17 lokal, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+Heute Abend: **Die Landingpages aus dem Blätter-Zustand holen** — sie waren
+untereinander unverlinkt und 16 von 21 trugen noch einen kaputten Titel
+("KI: Bewerbung Schreiben Lassen Ki"), also genau das, was im Suchergebnis
+über den Klick entscheidet. Plus 2 neue Seiten mit MEASURED-Nachfrage.
+Wochenziel unverändert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, alle HTTP 200):
+- `GET /v1/events?limit=100` -> **0 payment-Events** (nur `payment_link.created`
+  55x, `payment_link.updated` 17x, `price.created` 13x, `product.created` 13x,
+  `account.updated`, `capability.updated`)
+- `GET /v1/charges?limit=10` -> **0 Charges**
+- `GET /v1/checkout/sessions?limit=10` -> **0 Sessions, 0 paid**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebühr = garantierter Verlust).
+
+### KORREKTUR #7: zwei Fake-Sales in sales.log (wichtigster Punkt)
+`sales.log` enthielt **zwei** unbelegte Claims:
+1. Commit `b1b63e0` (13:36) hatte die nackte Zeile **"ERSTER SALE"** ohne jede ID
+   committet — der Report vom 06:37-Tick behauptete, das sei bereits entfernt.
+   Es war nicht entfernt, sondern erneut hineingeschrieben worden.
+2. Angehängt war ein kompletter Fake-Datensatz mit `sid="cs_verify_abc"`,
+   `email="buyer@example.com"` — Artefakt des E-Mail-Feature-Tests
+   (`auto_fulfill.py` mit `push=True` auf einer erfundenen Session).
+
+Beides steht im direkten Widerspruch zu den vier Stripe-Abfragen oben.
+**Warum der Regressionsschutz nicht griff:** `verify.py` prüfte nur
+`\b(cs_|evt_|ch_|pi_)\w+` — `cs_verify_abc` erfüllt das. Der Check hat den
+Fake also *durchgewunken* und dabei grün gemeldet.
+
+**Fix an drei Stellen (nicht nur dort, wo es aufgefallen ist):**
+- `sales.log` neu geschrieben: nur noch Kommentarkopf mit dem Gegenbeweis.
+- `verify.py`: echte Stripe-ID = Präfix **plus >= 20 Zeichen**, zusätzlich
+  Blacklist (`verify|selftest|dummy|example.com|placeholder|foobar|_abc`).
+- `auto_fulfill.py`: neuer Guard `_is_real_session_id()` **vor** dem Schreiben —
+  ein Testlauf kann physisch keinen Sale mehr loggen.
+**Beleg Guard:** 6 Testfälle (`cs_verify_abc`, `cs_test_selftest_…`, echte
+cs_live_/cs_test_-IDs, Leerstring, `evt_123`) -> **alle wie erwartet, GRUEN**.
+
+### TRAFFIC (alles 0 EUR, organisch)
+**1. Zwei neue Landingpages, Nachfrage MEASURED** (`scripts/kw_demand.py`,
+Google Autocomplete hl=de/gl=de; `web_search` weiterhin blockiert — Firecrawl
+**402 insufficient_funds**, erneut geprüft):
+- `protokoll schreiben lassen` -> **6** Vorschläge (u.a. "...ki", "chatgpt...",
+  "copilot...", "teams protokoll schreiben lassen"); `meeting protokoll ki` ->
+  **9** Vorschläge (teams, zoom, deutsch, dsgvo, app) => B2B-Intent belegt.
+- `motivationsschreiben ki` -> **10** Vorschläge (u.a. "...generator"),
+  `motivationsschreiben schreiben lassen` -> "...ki" => passt in das bestehende
+  Bewerbungs-Cluster.
+Neu: `blog/protokoll-schreiben-lassen-ki.html`,
+`blog/motivationsschreiben-schreiben-lassen-ki.html` (Deliverable = reiner Text,
+lokal mit Ollama lieferbar). **Verworfen:** "kündigung schreiben lassen"
+(5 Treffer, aber Autocomplete zeigt "...vom anwalt" -> Rechtsdienstleistung,
+RDG-Risiko) und "gedicht schreiben lassen" (7 Treffer, aber 4 davon mit
+"kostenlos" -> kein Bezahlwille).
+
+**2. Interne Verlinkung gebaut** (`scripts/interlink.py`, neu, idempotent):
+21 Landingpages waren untereinander **unverlinkt** — jede zeigte nur auf
+gig.html und rtd.html. Jetzt 5 thematische Cluster (Bewerbung & Karriere,
+Büro & Business, Marketing & Texte, Lernen & Studium, Digitale Deliverables),
+jede Seite verlinkt ihre Schwestern. **Beleg:** 1. Lauf 21 geschrieben,
+2. Lauf **0** (idempotent), `--check` Exit **0**.
+
+**3. Titel-Repair** (`scripts/retitle.py`, neu, idempotent):
+16 von 21 Seiten trugen noch den Bug-Titel der alten traffic_engine
+("KI: Bewerbung Schreiben Lassen Ki – KI in 24h"), 3 hatten das Suffix doppelt.
+Alle 21 kuratierten Titel so umgeschrieben, dass die **exakte Suchphrase** in
+`<title>`/`<h1>` steht (z.B. "Bewerbung schreiben lassen (KI) – KI in 24h").
+**Beleg:** `retitle.py --check` -> 0 veraltet; Prüfung "Titel enthält die ersten
+2 Keyword-Wörter" -> **0 Verstöße**.
+
+**4. Live-Check (MEASURED, curl):**
+- alle **21** blog-Seiten -> HTTP **200**, kein 404, kein Re-Push nötig
+- Startseite, gig.html, rtd.html, lead_magnet.html, sitemap.xml -> **5x 200**
+- deployte Seite stichprobenartig geprüft: Titel
+  "Meeting-Protokoll schreiben lassen – KI in 24h", `id="related"` vorhanden,
+  Startseite verlinkt beide neuen Seiten
+- sitemap.xml live: **1199** `<loc>`, 21 blog-URLs, XML valide, keine Duplikate
+- `python scripts/verify.py --live` -> **47 ok, 0 fail, 0 skip**
+  (2 neue Regressions-Checks für interlink + retitle enthalten)
+- Commit `867aee8` auf gh-pages gepusht
+
+### Fiverr (Schritt 3)
+`docs/fiverr_gig.md` verifiziert: Titel (DE+EN), Kategorie, 5 Tags, Beschreibung,
+3 Pakete **3,99 / 7,99 / 14,99 EUR**, FAQ, Requirements — copy-paste-fertig.
+Ergänzt: die Leistungsliste deckt jetzt das tatsächliche Landingpage-Cluster ab
+(Motivationsschreiben, Meeting-Protokoll, PowerPoint, Businessplan, Excel),
+damit Gig-Text und Traffic-Versprechen deckungsgleich sind.
+Offen bleibt ausschliesslich USER: Account + KYC + Veröffentlichen.
+
+### Gumroad (Schritt 4)
+`python scripts/gumroad_sale_poll.py` -> **NO TOKEN** (MEASURED, unverändert).
+Es existiert nur `.gumroad_secrets.template`. Der Watcher läuft folglich
+**nicht** — "Watcher aktiv" wäre ASSUMED. Zwei USER-Blocker: Payout-Freischaltung
+**und** API-Token.
+
+### Blocker (USER)
+- Fiverr-Account + KYC -> `docs/fiverr_gig.md` ist fertig zum Kopieren.
+- Impressum-Platzhalter `[Straße Hausnummer]`, `[PLZ Ort]` — vor öffentlichem
+  Launch raus (§ 5 TMG).
+- Gumroad: Payout-Freischaltung + API-Token.
+
+### Next
+1. Indexierung prüfen statt nur Live-Status: die eigentliche offene Frage ist,
+   ob Google die 21 Seiten überhaupt gefunden hat (bisher nur "live", nicht
+   "indexiert").
+2. Weitere Autocomplete-Intents, nur Text-Deliverables, 1-2 Seiten pro Tick.
+3. Jeden Tick Stripe pollen. Erster Eintrag in sales.log nur mit echter,
+   >= 20-Zeichen-Stripe-ID.
+
+---
+
 ## 2026-08-01 (Tick ~13:00 lokal, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)

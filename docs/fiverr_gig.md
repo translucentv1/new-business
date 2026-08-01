@@ -19,9 +19,11 @@ Programming & Tech → AI Services (alternativ: Writing & Translation → Articl
 Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24 Stunden.
 
 **Was du bekommst:**
-- Texte: Bewerbungen, Produktbeschreibungen, Blog-Artikel, E-Mails (DE/EN)
-- Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Automatisierungen
-- Templates: Notion-Vorlagen, Study-Guides, Checklisten
+- Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN)
+- Business: PowerPoint-Präsentationen, Businessplan-Entwürfe, Meeting-Protokolle,
+  Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts
+- Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
+- Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 
 **So läuft's:**
 1. Du schickst mir deine Anforderung (2–3 Sätze reichen).
