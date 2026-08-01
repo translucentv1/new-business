@@ -1,0 +1,1 @@
+## Nächster Schritt (blockiert, HITL): Echten `sk_live_`-Key (~107 Zeichen) + `whsec_`-Webhook-Secret in `.stripe_secrets` eintragen. Erst dann: Live-Payment-Link erzeugen, Webhook-Endpoint öffentlich anbinden, echter Sale-Poll. Ohne den Key bleibt alles DEMO.

@@ -40,6 +40,13 @@ KEYWORDS = [
     # "businessplan erstellen lassen" -> Vorschlaege u.a. "...ki", "...kosten",
     # "...professionell"  => kommerzieller Intent belegt.
     ("businessplan erstellen lassen ki", "Businessplan von KI erstellen lassen", "Gliederung, Marktanalyse und Finanzteil als Entwurf – guenstiger Festpreis statt Berater-Stundensatz."),
+    # 2026-08-01 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "anschreiben erstellen lassen" -> 7 Vorschlaege, u.a. "...ki", "...professionell",
+    # "...bewerbung"  => kommerzieller Intent + KI-Akzeptanz belegt. Deliverable = reiner Text.
+    ("anschreiben erstellen lassen ki", "Anschreiben von KI erstellen lassen", "Professionelles Bewerbungs-Anschreiben, auf die Stellenanzeige zugeschnitten – ab 3,99 EUR, in 24h."),
+    # "rede schreiben lassen" -> 7 Vorschlaege, u.a. "...ki", "...ki kostenlos",
+    # "trauzeugin rede schreiben lassen"  => Anlassrede = hohe Zahlungsbereitschaft, Deliverable = reiner Text.
+    ("rede schreiben lassen ki", "Rede schreiben lassen – von KI, in 24h", "Hochzeit, Geburtstag, Firmenfeier oder Trauzeugen-Rede: fertiger Redetext mit Aufbau und Pointen, ab 3,99 EUR."),
 ]
 
 def slug(kw):
