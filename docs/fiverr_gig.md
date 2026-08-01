@@ -44,9 +44,10 @@ Hinweis: Fiverr-Mindestpreis ist 5 $ — Basic wird auf Fiverr als 5 $ gelistet
 (3,99 € gilt nur auf gig.html/Stripe-Direktkanal).
 
 ## FAQ (3 Einträge)
-**Kann ich vorab eine Probe sehen?**
-Ja — auf https://translucentv1.github.io/new-business/gig.html gibt es eine
-kostenlose Vorschau-Funktion.
+**Kann ich vorab sehen, was ich bekomme?**
+Ja — auf https://translucentv1.github.io/new-business/gig.html zeigt dir die
+kostenlose Sofort-Vorschau Struktur und Umfang deines Deliverables, bevor du
+bestellst.
 
 **Welche Sprachen?**
 Deutsch (Muttersprachler-Niveau) und Englisch.
