@@ -11,7 +11,9 @@ Flow (jeder Cron-Tick):
   4. Kunde landet nach Zahlung auf thanks.html?sid=<session_id>; deren JS
      berechnet denselben Hash und pollt die Deliverable-URL.
 
-Delivery-Kette komplett ohne E-Mail (SMTP nicht konfiguriert = USER-Blocker).
+Delivery per Default ohne E-Mail. Sobald EMAIL_* (in hermes/.env) gesetzt sind,
+wird die Deliverable-URL automatisch an die Kunden-Mail gesendet (Feature-Flag,
+kein Hard-Fail wenn SMTP fehlt -> USER-Blocker bleibt bis zum Setzen der Env).
 
 Nutzung:
   python auto_fulfill.py            # poll + fulfill + push
@@ -26,6 +28,10 @@ import subprocess
 import sys
 import time
 import urllib.request
+import smtplib
+import ssl  # noqa: F401  (reserved for explicit SSL contexts)
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
@@ -93,6 +99,69 @@ def write_page(sid, anfrage, text):
     return path, f"{SITE}/dl/rtd/{h}.html"
 
 
+def load_email_config():
+    """Liest EMAIL_* (SMTP). Quelle: Env, sonst hermes/.env. None = Mail aus."""
+    req = ("EMAIL_ADDRESS", "EMAIL_PASSWORD", "EMAIL_SMTP_HOST", "EMAIL_SMTP_PORT")
+    cfg = {}
+    for k in req:
+        v = os.environ.get(k)
+        if v:
+            cfg[k] = v
+    if len(cfg) < len(req):
+        p = os.path.join(os.path.expanduser("~"), "AppData", "Local",
+                         "hermes", ".env")
+        if os.path.exists(p):
+            for line in open(p, encoding="utf-8", errors="ignore"):
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                k, v = k.strip(), v.strip().strip('"').strip("'")
+                if k in req and k not in cfg and v and v != "<SET>":
+                    cfg[k] = v
+    if len(cfg) < len(req):
+        return None
+    try:
+        cfg["EMAIL_SMTP_PORT"] = int(cfg["EMAIL_SMTP_PORT"])
+    except ValueError:
+        return None
+    cfg["EMAIL_SMTP_USE_SSL"] = os.environ.get("EMAIL_SMTP_USE_SSL",
+                                                "1") not in ("0", "false", "False")
+    return cfg
+
+
+def send_delivery_email(cfg, to_email, url, anfrage):
+    """Sendet Deliverable-URL an Kunden. Gibt (ok, err) zurueck, nie Exception."""
+    msg = MIMEMultipart("alternative")
+    msg["Subject"] = "Dein Deliverable ist fertig"
+    msg["From"] = cfg["EMAIL_ADDRESS"]
+    msg["To"] = to_email
+    text = (f"Hallo,\n\ndeine Anfrage wurde bearbeitet.\n\n"
+            f"Anfrage: {anfrage}\n\n"
+            f"Deliverable abrufen: {url}\n\nDanke fuer deinen Kauf!")
+    html_body = (f"<p>Hallo,</p><p>deine Anfrage wurde bearbeitet.</p>"
+                 f"<p><strong>Anfrage:</strong> {html.escape(anfrage or '')}</p>"
+                 f"<p><a href='{url}'>Deliverable abrufen</a></p>"
+                 f"<p>Danke fuer deinen Kauf!</p>")
+    msg.attach(MIMEText(text, "plain", "utf-8"))
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
+    try:
+        if cfg.get("EMAIL_SMTP_USE_SSL"):
+            with smtplib.SMTP_SSL(cfg["EMAIL_SMTP_HOST"],
+                                  cfg["EMAIL_SMTP_PORT"], timeout=15) as s:
+                s.login(cfg["EMAIL_ADDRESS"], cfg["EMAIL_PASSWORD"])
+                s.send_message(msg)
+        else:
+            with smtplib.SMTP(cfg["EMAIL_SMTP_HOST"],
+                              cfg["EMAIL_SMTP_PORT"], timeout=15) as s:
+                s.starttls()
+                s.login(cfg["EMAIL_ADDRESS"], cfg["EMAIL_PASSWORD"])
+                s.send_message(msg)
+        return True, None
+    except Exception as e:  # nie den Fulfillment blockieren
+        return False, f"SMTP_ERR:{e}"
+
+
 def git_publish(msg):
     for cmd in (["git", "add", "dl/rtd"],
                 ["git", "commit", "-m", msg],
@@ -130,9 +199,15 @@ def fulfill_session(s, state, push=True, persist=True):
                 f"war kurzzeitig nicht verfuegbar ({err}); diese Seite wird beim "
                 f"naechsten Lauf aktualisiert.")
     path, url = write_page(sid, anfrage, text)
+    email_sent, email_err = None, None
+    if push:  # nur bei echtem LIVE-Fulfillment mailen, nie im selftest/dry-run
+        cfg = load_email_config()
+        if cfg and email:
+            email_sent, email_err = send_delivery_email(cfg, email, url, req_text)
     state[sid] = {"ts": int(time.time()), "email": email,
                   "amount": s.get("amount_total"), "url": url,
-                  "llm_err": err, "final": err is None}
+                  "llm_err": err, "final": err is None,
+                  "email_sent": email_sent, "email_err": email_err}
     if persist:
         save_state(state)
     print(f"FULFILLED {sid} -> {path}")
@@ -145,7 +220,10 @@ def fulfill_session(s, state, push=True, persist=True):
             f.write(json.dumps({"ts": int(time.time()), "source": "stripe_rtd",
                                 "sid": sid, "amount": s.get("amount_total"),
                                 "currency": s.get("currency"), "email": email,
-                                "deliverable": url}, ensure_ascii=False) + "\n")
+                                "deliverable": url,
+                                "email_sent": email_sent,
+                                "email_err": email_err},
+                               ensure_ascii=False) + "\n")
     return url
 
 
