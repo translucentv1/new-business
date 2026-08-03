@@ -65,12 +65,22 @@ def main():
             continue
         ac = (pl.get("after_completion") or {}).get("redirect", {}).get("url", "")
         fields = [cf.get("key") for cf in pl.get("custom_fields", [])]
-        li = pl.get("line_items", {}).get("data", [])
-        amt = li[0].get("price", {}).get("unit_amount") if li else None
-        cur = li[0].get("price", {}).get("currency") if li else None
+        # line_items im List-Response oft NICHT expandiert -> Sub-Endpoint.
+        amt, cur = None, None
+        try:
+            lr = urllib.request.Request(
+                f"https://api.stripe.com/v1/payment_links/{pl['id']}/line_items?limit=1",
+                headers={"Authorization": "Bearer " + key})
+            lj = json.load(urllib.request.urlopen(lr, timeout=30)).get("data", [])
+            if lj:
+                amt = lj[0].get("price", {}).get("unit_amount")
+                cur = lj[0].get("price", {}).get("currency")
+        except Exception as e:
+            print(f"      (Preis-Abfrage fehlgeschlagen: {e})")
         good = (pl.get("livemode") is True and pl.get("active") is True
                 and "anfrage" in fields
-                and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac)
+                and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac
+                and isinstance(amt, int) and amt > 0)
         ok = ok and good
         print(f"    livemode={pl.get('livemode')} active={pl.get('active')} "
               f"amount={amt} {cur} fields={fields}")
