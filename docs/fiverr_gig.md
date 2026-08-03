@@ -25,6 +25,9 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   (Headline, Lead, Zitat, Boilerplate), Arbeitszeugnis-Entwürfe (Formulierungshilfe)
 - Web/SEO: SEO-Blogartikel (keyword-optimiert, mit Meta-Description), Website-Texte
   (Startseite, Über-mich, Leistungen)
+- Korrektur & Verdichtung: Korrekturlesen (Rechtschreibung, Grammatik, Zeichensetzung,
+  Stil), Zusammenfassungen aus PDF/Artikel/Studie/Meeting-Notizen (Stichpunkte,
+  Absatz oder eine Seite)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 
@@ -61,6 +64,8 @@ Deutsch (Muttersprachler-Niveau) und Englisch.
 Keine akademischen Arbeiten zur Abgabe, keine rechts-/medizinberatenden Texte,
 nichts gegen Fiverr-ToS. Arbeitszeugnis- und Vertragstexte liefere ich nur als
 Formulierungs-Entwurf zur eigenen Prüfung — das ist ausdrücklich keine Rechtsberatung.
+Beim Korrekturlesen von Studien-/Abschlussarbeiten korrigiere ich ausschließlich
+die Sprache (Lektorat); Inhalt, Argumentation und Ergebnisse bleiben deine Leistung.
 
 ## Anforderungen an den Käufer (Requirements)
 1. Beschreibe die Aufgabe in 2–3 Sätzen.
@@ -75,3 +80,7 @@ Formulierungs-Entwurf zur eigenen Prüfung — das ist ausdrücklich keine Recht
 - [x] AI-CEO 2026-08-03 MEASURED: 25 Landingpages unter blog/ live (alle HTTP 200),
       3 Stripe-Live-Checkout-Links (3,99/7,99/14,99 EUR) je HTTP 200,
       Preisstufen in gig.html und in diesem Dokument identisch.
+- [x] AI-CEO 2026-08-03 Tick 2 MEASURED: 34 URLs live geprueft (25 blog + index,
+      gig, rtd, thanks, ki-text-service, sitemap, lead_magnet, impressum, agb)
+      -> **0 Fehler, alle HTTP 200**. 3 Stripe-Live-Links erneut je HTTP 200.
+      2 neue Seiten ergaenzt (korrekturlesen, zusammenfassung) -> **27 Landingpages**.

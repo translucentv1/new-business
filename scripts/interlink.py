@@ -52,6 +52,8 @@ CLUSTERS: dict[str, list[str]] = {
         "hausarbeit-schreiben-lassen-ki",
         "study-guide-erstellen-lassen",
         "quiz-fragen-erstellen-lassen",
+        "korrekturlesen-lassen-ki",
+        "zusammenfassung-schreiben-lassen-ki",
     ],
     "Digitale Deliverables": [
         "python-skript-erstellen-lassen",

@@ -76,6 +76,19 @@ KEYWORDS = [
     # "...kosten" (KEIN "kostenlos"-Modifier) => B2B-Bezahlwille belegt, gleiches
     # Signalniveau wie "seo blogartikel"/"website texte" (je 2 Treffer, beide live).
     ("pressemitteilung schreiben lassen", "Pressemitteilung schreiben lassen", "Presse-Text nach Redaktions-Standard: Headline, Lead, Zitat, Boilerplate – ab 3,99 EUR, in 24h geliefert."),
+    # 2026-08-03 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "korrekturlesen lassen" -> 10 Vorschlaege, KEIN einziger "kostenlos"-Modifier:
+    # "bachelorarbeit/masterarbeit/doktorarbeit/projektarbeit korrekturlesen lassen",
+    # "...duden", "...schreibweise", "chatgpt korrekturlesen lassen"
+    # => staerkstes Signal dieses Ticks: bezahlter Dienstleistungsmarkt (Lektorat)
+    # + KI-Akzeptanz. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung: SPRACHLICHE Korrektur, kein Schreiben von Pruefungsleistungen.
+    ("korrekturlesen lassen ki", "Korrekturlesen lassen (KI)", "Rechtschreibung, Grammatik, Zeichensetzung und Stil – dein Text sauber korrigiert, ab 3,99 EUR in 24h."),
+    # "zusammenfassung schreiben lassen" -> 5 Vorschlaege, darunter "...ki",
+    # "chatgpt zusammenfassung schreiben lassen pdf" => KI-Akzeptanz explizit.
+    # Einschraenkung ehrlich notiert: 1 Vorschlag enthaelt "kostenlos" (schwaecherer
+    # Bezahlwille als korrekturlesen). Deliverable = reiner Text.
+    ("zusammenfassung schreiben lassen ki", "Zusammenfassung schreiben lassen (KI)", "Aus PDF, Buch, Studie oder Meeting-Text eine praezise Zusammenfassung – ab 3,99 EUR, in 24h geliefert."),
 ]
 
 def slug(kw):

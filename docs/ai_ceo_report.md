@@ -1,5 +1,81 @@
 # AI-CEO Daily Report
 
+## 2026-08-03 (Tick 2, ~12:46 lokal, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Den staerksten unbesetzten DE-Kaufintent mit belegtem Bezahlwille nehmen —
+Kriterium: Autocomplete-Vorschlaege OHNE "kostenlos"-Modifier.** Bisher wurden
+Intents teils nach Trefferzahl gewaehlt; ab jetzt zaehlt der Bezahlwille-Filter
+staerker. Wochenziel unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, HTTP 200, diesen Tick abgefragt):
+- `GET /v1/events?limit=10` -> **0 payment-Events** (nur payment_link.created 4x,
+  price.created 3x, product.created 3x; neuester `evt_1TzrLWFajs0YddhPckD0qo8g`
+  = payment_link.created)
+- `GET /v1/charges?limit=10` -> **0 Charges**
+- `GET /v1/checkout/sessions?limit=10` -> **0 Sessions**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebuehr = garantierter Verlust). sales.log unveraendert.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Live-Check ALLER Seiten VOR der Aenderung**: 25 `blog/*.html` + `index.html`,
+   `gig.html`, `rtd.html`, `thanks.html`, `ki-text-service/index.html`,
+   `sitemap.xml`, `lead_magnet.html`, `impressum.html`, `agb.html`
+   -> **34 URLs, 0 Nicht-200**. Kein Re-Push noetig.
+3. **Keyword-Recherche MEASURED** via `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de), 16 Seeds geprueft. `web_search` weiterhin blockiert
+   (Firecrawl HTTP 402 `insufficient_funds`) — Autocomplete-Weg ist der $0-Ersatz.
+   - **Gewaehlt: "korrekturlesen lassen"** — 10 Vorschlaege, **kein einziger mit
+     "kostenlos"**: `bachelorarbeit/masterarbeit/doktorarbeit/projektarbeit
+     korrekturlesen lassen`, `...duden`, `...schreibweise`, `chatgpt korrekturlesen
+     lassen`. Staerkstes Signal des Ticks: existierender Bezahl-Dienstleistungsmarkt
+     (Lektorat) + explizite KI-Akzeptanz.
+   - **Gewaehlt: "zusammenfassung schreiben lassen"** — 5 Vorschlaege, u.a. `...ki`,
+     `chatgpt zusammenfassung schreiben lassen pdf`. Ehrliche Einschraenkung:
+     1 Vorschlag enthaelt "kostenlos" = schwaecher als korrekturlesen.
+   - **Verworfen:** "flyer erstellen lassen" (10 Treffer, aber 2x "kostenlos" UND
+     Deliverable ist Design/Print, nicht Text — wir liefern Text); "lektorat text"
+     (10 Treffer, aber reine Marken-/Font-Namen = Navigations-Intent, kein Kauf);
+     "speisekarte erstellen lassen" (3, sauber, aber Design-lastig);
+     "handbuch erstellen lassen" (2), "werbetext"/"social media posts"/
+     "stellenanzeige"/"angebot"/"slogan"/"amazon listing" (je 1 = nur das Seed
+     selbst, kein Signal); "uebersetzung erstellen lassen", "landingpage texte
+     schreiben lassen", "faq erstellen lassen", "grusswort" (je **0**).
+4. **2 neue Landingpages** erzeugt (`scripts/traffic_engine.py`, idempotent —
+   3. Lauf meldet "ALLE KEYWORDS BELEGT"):
+   `blog/korrekturlesen-lassen-ki.html`,
+   `blog/zusammenfassung-schreiben-lassen-ki.html`. **Jetzt 27 Landingpages.**
+5. **Abgrenzung Pruefungsleistungen** auf der Korrekturlesen-Seite: korrigiert wird
+   nur die **Sprache** (Lektorat), Inhalt/Argumentation bleiben Leistung des Kunden,
+   keine Abgabe in fremdem Namen — gleiche Vorsichtslinie wie die
+   Rechtsberatungs-Abgrenzung beim Arbeitszeugnis.
+6. **Cluster/Index/Sitemap** nachgezogen: beide Slugs in `scripts/interlink.py`
+   -> Cluster "Lernen & Studium" (jetzt 5 Seiten), `interlink.py` schrieb
+   5 Seiten um (`--check` danach: **0 offen, 0 ohne Cluster**); 2 Links in
+   `index.html`; 2 `<url>`-Eintraege in `sitemap.xml` (**1205 URLs**).
+7. **Fiverr-Gig aktualisiert** (`docs/fiverr_gig.md`): neue Leistungszeile
+   "Korrektur & Verdichtung", FAQ-Satz zur Lektorats-Abgrenzung, Status auf
+   27 Seiten. Pakete unveraendert **3,99 / 7,99 / 14,99 EUR** — identisch zu
+   `gig.html` (MEASURED per grep: 3,99 3x, 7,99 1x, 14,99 1x). Die 3 hinterlegten
+   Stripe-**Live**-Checkout-Links liefern je **HTTP 200**.
+8. **Gumroad** geprueft: `scripts/gumroad_sale_poll.py` -> `NO TOKEN`,
+   `.gumroad_secrets` **existiert nicht** (nur `.template`). Blocker unveraendert
+   und beide **USER-seitig**: Payout-Freischaltung + API-Token.
+
+### Blocker (USER, nicht AI-loesbar)
+- **Fiverr-Account + Gig veroeffentlichen** (KYC). Text ist copy-paste-fertig.
+- **Gumroad**: Payout-Freischaltung *und* API-Token in `.gumroad_secrets`.
+- **Firecrawl/web_search**: HTTP 402 insufficient_funds (erneut MEASURED).
+
+### Next
+- Traffic-Signal statt Seiten-Zahl: pruefen, ob eine der 27 Seiten Impressions
+  bekommt. Ohne Signal ist "mehr Seiten" Aktionismus (Bens Lektion: Distribution).
+- Falls weiter 0 Signal: Distributionskanal wechseln statt SEO vertiefen
+  (organische Posts dort, wo die Zielgruppe schon ist) — kostenlos, kein Fake-Account.
+
 ## 2026-08-03 (Tick, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
