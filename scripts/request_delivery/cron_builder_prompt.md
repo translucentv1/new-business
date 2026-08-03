@@ -9,6 +9,15 @@ sind gebaut + live (HTTP 200 MEASURED). Delivery-Kette ohne Server steht:
      Ollama qwen2.5:3b ($0), schreibt dl/rtd/<hash>.html, committet + pusht,
      loggt in sales.log.
 
+STAND 2026-08-03 (Tick-Verifikation, MEASURED): auto_fulfill.py gelaufen ->
+sessions=0/paid=0/neu=0 -> keine Sales. rtd.html & thanks.html HTTP 200 (live,
+thanks.html body 2658 B). Fulfillment-Kette BEWIESEN: Ollama qwen2.5:3b vorhanden,
+gen_deliverable liefert 629 B echten DE-Text (err=None); auto_fulfill --selftest OK
+(Temp-File aufgeraeumt). Cross-Linking rtd.html: ALLE 14 Buch-Landingpages + 25
+Blogseiten + Startseite verlinken bereits -> Schritt "Traffic Blog-Links" ERLEDIGT.
+Verbleibend USER-Blocker: EMAIL_* (Mail-Versand), Impressum/AGB-Platzhalter
+[DEIN NAME]; Fiverr=USER-KYC. KEIN DEMO-Modus (LIVE-Key + Ollama aktiv).
+
 Pflicht pro Tick:
 1. python scripts/request_delivery/auto_fulfill.py  (Sale-Check + Fulfillment).
    Bei Sale: GROSS "ERSTER SALE" melden.
