@@ -65,6 +65,17 @@ KEYWORDS = [
     # "website texte schreiben lassen" -> 2 Vorschlaege ("...", "texte fuer website schreiben lassen").
     # Ebenfalls B2B / Selbstaendige, kein "kostenlos"-Modifier. Deliverable = reiner Text.
     ("website texte schreiben lassen", "Website-Texte schreiben lassen", "Startseite, Ueber-mich und Leistungen: verkaufsstarke Website-Texte in deiner Tonalitaet – ab 3,99 EUR, in 24h."),
+    # 2026-08-03 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "arbeitszeugnis schreiben lassen" -> 10 Vorschlaege, u.a. "...ki", "...kosten",
+    # "...professionell", "...geschaeftsfuehrer", "chatgpt arbeitszeugnis schreiben lassen"
+    # => staerkstes Signal dieses Ticks: kommerzieller Intent (kosten/professionell) UND
+    # KI-Akzeptanz explizit in den Vorschlaegen. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung: Formulierungs-Entwurf, KEINE Rechtsberatung (siehe Seitenhinweis).
+    ("arbeitszeugnis schreiben lassen ki", "Arbeitszeugnis schreiben lassen (KI-Entwurf)", "Qualifiziertes Arbeitszeugnis als fertiger Formulierungs-Entwurf – wohlwollend, branchenueblich, ab 3,99 EUR in 24h."),
+    # "pressemitteilung schreiben lassen" -> 2 Vorschlaege, darunter explizit
+    # "...kosten" (KEIN "kostenlos"-Modifier) => B2B-Bezahlwille belegt, gleiches
+    # Signalniveau wie "seo blogartikel"/"website texte" (je 2 Treffer, beide live).
+    ("pressemitteilung schreiben lassen", "Pressemitteilung schreiben lassen", "Presse-Text nach Redaktions-Standard: Headline, Lead, Zitat, Boilerplate – ab 3,99 EUR, in 24h geliefert."),
 ]
 
 def slug(kw):

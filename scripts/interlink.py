@@ -35,6 +35,8 @@ CLUSTERS: dict[str, list[str]] = {
         "businessplan-erstellen-lassen-ki",
         "excel-tabelle-erstellen-lassen",
         "protokoll-schreiben-lassen-ki",
+        "arbeitszeugnis-schreiben-lassen-ki",
+        "pressemitteilung-schreiben-lassen",
     ],
     "Marketing & Texte": [
         "text-schreiben-lassen-guenstig",
