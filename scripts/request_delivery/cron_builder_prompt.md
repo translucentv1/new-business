@@ -18,6 +18,12 @@ Blogseiten + Startseite verlinken bereits -> Schritt "Traffic Blog-Links" ERLEDI
 Verbleibend USER-Blocker: EMAIL_* (Mail-Versand), Impressum/AGB-Platzhalter
 [DEIN NAME]; Fiverr=USER-KYC. KEIN DEMO-Modus (LIVE-Key + Ollama aktiv).
 
+STAND 2026-08-03 (Tick): auto_fulfill 0 Sales (LIVE). Kette MEASURED verifiziert
+inkl. Preise: Basis 399 / Standard 799 / Premium 1499 EUR (alle livemode/active,
+Feld "anfrage", Redirect OK). verify_rtd_chain.py um Preis-Check (amount>0 via
+line_items-Sub-Endpoint) gehaertet + gepusht (84a9d1c). "Kein-Preis"-Hypothese
+fuer 0 Sales WIDERLEGT -> 0 Sales = Traffic/Conversion-Luecke, kein Defekt.
+
 Pflicht pro Tick:
 1. python scripts/request_delivery/auto_fulfill.py  (Sale-Check + Fulfillment).
    Bei Sale: GROSS "ERSTER SALE" melden.
