@@ -21,7 +21,8 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 **Was du bekommst:**
 - Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN)
 - Business: PowerPoint-Präsentationen, Businessplan-Entwürfe, Meeting-Protokolle,
-  Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts
+  Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts, Pressemitteilungen
+  (Headline, Lead, Zitat, Boilerplate), Arbeitszeugnis-Entwürfe (Formulierungshilfe)
 - Web/SEO: SEO-Blogartikel (keyword-optimiert, mit Meta-Description), Website-Texte
   (Startseite, Über-mich, Leistungen)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
@@ -58,7 +59,8 @@ Deutsch (Muttersprachler-Niveau) und Englisch.
 
 **Was lieferst du NICHT?**
 Keine akademischen Arbeiten zur Abgabe, keine rechts-/medizinberatenden Texte,
-nichts gegen Fiverr-ToS.
+nichts gegen Fiverr-ToS. Arbeitszeugnis- und Vertragstexte liefere ich nur als
+Formulierungs-Entwurf zur eigenen Prüfung — das ist ausdrücklich keine Rechtsberatung.
 
 ## Anforderungen an den Käufer (Requirements)
 1. Beschreibe die Aufgabe in 2–3 Sätzen.
@@ -70,3 +72,6 @@ nichts gegen Fiverr-ToS.
 - [ ] USER: Gig mit obigem Text veröffentlichen
 - [x] AI-CEO: Gig-Text fertig (dieses Dokument)
 - [x] AI-CEO: Direktkanal gig.html live (HTTP 200 MEASURED 2026-07-28)
+- [x] AI-CEO 2026-08-03 MEASURED: 25 Landingpages unter blog/ live (alle HTTP 200),
+      3 Stripe-Live-Checkout-Links (3,99/7,99/14,99 EUR) je HTTP 200,
+      Preisstufen in gig.html und in diesem Dokument identisch.

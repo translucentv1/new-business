@@ -1,5 +1,80 @@
 # AI-CEO Daily Report
 
+## 2026-08-03 (Tick, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**B2B-Cluster "Buero & Business" verdoppeln + den staerksten unbesetzten
+DE-Kaufintent nehmen.** Der Cluster hatte 4 Seiten (PowerPoint, Businessplan,
+Excel, Protokoll) — Firmen/HR zahlen mehr als Privatpersonen. Wochenziel
+unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, HTTP 200, diesen Tick abgefragt):
+- `GET /v1/events?limit=10` -> **0 payment-Events** (nur payment_link.created 4x,
+  price.created 3x, product.created 3x)
+- `GET /v1/charges?limit=10` -> **0 Charges**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebuehr = garantierter Verlust). sales.log unveraendert.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Live-Check aller Seiten**: 23 bestehende `blog/*.html` + `index.html`,
+   `gig.html`, `rtd.html`, `thanks.html`, `ki-text-service/index.html`,
+   `sitemap.xml` -> **alle HTTP 200**, 0 Fehler, kein Re-Push noetig.
+3. **Keyword-Recherche MEASURED** via `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de). `web_search` weiterhin blockiert: Firecrawl HTTP 402
+   insufficient_funds — daher der Autocomplete-Weg ($0).
+   - **Gewaehlt: "arbeitszeugnis schreiben lassen"** — 10 Vorschlaege, darunter
+     `...ki`, `...kosten`, `...professionell`, `...geschaeftsfuehrer`,
+     `chatgpt arbeitszeugnis schreiben lassen`. Staerkstes Signal dieses Ticks:
+     kommerzieller Intent UND KI-Akzeptanz explizit belegt.
+   - **Gewaehlt: "pressemitteilung schreiben lassen"** — 2 Vorschlaege, darunter
+     `...kosten`, kein "kostenlos". Gleiches Signalniveau wie die bereits live
+     performenden B2B-Seiten seo-blogartikel/website-texte (je 2 Treffer).
+   - **Verworfen:** "gedicht schreiben lassen" (7 Treffer, aber 4 davon mit
+     "kostenlos" = schlechter Bezahlwille); "stellenanzeige schreiben lassen"
+     und "youtube skript schreiben lassen" (je **0** Vorschlaege = kein Signal);
+     "chatgpt prompt erstellen lassen" (1, zu schwach); "trauerrede"/"angebot"
+     (je 1); "danksagung"/"buchbeschreibung" (je 0).
+4. **2 neue Landingpages** erzeugt (`scripts/traffic_engine.py`, idempotent —
+   3. Lauf meldet "ALLE KEYWORDS BELEGT"):
+   `blog/arbeitszeugnis-schreiben-lassen-ki.html`,
+   `blog/pressemitteilung-schreiben-lassen.html`. **Jetzt 25 Landingpages.**
+5. **Rechts-Abgrenzung** auf der Arbeitszeugnis-Seite ergaenzt: liefert nur einen
+   Formulierungs-Entwurf, ausdruecklich **keine Rechtsberatung** (RDG-Risiko
+   vermeiden — dieselbe Regel, die im letzten Tick "kuendigung" gekippt hat).
+6. **Cluster/Index/Sitemap** nachgezogen: beide Slugs in `scripts/interlink.py`
+   -> Cluster "Buero & Business" (jetzt 6 Seiten), `interlink.py` schrieb
+   6 Seiten um (`--check` danach: 0 offen, 0 ohne Cluster); 2 Links in
+   `index.html`; 2 `<url>`-Eintraege in `sitemap.xml` (**1203 URLs**).
+7. **Commit + Push** `1a5f32e`, danach **Live-Check MEASURED**: beide neuen URLs
+   erst 404 (Pages-Deploy laeuft), im 2. Versuch **HTTP 200**.
+8. **Fiverr-Gig verifiziert** (`docs/fiverr_gig.md`): Titel (DE+EN), Kategorie,
+   5 Tags, Beschreibung, FAQ, Requirements vorhanden; Pakete
+   **3,99 / 7,99 / 14,99 EUR** — identisch zu den Tiers in `gig.html` (MEASURED
+   per grep). Die 3 hinterlegten Stripe-**Live**-Checkout-Links liefern je
+   **HTTP 200**. Gig-Text um die 2 neuen Leistungen erweitert
+   (Pressemitteilung, Arbeitszeugnis-Entwurf) inkl. Nicht-Rechtsberatungs-Satz
+   in der FAQ. `fiverr_gig.md` (Root, stillgelegt) auf 25 Seiten korrigiert.
+9. **Gumroad** geprueft: `scripts/gumroad_sale_poll.py` gibt weiterhin `NO TOKEN`,
+   `.gumroad_secrets` **existiert nicht** (nur `.template`). Blocker unveraendert
+   und beide **USER-seitig**: Payout-Freischaltung + API-Token.
+
+### Blocker (USER, nicht AI-loesbar)
+- **Fiverr-Account + Gig veroeffentlichen** (KYC). Text ist copy-paste-fertig.
+- **Gumroad**: Payout-Freischaltung *und* API-Token in `.gumroad_secrets`.
+- **Firecrawl/web_search**: HTTP 402 insufficient_funds. Kein Blocker fuer den
+  Loop (Autocomplete-Fallback laeuft), aber Recherche ist schmaler.
+
+### Next
+- Naechster Tick: 1-2 weitere B2B-Intents per `kw_demand.py` pruefen
+  (Kandidaten-Richtung: HR/Recruiting und Agentur-Zulieferung, da
+  "arbeitszeugnis" das bisher staerkste Signal geliefert hat).
+- Nach ~1 Woche Indexierung: pruefen, ob eine der 25 Seiten ueberhaupt Impressions
+  bekommt — ohne Traffic-Signal ist "mehr Seiten bauen" nur Aktionismus (Bens
+  Lektion: Distribution ist der harte Teil).
+
 ## 2026-08-02 (Tick ~01:40 lokal / 23:40 UTC, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
