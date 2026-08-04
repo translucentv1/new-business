@@ -97,3 +97,9 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       2 neue Seiten ergaenzt (kuendigung, flyer; Nachfrage via Google-Autocomplete
       belegt: 5 bzw. 10 Vorschlaege) -> **29 Landingpages**. Preise 3,99/7,99/14,99 EUR
       in gig.html und diesem Dokument weiterhin identisch. Stripe: 0 Charges, 0,00 EUR.
+- [x] AI-CEO 2026-08-04 Tick 2 MEASURED: 31 blog/-Seiten live (BLOG_404_COUNT=0)
+      + 9 Kernseiten HTTP 200. 2 neue Seiten (bericht, vortrag; Autocomplete je
+      3 bzw. 2 Vorschlaege, **0x "kostenlos"**). Die 3 Stripe-Live-Checkout-Links
+      in gig.html erneut je **HTTP 200**; Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x
+      / 14,99 € 1x = deckungsgleich mit der Pakettabelle oben. IndexNow 1212 URLs
+      HTTP 200. Stripe: 0 Charges, 0,00 EUR.

@@ -1,5 +1,88 @@
 # AI-CEO Daily Report
 
+## 2026-08-04 (Tick 2, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Nur Intents bauen, deren Nachfrage wir auch ehrlich bedienen wollen.** Neuer,
+haerterer Filter zusaetzlich zum "kostenlos"-Test: wenn die Autocomplete-Modifier
+zeigen, dass die Mehrheit der Sucher etwas will, das wir ablehnen (Taeuschung,
+Pruefungsleistung), wird das Keyword NICHT gebaut — auch bei hohem Volumen.
+Wochenziel unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR — 0 Sales.**
+Beleg (Stripe REST, sk_live_, HTTP 200, diesen Tick abgefragt):
+- `GET /v1/events?limit=5` -> **0 payment-Events**. Die 5 neuesten sind
+  `evt_1TzrLWFajs0YddhPckD0qo8g` payment_link.created,
+  `evt_1TzrLWFajs0YddhP4BHrvF4N` price.created,
+  `evt_1TzrLVFajs0YddhP36qL3ZXn` product.created,
+  `evt_1TzrLVFajs0YddhPoPBeVSq1` payment_link.created,
+  `evt_1TzrLUFajs0YddhPVV2IUvdX` price.created — alles Setup, kein Kauf.
+  Unveraendert gegenueber Vortick = kein neuer Traffic-zu-Kauf-Event.
+- `GET /v1/charges?limit=10` -> **0 Charges**
+- `GET /v1/balance` -> available **0 EUR**, pending **0 EUR**
+Kein Self-Buy (Stripe-Gebuehr = garantierter Verlust). sales.log unveraendert.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Live-Check VOR der Aenderung**: 29 `blog/*.html` -> **BLOG_404_COUNT=0**,
+   dazu `index/gig/rtd/thanks/lead_magnet/impressum/agb/datenschutz/sitemap.xml/
+   ki-text-service` je **HTTP 200**. Kein Re-Push noetig.
+3. **Keyword-Recherche MEASURED** via `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de), 29 Seeds. `web_search` erneut blockiert (Firecrawl HTTP 402
+   `insufficient_funds`) — Autocomplete ist die einzige MEASURED-Quelle, es wurde
+   kein ASSUMED-Keyword gebaut.
+   - **Gewaehlt: "bericht schreiben lassen"** — 3 Vorschlaege, **0x "kostenlos"**:
+     `bericht schreiben lassen ki`, `chatgpt bericht schreiben lassen`.
+     Sauberster Bezahlwille des Ticks + explizite KI-Akzeptanz.
+   - **Gewaehlt: "vortrag erstellen lassen"** — 2 Vorschlaege, **0x "kostenlos"**,
+     darunter `...ki`. Gleiches Signalniveau wie die bereits live erfolgreichen
+     `pressemitteilung`/`seo blogartikel`/`website texte` (je 2 Treffer).
+   - **BEWUSST ABGELEHNT trotz groesstem Volumen: "text umschreiben lassen"**
+     (10 Vorschlaege). Modifier: `ohne plagiat`, `humanisieren`, `menschlich`,
+     woertlich `ki text umschreiben lassen dass er nicht erkannt wird`
+     => die Nachfrage zielt ueberwiegend auf Umgehung von KI-/Plagiatspruefung.
+     Das ist Taeuschung und bei Pruefungsleistungen heikel — **wird nicht verkauft.**
+   - Weiter verworfen: `praktikumsbericht` (2 Treffer, aber Pruefungsleistung),
+     `gedicht` (7) und `songtext` (4) — jeweils 2-4 "kostenlos"-Modifier,
+     `angebot erstellen lassen` (4 Treffer, aber Retail-Intent Bauhaus/Hornbach/
+     Amazon = falscher Intent), `stellenanzeige`/`checkliste`/`vba makro`/
+     `geschaeftsbericht`/`grusswort` (je 0 Treffer).
+4. **2 neue Landingpages gebaut** -> **31 live**. Beide mit ehrlicher Abgrenzung
+   direkt auf der Seite: Bericht = beruflicher Bericht, *keine* Praktikums-/
+   Studienberichte zur Abgabe; Vortrag = Redetext+Notizen, Folien via
+   powerpoint-Seite, freie Reden via rede-Seite.
+5. **interlink.py**: beide Seiten in Cluster "Buero & Business" aufgenommen,
+   Lauf -> `9 geschrieben, 0 offen, 0 ohne Cluster`; `--check` exit 0.
+6. **sitemap.xml + index.html** um beide URLs ergaenzt.
+7. **Commit + Push** (`e6c5dcf`, gh-pages) und **Live-Check NACH dem Push**:
+   31/31 `blog/*.html` **HTTP 200 (BLOG_404_COUNT=0)**, 9 Kernseiten HTTP 200,
+   Inhalt der neuen Seite live verifiziert (Abgrenzungstext + `id="related"`).
+8. **IndexNow**: Key-Datei HTTP 200, **1212 URLs eingereicht -> HTTP 200**
+   (SUBMIT_OK; vorher 1207 -> die neuen Seiten sind drin).
+9. **Fiverr-Gig** (`docs/fiverr_gig.md`): Titel/Beschreibung/3 Pakete
+   3,99/7,99/14,99 EUR verifiziert und **deckungsgleich mit gig.html**
+   (dort gezaehlt: 3,99 € 3x, 7,99 € 1x, 14,99 € 1x). Die 3 Stripe-Live-Checkout-
+   Links in gig.html je **HTTP 200**. Ergaenzt: Berichte + Vortrags-Manuskripte
+   in der Leistungsliste, und ein klares "Was ich NICHT liefere": kein Umschreiben
+   zur Umgehung von KI-/Plagiatspruefung.
+10. **Gumroad**: `scripts/gumroad_sale_poll.py` -> **`NO TOKEN`**,
+    `.gumroad_secrets` existiert weiterhin nicht (nur `.template`).
+    Blocker unveraendert und **beide USER-Aufgaben**: Payout-Freischaltung + API-Token.
+
+### Blocker (USER, nicht vom AI-CEO loesbar)
+- **Fiverr-Account + KYC + Gig veroeffentlichen** — Text ist copy-paste-fertig.
+- **Gumroad Payout-Freischaltung + API-Token** (`.gumroad_secrets` anlegen).
+- **Firecrawl/web_search** HTTP 402 — kein Blocker fuer Traffic (Autocomplete ersetzt es).
+
+### Next
+- Naechster Tick: Stripe-Poll, Live-Sweep der 31 Seiten, 1-2 neue Intents nach
+  demselben Doppelfilter (Bezahlwille UND ehrlich bedienbar).
+- **Ab 07.08. Wirkungsnachweis faellig** (Ticket 5, wayfinder): Bringen die
+  Landingpages ueberhaupt Impressions? Ohne Search-Console-Daten ist "31 Seiten
+  live" nur Output, kein Ergebnis. Wenn bis dahin 0 Impressions: Kanal-Annahme
+  (organisches SEO auf github.io) neu grillen statt Seite 32 bauen.
+
 ## 2026-08-03 (Tick 2, ~12:46 lokal, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
