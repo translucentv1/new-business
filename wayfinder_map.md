@@ -21,6 +21,8 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - **Selftest-Falle:** `auto_fulfill --selftest` läuft mit `push=False` und beweist die Publizierung damit **nicht** — „Kette bewiesen" hieß bis 2026-08-04 in Wahrheit „alles außer der letzten Etappe bewiesen". Ein grüner Selftest ist kein Zustellnachweis; dafür `verify_publish_leg.py` (Ticket 11).
 - **HEAD-Falle:** `thanks.html` pollt das Deliverable mit `fetch(..., {method:'HEAD'})`. Live-Checks, die nur GET testen, prüfen den Kundenpfad nicht. Beides messen.
 - **Pages-Rebuild = ~31 s** (MEASURED 2026-08-04, Aufbau *und* Abbau je 31 s). `wait_live(18×10 s)` in `auto_fulfill.py` hat damit reichlich Reserve.
+- **Exit-Code-Falle:** Ein `rc=1` beweist **nicht**, dass ein Test einen Defekt *erkannt* hat — es kann auch ein Absturz sein (2026-08-04 real passiert: eine Mutationsprobe lief grün „bestanden", weil der Mutant an `ModuleNotFoundError` starb statt zu prüfen). Bei Negativ-Tests immer zusätzlich die erwartete Fehlermeldung im Output prüfen und auf `Traceback` filtern.
+- **Prüfer prüfen:** Jedes neue Verifikationsskript bekommt ein `--selftest` mit Fault Injection (Konvention aus `auto_fulfill.py`). Ein Prüfer, der nie rot werden kann, winkt einen kaputten Geldpfad durch.
 
 ## Decisions so far
 - [Traffic-Hebel](tickets/1-traffic-hebel.md) — bei 0 Budget: Reddit/X-Posts (Nutzer) oder SEO (langsam). Größter Hebel = Nutzer-Posts.

@@ -109,3 +109,32 @@ Das war eine **Ad-hoc-Verifikation** (Wegwerf-Skript unter `%TEMP%`,
 dauerhafter Test. Das Repo hat keinen Test-Runner fuer diesen Bereich;
 `python -m py_compile` auf dem Skript laeuft sauber durch.
 
+**Nachgezogen:** die Fault Injection ist jetzt kein Wegwerf-Artefakt mehr,
+sondern steckt als `--selftest` **im Pruefer selbst** — analog zu
+`auto_fulfill.py --selftest`, also in der Konvention des Repos. Damit ist die
+Pruefung wiederholbar statt einmalig:
+
+```
+python scripts/request_delivery/verify_publish_leg.py --selftest
+  -> SELFTEST OK: 9/9 Defekte erkannt   (offline, ohne Nebenwirkung)
+```
+
+`--selftest` stubbt git, HTTP, `write_page` und `git_publish` und setzt intern
+`--keep`, damit der Cleanup-Zweig keine git-Writes ausloest. Nachgemessen:
+HEAD unveraendert, Arbeitsbaum unveraendert, 0 unpushed, `dl/rtd/` leer, keine
+Temp-Leichen.
+
+**Mutationsprobe (sonst waere „9/9" wertlos):** eine Kopie des Moduls mit
+entschaerfter HEAD-Pruefung (`if st_head != 200` → `if False`) muss durchfallen
+— und tut es: `[FAIL] GET 200 aber HEAD 404 rc=0`,
+`SELFTEST FEHLGESCHLAGEN: 1 Defekt(e) NICHT erkannt`, rc=1.
+
+> **Fallstrick, der dabei fast durchgerutscht waere:** der erste Versuch der
+> Mutationsprobe lief den Mutanten in einem Temp-Verzeichnis — dort scheiterte
+> schon `import auto_fulfill` (→ `app`), der Prozess starb mit
+> `ModuleNotFoundError` und lieferte rc=1. Das sah nach „Mutant faellt durch"
+> aus, war aber ein **Absturz**. Ein Crash-rc ist kein Erkennungsnachweis.
+> Fix: Mutant mit `PYTHONPATH` auf das echte Skriptverzeichnis laufen lassen
+> **und** zusaetzlich auf `Traceback`/`[FAIL]`-Zeile pruefen, nicht nur auf den
+> Exit-Code.
+

@@ -16,11 +16,15 @@ eine Nachbildung. Kein Stripe-Call, keine sales.log-Zeile, kein State.
 Raeumt sich selbst auf (Datei geloescht + gepusht + 404 verifiziert).
 
 Aufruf: python scripts/request_delivery/verify_publish_leg.py
-        python scripts/request_delivery/verify_publish_leg.py --keep  (kein Cleanup)
+        python scripts/request_delivery/verify_publish_leg.py --keep      (kein Cleanup)
+        python scripts/request_delivery/verify_publish_leg.py --selftest  (Fault Injection, offline)
 """
+import contextlib
+import io
 import os
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -146,5 +150,78 @@ def main():
     return 0
 
 
+def _selftest():
+    """Fault Injection: erkennt main() Defekte wirklich, oder sagt es nur 'OK'?
+
+    Ein Pruefer, der nie rot wird, winkt einen kaputten Geldpfad durch. Alle
+    Aussenabhaengigkeiten werden gestubbt -> kein Push, kein Netz, kein Repo.
+    """
+    g = globals()
+    h = af.sid_hash(CANARY_SID)
+    good = f"{af.SITE}/dl/rtd/{h}.html"
+
+    def run(branch="gh-pages", url=good, before=404, publish=True,
+            unpushed="0", tree=f"dl/rtd/{h}.html", get200=True, head=200):
+        fd, tmp = tempfile.mkstemp(prefix="rtd-selftest-", suffix=".html")
+        os.write(fd, b"x")
+        os.close(fd)
+        n = [0]
+
+        def _http(_u, m):
+            if m == "HEAD":
+                return head, 0
+            n[0] += 1
+            return (before, 0) if n[0] == 1 else (200, 1)
+
+        keep = {k: g[k] for k in ("git", "http", "poll_until")}
+        wp, gp, argv = af.write_page, af.git_publish, sys.argv
+        af.write_page = lambda *_a: (tmp, url)
+        af.git_publish = lambda _m: publish
+        g["git"] = lambda *a: (0, {"rev-parse": branch, "log": "stub",
+                                   "rev-list": unpushed, "ls-tree": tree}[a[0]])
+        g["http"] = _http
+        g["poll_until"] = lambda _u, _m, w, **_k: ((True, w, 0)
+                                                   if w != 200 or get200
+                                                   else (False, 500, 0))
+        sys.argv = ["x", "--keep"]          # Cleanup-Zweig aus: keine git-Writes
+        buf = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(buf):
+                rc = main()
+        finally:
+            g.update(keep)
+            af.write_page, af.git_publish, sys.argv = wp, gp, argv
+            if os.path.exists(tmp):
+                os.remove(tmp)
+        return rc, buf.getvalue()
+
+    cases = [
+        ("alles gesund",              0, {}),
+        ("falscher Branch",           1, {"branch": "master"}),
+        ("git_publish Fehler",        1, {"publish": False}),
+        ("Commit nicht auf origin",   1, {"unpushed": "1"}),
+        ("Datei fehlt im Tree",       1, {"tree": ""}),
+        ("GET nie 200",               1, {"get200": False}),
+        ("GET 200 aber HEAD 404",     1, {"head": 404}),
+        ("URL schon vor Push live",   1, {"before": 200}),
+        ("URL-Aufbau falsch",         1, {"url": "https://x.invalid/y.html"}),
+    ]
+    print("== Fault Injection gegen main() (offline, ohne Nebenwirkung) ==")
+    bad = 0
+    for name, want, kw in cases:
+        rc, out = run(**kw)
+        bad += rc != want
+        why = "; ".join(l.strip(" -") for l in out.splitlines()
+                        if l.startswith("  - "))
+        print(f"  [{'OK ' if rc == want else 'FAIL'}] {name:<26} rc={rc}"
+              + (f" | {why}" if why else ""))
+    if bad:
+        print(f"SELFTEST FEHLGESCHLAGEN: {bad} Defekt(e) NICHT erkannt.")
+        return 1
+    print(f"SELFTEST OK: {len(cases)}/{len(cases)} Defekte erkannt "
+          "(kritisch: GET 200 + HEAD 404 = Kunde pollt ewig).")
+    return 0
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(_selftest() if "--selftest" in sys.argv else main())
