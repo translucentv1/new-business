@@ -52,6 +52,7 @@ CLUSTERS: dict[str, list[str]] = {
         "seo-blogartikel-schreiben-lassen",
         "website-texte-schreiben-lassen",
         "flyer-erstellen-lassen-ki",
+        "speisekarte-erstellen-lassen-ki",
     ],
     "Lernen & Studium": [
         "hausarbeit-schreiben-lassen-ki",
@@ -66,6 +67,7 @@ CLUSTERS: dict[str, list[str]] = {
         "ebook-cover-erstellen-lassen",
         "rede-schreiben-lassen-ki",
         "hochzeitsrede-schreiben-lassen",
+        "trauerrede-schreiben-ki",
     ],
 }
 

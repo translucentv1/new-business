@@ -155,6 +155,41 @@ KEYWORDS = [
     #   anleitung, bedienungsanleitung, marktanalyse, stellenbeschreibung,
     #   unternehmensprofil, werbetext, social media posts, schulungsunterlagen,
     #   interview fragen, email vorlage, podcast skript.
+    # 2026-08-05 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). web_search/Firecrawl erneut HTTP 402 (insufficient_funds) ->
+    # Autocomplete bleibt die einzige MEASURED-Quelle; kein ASSUMED-Keyword gebaut.
+    # "trauerrede schreiben" -> 10 Vorschlaege (Maximum dieses Ticks), KEIN "kostenlos":
+    # woertlich "trauerrede schreiben ki" (KI-Akzeptanz explizit) plus die
+    # Angehoerigen-Modifier mutter/vater/opa/oma/bruder/freund => konkreter Anlass,
+    # hoher Zeitdruck, hohe Zahlungsbereitschaft. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Ehrlich notiert: 1 der 10 Vorschlaege ist "...beispiel" (Vorlagen-Sucher).
+    # Abgrenzung zu rede-/hochzeitsrede-Seite: hier ausschliesslich Trauerfall.
+    ("trauerrede schreiben ki", "Trauerrede schreiben lassen (KI)", "Einfuehlsame Trauerrede fuer Mutter, Vater, Grosseltern oder Freund – Aufbau, Anekdoten, Schlussworte, ab 3,99 EUR in 24h."),
+    # "speisekarte erstellen lassen" -> 3 Vorschlaege: "...kosten" (Preisrecherche =
+    # Bezahlwille) und "...ki" (KI-Akzeptanz), KEIN "kostenlos"-Modifier.
+    # Gastro-Markt, gleiches Signalniveau wie "bericht" (3 Treffer, live).
+    # Deliverable EHRLICH abgegrenzt: Gerichts-TEXTE und Karten-Aufbau, KEIN
+    # druckfertiges Layout und KEINE rechtsverbindliche Allergen-/Zusatzstoff-Kennzeichnung.
+    ("speisekarte erstellen lassen ki", "Speisekarte erstellen lassen (KI) – Texte & Aufbau", "Appetitliche Gerichtsbeschreibungen, Kategorien und Karten-Aufbau fuer Restaurant, Cafe oder Foodtruck – ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-05 Tick):
+    # - "text erstellen lassen" (10 Treffer = groesstes Volumen): 3 Modifier sind
+    #   "kostenlos"/"ohne anmeldung", dazu "rap"/"suno" (Songtexte) => der Sucher will
+    #   ein Gratis-Tool, keinen bezahlten Dienstleister. Deckt zudem die bestehende
+    #   Seite text-schreiben-lassen-guenstig ab.
+    # - "gliederung erstellen lassen" (6): enthaelt "...kostenlos" UND 2x
+    #   Hausarbeit/Bachelorarbeit = Pruefungsleistung zur Abgabe -> gleiche Linie wie
+    #   die frueher abgelehnten praktikumsbericht/referat-Keywords.
+    # - "ki dienstleistungen" (6) und "freelancer ki jobs" (10): falsche Marktseite —
+    #   das sind Leute, die KI-Leistungen ANBIETEN bzw. Jobs suchen, keine Kaeufer.
+    # - "ki auftrag*" (10): B2B-Softwarebegriffe (Auftragsverarbeitung/DSGVO-AVV),
+    #   kein Text-Kaufintent.
+    # - "angebot erstellen lassen" (4): Modifier amazon/bauhaus/hornbach => Nutzer will
+    #   ein Preisangebot VON einem Haendler, kein geschriebenes Angebotsdokument.
+    # - 0-1 Treffer (kein Signal): trauerrede schreiben lassen, danksagung, abschiedsrede,
+    #   geburtstagsrede, faq, checkliste, social media plan, content plan, grusswort,
+    #   wohnungsbewerbung, stellenanzeige, whitepaper, landingpage text, amazon listing,
+    #   produkttext, elternbrief, einladung text, bewertung antworten, kondolenzschreiben,
+    #   laudatio, ausschreibung.
 ]
 
 def slug(kw):
