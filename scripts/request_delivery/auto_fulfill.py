@@ -41,6 +41,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
 import app  # noqa: E402  (get_stripe_key)
 from gig_fulfill import gen_deliverable  # noqa: E402  (Ollama, $0)
+from gig_fulfill import TIER_SPEC, tier_spec as gig_tier_spec  # noqa: E402
 
 STATE = os.path.join(HERE, "fulfilled_live.json")
 DL_DIR = os.path.join(ROOT, "dl", "rtd")
@@ -59,12 +60,23 @@ border-radius:8px;padding:1.2em;font-family:inherit}}
 padding-top:1em}}</style></head><body>
 <h1>Dein Deliverable ✅</h1>
 <p><strong>Deine Anfrage:</strong> {req}</p>
+{tierblock}
 <pre>{body}</pre>
 <p><a href="javascript:window.print()">Als PDF speichern / drucken</a></p>
 <div class="note"><p>Bestellung {oid} · Danke fuer deinen Kauf!
 Rueckfragen: siehe <a href="../../impressum.html">Impressum</a>.</p></div>
 </body></html>
 """
+
+# Ticket 12: Die gekaufte Stufe muss auf der Abrufseite stehen — sonst kann der
+# Kunde nicht erkennen, ob er bekommen hat, wofuer er bezahlt hat, und die
+# Revisionszusage aus agb.html §3 hat keinen Abrufweg.
+TIERBLOCK = """<p style="background:#f0f7ff;border:1px solid #cfe3fb;
+border-radius:8px;padding:.9em 1.2em"><strong>Stufe:</strong> {name}
+({price}) · <strong>Umfang:</strong> {scope}<br>
+<strong>Revisionen:</strong> {rev}</p>"""
+
+CONTACT = "philippbehnisch@gmail.com"  # identisch mit impressum.html Z. 27
 
 
 def sid_hash(sid: str) -> str:
@@ -148,11 +160,40 @@ def stripe_get(path):
         return json.load(r)
 
 
-def write_page(sid, anfrage, text):
+def tier_for_amount(amount):
+    """Cent-Betrag der Session -> (spec, guessed).
+
+    Unbekannter/fehlender Betrag -> Basis + guessed=True. Bewusst nach UNTEN
+    geraten: lieber liefern, was der Basis-Preis deckt, als eine Stufe
+    versprechen, die nicht bezahlt wurde.
+    """
+    spec = gig_tier_spec(amount)
+    if spec is not None:
+        return spec, False
+    return TIER_SPEC[399], True
+
+
+def tier_html(spec, guessed):
+    rev = {0: "keine (in dieser Stufe nicht enthalten)",
+           1: "1 Revision inklusive", 2: "2 Revisionen inklusive"}.get(
+               spec["revisions"], f"{spec['revisions']} Revisionen inklusive")
+    if spec["revisions"] > 0:
+        rev += (f" — einfach auf die Bestell-Mail antworten oder an "
+                f"<a href=\"mailto:{CONTACT}\">{CONTACT}</a> schreiben und die "
+                f"Bestellnummer nennen.")
+    price = f"{spec['cents'] / 100:.2f} €".replace(".", ",")
+    if guessed:
+        price += " (Stufe aus dem Zahlbetrag nicht eindeutig — Basis angesetzt)"
+    return TIERBLOCK.format(name=html.escape(spec["name"]), price=price,
+                            scope=html.escape(spec["scope"]), rev=rev)
+
+
+def write_page(sid, anfrage, text, spec=None, guessed=False):
     os.makedirs(DL_DIR, exist_ok=True)
     h = sid_hash(sid)
     path = os.path.join(DL_DIR, h + ".html")
     page = PAGE.format(req=html.escape(anfrage or "(kein Anfrage-Text im Checkout)"),
+                       tierblock=tier_html(spec, guessed) if spec else "",
                        body=html.escape(text), oid=h)
     open(path, "w", encoding="utf-8").write(page)
     return path, f"{SITE}/dl/rtd/{h}.html"
@@ -252,12 +293,15 @@ def fulfill_session(s, state, push=True, persist=True):
         if f.get("key") == "anfrage":
             anfrage = (f.get("text") or {}).get("value")
     req_text = anfrage or "Der Kunde hat kein Anfrage-Feld ausgefuellt."
-    text, err = gen_deliverable(req_text)
+    # Ticket 12: bis 2026-08-04 lief hier gen_deliverable(req_text) OHNE Stufe
+    # -> Premium (14,99) bekam dasselbe wie Basis (3,99).
+    spec, guessed = tier_for_amount(s.get("amount_total"))
+    text, err = gen_deliverable(req_text, tier=spec["cents"])
     if err:
         text = (f"Deine Bestellung ist eingegangen. Die automatische Erstellung "
                 f"war kurzzeitig nicht verfuegbar ({err}); diese Seite wird beim "
                 f"naechsten Lauf aktualisiert.")
-    path, url = write_page(sid, anfrage, text)
+    path, url = write_page(sid, anfrage, text, spec=spec, guessed=guessed)
     consent = extract_consent(s)
     email_sent, email_err = None, None
     if push:  # nur bei echtem LIVE-Fulfillment mailen, nie im selftest/dry-run
@@ -267,12 +311,16 @@ def fulfill_session(s, state, push=True, persist=True):
     state[sid] = {"ts": int(time.time()), "email": email,
                   "amount": s.get("amount_total"), "url": url,
                   "llm_err": err, "final": err is None,
+                  "tier": spec["name"], "tier_cents": spec["cents"],
+                  "tier_guessed": guessed, "words": len((text or "").split()),
                   "email_sent": email_sent, "email_err": email_err,
                   "consent": consent,
                   "widerruf_erloschen": waiver_effective(consent)}
     if persist:
         save_state(state)
     print(f"FULFILLED {sid} -> {path}")
+    print(f"  stufe={spec['name']} ({spec['cents']} cent, geraten={guessed}) "
+          f"woerter={len((text or '').split())} ziel~{spec['words']}")
     print(f"  consent={json.dumps(consent, ensure_ascii=False)} "
           f"widerruf_erloschen={waiver_effective(consent)}")
     if push:
@@ -289,6 +337,9 @@ def fulfill_session(s, state, push=True, persist=True):
                                     "sid": sid, "amount": s.get("amount_total"),
                                     "currency": s.get("currency"), "email": email,
                                     "deliverable": url,
+                                    "tier": spec["name"],
+                                    "tier_guessed": guessed,
+                                    "words": len((text or "").split()),
                                     "email_sent": email_sent,
                                     "email_err": email_err,
                                     "consent": consent,
@@ -336,6 +387,59 @@ def main():
             assert waiver_effective(got) is want_waiver, name
             print(f"  CONSENT OK [{name}] -> {json.dumps(got, ensure_ascii=False)} "
                   f"| widerruf_erloschen={want_waiver}")
+        # (b) Ticket 12: Preisstufe -> Spec. Der Regressionsfall, der real
+        #     existierte, ist 1499 -> Basis (Premium bekam Basis-Ware).
+        tier_cases = [
+            (399,   "Basis",    False), (799,  "Standard", True),
+            (1499,  "Premium",  True),  ("1499", "Premium", True),
+            (None,  "Basis",    False), (1234, "Basis",    False),
+        ]
+        for amount, want_name, want_rev in tier_cases:
+            sp, guessed = tier_for_amount(amount)
+            assert sp["name"] == want_name, f"{amount}: {sp['name']} != {want_name}"
+            assert (sp["revisions"] > 0) is want_rev, f"{amount}: revisions"
+            assert guessed is (amount not in (399, 799, 1499, "1499")), \
+                f"{amount}: guessed={guessed}"
+            print(f"  TIER OK [{amount}] -> {sp['name']} "
+                  f"ziel~{sp['words']} rev={sp['revisions']} geraten={guessed}")
+        # Revisionszusage muss einen Abrufweg nennen (agb.html §3), Basis nicht.
+        assert CONTACT in tier_html(TIER_SPEC[1499], False), "Premium ohne Kontakt"
+        assert CONTACT not in tier_html(TIER_SPEC[399], False), "Basis mit Kontakt"
+        assert "Basis angesetzt" in tier_html(TIER_SPEC[399], True), "guessed-Hinweis fehlt"
+        print("  TIER OK [revisionsweg] Premium nennt Kontakt, Basis nicht")
+
+        # (c) FAULT INJECTION: der Pruefer muss rot werden koennen. Wir bauen
+        #     genau den behobenen Defekt nach (jede Stufe -> Basis) und
+        #     verlangen, dass die Pruefung oben ihn FAENGT.
+        import gig_fulfill as _gf
+        _orig = _gf.tier_spec
+        try:
+            _gf.tier_spec = lambda t: TIER_SPEC[399]  # Defekt: alles ist Basis
+            globals()["gig_tier_spec"] = _gf.tier_spec
+            sp, _ = tier_for_amount(1499)
+            caught = sp["name"] != "Premium"
+        finally:
+            _gf.tier_spec = _orig
+            globals()["gig_tier_spec"] = _orig
+        assert caught, "FAULT INJECTION nicht erkannt — Pruefung ist wertlos"
+        assert tier_for_amount(1499)[0]["name"] == "Premium", "Restore fehlgeschlagen"
+        print("  FAULT INJECTION OK: 'alles ist Basis' wird erkannt, Restore ok")
+
+        # (d) Abrufseite fuer Premium OHNE LLM-Call pruefen (Rendering-Test).
+        #     Bewusst getrennt vom Live-Lauf unten: eine echte Premium-
+        #     Erzeugung dauert ~9 min (4 Abschnitte) und gehoert nicht in
+        #     einen Selftest, der bei jedem Tick laufen soll.
+        _sid = "cs_test_render_" + uuid_hex()
+        _p, _ = write_page(_sid, "Testanfrage", "Dummy-Text",
+                           spec=TIER_SPEC[1499], guessed=False)
+        _body = open(_p, encoding="utf-8").read()
+        os.remove(_p)
+        assert "Premium" in _body, "Stufe fehlt auf der Abrufseite"
+        assert "2 Revisionen inklusive" in _body, "Revisionszusage fehlt"
+        assert CONTACT in _body, "kein Weg, die Revision einzufordern"
+        assert "bis ~2000 Woerter" in _body, "Umfang fehlt"
+        print("  SEITE OK: Stufe+Umfang+Revisionen+Kontakt stehen drauf")
+
         fake = {"id": "cs_test_selftest_" + uuid_hex(), "amount_total": 399,
                 "currency": "eur",
                 "customer_details": {"email": "selftest@example.com"},
@@ -345,6 +449,9 @@ def main():
         h = sid_hash(fake["id"])
         p = os.path.join(DL_DIR, h + ".html")
         size = os.path.getsize(p)
+        body = open(p, encoding="utf-8").read()
+        assert "Basis" in body, "Stufe fehlt auf der Abrufseite"
+        assert "keine (in dieser Stufe nicht enthalten)" in body, "Revisionszeile fehlt"
         print(f"SELFTEST OK: {p} ({size} bytes) waere live unter {url}")
         os.remove(p)
         return

@@ -27,30 +27,122 @@ SYSTEM = ("Du bist ein professioneller Ghostwriter fuer bezahlte Auftraege. "
           "Antworte NUR mit dem fertigen Deliverable auf Deutsch, ohne Meta-Kommentar. "
           "Klare Struktur, fertig zur Abgabe.")
 
-def gen_deliverable(req_text):
-    # Lokal via Ollama (qwen2.5:3b) — $0, kein API-Key, keine Kosten.
+MODEL = "qwen2.5:3b"
+OLLAMA = "http://localhost:11434/api/generate"
+
+# Ticket 12: Die verkaufte Preisstufe muss die Erzeugung erreichen.
+# Bis 2026-08-04 nahm gen_deliverable() NUR den Anfragetext -> Basis, Standard
+# und Premium liefen durch denselben Prompt und lieferten dasselbe (~290 Woerter
+# MEASURED). Verkauft werden aber drei Umfaenge (rtd.html/gig.html) und
+# Revisionen stehen sogar in agb.html §3 = Vertragsinhalt.
+#
+# Zielwerte gespiegelt aus gig.html Z. 90-92 (Quelle des Versprechens).
+# "sections>1" = abschnittsweise Erzeugung: MEASURED 2026-08-04, dass ein
+# EINZELNER Prompt mit Ziel 1800-2000 Woerter auf qwen2.5:3b nur 683 Woerter
+# liefert (188 s). Ein Prompt-Wunsch allein haette den Umfang NICHT gebracht.
+TIER_SPEC = {
+    399:  {"cents": 399,  "name": "Basis",    "words": 300,  "sections": 1,
+           "revisions": 0, "scope": "bis ~300 Woerter bzw. ~50 Zeilen Code"},
+    799:  {"cents": 799,  "name": "Standard", "words": 800,  "sections": 2,
+           "revisions": 1, "scope": "bis ~800 Woerter bzw. ~150 Zeilen Code"},
+    1499: {"cents": 1499, "name": "Premium",  "words": 2000, "sections": 4,
+           "revisions": 2, "scope": "bis ~2000 Woerter bzw. komplettes Template"},
+}
+
+
+def tier_spec(tier):
+    """Cent-Betrag -> Spec. Unbekannt/None -> None (Altverhalten)."""
+    if tier is None:
+        return None
+    try:
+        return TIER_SPEC.get(int(tier))
+    except (TypeError, ValueError):
+        return None
+
+
+def _ollama(prompt, num_predict=None, timeout=300):
+    """Ein Ollama-Call. Gibt (text, err) zurueck, wirft nie."""
     try:
         import urllib.request, json as _json
-        body = _json.dumps({
-            "model": "qwen2.5:3b",
-            "prompt": f"{SYSTEM}\n\nAuftrag: {req_text}",
-            "stream": False
-        }).encode()
-        r = urllib.request.Request("http://localhost:11434/api/generate",
-                                   data=body,
+        payload = {"model": MODEL, "prompt": prompt, "stream": False}
+        if num_predict:
+            payload["options"] = {"num_predict": num_predict}
+        r = urllib.request.Request(OLLAMA, data=_json.dumps(payload).encode(),
                                    headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(r, timeout=120) as resp:
+        with urllib.request.urlopen(r, timeout=timeout) as resp:
             data = _json.load(resp)
-        out = data.get("response", "").strip()
-        if out:
-            return out, None
-        return None, "OLLAB_EMPTY"
+        out = (data.get("response") or "").strip()
+        return (out, None) if out else (None, "OLLAMA_EMPTY")
     except Exception as e:
         return None, f"OLLAMA_ERR:{e}"
 
+
+def _outline(req_text, spec):
+    """Gliederung als Liste von Zwischenueberschriften. [] = fehlgeschlagen."""
+    n = spec["sections"]
+    txt, err = _ollama(
+        f"Erstelle eine Gliederung fuer folgenden Auftrag: {req_text}\n\n"
+        f"Antworte mit GENAU {n} Zwischenueberschriften auf Deutsch, "
+        f"eine pro Zeile, ohne Nummerierung, ohne Einleitung, ohne Kommentar.",
+        num_predict=300, timeout=180)
+    if err or not txt:
+        return []
+    heads = []
+    for line in txt.splitlines():
+        line = line.strip().lstrip("-*#0123456789. )\t").strip()
+        if line and len(line) < 120:
+            heads.append(line)
+    return heads[:n]
+
+
+def gen_deliverable(req_text, tier=None):
+    """Erzeugt das Deliverable. tier=Cent-Betrag der gekauften Stufe.
+
+    tier=None -> exakt das alte Verhalten (Altaufrufer bleiben gueltig).
+    """
+    spec = tier_spec(tier)
+    if spec is None:
+        return _ollama(f"{SYSTEM}\n\nAuftrag: {req_text}", timeout=120)
+
+    # Eine Stufe, ein Prompt: Basis/Standard.
+    if spec["sections"] <= 1:
+        return _ollama(
+            f"{SYSTEM}\nUmfang: ca. {spec['words']} Woerter ({spec['scope']}). "
+            f"Schoepfe den Umfang aus.\n\nAuftrag: {req_text}",
+            num_predict=max(1024, spec["words"] * 3), timeout=300)
+
+    # Mehrere Abschnitte: Gliederung -> Abschnitte -> Zusammenbau.
+    heads = _outline(req_text, spec)
+    if not heads:
+        # Kein Hard-Fail: lieber ein kuerzeres Deliverable als gar keins.
+        return _ollama(
+            f"{SYSTEM}\nUmfang: ca. {spec['words']} Woerter ({spec['scope']}). "
+            f"Gliedere in Abschnitte mit Zwischenueberschriften.\n\n"
+            f"Auftrag: {req_text}",
+            num_predict=max(1024, spec["words"] * 3), timeout=420)
+
+    per = max(150, spec["words"] // len(heads))
+    parts, errs = [], []
+    for i, head in enumerate(heads, 1):
+        body, err = _ollama(
+            f"{SYSTEM}\nDu schreibst Abschnitt {i} von {len(heads)} eines "
+            f"groesseren Deliverables.\nGesamtauftrag: {req_text}\n"
+            f"Gliederung: {' | '.join(heads)}\n\n"
+            f"Schreibe NUR den Abschnitt \"{head}\" mit ca. {per} Woertern. "
+            f"Keine Wiederholung anderer Abschnitte, keine Meta-Kommentare, "
+            f"keine Ueberschrift wiederholen.",
+            num_predict=max(768, per * 3), timeout=300)
+        if err:
+            errs.append(err)
+            continue
+        parts.append(f"{head}\n\n{body}")
+    if not parts:
+        return None, errs[0] if errs else "OLLAMA_EMPTY"
+    return "\n\n".join(parts), None
+
 def fulfill(req_text, price_cents):
     oid = uuid.uuid4().hex[:12]
-    text, err = gen_deliverable(req_text)
+    text, err = gen_deliverable(req_text, tier=price_cents)
     if err:
         # Fallback: Template statt Hard-Fail
         text = f"[Entwurf] {req_text}\n\n(LLM nicht verfuegbar: {err})"
