@@ -22,17 +22,20 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - [Autonomer Traffic](tickets/2-autonomer-traffic.md) — Hermes kann OHNE Nutzer-Account keinen Traffic erzeugen (keine Reddit/X-Creds, SEO dauert Wochen). Fazit: Loop braucht Nutzer-Präsenz für Sale. *(2026-08-04 teilkorrigiert durch Ticket 4: für **Google** gilt das weiterhin, für **Bing/Yandex** nicht — IndexNow braucht keinen Account.)*
 - [Fiverr-Hochpotential](tickets/3-fiverr-hochpotential.md) — Fiverr/Upwork hat höchstes 48h-Potential, weil Traffic VOM Marktplatz kommt (nicht von uns). Hermes baut Gig, Nutzer veröffentlicht (2 Min).
 - [IndexNow-Indexierung](tickets/4-indexnow-indexierung.md) — es gibt doch **einen** login-freien Indexierungs-Hebel: IndexNow. Dabei Defekt gefunden: Key lag auf `master` unter `docs/` → live 404, seit 24.07. nie funktionsfähig. Fix live (Key HTTP 200), 1205 URLs eingereicht (HTTP 202/200 MEASURED).
+- [Rechtsseiten auf dem Kaufpfad](tickets/6-rechtsseiten-kaufpfad.md) — der Kaufpfad ist jetzt zumutbar: `datenschutz.html` gebaut (war 404, jetzt HTTP 200), AGB ent-templatisiert und `noindex` entfernt, Widerrufs-§ ehrlich gefasst statt ein Erlöschen zu behaupten. Adress-Platzhalter stand in **6** Live-Seiten, nicht in 2 — jetzt nur noch in `impressum.html`. Nebenbefund: `scripts/request_delivery/index.html` war eine live erreichbare Altkopie der Verkaufsseite mit Platzhaltern → Redirect. Commit `4b6f598`.
 
 ## Tickets (Frontier)
-- [Rechtsseiten auf dem Kaufpfad](tickets/6-rechtsseiten-kaufpfad.md) — **AFK, sofort bearbeitbar, höchste Priorität.** `datenschutz.html` fehlt komplett (live 404, nicht in git); `agb.html` ist live verlinkt und zeigt sichtbar „[TEMPLATE — NICHT VERÖFFENTLICHUNGSREIF]". Solange das so steht, ist jede Traffic-Arbeit verschwendet.
+- [Widerrufs-Zustimmung im Checkout](tickets/7-widerruf-zustimmung-checkout.md) — AFK, sofort bearbeitbar. Kann Stripe an einem **Payment Link** eine beweisbare Zustimmung nach § 356 Abs. 5 BGB einholen (`consent_collection`)? Solange nicht, bleibt das 14-tägige Widerrufsrecht nach Lieferung bestehen. Fasst die einzige Einnahmequelle an → nach jeder Änderung `verify_rtd_chain.py`.
 - [Fiverr-Hochpotential](tickets/3-fiverr-hochpotential.md) — GIG TEXT READY (fiverr_gig.md), wartet auf Nutzer-Veröffentlichung. **HITL-Blocker (Nutzer-KYC).**
 - [Bing-Indexierung verifizieren](tickets/5-bing-indexierung-verifizieren.md) — AFK, aber **zeitgesperrt bis 2026-08-07**: vorher hat ein Lauf keinen Informationswert.
+
+**USER-Blocker (nicht ticketbar, nur der Nutzer kann ihn lösen):** ladungsfähige Postanschrift in `impressum.html` Z. 20–21. Einzige verbliebene Platzhalter-Stelle im Repo; ohne sie ist § 5 DDG nicht erfüllt.
 
 ## Not yet specified
 - Falls Bing indexiert (Ticket 5 positiv): welche Keywords/Seiten ziehen überhaupt Suchvolumen? Erst grillen, wenn echte Impressionen messbar sind — vorher ist jede Content-Arbeit Blindflug.
 - Conversion: rtd.html wurde nie von einem echten Besucher gesehen. Ob 3,99 € Einstiegspreis / Formularfeld "anfrage" konvertieren, ist unbeantwortbar ohne Traffic. Nicht ticketbar bis Besucher > 0.
 - **Trägt ein Micro-Preis (3,99–14,99 €) dieses Geschäftsmodell überhaupt?** Durch die Preiskorrektur neu aufgeworfen: pro Sale bleiben nach Stripe-Gebühr nur wenige Euro, während Rechts- und Fulfillment-Aufwand identisch zu einem teuren Produkt sind. Ob das ein Preisproblem, ein Mengenproblem oder gar kein Problem ist, lässt sich ohne echte Conversion-Daten nicht entscheiden — erst grillen, wenn Besucher > 0. Nicht blind den Preis anheben.
-- Widerrufs-Checkbox im Stripe-Checkout (§ 356 Abs. 5 BGB) — technisch vermutlich über Stripes `consent_collection` lösbar, aber erst nach Ticket 6 sinnvoll zu schärfen.
+
 
 ## Out of scope
 - China-POD (Zoll ab 1.7.2026 frisst Vorteil)

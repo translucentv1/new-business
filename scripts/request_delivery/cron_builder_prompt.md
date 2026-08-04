@@ -66,9 +66,39 @@ MERKREGEL: publish_site.py existiert NICHT mehr (nur .pyc/.log) -> mit
 `git add/commit/push origin gh-pages` publizieren. Pages-Rebuild dauert
 ~30-45 s (MEASURED: 404, 404, dann 200).
 
-Naechster Tick: Pflicht 1+2 laufen lassen. Ticket 5 (Bing-Trefferzahl pruefen)
-erst ab 2026-08-07 — vorher hat der Lauf keinen Informationswert, dann ist
-"warte, beobachte Sales" korrekt.
+Naechster Tick: Ticket 6 abarbeiten (datenschutz.html bauen + agb.html
+ent-templatisieren mit den ECHTEN Daten aus impressum.html). Die Postanschrift
+bleibt USER-Blocker — NICHT erfinden, nur an EINER Stelle offen lassen.
+
+STAND 2026-08-04 (Tick 3, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/neu=0).
+TICKET 6 ERLEDIGT + GESCHLOSSEN (Commit 4b6f598, live verifiziert):
+- datenschutz.html NEU gebaut -> war HTTP 404, ist jetzt HTTP 200 (6257 B).
+  Art. 13 DSGVO, Verantwortlicher per VERWEIS aufs Impressum (Adresse existiert
+  dadurch genau 1x im Repo). Faktenbasis frisch gemessen: kein Set-Cookie,
+  keine Third-Party-Ressourcen auf rtd/thanks.
+- agb.html ent-templatisiert: Name/Email/Datum/Lieferfrist/USt gefuellt,
+  noindex -> index,follow (live geprueft). Warnkasten NICHT entfernt, sondern
+  ehrlich umgeschrieben: nennt jetzt nur noch die fehlende Anschrift.
+- AGB §5 GEGEN frueheren Text korrigiert: Zustimmung nach §356 Abs.5 BGB wird
+  NICHT eingeholt -> 14-taegiges Widerrufsrecht bleibt bestehen. Kein
+  Erloeschen mehr behaupten. Technische Einholung = NEU Ticket 7.
+- AGB §3 Lieferfrist 24 h / max 5 Werktage = DECISION (gestuetzt auf 2h-Cron),
+  KEINE Messung. gig.html sagte schon 24 h -> jetzt konsistent.
+- 2 Befunde, die im Ticket fehlten: Adress-Platzhalter stand in 6 Live-Seiten
+  (nicht 2) -> rtd/gig/lead_magnet/ki-text-service zeigen jetzt aufs Impressum.
+  scripts/request_delivery/index.html war eine LIVE erreichbare Altkopie der
+  Verkaufsseite mit [DEIN NAME]/[STRASSE]/[EMAIL] -> jetzt noindex-Redirect.
+- Platzhalter live nur noch in impressum.html (Z. 20-21) = EINZIGER USER-Blocker.
+- sitemap.xml 1207 -> 1210 URLs (impressum/agb/datenschutz ergaenzt, XML ok),
+  IndexNow 1210 URLs -> HTTP 200 (angenommen, NICHT indexiert).
+- verify_rtd_chain.py KETTE_OK, 3 LIVE-Links unveraendert (399/799/1499 cent).
+
+Naechster Tick: Ticket 7 (tickets/7-widerruf-zustimmung-checkout.md) —
+Stripe consent_collection an einem PAYMENT LINK pruefen (gegen die API belegen,
+nicht aus Checkout-Session-Analogie schliessen). VORSICHT: fasst die einzige
+Einnahmequelle an — Ist-Zustand der Links sichern, danach verify_rtd_chain.py.
+AGB §5 erst umstellen, wenn Zustimmung wirklich eingeholt UND auslesbar ist.
+Ticket 5 (Bing-Trefferzahl) weiterhin erst ab 2026-08-07.
 
 STAND 2026-08-04 (Tick 2, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/neu=0).
 rtd/thanks/index/sitemap/impressum/agb HTTP 200. Sitemap-Healthcheck NEU

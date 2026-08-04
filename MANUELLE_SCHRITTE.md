@@ -37,14 +37,18 @@ Service-Verkauf braucht das rechtlich sauber.
 
 - **Gewerbe anmelden:** https://www.gewerbeanmeldung.de/ (oder lokales Ordnungsamt)
   → "Kleingewerbe" reicht für den Start (bei geringem Einkommen)
-- **Impressum + AGB:** Platzhalter sind schon in `rtd.html` + `scripts/request_delivery/index.html`
-  → Ersetze `[DEIN NAME]`, `[STRASSE]`, `[PLZ ORT]`, `[EMAIL]` mit echten Daten
-  → AGB-Template: z.B. https://www.e-recht24.de/ (kostenlose Vorlage für Kleinunternehmer)
+- **Impressum + AGB + Datenschutz:** seit 2026-08-04 (Ticket 6) fertig gebaut und live.
+  AGB und Datenschutzerklärung enthalten **keine** Platzhalter mehr; die Anbieterangaben
+  stehen nur noch an EINER Stelle.
+  → **Einziger offener Punkt:** ladungsfähige Postanschrift in `impressum.html`
+    Zeile 20–21 (`[Straße Hausnummer]`, `[PLZ Ort]`) durch echte Daten ersetzen.
+    Danach den Hinweiskasten in `agb.html` entfernen.
+  → AGB-Vorlage zum Gegenlesen: https://www.e-recht24.de/
 - **Umsatzsteuer:** Als Kleinunternehmer (§19 UStG) keine USt ausweisen nötig → einfacher Start
 
 ✅ Checkbox: [ ] Gewerbe angemeldet (oder Kleinunternehmer-Regelung geprüft)
-✅ Checkbox: [ ] Impressum in `rtd.html` ausgefüllt
-✅ Checkbox: [ ] AGB verlinkt
+✅ Checkbox: [ ] Postanschrift in `impressum.html` eingetragen (einzige offene Stelle)
+✅ Checkbox: [x] AGB + Datenschutz gebaut und von rtd/thanks/index verlinkt (2026-08-04)
 
 ---
 
