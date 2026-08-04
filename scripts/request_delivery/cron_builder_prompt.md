@@ -219,3 +219,40 @@ Ticket 3 = USER-KYC, Ticket 5 = zeitgesperrt bis 2026-08-07, Ticket 8 =
 Messgrundlage anfassen) ist ausdruecklich NICHT erwuenscht.
 
 Kurzer deutscher Statusbericht am Ende: was/Beleg/naechster Schritt.
+
+STAND 2026-08-04 (Tick 6, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+ACHTUNG Beinahe-Fehlalarm #2: sessions stieg 0 -> 2. funnel_check.py sagt aber
+BESUCHER=0 / API-PROBE=0 / EIGENTEST=2 -> beide Sessions sind eigene Proben
+(Ticket 7 + Ticket 9). Ohne funnel_check waere daraus ein falscher
+"erster Traffic"-Claim geworden. rtd/thanks/index/agb/datenschutz/impressum/
+sitemap HTTP 200. verify_rtd_chain.py -> KETTE_OK (3 LIVE-Links, 399/799/1499
+cent = 3,99/7,99/14,99 EUR, Feld 'anfrage', Redirect ok, Hash-Paritaet).
+
+TICKET 11 NEU + GESCHLOSSEN — die LETZTE ungemessene Etappe des Geldpfads.
+Befund: dass ein erzeugtes Deliverable wirklich live landet, war ASSUMED.
+Beleg dafuer: dl/rtd/ war lokal UND im Git-Tree leer -> diesen Weg hat noch nie
+eine Datei genommen. Der bisherige "Kette bewiesen"-Claim stuetzte sich auf
+auto_fulfill --selftest, das mit push=False laeuft und GENAU diese Etappe
+ueberspringt. Gleiche Defektklasse wie die IndexNow-Branch-Falle (11 Tage),
+aber zwischen "Kunde hat bezahlt" und "Kunde bekommt Ware".
+NEU: scripts/request_delivery/verify_publish_leg.py — Canary durch die ECHTEN
+Produktivfunktionen (write_page/git_publish), kein Stripe-Call, keine
+sales.log-Zeile, kein State, raeumt sich selbst auf.
+MEASURED: 404 vor Push (Altstand ausgeschlossen) -> git_publish=True ->
+unpushed=0 -> Datei im origin/gh-pages-Tree -> LIVE GET 200 nach 31s ->
+LIVE HEAD 200 -> nach Cleanup wieder 404. ERGEBNIS: PUBLISH_LEG_OK.
+WICHTIG: HEAD wird separat gemessen, weil thanks.html mit
+fetch(...,{method:'HEAD'}) pollt — ein reiner GET-Test beweist den Kundenpfad
+NICHT. Nebenbefunde: dl/rtd ist nicht gitignored (check-ignore rc=1),
+gh-pages trackt origin/gh-pages (git push ohne Args zielt korrekt),
+Pages-Rebuild = 31 s (Auf- und Abbau je gemessen) -> wait_live(18x10s) hat
+reichlich Reserve.
+=> Der Geldpfad ist jetzt auf GANZER Laenge gemessen. Beim ersten echten Sale
+liegt keine ungemessene Etappe mehr im Weg.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check).
+KEIN unblockiertes Ticket mit Informationswert offen: Ticket 3 = USER-KYC,
+Ticket 5 = ab 2026-08-07, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus ausdruecklich NICHT
+erwuenscht.
+
