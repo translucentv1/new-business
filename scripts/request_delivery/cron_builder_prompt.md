@@ -49,6 +49,27 @@ Offen (USER-Blocker): EMAIL_* (Mail-Versand), Impressum/AGB-Platzhalter [DEIN NA
 Fiverr-Gig = USER-KYC. Naechster autonomer Schritt: keiner sinnvoll ueberlebensfaehig
 -> "warte, beobachte Sales" (Idle OK, Aktionismus nicht).
 
+STAND 2026-08-04 (Tick, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/neu=0,
+LIVE). verify_rtd_chain.py -> KETTE_OK (3 LIVE-Links, 399/799/1499 EUR, Feld
+'anfrage', Redirect OK, Hash-Paritaet). rtd/thanks/index/sitemap HTTP 200.
+DEFEKT GEFUNDEN + BEHOBEN (frueherer Claim GEGENBEWIESEN): Commit b8f2840
+"IndexNow key added" legte die Key-Datei auf Branch *master* unter docs/ —
+GitHub Pages liefert aber den *gh-pages-ROOT*. Beide Key-URLs live HTTP 404,
+`git ls-tree -r HEAD` leer => IndexNow war seit 24.07. NIE funktionsfaehig.
+Fix (Commit 034e395): Key-Datei im gh-pages-ROOT (32 B, kein Newline) ->
+live HTTP 200; neues scripts/indexnow_submit.py (Scope-Filter, /dl/ raus,
+echte Statusausgabe). Submit MEASURED: 10 URLs -> HTTP 202, 1205 URLs -> HTTP 200.
+rtd.html ist in der Sitemap enthalten. WICHTIG: 202/200 = angenommen, NICHT
+indexiert — Wirkungsnachweis erst ab 2026-08-07 (tickets/5-bing-indexierung-
+verifizieren.md).
+MERKREGEL: publish_site.py existiert NICHT mehr (nur .pyc/.log) -> mit
+`git add/commit/push origin gh-pages` publizieren. Pages-Rebuild dauert
+~30-45 s (MEASURED: 404, 404, dann 200).
+
+Naechster Tick: Pflicht 1+2 laufen lassen. Ticket 5 (Bing-Trefferzahl pruefen)
+erst ab 2026-08-07 — vorher hat der Lauf keinen Informationswert, dann ist
+"warte, beobachte Sales" korrekt.
+
 Belegpflicht: MEASURED (HTTP-Test, Dateiinhalt, keine erfundenen Keys).
 Stopp wenn Live-Stripe-Key fehlt und nur DEMO moeglich ist.
 
