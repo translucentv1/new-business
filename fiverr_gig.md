@@ -7,7 +7,7 @@ Gig-Text bei Fiverr einstellt.
 
 ## Gueltiger, copy-paste-fertiger Gig-Text:
 > **docs/fiverr_gig.md** — "KI-Deliverables in 24h", Pakete 3,99 / 7,99 / 14,99 EUR,
-> abgestimmt auf gig.html und die 25 Landingpages unter blog/.
+> abgestimmt auf gig.html und die Landingpages unter blog/ (Stand 2026-08-05: 35).
 
 (Historie steht in der Git-Historie dieser Datei, falls jemand den alten
 Study-Guide-Text nochmal braucht.)

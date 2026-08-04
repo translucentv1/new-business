@@ -32,7 +32,11 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   Absatz oder eine Seite)
 - Formal & Werbung: Kündigungsschreiben als Formulierungs-Vorlage (Vertrag, Abo,
   Mitgliedschaft — keine Rechtsberatung, keine Fristenprüfung), Flyer-Text inkl.
-  Aufbau-Empfehlung (Headline, Nutzen, CTA — Text, kein druckfertiges Grafik-Layout)
+  Aufbau-Empfehlung (Headline, Nutzen, CTA — Text, kein druckfertiges Grafik-Layout),
+  Speisekarten-Texte für Restaurant/Café/Foodtruck (Gerichtsbeschreibungen,
+  Kategorien, Karten-Aufbau — Text, kein Layout, keine Allergen-Kennzeichnung)
+- Reden: Hochzeitsrede, Geburtstags- und Firmenreden sowie Trauerreden
+  (5–8 Minuten, aus deinen Stichpunkten, mit Aufbau und Schlussworten)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 
@@ -69,6 +73,8 @@ Deutsch (Muttersprachler-Niveau) und Englisch.
 Keine akademischen Arbeiten zur Abgabe, keine rechts-/medizinberatenden Texte,
 nichts gegen Fiverr-ToS. Arbeitszeugnis- und Vertragstexte liefere ich nur als
 Formulierungs-Entwurf zur eigenen Prüfung — das ist ausdrücklich keine Rechtsberatung.
+Bei Speisekarten liefere ich die Texte, aber **keine rechtsverbindliche Allergen-
+oder Zusatzstoff-Kennzeichnung** und kein druckfertiges Layout.
 Beim Korrekturlesen von Studien-/Abschlussarbeiten korrigiere ich ausschließlich
 die Sprache (Lektorat); Inhalt, Argumentation und Ergebnisse bleiben deine Leistung.
 Ich schreibe außerdem **keine Texte um, damit sie an einer KI- oder Plagiatsprüfung
@@ -103,3 +109,10 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       in gig.html erneut je **HTTP 200**; Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x
       / 14,99 € 1x = deckungsgleich mit der Pakettabelle oben. IndexNow 1212 URLs
       HTTP 200. Stripe: 0 Charges, 0,00 EUR.
+- [x] AI-CEO 2026-08-05 Tick 1 MEASURED: 35 blog/-Seiten live (BLOG_404_COUNT=0)
+      + 10 Kernseiten HTTP 200. 2 neue Seiten (trauerrede, speisekarte;
+      Autocomplete 10 bzw. 3 Vorschlaege, **0x "kostenlos"**, beide mit "...ki").
+      Die 3 Stripe-Live-Checkout-Links in gig.html erneut je **HTTP 200**;
+      Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
+      mit der Pakettabelle oben. IndexNow 1216 URLs HTTP 200.
+      verify.py --offline: 54 ok / 0 fail. Stripe: 0 Charges, 0,00 EUR.

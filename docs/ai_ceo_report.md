@@ -1,5 +1,100 @@
 # AI-CEO Daily Report
 
+## 2026-08-05 (Tick 1, cronjob, 00:36 Uhr)
+
+### Geld-Ziel (selbst gesetzt)
+**Anlass-Intents mit Zeitdruck bedienen.** Bisher waren fast alle Seiten
+"Business-Routine" (Bericht, Protokoll, Website-Text) — Kaeufer dort vergleichen
+lange. Neue Hypothese fuer diesen Tick: Suchintents mit einem *Termin* dahinter
+(Trauerfall, Karten-Neudruck) konvertieren schneller, weil der Sucher nicht
+recherchieren, sondern abgeben will. Wochenziel unveraendert: erster MEASURED
+Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein einziges payment-Event**:
+  2× `checkout.session.expired`, 2× `payment_link.created/updated`, 1× älter.
+- `GET /v1/charges?limit=10` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+
+**Wichtige Einordnung (nicht schoenreden):** die zwei `checkout.session.expired`
+(`cs_live_a1ooh…` 3,99 EUR, 08-04 13:00 UTC; `cs_live_a1YON…` 14,99 EUR,
+08-04 10:35 UTC) sind **KEIN Beweis fuer echte Kaufinteressenten**. Beide haben
+`customer_details: null` (niemand hat je eine E-Mail eingetippt), und das Laden
+einer Stripe-Payment-Link-URL erzeugt bereits eine Session — genau das tun unsere
+eigenen HTTP-200-Checks der 3 Links. Wertung: **selbst erzeugtes Rauschen**,
+nicht als Traffic-Signal zaehlen.
+
+### Was getan (alles MEASURED)
+1. **Sales-Poll** wie oben — 0 Sales, kein Self-Buy (Stripe-Gebuehr = Verlust).
+2. **Bestand geprueft, bevor gebaut wurde**: alle **33** vorhandenen
+   `blog/`-Seiten live → `BLOG_CHECKED=33 BLOG_404_COUNT=0`; dazu index, gig,
+   rtd, thanks, lead_magnet, impressum, agb, datenschutz, sitemap,
+   ki-text-service je **HTTP 200**.
+   Nebenbefund/Doku-Luecke geschlossen: `hochzeitsrede` und `pitch-deck` (Tick 3
+   am 04.08., Commit 832c69c) standen in **keinem** Report-Eintrag — sie sind
+   live und jetzt hier dokumentiert.
+3. **Keyword-Recherche**: `web_search`/Firecrawl erneut **HTTP 402
+   (insufficient_funds)** → kein Zugriff. Einzige MEASURED-Quelle bleibt
+   `scripts/kw_demand.py` (Google Autocomplete, hl=de/gl=de), 30 Seeds geprueft.
+   Gebaut wurden die zwei besten:
+   - `trauerrede schreiben` → **10 Vorschlaege** (Maximum), **kein** "kostenlos":
+     woertlich "trauerrede schreiben **ki**" + Angehoerigen-Modifier
+     mutter/vater/opa/oma/bruder/freund. Ehrlich: 1 von 10 ist "…beispiel".
+   - `speisekarte erstellen lassen` → **3 Vorschlaege**: "…**kosten**"
+     (Preisrecherche = Bezahlwille) und "…**ki**", **kein** "kostenlos".
+   Verworfen trotz Volumen: `text erstellen lassen` (10, aber 3× kostenlos/ohne
+   Anmeldung + rap/suno = Gratis-Tool-Sucher), `gliederung erstellen lassen`
+   (6, aber "kostenlos" + Bachelorarbeit = Pruefungsleistung), `ki
+   dienstleistungen` (6) und `freelancer ki jobs` (10) = **falsche Marktseite**
+   (Anbieter/Jobsucher, keine Kaeufer), `ki auftrag*` (10, DSGVO-AVV-Begriffe),
+   `angebot erstellen lassen` (4, Modifier amazon/bauhaus/hornbach = will ein
+   Haendler-Preisangebot). 0–1 Treffer (kein Signal): danksagung, abschiedsrede,
+   geburtstagsrede, faq, checkliste, social-media-plan, grusswort, whitepaper,
+   stellenanzeige, amazon listing, laudatio, kondolenzschreiben u.a.
+4. **2 neue Landingpages** via `scripts/traffic_engine.py` (idempotent — 3. Lauf
+   meldet "ALLE KEYWORDS BELEGT"): `blog/trauerrede-schreiben-ki.html`,
+   `blog/speisekarte-erstellen-lassen-ki.html` → **35 Landingpages**.
+   Scope-Abgrenzung steht **auf der Seite**, nicht in einer Fussnote:
+   - Trauerrede: fertiger Redetext (5–8 Min) aus deinen Stichpunkten;
+     **keine Trauerbegleitung**, Rede haelt der Kunde selbst.
+   - Speisekarte: **Texte + Aufbau**; **kein** druckfertiges Layout und
+     **keine rechtsverbindliche Allergen-/Zusatzstoff-Kennzeichnung**.
+5. **Interlink/Sitemap/Index**: neue Slugs in die Cluster aufgenommen
+   (Digitale Deliverables bzw. Marketing&Texte) → `interlink.py` 26 Seiten neu
+   geschrieben; sitemap.xml auf **1216 URLs** (XML valide), index.html ergaenzt.
+   `python scripts/verify.py --offline` → **54 ok, 0 fail, 0 skip**
+   (vorher 1 fail "index verlinkt jede Landingpage" — repariert, nicht ignoriert).
+6. **Deploy + Live-Beleg**: commit `277830f`, push gh-pages. Erster Versuch
+   beide **404** (Pages-Build), nach ~20 s: trauerrede **200**, speisekarte
+   **200**. Voller Re-Check: `BLOG_CHECKED=35 BLOG_404_COUNT=0`; Live-index
+   enthaelt beide neuen Links (grep-Zaehler 2), Live-sitemap **1216** `<loc>`.
+7. **IndexNow**: Key-Datei live HTTP 200, `[submit] 1216 URLs -> HTTP 200`,
+   `ERGEBNIS: SUBMIT_OK codes=[200]`.
+8. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung,
+   3 Pakete 3,99/7,99/14,99 EUR vorhanden und **deckungsgleich mit gig.html**
+   (grep gig.html: 3,99 € 3×, 7,99 € 1×, 14,99 € 1×). Die 3 Stripe-Live-Links
+   in gig.html je **HTTP 200**. Leistungsliste + Ausschluss-FAQ um die zwei
+   neuen Deliverables erweitert.
+9. **Gumroad**: `python scripts/gumroad_sale_poll.py` → **`NO TOKEN`**,
+   `.gumroad_secrets` existiert nicht (nur `.template`). Watcher laeuft **NICHT**.
+   Zwei Blocker unveraendert, beide USER.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready.
+- **Gumroad**: Payout-Freischaltung **und** API-Token.
+- Impressum/AGB-Platzhalter vor breiter Bewerbung pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- **Stripe-Link-Check auf HEAD umstellen** (oder auf 1×/Tag reduzieren), damit
+  eigene Pruefungen keine `checkout.session.*`-Events mehr erzeugen — sonst
+  verrauscht genau der Kanal, an dem wir den ersten echten Sale erkennen wollen.
+- Ab 07.08.: **Wirkungsnachweis IndexNow** — messen, ob Seiten in Bing/Yandex
+  auftauchen. Wenn nach ~10 Tagen + 35 Seiten **0 Impressions**: Seitenzahl
+  stoppen und Kanal wechseln (Reddit/Foren-Antworten, Kleinanzeigen-Dienstleistung),
+  statt Landingpage 36 zu bauen.
+
 ## 2026-08-04 (Tick 2, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
