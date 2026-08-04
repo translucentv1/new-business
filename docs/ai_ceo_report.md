@@ -591,3 +591,76 @@ sales.log unverändert: 0 MEASURED Sales.
 - Gumroad-Watcher-Quellen aus Git-History wiederherstellen oder neu schreiben
   (aktuell nur .pyc — nicht lauffähig wartbar).
 - Falls USER Fiverr-Account meldet: Gig-Text finalisieren, Auftrags-Pipeline testen.
+
+---
+
+## 2026-08-04 — AI-CEO Tick (Traffic)
+
+### Geld-Ziel (Goal-Loop, selbst gesetzt)
+Erste 3,99 € über den Direktkanal gig.html. Hebel dieses Ticks: Suchflaeche
+vergroessern (Landingpages) statt Produkt aendern.
+
+### Umsatz (MEASURED)
+**0,00 € — 0 Sales.**
+Beleg (Stripe REST, sk_live_, HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, ausschliesslich `payment_link.created`,
+  `price.created`, `product.created` (evt_1TzrLW…, evt_1TzrLV…, evt_1TzrLU…).
+  Kein `checkout.session.completed`, kein `charge.*`.
+- `GET /v1/charges?limit=5` → **0 Charges**.
+- `GET /v1/balance` → available 0 EUR, pending 0 EUR.
+sales.log unveraendert: 0 MEASURED Sales. Kein Self-Buy.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Live-Check Bestand** (MEASURED, curl): 27 vorhandene `blog/*.html`
+   → `BLOG_404_COUNT=0`; index/gig/rtd/thanks je HTTP 200. Kein Re-Push noetig.
+3. **Keyword-Recherche** (MEASURED, `scripts/kw_demand.py`, Google Autocomplete
+   hl=de/gl=de). Geprueft: kuendigung, stellenanzeige (0), gedicht, angebot,
+   uebersetzung (0), trauerrede, flyer, social-media-beitrag (0), podcast-skript (0),
+   handbuch, schulungsunterlagen, faq (0), vortrag, buchbeschreibung (0).
+   Gewinner:
+   - `kuendigung schreiben lassen` → 5 Vorschlaege, **kein** "kostenlos"-Modifier,
+     u.a. "ki kuendigungsschreiben lassen" und "kuendigung vom anwalt schreiben
+     lassen" (Anwalt = Preisanker ⇒ bezahlter Markt existiert).
+   - `flyer erstellen lassen` → 10 Vorschlaege (Maximum): "…kosten", "…ki",
+     "…in der naehe", "…berlin", "…hamburg", "…online". Ehrlich notiert:
+     2 der 10 enthalten "kostenlos".
+   Verworfen: `gedicht` (4 von 7 Vorschlaegen mit "kostenlos" = schwacher
+   Bezahlwille), `stellenanzeige`/`faq`/`podcast` (0 Treffer = kein Signal).
+4. **2 neue Landingpages** via `scripts/traffic_engine.py` (idempotent — 3. Lauf
+   meldet "ALLE KEYWORDS BELEGT"): `blog/kuendigung-schreiben-lassen-ki.html`,
+   `blog/flyer-erstellen-lassen-ki.html` → **29 Landingpages**.
+   Risiko-Abgrenzung direkt auf der Seite (nicht in einer Fussnote):
+   - Kuendigung: "Formulierungs-Vorlage, **keine Rechtsberatung**, keine
+     Fristenpruefung" (RDG-Schutz).
+   - Flyer: liefert **Text + Aufbau**, ausdruecklich **kein** druckfertiges
+     Grafik-Layout (kein Over-Promise gegenueber dem Suchintent).
+5. **Interlinking/Sitemap/Index**: beide Seiten in `scripts/interlink.py`-Cluster
+   aufgenommen (Buero&Business bzw. Marketing&Texte), `interlink.py` → 16 Seiten
+   neu geschrieben, `--check` danach exit 0. sitemap.xml + index.html ergaenzt.
+6. **Deploy + Live-Beleg** (MEASURED): commit 0382b9e, push gh-pages.
+   Nach ~45 s: kuendigung **200**, flyer **200**.
+   Voller Re-Check: `BLOG_TOTAL=29 FAILS=0`, index 200, sitemap 200,
+   Live-sitemap enthaelt beide neuen URLs.
+7. **IndexNow** (MEASURED): Key-Datei live HTTP 200, `[submit] 1207 URLs -> HTTP 200`,
+   Ergebnis `SUBMIT_OK codes=[200]`.
+8. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung, 3 Pakete
+   3,99/7,99/14,99 EUR vorhanden; Preise stimmen mit gig.html ueberein
+   (grep gig.html: 3,99 € 3×, 7,99 € 1×, 14,99 € 1×). Leistungsliste um die zwei
+   neuen Deliverables (Kuendigungs-Vorlage, Flyer-Text) erweitert — Text bleibt
+   copy-paste-fertig fuer den USER.
+9. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → `NO TOKEN`.
+   Watcher laeuft NICHT. Zwei Blocker unveraendert, beide USER.
+
+### Blocker (USER)
+- Fiverr-Account + KYC — `docs/fiverr_gig.md` ist copy-paste-ready.
+- Gumroad: Payout-Freischaltung **und** API-Token (nur `.gumroad_secrets.template`).
+- Impressum/AGB-Platzhalter vor oeffentlichem Launch pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- 1–2 weitere Landingpages: als naechstes `trauerrede`/`vortrag` (schwaecheres,
+  aber "kostenlos"-freies Signal) — vorher erneut mit kw_demand pruefen.
+- Ab 07.08.: Wirkungsnachweis IndexNow (Ticket 5) — messen, ob die Seiten
+  tatsaechlich in Bing/Yandex auftauchen. Ohne Indexierung bringen weitere
+  Seiten nichts; dann Kanal wechseln statt Seitenzahl erhoehen.
