@@ -77,3 +77,35 @@ Beim ersten echten Sale ist keine ungemessene Etappe mehr im Weg.
 
 Was das Ticket **nicht** zeigt: dass jemand kauft. `BESUCHER = 0` bleibt
 unveraendert — das ist eine Traffic-Frage (Ticket 3/5/10), kein Defekt.
+
+## Der Pruefer wurde selbst geprueft (Fault Injection, 2026-08-04)
+
+Der gruene Live-Lauf beweist nur, dass `verify_publish_leg.py` bei einem
+**gesunden** Pfad „OK" sagt. Ein Pruefer, der nie rot werden kann, wuerde einen
+kaputten Geldpfad durchwinken — also wurde die Fehlererkennung separat
+gemessen: alle Aussenabhaengigkeiten (git, HTTP, `write_page`, `git_publish`)
+gestubbt, `main()` damit zu reiner Logik reduziert, kein echter Push, kein
+Netzaufruf, Repo nachweislich unveraendert (`git status` leer, 0 unpushed,
+`dl/rtd/` leer).
+
+| Szenario | erwartet | Ergebnis |
+|---|---|---|
+| alles gesund | rc=0 | OK |
+| falscher Branch (`master`) | rc=1 | OK |
+| `git_publish()` meldet Fehler | rc=1 | OK |
+| Commit nicht auf `origin` | rc=1 | OK |
+| Datei fehlt im origin-Tree | rc=1 | OK |
+| GET wird nie 200 | rc=1 | OK |
+| **GET 200 aber HEAD 404** | rc=1 | OK |
+| URL schon vor dem Push live | rc=1 | OK |
+| URL-Aufbau weicht ab | rc=1 | OK |
+
+9/9 erkannt. Das kritische Szenario ist **GET 200 / HEAD 404**: genau dieser
+Zustand waere fuer einen GET-only-Check unsichtbar, wuerde den Kunden aber
+endlos pollen lassen. Der Pruefer wird hier rot.
+
+Das war eine **Ad-hoc-Verifikation** (Wegwerf-Skript unter `%TEMP%`,
+`hermes-verify-`-Praefix, nach dem Lauf geloescht) — keine Suite, kein
+dauerhafter Test. Das Repo hat keinen Test-Runner fuer diesen Bereich;
+`python -m py_compile` auf dem Skript laeuft sauber durch.
+
