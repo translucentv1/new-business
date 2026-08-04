@@ -102,6 +102,29 @@ KEYWORDS = [
     # Einschraenkung ehrlich notiert: 2 der 10 Vorschlaege enthalten "kostenlos".
     # Deliverable ehrlich abgegrenzt: Flyer-TEXT + Aufbau, kein druckfertiges Grafik-Layout.
     ("flyer erstellen lassen ki", "Flyer erstellen lassen (KI) – Text & Aufbau", "Headline, Nutzenargumente, Call-to-Action und Aufbau fuer deinen Flyer – textfertig ab 3,99 EUR, in 24h."),
+    # 2026-08-04 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # web_search/Firecrawl war in diesem Tick nicht verfuegbar (HTTP 402, insufficient
+    # funds) -> Autocomplete ist die einzige MEASURED-Quelle, kein ASSUMED-Keyword.
+    # "bericht schreiben lassen" -> 3 Vorschlaege: "...ki", "chatgpt bericht schreiben
+    # lassen". KEIN einziger "kostenlos"-Modifier => sauberster Bezahlwille dieses Ticks
+    # UND explizite KI-Akzeptanz. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung: Geschaefts-/Projekt-/Taetigkeitsberichte. KEINE Praktikums- oder
+    # Studienberichte zur Abgabe (Pruefungsleistung) - siehe Seitenhinweis.
+    ("bericht schreiben lassen ki", "Bericht schreiben lassen (KI)", "Projektbericht, Taetigkeitsbericht oder Monatsreport: sauber gegliedert aus deinen Stichpunkten – ab 3,99 EUR, in 24h."),
+    # "vortrag erstellen lassen" -> 2 Vorschlaege ("...", "...ki"), KEIN "kostenlos"-
+    # Modifier. Gleiches Signalniveau wie "pressemitteilung"/"seo blogartikel"/
+    # "website texte" (je 2 Treffer, alle live) => Bar erfuellt, KI-Akzeptanz explizit.
+    # Abgrenzung zu powerpoint-Seite: hier Redetext + Aufbau, dort Folien.
+    ("vortrag erstellen lassen ki", "Vortrag erstellen lassen (KI)", "Vortrag mit rotem Faden: Einstieg, Argumente, Schluss und Sprechernotizen – ab 3,99 EUR, in 24h geliefert."),
+    # BEWUSST ABGELEHNT (2026-08-04 Tick 2): "text umschreiben lassen" hatte mit 10
+    # Vorschlaegen das groesste Volumen dieses Ticks, wird aber NICHT gebaut. Die
+    # Modifier zeigen, dass die Nachfrage ueberwiegend auf etwas zielt, das wir nicht
+    # verkaufen: "ohne plagiat", "humanisieren", "menschlich" und woertlich "ki text
+    # umschreiben lassen dass er nicht erkannt wird" = Umgehung von KI-/Plagiatspruefung.
+    # Das waere Taeuschung (und bei Pruefungsleistungen ToS-/pruefungsrechtlich heikel).
+    # Ebenfalls abgelehnt: "praktikumsbericht schreiben lassen" (2 Treffer, aber
+    # Pruefungsleistung zur Abgabe) und "gedicht"/"songtext" (4-7 Treffer, aber
+    # 2-4 davon "kostenlos" = kein Bezahlwille).
 ]
 
 def slug(kw):

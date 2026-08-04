@@ -22,7 +22,9 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN)
 - Business: PowerPoint-Präsentationen, Businessplan-Entwürfe, Meeting-Protokolle,
   Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts, Pressemitteilungen
-  (Headline, Lead, Zitat, Boilerplate), Arbeitszeugnis-Entwürfe (Formulierungshilfe)
+  (Headline, Lead, Zitat, Boilerplate), Arbeitszeugnis-Entwürfe (Formulierungshilfe),
+  Projekt-/Tätigkeits-/Monatsberichte, Vortrags-Manuskripte (Gliederung, Redetext,
+  Sprechernotizen)
 - Web/SEO: SEO-Blogartikel (keyword-optimiert, mit Meta-Description), Website-Texte
   (Startseite, Über-mich, Leistungen)
 - Korrektur & Verdichtung: Korrekturlesen (Rechtschreibung, Grammatik, Zeichensetzung,
@@ -69,6 +71,9 @@ nichts gegen Fiverr-ToS. Arbeitszeugnis- und Vertragstexte liefere ich nur als
 Formulierungs-Entwurf zur eigenen Prüfung — das ist ausdrücklich keine Rechtsberatung.
 Beim Korrekturlesen von Studien-/Abschlussarbeiten korrigiere ich ausschließlich
 die Sprache (Lektorat); Inhalt, Argumentation und Ergebnisse bleiben deine Leistung.
+Ich schreibe außerdem **keine Texte um, damit sie an einer KI- oder Plagiatsprüfung
+vorbeikommen** — Umformulierung mache ich nur zur Verbesserung von Stil und
+Verständlichkeit, nicht zur Verschleierung der Herkunft.
 
 ## Anforderungen an den Käufer (Requirements)
 1. Beschreibe die Aufgabe in 2–3 Sätzen.

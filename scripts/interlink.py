@@ -38,6 +38,8 @@ CLUSTERS: dict[str, list[str]] = {
         "arbeitszeugnis-schreiben-lassen-ki",
         "pressemitteilung-schreiben-lassen",
         "kuendigung-schreiben-lassen-ki",
+        "bericht-schreiben-lassen-ki",
+        "vortrag-erstellen-lassen-ki",
     ],
     "Marketing & Texte": [
         "text-schreiben-lassen-guenstig",
