@@ -28,6 +28,9 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Korrektur & Verdichtung: Korrekturlesen (Rechtschreibung, Grammatik, Zeichensetzung,
   Stil), Zusammenfassungen aus PDF/Artikel/Studie/Meeting-Notizen (Stichpunkte,
   Absatz oder eine Seite)
+- Formal & Werbung: Kündigungsschreiben als Formulierungs-Vorlage (Vertrag, Abo,
+  Mitgliedschaft — keine Rechtsberatung, keine Fristenprüfung), Flyer-Text inkl.
+  Aufbau-Empfehlung (Headline, Nutzen, CTA — Text, kein druckfertiges Grafik-Layout)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 
@@ -84,3 +87,8 @@ die Sprache (Lektorat); Inhalt, Argumentation und Ergebnisse bleiben deine Leist
       gig, rtd, thanks, ki-text-service, sitemap, lead_magnet, impressum, agb)
       -> **0 Fehler, alle HTTP 200**. 3 Stripe-Live-Links erneut je HTTP 200.
       2 neue Seiten ergaenzt (korrekturlesen, zusammenfassung) -> **27 Landingpages**.
+- [x] AI-CEO 2026-08-04 Tick MEASURED: 27 bestehende blog/-Seiten live geprueft
+      -> **0 Fehler (BLOG_404_COUNT=0)**, dazu index/gig/rtd/thanks je HTTP 200.
+      2 neue Seiten ergaenzt (kuendigung, flyer; Nachfrage via Google-Autocomplete
+      belegt: 5 bzw. 10 Vorschlaege) -> **29 Landingpages**. Preise 3,99/7,99/14,99 EUR
+      in gig.html und diesem Dokument weiterhin identisch. Stripe: 0 Charges, 0,00 EUR.

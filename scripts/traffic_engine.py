@@ -89,6 +89,19 @@ KEYWORDS = [
     # Einschraenkung ehrlich notiert: 1 Vorschlag enthaelt "kostenlos" (schwaecherer
     # Bezahlwille als korrekturlesen). Deliverable = reiner Text.
     ("zusammenfassung schreiben lassen ki", "Zusammenfassung schreiben lassen (KI)", "Aus PDF, Buch, Studie oder Meeting-Text eine praezise Zusammenfassung – ab 3,99 EUR, in 24h geliefert."),
+    # 2026-08-04 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete, hl=de/gl=de).
+    # "kuendigung schreiben lassen" -> 5 Vorschlaege, KEIN "kostenlos"-Modifier:
+    # "ki kuendigungsschreiben lassen", "kuendigung vom anwalt schreiben lassen",
+    # "kuendigung krankschreiben lassen" => es existiert ein BEZAHLTER Markt
+    # (Anwalt als Preisanker) UND KI-Akzeptanz. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung (RDG): nur Formulierungs-Vorlage, KEINE Rechtsberatung, KEINE Fristenpruefung.
+    ("kuendigung schreiben lassen ki", "Kuendigung schreiben lassen (KI-Vorlage)", "Kuendigungsschreiben fuer Vertrag, Abo oder Mitgliedschaft als fertige Formulierungs-Vorlage – ab 3,99 EUR, in 24h."),
+    # "flyer erstellen lassen" -> 10 Vorschlaege (Maximum dieses Ticks): "...kosten",
+    # "...ki", "...in der naehe", "...berlin", "...hamburg", "...noerdlingen", "...online"
+    # => lokaler Dienstleistungsmarkt mit Preisrecherche ("kosten") = starker Bezahlwille.
+    # Einschraenkung ehrlich notiert: 2 der 10 Vorschlaege enthalten "kostenlos".
+    # Deliverable ehrlich abgegrenzt: Flyer-TEXT + Aufbau, kein druckfertiges Grafik-Layout.
+    ("flyer erstellen lassen ki", "Flyer erstellen lassen (KI) – Text & Aufbau", "Headline, Nutzenargumente, Call-to-Action und Aufbau fuer deinen Flyer – textfertig ab 3,99 EUR, in 24h."),
 ]
 
 def slug(kw):
