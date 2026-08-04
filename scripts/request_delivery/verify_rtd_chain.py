@@ -29,6 +29,17 @@ def sid_hash(sid: str) -> str:
     return hashlib.sha256(sid.encode()).hexdigest()[:16]
 
 
+def fmt_preis(amt, cur="eur") -> str:
+    """Stripe liefert unit_amount in der KLEINSTEN Waehrungseinheit (Cent).
+
+    Frueher wurde "amount=399 eur" in Handoffs als "399 EUR" gelesen -> 100x-
+    Fehler in der Doku. Deshalb IMMER beide Einheiten ausgeben.
+    """
+    if not isinstance(amt, int) or isinstance(amt, bool):
+        return f"amount={amt} (kein Preis gelesen)"
+    return f"{amt} cent = {amt / 100:.2f} {(cur or 'eur').upper()}"
+
+
 def stripe_get(path, key):
     req = urllib.request.Request(
         "https://api.stripe.com/v1/" + path,
@@ -82,15 +93,8 @@ def main():
                 and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac
                 and isinstance(amt, int) and amt > 0)
         ok = ok and good
-        # WICHTIG: Stripe liefert unit_amount in der KLEINSTEN Waehrungseinheit
-        # (Cent). Frueher wurde "amount=399 eur" in Handoffs als "399 EUR"
-        # gelesen -> 100x-Fehler in der Doku. Deshalb IMMER beides ausgeben.
-        if isinstance(amt, int):
-            preis = f"{amt} cent = {amt / 100:.2f} {(cur or 'eur').upper()}"
-        else:
-            preis = f"amount={amt} (kein Preis gelesen)"
         print(f"    livemode={pl.get('livemode')} active={pl.get('active')} "
-              f"preis={preis} fields={fields}")
+              f"preis={fmt_preis(amt, cur)} fields={fields}")
         print(f"      redirect={ac}  -> {'OK' if good else 'PROBLEM'}")
 
     # 3) Hash-Gleichheit JS (thanks.html) == Python (auto_fulfill.py)
