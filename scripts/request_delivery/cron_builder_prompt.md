@@ -256,3 +256,41 @@ Ticket 5 = ab 2026-08-07, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus ausdruecklich NICHT
 erwuenscht.
 
+STAND 2026-08-04 (Tick 7, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2 -> beide Sessions sind die
+eigenen Proben aus Ticket 7+9, KEIN echter Traffic. rtd/thanks/index/agb/
+datenschutz/impressum/sitemap HTTP 200. verify_rtd_chain -> KETTE_OK
+(399/799/1499 cent), auto_fulfill --selftest gruen inkl. Tier-Fault-Injection.
+
+TICKET 13 NEU + GESCHLOSSEN (Commit 832c69c, live verifiziert). Erstmals wurden
+die TRAFFIC-Seiten so streng geprueft wie der Kaufpfad -> zwei Defekte:
+A) VERWAISTE SEITEN: ein Traffic-Tick erzeugte 18:25 blog/hochzeitsrede-
+   schreiben-lassen.html + blog/pitch-deck-erstellen-lassen.html samt Sitemap/
+   Index/Interlink, committete aber NICHTS. 4 h spaeter live HTTP 404 und nicht
+   im origin/gh-pages-Tree. Ursache: traffic_engine.py enthaelt KEINEN einzigen
+   git-Aufruf -> Publizierung haengt komplett am aufrufenden Agenten.
+B) DATENSCHUTZ-LINK fehlte auf 33 von 38 Seiten. Impressum + AGB waren ueberall
+   vorhanden -> jede Stichprobe sah gruen aus. Art. 13 DSGVO verlangt staendige
+   Verfuegbarkeit, und ein SEO-Besucher landet auf einer BLOGSEITE, nie auf der
+   Startseite. Root-Cause: Footer-Template traffic_engine.py:190 -> waere bei
+   jedem kuenftigen Traffic-Tick neu entstanden (Generator mitgefixt).
+NEU scripts/request_delivery/legal_link_audit.py (--selftest 9/9, Fault Injection,
+rc-Wechsel 1->0 belegt), add_datenschutz_link.py (patcht nur exaktes Muster,
+meldet Abweichler statt blind einzufuegen), verify_ticket13_live.py.
+MEASURED: Audit 33 unvollstaendig -> 0 (LEGAL_LINKS_OK). LIVE_OK: beide 404-Seiten
+jetzt HTTP 200 (2390 B / 2560 B), Datenschutz-Link in 7 von 7 live abgerufenen
+Bodies, Kaufpfad unveraendert 200. IndexNow 1214 URLs -> HTTP 200 (angenommen,
+NICHT indexiert). Sitemap 1212 -> 1214 URLs.
+
+MERKREGEL (dritter Fall derselben Klasse nach IndexNow-Branch und Publish-Etappe):
+"gebaut" ist NIE "live". Nach jedem Traffic-Tick `git status` UND `curl` gegen die
+neue URL. Und: Pflicht-Sets (Impressum/AGB/Datenschutz) nie stichprobenartig
+pruefen — Teilvollstaendigkeit sieht aus wie Vollstaendigkeit.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check) UND
+NEU `python scripts/request_delivery/legal_link_audit.py` (rc=1 = Defekt). Falls
+ein Traffic-Tick gelaufen ist: `git status` pruefen, verwaiste Seiten publizieren.
+Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07, Ticket 8 = 2 USER-Blocker,
+Ticket 10 = HITL. Solange BESUCHER=0: "warte, beobachte Sales".
+
+
