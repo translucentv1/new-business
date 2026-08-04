@@ -1,0 +1,4 @@
+{
+  "cs_live_a1oohHhAV5dEXWOQF7z64ZqiOGZIjc6NNJrfNy4GB2kMQpDYBqC1F4NTlw": "2026-08-04 Ticket 9: Messung 'legt ein echter Browser-Aufruf eines Payment Links eine checkout.session an?' -> JA. Kein echter Besucher.",
+  "cs_live_a1YONK3fLv6GYmb2AF7WSxxskY8vJKjRgHrOB0tEPyJ1pIBAKu7VmNKS4D": "2026-08-04 Ticket 7: consent_collection-Probe per API (payment_link=None). Kein echter Besucher."
+}

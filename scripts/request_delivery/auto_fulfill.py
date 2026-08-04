@@ -352,7 +352,10 @@ def main():
     paid = [s for s in sessions if s.get("payment_status") == "paid"]
     state = load_state()
     new = [s for s in paid if s["id"] not in state]
-    print(f"sessions={len(sessions)} paid={len(paid)} neu={len(new)}")
+    # sessions= ist KEIN Traffic-Mass: es enthaelt auch selbst erzeugte
+    # Proben/Tests. Echte Browser-Aufrufe zaehlt funnel_check.py (Ticket 9).
+    print(f"sessions={len(sessions)} (roh, inkl. Eigentests) "
+          f"paid={len(paid)} neu={len(new)}")
     for s in new:
         print("ERSTER SALE" if not os.path.exists(os.path.join(ROOT, "sales.log"))
               or "stripe_rtd" not in open(os.path.join(ROOT, "sales.log"),

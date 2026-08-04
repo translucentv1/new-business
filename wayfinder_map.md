@@ -7,7 +7,7 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - Domain: Business Automation / Sales. Skills: wayfinder, autonomous-execution, autonomous-seo-indexnow.
 - MEASURED proof Pflicht (HTTP 200, echte Paid-Session, nicht nur "gebaut").
 - Stack-Status: RTD ✅(live), POD ✅(Shirtee-Key fehlt), Affiliate ✅(Amazon-Tag fehlt), KDP ✅(1178 Specs, Upload fehlt).
-- Harter Fakt: 0 Visitors auf 1300 Seiten + rtd.html → 0 Sales. Hebel = Traffic.
+- **Besucher-Lage (MEASURED 2026-08-04, Ticket 9):** Am Kaufbutton kommt niemand an — `funnel_check.py` zeigt BESUCHER = 0. Frueher stand hier „Harter Fakt: 0 Visitors"; das war **ASSUMED** (es gab schlicht kein Instrument). Seitenaufrufe auf `rtd.html` sind weiterhin **ungemessen** (→ Ticket 10). Hebel bleibt Traffic, aber jetzt mit falsifizierbarem Zaehler.
 - Rechtlich sauber bleiben (ADR-0030): kein Fake-Account, kein ToS-Bypass.
 - **Echte Preise: 3,99 / 7,99 / 14,99 EUR** (MEASURED gegen LIVE-Stripe 2026-08-04).
   Frühere Handoffs behaupteten „399/799/1499 EUR" — das war ein 100x-Lesefehler:
@@ -17,6 +17,7 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - **Branch-Falle:** GitHub Pages liefert **gh-pages-ROOT**. Commits auf `master` oder Dateien unter `docs/` gehen live NICHT online (kostete IndexNow 11 Tage). Vor jedem "ist live"-Claim: `curl` gegen die echte URL.
 - **Cent-Falle:** Stripe-Beträge immer als `unit_amount/100` lesen. `verify_rtd_chain.py` gibt seit 2026-08-04 beides aus ("399 cent = 3.99 EUR").
 - **Paragrafen-Falle:** Für digitale Inhalte ohne körperlichen Datenträger gilt **§ 356 Abs. 6 BGB**, nicht Abs. 5 (Abs. 5 = Dienstleistungen). AGB/Ticket 6/Skripte zitierten bis 2026-08-04 falsch. Rechtsnormen immer gegen gesetze-im-internet.de prüfen, nie aus dem Gedächtnis zitieren.
+- **Session-Falle:** `auto_fulfill`s `sessions=N` ist **kein** Traffic-Mass — es enthält auch selbst erzeugte Proben. Echte Browser-Aufrufe haben `payment_link="plink_..."`, eigene API-Proben `payment_link=None`. Vor jedem „erster Besucher!"-Claim: `python scripts/request_delivery/funnel_check.py`.
 
 ## Decisions so far
 - [Traffic-Hebel](tickets/1-traffic-hebel.md) — bei 0 Budget: Reddit/X-Posts (Nutzer) oder SEO (langsam). Größter Hebel = Nutzer-Posts.
@@ -25,11 +26,13 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - [IndexNow-Indexierung](tickets/4-indexnow-indexierung.md) — es gibt doch **einen** login-freien Indexierungs-Hebel: IndexNow. Dabei Defekt gefunden: Key lag auf `master` unter `docs/` → live 404, seit 24.07. nie funktionsfähig. Fix live (Key HTTP 200), 1205 URLs eingereicht (HTTP 202/200 MEASURED).
 - [Rechtsseiten auf dem Kaufpfad](tickets/6-rechtsseiten-kaufpfad.md) — der Kaufpfad ist jetzt zumutbar: `datenschutz.html` gebaut (war 404, jetzt HTTP 200), AGB ent-templatisiert und `noindex` entfernt, Widerrufs-§ ehrlich gefasst statt ein Erlöschen zu behaupten. Adress-Platzhalter stand in **6** Live-Seiten, nicht in 2 — jetzt nur noch in `impressum.html`. Nebenbefund: `scripts/request_delivery/index.html` war eine live erreichbare Altkopie der Verkaufsseite mit Platzhaltern → Redirect. Commit `4b6f598`.
 - [Widerrufs-Zustimmung im Checkout](tickets/7-widerruf-zustimmung-checkout.md) — Stripe **kann** die Zustimmung am Payment Link (`consent_collection` ist unterstützt, scheitert nur an einer ToS-URL, die per API am eigenen Account nicht setzbar ist); ein dropdown-Pflichtfeld geht sogar AFK und ist in der Session auslesbar. **Nützt aber heute nichts:** § 356 **Abs. 6** BGB (nicht Abs. 5 — Zitierfehler in AGB/Ticket 6 gegen die Primärquelle korrigiert) verlangt zusätzlich eine Vertragsbestätigung nach § 312f auf dauerhaftem Datenträger = E-Mail = `EMAIL_*`-Blocker. Entscheidung: LIVE-Links **nicht** anfassen, stattdessen die auslesende Seite gebaut (`extract_consent`/`waiver_effective`, in `sales.log`, Selftest grün). Scharfstellen → Ticket 8.
+- [Besucher-Messung](tickets/9-besucher-messung.md) — der „harte Fakt 0 Visitors" war **ASSUMED**: auf dem Kaufpfad liegt nachweislich **kein** Zähler und keine Fremdressource, „keine Messung" wurde als „kein Besucher" gelesen. Zugleich ein bereits vorhandenes, ungenutztes Instrument gefunden: ein **echter Browser** legt beim Öffnen eines Payment Links sofort eine `checkout.session` an (MEASURED: curl ohne JS → keine Session; Browser → Session mit `payment_link=plink_…`). Daraus `funnel_check.py` gebaut (0 €, kein Account, keine Cookies). Erste echte Zahl: **BESUCHER = 0** — „niemand erreicht den Kaufbutton" ist jetzt belegt statt vermutet. Nebenbefund: der Tick startete mit `sessions=1`, das war die eigene Ticket-7-Probe — ohne das neue Trennmerkmal wäre daraus ein falscher „erster Traffic"-Claim geworden.
 
 ## Tickets (Frontier)
 - [Fiverr-Hochpotential](tickets/3-fiverr-hochpotential.md) — GIG TEXT READY (fiverr_gig.md), wartet auf Nutzer-Veröffentlichung. **HITL-Blocker (Nutzer-KYC).**
 - [Bing-Indexierung verifizieren](tickets/5-bing-indexierung-verifizieren.md) — AFK, aber **zeitgesperrt bis 2026-08-07**: vorher hat ein Lauf keinen Informationswert.
 - [Widerrufs-Waiver scharfstellen](tickets/8-widerruf-waiver-scharfstellen.md) — **blockiert durch zwei USER-Blocker** (ToS-URL im Stripe-Dashboard, `EMAIL_*`). Nicht auf der Frontier. Wird auch dann erst umgesetzt, wenn echte Sale-Daten das Widerrufsrisiko beziffern — Checkout-Reibung bei einem 4-€-Produkt kann teurer sein als jeder Widerruf.
+- [Seitenaufrufe auf rtd.html messen?](tickets/10-seitenaufrufe-messen.md) — **HITL-Grilling**, ein Cron-Tick darf das nicht selbst entscheiden. Jede Option kostet einen Account und/oder eine DSGVO-Nachziehung auf dem Kaufpfad; „gar nicht messen" ist bei 3,99 € eine ernsthafte Antwort. Informationswert erst, wenn Ticket 5 Indexierung zeigt oder Ticket 3 live ist.
 
 **USER-Blocker (nicht ticketbar, nur der Nutzer kann sie lösen):**
 1. Ladungsfähige Postanschrift in `impressum.html` Z. 20–21. Einzige verbliebene Platzhalter-Stelle im Repo; ohne sie ist § 5 DDG nicht erfüllt.
@@ -38,7 +41,7 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 
 ## Not yet specified
 - Falls Bing indexiert (Ticket 5 positiv): welche Keywords/Seiten ziehen überhaupt Suchvolumen? Erst grillen, wenn echte Impressionen messbar sind — vorher ist jede Content-Arbeit Blindflug.
-- Conversion: rtd.html wurde nie von einem echten Besucher gesehen. Ob 3,99 € Einstiegspreis / Formularfeld "anfrage" konvertieren, ist unbeantwortbar ohne Traffic. Nicht ticketbar bis Besucher > 0.
+- Conversion: rtd.html wurde nie von einem echten Besucher gesehen. Ob 3,99 € Einstiegspreis / Formularfeld "anfrage" konvertieren, ist unbeantwortbar ohne Traffic. Nicht ticketbar bis Besucher > 0. *(2026-08-04 präzisiert: „Besucher > 0" ist ab jetzt **falsifizierbar** — `funnel_check.py` meldet BESUCHER > 0, sobald ein echter Browser die Kaufseite öffnet. Der Trigger für dieses Fog-Patch ist damit definiert statt gefühlt.)*
 - **Trägt ein Micro-Preis (3,99–14,99 €) dieses Geschäftsmodell überhaupt?** Durch die Preiskorrektur neu aufgeworfen: pro Sale bleiben nach Stripe-Gebühr nur wenige Euro, während Rechts- und Fulfillment-Aufwand identisch zu einem teuren Produkt sind. Ob das ein Preisproblem, ein Mengenproblem oder gar kein Problem ist, lässt sich ohne echte Conversion-Daten nicht entscheiden — erst grillen, wenn Besucher > 0. Nicht blind den Preis anheben.
 
 

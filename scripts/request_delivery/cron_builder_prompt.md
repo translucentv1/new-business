@@ -137,6 +137,43 @@ bleibt USER-Blocker — NICHT erfinden, nur an EINER Stelle offen lassen.
 Belegpflicht: MEASURED (HTTP-Test, Dateiinhalt, keine erfundenen Keys).
 Stopp wenn Live-Stripe-Key fehlt und nur DEMO moeglich ist.
 
+STAND 2026-08-04 (Tick 5, MEASURED): auto_fulfill 0 Sales. rtd/thanks/index/agb/
+datenschutz/impressum/sitemap HTTP 200.
+TICKET 9 NEU + GESCHLOSSEN — Besucher-Messung. Zwei Befunde:
+1. Der Tick startete mit `sessions=1` (vorher immer 0). Das sah nach dem ersten
+   Besucher aus, war aber die EIGENE Ticket-7-Probe (payment_link=None, Feld
+   'widerruf'). Beinahe-Fehlalarm.
+2. Der Map-Claim "Harter Fakt: 0 Visitors" war ASSUMED. MEASURED: auf rtd.html/
+   thanks.html liegt KEINE Fremdressource und KEIN Zaehler (0 Analytics-Marker)
+   -> es gab nie ein Instrument. "Keine Messung" wurde als "kein Besucher" gelesen.
+NEUES INSTRUMENT (gratis, gefunden statt gebaut): ein ECHTER Browser legt beim
+Oeffnen eines Payment Links sofort eine checkout.session an.
+  curl (ohne JS) 12:59:33Z -> HTTP 200, KEINE neue Session
+  Browser         13:00:08Z -> Session, payment_link=plink_1TzrLTFajs0YddhPHUo9v1Ak
+Trennmerkmal: payment_link="plink_..." = echter Browser | None = eigene API-Probe.
+-> scripts/request_delivery/funnel_check.py (NEU): BESUCHER/API-PROBE/EIGENTEST
+   getrennt + Conversion + --expire-own. Eigene Ids in funnel_own_sessions.json.
+-> scripts/request_delivery/inspect_sessions.py (NEU): Rohansicht.
+-> auto_fulfill.py: nur die Ausgabe praezisiert ("sessions=N (roh, inkl.
+   Eigentests)"), Logik unveraendert; --selftest gruen, Live-Lauf gruen.
+Erste echte Zahl: BESUCHER=0, bezahlt=0 -> "niemand erreicht den Kaufbutton" ist
+jetzt BELEGT statt vermutet. Eigene Testsession per --expire-own geschlossen.
+Nebenbefund: Kaufseite erstmals im ECHTEN Browser verifiziert (3,99 €,
+Pflichtfeld "Deine Anfrage", Karte/Klarna/Amazon Pay/EPS) — bisher nur per API.
+TICKET 10 NEU (OPEN, HITL): Sollen Seitenaufrufe auf rtd.html gemessen werden?
+Nur damit laesst sich "niemand sieht die Seite" von "sieht sie, klickt nicht"
+unterscheiden — beide fuehren zu ENTGEGENGESETZTEN Schritten. Jede Option kostet
+Account + DSGVO-Nachzug auf dem Kaufpfad; "gar nicht messen" ist bei 3,99 € eine
+ernsthafte Antwort. KEIN Tick baut hier eigenmaechtig Analytics ein.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + Live-Check) UND NEU
+`python scripts/request_delivery/funnel_check.py` — das ist ab jetzt die einzige
+gueltige Traffic-Aussage. Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07,
+Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL. Solange BESUCHER=0 bleibt:
+"warte, beobachte Sales". Aktionismus ausdruecklich NICHT erwuenscht.
+
+Kurzer deutscher Statusbericht am Ende: was/Beleg/naechster Schritt.
+
 STAND 2026-08-04 (Tick 4, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/
 neu=0, LIVE). rtd/thanks/agb/datenschutz/impressum HTTP 200.
 TICKET 7 ERLEDIGT + GESCHLOSSEN (Commit 2d31c8c, live verifiziert):
