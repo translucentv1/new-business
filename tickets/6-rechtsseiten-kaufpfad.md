@@ -42,7 +42,8 @@ damit die Seite DSGVO-seitig nicht offen liegt?
    `[PLZ Ort]`.
 4. **Widerrufs-Zustimmung fehlt technisch.** `agb.html` § 5 sagt selbst, dass
    die Zustimmung zum vorzeitigen Leistungsbeginn per Checkbox eingeholt werden
-   muss (§ 356 Abs. 5 BGB). Im Stripe-Payment-Link ist das nicht konfiguriert.
+   muss (§ 356 Abs. 6 BGB — Zitat korrigiert 2026-08-04, Abs. 5 gilt nur fuer
+   Dienstleistungen). Im Stripe-Payment-Link ist das nicht konfiguriert.
    Folge: Das Widerrufsrecht erlischt **nicht** — ein Kunde kann nach Lieferung
    14 Tage lang widerrufen.
 

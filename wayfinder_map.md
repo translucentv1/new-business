@@ -16,6 +16,7 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - **Kanonische Live-Domain: `translucentv1.github.io/new-business/`** (philippgro.github.io = 404).
 - **Branch-Falle:** GitHub Pages liefert **gh-pages-ROOT**. Commits auf `master` oder Dateien unter `docs/` gehen live NICHT online (kostete IndexNow 11 Tage). Vor jedem "ist live"-Claim: `curl` gegen die echte URL.
 - **Cent-Falle:** Stripe-Beträge immer als `unit_amount/100` lesen. `verify_rtd_chain.py` gibt seit 2026-08-04 beides aus ("399 cent = 3.99 EUR").
+- **Paragrafen-Falle:** Für digitale Inhalte ohne körperlichen Datenträger gilt **§ 356 Abs. 6 BGB**, nicht Abs. 5 (Abs. 5 = Dienstleistungen). AGB/Ticket 6/Skripte zitierten bis 2026-08-04 falsch. Rechtsnormen immer gegen gesetze-im-internet.de prüfen, nie aus dem Gedächtnis zitieren.
 
 ## Decisions so far
 - [Traffic-Hebel](tickets/1-traffic-hebel.md) — bei 0 Budget: Reddit/X-Posts (Nutzer) oder SEO (langsam). Größter Hebel = Nutzer-Posts.
@@ -23,13 +24,17 @@ Mit dem bestehenden Geld-Stack (RTD / POD / Affiliate / KDP) den **ersten realen
 - [Fiverr-Hochpotential](tickets/3-fiverr-hochpotential.md) — Fiverr/Upwork hat höchstes 48h-Potential, weil Traffic VOM Marktplatz kommt (nicht von uns). Hermes baut Gig, Nutzer veröffentlicht (2 Min).
 - [IndexNow-Indexierung](tickets/4-indexnow-indexierung.md) — es gibt doch **einen** login-freien Indexierungs-Hebel: IndexNow. Dabei Defekt gefunden: Key lag auf `master` unter `docs/` → live 404, seit 24.07. nie funktionsfähig. Fix live (Key HTTP 200), 1205 URLs eingereicht (HTTP 202/200 MEASURED).
 - [Rechtsseiten auf dem Kaufpfad](tickets/6-rechtsseiten-kaufpfad.md) — der Kaufpfad ist jetzt zumutbar: `datenschutz.html` gebaut (war 404, jetzt HTTP 200), AGB ent-templatisiert und `noindex` entfernt, Widerrufs-§ ehrlich gefasst statt ein Erlöschen zu behaupten. Adress-Platzhalter stand in **6** Live-Seiten, nicht in 2 — jetzt nur noch in `impressum.html`. Nebenbefund: `scripts/request_delivery/index.html` war eine live erreichbare Altkopie der Verkaufsseite mit Platzhaltern → Redirect. Commit `4b6f598`.
+- [Widerrufs-Zustimmung im Checkout](tickets/7-widerruf-zustimmung-checkout.md) — Stripe **kann** die Zustimmung am Payment Link (`consent_collection` ist unterstützt, scheitert nur an einer ToS-URL, die per API am eigenen Account nicht setzbar ist); ein dropdown-Pflichtfeld geht sogar AFK und ist in der Session auslesbar. **Nützt aber heute nichts:** § 356 **Abs. 6** BGB (nicht Abs. 5 — Zitierfehler in AGB/Ticket 6 gegen die Primärquelle korrigiert) verlangt zusätzlich eine Vertragsbestätigung nach § 312f auf dauerhaftem Datenträger = E-Mail = `EMAIL_*`-Blocker. Entscheidung: LIVE-Links **nicht** anfassen, stattdessen die auslesende Seite gebaut (`extract_consent`/`waiver_effective`, in `sales.log`, Selftest grün). Scharfstellen → Ticket 8.
 
 ## Tickets (Frontier)
-- [Widerrufs-Zustimmung im Checkout](tickets/7-widerruf-zustimmung-checkout.md) — AFK, sofort bearbeitbar. Kann Stripe an einem **Payment Link** eine beweisbare Zustimmung nach § 356 Abs. 5 BGB einholen (`consent_collection`)? Solange nicht, bleibt das 14-tägige Widerrufsrecht nach Lieferung bestehen. Fasst die einzige Einnahmequelle an → nach jeder Änderung `verify_rtd_chain.py`.
 - [Fiverr-Hochpotential](tickets/3-fiverr-hochpotential.md) — GIG TEXT READY (fiverr_gig.md), wartet auf Nutzer-Veröffentlichung. **HITL-Blocker (Nutzer-KYC).**
 - [Bing-Indexierung verifizieren](tickets/5-bing-indexierung-verifizieren.md) — AFK, aber **zeitgesperrt bis 2026-08-07**: vorher hat ein Lauf keinen Informationswert.
+- [Widerrufs-Waiver scharfstellen](tickets/8-widerruf-waiver-scharfstellen.md) — **blockiert durch zwei USER-Blocker** (ToS-URL im Stripe-Dashboard, `EMAIL_*`). Nicht auf der Frontier. Wird auch dann erst umgesetzt, wenn echte Sale-Daten das Widerrufsrisiko beziffern — Checkout-Reibung bei einem 4-€-Produkt kann teurer sein als jeder Widerruf.
 
-**USER-Blocker (nicht ticketbar, nur der Nutzer kann ihn lösen):** ladungsfähige Postanschrift in `impressum.html` Z. 20–21. Einzige verbliebene Platzhalter-Stelle im Repo; ohne sie ist § 5 DDG nicht erfüllt.
+**USER-Blocker (nicht ticketbar, nur der Nutzer kann sie lösen):**
+1. Ladungsfähige Postanschrift in `impressum.html` Z. 20–21. Einzige verbliebene Platzhalter-Stelle im Repo; ohne sie ist § 5 DDG nicht erfüllt.
+2. `EMAIL_*` in `hermes/.env` — ohne Mailversand keine Vertragsbestätigung auf dauerhaftem Datenträger (§ 312f BGB) und damit kein Widerrufs-Waiver.
+3. ToS-URL in den öffentlichen Stripe-Geschäftsangaben (`agb.html`) — per API am eigenen Account nachweislich nicht setzbar, ~2 Min im Dashboard.
 
 ## Not yet specified
 - Falls Bing indexiert (Ticket 5 positiv): welche Keywords/Seiten ziehen überhaupt Suchvolumen? Erst grillen, wenn echte Impressionen messbar sind — vorher ist jede Content-Arbeit Blindflug.

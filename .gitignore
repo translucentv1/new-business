@@ -19,3 +19,4 @@ __pycache__/
 # Pinterest bulk upload (generated, not source)
 pinterest_upload.csv
 .gumroad_secrets
+scripts/request_delivery/plinks_backup_*.json

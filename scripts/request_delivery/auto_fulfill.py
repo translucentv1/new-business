@@ -86,6 +86,49 @@ def _is_real_session_id(sid: str) -> bool:
             and not _FAKE_SID.search(sid))
 
 
+def extract_consent(s):
+    """Zieht ALLE widerrufsrelevanten Beweisfelder aus einer Checkout Session.
+
+    Warum beide Wege: Ticket 7 hat gegen die LIVE-API gemessen (2026-08-04),
+    dass ein Payment Link zwei Traeger fuer eine Zustimmung kennt:
+      * `consent_collection[terms_of_service]` -> Session-Feld `consent`
+        (von Stripe abgelehnt, solange im Dashboard keine ToS-URL gesetzt ist;
+        per API NICHT setzbar: "You cannot use this method on your own account")
+      * ein Pflicht-`custom_field` vom Typ dropdown -> Session-Feld
+        `custom_fields[].dropdown.value` (API akzeptiert es, MEASURED)
+    Was hier nicht ausgelesen und geloggt wird, ist im Streitfall kein Beweis,
+    sondern Dekoration. Deshalb wird beides bei JEDEM Fulfillment mitgeschrieben
+    — auch wenn es (noch) None ist.
+    """
+    out = {"tos": None, "collected": None, "field": None, "field_label": None}
+    consent = s.get("consent") or {}
+    out["tos"] = consent.get("terms_of_service")
+    cc = s.get("consent_collection") or {}
+    out["collected"] = cc.get("terms_of_service")
+    for f in s.get("custom_fields") or []:
+        if f.get("key") in ("widerruf", "zustimmung"):
+            out["field"] = (f.get("dropdown") or {}).get("value")
+            out["field_label"] = (f.get("label") or {}).get("custom")
+    return out
+
+
+def waiver_effective(consent):
+    """Ist das Widerrufsrecht nach § 356 Abs. 6 BGB wirklich erloschen?
+
+    ACHTUNG Zitat-Korrektur (2026-08-04, Primaerquelle gesetze-im-internet.de,
+    HTTP 200): fuer digitale Inhalte OHNE koerperlichen Datentraeger gilt
+    § 356 **Abs. 6**; Abs. 5 regelt Dienstleistungen. Frueherer AGB-Text und
+    Ticket 6/7 zitierten Abs. 5 — falsch, repo-weit korrigiert.
+
+    Nur True, wenn eine Zustimmung tatsaechlich VORLIEGT. Das ist NUR die
+    Teilbedingung lit. b/c. Vollstaendig erlischt das Recht erst mit lit. d:
+    Vertragsbestaetigung nach § 312f BGB auf dauerhaftem Datentraeger (E-Mail)
+    — haengt an EMAIL_* (USER-Blocker). Diese Funktion darf deshalb NICHT als
+    "Widerruf ausgeschlossen" gelesen werden, solange kein Mailversand laeuft.
+    """
+    return bool(consent.get("tos") == "accepted" or consent.get("field"))
+
+
 def load_state():
     if os.path.exists(STATE):
         return json.load(open(STATE, encoding="utf-8"))
@@ -215,6 +258,7 @@ def fulfill_session(s, state, push=True, persist=True):
                 f"war kurzzeitig nicht verfuegbar ({err}); diese Seite wird beim "
                 f"naechsten Lauf aktualisiert.")
     path, url = write_page(sid, anfrage, text)
+    consent = extract_consent(s)
     email_sent, email_err = None, None
     if push:  # nur bei echtem LIVE-Fulfillment mailen, nie im selftest/dry-run
         cfg = load_email_config()
@@ -223,10 +267,14 @@ def fulfill_session(s, state, push=True, persist=True):
     state[sid] = {"ts": int(time.time()), "email": email,
                   "amount": s.get("amount_total"), "url": url,
                   "llm_err": err, "final": err is None,
-                  "email_sent": email_sent, "email_err": email_err}
+                  "email_sent": email_sent, "email_err": email_err,
+                  "consent": consent,
+                  "widerruf_erloschen": waiver_effective(consent)}
     if persist:
         save_state(state)
     print(f"FULFILLED {sid} -> {path}")
+    print(f"  consent={json.dumps(consent, ensure_ascii=False)} "
+          f"widerruf_erloschen={waiver_effective(consent)}")
     if push:
         ok = git_publish(f"RTD auto-fulfill {sid_hash(sid)} (LIVE sale)")
         live = ok and wait_live(url)
@@ -242,7 +290,9 @@ def fulfill_session(s, state, push=True, persist=True):
                                     "currency": s.get("currency"), "email": email,
                                     "deliverable": url,
                                     "email_sent": email_sent,
-                                    "email_err": email_err},
+                                    "email_err": email_err,
+                                    "consent": consent,
+                                    "widerruf_erloschen": waiver_effective(consent)},
                                    ensure_ascii=False) + "\n")
         else:
             print(f"  sales.log NICHT geschrieben: sid '{sid}' ist keine echte "
@@ -253,6 +303,39 @@ def fulfill_session(s, state, push=True, persist=True):
 def main():
     dry = "--dry-run" in sys.argv
     if "--selftest" in sys.argv:
+        # (a) Zustimmungs-Extraktion gegen die drei real moeglichen
+        #     Session-Formen pruefen — Formen stammen aus echten API-Antworten
+        #     (Ticket 7, probe_consent_collection.py), nicht aus Annahmen.
+        cases = [
+            ("ohne Zustimmung (Ist-Zustand LIVE)",
+             {"custom_fields": [{"key": "anfrage", "text": {"value": "x"}}]},
+             {"tos": None, "collected": None, "field": None, "field_label": None},
+             False),
+            ("dropdown-Pflichtfeld (AFK-Weg)",
+             {"custom_fields": [
+                 {"key": "anfrage", "text": {"value": "x"}},
+                 {"key": "widerruf", "type": "dropdown",
+                  "label": {"custom": "Sofort-Lieferung: Widerrufsrecht erlischt"},
+                  "dropdown": {"value": "ja",
+                               "options": [{"label": "Ja, ich stimme zu",
+                                            "value": "ja"}]}}]},
+             {"tos": None, "collected": None, "field": "ja",
+              "field_label": "Sofort-Lieferung: Widerrufsrecht erlischt"},
+             True),
+            ("consent_collection (nach ToS-URL im Dashboard)",
+             {"consent": {"terms_of_service": "accepted"},
+              "consent_collection": {"terms_of_service": "required"},
+              "custom_fields": []},
+             {"tos": "accepted", "collected": "required", "field": None,
+              "field_label": None},
+             True),
+        ]
+        for name, sess, want, want_waiver in cases:
+            got = extract_consent(sess)
+            assert got == want, f"{name}: {got} != {want}"
+            assert waiver_effective(got) is want_waiver, name
+            print(f"  CONSENT OK [{name}] -> {json.dumps(got, ensure_ascii=False)} "
+                  f"| widerruf_erloschen={want_waiver}")
         fake = {"id": "cs_test_selftest_" + uuid_hex(), "amount_total": 399,
                 "currency": "eur",
                 "customer_details": {"email": "selftest@example.com"},
