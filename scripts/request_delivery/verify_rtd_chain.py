@@ -82,8 +82,15 @@ def main():
                 and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac
                 and isinstance(amt, int) and amt > 0)
         ok = ok and good
+        # WICHTIG: Stripe liefert unit_amount in der KLEINSTEN Waehrungseinheit
+        # (Cent). Frueher wurde "amount=399 eur" in Handoffs als "399 EUR"
+        # gelesen -> 100x-Fehler in der Doku. Deshalb IMMER beides ausgeben.
+        if isinstance(amt, int):
+            preis = f"{amt} cent = {amt / 100:.2f} {(cur or 'eur').upper()}"
+        else:
+            preis = f"amount={amt} (kein Preis gelesen)"
         print(f"    livemode={pl.get('livemode')} active={pl.get('active')} "
-              f"amount={amt} {cur} fields={fields}")
+              f"preis={preis} fields={fields}")
         print(f"      redirect={ac}  -> {'OK' if good else 'PROBLEM'}")
 
     # 3) Hash-Gleichheit JS (thanks.html) == Python (auto_fulfill.py)

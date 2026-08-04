@@ -19,7 +19,7 @@ Verbleibend USER-Blocker: EMAIL_* (Mail-Versand), Impressum/AGB-Platzhalter
 [DEIN NAME]; Fiverr=USER-KYC. KEIN DEMO-Modus (LIVE-Key + Ollama aktiv).
 
 STAND 2026-08-03 (Tick): auto_fulfill 0 Sales (LIVE). Kette MEASURED verifiziert
-inkl. Preise: Basis 399 / Standard 799 / Premium 1499 EUR (alle livemode/active,
+inkl. Preise: Basis 3,99 / Standard 7,99 / Premium 14,99 EUR (alle livemode/active,
 Feld "anfrage", Redirect OK). verify_rtd_chain.py um Preis-Check (amount>0 via
 line_items-Sub-Endpoint) gehaertet + gepusht (84a9d1c). "Kein-Preis"-Hypothese
 fuer 0 Sales WIDERLEGT -> 0 Sales = Traffic/Conversion-Luecke, kein Defekt.
@@ -40,7 +40,7 @@ Naechste sinnvolle Schritte (einen pro Tick):
 3. Impressum/AGB-Platzhalter [DEIN NAME] etc. = USER-Blocker vor breitem Launch.
 
 STAND 2026-08-03 (Tick 2, MEASURED): auto_fulfill 0 Sales (LIVE). verify_rtd_chain.py
--> KETTE_OK (3 LIVE-Links active, 399/799/1499 EUR, Feld 'anfrage', Redirect auf
+-> KETTE_OK (3 LIVE-Links active, 3,99/7,99/14,99 EUR, Feld 'anfrage', Redirect auf
 translucentv1.github.io/.../thanks.html, Hash-Paritaet OK, dl/rtd-Ziel vorhanden).
 Kanonische Live-Domain = translucentv1.github.io (philippgro.github.io = 404, nur
 Repo-Owner-Domain live). rtd.html/thanks.html HTTP 200 (rtd.html 5309 B). Feature
@@ -50,7 +50,7 @@ Fiverr-Gig = USER-KYC. Naechster autonomer Schritt: keiner sinnvoll ueberlebensf
 -> "warte, beobachte Sales" (Idle OK, Aktionismus nicht).
 
 STAND 2026-08-04 (Tick, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/neu=0,
-LIVE). verify_rtd_chain.py -> KETTE_OK (3 LIVE-Links, 399/799/1499 EUR, Feld
+LIVE). verify_rtd_chain.py -> KETTE_OK (3 LIVE-Links, 3,99/7,99/14,99 EUR, Feld
 'anfrage', Redirect OK, Hash-Paritaet). rtd/thanks/index/sitemap HTTP 200.
 DEFEKT GEFUNDEN + BEHOBEN (frueherer Claim GEGENBEWIESEN): Commit b8f2840
 "IndexNow key added" legte die Key-Datei auf Branch *master* unter docs/ —
@@ -69,6 +69,40 @@ MERKREGEL: publish_site.py existiert NICHT mehr (nur .pyc/.log) -> mit
 Naechster Tick: Pflicht 1+2 laufen lassen. Ticket 5 (Bing-Trefferzahl pruefen)
 erst ab 2026-08-07 — vorher hat der Lauf keinen Informationswert, dann ist
 "warte, beobachte Sales" korrekt.
+
+STAND 2026-08-04 (Tick 2, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/neu=0).
+rtd/thanks/index/sitemap/impressum/agb HTTP 200. Sitemap-Healthcheck NEU
+(scripts/sitemap_healthcheck.py): ALLE 1207 Sitemap-URLs live HTTP 200, 0 Defekte,
+0 duenne Seiten -> IndexNow-Einreichung ging gegen eine gesunde Sitemap.
+
+>>> PREIS-CLAIM KORRIGIERT (100x-Fehler, repo-weit gepurged) <<<
+Die echten Preise sind 3,99 / 7,99 / 14,99 EUR — NICHT 399/799/1499 EUR.
+Ursache: verify_rtd_chain.py druckte Stripes `price.unit_amount` roh; das Feld ist
+in CENT. Fruehere Ticks lasen "amount=399 eur" als "399 EUR". Gegenbeweis: rtd.html
+selbst listet `<option value="3.99">Basis – 3,99 €`, app.py hat
+`PRICE_DEFAULT = 399  # cents (3,99 EUR)`. verify_rtd_chain.py gehaertet -> gibt
+jetzt "preis=399 cent = 3.99 EUR" aus (MEASURED gegen LIVE-Stripe).
+KONSEQUENZ: Das ist ein Micro-Produkt (~4-15 EUR), kein Premium-Angebot. Jede
+Umsatzrechnung und Conversion-Erwartung frueherer Ticks war um Faktor 100 falsch.
+
+DEFEKTE AUF DEM KAUFPFAD GEFUNDEN (Ticket 6, offen):
+- datenschutz.html existiert NIRGENDS (live 404, nicht lokal, nicht in git) —
+  DSGVO Art. 13 Pflichtseite fehlt, obwohl Stripe-Checkout personenbezogene Daten
+  erhebt.
+- agb.html ist LIVE und von rtd.html verlinkt, zeigt aber sichtbar
+  "[TEMPLATE — NICHT VERÖFFENTLICHUNGSREIF]" + Platzhalter [DEIN VOLLER NAME],
+  [EMAIL], [STRASSE HAUSNUMMER], [PLZ ORT], [DATUM], [LIEFERFRIST] und traegt
+  <meta name="robots" content="noindex">.
+- impressum.html hat ECHTE Daten (Philipp Behnisch, Mail, Telefon), aber
+  Adress-Platzhalter [Straße Hausnummer]/[PLZ Ort].
+- agb.html §5: Widerrufs-Zustimmung per Checkbox ist gefordert, aber technisch
+  NICHT umgesetzt -> Kunde koennte nach Lieferung widerrufen.
+Kein externes Tracking/keine Cookies auf dem Kaufpfad (MEASURED: keine
+Third-Party-Scripts in rtd/thanks, kein Set-Cookie von GitHub Pages).
+
+Naechster Tick: Ticket 6 abarbeiten (datenschutz.html bauen + agb.html
+ent-templatisieren mit den ECHTEN Daten aus impressum.html). Die Postanschrift
+bleibt USER-Blocker — NICHT erfinden, nur an EINER Stelle offen lassen.
 
 Belegpflicht: MEASURED (HTTP-Test, Dateiinhalt, keine erfundenen Keys).
 Stopp wenn Live-Stripe-Key fehlt und nur DEMO moeglich ist.
