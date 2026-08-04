@@ -137,4 +137,48 @@ bleibt USER-Blocker — NICHT erfinden, nur an EINER Stelle offen lassen.
 Belegpflicht: MEASURED (HTTP-Test, Dateiinhalt, keine erfundenen Keys).
 Stopp wenn Live-Stripe-Key fehlt und nur DEMO moeglich ist.
 
+STAND 2026-08-04 (Tick 4, MEASURED): auto_fulfill 0 Sales (sessions=0/paid=0/
+neu=0, LIVE). rtd/thanks/agb/datenschutz/impressum HTTP 200.
+TICKET 7 ERLEDIGT + GESCHLOSSEN (Commit 2d31c8c, live verifiziert):
+- Gegen die LIVE-Stripe-API gemessen (probe_consent_collection.py, NEU):
+  `consent_collection[terms_of_service]` IST am Payment Link unterstuetzt.
+  Stripe lehnt NICHT als "unknown parameter" ab, sondern: "You cannot collect
+  consent to your terms of service unless a URL is set in the Stripe Dashboard".
+- ToS-URL per API setzen: UNMOEGLICH. POST /v1/accounts/<eigene id> ->
+  "You cannot use this method on your own account: you may only use it on
+  connected accounts." GET /v1/account enthaelt kein Feld mit "terms".
+  => USER-Blocker, ~2 Min im Dashboard (Settings > Public details).
+- AFK-Ersatzweg gemessen: Payment Link MIT dropdown-Pflichtfeld wird von der
+  API angenommen; Wert ist als session.custom_fields[].dropdown.value lesbar
+  (echte LIVE-Session angelegt + per /expire geschlossen, Probe-Links
+  deaktiviert, "aktive Probe-Links uebrig: []").
+- >>> ZITATFEHLER GEGENBEWIESEN, repo-weit gepurged <<<
+  Fuer digitale Inhalte OHNE koerperlichen Datentraeger gilt § 356 **Abs. 6**
+  BGB, NICHT Abs. 5 (Abs. 5 = Dienstleistungen). Primaerquelle
+  gesetze-im-internet.de (HTTP 200), nicht aus dem Gedaechtnis zitiert.
+  Abs. 6 Nr. 2 verlangt KUMULATIV a) Beginn der Erfuellung, b) Zustimmung,
+  c) Kenntnisbestaetigung UND d) Bestaetigung nach § 312f auf dauerhaftem
+  Datentraeger. d) = E-Mail = EMAIL_*-Blocker => der Waiver ist heute
+  unerreichbar, EGAL welche Checkbox im Checkout steht.
+- ENTSCHEIDUNG: die 3 LIVE-Links bleiben UNVERAENDERT. Ein Pflichtfeld mehr
+  erzeugt heute nur Checkout-Reibung ohne Rechtswirkung. Stattdessen die
+  auslesende Seite gebaut: auto_fulfill.extract_consent()/waiver_effective(),
+  Protokoll in fulfilled_live.json UND sales.log; --selftest deckt alle 3
+  realen Session-Formen ab (gruen).
+- agb.html § 5 korrigiert: nennt jetzt alle vier Voraussetzungen + § 312f und
+  sagt offen, dass zwei fehlen. LIVE verifiziert (HTTP 200, "356 Abs. 6 Nr. 2
+  BGB" im ausgelieferten Body, 5393 B).
+- verify_rtd_chain.py NACH allen Eingriffen: KETTE_OK (3 Links livemode/active,
+  399/799/1499 cent = 3,99/7,99/14,99 EUR, Feld 'anfrage', Redirect ok).
+  Ist-Zustand vorher gesichert: plinks_backup_2026-08-04.json (gitignored).
+- Ticket 8 NEU (blockiert, NICHT auf der Frontier): Waiver scharfstellen, sobald
+  ToS-URL + EMAIL_* stehen — und auch dann erst, wenn echte Sale-Daten das
+  Widerrufsrisiko beziffern.
+
+Naechster Tick: KEIN unblockiertes Ticket mit Informationswert offen.
+Ticket 3 = USER-KYC, Ticket 5 = zeitgesperrt bis 2026-08-07, Ticket 8 =
+2 USER-Blocker. Also: Pflichtteil (auto_fulfill + Live-Check) fahren und
+"warte, beobachte Sales" melden. Aktionismus (Preise/Links/Content ohne
+Messgrundlage anfassen) ist ausdruecklich NICHT erwuenscht.
+
 Kurzer deutscher Statusbericht am Ende: was/Beleg/naechster Schritt.
