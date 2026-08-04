@@ -293,4 +293,43 @@ ein Traffic-Tick gelaufen ist: `git status` pruefen, verwaiste Seiten publiziere
 Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07, Ticket 8 = 2 USER-Blocker,
 Ticket 10 = HITL. Solange BESUCHER=0: "warte, beobachte Sales".
 
+STAND 2026-08-05 (Tick, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2 -> weiterhin KEIN echter
+Traffic. legal_link_audit -> LEGAL_LINKS_OK (40 Seiten, 0 unvollstaendig).
+verify_rtd_chain -> KETTE_OK (399/799/1499 cent, Feld 'anfrage', Redirect ok).
+Traffic-Tick von heute (277830f) sauber publiziert: beide neuen Landingpages
+live 200 + in der Sitemap, Datenschutz-/rtd-Link je vorhanden -> die
+"Generator-publiziert-nicht"-Falle hat gegriffen. git clean, 0 unpushed.
+
+TICKET 14 NEU + GESCHLOSSEN (Commit gepusht, im origin/gh-pages-Tree).
+>>> NEUE FALLE: FETTES 404 <<<
+Die 404-Seite von GitHub Pages ist 9379 B gross - FETTER als jede echte
+Landingpage (2390-3683 B MEASURED). Zwei geratene URLs lieferten je 9379 B und
+sahen nach gesunden Seiten aus, waren aber 404. KONSEQUENZ: `curl | wc -c` ist
+als "ist live"-Beleg WERTLOS, und jede "duenne Seite = kaputt"-Heuristik zeigt
+falsch herum. Ab sofort nur noch `curl -o /dev/null -w '%{http_code}'`.
+Befund: sitemap_healthcheck.py war das EINZIGE Verifikationsskript ohne
+--selftest -> sein "1207 URLs, 0 Defekte" vom 04.08. war streng genommen
+ASSUMED (niemand hatte gezeigt, dass es einen Defekt ueberhaupt bemerkt).
+Inhaltlich war es korrekt (prueft echte Statuscodes via HTTPError), aber das
+war Code-Lektuere, kein Test.
+Fix: --selftest mit Fault Injection durch die ECHTE main() (injizierte Sitemap,
+Produktivpfad) -> 13/13 SELFTEST_OK, rc-Wechsel 1->0 belegt, Rot-Faelle
+zusaetzlich auf 'Traceback' gefiltert (Exit-Code-Falle), DUENN-Zweig und
+Netzfehler(-1) mitgetestet.
+Vollzaehliger Lauf mit dem nun vertrauenswuerdigen Instrument:
+1216/1216 HTTP 200, NICHT_200=0, VERDAECHTIG_KLEIN=0, SITEMAP_OK (21,8 s).
+Sitemap lokal = live = 1216, 0 Drift.
+IndexNow danach: Key-Datei HTTP 200 (Body == Dateiname), 1216 URLs -> HTTP 200,
+SUBMIT_OK. Wie immer: ANGENOMMEN, NICHT indexiert.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit). NEU verfuegbar: `python scripts/sitemap_healthcheck.py
+--selftest` (13/13) und der Vollauf (~22 s) - nach jedem Traffic-Tick sinnvoll,
+sonst nicht noetig. Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (dann faellt
+die Zeitsperre! Bing-Trefferzahl messen), Ticket 8 = 2 USER-Blocker,
+Ticket 10 = HITL. Solange BESUCHER=0: "warte, beobachte Sales".
+Aktionismus ausdruecklich NICHT erwuenscht.
+
+
 
