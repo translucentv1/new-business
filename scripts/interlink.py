@@ -40,6 +40,7 @@ CLUSTERS: dict[str, list[str]] = {
         "kuendigung-schreiben-lassen-ki",
         "bericht-schreiben-lassen-ki",
         "vortrag-erstellen-lassen-ki",
+        "pitch-deck-erstellen-lassen",
     ],
     "Marketing & Texte": [
         "text-schreiben-lassen-guenstig",
@@ -64,6 +65,7 @@ CLUSTERS: dict[str, list[str]] = {
         "notion-template-erstellen-lassen",
         "ebook-cover-erstellen-lassen",
         "rede-schreiben-lassen-ki",
+        "hochzeitsrede-schreiben-lassen",
     ],
 }
 

@@ -125,6 +125,36 @@ KEYWORDS = [
     # Ebenfalls abgelehnt: "praktikumsbericht schreiben lassen" (2 Treffer, aber
     # Pruefungsleistung zur Abgabe) und "gedicht"/"songtext" (4-7 Treffer, aber
     # 2-4 davon "kostenlos" = kein Bezahlwille).
+    # 2026-08-04 Tick 3: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). web_search/Firecrawl erneut HTTP 402 (insufficient_funds) -> Autocomplete
+    # bleibt die einzige MEASURED-Quelle; kein ASSUMED-Keyword gebaut.
+    # "hochzeitsrede schreiben lassen" -> 3 Vorschlaege: "...kosten" (Preisrecherche =
+    # Bezahlwille) und woertlich "hochzeitsrede von ki schreiben lassen" (KI-Akzeptanz
+    # explizit). KEIN "kostenlos"-Modifier. Anlassrede = hoechste Zahlungsbereitschaft
+    # im Rede-Cluster. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung zur generischen rede-Seite: hier nur Hochzeit (Braut/Braeutigam,
+    # Trauzeuge, Eltern), dort alle uebrigen Anlaesse.
+    ("hochzeitsrede schreiben lassen", "Hochzeitsrede schreiben lassen", "Rede fuer Braut, Braeutigam, Trauzeuge oder Eltern: persoenliche Anekdoten, Aufbau, Pointen und Timing – ab 3,99 EUR, in 24h."),
+    # "pitch deck erstellen lassen" -> 2 Vorschlaege, darunter explizit "...kosten",
+    # KEIN "kostenlos"-Modifier => B2B/Startup-Bezahlwille belegt, gleiches Signalniveau
+    # wie "pressemitteilung"/"vortrag"/"website texte" (je 2 Treffer, alle live).
+    # Deliverable EHRLICH abgegrenzt: Slide-TEXTE + Storyline + Sprechernotizen,
+    # KEIN Grafik-Design und KEIN Finanzmodell/keine Anlageberatung.
+    ("pitch deck erstellen lassen", "Pitch-Deck erstellen lassen – Texte & Storyline", "Storyline und fertige Slide-Texte fuer Problem, Loesung, Markt, Team und Ask – ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-04 Tick 3):
+    # - "text uebersetzen lassen" (10 Vorschlaege = groesstes Volumen des Ticks): Modifier
+    #   sind "google", "kostenlos", "foto", "whatsapp", "chatgpt", "pdf" => der Sucher will
+    #   ein kostenloses TOOL, keinen bezahlten Dienstleister. Falscher Intent.
+    # - "handout erstellen lassen" (8): 2x "kostenlos", zusaetzlich "powerpoint handout"/
+    #   "handout aus praesentation" = Ableitung aus vorhandener Datei, deckt die
+    #   bestehende powerpoint-Seite bereits ab.
+    # - "referat schreiben lassen" (3): 1x "kostenlos" UND Pruefungsleistung zur Abgabe.
+    # - "konzept erstellen lassen" (3): Top-Modifier ist "haccp konzept" =
+    #   Lebensmittelhygiene-Pflichtdokument; koennen wir nicht verantwortlich liefern.
+    # - 0-1 Treffer (kein Signal): elevator pitch, swot analyse, geschaeftsbrief,
+    #   anleitung, bedienungsanleitung, marktanalyse, stellenbeschreibung,
+    #   unternehmensprofil, werbetext, social media posts, schulungsunterlagen,
+    #   interview fragen, email vorlage, podcast skript.
 ]
 
 def slug(kw):
@@ -157,7 +187,7 @@ das fertige Deliverable nach Zahlung – erstellt von einer KI, geprüft, liefer
 <p style="margin-top:1.5em">Weitere Beispiele: Bewerbungen, Notion-Templates, Python-Skripte,
 Study-Guides, Social-Media-Posts – alles als Festpreis-Deliverable.</p>
 <p id="rtd-crosslink" style="margin-top:2em;padding-top:1em;border-top:1px solid #eee;font-size:.9rem">Nicht gefunden, was du suchst? <a href="/new-business/rtd.html">Individuelles Deliverable anfragen (Study-Guide, Template, Text) &rarr;</a></p>
-<div class="note"><a href="/new-business/impressum.html">Impressum</a> &middot; <a href="/new-business/agb.html">AGB</a></div>
+<div class="note"><a href="/new-business/impressum.html">Impressum</a> &middot; <a href="/new-business/agb.html">AGB</a> &middot; <a href="/new-business/datenschutz.html">Datenschutz</a></div>
 </body>
 </html>"""
     os.makedirs(BLOG, exist_ok=True)
