@@ -96,3 +96,30 @@ Geprüft ist **Erreichbarkeit**, nicht Qualität oder Indexierbarkeit. 1216 mal
 HTTP 200 sagt nichts darüber, ob Bing die Seiten aufnimmt oder ob sie
 Suchvolumen haben. Und `SITEMAP_OK` ist eine Momentaufnahme: der Lauf müsste
 nach jedem Traffic-Tick wiederholt werden, um Aussagekraft zu behalten.
+
+## Nachtrag: eigener Claim abgeschwächt (Mutationsprobe)
+
+Unabhängige Ad-hoc-Verifikation gegen einen **hermetischen lokalen HTTP-Server**
+(andere Mechanik als der Monkeypatch-Selftest): **15/15 ADHOC_OK** gegen den
+Produktivcode. Zwei Mutanten belegen, dass die Probe rot werden kann:
+
+| Mutant | Ergebnis |
+|---|---|
+| `bad` size-driven statt status-driven | 14/15 ADHOC_FAIL |
+| zusätzlich echte Fehler-Body-Größe erhalten | 10/15 ADHOC_FAIL |
+
+**Der erste Mutant hat einen Denkfehler in meinem eigenen Test freigelegt.**
+Der Fall „fettes 404 wird trotzdem erkannt" bestand gegen Mutant 1 — aber aus
+dem falschen Grund: der Produktivcode gibt im `except HTTPError`-Zweig
+`size=0` zurück und liest den Fehler-Body nie. Eine Größen-Heuristik fängt ein
+404 deshalb *zufällig mit*. Erst Mutant 2 (Fehler-Body-Größe erhalten) bringt
+den Fall zum Kippen: `HTTP_200=1  NICHT_200=0` — das 9000-B-404 wird als
+gesunde Seite gezählt.
+
+**Konsequenz für die Formulierung oben:** `sitemap_healthcheck.py` war durch
+die Fette-404-Falle nie gefährdet, weil es Fehler-Bodies verwirft. Sein Mangel
+war ausschließlich das fehlende Negativ-Kontroll. Gefährlich bleibt die Falle
+dort, wo ein Body wirklich gemessen wird — also beim manuellen
+`curl <url> | wc -c`, genau wo sie mich erwischt hat. Diese Unterscheidung
+fehlte in der ersten Fassung dieses Tickets.
+
