@@ -491,3 +491,81 @@ laeuft jetzt in 1,2 s und deckt alle Seiten ab). Dann Ticket 18 abarbeiten.
 Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (Zeitsperre faellt uebermorgen),
 Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-05 (Tick 5, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK (44 Seiten, 0 unvollstaendig).
+verify_ticket13_live LIVE_OK (49 Seiten vollzaehlig). verify_rtd_chain KETTE_OK
+(399/799/1499 cent, Feld 'anfrage', Redirect ok, Hash-Paritaet real gemessen).
+rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+TICKET 18 ERLEDIGT + GESCHLOSSEN (Commit d5e0f79, im origin/gh-pages-Tree,
+0 unpushed). Der Tick startete mit UNCOMMITTETER Arbeit aus dem Vortick
+(verify.py modifiziert + 2 untracked Dateien) - alle Claims wurden NEU
+ausgefuehrt, nicht uebernommen.
+>>> DREI ECHTE DEFEKTE, nicht nur ein fehlender Test <<<
+Alle drei AM ALT-STAND AUSGEFUEHRT (_mutation_probe_t18.py holt HEAD:scripts/
+verify.py per `git show` und faehrt dessen echte main()):
+A1) STILLE SCHRUMPFUNG (schwerster Befund): der Deckungs-Check der Blogseiten
+    sah nur te.KEYWORDS[0] an. KEYWORDS von 37 auf 1 gekuerzt -> rc=0,
+    "20 ok, 0 fail" -> GRUEN, obwohl 36 Seiten gar nicht mehr geprueft wurden.
+    "56 ok" war damit nie eine feste Pruefflaeche, sondern eine tree-abhaengige
+    Zahl, in der ein Deckungsverlust wie ein bestandener Lauf aussieht.
+A2) NETZAUSFALL ALS DEFEKT-CLAIM: --live kannte kein drittes Ergebniswort und
+    druckte bei totem Netz "FAIL  live: ..." -> Defekt-Vorwurf gegen eine
+    gesunde Seite. Ausgerechnet im breitesten Pruefer fehlte die Konvention
+    aus Ticket 16/17.
+A3) ERGEBNISLISTEN OHNE RESET: zwei main()-Laeufe im selben Prozess -> 58 ->
+    116 ok. EHRLICH: produktiv wird main() einmal gerufen -> LATENT, haette
+    aber jede Harness um dieses Tor still verfaelscht.
+FIX: --selftest mit Fault Injection durch die ECHTE main() (scripts/
+_verify_selftest.py), Deckung ueber ALLE Keywords, leere Keyword-Liste ist rot
+(Alt-Stand lief dort in IndexError), drittes Ergebniswort VERIFY_UNGEPRUEFT
+(rc=2) mit Vorrang fuer echte Defekte, Reset pro Lauf, und GELTUNGSBEREICH wird
+gedruckt ("lokaler Baum (kein Netz)" vs "+ LIVE-Auslieferung") - vorher las sich
+ein Baum-Gruen wie ein Live-Gruen.
+MEASURED: 30/30 SELFTEST_OK. MUTATION_PROBE_OK 11/11 (3 Alt-Stand-Proben +
+5/5 Mutanten rot mit exakter Diagnosezeile, sha256-genau wiederhergestellt
+a6b7e8cdaf122005, rc-Wechsel 0->1->0). Echte Laeufe: 65 ok offline / 72 ok live,
+0 fail, 0 ungeprueft. Der Mutant "check() kann nicht mehr rot werden" erzeugt
+20 Rot-Meldungen -> 20 Checks sind nachweislich rot-faehig.
+
+>>> "56 ok"-CLAIM KORRIGIERT <<<
+Die Zahl ist tree-abhaengig (heute 65 offline / 72 live) und war NIE ein
+Deckungsbeweis. In wayfinder_map.md gepurged. Dated Tick-Logs in docs/
+(ai_ceo_report.md, fiverr_gig.md) bleiben stehen - das waren zum jeweiligen
+Datum korrekte Messungen, keine falschen Behauptungen.
+
+TICKET 19 NEU (OFFEN, AFK, unblockiert, HOHE Prioritaet) = naechster Tick:
+tickets/19-indexnow-submit-selftest.md
+Vollzaehlig ueber ALLE 43 Skripte gegrept (nicht aus der Erinnerung): 30 ohne
+--selftest, davon drucken nur 3 ein Ergebniswort. Zwei davon sind Ad-hoc-Sonden
+(measure_tier_diff.py = Einmalmessung Ticket 12, probe_consent_collection.py =
+Einmalprobe Ticket 7) -> brauchen keinen. Bleibt indexnow_submit.py als das
+LETZTE stehende Tor ohne Selftest. Es druckt SUBMIT_OK und ist der EINZIGE
+autonome Traffic-Hebel - und genau dieser Pfad war schon einmal 11 Tage tot,
+waehrend alles gruen aussah (Ticket 4).
+EHRLICHER AUSGANGSBEFUND (Code-Lektuere, KEIN Test): die Struktur liest sich
+defensiv - http() faengt HTTPError UND Netzfehler, check_key_live() vergleicht
+den Body exakt, main() hat getrennte Zweige KEY_NICHT_LIVE/KEINE_URLS/
+SUBMIT_403/SUBMIT_FEHLER. Gleiche Lage wie sitemap_healthcheck.py vor Ticket 14:
+inhaltlich vermutlich korrekt, aber unbewiesen. Nicht zu viel erwarten.
+Wahrscheinlichster Schwachpunkt: all() ueber MEHRERE Batches (gemischte Codes).
+WICHTIG: Selftest darf KEINE echte Einreichung ausloesen (nur injizierte
+Antworten). Ticket 19 VOR Ticket 5 fahren - ist der Einreicher blind, misst
+Ticket 5 am 07.08. eine Wirkung ohne Ursache.
+
+MERKREGELN (neu):
+- Eine Pruef-ZAHL ist kein Deckungsbeweis. "N ok" waechst und schrumpft mit dem
+  Baum; ein Pruefer muss die VOLLSTAENDIGKEIT seiner Zielmenge behaupten und rot
+  werden, wenn sie schrumpft - sonst sieht weniger Pruefen aus wie Bestehen.
+- Geltungsbereich IMMER drucken (Baum vs Auslieferung). Sonst liest sich ein
+  Baum-Gruen wie ein Live-Gruen - dieselbe Verwechslung wie die Branch-Falle.
+- Uncommittete Arbeit aus einem Vortick ist ein ASSUMED-Claim: neu ausfuehren,
+  nicht uebernehmen. (Hier hat sie gehalten - aber gemessen, nicht geglaubt.)
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live). Dann TICKET 19 abarbeiten.
+Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (nach Ticket 19!), Ticket 8 =
+2 USER-Blocker, Ticket 10 = HITL. Solange BESUCHER=0: "warte, beobachte Sales".
+Aktionismus ausdruecklich NICHT erwuenscht.
