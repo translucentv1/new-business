@@ -68,6 +68,8 @@ CLUSTERS: dict[str, list[str]] = {
         "rede-schreiben-lassen-ki",
         "hochzeitsrede-schreiben-lassen",
         "trauerrede-schreiben-ki",
+        "biografie-schreiben-lassen",
+        "trainingsplan-erstellen-lassen-ki",
     ],
 }
 

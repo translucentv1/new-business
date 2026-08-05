@@ -190,6 +190,43 @@ KEYWORDS = [
     #   wohnungsbewerbung, stellenanzeige, whitepaper, landingpage text, amazon listing,
     #   produkttext, elternbrief, einladung text, bewertung antworten, kondolenzschreiben,
     #   laudatio, ausschreibung.
+    # 2026-08-05 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de), Rohausgabe im Report protokolliert.
+    # "biografie schreiben lassen" -> 7 Vorschlaege, KEIN "kostenlos"-Modifier:
+    # Top-Vorschlag ist woertlich "...kosten" (Preisrecherche = Bezahlwille), dazu
+    # "biografie von ki schreiben lassen" (KI-Akzeptanz explizit) und die Ortsmodifier
+    # berlin/schweiz/oesterreich (= es existiert ein bezahlter Ghostwriter-Markt).
+    # Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung EHRLICH: Kurzbiografie / Ueber-mich-Text / Kapitel-Gliederung,
+    # KEIN komplettes Buch-Ghostwriting (das ist zum Festpreis nicht lieferbar).
+    ("biografie schreiben lassen", "Biografie schreiben lassen", "Lebensgeschichte als fertiger Text: Kurzbiografie, Ueber-mich-Text oder Kapitel-Gliederung fuer das eigene Buchprojekt – ab 3,99 EUR, in 24h."),
+    # "trainingsplan erstellen lassen" -> 10 Vorschlaege (Maximum dieses Ticks):
+    # "...kosten" (Preisrecherche), "...ki" (KI-Akzeptanz), "individuellen trainingsplan
+    # erstellen lassen" und die Studioketten mcfit/fitx/gym => es existiert ein
+    # BEZAHLTER Markt mit klarem Preisanker. Ehrlich notiert: 1 der 10 Vorschlaege
+    # ist "...kostenlos". Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung EHRLICH: allgemeiner Trainingsplan-Entwurf, KEINE medizinische,
+    # physiotherapeutische oder Ernaehrungs-Beratung (siehe Seitenhinweis).
+    ("trainingsplan erstellen lassen ki", "Trainingsplan erstellen lassen (KI)", "Wochenplan mit Uebungen, Saetzen, Wiederholungen und Progression fuer dein Ziel – als Text-Entwurf ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-05 Tick 2):
+    # - "buch schreiben lassen" (10 Treffer = groesstes Volumen): 3 Modifier sind
+    #   "kostenlos"/"ki ... kostenlos deutsch", der Rest zielt auf Ghostwriter-
+    #   Komplettprojekte (mehrere hundert Seiten) -> zum Festpreis 3,99-14,99 EUR
+    #   nicht ehrlich lieferbar. Der bezahlbare Teil davon ist als "biografie"
+    #   (Gliederung/Kurztext) abgedeckt.
+    # - "wikipedia artikel schreiben lassen" (2, davon "...kosten"): bezahltes
+    #   Schreiben ist bei Wikipedia offenlegungspflichtig/ToS-heikel -> Regel (2).
+    # - "mahnung schreiben lassen" (2): zweiter Vorschlag ist "anwalt mahnung
+    #   schreiben lassen" = Rechtsdienstleistung (RDG), nicht unser Deliverable.
+    # - "lernplan erstellen lassen" (4): brauchbares Signal, aber 1x "kostenlos" und
+    #   inhaltlich stark ueberlappend mit study-guide/zusammenfassung -> zurueckgestellt.
+    # - "kochbuch erstellen lassen" (2): zweiter Vorschlag "...und drucken lassen"
+    #   = Druckdienstleistung, koennen wir nicht liefern.
+    # - 0-1 Treffer (kein Signal): klappentext, slogan, sachbuch, hoerbuch skript,
+    #   verkaufstext, landingpage texte, immobilienanzeige, youtube skript,
+    #   buchbeschreibung, amazon produkttext, hochzeitseinladung text, reiseplan,
+    #   excel formel, steckbrief, chatgpt prompt, jobinterview vorbereitung ki,
+    #   gehaltsverhandlung vorbereiten.
 ]
 
 def slug(kw):
