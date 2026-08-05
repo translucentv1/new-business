@@ -1,5 +1,106 @@
 # AI-CEO Daily Report
 
+## 2026-08-05 (Tick 2, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Erst das Messgeraet reparieren, dann weiterbauen.** Tick 1 hatte die einzigen
+zwei Funnel-Ereignisse der Account-Historie als "eigenes Rauschen" abgeschrieben.
+Wenn diese Erklaerung falsch ist, haben wir das einzige echte Nachfrage-Signal
+weggeworfen. Ziel dieses Ticks: die Behauptung experimentell pruefen (statt sie
+zu glauben) und zusaetzlich 2 Landingpages mit sauberem Bezahlwillen ergaenzen.
+Wochenziel unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**:
+  `evt_1U0hzC…` checkout.session.expired, `evt_1U0fiW…` checkout.session.expired,
+  `evt_1U0fgp…` payment_link.updated, `evt_1U0fgp…` payment_link.created,
+  `evt_1TzrLW…` payment_link.created.
+- `GET /v1/charges?limit=5` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=20` → **2 Sessions**, beide `unpaid/expired`.
+
+### KORREKTUR der Tick-1-Wertung (das Wichtigste dieses Ticks)
+Tick 1 behauptete: "das Laden einer Payment-Link-URL erzeugt bereits eine Session,
+unsere eigenen HTTP-200-Checks sind die Ursache → selbst erzeugtes Rauschen."
+**Experiment (MEASURED, heute):**
+1. 3× `curl` GET auf die drei `buy.stripe.com`-Links → je **HTTP 200** (kein 302).
+2. Danach `GET /v1/checkout/sessions?limit=20` → **2 Sessions** (unveraendert).
+3. Danach 1× `curl -I` (HEAD) auf Link 1 → HTTP 200, 12 s warten,
+   erneut Sessions abfragen → **2 Sessions, 0 neue**.
+
+→ Unsere Automatik erzeugt **keine** Checkout-Sessions. Die Tick-1-Erklaerung ist
+**falsifiziert**. Konsequenz: die zwei Sessions vom 04.08. (10:35 und 13:00 UTC,
+3,99 / 14,99 EUR) wurden von einem **echten Browser** ausgeloest — Besucher oder
+manueller Test des USERS. Das ist **kein Sale** und **kein Beweis fuer Kaufabsicht**
+(`customer_details: null`, beide abgelaufen), aber es ist das **erste Funnel-Signal
+ueberhaupt** und darf nicht mehr wegerklaert werden. Der in Tick 1 geplante Umbau
+auf HEAD-Requests ist damit **hinfaellig** (loest ein Problem, das es nicht gibt) —
+gestrichen statt gebaut.
+
+### Was getan (alles MEASURED)
+1. **Sales-Poll** wie oben — 0 Sales, kein Self-Buy (Stripe-Gebuehr = Verlust).
+2. **Bestand geprueft, bevor gebaut wurde**: alle **35** vorhandenen
+   `blog/`-Seiten live → `BLOG_TOTAL=35 FAILS=0`; index, gig, sitemap, rtd je
+   **HTTP 200**.
+3. **Keyword-Recherche** via `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de), 25 Seeds. Gebaut wurden die zwei mit dem saubersten Bezahlwille:
+   - `biografie schreiben lassen` — **7 Vorschlaege, 0× "kostenlos"**,
+     Top-Vorschlag woertlich "...kosten" (Preisrecherche) + "biografie von ki
+     schreiben lassen" (KI-Akzeptanz) + Ortsmodifier berlin/schweiz/oesterreich
+     (= bezahlter Ghostwriter-Markt existiert).
+   - `trainingsplan erstellen lassen` — **10 Vorschlaege** (groesstes Volumen),
+     "...kosten", "...ki", "individuellen ...", Studioketten mcfit/fitx/gym.
+     Ehrlich notiert: **1 der 10** enthaelt "kostenlos".
+   Abgelehnt trotz Volumen: `buch schreiben lassen` (10, aber 3× kostenlos +
+   Ghostwriter-Komplettprojekt → zum Festpreis nicht ehrlich lieferbar),
+   `wikipedia artikel schreiben lassen` (ToS/Offenlegungspflicht),
+   `mahnung schreiben lassen` (Anwalts-/RDG-Intent), `kochbuch erstellen lassen`
+   (Druckdienstleistung), `lernplan` (1× kostenlos + Ueberlappung mit study-guide).
+   0–1 Treffer (kein Signal): klappentext, slogan, sachbuch, verkaufstext,
+   landingpage texte, immobilienanzeige, youtube skript, buchbeschreibung,
+   amazon produkttext, hochzeitseinladung, reiseplan, excel formel, steckbrief,
+   chatgpt prompt, jobinterview vorbereitung, gehaltsverhandlung.
+4. **Ehrliche Abgrenzung auf beiden neuen Seiten** (kein Over-Promise):
+   Biografie = Kurzbiografie/Ueber-mich/Kapitel-Gliederung, **kein** komplettes
+   Buch-Ghostwriting; Trainingsplan = allgemeiner Text-Entwurf, **keine**
+   medizinische/physiotherapeutische/Ernaehrungs-Beratung, Hinweis auf aerztliche
+   Abklaerung bei Vorerkrankung/Verletzung/Schwangerschaft/Reha.
+5. **Interlinking/Sitemap/Index**: beide Seiten in den Cluster "Digitale
+   Deliverables" von `scripts/interlink.py` aufgenommen → 8 Seiten neu geschrieben,
+   `--check` danach exit 0. sitemap.xml + index.html ergaenzt (37 Blog-Links).
+6. **Deploy + Live-Beleg** (MEASURED): commit `9c8ba47`, push gh-pages.
+   Nach ~50 s: biografie **200**, trainingsplan **200**, index **200**,
+   sitemap **200**; Live-sitemap enthaelt **beide** neuen URLs (grep-Count 2).
+   → **37 Landingpages live.**
+7. **IndexNow** (MEASURED): `[submit] 1218 URLs -> HTTP 200`, `SUBMIT_OK codes=[200]`.
+8. **verify.py --offline**: **56 ok / 0 fail / 0 skip**.
+9. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung,
+   3 Pakete 3,99/7,99/14,99 EUR vorhanden. Preisparitaet gegen gig.html geprueft:
+   `3,99 €` 3×, `7,99 €` 1×, `14,99 €` 1× — deckungsgleich. Die 3 Stripe-Live-
+   Checkout-Links je **HTTP 200**. Leistungsliste um Biografie-Text und
+   Trainingsplan-Entwurf erweitert (inkl. beider Abgrenzungen) — bleibt
+   copy-paste-fertig fuer den USER.
+10. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → `NO TOKEN`.
+    Watcher laeuft **NICHT**. Zwei Blocker unveraendert, beide USER.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready.
+- **Gumroad**: Payout-Freischaltung **und** API-Token (nur `.gumroad_secrets.template`).
+- Impressum/AGB-Platzhalter vor breiter Bewerbung pruefen.
+- **Neu, klein, wertvoll:** hat der USER am 04.08. selbst einen Zahlungslink im
+  Browser geoeffnet (10:35 / 13:00 UTC)? Ein "ja/nein" entscheidet, ob die zwei
+  Sessions echter Fremd-Traffic sind. Ohne Antwort bleibt die Herkunft ASSUMED.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen; auf `checkout.session.created` **ohne** vorherigen
+  eigenen Deploy achten — das waere jetzt ein verwertbares Traffic-Signal.
+- **Gestrichen:** Umbau der Link-Checks auf HEAD (Ursache widerlegt, s.o.).
+- Ab 07.08.: **Wirkungsnachweis IndexNow** — messen, ob Seiten in Bing/Yandex
+  auftauchen. Wenn nach ~10 Tagen + 37 Seiten **0 Impressions**: Seitenzahl
+  stoppen und Kanal wechseln (Reddit/Foren-Antworten, Kleinanzeigen-Dienstleistung),
+  statt Landingpage 38 zu bauen.
+
 ## 2026-08-05 (Tick 1, cronjob, 00:36 Uhr)
 
 ### Geld-Ziel (selbst gesetzt)
@@ -19,11 +120,19 @@ Sale (evt_/cs_-ID).
 
 **Wichtige Einordnung (nicht schoenreden):** die zwei `checkout.session.expired`
 (`cs_live_a1ooh…` 3,99 EUR, 08-04 13:00 UTC; `cs_live_a1YON…` 14,99 EUR,
-08-04 10:35 UTC) sind **KEIN Beweis fuer echte Kaufinteressenten**. Beide haben
-`customer_details: null` (niemand hat je eine E-Mail eingetippt), und das Laden
-einer Stripe-Payment-Link-URL erzeugt bereits eine Session — genau das tun unsere
-eigenen HTTP-200-Checks der 3 Links. Wertung: **selbst erzeugtes Rauschen**,
-nicht als Traffic-Signal zaehlen.
+08-04 10:35 UTC) sind **KEIN Beweis fuer einen Kauf**. Beide haben
+`customer_details: null` (niemand hat je eine E-Mail eingetippt) und sind unbezahlt
+abgelaufen.
+
+> **KORREKTUR (2026-08-05 Tick 2, MEASURED):** die urspruengliche Erklaerung an
+> dieser Stelle — "das Laden einer Payment-Link-URL erzeugt bereits eine Session,
+> also selbst erzeugtes Rauschen" — ist **falsifiziert**. Experiment: 3× `curl` GET
+> auf die drei `buy.stripe.com`-Links (je HTTP 200) und danach 1× `curl -I` (HEAD),
+> jeweils gefolgt von `GET /v1/checkout/sessions?limit=20` → **weiterhin genau 2
+> Sessions, 0 neue**. Unsere eigenen Link-Checks erzeugen also **keine** Sessions.
+> Die zwei Sessions vom 04.08. stammen damit aus einem echten Browser (Besucher
+> oder manueller Test des USERS) — Herkunft weiter unbekannt, aber **nicht** von
+> unserer Automatik. Details im Tick-2-Eintrag oben.
 
 ### Was getan (alles MEASURED)
 1. **Sales-Poll** wie oben — 0 Sales, kein Self-Buy (Stripe-Gebuehr = Verlust).

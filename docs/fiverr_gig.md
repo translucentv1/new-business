@@ -37,6 +37,12 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   Kategorien, Karten-Aufbau — Text, kein Layout, keine Allergen-Kennzeichnung)
 - Reden: Hochzeitsrede, Geburtstags- und Firmenreden sowie Trauerreden
   (5–8 Minuten, aus deinen Stichpunkten, mit Aufbau und Schlussworten)
+- Persönliches: Biografie-Texte (Kurzbiografie, Über-mich-Text, Vorwort) und
+  Kapitel-Gliederungen für eigene Buchprojekte — **kein** komplettes
+  Buch-Ghostwriting
+- Pläne: Trainingsplan-Entwürfe als Text (Wochenaufteilung, Übungen, Sätze,
+  Wiederholungen, Progression) — allgemeiner Entwurf, **keine** medizinische
+  oder physiotherapeutische Beratung
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 
@@ -116,3 +122,13 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
       mit der Pakettabelle oben. IndexNow 1216 URLs HTTP 200.
       verify.py --offline: 54 ok / 0 fail. Stripe: 0 Charges, 0,00 EUR.
+- [x] AI-CEO 2026-08-05 Tick 2 MEASURED: 35 bestehende blog/-Seiten live geprueft
+      -> **BLOG_TOTAL=35 FAILS=0**, dazu index/gig/sitemap/rtd je HTTP 200.
+      2 neue Seiten (biografie, trainingsplan; Autocomplete 7 bzw. 10 Vorschlaege,
+      biografie **0x "kostenlos"** + "...kosten" als Top-Vorschlag, trainingsplan
+      1x "kostenlos") -> **37 Landingpages**, danach beide live **HTTP 200** und
+      in der Live-sitemap.xml enthalten. Die 3 Stripe-Live-Checkout-Links in
+      gig.html erneut je **HTTP 200**; Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x
+      / 14,99 € 1x = deckungsgleich mit der Pakettabelle oben.
+      IndexNow 1218 URLs HTTP 200. verify.py --offline: 56 ok / 0 fail.
+      Stripe: 0 Charges, 0,00 EUR available/pending.
