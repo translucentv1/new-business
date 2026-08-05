@@ -1,80 +1,80 @@
 # Ticket 19 — `indexnow_submit.py`: der einzige autonome Traffic-Hebel ist ungeprüft
 
 **Typ:** `wayfinder:task` (AFK)
-**Status:** OFFEN — unblockiert, auf der Frontier
+**Status:** **GESCHLOSSEN 2026-08-05** — Selftest gebaut, 5 echte Defekte gefunden und behoben
 **Eltern:** wayfinder_map.md
 **Blockiert durch:** nichts (Ticket 18 geschlossen)
-**Priorität:** **hoch** — höher als Ticket 18 es war. Das ist zwar kein Geldpfad,
-aber der **einzige autonome Traffic-Hebel**, und Traffic ist der einzige
-verbliebene Blocker zum ersten Sale (BESUCHER = 0).
 
 ## Question
 
 Bemerkt `scripts/indexnow_submit.py` überhaupt eine fehlgeschlagene Einreichung?
 
-Es druckt `ERGEBNIS: SUBMIT_OK` und ist damit — nach dem Grep über alle 43
-Skripte (MEASURED 2026-08-05) — **das letzte stehende Tor ohne `--selftest`**.
-Die einzigen zwei anderen Skripte ohne Selftest, die ein Ergebniswort drucken,
-sind Ad-hoc-Sonden: `measure_tier_diff.py` (Einmalmessung für Ticket 12) und
-`probe_consent_collection.py` (Einmalprobe für Ticket 7) — die brauchen keinen.
+## Antwort: NEIN — an fünf Stellen nicht. Alle AM ALT-STAND AUSGEFÜHRT.
 
-**Warum das besonders zählt:** Genau dieser Pfad hat schon einmal **11 Tage lang
-nichts getan, während alles grün aussah** — die Key-Datei lag auf `master` unter
-`docs/`, live 404, IndexNow war seit dem 24.07. nie funktionsfähig (Ticket 4).
-Ein `SUBMIT_OK`, das einen Fehlschlag nicht bemerkt, würde denselben Ausfall
-erneut verdecken — diesmal an der einzigen Stelle, die ohne Nutzer-Login
-überhaupt Besucher bringen kann.
+`scripts/_mutation_probe_t19.py` legt `HEAD:scripts/indexnow_submit.py` in eine
+Sandbox und fährt dessen **echte `main()`** gegen injizierte Antworten. Gemessen,
+nicht argumentiert:
 
-**Zusätzliche Dringlichkeit:** Ticket 5 (Bing-Indexierung verifizieren) wird am
-**2026-08-07** zeitentsperrt. Wenn der Einreicher blind ist, misst Ticket 5 eine
-Wirkung, deren Ursache nie stattgefunden hat — dann ist auch dessen Ergebnis
-wertlos. Ticket 19 sollte **vor** Ticket 5 laufen.
+| Fall | Alt-Stand | Befund |
+|---|---|---|
+| A1 URL lokal, live nicht vorhanden | `SUBMIT_OK` rc=0 | reicht eine **404-URL bei Bing ein** — genau das, was einen IndexNow-Key entwertet |
+| A2 lokale Sitemap auf 1 statt 3 URLs geschrumpft | `SUBMIT_OK` rc=0 | **stille Schrumpfung**: weniger Einreichen sah aus wie Bestehen (Ticket-18-Klasse A1) |
+| A3 Netz/DNS tot | `KEY_NICHT_LIVE` rc=1 | **falscher Defekt-Vorwurf** gegen die eigene, kerngesunde Key-Datei (Ticket-18-Klasse A2) |
+| A4 Codes `[500, 403]` | `SUBMIT_403 … (kein URL-Fehler)` rc=2 | **403 maskiert den echten 500er** — Ausfall liest sich wie „Bing hat den Key nur noch nicht gecrawlt" |
+| A5 Netzfehler beim Senden | `SUBMIT_FEHLER` rc=1 | Unmessbarkeit als Defekt-Claim ausgegeben |
 
-## Ehrlicher Ausgangsbefund (Code-Lektüre, KEIN Test)
+**Die Ticket-Hypothese war falsch — und das ist gemessen:** vermutet wurde
+`all()` über mehrere Batches als wahrscheinlichster Schwachpunkt. Fall D der
+Sonde (`[200, 500]` über 2 Batches) ist am Alt-Stand **korrekt rot** geworden.
+Der Batch-Pfad war gesund; die Löcher lagen woanders.
 
-Damit der nächste Tick nicht zu viel erwartet: die Struktur liest sich bereits
-defensiv, im Gegensatz zu den Alt-Ständen aus Ticket 16–18.
+## Fix
 
-- `http()` fängt `HTTPError` **und** Netzwerkfehler ab und liefert den Status
-  zurück, statt zu werfen (Zeile 42–51).
-- `check_key_live()` vergleicht den Body **exakt** gegen den Key (Zeile 54–57).
-- `main()` hat getrennte Zweige: `KEY_NICHT_LIVE`, `KEINE_URLS`,
-  `SUBMIT_403_KEY_NOCH_NICHT_GECRAWLT`, `SUBMIT_FEHLER` (Zeile 97–118).
-- Die **Leere-Schleife-Falle** (Ticket 16) scheint durch den `KEINE_URLS`-Zweig
-  vorab abgefangen — `all([])` wäre sonst `True` und damit grün bei null URLs.
+- **Drei-Wege-Konvention** (Ticket 16/17/18) nachgezogen: `INDEXNOW_UNGEPRUEFT`
+  (rc=2) für Netz/DNS-Ausfall — kein Defekt-Vorwurf gegen eigene URLs.
+  Reihenfolge: **echter Defekt > unmessbar > 403 > OK**. `403` wandert auf rc=3
+  (kein Aufrufer hing an rc=2 — über alle `.py/.md/.sh/.yml` gegrept).
+- **Geltungsbereich** (Ticket-18-Lehre): vor jeder Einreichung wird die
+  **LIVE**-Sitemap geholt und gegen den lokalen Baum gerechnet.
+  `nur_lokal` (würde 404 einreichen) und `nur_live` (stille Schrumpfung) sind
+  beide `INDEXNOW_DRIFT` rc=1 — **ohne** Einreichung. `--allow-drift` reicht
+  bewusst nur die Schnittmenge ein (`SUBMIT_OK_TEILMENGE`).
+- Leere Code-Liste ist rot (Leere-Schleife-Falle), `--check` dreiwertig,
+  `vollzaehlig=ja/nein` wird gedruckt.
 
-**Das ist Code-Lektüre, kein Beweis.** Exakt dieselbe Lage wie bei
-`sitemap_healthcheck.py` in Ticket 14: inhaltlich korrekt, aber niemand hatte
-gezeigt, dass es einen Defekt *bemerkt*. Die Frage bleibt offen, bis sie
-ausgeführt ist.
+## >>> DEFEKT IM EIGENEN FIX — vom ECHTEN LAUF gefunden, nicht vom Selftest <<<
 
-## Vorgehen
+Der erste Live-Lauf nach dem Fix meldete `INDEXNOW_DRIFT lokal=1220 live=3`.
+Die Site war kerngesund (`curl … sitemap.xml | grep -c "<loc>"` = **1220 live,
+1220 lokal**). Ursache: `http()` schneidet **jeden** Body auf 400 Zeichen ab —
+für Statusmeldungen gedacht, tödlich für ein Dokument. Die Live-Sitemap kam als
+3 URLs an.
 
-1. `--selftest` mit Fault Injection durch die **echte** `main()` (Konvention aus
-   Ticket 14–18: nur die HTTP-Antwort wird injiziert, kein Reimplementat).
-2. Rot-Fälle, mindestens:
-   - Key-Datei live 404 → muss `KEY_NICHT_LIVE` sein, nicht grün
-   - Key-Datei live 200, aber **falscher Body** → rot
-   - Submit liefert 403 → eigenes Ergebniswort, **kein** `SUBMIT_OK`
-   - Submit liefert 500 / 429 → `SUBMIT_FEHLER`
-   - **gemischte Batches** (ein Batch 200, einer 500) → rot, nicht grün
-     *(die `all()`-Prüfung über mehrere Batches ist der wahrscheinlichste
-     Schwachpunkt — bei 1220 URLs und `BATCH` < 1220 laufen mehrere Runden)*
-   - **leere Sitemap** → `KEINE_URLS`, nicht `SUBMIT_OK`
-   - **Netzfehler/DNS tot** → drittes Ergebniswort, kein Defekt-Claim gegen die
-     eigenen URLs (Konvention `*_UNGEPRUEFT` rc=2 aus Ticket 16/17/18)
-3. Rot-Fälle gegen die **exakte Diagnosezeile** assertieren und auf `Traceback`
-   filtern (Exit-Code-Falle).
-4. Mutationsprobe wie `_mutation_probe_t18.py`, inkl. Alt-Stand-Probe per
-   `git show`, rc-Wechsel 0→1→0 und sha256-genauer Wiederherstellung.
-5. Prüfen, ob die **Sitemap-Herkunft** stimmt: `sitemap_urls()` liest lokal —
-   eingereicht werden müssen aber die **ausgelieferten** URLs. Ein Drift zwischen
-   Baum und Auslieferung würde 1220 URLs einreichen, die es live nicht gibt
-   (Geltungsbereich-Falle aus Ticket 18).
+**Warum der Selftest das nicht fing:** die Attrappe lieferte Bodies
+*ungekürzt* — sie war **großzügiger als die Realität**. Behoben an beiden Enden:
+`http(..., maxlen=None)` für Dokumente, und `FakeNet` kürzt jetzt nach exakt
+derselben Regel wie das Original. Neuer Fall: 60-URL-Sitemap (> 4 kB) muss
+vollständig gelesen werden. Mutant **M7** stellt genau diesen Defekt wieder her.
+
+## MEASURED (2026-08-05)
+
+```
+python scripts/indexnow_submit.py --selftest   -> 106/106 SELFTEST_OK
+python scripts/_mutation_probe_t19.py          -> 29/29 MUTATION_PROBE_OK
+    A1–A5 Alt-Stand blind + Gegenprobe der neuen Fassung je korrekt rot
+    M1–M7 Mutanten alle rot, kein Traceback, sha256-genau wiederhergestellt
+    rc-Wechsel 0 -> 1 -> 0
+python scripts/indexnow_submit.py              -> SUBMIT_OK rc=0
+    key HTTP 200 (Body == Key), lokal 1220 == live 1220, drift 0,
+    vollzaehlig=ja, 1220 URLs -> HTTP 200
+python scripts/verify.py                       -> VERIFY_OK (66 ok, 0 fail)
+```
+
+Der Selftest löst **keine** echte Einreichung aus (Attrappe protokolliert jeden
+Aufruf; kein Fall geht gegen den Endpoint).
 
 ## Ehrliche Abgrenzung
 
-- Kein Geldpfad. `SUBMIT_OK` heißt weiterhin **angenommen, NICHT indexiert** —
-  daran ändert auch ein grüner Selftest nichts. Die Wirkungsfrage ist Ticket 5.
-- Der Selftest darf **keine echte Einreichung** auslösen (kein Zumüllen des
-  IndexNow-Endpunkts mit Testdaten) — nur injizierte Antworten.
+`SUBMIT_OK` heißt weiterhin **angenommen, NICHT indexiert**. Die Wirkungsfrage
+bleibt Ticket 5 (ab 2026-08-07) — die läuft jetzt aber gegen einen Einreicher,
+dessen Rot-Fähigkeit bewiesen ist.
