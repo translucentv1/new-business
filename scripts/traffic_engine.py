@@ -227,6 +227,46 @@ KEYWORDS = [
     #   buchbeschreibung, amazon produkttext, hochzeitseinladung text, reiseplan,
     #   excel formel, steckbrief, chatgpt prompt, jobinterview vorbereitung ki,
     #   gehaltsverhandlung vorbereiten.
+    # 2026-08-05 Tick 3: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). web_search/Firecrawl erneut HTTP 402 (insufficient_funds) ->
+    # Autocomplete bleibt die einzige MEASURED-Quelle; kein ASSUMED-Keyword gebaut.
+    # "arbeitsblatt erstellen lassen" -> 6 Vorschlaege, KEIN "kostenlos"-Modifier:
+    # woertlich "...ki" (KI-Akzeptanz explizit), "fobizz ..." und "canva ..."
+    # (= es existiert ein BEZAHLTER Tool-Markt, Preisanker) sowie "arbeitsblatt zu
+    # video / zu youtube video erstellen lassen" (konkreter Arbeitsauftrag).
+    # Zielgruppe Lehrkraefte/Nachhilfe. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung EHRLICH: Aufgabentext + Loesungen als Text, KEIN druckfertiges
+    # Layout und keine Lizenz an fremden Schulbuch-/Verlagsinhalten.
+    ("arbeitsblatt erstellen lassen ki", "Arbeitsblatt erstellen lassen (KI)", "Aufgaben, Loesungen und Arbeitsauftraege zu deinem Thema oder Text – fertig formuliert fuer Unterricht und Nachhilfe, ab 3,99 EUR in 24h."),
+    # "lernplan erstellen lassen" -> 4 Vorschlaege: "...ki" und "lernplan von chatgpt
+    # erstellen lassen" (KI-Akzeptanz doppelt belegt). Ehrlich notiert: 1 der 4
+    # Vorschlaege ist "...kostenlos" (schwaecherer Bezahlwille als arbeitsblatt).
+    # Im Tick 2 zurueckgestellt wegen Ueberlappung mit study-guide — Abgrenzung ist
+    # jetzt sauber: Lernplan = ZEITplan (Wochenaufteilung, Reihenfolge, Puffer bis
+    # zum Pruefungstermin), study-guide/zusammenfassung = INHALT. Keine
+    # Pruefungsleistung zur Abgabe -> die eigene Lernzeit zu planen ist keine Taeuschung.
+    ("lernplan erstellen lassen ki", "Lernplan erstellen lassen (KI)", "Realistischer Lernplan bis zum Pruefungstermin: Wochenaufteilung, Reihenfolge der Themen, Wiederholungen und Puffer – ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-05 Tick 3):
+    # - "ernaehrungsplan erstellen lassen" (10 Treffer = groesstes Volumen des Ticks,
+    #   mit "...kosten"/"professionellen" = klarer Preisanker): WIRD NICHT GEBAUT.
+    #   Die bereits live stehende Seite trainingsplan-erstellen-lassen-ki.html sagt
+    #   woertlich zu, dass wir "keine medizinische, physiotherapeutische oder
+    #   Ernaehrungs-Beratung" liefern, und docs/fiverr_gig.md schliesst
+    #   medizinberatende Texte aus. Eine Ernaehrungsplan-Seite wuerde dieser
+    #   Zusage widersprechen. Zusaetzlich zielen 2 Modifier ("barf", "hund") auf
+    #   Tier-Ernaehrung (Veterinaerbereich).
+    # - "brief schreiben lassen" (10 Treffer): falscher Intent. Die Modifier
+    #   "handschriftlich", "kalligraphie", "schoen schreiben" verlangen eine
+    #   HANDSCHRIFT-Dienstleistung (koennen wir nicht liefern), "anwalt brief
+    #   schreiben lassen (kosten)" ist Rechtsdienstleistung (RDG). Dazu 1x "kostenlos".
+    # - "roman schreiben lassen" (3): Komplett-Ghostwriting eines Romans ist zum
+    #   Festpreis 3,99-14,99 EUR nicht ehrlich lieferbar (gleiche Linie wie das
+    #   frueher abgelehnte "buch schreiben lassen").
+    # - 0-1 Treffer (kein Signal): unterrichtsentwurf, leitbild, jahresbericht,
+    #   spendenaufruf, etsy listing, tiktok skript, beschwerde, instagram bio,
+    #   google ads text, hochzeitszeitung, onboarding unterlagen, uebungsaufgaben,
+    #   klassenarbeit, dankesrede, trauerkarte text, geschaeftsbericht,
+    #   immobilienbeschreibung.
 ]
 
 def slug(kw):
