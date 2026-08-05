@@ -29,6 +29,7 @@ CLUSTERS: dict[str, list[str]] = {
         "anschreiben-erstellen-lassen-ki",
         "lebenslauf-erstellen-lassen-ki",
         "motivationsschreiben-schreiben-lassen-ki",
+        "bewerbungsunterlagen-erstellen-lassen",
     ],
     "Buero & Business": [
         "powerpoint-erstellen-lassen-ki",
@@ -41,6 +42,7 @@ CLUSTERS: dict[str, list[str]] = {
         "bericht-schreiben-lassen-ki",
         "vortrag-erstellen-lassen-ki",
         "pitch-deck-erstellen-lassen",
+        "e-mail-schreiben-lassen-ki",
     ],
     "Marketing & Texte": [
         "text-schreiben-lassen-guenstig",

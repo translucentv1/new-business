@@ -267,6 +267,46 @@ KEYWORDS = [
     #   google ads text, hochzeitszeitung, onboarding unterlagen, uebungsaufgaben,
     #   klassenarbeit, dankesrede, trauerkarte text, geschaeftsbericht,
     #   immobilienbeschreibung.
+    # 2026-08-06 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). web_search/Firecrawl erneut HTTP 402 (insufficient_funds, Rohfehler
+    # im Report) -> Autocomplete bleibt die einzige MEASURED-Quelle; kein ASSUMED-Keyword.
+    # "e-mail schreiben lassen" -> 3 Vorschlaege, KEIN "kostenlos"-Modifier:
+    # "e mail schreiben lassen ki" UND "chat gpt e mail schreiben lassen"
+    # => KI-Akzeptanz doppelt belegt (2 von 3 Vorschlaegen nennen ein KI-Tool).
+    # Deliverable = reiner Text (Ollama, 0 EUR), keine Ueberlappung mit einer
+    # bestehenden Seite (das frueher gepruefte "email vorlage" hatte 0-1 Treffer).
+    # Abgrenzung EHRLICH: Geschaefts-/Bewerbungs-/Beschwerde-E-Mail als Formulierung,
+    # KEIN Versand, KEIN Rechts- oder Forderungsschreiben (RDG).
+    ("e mail schreiben lassen ki", "E-Mail schreiben lassen (KI)", "Geschaefts-, Bewerbungs- oder Beschwerde-E-Mail: hoeflich, klar und im richtigen Ton formuliert – ab 3,99 EUR, in 24h."),
+    # "bewerbungsunterlagen erstellen lassen" -> 3 Vorschlaege, KEIN "kostenlos":
+    # "...professionell erstellen lassen" (Bezahlwille explizit) und "...schweiz"
+    # (Ortsmodifier = es existiert ein bezahlter Dienstleistermarkt).
+    # Bewusst als BUENDEL-Seite gebaut, nicht als Dublette: bewerbung/anschreiben/
+    # lebenslauf decken je EIN Einzeldokument ab, diese Seite den kompletten Satz
+    # (Anschreiben + Lebenslauf + Kurzprofil) und zielt damit auf das 14,99-EUR-Paket.
+    # Deliverable = reiner Text (Ollama, 0 EUR). Abgrenzung EHRLICH: Textinhalt,
+    # KEIN Grafik-/Deckblatt-Layout und keine Zeugnis-Beschaffung.
+    ("bewerbungsunterlagen erstellen lassen", "Bewerbungsunterlagen erstellen lassen", "Kompletter Bewerbungssatz: Anschreiben, Lebenslauf und Kurzprofil aus einem Guss, auf die Stellenanzeige zugeschnitten – ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-06 Tick):
+    # - "artikel schreiben lassen" (6 Treffer = groesstes Volumen des Ticks, mit
+    #   "...ki"/"chatgpt..."): der Bezahl-Teil davon ist bereits als
+    #   seo-blogartikel-schreiben-lassen live ("blog artikel schreiben lassen" ist
+    #   woertlich einer der Vorschlaege) -> Dublette/Kannibalisierung. Der Rest ist
+    #   "wikipedia artikel schreiben lassen (kosten)", schon frueher wegen
+    #   Offenlegungspflicht/ToS abgelehnt (Regel 2).
+    # - "rechnung erstellen lassen" (6): falscher Intent. Modifier ikea/amazon/db/
+    #   paypal/e-rechnung => der Sucher will eine Rechnung VON einem Haendler bzw.
+    #   ein E-Rechnungs-Tool, kein geschriebenes Dokument (gleiche Linie wie das
+    #   frueher abgelehnte "angebot erstellen lassen").
+    # - "kinderbuch schreiben lassen" (3): "...und drucken lassen" = Druckleistung,
+    #   der Rest ist Komplett-Ghostwriting -> zum Festpreis 3,99-14,99 EUR nicht
+    #   ehrlich lieferbar (gleiche Linie wie buch/roman schreiben lassen).
+    # - "portfolio erstellen lassen" (3): Top-Modifier "architektur portfolio" =
+    #   Grafik-/Layout-Arbeit, die wir ausdruecklich nicht liefern.
+    # - 0-1 Treffer (kein Signal): sop, prozessbeschreibung, leitfaden,
+    #   schulungsunterlagen, jubilaeumsrede, abschiedsbrief, gute nacht geschichte,
+    #   podcast skript, youtube video skript, werbetext ki, linkedin profil
+    #   optimieren, onlinekurs, drehbuch, ratgeber.
 ]
 
 def slug(kw):
