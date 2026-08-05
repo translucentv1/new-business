@@ -36,6 +36,15 @@ import app  # get_stripe_key
 RTD = os.path.join(ROOT, "rtd.html")
 THANKS = os.path.join(ROOT, "thanks.html")
 DL_DIR = os.path.join(ROOT, "dl", "rtd")
+AUTO_FULFILL = os.path.join(HERE, "auto_fulfill.py")
+
+# Muss zu auto_fulfill.SITE passen (Drift-Check im Selftest, statt das schwere
+# Modul samt Ollama-Client zu importieren).
+SITE = "https://translucentv1.github.io/new-business"
+# Exaktes Soll statt Substring: ein `"thanks.html?sid={…}" in url`-Test winkt
+# JEDE fremde Domain durch (MEASURED 2026-08-05 durch unabhaengige Ad-hoc-
+# Verifikation: "…github.io.evil.com/thanks.html?sid={…}" ergab KETTE_OK).
+SOLL_REDIRECT = SITE + "/thanks.html?sid={CHECKOUT_SESSION_ID}"
 
 
 def sid_hash(sid: str) -> str:
@@ -206,7 +215,7 @@ def main():
             print(f"      (Preis-Abfrage fehlgeschlagen: {e})")
         good = (pl.get("livemode") is True and pl.get("active") is True
                 and "anfrage" in fields
-                and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac
+                and ac == SOLL_REDIRECT
                 and isinstance(amt, int) and not isinstance(amt, bool) and amt > 0)
         ok = ok and good
         print(f"    livemode={pl.get('livemode')} active={pl.get('active')} "
@@ -247,13 +256,13 @@ def main():
 # Selftest (Ticket 16) — Fault Injection durch die ECHTE main()
 # --------------------------------------------------------------------------
 def _pl(url, active=True, livemode=True, fields=("anfrage",),
-        redirect="https://translucentv1.github.io/new-business/thanks.html"
-                 "?sid={CHECKOUT_SESSION_ID}", pid=None):
+        redirect=None, pid=None):
     """Feldtreuer payment_link (Felder gegen die LIVE-API abgeglichen)."""
     return {"id": pid or ("plink_" + url[-6:]), "url": url, "active": active,
             "livemode": livemode,
             "custom_fields": [{"key": k} for k in fields],
-            "after_completion": {"type": "redirect", "redirect": {"url": redirect}}}
+            "after_completion": {"type": "redirect",
+                                 "redirect": {"url": redirect or SOLL_REDIRECT}}}
 
 
 _RTD_TPL = """<select id="tier">
@@ -375,6 +384,30 @@ def selftest():
     rc, out = _run_main(links=[_pl(_URLS[0], redirect="https://example.com/danke")]
                               + [_pl(u) for u in _URLS[1:]])
     rot("falscher Redirect wird rot", rc, out)
+
+    # 7b — Look-alike-Domain. DAS war der zweite reale Defekt: der alte Test
+    #      fragte nur, ob "thanks.html?sid={…}" IRGENDWO in der URL vorkommt —
+    #      jede fremde Domain mit passendem Pfad kam damit durch. Gefunden
+    #      wurde er nicht vom Selftest, sondern von der unabhaengigen
+    #      Ad-hoc-Verifikation: mein eigener Rot-Fall (7) war zu leicht.
+    for boese in (
+        "https://translucentv1.github.io.evil.com/new-business/thanks.html"
+        "?sid={CHECKOUT_SESSION_ID}",
+        "http://translucentv1.github.io/new-business/thanks.html"
+        "?sid={CHECKOUT_SESSION_ID}",                      # http statt https
+        "https://evil.com/x?u=" + SOLL_REDIRECT,           # Soll als Parameter
+        SOLL_REDIRECT + "&weiter=https://evil.com",        # angehaengt
+    ):
+        rc, out = _run_main(links=[_pl(_URLS[0], redirect=boese)]
+                                  + [_pl(u) for u in _URLS[1:]])
+        rot(f"Redirect-Variante wird rot: {boese[:46]}…", rc, out)
+
+    # 7c — Drift-Wache: das Soll muss zu auto_fulfill.SITE passen, sonst prueft
+    #      der Torwaechter gegen eine Domain, die niemand mehr ausliefert.
+    af = re.search(r'^SITE\s*=\s*"([^"]+)"', read_text(AUTO_FULFILL), re.M)
+    check("SOLL_REDIRECT haengt an auto_fulfill.SITE (keine Drift)",
+          af is not None and SOLL_REDIRECT.startswith(af.group(1) + "/thanks.html"),
+          f"auto_fulfill.SITE={af.group(1) if af else None}")
 
     # 8 — Link existiert bei Stripe gar nicht mehr
     rc, out = _run_main(links=[_pl(u) for u in _URLS[1:]])

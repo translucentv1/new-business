@@ -48,6 +48,10 @@ MUTATIONEN = [
      'good = (pl.get("livemode") is True and pl.get("active") is True',
      'good = (True or pl.get("livemode") is True and pl.get("active") is True',
      "active=False wird rot"),
+    ("Redirect wieder als Substring pruefen (der Look-alike-Defekt)",
+     "and ac == SOLL_REDIRECT",
+     'and "thanks.html?sid={CHECKOUT_SESSION_ID}" in ac',
+     "Redirect-Variante wird rot: https://translucentv1.github.io.evil.com"),
 ]
 
 
