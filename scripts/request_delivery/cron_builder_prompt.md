@@ -434,3 +434,60 @@ legal_link_audit). Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (Zeitsperre
 faellt uebermorgen), Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL, Ticket 17 =
 optional. Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus
 ausdruecklich NICHT erwuenscht.
+
+STAND 2026-08-05 (Tick 4, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK (42 Seiten, 0 unvollstaendig).
+verify_rtd_chain KETTE_OK (399/799/1499 cent, Feld 'anfrage', Redirect ok,
+Hash-Paritaet real gemessen). rtd/thanks/index/agb/datenschutz/impressum/sitemap
+HTTP 200.
+
+TICKET 17 ERLEDIGT + GESCHLOSSEN (Commit 3383e8f, 0 unpushed, im origin-Tree).
+>>> ZWEI ECHTE DEFEKTE, nicht nur ein fehlender Test <<<
+A) EINGEFRORENE STICHPROBE: verify_ticket13_live.py prueste live nur 7 hart-
+   kodierte Seiten, waehrend legal_link_audit im Baum 42 kennt -> 35 Seiten nie
+   live geprueft. Da traffic_engine.py laufend neue Landingpages erzeugt, waere
+   JEDE kuenftige Traffic-Seite am Live-Check vorbeigelaufen. Ausgerechnet das
+   Skript gegen die Teil-Vollstaendigkeits-Falle war selbst eine Stichprobe.
+B) EIN PFLICHTLINK STATT DREI: NEEDLE = "datenschutz.html" -> Impressum und AGB
+   wurden im ausgelieferten Body NIE gesucht, obwohl das Skript genau dafuer da ist.
+AM ALT-STAND AUSGEFUEHRT (nicht argumentiert), _mutation_probe_t17.py:
+   A1 Alt-Stand 68946f0 + 404 auf blog/arbeitszeugnis-... -> rc=0 "LIVE_OK -> BLIND"
+   A2 Alt-Stand + index.html live OHNE Impressum-Link      -> rc=0 "LIVE_OK -> BLIND"
+   Neue Fassung gegen dieselbe Auslieferung: rc=1 LIVE_DEFEKT, Seite benannt.
+FIX: Zielmenge wird aus dem Baum ABGELEITET (gleiche Exempt-Regel wie das Audit,
+sonst driften die zwei Pruefer), alle 3 Pflichtlinks, Soft-404 (HTTP 200 mit
+"Page not found" im Body) ist rot, leere Zielmenge NICHT gruen, drittes
+Ergebniswort LIVE_UNGEPRUEFT (rc=2) fuer Netzfehler -- echter Defekt schlaegt
+Unmessbarkeit. urllib.error explizit importiert (ging vorher nur zufaellig).
+MEASURED: --selftest 18/18 SELFTEST_OK, MUTATION_PROBE_OK (4/4 Mutanten rot,
+sha256-genaue Wiederherstellung, rc-Wechsel 0->1->0), echter Live-Lauf LIVE_OK
+ueber 47 Seiten in 1,2 s (8 Threads), unabhaengige Gegenmessung 42/42 Seiten
+live HTTP 200 MIT allen 3 Rechtslinks.
+
+>>> TICKET-PRAEMISSE FALSIFIZIERT <<<
+Ticket 17 hiess "der LETZTE Pruefer ohne Selftest". Vollzaehlig gegrept stimmt
+das nicht: scripts/verify.py nennt sich selbst "kanonische Verifikation",
+laeuft mit 56 Checks gruen (MEASURED: 56 ok, 0 fail, rc=0) und hat KEINEN
+--selftest. Dritter Fall derselben Klasse (Ticket 14 -> 15 -> 17).
+-> TICKET 18 NEU (OFFEN, AFK, unblockiert, mittlere Prioritaet):
+   tickets/18-verify-py-selftest.md
+
+MERKREGELN (neu):
+- Zielmengen aus der Quelle ABLEITEN, nie hartkodieren. Eine hartkodierte
+  Pruefliste veraltet still, waehrend der Baum waechst.
+- Zwei Pruefer, die dieselbe Menge meinen, muessen dieselbe Ableitungsregel
+  benutzen, sonst driften sie auseinander.
+- Pflicht-SETS vollzaehlig pruefen, nicht ein Merkmal daraus ("zu wenige
+  Merkmale pro Seite" ist dieselbe Falle wie "zu wenige Seiten").
+- Rot-Faelle gegen die EXAKTE Diagnosezeile assertieren, nicht gegen ein
+  Stichwort -- sonst besteht der Test auch bei Rot aus dem falschen Grund.
+- Grep ueber alle Skripte reicht nicht: jeden Treffer einordnen in stehendes
+  Tor (braucht Selftest) vs Ad-hoc-Sonde (braucht keinen).
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + NEU `python scripts/request_delivery/verify_ticket13_live.py`,
+laeuft jetzt in 1,2 s und deckt alle Seiten ab). Dann Ticket 18 abarbeiten.
+Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (Zeitsperre faellt uebermorgen),
+Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
