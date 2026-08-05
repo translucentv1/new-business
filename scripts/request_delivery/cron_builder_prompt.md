@@ -569,3 +569,71 @@ legal_link_audit + verify_ticket13_live). Dann TICKET 19 abarbeiten.
 Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (nach Ticket 19!), Ticket 8 =
 2 USER-Blocker, Ticket 10 = HITL. Solange BESUCHER=0: "warte, beobachte Sales".
 Aktionismus ausdruecklich NICHT erwuenscht.
+
+STAND 2026-08-05 (Tick 6, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja.
+legal_link_audit LEGAL_LINKS_OK (44 Seiten). verify_ticket13_live LIVE_OK
+(49 Seiten). verify_rtd_chain KETTE_OK (Hash-Paritaet real gemessen).
+rtd/thanks/index/sitemap/agb/datenschutz/impressum + IndexNow-Key HTTP 200.
+
+TICKET 19 ERLEDIGT + GESCHLOSSEN (Commit 6d1e79d, gepusht, 0 unpushed, alle
+4 Dateien im origin/gh-pages-Tree).
+>>> FUENF ECHTE DEFEKTE, alle AM ALT-STAND AUSGEFUEHRT <<<
+(_mutation_probe_t19.py holt HEAD per `git show` und faehrt dessen echte main())
+A1 URL lokal gelistet, live nicht vorhanden -> SUBMIT_OK rc=0: der Einreicher
+   haette eine 404-URL bei Bing gemeldet (genau das entwertet einen IndexNow-Key).
+A2 lokale Sitemap 3 -> 1 URL geschrumpft -> SUBMIT_OK (stille Schrumpfung).
+A3 Netz/DNS tot -> "KEY_NICHT_LIVE": Defekt-Vorwurf gegen die eigene, live
+   kerngesunde Key-Datei (HTTP 200 gemessen).
+A4 codes=[500,403] -> "SUBMIT_403 (kein URL-Fehler)": der echte 500er wurde
+   vom 403 MASKIERT.
+A5 Netzfehler beim Senden -> "SUBMIT_FEHLER" statt "unmessbar".
+>>> TICKET-HYPOTHESE WIDERLEGT <<< Vermutet war all() ueber mehrere Batches als
+wahrscheinlichster Schwachpunkt. Am Alt-Stand ausgefuehrt: [200,500] wird
+KORREKT rot. Der Batch-Pfad war gesund, die Loecher lagen woanders.
+FIX: drittes Ergebniswort INDEXNOW_UNGEPRUEFT (rc=2), 403 auf rc=3 (kein
+Aufrufer hing an rc=2 - vollzaehlig gegrept), Reihenfolge echter Defekt >
+unmessbar > 403 > OK, Geltungsbereich-Pruefung gegen die LIVE-Sitemap
+(INDEXNOW_DRIFT rc=1 OHNE Einreichung; --allow-drift reicht nur die
+Schnittmenge ein), leere Code-Liste rot, vollzaehlig=ja/nein im Output.
+
+>>> DER SCHWERSTE BEFUND KAM VOM ECHTEN LAUF, NICHT VOM SELFTEST <<<
+Erster Live-Lauf nach dem Fix: "INDEXNOW_DRIFT lokal=1220 live=3" gegen eine
+kerngesunde Site (curl sitemap.xml | grep -c "<loc>" = 1220 live UND lokal).
+Ursache: http() kuerzt JEDEN Body auf 400 Zeichen -> die Live-Sitemap kam als
+3 URLs an. Der Selftest war 106/106 gruen, weil die ATTRAPPE UNGEKUERZT
+lieferte - grosszuegiger als die Realitaet. Behoben an beiden Enden:
+http(..., maxlen=None) fuer Dokumente, FakeNet kuerzt jetzt nach derselben
+Regel; neuer 60-URL-Fall; Mutant M7 stellt genau diesen Defekt wieder her.
+Vollzaehlig nachgegrept: alle uebrigen [:N]-Kuerzungen im Repo betreffen
+FEHLERMELDUNGEN, keine geparsten Dokumente -> Klasse ist eingegrenzt.
+Zwei Schwaechen im eigenen frischen Selftest selbst gefunden und behoben:
+Substring-Vergleich ("SUBMIT_OK" matcht auch "SUBMIT_OK_TEILMENGE") -> jetzt
+exaktes erstes Token; und eine tautologische Zeile t(x or True, ...) entfernt.
+
+MEASURED: 106/106 SELFTEST_OK | MUTATION_PROBE_OK 29/29 (5 Alt-Stand-Proben +
+Gegenprobe der neuen Fassung + 7/7 Mutanten rot ohne Traceback, sha256-genaue
+Wiederherstellung, rc-Wechsel 0->1->0) | echter Lauf SUBMIT_OK: key HTTP 200
+(Body==Key), lokal 1220 == live 1220, drift 0, vollzaehlig=ja, 1220 URLs ->
+HTTP 200 | verify.py VERIFY_OK (66 ok, 0 fail). Selftest loest KEINE echte
+Einreichung aus (Attrappe protokolliert jeden Aufruf).
+WIE IMMER: 200 = ANGENOMMEN, NICHT INDEXIERT.
+
+MERKREGELN (neu):
+- ATTRAPPEN-FALLE: eine Attrappe, die grosszuegiger ist als die echte Funktion,
+  macht den Selftest blind. Attrappen muessen den VERTRAG nachbilden - inkl.
+  Kuerzung, Timeouts, Fehlerformen. Und: einen echten Lauf NIE durch einen
+  gruenen Selftest ersetzen.
+- Ergebniswoerter mit gemeinsamem Praefix exakt vergleichen (erstes Token der
+  ERGEBNIS-Zeile), nie per `in` - "SUBMIT_OK" matcht "SUBMIT_OK_TEILMENGE".
+- Selbstgeschriebene Checks auf Tautologien absuchen (`t(x or True, ...)`
+  zaehlt in die Quote, kann aber nie rot werden).
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live). AB 2026-08-07: TICKET 5 (Bing-
+Trefferzahl) - die Zeitsperre faellt dann, und die Vorbedingung ist jetzt
+erfuellt (der Einreicher ist nachweislich rot-faehig und hat 1220/1220 URLs
+gegen die LIVE-Auslieferung eingereicht). Ticket 3 = USER-KYC, Ticket 8 =
+2 USER-Blocker, Ticket 10 = HITL. Kein unblockiertes AFK-Ticket mit
+Informationswert mehr offen -> bis zum 07.08.: "warte, beobachte Sales".
+Aktionismus ausdruecklich NICHT erwuenscht.
