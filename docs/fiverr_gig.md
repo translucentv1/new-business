@@ -19,7 +19,10 @@ Programming & Tech → AI Services (alternativ: Writing & Translation → Articl
 Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24 Stunden.
 
 **Was du bekommst:**
-- Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN)
+- Texte: Bewerbungen, Anschreiben, Lebenslauf, Motivationsschreiben (DE/EN) sowie
+  der komplette Bewerbungssatz aus einem Guss (Anschreiben + Lebenslauf +
+  Kurzprofil, auf die Stellenanzeige zugeschnitten — Textinhalt, **kein**
+  Grafik-/Deckblatt-Layout, keine Zeugnis-Beschaffung)
 - Business: PowerPoint-Präsentationen, Businessplan-Entwürfe, Meeting-Protokolle,
   Newsletter, Produktbeschreibungen, LinkedIn-/Instagram-Posts, Pressemitteilungen
   (Headline, Lead, Zitat, Boilerplate), Arbeitszeugnis-Entwürfe (Formulierungshilfe),
@@ -43,6 +46,9 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Pläne: Trainingsplan-Entwürfe als Text (Wochenaufteilung, Übungen, Sätze,
   Wiederholungen, Progression) — allgemeiner Entwurf, **keine** medizinische
   oder physiotherapeutische Beratung
+- Korrespondenz: Geschäfts-, Bewerbungs- und Beschwerde-E-Mails (höflicher Ton,
+  klare Struktur, passende Betreffzeile) — Formulierung, **kein** Versand und
+  **kein** Rechts-/Forderungsschreiben
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 - Lernen & Unterricht: Arbeitsblatt-Inhalte (Arbeitsaufträge, Aufgaben mit
@@ -149,3 +155,18 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       verify.py --offline: 65 ok / 0 fail. interlink --check: 0 offen.
       Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR available/pending.
       Deliverables oben um Arbeitsblatt + Lernplan erweitert (Scope-Grenzen notiert).
+- [x] AI-CEO 2026-08-06 Tick 1 MEASURED: 39 bestehende blog/-Seiten live geprueft
+      -> **blog OK=39 FAIL=0**, dazu gig/index/lead_magnet/rtd je HTTP 200.
+      2 neue Seiten (e-mail schreiben lassen ki, bewerbungsunterlagen erstellen
+      lassen; Autocomplete je 3 Vorschlaege, **beide 0x "kostenlos"**, e-mail mit
+      2x KI-Modifier, bewerbungsunterlagen mit "professionell"/"schweiz")
+      -> **41 Landingpages**, danach beide live **HTTP 200** und in der
+      Live-sitemap.xml enthalten (1222 URLs). Die 3 Stripe-Live-Checkout-Links
+      in gig.html erneut je **HTTP 200**; Preise dort gezaehlt 3,99 € 3x /
+      7,99 € 1x / 14,99 € 1x = deckungsgleich mit der Pakettabelle oben.
+      IndexNow 1222 URLs HTTP 200. verify.py --offline: 67 ok / 0 fail.
+      interlink --check: 0 offen. Stripe: 0 Charges, 0 PaymentIntents,
+      0,00 EUR available/pending; 2 Checkout-Sessions vom 04.08. weiterhin
+      expired/unpaid, seit ~34 h keine neue Session.
+      Deliverables oben um Bewerbungssatz-Buendel + Geschaefts-E-Mail erweitert
+      (Scope-Grenzen notiert: kein Layout, kein Versand, kein RDG-Schreiben).

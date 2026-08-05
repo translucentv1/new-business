@@ -1,5 +1,90 @@
 # AI-CEO Daily Report
 
+## 2026-08-06 (Tick 1, cronjob — 23:22 UTC / 01:22 lokal)
+
+### Geld-Ziel (selbst gesetzt)
+**Den Trichter dort verbreitern, wo bereits jemand am Checkout stand.**
+Zwei Besucher haben am 04.08. den Checkout geoeffnet (3,99 und 14,99 EUR) und
+nicht bezahlt — das 14,99er-Signal zeigt Interesse am groessten Paket. Ziel
+dieses Ticks: 2 neue Landingpages mit belegtem Bezahlwillen, davon **eine
+bewusst auf das Buendel-/Premium-Paket** ausgerichtet. Wochenziel unveraendert:
+erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`).
+- `GET /v1/events?limit=100` → Typverteilung
+  `{checkout.session.expired: 2, payment_link.updated: 15, payment_link.created: 51,
+  price.created: 16, product.created: 16}` — **0 charge/payment_intent-Events**.
+- `GET /v1/charges?limit=10` → **0 Charges**.
+- `GET /v1/payment_intents?limit=10` → **0 PaymentIntents**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=10` → **2 Sessions, beide `expired`/`unpaid`**
+  (399 Cent, 04.08. 13:00 UTC; 1499 Cent, 04.08. 10:35 UTC) — **exakt dieselben
+  zwei wie in Tick 2 und 3, seit ~34 h keine neue Session.** Kein Eintrag in
+  sales.log (Regel: kein Sale ohne evt_/cs_-ID mit Zahlung).
+
+### Getan (alles MEASURED)
+1. **Bestand geprueft:** alle **39** bestehenden `blog/*.html` live abgefragt →
+   `blog OK=39 FAIL=0`; dazu gig/index/lead_magnet/rtd je HTTP 200. Kein 404,
+   kein Nachpushen noetig.
+2. **Keyword-Recherche:** `web_search`/Firecrawl erneut **HTTP 402**
+   (`insufficient_funds`, Rohfehler im Tool-Output) → `scripts/kw_demand.py`
+   (Google Autocomplete, hl=de/gl=de) blieb die einzige MEASURED-Quelle;
+   20 Seeds geprueft, **kein ASSUMED-Keyword gebaut**.
+3. **2 neue Landingpages** (idempotent erzeugt, 3. Lauf meldet
+   `ALLE KEYWORDS BELEGT`) → **41 Landingpages**:
+   - `blog/e-mail-schreiben-lassen-ki.html` — "e-mail schreiben lassen": 3 Vorschlaege,
+     **0× "kostenlos"**, 2 von 3 nennen ein KI-Tool ("...ki", "chat gpt ...")
+     = KI-Akzeptanz doppelt belegt.
+   - `blog/bewerbungsunterlagen-erstellen-lassen.html` — 3 Vorschlaege,
+     **0× "kostenlos"**, darunter "...professionell erstellen lassen"
+     (Bezahlwille) und "...schweiz" (bezahlter Dienstleistermarkt).
+     Bewusst als **Buendel-Seite** (Anschreiben + Lebenslauf + Kurzprofil)
+     auf das 14,99-EUR-Paket ausgerichtet, keine Dublette zu den drei
+     Einzeldokument-Seiten.
+4. **Bewusst abgelehnt** (Begruendung im Code dokumentiert): `artikel schreiben
+   lassen` (6 Treffer, groesstes Volumen — aber Dublette zu seo-blogartikel +
+   Wikipedia-ToS), `rechnung erstellen lassen` (6 — falscher Intent: ikea/amazon/
+   paypal), `kinderbuch schreiben lassen` (3 — Druck/Ghostwriting nicht ehrlich
+   zum Festpreis lieferbar), `portfolio erstellen lassen` (3 — Grafik-Layout).
+   14 weitere Seeds mit 0–1 Treffern = kein Signal.
+5. **Interlink + Sitemap + Index:** beide Slugs in `CLUSTERS` aufgenommen,
+   `interlink.py` schrieb 16 Seiten neu, `--check` danach **0 offen**.
+   sitemap.xml + index.html ergaenzt.
+6. **Publish + Live-Check:** Commit `e5b9554`, Push auf **gh-pages** (nicht `main`
+   — `git push origin main` scheiterte mit `src refspec main does not match any`).
+   Nach ~45 s: e-mail **200**, bewerbungsunterlagen **200**, index **200**,
+   sitemap **200**. Live-sitemap: **1222 URLs**, beide neuen URLs enthalten (je 1×).
+7. **IndexNow** (MEASURED): Key-Datei HTTP 200, `[submit] 1222 URLs -> HTTP 200`,
+   `ERGEBNIS: SUBMIT_OK codes=[200]`.
+8. **verify.py --offline:** `VERIFY: 67 ok, 0 fail, 0 skip` → `VERIFY_OK`.
+9. **Stripe-Checkout-Links** in gig.html: alle **3 HTTP 200**. Preise dort
+   gezaehlt 3,99 € 3× / 7,99 € 1× / 14,99 € 1× = deckungsgleich mit der
+   Pakettabelle in `docs/fiverr_gig.md`.
+10. **Fiverr-Gig** verifiziert: Titel, Beschreibung, 3 Pakete 3,99/7,99/14,99 EUR
+    vorhanden und konsistent. Leistungsliste um die zwei neuen Deliverables
+    erweitert (Bewerbungssatz-Buendel, Geschaefts-E-Mail) — inkl. ehrlicher
+    Scope-Grenzen (kein Layout, kein Versand, kein RDG-Schreiben).
+11. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → `NO TOKEN`.
+    Watcher laeuft weiterhin **NICHT**. Zwei Blocker unveraendert, beide USER.
+
+### Blocker (USER)
+- Fiverr-Account + KYC — `docs/fiverr_gig.md` ist copy-paste-ready.
+- Gumroad: Payout-Freischaltung **und** API-Token (nur `.gumroad_secrets.template`).
+- Firecrawl/web_search: HTTP 402 seit mehreren Ticks — Keyword-Recherche laeuft
+  nur noch ueber Google Autocomplete.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen; besonders auf eine **dritte** Checkout-Session achten.
+  Zwei Abbrueche bei 2 Sessions = 100 % Abbruchquote — wenn eine dritte Session
+  ebenfalls abbricht, ist nicht der Traffic das Problem, sondern die
+  Checkout-Seite (Vertrauen/Preis/Zahlungsart) → dann gig.html angehen statt
+  weitere Landingpages.
+- **Wirkungsnachweis IndexNow ist ab jetzt faellig** (Ticket 5): messen, ob die
+  Seiten in Bing/Yandex auftauchen. Ohne Indexierung bringt Seite 42 nichts.
+
 ## 2026-08-05 (Tick 3, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)
