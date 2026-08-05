@@ -1,37 +1,87 @@
 #!/usr/bin/env python3
-"""Live-Beweis Ticket 13: gegen die AUSGELIEFERTEN Bodies, nicht gegen den Baum.
+"""Live-Beweis der Rechtslinks: gegen die AUSGELIEFERTEN Bodies, nicht gegen den Baum.
 
-Prueft nach dem Push:
-  1. die zwei zuvor 404er Traffic-Seiten liefern 200,
-  2. eine Stichprobe gepatchter Seiten enthaelt den Datenschutz-Link WIRKLICH
-     im ausgelieferten HTML (Baum != Auslieferung -> Branch-Falle),
-  3. der Kaufpfad ist unveraendert erreichbar.
-Wartet auf den Pages-Rebuild (MEASURED ~31 s) statt blind zu schlafen.
+Hintergrund (Ticket 13): `legal_link_audit.py` prueft den LOKALEN Baum vollzaehlig.
+Das genuegt nicht -- die Branch-Falle (Commit auf master / Datei unter docs/) laesst
+eine Seite im Baum korrekt aussehen, waehrend live etwas anderes ausgeliefert wird.
+Dieses Skript misst deshalb ausschliesslich das, was der Server wirklich schickt.
+
+Ticket 17 hat zwei Schwaechen der Vorfassung behoben:
+  * Sie prueste live nur eine STICHPROBE von 7 Seiten, waehrend das Audit 42 kennt
+    -- genau die Teil-Vollstaendigkeits-Falle, gegen die Ticket 13 gebaut wurde.
+    Die Zielmenge wird jetzt aus dem Baum ABGELEITET (gleiche Regel wie das Audit),
+    damit kuenftige Traffic-Seiten automatisch mitgeprueft werden.
+  * Sie kannte kein Ergebniswort fuer "nicht messbar" -- ein Netzausfall sah aus
+    wie ein Defekt. Neu: LIVE_UNGEPRUEFT (rc=2).
+
+Ergebniswoerter:
+    LIVE_OK          rc=0   alles gemessen und in Ordnung
+    LIVE_DEFEKT      rc=1   mindestens eine Seite nachweislich kaputt
+    LIVE_UNGEPRUEFT  rc=2   nicht messbar (Netz/leere Zielmenge) -- weder gruen noch Defekt
+
+Nutzung:
+    python scripts/request_delivery/verify_ticket13_live.py
+    python scripts/request_delivery/verify_ticket13_live.py --selftest
 """
 from __future__ import annotations
 
+import concurrent.futures as cf
+import glob
+import os
 import sys
 import time
+import urllib.error
 import urllib.request
 
 BASE = "https://translucentv1.github.io/new-business/"
 
+# Die zwei Seiten, die in Ticket 13 vier Stunden lang live 404 lieferten.
+# Historischer Regressionsanker -- sie stecken auch in der vollzaehligen Menge.
 NEU = ["blog/hochzeitsrede-schreiben-lassen.html", "blog/pitch-deck-erstellen-lassen.html"]
-STICHPROBE = [
-    "index.html",
-    "rtd.html",
-    "blog/vortrag-erstellen-lassen-ki.html",
-    "blog/bewerbung-schreiben-lassen-ki.html",
-    "blog/study-guide-erstellen-lassen.html",
-    "blog/hochzeitsrede-schreiben-lassen.html",
-    "blog/pitch-deck-erstellen-lassen.html",
-]
 KAUFPFAD = ["rtd.html", "thanks.html", "agb.html", "datenschutz.html", "impressum.html"]
-NEEDLE = "datenschutz.html"
+
+REQUIRED = ("impressum.html", "datenschutz.html", "agb.html")
+
+# Soft-404: GitHub Pages liefert seine 404-Seite mit 9379 B -- FETTER als jede echte
+# Landingpage. Groesse ist als Gesundheitsmerkmal wertlos, der Text ist es nicht.
+SOFT404_MARKER = ("Page not found", "File not found")
+
+
+def repo_root() -> str:
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
+
+def is_exempt(path: str, text: str) -> bool:
+    """Gleiche Regel wie legal_link_audit.is_exempt -- sonst driften die zwei Pruefer."""
+    if os.path.basename(path).lower() in REQUIRED:
+        return True
+    low = text.lower()
+    if 'http-equiv="refresh"' in low or "http-equiv='refresh'" in low:
+        return True
+    return len(text) < 400
+
+
+def target_pages(root: str) -> list[str]:
+    """Zielmenge aus dem Baum ABLEITEN statt hartzukodieren."""
+    files: list[str] = []
+    for pat in ("*.html", "blog/*.html"):
+        files.extend(sorted(glob.glob(os.path.join(root, pat))))
+    out = []
+    for f in files:
+        try:
+            with open(f, encoding="utf-8", errors="replace") as fh:
+                text = fh.read()
+        except OSError:
+            continue
+        if not is_exempt(f, text):
+            out.append(os.path.relpath(f, root).replace("\\", "/"))
+    return out
 
 
 def get(url: str, timeout: int = 25):
-    req = urllib.request.Request(url, headers={"User-Agent": "rtd-verify/1.0", "Cache-Control": "no-cache"})
+    """(code, body). code=-1 heisst NICHT MESSBAR (Netz), nicht 'kaputt'."""
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "rtd-verify/2.0", "Cache-Control": "no-cache"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, r.read().decode("utf-8", "replace")
@@ -41,7 +91,7 @@ def get(url: str, timeout: int = 25):
         return -1, str(e)
 
 
-def wait_live(path: str, tries: int = 18, delay: int = 10) -> tuple[int, str, int]:
+def wait_live(path: str, tries: int = 18, delay: int = 10):
     for i in range(tries):
         code, body = get(BASE + path)
         if code == 200:
@@ -51,34 +101,70 @@ def wait_live(path: str, tries: int = 18, delay: int = 10) -> tuple[int, str, in
     return code, body, tries * delay
 
 
-def main() -> int:
-    fails = []
+def judge(code: int, body: str, needles=REQUIRED):
+    """-> (status, detail) mit status in OK / DEFEKT / UNMESSBAR."""
+    if code == -1:
+        return "UNMESSBAR", "Netzfehler"
+    if code != 200:
+        return "DEFEKT", "HTTP %s" % code
+    if any(m in body for m in SOFT404_MARKER):
+        return "DEFEKT", "Soft-404 (200 mit Fehlerseiten-Text)"
+    miss = [n for n in needles if n not in body]
+    if miss:
+        return "DEFEKT", "Rechtslink fehlt: " + ",".join(miss)
+    return "OK", "%d B" % len(body)
 
-    print("[1] Zuvor 404: erreichen die Seiten jetzt die Auslieferung?")
+
+def _fetch_many(paths: list[str], needles=REQUIRED):
+    def one(rel):
+        code, body = get(BASE + rel)
+        st, det = judge(code, body, needles)
+        return rel, code, st, det
+    with cf.ThreadPoolExecutor(max_workers=8) as ex:
+        return list(ex.map(one, paths))
+
+
+def main() -> int:
+    fails: list[str] = []
+    unmessbar: list[str] = []
+
+    print("[1] Regressionsanker Ticket 13 (waren live 404):")
     for p in NEU:
         code, body, waited = wait_live(p)
-        ok = code == 200 and len(body) > 800
-        print("    %-46s HTTP %s  %6d B  nach %2ds  %s"
-              % (p, code, len(body), waited, "OK" if ok else "FAIL"))
-        if not ok:
-            fails.append("%s HTTP %s" % (p, code))
+        st, det = judge(code, body)
+        print("    %-46s HTTP %s  nach %2ds  %s (%s)" % (p, code, waited, st, det))
+        if st == "DEFEKT":
+            fails.append("%s: %s" % (p, det))
+        elif st == "UNMESSBAR":
+            unmessbar.append(p)
 
-    print("[2] Datenschutz-Link im AUSGELIEFERTEN Body:")
-    for p in STICHPROBE:
-        code, body = get(BASE + p)
-        ok = code == 200 and NEEDLE in body
-        print("    %-46s HTTP %s  link=%-5s %s"
-              % (p, code, str(NEEDLE in body), "OK" if ok else "FAIL"))
-        if not ok:
-            fails.append("%s ohne Datenschutz-Link (HTTP %s)" % (p, code))
+    pages = target_pages(repo_root())
+    print("[2] Rechtslinks im AUSGELIEFERTEN Body -- VOLLZAEHLIG (%d Seiten):" % len(pages))
+    if not pages:
+        # Leere-Schleife-Falle (Ticket 16): nichts zu pruefen ist kein gruenes Ergebnis.
+        print("    KEINE Zielseite ermittelt -> es wurde NICHTS geprueft.")
+        print("\nERGEBNIS: LIVE_UNGEPRUEFT")
+        print("  ! leere Zielmenge -- Ableitung aus dem Baum lieferte 0 Seiten")
+        return 2
+    ok_n = 0
+    for rel, code, st, det in _fetch_many(pages):
+        if st == "OK":
+            ok_n += 1
+            continue
+        print("    %-46s HTTP %s  %s (%s)" % (rel, code, st, det))
+        if st == "DEFEKT":
+            fails.append("%s: %s" % (rel, det))
+        else:
+            unmessbar.append(rel)
+    print("    %d/%d Seiten OK (nur Abweichungen oben gelistet)" % (ok_n, len(pages)))
 
-    print("[3] Kaufpfad unveraendert erreichbar:")
-    for p in KAUFPFAD:
-        code, body = get(BASE + p)
-        ok = code == 200
-        print("    %-46s HTTP %s  %6d B  %s" % (p, code, len(body), "OK" if ok else "FAIL"))
-        if not ok:
-            fails.append("%s HTTP %s" % (p, code))
+    print("[3] Kaufpfad erreichbar:")
+    for rel, code, st, det in _fetch_many(KAUFPFAD, needles=()):
+        print("    %-46s HTTP %s  %s (%s)" % (rel, code, st, det))
+        if st == "DEFEKT":
+            fails.append("%s: %s" % (rel, det))
+        elif st == "UNMESSBAR":
+            unmessbar.append(rel)
 
     print()
     if fails:
@@ -86,9 +172,176 @@ def main() -> int:
         for f in fails:
             print("  ! " + f)
         return 1
-    print("ERGEBNIS: LIVE_OK (alle Pruefungen bestanden)")
+    if unmessbar:
+        print("ERGEBNIS: LIVE_UNGEPRUEFT")
+        print("  ! nicht messbar (Netz): %d Seite(n) -- kein Gesundheits-Claim moeglich"
+              % len(unmessbar))
+        return 2
+    print("ERGEBNIS: LIVE_OK (%d Seiten vollzaehlig live geprueft)" % (len(pages) + len(KAUFPFAD)))
     return 0
 
 
+# ----------------------------------------------------------------------------
+# Fault Injection: nur die Aussenwelt (get / target_pages / sleep) wird ersetzt,
+# gefahren wird die ECHTE main().
+# ----------------------------------------------------------------------------
+
+GOOD_BODY = ("<html><body>ok " + "x" * 900
+             + " <a href='impressum.html'>Impressum</a>"
+             + " <a href='datenschutz.html'>Datenschutz</a>"
+             + " <a href='agb.html'>AGB</a></body></html>")
+FAT404_BODY = "<html><title>Page not found &middot; GitHub Pages</title>" + "y" * 9300 + "</html>"
+
+
+def _run_main(responder, pages=None):
+    """Faehrt die ECHTE main() gegen eine injizierte Aussenwelt."""
+    import contextlib
+    import io
+
+    global get, target_pages
+    orig_get, orig_pages = get, target_pages
+    orig_sleep = time.sleep
+    get = responder
+    if pages is not None:
+        def target_pages(root):
+            return list(pages)
+    time.sleep = lambda s: None
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            rc = main()
+    finally:
+        get, target_pages = orig_get, orig_pages
+        time.sleep = orig_sleep
+    return rc, buf.getvalue()
+
+
+def _responder(mapping, default=(200, GOOD_BODY)):
+    def r(url, timeout=25):
+        for frag, resp in mapping.items():
+            if frag in url:
+                return resp
+        return default
+    return r
+
+
+def selftest() -> int:
+    fails: list[str] = []
+    n = [0]
+
+    def check(name, cond, detail=""):
+        n[0] += 1
+        print("  [%2d] %-58s %s %s" % (n[0], name, "OK" if cond else "FAIL", detail))
+        if not cond:
+            fails.append(name)
+
+    def rot(name, rc, out, wort="LIVE_DEFEKT", grund=None):
+        """Rot heisst: erwartetes Ergebniswort UND kein Absturz (Exit-Code-Falle)."""
+        cond = rc == 1 and wort in out and "Traceback" not in out
+        if grund:
+            # grund ist die ZEILE aus der Fehlerliste -- damit prueft der Test die
+            # gestellte Diagnose, nicht bloss das Vorkommen eines Wortes irgendwo.
+            cond = cond and grund in out
+        check(name, cond, "rc=%s traceback=%s" % (rc, "Traceback" in out))
+
+    ALLE = ["index.html", "rtd.html", "blog/a.html", "blog/b.html"]
+
+    print("== verify_ticket13_live --selftest (Fault Injection) ==")
+
+    # --- gruener Referenzfall ---------------------------------------------
+    rc, out = _run_main(_responder({}), pages=ALLE)
+    check("Alles gesund -> LIVE_OK / rc=0",
+          rc == 0 and "LIVE_OK" in out and "Traceback" not in out, "rc=%s" % rc)
+    check("Gruener Lauf meldet Vollzaehligkeit (4+5 Seiten)",
+          "9 Seiten vollzaehlig" in out, "")
+
+    # --- Frage 1 des Tickets: wird es rot bei 404? -------------------------
+    rc, out = _run_main(_responder({"blog/b.html": (404, "")}), pages=ALLE)
+    rot("404 auf einer Zielseite wird rot", rc, out,
+        grund="! blog/b.html: HTTP 404")
+
+    rc, out = _run_main(_responder({"thanks.html": (404, "")}), pages=ALLE)
+    rot("404 auf dem Kaufpfad wird rot", rc, out,
+        grund="! thanks.html: HTTP 404")
+
+    rc, out = _run_main(_responder({"hochzeitsrede": (404, "")}), pages=ALLE)
+    rot("Regressionsanker wieder 404 wird rot", rc, out,
+        grund="! blog/hochzeitsrede-schreiben-lassen.html: HTTP 404")
+
+    # --- Frage 2: fehlender Datenschutz-Link im LIVE-Body ------------------
+    ohne_ds = GOOD_BODY.replace("datenschutz.html", "x.html")
+    rc, out = _run_main(_responder({"blog/a.html": (200, ohne_ds)}), pages=ALLE)
+    rot("Datenschutz-Link fehlt im Body wird rot", rc, out,
+        grund="! blog/a.html: Rechtslink fehlt: datenschutz.html")
+
+    ohne_imp = GOOD_BODY.replace("impressum.html", "x.html")
+    rc, out = _run_main(_responder({"index.html": (200, ohne_imp)}), pages=ALLE)
+    rot("Impressum-Link fehlt im Body wird rot", rc, out,
+        grund="! index.html: Rechtslink fehlt: impressum.html")
+
+    ohne_agb = GOOD_BODY.replace("agb.html", "x.html")
+    rc, out = _run_main(_responder({"blog/b.html": (200, ohne_agb)}), pages=ALLE)
+    rot("AGB-Link fehlt im Body wird rot", rc, out,
+        grund="! blog/b.html: Rechtslink fehlt: agb.html")
+
+    # --- Frage 3: Fette-404-Falle -----------------------------------------
+    rc, out = _run_main(_responder({"blog/a.html": (404, FAT404_BODY)}), pages=ALLE)
+    rot("Fettes 404 (9379 B) wird rot, nicht durchgewunken", rc, out,
+        grund="! blog/a.html: HTTP 404")
+
+    rc, out = _run_main(_responder({"blog/a.html": (200, FAT404_BODY)}), pages=ALLE)
+    rot("Soft-404 (HTTP 200 + Fehlerseiten-Text) wird rot", rc, out,
+        grund="! blog/a.html: Soft-404")
+
+    check("Groesse allein macht nicht gesund (fettes 404 > echte Seite)",
+          len(FAT404_BODY) > len(GOOD_BODY), "%d > %d" % (len(FAT404_BODY), len(GOOD_BODY)))
+
+    # --- Frage 4: Baum != Auslieferung ------------------------------------
+    # Der Baum ist in Ordnung (target_pages liefert Seiten), die Auslieferung nicht.
+    rc, out = _run_main(_responder({"blog/": (200, ohne_ds)}), pages=ALLE)
+    rot("Baum gruen, Auslieferung ohne Link -> rot (Branch-Falle)", rc, out,
+        grund="! blog/a.html: Rechtslink fehlt: datenschutz.html")
+
+    # --- Leere-Schleife-Falle (Ticket 16) ---------------------------------
+    rc, out = _run_main(_responder({}), pages=[])
+    check("Leere Zielmenge ist NICHT gruen (rc=2 LIVE_UNGEPRUEFT)",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_OK" not in out
+          and "Traceback" not in out, "rc=%s" % rc)
+
+    # --- Netzfehler: nicht messbar != gesund und != Defekt -----------------
+    rc, out = _run_main(_responder({"blog/b.html": (-1, "timed out")}), pages=ALLE)
+    check("Netzfehler -> LIVE_UNGEPRUEFT (rc=2), kein Gruen",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_OK" not in out
+          and "Traceback" not in out, "rc=%s" % rc)
+
+    # Ein echter Defekt schlaegt Unmessbarkeit -- sonst versteckt ein Timeout einen Defekt.
+    rc, out = _run_main(_responder({"blog/b.html": (-1, "timed out"),
+                                    "blog/a.html": (404, "")}), pages=ALLE)
+    rot("Defekt + Netzfehler -> Defekt gewinnt (rc=1)", rc, out,
+        grund="! blog/a.html: HTTP 404")
+
+    # --- Vollzaehligkeit: neue Seite wird automatisch mitgeprueft ----------
+    rc, out = _run_main(_responder({"blog/neu.html": (200, ohne_ds)}),
+                        pages=ALLE + ["blog/neu.html"])
+    rot("Neue Traffic-Seite ohne Link wird mitgeprueft (keine Stichprobe)", rc, out,
+        grund="! blog/neu.html: Rechtslink fehlt: datenschutz.html")
+
+    # --- Zielmenge wirklich aus dem Baum abgeleitet ------------------------
+    echte = target_pages(repo_root())
+    check("target_pages leitet Zielmenge aus dem Baum ab (>7 Seiten)",
+          len(echte) > 7, "%d Seiten" % len(echte))
+    check("Rechtsseiten sind ausgenommen (nicht sich selbst pruefen)",
+          not any(p in REQUIRED for p in echte), "")
+
+    print()
+    print("%d/%d bestanden -> %s"
+          % (n[0] - len(fails), n[0], "SELFTEST_OK" if not fails else "SELFTEST_ROT"))
+    for f in fails:
+        print("  ! " + f)
+    return 1 if fails else 0
+
+
 if __name__ == "__main__":
+    if "--selftest" in sys.argv[1:]:
+        raise SystemExit(selftest())
     raise SystemExit(main())
