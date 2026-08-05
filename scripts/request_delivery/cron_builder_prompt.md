@@ -333,3 +333,53 @@ Aktionismus ausdruecklich NICHT erwuenscht.
 
 
 
+STAND 2026-08-05 (Tick 2, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, jetzt zusaetzlich
+"vollzaehlig=ja". legal_link_audit LEGAL_LINKS_OK (40 Seiten). verify_rtd_chain
+KETTE_OK (399/799/1499 cent). rtd/thanks/index/agb/datenschutz/impressum/
+sitemap HTTP 200.
+
+TICKET 15 NEU + GESCHLOSSEN — der Besucher-Zaehler war selbst ungeprueft.
+>>> CLAIM AUS TICKET 14 GEGENBEWIESEN <<<
+Ticket 14 sagte, sitemap_healthcheck.py sei das EINZIGE Verifikationsskript ohne
+--selftest. Vollzaehlig ueber alle 38 Skripte gegrept: es fehlten AUCH
+funnel_check.py, verify_rtd_chain.py und verify_ticket13_live.py. Dieselbe
+Teil-Vollstaendigkeits-Falle wie Ticket 13, diesmal auf die eigene Werkzeugkiste.
+Brisanz: funnel_check.py hat in seiner ganzen Lebenszeit NUR die Zahl 0
+ausgegeben. Niemand hatte gezeigt, dass es hochzaehlen KANN — bei verdrehtem
+classify() saehe die Ausgabe identisch aus und der erste echte Besucher (=
+Signal fuer den ersten Sale) waere unbemerkt durchgerutscht.
+ECHTER DEFEKT gefunden (nicht nur fehlender Test): main() las
+`checkout/sessions?limit=100` und ignorierte Stripes `has_more` (MEASURED: Feld
+existiert, aktuell False). Ab Session 101 haette der einzige Traffic-Zaehler
+still zu wenig gemeldet — also genau dann scharf geworden, wenn endlich Traffic
+da ist. Dritter Befund: payment_status=None haette die Detailausgabe mit
+TypeError abgeraeumt.
+FIX: Pagination via starting_after (fetch_all_sessions), ehrliche Untergrenze
+statt falscher Zahl (vollzaehlig=NEIN + rc=3, wenn has_more nicht abreisst),
+str() um payment_status, und --selftest mit Fault Injection durch die ECHTE
+main() (kein Reimplementat, nur die Stripe-Antwort wird injiziert).
+MEASURED: 13/13 SELFTEST_OK. Rot-Probe _mutation_probe_t15.py mutiert den
+PRODUKTIVCODE: 3/3 Mutanten rot, kein Traceback, Datei sha256-genau
+wiederhergestellt, rc-Wechsel 0->1->0 -> MUTATION_PROBE_OK. Mutant 1 ist der
+heute real gefundene Pagination-Defekt: der neue Test haette ihn gefangen.
+=> BESUCHER=0 ist ab jetzt eine GEMESSENE Null, keine unbelegte.
+Ehrliche Grenze: die Ticket-9-Praemisse "echter Browser => Session mit
+payment_link" beruht weiter auf EINER Stichprobe -> der Zaehler ist eine
+UNTERGRENZE der Besucher, kein Vollzaehler.
+
+TICKET 16 NEU (OFFEN, AFK, unblockiert) = naechster Tick:
+verify_rtd_chain.py hat KEINEN --selftest, spricht aber mit "KETTE_OK" den
+Geldpfad gesund. Dass es einen Defekt BEMERKT, ist unbewiesen. Vorgehen steht in
+tickets/16-verify-rtd-chain-selftest.md (Rot-Faelle: Link inaktiv, livemode
+False, Preis 0, Pflichtfeld weg, falscher Redirect, Hash-Bruch, 0 Links; alles
+gegen injizierte Antworten — die 3 LIVE-Links NICHT anfassen).
+
+MERKREGEL (Ungeprueft-Pruefer-Falle): Ein Zaehler, der immer nur denselben Wert
+ausgibt, ist nie beim Zaehlen beobachtet worden. Und Vollstaendigkeits-Claims
+ueber die eigene Werkzeugkiste per Grep ueber ALLE Skripte pruefen, nie aus der
+Erinnerung.
+
+Naechster Tick: Pflichtteil (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit) UND Ticket 16 abarbeiten. Ticket 3 = USER-KYC, Ticket 5 = ab
+2026-08-07, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
