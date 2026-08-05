@@ -383,3 +383,54 @@ Erinnerung.
 Naechster Tick: Pflichtteil (auto_fulfill + funnel_check + Live-Check +
 legal_link_audit) UND Ticket 16 abarbeiten. Ticket 3 = USER-KYC, Ticket 5 = ab
 2026-08-07, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL.
+
+STAND 2026-08-05 (Tick 3, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja.
+legal_link_audit LEGAL_LINKS_OK (40 Seiten, 0 unvollstaendig). rtd/thanks/index/
+agb/datenschutz/impressum/sitemap HTTP 200.
+
+TICKET 16 ERLEDIGT + GESCHLOSSEN — der Torwaechter des Geldpfads war blind.
+>>> ZWEI ECHTE DEFEKTE, nicht nur ein fehlender Test <<<
+A) LEERE-SCHLEIFE-FALLE: verify_rtd_chain.py startete mit ok=True und setzte ok
+   NUR innerhalb der Link-Schleife. Bei 0 gefundenen buy.stripe.com-Links lief
+   sie null Mal -> "KETTE_OK" fuer eine Kaufseite OHNE Kaufmoeglichkeit.
+   AM ALT-STAND AUSGEFUEHRT (nicht argumentiert): _mutation_probe_t16.py holt
+   ad891dc per `git show`, faehrt dessen echte main() gegen eine linklose
+   rtd.html -> rc=0, "KETTE_OK -> war BLIND".
+B) BEHAUPTUNGS-ETAPPE: Schritt [3] "Hash-Paritaet" hat thanks.html NIE geoeffnet.
+   Es druckte nur den Satz "-> Paritaet gegeben, da beide SHA-256/[:16] nutzen".
+   Ein slice(0,15) oder SHA-1 im JS haette den ZAHLENDEN Kunden auf eine 404
+   gepollt (auto_fulfill schreibt <python-hash>.html, Browser fragt <js-hash>),
+   waehrend der Pruefer gruen bleibt.
+FIX: [3] extrahiert die 3 JS-Zeilen aus der ausgelieferten thanks.html und
+FUEHRT SIE IN NODE AUS (v24.18.0 vorhanden) statt den Algorithmus nachzubauen;
+0 Links und "Link-Anzahl != Preis-Optionen" sind jetzt rot (Soll-Zahl aus der
+Datei selbst: eine <option value=> pro Link); Pagination bei payment_links
+(Ticket-15-Klasse); NEUES drittes Ergebniswort KETTE_UNGEPRUEFT (rc=2) fuer
+"nicht messbar" (z.B. node fehlt) — weder gruen noch Defekt-Claim.
+MEASURED: --selftest 16/16 SELFTEST_OK (alle Rot-Faelle durch die ECHTE main(),
+gegen 'Traceback' gefiltert), _mutation_probe_t16.py MUTATION_PROBE_OK
+(Alt-Stand-Probe + 4/4 Mutanten rot, sha256-genaue Wiederherstellung,
+rc-Wechsel 0->1->0). Echter LIVE-Lauf danach: KETTE_OK, Hash-Paritaet erstmals
+GEMESSEN (js und python -> dl/rtd/c4058a6e2eaf7e0c.html). Die 3 LIVE-Links
+wurden nur gelesen, nie veraendert. Lint (uvx ruff, nur eigener Code): 9 -> 4
+Findings, Rest Alt-Bestand/bewusst.
+
+MERKREGELN (neu):
+- Leere Eingabe MUSS rot sein. Jeder Pruefer mit ok=True + Schleife ist
+  verdaechtig; Soll-Menge wenn moeglich aus der Quelle selbst ableiten.
+- Pruef-Output nach Saetzen absuchen, die eine BEGRUENDUNG statt eines MESSWERTS
+  enthalten ("da", "entspricht", "ist damit") — das sind Behauptungs-Etappen.
+- "nicht messbar" braucht ein eigenes Ergebniswort, sonst wird es als gruen
+  oder als Defekt fehlgelesen.
+
+TICKET 17 NEU (OFFEN, AFK, unblockiert, NIEDRIGE Prioritaet):
+verify_ticket13_live.py ist das LETZTE Verifikationsskript ohne --selftest
+(Rechtslinks, nicht Geldpfad). Vorgehen in tickets/17-verify-ticket13-live-
+selftest.md. Nur nehmen, wenn nichts mit hoeherem Informationswert offen ist.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit). Ticket 3 = USER-KYC, Ticket 5 = ab 2026-08-07 (Zeitsperre
+faellt uebermorgen), Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL, Ticket 17 =
+optional. Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus
+ausdruecklich NICHT erwuenscht.
