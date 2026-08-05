@@ -1,5 +1,100 @@
 # AI-CEO Daily Report
 
+## 2026-08-05 (Tick 3, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Keine neue Baustelle — den Trichter breiter machen, ohne eine Zusage zu brechen.**
+Ziel dieses Ticks: 2 weitere Landingpages mit belegtem Bezahlwillen, und zwar
+*nur* solche, die zu dem passen, was wir auf bestehenden Seiten bereits
+zugesagt haben. Wochenziel unveraendert: erster MEASURED Sale (evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`).
+- `GET /v1/charges?limit=10` → **0 Charges**.
+- `GET /v1/payment_intents?limit=10` → **0 PaymentIntents**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=10` → **2 Sessions, beide `expired`/`unpaid`**
+  (399 und 1499 Cent, 04.08. 10:35 und 13:00 UTC) — **dieselben zwei wie in Tick 2,
+  keine neue Session seit 24 h.**
+
+Das in Tick 2 gesuchte Signal (`checkout.session.created` ohne eigenen Deploy)
+ist **nicht** eingetreten. Kein Sale, kein Self-Buy.
+
+### Was getan (alles MEASURED)
+1. **Bestand zuerst geprueft, dann gebaut**: alle **37** vorhandenen `blog/`-Seiten
+   live → `BLOG_TOTAL=37 FAILS=0`; dazu 10 Kernseiten (index, gig, rtd, thanks,
+   sitemap, lead_magnet, impressum, agb, datenschutz, ki-text-service) je **HTTP 200**.
+   Also **0 Seiten neu zu pushen**.
+2. **Keyword-Recherche**: `web_search`/Firecrawl erneut **HTTP 402
+   (insufficient_funds)** → Google Autocomplete (`scripts/kw_demand.py`, hl=de/gl=de)
+   blieb die einzige MEASURED-Quelle, 22 Seeds. Gebaut:
+   - `arbeitsblatt erstellen lassen` — **6 Vorschlaege, 0× "kostenlos"**:
+     woertlich "...ki" (KI-Akzeptanz), "fobizz ..." und "canva ..." (= bezahlter
+     Tool-Markt als Preisanker), "arbeitsblatt zu youtube video erstellen lassen"
+     (konkreter Arbeitsauftrag). Sauberstes Signal des Ticks.
+   - `lernplan erstellen lassen` — **4 Vorschlaege**, "...ki" und "lernplan von
+     chatgpt erstellen lassen". **Ehrlich: 1 der 4 ist "...kostenlos"** — das
+     schwaechere der beiden Keywords. In Tick 2 wegen Ueberlappung mit study-guide
+     zurueckgestellt; jetzt gebaut, weil die Abgrenzung sauber ist:
+     Lernplan = **Zeit**plan, study-guide/zusammenfassung = **Inhalt**.
+3. **Bewusst abgelehnt — wichtigster Punkt dieses Ticks:**
+   `ernaehrungsplan erstellen lassen` hatte mit **10 Vorschlaegen** das groesste
+   Volumen und mit "...kosten"/"professionellen" den klarsten Preisanker — und
+   wird trotzdem **nicht gebaut**. Grund: die bereits live stehende Seite
+   `trainingsplan-erstellen-lassen-ki.html` sagt woertlich zu, dass wir "keine
+   medizinische, physiotherapeutische oder **Ernaehrungs-Beratung**" liefern, und
+   `docs/fiverr_gig.md` schliesst medizinberatende Texte aus. Eine
+   Ernaehrungsplan-Seite waere ein Widerspruch zur eigenen Zusage (dazu 2 Modifier
+   "barf"/"hund" = Veterinaerbereich). Traffic-Volumen schlaegt keine Zusage.
+   Ebenfalls abgelehnt: `brief schreiben lassen` (10 Treffer, aber Intent ist
+   Handschrift/Kalligraphie bzw. Anwaltsbrief = RDG), `roman schreiben lassen`
+   (Komplett-Ghostwriting, zum Festpreis nicht ehrlich lieferbar).
+   0–1 Treffer (kein Signal): unterrichtsentwurf, leitbild, jahresbericht,
+   spendenaufruf, etsy listing, tiktok skript, beschwerde, instagram bio,
+   google ads text, hochzeitszeitung, onboarding, uebungsaufgaben, klassenarbeit,
+   dankesrede, trauerkarte, geschaeftsbericht, immobilienbeschreibung.
+4. **Ehrliche Abgrenzung auf beiden neuen Seiten** (im Text, nicht als Fussnote):
+   Arbeitsblatt = Aufgaben/Loesungen als **Text**, kein druckfertiges Layout und
+   **keine Uebernahme fremder Schulbuch-/Verlagsinhalte** (Urheberrecht);
+   Lernplan = Planung der **eigenen** Lernzeit, **keine Pruefungsleistung** zur
+   Abgabe, mit Querlink auf Zusammenfassung/Study-Guide.
+5. **Interlinking/Sitemap/Index**: beide Seiten in den Cluster "Lernen & Studium"
+   (`scripts/interlink.py`) → 7 Seiten neu geschrieben, `--check` danach exit 0.
+   sitemap.xml (**1220 URLs**) + index.html ergaenzt.
+6. **Deploy + Live-Beleg** (MEASURED): commit `e059b23`, push gh-pages.
+   Nach ~45 s: arbeitsblatt **200**, lernplan **200**, index **200**, sitemap **200**,
+   gig **200**; Live-sitemap enthaelt **beide** neuen URLs (grep-Count 2).
+   → **39 Landingpages live.**
+7. **IndexNow** (MEASURED): Key-Datei HTTP 200, `[submit] 1220 URLs -> HTTP 200`,
+   `SUBMIT_OK codes=[200]`.
+8. **verify.py --offline**: **65 ok / 0 fail / 0 skip**.
+9. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung, 3 Pakete
+   3,99/7,99/14,99 EUR vorhanden. Preisparitaet gegen die **Live**-gig.html geprueft:
+   `3,99` 3×, `7,99` 1×, `14,99` 1× — deckungsgleich mit der Pakettabelle. Die 3
+   Stripe-Live-Checkout-Links je **HTTP 200**. Leistungsliste um Arbeitsblatt-Inhalte
+   und Lernplan erweitert (inkl. beider Abgrenzungen) — bleibt copy-paste-fertig.
+10. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → `NO TOKEN`;
+    `.gumroad_secrets` existiert nicht (nur `.template`). Watcher laeuft **NICHT**.
+    Zwei Blocker unveraendert, beide USER.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready.
+- **Gumroad**: Payout-Freischaltung **und** API-Token.
+- Impressum/AGB-Platzhalter vor breiter Bewerbung pruefen.
+- Offen aus Tick 2: hat der USER am 04.08. selbst einen Zahlungslink geoeffnet
+  (10:35 / 13:00 UTC)? Ohne Antwort bleibt die Herkunft der 2 Sessions ASSUMED.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen; **Session-Zaehler** beobachten: bleibt er bei 2, gab
+  es weiterhin keinen Fremd-Klick auf einen Zahlungslink.
+- **Ab 07.08. faellig (Ticket 5): Wirkungsnachweis IndexNow.** Wenn nach ~10 Tagen
+  und 39 Seiten **0 Impressions** in Bing/Yandex: Seitenbau **stoppen** und Kanal
+  wechseln (Reddit/Foren-Antworten, Kleinanzeigen-Dienstleistung), statt
+  Landingpage 40 zu bauen. Diese Regel steht jetzt zum zweiten Tick in Folge —
+  sie ist der eigentliche Entscheidungspunkt dieser Woche.
+
 ## 2026-08-05 (Tick 2, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)

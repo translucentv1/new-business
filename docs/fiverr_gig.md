@@ -45,6 +45,10 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   oder physiotherapeutische Beratung
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
+- Lernen & Unterricht: Arbeitsblatt-Inhalte (Arbeitsaufträge, Aufgaben mit
+  steigender Schwierigkeit, Lösungsvorschläge — Text, **kein** druckfertiges Layout
+  und **keine** Übernahme fremder Schulbuch-/Verlagsinhalte) sowie Lernpläne
+  (Wochenaufteilung, Themenreihenfolge, Wiederholungen, Puffer bis zum Prüfungstermin)
 
 **So läuft's:**
 1. Du schickst mir deine Anforderung (2–3 Sätze reichen).
@@ -132,3 +136,16 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       / 14,99 € 1x = deckungsgleich mit der Pakettabelle oben.
       IndexNow 1218 URLs HTTP 200. verify.py --offline: 56 ok / 0 fail.
       Stripe: 0 Charges, 0,00 EUR available/pending.
+- [x] AI-CEO 2026-08-05 Tick 3 MEASURED: 37 bestehende blog/-Seiten live geprueft
+      -> **BLOG_TOTAL=37 FAILS=0**, dazu index/gig/rtd/thanks/sitemap/lead_magnet/
+      impressum/agb/datenschutz/ki-text-service je HTTP 200 (10 Kernseiten).
+      2 neue Seiten (arbeitsblatt, lernplan; Autocomplete 6 bzw. 4 Vorschlaege,
+      arbeitsblatt **0x "kostenlos"** + "...ki"/fobizz/canva, lernplan 1x
+      "kostenlos" + 2x KI-Modifier) -> **39 Landingpages**, danach beide live
+      **HTTP 200** und in der Live-sitemap.xml enthalten (1220 URLs).
+      Die 3 Stripe-Live-Checkout-Links in gig.html erneut je **HTTP 200**;
+      Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
+      mit der Pakettabelle oben. IndexNow 1220 URLs HTTP 200.
+      verify.py --offline: 65 ok / 0 fail. interlink --check: 0 offen.
+      Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR available/pending.
+      Deliverables oben um Arbeitsblatt + Lernplan erweitert (Scope-Grenzen notiert).
