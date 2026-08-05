@@ -116,3 +116,39 @@ bleibt die Retention der Stripe-Session-Liste.
 `verify_rtd_chain.py` und `verify_ticket13_live.py` haben weiterhin keinen
 `--selftest`. `verify_rtd_chain.py` ist der Torwaechter des Geldpfads und
 damit der naechste Kandidat derselben Klasse.
+
+## Nachtrag 2026-08-05 — unabhaengige Verifikation + Lint
+
+Die Belege oben stammen aus Tests, die im selben Zug geschrieben wurden — ein
+Skript, das sein eigenes Urteil faellt. Deshalb nachgezogen:
+
+**1. Unabhaengiger Ad-hoc-Verifier** (Wegwerf-Skript ausserhalb des Repos,
+ruft `fetch_all_sessions`/`classify`/`main` DIREKT auf statt den `--selftest`
+erneut zu starten): **22/22 ADHOC_OK**. Deckt ab, was der Selftest nicht
+pruefte: drei Seiten Pagination (201 Sessions, keine doppelt), leere Seite
+trotz `has_more` bricht ab (kein Endlosblaettern), API-Fehler wird nicht als 0
+getarnt, `classify`-Wahrheitstabelle inkl. Randfall `payment_link=""`.
+Der Verifier misst Pfad + sha256 des geladenen Moduls mit — getestet wurde
+nachweislich die Datei im Arbeitsbaum, kein `.pyc` und keine Kopie.
+
+**2. Linter beschafft statt Blocker gemeldet.** Erst hiess es "kein Linter
+installiert"; `uvx ruff` loest das ohne Installation. Befund: **13 Findings**
+in den beiden neuen Dateien -> nach Bereinigung **4**, und die 4 sind
+Alt-Bestand bzw. bewusst (`# noqa: E402` am originalen `import app`, blindes
+`except` und `utcfromtimestamp` in den urspruenglichen `api()`/`ts()`, `re.M`
+passend zu `verify.py`s `re.S`). Alles aus eigener Feder ist weg: Lambdas
+durch `def` ersetzt, ungenutzte Entpackungen, `%`-Format, fehlendes
+`check=False`, Importreihenfolge.
+WICHTIG: Das Repo hat **keine** Linter-Konfiguration und `scripts/` wirft
+**162** ruff-Default-Findings — ruff-Default ist also NICHT der Hausstandard.
+Deshalb wurde nur eigener Code angefasst, kein repo-weites Aufraeumen.
+
+**3. Verhalten nach dem Cleanup unveraendert:** `--selftest` 13/13,
+`_mutation_probe_t15.py` MUTATION_PROBE_OK (3/3 Mutanten rot), Live-Lauf
+`vollzaehlig=ja` / BESUCHER=0 / rc=0.
+
+**Ehrliche Einordnung:** Das ist Ad-hoc-Verifikation, **keine gruene Suite** —
+das Repo hat keinen kanonischen Testbefehl. Und alle Pagination-Tests laufen
+gegen injizierte Antworten; dass `fetch_all_sessions` gegen die echte API ueber
+Seitengrenzen blaettert, ist bei 2 Live-Sessions nicht beweisbar und bleibt
+ASSUMED, bis real mehr als 100 Sessions existieren.

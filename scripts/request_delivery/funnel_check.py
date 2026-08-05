@@ -143,7 +143,7 @@ def main():
 
     for kind in ("BESUCHER", "API-PROBE", "EIGENTEST"):
         for s in buckets[kind]:
-            print(f"  [{kind}] {ts(s.get('created'))} {str(s.get('payment_status')):<8} "
+            print(f"  [{kind}] {ts(s.get('created'))} {s.get('payment_status')!s:<8} "
                   f"{s.get('amount_total')} {s.get('currency')} "
                   f"link={s.get('payment_link')} id={s['id'][:28]}...")
 
@@ -195,8 +195,10 @@ def _run_main(pages, own=None, argv=None, error=False):
             return True, pages[i]
         return True, {"data": [], "has_more": False}
 
-    api = fake_api
-    own_ids = lambda: (own or {})  # noqa: E731
+    def fake_own_ids():
+        return own or {}
+
+    api, own_ids = fake_api, fake_own_ids
     sys.argv = ["funnel_check.py"] + (argv or [])
     buf = io.StringIO()
     try:
@@ -271,7 +273,7 @@ def selftest():
 
     # 8 — Pagination: 2 Seiten muessen BEIDE gezaehlt werden
     rc, out, calls = _run_main([
-        {"data": [_sess("cs_live_a%d" % i, link="plink_A") for i in range(100)],
+        {"data": [_sess(f"cs_live_a{i}", link="plink_A") for i in range(100)],
          "has_more": True},
         {"data": [_sess("cs_live_b1", link="plink_A")], "has_more": False},
     ])
@@ -284,7 +286,7 @@ def selftest():
           str(calls["paths"][-1])[:80])
 
     # 9 — Truncation-Guard: has_more reisst nicht ab -> UNTERGRENZE + rc=3
-    rc, out, _ = _run_main([{"data": [_sess("cs_live_t%d" % i, link="plink_A")],
+    rc, out, _ = _run_main([{"data": [_sess(f"cs_live_t{i}", link="plink_A")],
                              "has_more": True} for i in range(MAX_PAGES + 2)])
     check("Dauer-has_more -> vollzaehlig NEIN + rc=3",
           rc == 3 and "NEIN" in out and "UNTERGRENZE" in out,
@@ -300,10 +302,14 @@ def selftest():
     #      Exit-Code-Falle: ein Absturz zaehlt NICHT als Erkennung.
     global classify
     orig_classify = classify
+
+    def classify_kaputt(s, own):
+        return "API-PROBE"
+
     try:
-        classify = lambda s, own: "API-PROBE"  # noqa: E731
-        rc_m, out_m, _ = _run_main([{"data": [_sess("cs_live_v1", link="plink_ABC")],
-                                     "has_more": False}])
+        classify = classify_kaputt
+        _, out_m, _ = _run_main([{"data": [_sess("cs_live_v1", link="plink_ABC")],
+                                  "has_more": False}])
     finally:
         classify = orig_classify
     mutant_gefangen = (_num(out_m, "BESUCHER") == 0

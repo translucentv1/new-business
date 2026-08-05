@@ -8,10 +8,10 @@ Mutiert den PRODUKTIVCODE, laesst den echten --selftest laufen und verlangt:
 Danach wird die Datei bitgenau wiederhergestellt (sha256-Vergleich).
 """
 import hashlib
+import os
 import shutil
 import subprocess
 import sys
-import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TARGET = os.path.join(HERE, "funnel_check.py")
@@ -41,7 +41,7 @@ def sha(path):
 
 def run_selftest():
     p = subprocess.run([sys.executable, TARGET, "--selftest"],
-                       capture_output=True, text=True, timeout=180)
+                       capture_output=True, text=True, timeout=180, check=False)
     return p.returncode, p.stdout + p.stderr
 
 
@@ -49,7 +49,7 @@ def main():
     original = sha(TARGET)
     shutil.copy2(TARGET, BACKUP)
 
-    rc0, out0 = run_selftest()
+    rc0, _ = run_selftest()
     print(f"[BASIS ] unmutiert: rc={rc0} -> {'GRUEN' if rc0 == 0 else 'ROT'}")
     if rc0 != 0:
         print("ABBRUCH: Basis ist nicht gruen.")
