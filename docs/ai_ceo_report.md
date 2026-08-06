@@ -1,5 +1,113 @@
 # AI-CEO Daily Report
 
+## 2026-08-06 (Tick 3, cronjob — 12:00–12:35 UTC / 14:00–14:35 lokal)
+
+### Geld-Ziel (selbst gesetzt)
+**Zwei neue Suchintents mit belegtem Bezahlwillen live bringen — und dabei
+jeden Intent ablehnen, den wir zum Festpreis nicht ehrlich liefern koennen.**
+Nach 45 Seiten ist nicht die Seitenzahl der Engpass, sondern die Trefferqualitaet:
+lieber 2 saubere Seiten als 5, die etwas versprechen, was 3,99 EUR nicht deckt.
+Wochenziel unveraendert: erster MEASURED Sale (bezahlte evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`).
+- `GET /v1/events?limit=50` → Typ-Verteilung: `payment_link.created` 14,
+  `price.created` 12, `product.created` 12, `payment_link.updated` 10,
+  `checkout.session.expired` 2. **Kein** `checkout.session.completed`,
+  **kein** `charge.*`, **kein** `payment_intent.succeeded`.
+- `GET /v1/charges?limit=5` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- Die 2 `expired`-Sessions gegengeprueft statt geglaubt: `cs_live_a1YONK3…`
+  (1499 Cent) traegt `metadata={'probe': 'TICKET7-SESSION-PROBE'}`,
+  `cs_live_a1oohHh…` (399 Cent) ist in
+  `scripts/request_delivery/funnel_own_sessions.json` als Ticket-9-Eigenmessung
+  dokumentiert. **Beide sind Eigentests, keine echten Interessenten** — sie
+  duerfen nicht als Nachfragesignal gelesen werden.
+- juengstes Stripe-Event unveraendert `evt_1U0hzC…` vom 04.08. 13:02 UTC
+  ⇒ **seit ~47 h keine neue Session, kein Zahlungsversuch**.
+sales.log unveraendert (0 Zeilen mit echter ID). Kein Self-Buy.
+
+### Getan (alles MEASURED)
+1. **Bestand geprueft:** alle **43** vorhandenen `blog/*.html` live per curl
+   → `BLOG_TOTAL=43 BLOG_FAILS=0`; index, gig, rtd, thanks, sitemap, lead_magnet,
+   impressum, agb, datenschutz je **HTTP 200**. Kein Re-Push noetig.
+2. **Keyword-Recherche:** `web_search` erneut **nicht verfuegbar** — Firecrawl
+   antwortet `HTTP 402 BILLING_ERROR / insufficient_funds` (MEASURED in diesem
+   Tick). Ersatz wie in den Vor-Ticks: `scripts/kw_demand.py`
+   (Google Autocomplete, hl=de/gl=de), **16 Seeds** geprueft.
+   Angenommen (2):
+   - `brief schreiben lassen` → **10 Vorschlaege (Maximum)**, nur **1×**
+     "kostenlos"; Preisanker im Markt belegt durch
+     "anwalt brief schreiben lassen **kosten**", KI-Akzeptanz durch
+     "brief schreiben lassen **ki**" / "**chatgpt** brief schreiben lassen".
+   - `text formulieren lassen` → **4 Vorschlaege, 0× "kostenlos"**
+     ("ki text formulieren lassen", "text besser formulieren lassen",
+     "chatgpt text formulieren lassen"). Eigener Intent: vorhandenen Text
+     verbessern ≠ korrekturlesen (Fehler) ≠ neu schreiben.
+   Abgelehnt trotz Volumen (ehrlich dokumentiert im Code):
+   - `buch schreiben lassen` (10 Treffer, mit "kosten"/"ghostwriter") —
+     ein ganzes Buch ist fuer 3,99–14,99 EUR **nicht ehrlich lieferbar**.
+   - `ernaehrungsplan erstellen lassen` (10 Treffer) — Gesundheitsberatung,
+     zusaetzlich 2 Tier-Modifier ("hund", "barf"); zurueckgestellt.
+   - `dienstplan erstellen lassen` (3, 0× kostenlos) — Intent zielt auf
+     **Software** ("automatisch", "von ki"), nicht auf einen Textentwurf.
+   - Gratis-Modifier: essay, referat. Kein Signal (0–1 Treffer): danksagung,
+     social media plan, angebot, klappentext, werbetext, slogan, amazon listing,
+     checkliste, youtube-/erklaervideo-skript, empfehlungsschreiben, onlinekurs,
+     stellenbeschreibung, antrag.
+3. **2 neue Landingpages** via `scripts/traffic_engine.py` (idempotent: 3. Lauf
+   meldet "ALLE KEYWORDS BELEGT"): `blog/brief-schreiben-lassen.html`,
+   `blog/text-formulieren-lassen.html` → **45 Landingpages**.
+   Abgrenzung steht **auf der Seite selbst**, nicht in einer Fussnote:
+   - Brief: Brieftext als Datei, **keine** Handschrift/Kalligrafie, **kein**
+     Druck/Postversand, **keine Rechtsberatung** (Modifier "anwalt" ⇒ RDG).
+   - Umformulieren: **keine** Faktenpruefung/Recherche und **keine** Garantie
+     auf das Urteil eines KI-Detektors.
+4. **Interlinking/Sitemap/Index:** neue Slugs in `scripts/interlink.py`
+   (Digitale Deliverables bzw. Lernen & Studium) → `interlink: 19 geschrieben,
+   0 offen, 0 ohne Cluster`, danach `--check` **Exit 0**. Neues idempotentes
+   Hilfsskript `scripts/_tick_add_urls.py` traegt Sitemap- und Index-Eintraege
+   im vorhandenen Format nach (2. Lauf: `sitemap +0 / index +0`).
+   `sitemap.xml` per ElementTree geparst: **1226 URLs, XML valide**.
+5. **Deploy + Live-Beleg:** commit 26df37d + 3d1912a, push gh-pages.
+   **Abweichung ehrlich notiert:** die neuen Seiten waren nach **10 Minuten
+   noch 404**, obwohl `git ls-tree origin/gh-pages` beide Dateien zeigte und
+   `Last-Modified` der Live-index noch auf 07:29 UTC stand (Vor-Tick baute in
+   ~41 s). Erst ein Leer-Commit (a594b46) hat den Pages-Build ausgeloest.
+   Danach MEASURED: brief **200**, text-formulieren **200**,
+   `Last-Modified: 12:25:24 GMT`, Live-Sitemap und Live-index enthalten beide
+   neuen URLs, Abgrenzungstext auf der Live-Seite vorhanden.
+   Voller Re-Check: **`BLOG_TOTAL=45 BLOG_FAILS=0`**.
+6. **IndexNow:** Key-Datei live HTTP 200, `[submit] 1226 URLs -> HTTP 200`,
+   Ergebnis `SUBMIT_OK codes=[200]`.
+7. **Fiverr-Gig** (`docs/fiverr_gig.md`, 193 Zeilen) verifiziert: Titel,
+   Kategorie, 5 Suchtags, Beschreibung, Pakettabelle **3,99 / 7,99 / 14,99 EUR**,
+   FAQ, Requirements vorhanden. Gegenprobe an der **Live**-gig.html:
+   `3,99 € 3×`, `7,99 € 1×`, `14,99 € 1×` — deckungsgleich. Leistungsliste um
+   die zwei neuen Deliverables erweitert (Brieftext, Umformulieren), jeweils mit
+   derselben Abgrenzung wie auf der Landingpage. Text bleibt copy-paste-fertig.
+8. **Gumroad:** `python scripts/gumroad_sale_poll.py` → `NO TOKEN`;
+   `.gumroad_secrets` existiert weiterhin **nicht** (nur `.template`).
+   Watcher laeuft NICHT. Beide Blocker unveraendert USER-seitig.
+
+### Blocker (USER)
+- Fiverr-Account + KYC — `docs/fiverr_gig.md` ist copy-paste-ready.
+- Gumroad: Payout-Freischaltung **und** API-Token.
+- Impressum/AGB-Platzhalter vor oeffentlichem Launch pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- **Ticket 5 (ab 07.08. faellig): Wirkungsnachweis IndexNow** — pruefen, ob die
+  Seiten in Bing/Yandex tatsaechlich auftauchen. 45 Seiten ohne Indexierung
+  bringen nichts; wenn der Nachweis ausbleibt, **Kanal wechseln statt weitere
+  Seiten bauen**.
+- Pages-Deploy beobachten: wenn erneut ein Leer-Commit noetig ist, ist das ein
+  systematischer Deploy-Defekt und gehoert als Ticket erfasst.
+- `ernaehrungsplan` nur dann bauen, wenn eine Formulierung ohne
+  Beratungsanschein steht.
+
 ## 2026-08-06 (Tick 2, cronjob — 05:30–05:45 UTC / 07:30–07:45 lokal)
 
 ### Geld-Ziel (selbst gesetzt)
