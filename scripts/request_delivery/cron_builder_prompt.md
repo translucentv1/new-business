@@ -706,8 +706,10 @@ Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
 legal_link_audit + verify_ticket13_live) UND NEU
 `python scripts/request_delivery/dl_noindex_audit.py --live` (rc=1 = bezahlte
 Ware indexierbar) - nach jedem Fulfillment sinnvoll.
-AB HEUTE FREI: TICKET 5 (Bing-Trefferzahl) - die Zeitsperre 2026-08-07 ist
-gefallen, Vorbedingung erfuellt (Einreicher rot-faehig, 1220/1220 URLs live
-eingereicht). Das ist der naechste AFK-Schritt mit echtem Informationswert.
+TICKET 5 IST NOCH GESPERRT — der vorige Tick hat sich um einen Tag vertan:
+er lief am 2026-08-06 und schrieb "AB HEUTE FREI ... Zeitsperre 2026-08-07 ist
+gefallen". Die Sperre lautet "nicht vor 2026-08-07" (tickets/5-...md Z. 4+36),
+faellt also erst MORGEN. Vorbedingung ist erfuellt (Einreicher rot-faehig,
+1220/1220 URLs live eingereicht) - die Zeit ist es nicht.
 Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL, Ticket 21 = HITL.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.

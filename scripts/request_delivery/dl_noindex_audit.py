@@ -38,11 +38,12 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 SITE = "https://translucentv1.github.io/new-business"
 
 ROBOTS_RE = re.compile(
-    r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)', re.I
+    r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)', re.IGNORECASE
 )
 # Anker fuer den Patch: die charset-Zeile gibt es in BEIDEN im Baum real
 # vorkommenden head-Formen (mehrzeilig eingerueckt und einzeilig).
-CHARSET_RE = re.compile(r'<meta\s+charset=["\']?utf-8["\']?\s*/?>', re.I)
+CHARSET_RE = re.compile(r'<meta\s+charset=["\']?utf-8["\']?\s*/?>',
+                        re.IGNORECASE)
 NOINDEX_TAG = '<meta name="robots" content="noindex,nofollow">'
 
 
