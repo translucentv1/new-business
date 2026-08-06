@@ -307,6 +307,44 @@ KEYWORDS = [
     #   schulungsunterlagen, jubilaeumsrede, abschiedsbrief, gute nacht geschichte,
     #   podcast skript, youtube video skript, werbetext ki, linkedin profil
     #   optimieren, onlinekurs, drehbuch, ratgeber.
+    # 2026-08-06 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google
+    # Autocomplete, hl=de/gl=de). web_search/Firecrawl erneut HTTP 402
+    # (insufficient_funds) -> Autocomplete bleibt die einzige MEASURED-Quelle.
+    # "prompt erstellen lassen" -> 3 Vorschlaege, **0x "kostenlos"**, davon 2 mit
+    # KI-Tool-Modifier ("chatgpt prompt erstellen lassen", "ki prompt erstellen
+    # lassen") => Zielgruppe nutzt KI bereits aktiv und sucht trotzdem nach einem
+    # Dienstleister. Deliverable = reiner Text (Ollama, 0 EUR), keine Dublette:
+    # bisher deckt keine Seite den KI-/Automations-Intent ab.
+    # Abgrenzung EHRLICH: fertiger Prompt inkl. Rollen-/Kontextteil, Variablen und
+    # Beispiel-Output — KEIN Modell-Finetuning, KEIN Account-Zugang, keine Garantie
+    # auf ein bestimmtes Modellergebnis.
+    ("prompt erstellen lassen ki", "Prompt erstellen lassen (ChatGPT & Co.)", "Massgeschneiderter Prompt fuer ChatGPT, Claude oder Gemini: Rolle, Kontext, Variablen und Beispiel-Output – ab 3,99 EUR, in 24h."),
+    # "liebesbrief schreiben lassen" -> 2 Vorschlaege, **0x "kostenlos"**, darunter
+    # "ki liebesbrief schreiben lassen" => KI-Akzeptanz belegt, kein Gratis-Modifier.
+    # Passt in den bestehenden Anlass-Cluster (Hochzeitsrede/Trauerrede/Biografie),
+    # der dieselbe Zahlungsbereitschaft bedient. Deliverable = reiner Text aus den
+    # Stichpunkten des Kaeufers. Abgrenzung EHRLICH: persoenlicher Brieftext,
+    # KEIN Versand, keine Handschrift/Kalligrafie, kein Layout.
+    ("liebesbrief schreiben lassen", "Liebesbrief schreiben lassen", "Persoenlicher Brief aus deinen Stichpunkten: eigener Ton, echte Details, kein Textbaustein-Kitsch – ab 3,99 EUR, in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-06 Tick 2):
+    # - "facharbeit schreiben lassen" (8 = groesstes Volumen des Ticks, mit
+    #   "...kosten"/"...guenstig" = klarer Bezahlwille) und "praktikumsbericht
+    #   schreiben lassen" (2, "...ki"): beides Arbeiten ZUR ABGABE. Der Fiverr-Gig
+    #   schliesst akademische Abgaben ausdruecklich aus -> eine Landingpage, die das
+    #   bewirbt, waere ein Versprechen, das wir nicht einloesen duerfen.
+    # - "text uebersetzen lassen" (10) und "gedicht schreiben lassen" (7): grosses
+    #   Volumen, aber Gratis-Intent. Bei uebersetzen dominieren google/kostenlos/
+    #   foto/pdf (= Tool-Suche), bei gedicht sind 4 von 7 Vorschlaegen "kostenlos".
+    # - "handbuch erstellen lassen" (2): Top-Modifier "qm handbuch" = ISO-9001-
+    #   Zertifizierungsdokument, zum Festpreis 3,99-14,99 EUR nicht ehrlich lieferbar.
+    # - "gpt erstellen lassen" (10): Vorschlaege sind bild/logo/video/grafik/portrait
+    #   = Bild-/Videogenerierung, die wir nicht liefern (gleiche Linie wie portfolio).
+    # - 0-1 Treffer (kein Signal): stellenanzeige, angebot schreiben, werbetexte,
+    #   verkaufstexte, drehbuch, danksagung, einladungstext, amazon listing, etsy
+    #   beschreibung, elevator pitch, konzept, checkliste, social media plan,
+    #   laudatio, abschiedsrede, taufrede, landingpage text, firmenprofil,
+    #   blogbeitrag, geburtstagsrede, slogan, steckbrief, inhaltsangabe,
+    #   ueber-mich-text, reklamation, chatbot, excel formel, makro, vba, n8n.
 ]
 
 def slug(kw):
