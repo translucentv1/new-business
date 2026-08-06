@@ -637,3 +637,77 @@ gegen die LIVE-Auslieferung eingereicht). Ticket 3 = USER-KYC, Ticket 8 =
 2 USER-Blocker, Ticket 10 = HITL. Kein unblockiertes AFK-Ticket mit
 Informationswert mehr offen -> bis zum 07.08.: "warte, beobachte Sales".
 Aktionismus ausdruecklich NICHT erwuenscht.
+
+STAND 2026-08-06 (Tick, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK (46 Seiten, 0 unvollstaendig).
+verify_ticket13_live LIVE_OK (51 Seiten). verify_rtd_chain KETTE_OK (Hash-Paritaet
+real gemessen). verify.py VERIFY_OK (68 ok, 0 fail). rtd/thanks/index/agb/
+datenschutz/impressum/sitemap HTTP 200.
+
+Der Tick startete mit UNCOMMITTETER Arbeit aus dem Vortick (verify_publish_leg.py
+modifiziert + _mutation_probe_t20.py + _probe_indexability.py untracked). Nach
+Merkregel neu AUSGEFUEHRT statt uebernommen - sie hat gehalten.
+
+TICKET 20 NEU + GESCHLOSSEN (Commit c931e44, 0 unpushed, im origin/gh-pages-Tree).
+>>> ERSTMALS KEIN PRUEFER, SONDERN DIE WARE SELBST WAR DEFEKT <<<
+A) DER SCHUTZ LAG AM FALSCHEN ORT (Branch-Fallen-Klasse, 2. Fall):
+   https://translucentv1.github.io/robots.txt              -> HTTP 404
+   https://translucentv1.github.io/new-business/robots.txt -> HTTP 200
+                                                   (mit "Disallow: /dl/")
+   Ein Crawler liest robots.txt NUR am Origin. Primaerquelle frisch abgerufen
+   (rfc-editor.org HTTP 200), NICHT aus dem Gedaechtnis: RFC 9309 §2.3 "MUST be
+   accessible in a file named '/robots.txt' ... in the top-level path of the
+   service"; §2.3.1.3: 4xx = "Unavailable" -> "the crawler MAY access any
+   resources". => ADR-0013 war seit Bestehen wirkungslos.
+B) DAMIT IST meta robots DER EINZIGE SCHUTZ - UND ER FEHLTE FAST UEBERALL:
+   24 dl-HTML-Deliverables, davon 1 mit noindex -> 23 OFFEN. LIVE gegengemessen:
+   HTTP 200 robots=[KEIN] fuer frankenstein.html (436 KB), wuthering-heights.html
+   (683 KB), emma.html (923 KB), einkommensteuer-ausfuellhilfe.html - vollstaendige
+   BEZAHLTE Produkte, indexierbar ausgeliefert.
+   Warum nie aufgefallen: die eine gepruefte Stelle (auto_fulfill-Template fuer
+   rtd) TRUG das noindex -> Teil-Vollstaendigkeits-Falle zum VIERTEN Mal
+   (T13 Rechtslinks -> T15 Werkzeugkiste -> T17 Stichprobe -> jetzt die Ware).
+FIX: verify_publish_leg.py prueft jetzt den LIVE ausgelieferten BODY (vorher nur
+Statuscodes). NEU scripts/request_delivery/dl_noindex_audit.py = stehendes Tor
+(Zielmenge aus dem Baum abgeleitet, --live misst die Auslieferung, --fix patcht
+nur am exakten charset-Anker und MELDET Abweicher statt zu raten, drittes
+Ergebniswort DL_UNGEPRUEFT rc=2, leere Zielmenge NICHT gruen).
+MEASURED: verify_publish_leg --selftest 12/12 | _mutation_probe_t20.py
+MUTATION_PROBE_OK 3/3 (Produktivcode mutiert, sha256-genau restauriert) | echter
+Publish-Lauf PUBLISH_LEG_OK mit "LIVE meta robots = noindex,nofollow", GET+HEAD
+200 nach 31 s | dl_noindex_audit --selftest 16/16 | vor dem Fix
+DL_NOINDEX_DEFEKT (23 offen, rc=1) | nach Push DL_NOINDEX_OK gegen die
+LIVE-Auslieferung (24/24, rc=0) | KETTE_OK + VERIFY_OK ohne Regression.
+INTEGRITAETSSONDE (weil bezahlte Ware massenhaft gepatcht wurde):
+_probe_patch_integrity_t20.py zieht den Tag wieder ab und vergleicht gegen den
+alten Blob -> PATCH_INTEGRITAET_OK 23/23, Inhalt unveraendert (Delta exakt
++50 B bzw. +47 B = nur der Tag).
+
+TICKET 21 NEU (OFFEN, HITL): 14 .epub-Dateien unter /dl/ sind binaer und koennen
+KEIN meta robots tragen. Entlastend MEASURED: 16-stellige Hash-URLs, 0 Treffer in
+der Live-Sitemap, IndexNow filtert /dl/ heraus. Die wirksamste Option (User-Pages-
+Repo translucentv1.github.io mit echtem Origin-robots.txt) legt ein Repo im
+GitHub-Account des Nutzers an -> KEIN Cron-Tick entscheidet das eigenmaechtig.
+
+MERKREGELN (neu):
+- Ein Schutz gilt nur dort, wo der Konsument ihn liest. Bei jedem Schutz zuerst
+  fragen: WER liest ihn und VON WO? - und genau dort messen. Eine Datei am
+  falschen Ort liefert HTTP 200 und schuetzt trotzdem nichts.
+- Statuscode != Inhalt. GET/HEAD 200 beweist DASS etwas ausgeliefert wird, nie WAS.
+- Massen-Patches auf bezahlte Ware brauchen eine Integritaetssonde (Tag wieder
+  abziehen, gegen alten Blob vergleichen). "Skript lief fehlerfrei" ist kein Beleg.
+- Eigentor als Warnung: die erste Korruptionspruefung war selbst kaputt
+  (grep -c ... || echo 0 haengt bei Count 0 eine zweite Null an) und meldete 23
+  falsche Treffer. Eine Pruefung, die ALLES rot meldet, ist genauso verdaechtig
+  wie eine, die alles gruen meldet.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live) UND NEU
+`python scripts/request_delivery/dl_noindex_audit.py --live` (rc=1 = bezahlte
+Ware indexierbar) - nach jedem Fulfillment sinnvoll.
+AB HEUTE FREI: TICKET 5 (Bing-Trefferzahl) - die Zeitsperre 2026-08-07 ist
+gefallen, Vorbedingung erfuellt (Einreicher rot-faehig, 1220/1220 URLs live
+eingereicht). Das ist der naechste AFK-Schritt mit echtem Informationswert.
+Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL, Ticket 21 = HITL.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
