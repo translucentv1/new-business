@@ -11,6 +11,15 @@ falsches Verzeichnis) hat IndexNow 11 Tage gekostet.
 Besonderheit: thanks.html pollt mit HEAD (nicht GET). Ein reiner GET-Test wuerde
 den Kundenpfad NICHT beweisen -> hier werden GET und HEAD getrennt gemessen.
 
+Ticket 20 (2026-08-06): zusaetzlich wird der AUSGELIEFERTE Body geprueft.
+Grund (MEASURED): der einzige robots.txt, den ein Crawler liest, ist der des
+Origins - https://translucentv1.github.io/robots.txt - und der ist HTTP 404.
+Das repo-eigene new-business/robots.txt (HTTP 200, mit "Disallow: /dl/") wird
+von KEINEM Crawler gelesen (REP gilt pro Origin, nicht pro Unterverzeichnis).
+Damit ist /dl/ crawlbar und das meta-robots-noindex in der erzeugten Seite der
+EINZIGE Schutz der bezahlten Kundenware. Genau dieser Schutz war ungemessen:
+bis hierher wurden nur GET/HEAD-Statuscodes geprueft, nie der Inhalt.
+
 Der Test benutzt die ECHTEN Produktivfunktionen (write_page/git_publish), nicht
 eine Nachbildung. Kein Stripe-Call, keine sales.log-Zeile, kein State.
 Raeumt sich selbst auf (Datei geloescht + gepusht + 404 verifiziert).
@@ -22,6 +31,7 @@ Aufruf: python scripts/request_delivery/verify_publish_leg.py
 import contextlib
 import io
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -34,25 +44,35 @@ import auto_fulfill as af  # noqa: E402
 
 CANARY_SID = "cs_canary_publishleg_ticket11"
 
+# Aus der Quelle abgeleitet statt hartkodiert: welchen Schutz verspricht die
+# Produktivfunktion ueberhaupt? (Merkregel Ticket 17: Zielmengen ableiten.)
+ROBOTS_RE = re.compile(
+    r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)', re.I
+)
+
 
 def http(url, method):
-    """Gibt (status, bytes) zurueck; nutzt kein Caching."""
+    """Gibt (status, body) zurueck; body ist Text ("" bei HEAD/Fehler).
+
+    Liefert bewusst den ganzen Body (keine Kuerzung) - eine Attrappe muss
+    denselben Vertrag nachbilden (Attrappen-Falle, Ticket 19).
+    """
     req = urllib.request.Request(url, method=method)
     req.add_header("Cache-Control", "no-store")
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
-            return r.status, len(r.read())
+            return r.status, r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
-        return e.code, 0
+        return e.code, ""
     except Exception as e:
-        return f"ERR:{e}", 0
+        return f"ERR:{e}", ""
 
 
 def poll_until(url, method, want, tries=20, pause=10):
     """Wartet auf einen Statuscode. Gibt (ok, status, sekunden) zurueck."""
     t0 = time.time()
     for _ in range(tries):
-        st, _n = http(url, method)
+        st, _body = http(url, method)
         if st == want:
             return True, st, round(time.time() - t0)
         time.sleep(pause)
@@ -123,6 +143,21 @@ def main():
     if st_head != 200:
         fails.append(f"HEAD ist {st_head} - thanks.html wuerde ewig pollen")
 
+    # 4c) Traegt die AUSGELIEFERTE Seite den Indexier-Schutz? (Ticket 20)
+    # Gemessen wird der LIVE-Body, nicht die lokale Datei - eine lokale Datei
+    # beweist nach der Branch-Falle gar nichts ueber die Auslieferung.
+    _st_body, body = http(url, "GET")
+    m = ROBOTS_RE.search(body)
+    robots = m.group(1).strip().lower() if m else None
+    print(f"LIVE meta robots  = {robots or '(FEHLT)'}"
+          "  <- einziger Schutz (Origin-robots.txt ist 404)")
+    if robots is None:
+        fails.append("ausgeliefertes Deliverable hat KEIN meta robots - "
+                     "bezahlte Kundenware ist indexierbar")
+    elif "noindex" not in robots:
+        fails.append(f"ausgeliefertes meta robots ohne noindex ({robots}) - "
+                     "bezahlte Kundenware ist indexierbar")
+
     # 5) Cleanup: Datei weg, gepusht, 404 verifiziert
     if keep:
         print("cleanup           = uebersprungen (--keep)")
@@ -159,19 +194,23 @@ def _selftest():
     g = globals()
     h = af.sid_hash(CANARY_SID)
     good = f"{af.SITE}/dl/rtd/{h}.html"
+    good_body = ('<html><head><meta name="robots" content="noindex,nofollow">'
+                 "</head><body>x</body></html>")
 
     def run(branch="gh-pages", url=good, before=404, publish=True,
-            unpushed="0", tree=f"dl/rtd/{h}.html", get200=True, head=200):
+            unpushed="0", tree=f"dl/rtd/{h}.html", get200=True, head=200,
+            body=good_body):
         fd, tmp = tempfile.mkstemp(prefix="rtd-selftest-", suffix=".html")
         os.write(fd, b"x")
         os.close(fd)
         n = [0]
 
         def _http(_u, m):
+            # Vertrag der echten http(): (status, body-TEXT), ungekuerzt.
             if m == "HEAD":
-                return head, 0
+                return head, ""
             n[0] += 1
-            return (before, 0) if n[0] == 1 else (200, 1)
+            return (before, "") if n[0] == 1 else (200, body)
 
         keep = {k: g[k] for k in ("git", "http", "poll_until")}
         wp, gp, argv = af.write_page, af.git_publish, sys.argv
@@ -196,30 +235,59 @@ def _selftest():
         return rc, buf.getvalue()
 
     cases = [
-        ("alles gesund",              0, {}),
-        ("falscher Branch",           1, {"branch": "master"}),
-        ("git_publish Fehler",        1, {"publish": False}),
-        ("Commit nicht auf origin",   1, {"unpushed": "1"}),
-        ("Datei fehlt im Tree",       1, {"tree": ""}),
-        ("GET nie 200",               1, {"get200": False}),
-        ("GET 200 aber HEAD 404",     1, {"head": 404}),
-        ("URL schon vor Push live",   1, {"before": 200}),
-        ("URL-Aufbau falsch",         1, {"url": "https://x.invalid/y.html"}),
+        # (Name, erwartetes rc, kwargs, erwartete EXAKTE Diagnose-Teilzeile)
+        # Merkregel Ticket 17: Rot-Faelle gegen die Diagnosezeile assertieren,
+        # sonst besteht der Test auch bei Rot aus dem falschen Grund.
+        ("alles gesund",              0, {}, None),
+        ("falscher Branch",           1, {"branch": "master"},
+         "falscher Branch: master"),
+        ("git_publish Fehler",        1, {"publish": False},
+         "git_publish() meldete Fehler"),
+        ("Commit nicht auf origin",   1, {"unpushed": "1"},
+         "1 Commit(s) NICHT auf origin/gh-pages"),
+        ("Datei fehlt im Tree",       1, {"tree": ""},
+         "Datei fehlt im origin/gh-pages-Tree"),
+        ("GET nie 200",               1, {"get200": False},
+         "GET wurde nicht 200"),
+        ("GET 200 aber HEAD 404",     1, {"head": 404},
+         "HEAD ist 404"),
+        ("URL schon vor Push live",   1, {"before": 200},
+         "URL war schon vor dem Push 200"),
+        ("URL-Aufbau falsch",         1, {"url": "https://x.invalid/y.html"},
+         "URL-Aufbau weicht vom thanks.html-Pfad ab"),
+        # Ticket 20: der Indexier-Schutz der Kundenware
+        ("Deliverable ohne meta robots", 1, {"body": "<html>ungeschuetzt</html>"},
+         "hat KEIN meta robots"),
+        ("meta robots ohne noindex",  1,
+         {"body": '<meta name="robots" content="index,follow">'},
+         "ohne noindex (index,follow)"),
+        ("noindex vorhanden = gruen", 0,
+         {"body": '<meta name="robots" content="noindex">'}, None),
     ]
     print("== Fault Injection gegen main() (offline, ohne Nebenwirkung) ==")
     bad = 0
-    for name, want, kw in cases:
+    for name, want, kw, expect in cases:
         rc, out = run(**kw)
-        bad += rc != want
         why = "; ".join(l.strip(" -") for l in out.splitlines()
                         if l.startswith("  - "))
-        print(f"  [{'OK ' if rc == want else 'FAIL'}] {name:<26} rc={rc}"
+        good_rc = rc == want
+        # Exit-Code-Falle (Ticket 14): rc=1 kann auch ein Absturz sein.
+        crashed = "Traceback" in out
+        diag_ok = expect is None or expect in out
+        passed = good_rc and diag_ok and not crashed
+        bad += not passed
+        if crashed:
+            why = "TRACEBACK statt Diagnose"
+        elif not diag_ok:
+            why = f"falsche Diagnose (erwartet: {expect!r})"
+        print(f"  [{'OK ' if passed else 'FAIL'}] {name:<30} rc={rc}"
               + (f" | {why}" if why else ""))
     if bad:
         print(f"SELFTEST FEHLGESCHLAGEN: {bad} Defekt(e) NICHT erkannt.")
         return 1
     print(f"SELFTEST OK: {len(cases)}/{len(cases)} Defekte erkannt "
-          "(kritisch: GET 200 + HEAD 404 = Kunde pollt ewig).")
+          "(kritisch: GET 200 + HEAD 404 = Kunde pollt ewig; "
+          "Deliverable ohne noindex = Kundenware indexierbar).")
     return 0
 
 
