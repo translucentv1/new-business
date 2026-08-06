@@ -339,12 +339,21 @@ KEYWORDS = [
     #   Zertifizierungsdokument, zum Festpreis 3,99-14,99 EUR nicht ehrlich lieferbar.
     # - "gpt erstellen lassen" (10): Vorschlaege sind bild/logo/video/grafik/portrait
     #   = Bild-/Videogenerierung, die wir nicht liefern (gleiche Linie wie portfolio).
-    # - 0-1 Treffer (kein Signal): stellenanzeige, angebot schreiben, werbetexte,
+    # - Gratis-Modifier dominiert (2-4 Treffer, je mit "kostenlos"): songtext (4,
+    #   2x kostenlos), referat (3, 1x), essay (3, 1x).
+    # - 0-1 Treffer (kein Signal): stellenanzeige, angebot schreiben, angebot
+    #   erstellen (nur Haendler-Modifier amazon/bauhaus/hornbach), werbetexte,
     #   verkaufstexte, drehbuch, danksagung, einladungstext, amazon listing, etsy
     #   beschreibung, elevator pitch, konzept, checkliste, social media plan,
-    #   laudatio, abschiedsrede, taufrede, landingpage text, firmenprofil,
-    #   blogbeitrag, geburtstagsrede, slogan, steckbrief, inhaltsangabe,
-    #   ueber-mich-text, reklamation, chatbot, excel formel, makro, vba, n8n.
+    #   uebersetzung erstellen, grusskarte, faq, onboarding, geschaeftsbrief,
+    #   angebotstext, kleinanzeigen, ebay beschreibung, laudatio, abschiedsrede,
+    #   taufrede, landingpage text, firmenprofil, unternehmensprofil (nur
+    #   "google unternehmensprofil"), blogbeitrag, social media beitraege,
+    #   geburtstagsrede, slogan, steckbrief, inhaltsangabe, ueber-mich-text,
+    #   reklamation, geburtstagsgedicht, hochzeitseinladung, dating profil,
+    #   tinder profil, immobilien expose, chatbot, excel formel, makro, vba,
+    #   automatisierung, n8n, app text, datenanalyse.
+    # Insgesamt 67 Seeds in diesem Tick geprueft, 2 angenommen.
 ]
 
 def slug(kw):

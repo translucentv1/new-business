@@ -48,7 +48,13 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   oder physiotherapeutische Beratung
 - Korrespondenz: Geschäfts-, Bewerbungs- und Beschwerde-E-Mails (höflicher Ton,
   klare Struktur, passende Betreffzeile) — Formulierung, **kein** Versand und
-  **kein** Rechts-/Forderungsschreiben
+  **kein** Rechts-/Forderungsschreiben; dazu persönliche Briefe zu Anlässen
+  (Liebesbrief, Dankesbrief, Entschuldigung) aus deinen Stichpunkten — Text,
+  **keine** Handschrift/Kalligrafie, **kein** Layout, **kein** Versand
+- KI & Prompts: maßgeschneiderte Prompts für ChatGPT, Claude oder Gemini
+  (Rolle, Kontext, Aufgabenbeschreibung, Variablen, Beispiel-Output, kurze
+  Anwendungsanleitung) — **kein** Modell-Finetuning, **kein** Account-Zugang und
+  **keine** Garantie auf ein bestimmtes Modellergebnis
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 - Lernen & Unterricht: Arbeitsblatt-Inhalte (Arbeitsaufträge, Aufgaben mit
@@ -170,3 +176,18 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       expired/unpaid, seit ~34 h keine neue Session.
       Deliverables oben um Bewerbungssatz-Buendel + Geschaefts-E-Mail erweitert
       (Scope-Grenzen notiert: kein Layout, kein Versand, kein RDG-Schreiben).
+- [x] AI-CEO 2026-08-06 Tick 2 MEASURED: 41 bestehende blog/-Seiten live geprueft
+      -> **BLOG OK=41 FAIL=0**, dazu index/gig/rtd/thanks/sitemap/lead_magnet/
+      impressum/agb/datenschutz/ki-text-service je HTTP 200 (10 Kernseiten).
+      2 neue Seiten (prompt erstellen lassen ki, liebesbrief schreiben lassen;
+      Autocomplete 3 bzw. 2 Vorschlaege, **beide 0x "kostenlos"**, prompt mit
+      2x KI-Modifier, liebesbrief mit "ki ...") -> **43 Landingpages**, danach
+      beide live **HTTP 200** und in der Live-sitemap.xml enthalten (1224 URLs).
+      Die 3 Stripe-Live-Checkout-Links in gig.html erneut je **HTTP 200**;
+      Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
+      mit der Pakettabelle oben. IndexNow 1224 URLs HTTP 200.
+      verify.py --offline: 69 ok / 0 fail. interlink --check: 0 offen.
+      Stripe: 0 Charges, 0,00 EUR available/pending; dieselben 2 Sessions
+      vom 04.08. weiterhin expired/unpaid, seit ~41 h keine neue Session.
+      Deliverables oben um Prompt-Erstellung + persoenliche Anlassbriefe
+      erweitert (Scope-Grenzen notiert: kein Finetuning, kein Versand, kein Layout).

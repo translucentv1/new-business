@@ -1,5 +1,82 @@
 # AI-CEO Daily Report
 
+## 2026-08-06 (Tick 2, cronjob — 05:30–05:45 UTC / 07:30–07:45 lokal)
+
+### Geld-Ziel (selbst gesetzt)
+**Einen Suchintent bedienen, den bisher KEINE der 41 Seiten abdeckt.**
+Die bestehenden Seiten decken Bewerbung, Buero, Marketing, Lernen und Reden ab —
+alle Neuzugaenge der letzten Ticks waren Varianten davon. Ziel dieses Ticks:
+mindestens eine Landingpage in einem **neuen Cluster**, damit der Trichter nicht
+nur tiefer, sondern breiter wird. Wochenziel unveraendert: erster MEASURED Sale
+(evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`)
+  — byte-identisch zu Tick 1, juengstes Event `evt_1U0hzC…` vom **04.08. 13:02 UTC**.
+- `GET /v1/charges?limit=10` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=10` → **2 Sessions, beide `expired`/`unpaid`**
+  (399 Cent 04.08. 13:00 UTC; 1499 Cent 04.08. 10:37 UTC) — dieselben zwei wie
+  in den letzten drei Ticks, **seit ~41 h keine neue Session**. Kein Eintrag in
+  sales.log (Regel: kein Sale ohne bezahlte evt_/cs_-ID).
+
+### Getan (alles MEASURED)
+1. **Bestand geprueft:** alle **41** `blog/*.html` live abgefragt → `BLOG OK=41
+   FAIL=0`; dazu 10 Kernseiten (index, gig, rtd, thanks, sitemap, lead_magnet,
+   impressum, agb, datenschutz, ki-text-service) je **HTTP 200**. Kein 404.
+2. **Keyword-Recherche:** `web_search`/Firecrawl erneut **HTTP 402**
+   (`insufficient_funds`) → `scripts/kw_demand.py` (Google Autocomplete, hl=de/gl=de)
+   blieb die einzige MEASURED-Quelle; **67 Seeds** geprueft, kein ASSUMED-Keyword.
+3. **2 neue Landingpages** (idempotent; 3. Lauf meldet `ALLE KEYWORDS BELEGT`)
+   → **43 Landingpages**:
+   - `blog/prompt-erstellen-lassen-ki.html` — "prompt erstellen lassen": 3 Vorschlaege,
+     **0× "kostenlos"**, 2 davon mit KI-Tool ("chatgpt…", "ki…"). **Neuer Cluster**
+     (KI/Automation), bisher von keiner Seite abgedeckt.
+   - `blog/liebesbrief-schreiben-lassen.html` — 2 Vorschlaege, **0× "kostenlos"**,
+     darunter "ki liebesbrief schreiben lassen". Anlass-Cluster (wie Hochzeits-/
+     Trauerrede), reiner Text aus Kaeufer-Stichpunkten.
+4. **Bewusst abgelehnt** (im Code begruendet): `facharbeit schreiben lassen`
+   (8 Treffer, groesstes Volumen, "…kosten"/"…guenstig") und `praktikumsbericht`
+   (2) — Arbeiten **zur Abgabe**, vom Gig ausdruecklich ausgeschlossen, also kein
+   Versprechen, das wir halten duerfen. `text uebersetzen lassen` (10) und
+   `gedicht schreiben lassen` (7) — Gratis-/Tool-Intent (google/kostenlos/foto;
+   4 von 7 "kostenlos"). `handbuch erstellen lassen` (2) — QM-/ISO-Dokument, zum
+   Festpreis nicht ehrlich lieferbar. `gpt erstellen lassen` (10) — Bild/Video/
+   Grafik, liefern wir nicht. Die uebrigen Seeds hatten 0–1 Treffer bzw. einen
+   dominanten "kostenlos"-Modifier = kein Signal (vollstaendige Liste im Code).
+5. **Interlink + Sitemap + Index:** beide Slugs in `CLUSTERS`, `interlink.py`
+   schrieb 10 Seiten neu, `--check` danach **0 offen**; sitemap.xml + index.html
+   ergaenzt. `verify.py --offline`: **69 ok / 0 fail (VERIFY_OK)**.
+6. **Publish + Live-Check:** Commit `e9ec072`, Push auf **gh-pages**
+   (`e6a6ae7..e9ec072`). Nach ~55 s: prompt **200**, liebesbrief **200**,
+   index **200**, sitemap **200**. Live-sitemap: **1224 URLs**, beide neuen
+   URLs enthalten.
+7. **IndexNow:** `[submit] 1224 URLs -> HTTP 200`, `ERGEBNIS: SUBMIT_OK`.
+8. **Checkout-Pfad geprueft:** die 3 Stripe-Live-Links in der **live** gig.html
+   je **HTTP 200**; Preise dort gezaehlt 3,99 € 3× / 7,99 € 1× / 14,99 € 1× =
+   deckungsgleich mit der Pakettabelle in `docs/fiverr_gig.md`.
+9. **Fiverr-Gig-Text erweitert** um Prompt-Erstellung und persoenliche
+   Anlassbriefe, jeweils mit ehrlichen Scope-Grenzen (kein Finetuning, kein
+   Account-Zugang, kein Versand, kein Layout) — bleibt copy-paste-fertig.
+10. **Gumroad:** `scripts/gumroad_sale_poll.py` → **`NO TOKEN`**; es existiert
+    weiterhin nur `.gumroad_secrets.template`. Beide Blocker (Payout-Freischaltung
+    + API-Token) sind **USER-Aufgaben**, nichts autonom Machbares.
+
+### Offene Blocker (USER)
+- **Fiverr-Account + KYC** — Gig-Text ist fertig, nur noch einfuegen.
+- **Gumroad Payout + API-Token** — unveraendert.
+- **Ticket 23 (WhatsApp-Bridge / jidDecode)** — Cron-Zustellung an den Nutzer
+  defekt; Fix `hermes gateway restart` muss aus einer **frischen Shell** kommen,
+  ein Tick kann das nicht selbst (SIGTERM auf den eigenen Elternprozess).
+
+### Next
+1. Weiter je Tick 1–2 Landingpages mit MEASURED-Nachfrage in **neuen** Clustern
+   (der Bewerbungs-/Buero-Bereich ist gesaettigt).
+2. Nach dem Fiverr-Go-Live: Landingpages zusaetzlich auf den Gig verlinken.
+3. Stripe weiter alle 6 h pollen; erster bezahlter `cs_`/`evt_` → sales.log + laute Meldung.
+
 ## 2026-08-06 (Tick 1, cronjob — 23:22 UTC / 01:22 lokal)
 
 ### Geld-Ziel (selbst gesetzt)
