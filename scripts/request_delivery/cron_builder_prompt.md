@@ -713,3 +713,72 @@ faellt also erst MORGEN. Vorbedingung ist erfuellt (Einreicher rot-faehig,
 1220/1220 URLs live eingereicht) - die Zeit ist es nicht.
 Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL, Ticket 21 = HITL.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-06 (Tick 4, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK. verify_ticket13_live
+LIVE_OK (55 Seiten). dl_noindex_audit --live DL_NOINDEX_OK (24/24).
+verify_rtd_chain KETTE_OK. verify.py VERIFY_OK (72 ok, 0 fail).
+rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+Der Tick startete mit UNCOMMITTETER Arbeit (cron_health_audit.py, 586 Zeilen,
+untracked). Nach Merkregel NEU AUSGEFUEHRT statt uebernommen - sie hat
+gehalten, war aber unvollstaendig (siehe unten).
+
+TICKET 24 ERLEDIGT + GESCHLOSSEN (Commit aad9c22, gepusht, 0 unpushed, alle
+Dateien im origin/gh-pages-Tree).
+>>> DER BEFUND WAR NICHT DER FEHLENDE TEST, SONDERN WER DAS TOR OEFFNET <<<
+cron_health_audit.py war fertig und gruen - aber es waere nur gelaufen, wenn
+ein AGENTEN-Tick daran denkt. Genau diese Bauform ist in Ticket 22 gestorben
+(143 Laeufe tot). Der aufrufende Tick-Job 87a15fe059fc steht bei 27 completed
+/ 22 failed. Ein Audit "wenn jemand daran denkt" ist derselbe Fehler eine
+Ebene hoeher.
+FIX: Etappe [3] in cron_auto_fulfill.py -> das Tor laeuft jetzt ALLE 30 MIN
+unbeaufsichtigt und OHNE Inferenz-Call mit. hrc==1 -> RTD_FULFILL_DEFEKT
+(Job wird in executions.db rot), hrc sonst !=0 -> UNGEPRUEFT (nie ein
+Defekt-Claim gegen den Geldpfad).
+BEINAHE-REGRESSION IM EIGENEN UMBAU: der Defekt-Zweig steht VOR dem
+Sale-Zweig -> ein Cron-Health-Defekt haette die "*** ERSTER SALE ***"-Meldung
+VERSCHLUCKT. Banner jetzt immer vor der Verzweigung; Mutant F3 stellt den
+Fehler wieder her und faellt.
+MEASURED: cron_health_audit --selftest 25/25 | cron_auto_fulfill --selftest
+14/14 -> 21/21 | _mutation_probe_t24.py MUTATION_PROBE_OK 17/17 mit 11 roten
+Mutanten in 2 Produktivdateien (exakte Diagnosezeile, kein Traceback, beide
+sha256-genau restauriert a34ecbbc1ecc2aff / e99a326a6ffafa67, rc-Wechsel
+0->1->0) | echter Lauf cron_health_audit CRON_HEALTH_OK (14 Jobs / 6 enabled,
+1 Geldpfad-Traeger, 30-min-Takt, 168 Laeufe / 23 completed) | echter Lauf
+cron_auto_fulfill RTD_FULFILL_OK mit [3] CRON_HEALTH_OK | ECHTER JOB-LAUF
+`hermes cron run bfb63346d942` -> "Ran now: succeeded", DB completed
+(Bilanz 24 completed / 144 failed / 1 unknown), Ausgabedatei
+2026-08-06_20-44-29.md enthaelt "Mode: no_agent (script)",
+"[3] Cron-Gesundheit (Ticket 24)" und "CRON_HEALTH_OK".
+EIGENTOR IN DER SONDE (selbst gefunden): der Traceback-Filter durfte NICHT
+auf das blosse Wort "Traceback" pruefen - der Selftest hat ein Pruef-LABEL
+"kein Traceback im Gruen-Fall", wodurch der kerngesunde Baseline-Lauf als
+abgestuerzt gemeldet wurde. Jetzt gegen die echte Kopfzeile
+"Traceback (most recent call last)". Gleiche Klasse wie die Praefix-Falle
+aus Ticket 19.
+MESSFALLE: `python x.py | tail` gibt in $? den rc von TAIL zurueck, nicht den
+des Skripts. Ab jetzt: `python x.py > datei 2>&1; echo $?`.
+
+TICKET 25 NEU (OFFEN, AFK): Selbstbezug - stirbt bfb63346d942 selbst, laeuft
+auch sein Audit nicht. Zu klaeren, ob ein zweiter unabhaengiger
+--no-agent-Job wirklich unabhaengige Ausfallmodi abdeckt (messen, nicht
+argumentieren) oder ob der Agenten-Tick bewusst der aeussere Ring bleibt.
+Entlastend: die Stagnations-Erkennung ist rot-faehig (Mutant M5).
+
+MERKREGELN (neu):
+- Ein stehendes Tor ist erst dann stehend, wenn es OHNE Agenten laeuft. Ein
+  Pruefskript, das nur ein Tick aufruft, erbt dessen Ausfallwahrscheinlichkeit.
+  Frage bei jedem Tor: wer ruft es auf, wenn niemand hinsieht?
+- Nebenmessungen duerfen das Hauptsignal nicht verschlucken. Beim Einhaengen
+  einer neuen Pruefung in einen bestehenden Entscheidungsbaum pruefen, welche
+  Ausgabe dadurch unerreichbar wird.
+- rc niemals hinter einer Pipe messen ($? = rc des letzten Pipe-Glieds).
+
+Naechster Tick: Pflichtteil (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live). AB 2026-08-07 faellt die Zeitsperre
+von TICKET 5 (Bing-Trefferzahl) - heute war 2026-08-06, also weiterhin
+gesperrt. Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL,
+Ticket 21 = HITL, Ticket 23 = HITL, Ticket 25 = AFK (offen).
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
