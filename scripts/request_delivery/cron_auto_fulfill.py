@@ -25,9 +25,32 @@ import urllib.request
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FULFILL = os.path.join(REPO, "scripts", "request_delivery", "auto_fulfill.py")
+HEALTH = os.path.join(REPO, "scripts", "request_delivery",
+                      "cron_health_audit.py")
+HEALTH_TIMEOUT = 120
 SITE = "https://translucentv1.github.io/new-business"
 LIVE_URLS = ("rtd.html", "thanks.html")
 TIMEOUT = 900
+
+
+def run_health():
+    """Ticket 24: das stehende Tor unbeaufsichtigt mitlaufen lassen.
+
+    -> (rc, ausgabe). rc 0 = gesund | 1 = Defekt | alles andere = unmessbar.
+    Ein fehlendes/abgestuerztes Audit ist NIE ein Defekt-Claim gegen den
+    Geldpfad (Merkregel Ticket 17: unmessbar != kaputt).
+    """
+    if not os.path.isfile(HEALTH):
+        return 2, f"cron_health_audit.py fehlt: {HEALTH}"
+    try:
+        p = subprocess.run([sys.executable, HEALTH], cwd=REPO,
+                           capture_output=True, text=True,
+                           timeout=HEALTH_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return 2, f"cron_health_audit Timeout nach {HEALTH_TIMEOUT}s"
+    except OSError as exc:
+        return 2, f"cron_health_audit nicht startbar: {exc}"
+    return p.returncode, ((p.stdout or "") + (p.stderr or "")).rstrip()
 
 
 def http_code(url: str) -> int:
@@ -83,11 +106,32 @@ def main() -> int:
         defekt = True
     unmessbar = any(c == -1 for c in codes.values())
 
+    # [3] Ticket 24: das stehende Cron-Tor laeuft hier UNBEAUFSICHTIGT mit.
+    # Damit haengt es nicht mehr daran, dass ein Agenten-Tick es aufruft -
+    # genau die Bauform, die in Ticket 22 143x ausgefallen ist.
+    print("[3] Cron-Gesundheit (Ticket 24)")
+    hrc, hout = run_health()
+    zeilen = [ln for ln in hout.splitlines()
+              if ln.startswith("ERGEBNIS:") or ln.startswith("  ! ")
+              or ln.startswith("  ? ")]
+    for ln in (zeilen or hout.splitlines()[-2:]):
+        print(f"  {ln.strip()}")
+    if hrc == 1:
+        defekt = True
+    elif hrc != 0:
+        unmessbar = True
+
+    # Der Sale ist das lauteste Signal des ganzen Systems - er wird IMMER
+    # gedruckt, auch wenn parallel ein Defekt das Ergebniswort bestimmt.
+    # (Sonst haette ausgerechnet ein Cron-Health-Defekt die ERSTER-SALE-
+    # Meldung verschluckt.)
+    if sale:
+        print("*** ERSTER SALE / SALE BEDIENT — sales.log pruefen! ***")
+
     if defekt:
         print("ERGEBNIS: RTD_FULFILL_DEFEKT")
         return 1
     if sale:
-        print("*** ERSTER SALE / SALE BEDIENT — sales.log pruefen! ***")
         print("ERGEBNIS: RTD_FULFILL_SALE")
         return 0
     if unmessbar:
@@ -105,7 +149,7 @@ def _selftest() -> int:
     import contextlib
 
     g = globals()
-    orig = (g["FULFILL"], g["http_code"], g["TIMEOUT"])
+    orig = (g["FULFILL"], g["http_code"], g["TIMEOUT"], g["run_health"])
     tmpdir = tempfile.mkdtemp(prefix="rtd_selftest_")
     ok = [0]
     bad = [0]
@@ -127,10 +171,11 @@ def _selftest() -> int:
             f.write(f"sys.exit({rc})\n")
         return p
 
-    def run(fulfill, codes, timeout=900):
+    def run(fulfill, codes, timeout=900, health=(0, "ERGEBNIS: CRON_HEALTH_OK")):
         g["FULFILL"] = fulfill
         g["TIMEOUT"] = timeout
         g["http_code"] = lambda url: codes.get(url.rsplit("/", 1)[-1], 200)
+        g["run_health"] = lambda: health
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
             rc = main()
@@ -186,8 +231,45 @@ def _selftest() -> int:
         # der Live-Check gruen ist: Reihenfolge Pipeline -> Live-Check pruefen.
         _, _, text = run(stub("MARKER_PIPELINE"), {})
         t("MARKER_PIPELINE" in text, "Pipeline-Ausgabe wird durchgereicht")
+
+        # -- [3] Cron-Gesundheit (Ticket 24) ------------------------------
+        rc, w, text = run(stub("neu=0"), {},
+                          health=(1, "ERGEBNIS: CRON_HEALTH_DEFEKT\n"
+                                     "  ! bfb63346d942: 0 completed"))
+        t(rc == 1 and w == "RTD_FULFILL_DEFEKT",
+          f"Cron-Health DEFEKT -> Job wird rot ({w})")
+        t("0 completed" in text,
+          "Cron-Health-Diagnosezeile wird durchgereicht")
+
+        rc, w, _ = run(stub("neu=0"), {},
+                       health=(2, "ERGEBNIS: CRON_HEALTH_UNGEPRUEFT"))
+        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT",
+          f"Cron-Health unmessbar -> UNGEPRUEFT, kein Defekt-Claim ({w})")
+
+        rc, w, _ = run(stub("boom", rc=1), {},
+                       health=(2, "ERGEBNIS: CRON_HEALTH_UNGEPRUEFT"))
+        t(rc == 1 and w == "RTD_FULFILL_DEFEKT",
+          f"echter Defekt schlaegt Health-Unmessbarkeit ({w})")
+
+        # Regression, die dieser Umbau beinahe eingebaut haette: ein
+        # Cron-Health-Defekt darf die SALE-Meldung nicht verschlucken.
+        rc, w, text = run(stub("neu=1"), {},
+                          health=(1, "ERGEBNIS: CRON_HEALTH_DEFEKT"))
+        t(rc == 1 and w == "RTD_FULFILL_DEFEKT" and "ERSTER SALE" in text,
+          f"Sale-Banner ueberlebt Cron-Health-Defekt ({w})")
+
+        rc, w, _ = run(stub("neu=0"), {}, health=(0, "ERGEBNIS: CRON_HEALTH_OK"))
+        t(rc == 0 and w == "RTD_FULFILL_OK",
+          f"gesunde Cron-Health aendert nichts ({w})")
+
+        # Ergebniswort exakt, nicht per Praefix (Merkregel Ticket 19).
+        _, w, _ = run(stub("neu=0"), {},
+                      health=(0, "ERGEBNIS: CRON_HEALTH_OK_TEILMENGE"))
+        t(w == "RTD_FULFILL_OK",
+          "Health-Wort wird ueber rc gelesen, nicht per Substring")
     finally:
-        g["FULFILL"], g["http_code"], g["TIMEOUT"] = orig
+        (g["FULFILL"], g["http_code"], g["TIMEOUT"],
+         g["run_health"]) = orig
 
     print(f"\nSELFTEST {'OK' if not bad[0] else 'FEHLGESCHLAGEN'}: "
           f"{ok[0]}/{ok[0] + bad[0]}")
