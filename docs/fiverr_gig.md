@@ -31,8 +31,10 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Web/SEO: SEO-Blogartikel (keyword-optimiert, mit Meta-Description), Website-Texte
   (Startseite, Über-mich, Leistungen)
 - Korrektur & Verdichtung: Korrekturlesen (Rechtschreibung, Grammatik, Zeichensetzung,
-  Stil), Zusammenfassungen aus PDF/Artikel/Studie/Meeting-Notizen (Stichpunkte,
-  Absatz oder eine Seite)
+  Stil), Umformulieren eines vorhandenen Textes (Ton, Aufbau, Verständlichkeit —
+  Inhalt bleibt deiner; **keine** Faktenprüfung/Recherche, **keine** Garantie auf
+  das Ergebnis eines KI-Detektors), Zusammenfassungen aus PDF/Artikel/Studie/Meeting-Notizen
+  (Stichpunkte, Absatz oder eine Seite)
 - Formal & Werbung: Kündigungsschreiben als Formulierungs-Vorlage (Vertrag, Abo,
   Mitgliedschaft — keine Rechtsberatung, keine Fristenprüfung), Flyer-Text inkl.
   Aufbau-Empfehlung (Headline, Nutzen, CTA — Text, kein druckfertiges Grafik-Layout),
@@ -48,9 +50,10 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   oder physiotherapeutische Beratung
 - Korrespondenz: Geschäfts-, Bewerbungs- und Beschwerde-E-Mails (höflicher Ton,
   klare Struktur, passende Betreffzeile) — Formulierung, **kein** Versand und
-  **kein** Rechts-/Forderungsschreiben; dazu persönliche Briefe zu Anlässen
-  (Liebesbrief, Dankesbrief, Entschuldigung) aus deinen Stichpunkten — Text,
-  **keine** Handschrift/Kalligrafie, **kein** Layout, **kein** Versand
+  **kein** Rechts-/Forderungsschreiben; dazu private und geschäftliche Briefe
+  (Anlass-, Dankes-, Entschuldigungs- und Liebesbriefe) aus deinen Stichpunkten
+  — Brieftext als Datei, **keine** Handschrift/Kalligrafie, **kein** Layout,
+  **kein** Druck/Postversand
 - KI & Prompts: maßgeschneiderte Prompts für ChatGPT, Claude oder Gemini
   (Rolle, Kontext, Aufgabenbeschreibung, Variablen, Beispiel-Output, kurze
   Anwendungsanleitung) — **kein** Modell-Finetuning, **kein** Account-Zugang und
