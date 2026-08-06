@@ -16,7 +16,7 @@ BASE = "https://translucentv1.github.io/new-business"
 
 def title_of(slug: str) -> str:
     p = ROOT / "blog" / f"{slug}.html"
-    m = re.search(r"<title>(.*?)</title>", p.read_text(encoding="utf-8"), re.S)
+    m = re.search(r"<title>(.*?)</title>", p.read_text(encoding="utf-8"), re.DOTALL)
     return m.group(1).split("–")[0].strip() if m else slug.replace("-", " ")
 
 
