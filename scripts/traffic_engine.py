@@ -326,6 +326,43 @@ KEYWORDS = [
     # Stichpunkten des Kaeufers. Abgrenzung EHRLICH: persoenlicher Brieftext,
     # KEIN Versand, keine Handschrift/Kalligrafie, kein Layout.
     ("liebesbrief schreiben lassen", "Liebesbrief schreiben lassen", "Persoenlicher Brief aus deinen Stichpunkten: eigener Ton, echte Details, kein Textbaustein-Kitsch – ab 3,99 EUR, in 24h."),
+    # 2026-08-06 Tick 3: Nachfrage MEASURED via scripts/kw_demand.py
+    # (Google Autocomplete, hl=de/gl=de). web_search steht NICHT zur Verfuegung
+    # (Firecrawl HTTP 402 BILLING_ERROR, MEASURED in diesem Tick) -> Autocomplete
+    # bleibt die einzige $0-Nachfragequelle.
+    # "brief schreiben lassen" -> 10 Vorschlaege (= Maximum), nur 1 davon mit
+    # "kostenlos". Preisanker im Markt belegt: "anwalt brief schreiben lassen
+    # kosten". KI-Akzeptanz belegt: "brief schreiben lassen ki", "chatgpt brief
+    # schreiben lassen". Abgrenzung EHRLICH direkt auf der Seite: wir liefern den
+    # BRIEFTEXT als Datei — KEINE Handschrift/Kalligrafie (Modifier
+    # "handschriftlich"/"kalligraphie"), KEIN Versand, KEINE Rechtsberatung
+    # (Modifier "anwalt" -> RDG).
+    ("brief schreiben lassen", "Brief schreiben lassen", "Privat oder geschaeftlich: fertiger Brieftext aus deinen Stichpunkten – richtiger Ton, klarer Aufbau, ab 3,99 EUR in 24h."),
+    # "text formulieren lassen" -> 4 Vorschlaege, **0x "kostenlos"**:
+    # "ki text formulieren lassen", "text besser formulieren lassen",
+    # "chatgpt text formulieren lassen" => Umformulieren ist ein eigener Intent
+    # (vorhandener Text wird verbessert) und damit NICHT deckungsgleich mit
+    # "korrekturlesen" (Fehler korrigieren) oder "text schreiben lassen" (neu
+    # schreiben). Deliverable = reiner Text, zu 100% lieferbar.
+    ("text formulieren lassen", "Text besser formulieren lassen", "Dein Entwurf, professionell umformuliert: klarer, hoeflicher, ueberzeugender – Inhalt bleibt deiner, ab 3,99 EUR in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-06 Tick 3):
+    # - "buch schreiben lassen" (10 = Maximum, mit "kosten"/"ghostwriter"):
+    #   ein ganzes Buch ist zu 3,99-14,99 EUR NICHT ehrlich lieferbar
+    #   (Over-Promise) -> abgelehnt trotz groesstem Volumen.
+    # - "ernaehrungsplan erstellen lassen" (10, mit "kosten"/"professionellen"):
+    #   Gesundheits-/Ernaehrungsberatung, dazu 2 Tier-Modifier ("hund", "barf").
+    #   Zurueckgestellt bis geklaert ist, wie ein Text-Entwurf ohne
+    #   Beratungsanschein formuliert wird.
+    # - "dienstplan erstellen lassen" (3, 0x kostenlos): Suchintent zielt auf
+    #   SOFTWARE/Automatik ("automatisch", "von ki"), nicht auf einen Textentwurf.
+    # - Gratis-Modifier enthalten: essay (3, 1x), referat (3, 1x).
+    # - 0-1 Treffer (kein Signal): danksagung, social media plan, angebot
+    #   schreiben, klappentext, werbetext, slogan, amazon listing, checkliste,
+    #   youtube skript, erklaervideo skript, empfehlungsschreiben, onlinekurs,
+    #   stellenbeschreibung, antrag (nur "psychotherapie antrag").
+    # - "handbuch erstellen lassen" (2): bereits im Vor-Tick abgelehnt
+    #   (QM/ISO-9001 nicht zum Festpreis lieferbar) — Ablehnung bestaetigt.
+    # 16 Seeds in diesem Tick geprueft, 2 angenommen.
     # BEWUSST ABGELEHNT (2026-08-06 Tick 2):
     # - "facharbeit schreiben lassen" (8 = groesstes Volumen des Ticks, mit
     #   "...kosten"/"...guenstig" = klarer Bezahlwille) und "praktikumsbericht
