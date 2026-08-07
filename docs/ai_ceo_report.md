@@ -1,5 +1,111 @@
 # AI-CEO Daily Report
 
+## 2026-08-07 (Tick 1, cronjob — 03:10–03:50 UTC / 05:10–05:50 lokal)
+
+### Geld-Ziel (selbst gesetzt)
+**Zwei neue Suchintents live bringen, die den Trichter VERBREITERN statt ihn zu
+duplizieren — und den Deploy-Lag des Vor-Ticks widerlegen oder bestaetigen.**
+Nach 45 Seiten ohne einen einzigen Zahlungsversuch ist die ehrliche Lage: mehr
+Seiten allein bringen nichts, wenn sie denselben Intent nochmal abdecken. Darum
+diesen Tick 46 Seeds gescreent und 5 Kandidaten mit Volumen **abgelehnt**, weil
+sie Dubletten (expose, quiz, lernzettel) oder Pruefungsleistungen waeren.
+Wochenziel unveraendert: erster MEASURED Sale (bezahlte evt_/cs_-ID).
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, sk_live_, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`).
+- `GET /v1/events?limit=25` → Typ-Verteilung: `payment_link.updated` 7,
+  `payment_link.created` 6, `price.created` 5, `product.created` 5,
+  `checkout.session.expired` 2. **Kein** `checkout.session.completed`,
+  **kein** `charge.*`, **kein** `payment_intent.succeeded`.
+- `GET /v1/charges?limit=5` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- Die 2 `expired`-Sessions sind unveraendert die aus den Vor-Ticks als
+  **Eigentests** dokumentierten (`cs_live_a1YONK3…` 1499 Cent mit
+  `metadata.probe=TICKET7-SESSION-PROBE`, `cs_live_a1oohHh…` 399 Cent aus
+  `scripts/request_delivery/funnel_own_sessions.json`). Kein Nachfragesignal.
+- juengstes Stripe-Event weiterhin `evt_1U0hzC…` vom 04.08. 13:02 UTC
+  ⇒ **seit ~62 h keine neue Session, kein Zahlungsversuch**.
+sales.log unveraendert (0 Zeilen mit echter ID). Kein Self-Buy.
+
+### Getan (alles MEASURED)
+1. **Bestand geprueft:** alle **45** vorhandenen `blog/*.html` live per curl
+   → `BLOG_TOTAL=45 BLOG_FAILS=0`; index, gig, rtd, thanks, sitemap, lead_magnet,
+   impressum, agb, datenschutz je **HTTP 200**. Kein Re-Push noetig.
+2. **Keyword-Recherche:** `web_search` erneut **nicht verfuegbar** — Firecrawl
+   antwortet `HTTP 402 BILLING_ERROR / insufficient_funds` (Rohfehler in diesem
+   Tick gemessen). Ersatz: `scripts/kw_demand.py` (Google Autocomplete,
+   hl=de/gl=de), gefahren ueber die neuen Screening-Skripte
+   `scripts/_tick_seeds.py` + `scripts/_tick_seeds2.py`, **46 Seeds**.
+   Angenommen (2):
+   - `karteikarten erstellen lassen` → **10 Vorschlaege (Maximum beider Runden)**,
+     3× KI-Modifier ("…ki", "ai karteikarten…", "…ki kostenlos"), dazu
+     anki/goodnotes/app (bezahlter Werkzeugmarkt) und "…aus pdf"/"…zum lernen"
+     (konkreter Arbeitsauftrag mit Quellmaterial). Ehrlich: **2× "kostenlos"**.
+   - `text kuerzen lassen` → **2 Vorschlaege, 0× "kostenlos"**, davon 1×
+     "text kuerzen lassen ki". Signalniveau = pressemitteilung/vortrag/pitch-deck
+     (je 2 Treffer, alle live).
+   Abgelehnt trotz Volumen (im Code dokumentiert):
+   - `expose schreiben lassen` (6, mit "…preise") — **Dublette** zur live
+     stehenden expose-Seite, dazu 2× bachelorarbeit/masterarbeit = Abgabe.
+   - `quiz erstellen lassen` (6) — deckungsgleich mit quiz-fragen-Seite.
+   - `lernzettel erstellen lassen` (4) — von study-guide + Karteikarten abgedeckt.
+   - `kurzgeschichte schreiben lassen` (2, 0× kostenlos) — sauberes Signal, aber
+     wahrscheinlichster Zweck ist die Abgabe in Schule/Uni; zurueckgestellt.
+   - `urkunde` (Druckleistung), `fragebogen` (…und auswerten = Datenauswertung),
+     `einladung` (Treffer ist ein Tippfehler-Query).
+   - Kein Signal (0–1 Treffer), 37 Seeds: umfrage, agenda, zeitplan, projektplan,
+     wochenplan, raetsel, interviewleitfaden, firmennamen, persona, weihnachtskarte,
+     glueckwunsch, youtube-/podcast-beschreibung, hausordnung, pflichtenheft,
+     lastenheft, ablaufplan, grabrede, kalkulation, visitenkarte, moderationstext,
+     traurede, maerchen, zwischenzeugnis, pruefungsfragen, klausur, eheversprechen,
+     tischrede, spielanleitung, app-beschreibung, marketingplan, marketingkonzept,
+     redaktionsplan, keyword-recherche, unterrichtsmaterial, hoerbuch-text, seo texte.
+3. **2 neue Landingpages** via `scripts/traffic_engine.py` (idempotent: 3. Lauf
+   meldet "ALLE KEYWORDS BELEGT"): `blog/karteikarten-erstellen-lassen-ki.html`,
+   `blog/text-kuerzen-lassen.html` → **47 Landingpages**.
+   Abgrenzung steht **auf der Seite selbst**:
+   - Karteikarten: Import-Datei (CSV/TSV/Text) zum Selbst-Einlesen, **kein**
+     Deck-Upload, **kein** App-Account, **keine** fremden Verlagsinhalte.
+   - Kuerzen: dein Text auf harte Vorgabe, **keine** Recherche/Faktenpruefung,
+     **kein** Detektor-Umschreiben, plus expliziter Verweis auf die
+     Zusammenfassungs-Seite fuer den anderen Intent (Anti-Kannibalisierung).
+4. **Interlinking/Sitemap/Index:** beide Slugs in `scripts/interlink.py`
+   (Cluster "Lernen & Studium") → `interlink: 10 geschrieben, 0 offen,
+   0 ohne Cluster`, danach `--check` **Exit 0**. `scripts/_tick_add_urls.py`
+   trug Sitemap + Index nach (`sitemap +2 / index +2`, 2. Lauf `+0/+0` =
+   idempotent). `sitemap.xml` per ElementTree geparst: **1228 URLs, XML valide**.
+5. **Deploy + Live-Beleg:** commit `53e8aab`, push gh-pages. **Kein Deploy-Lag
+   diesmal** — der Vor-Tick brauchte einen Leer-Commit und >10 min, hier waren
+   beide Seiten nach **40 s** live (03:37:57 noch 404 → 03:38:18 beide 200).
+   Gegen die LIVE-Auslieferung geprueft (nicht nur lokal):
+   `live-sitemap=True live-index=True` fuer beide Slugs, Live-Sitemap 1228 `<loc>`.
+   IndexNow: **1228 URLs → HTTP 200**, `SUBMIT_OK`.
+6. **Fiverr-Gig verifiziert** (`docs/fiverr_gig.md`): Titel (DE+EN), Beschreibung
+   und die 3 Pakete **3,99 / 7,99 / 14,99 EUR** vorhanden und deckungsgleich mit
+   `gig.html` (dort gezaehlt 3,99 € 3× / 7,99 € 1× / 14,99 € 1×). Die 3
+   Stripe-Live-Checkout-Links je **HTTP 200** (`scripts/_tick_gig_check.py`).
+   Text um die 2 neuen Deliverables erweitert → USER muss weiterhin nur kopieren.
+7. **Gumroad:** `scripts/gumroad_sale_poll.py` → **`NO TOKEN`**; es existiert
+   weiterhin nur `.gumroad_secrets.template`, kein echtes Token. Blocker
+   unveraendert **beim USER** (Payout-Freischaltung + API-Token).
+8. **Qualitaet:** `verify.py --offline` → **73 ok / 0 fail**. `ruff` (via uvx,
+   lokal nicht installiert) → 5 Findings, gegen `git show HEAD:` gegengeprueft:
+   **exakt die Baseline, 0 neue**; die 2 selbst verursachten RUF100 sofort gefixt.
+
+### Ehrliche Bewertung
+47 Landingpages, 1228 indexierte URLs, 0 Sessions in 62 h. Die Seiten sind
+technisch sauber (200, Sitemap, IndexNow), aber **organischer Google-Traffic auf
+frische GitHub-Pages-Seiten ist der Engpass, nicht die Seitenzahl**. Ohne den
+Fiverr-Account (USER, KYC) gibt es keinen zweiten Kanal mit eigenem Traffic.
+
+### Next
+- USER-Blocker (unveraendert, beide 0 EUR Kosten): Fiverr-Account + Gig
+  veroeffentlichen (Text ist copy-paste-fertig), Gumroad-Payout + API-Token.
+- Naechster Tick: Stripe-Poll, Live-Check aller 47 Seiten, 1–2 weitere Intents —
+  aber nur bei sauberem Signal; Dubletten werden weiter abgelehnt.
+
 ## 2026-08-06 (Tick 3, cronjob — 12:00–12:35 UTC / 14:00–14:35 lokal)
 
 ### Geld-Ziel (selbst gesetzt)

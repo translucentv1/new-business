@@ -64,6 +64,12 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   steigender Schwierigkeit, Lösungsvorschläge — Text, **kein** druckfertiges Layout
   und **keine** Übernahme fremder Schulbuch-/Verlagsinhalte) sowie Lernpläne
   (Wochenaufteilung, Themenreihenfolge, Wiederholungen, Puffer bis zum Prüfungstermin)
+  und Karteikarten als import-fertige Frage-Antwort-Datei (CSV/TSV/Text für Anki,
+  Quizlet, GoodNotes — **kein** Deck-Upload, **kein** App-Account, keine fremden
+  Verlagsinhalte)
+- Kürzen: vorhandene Texte auf eine harte Vorgabe eingedampft (Wortzahl, Zeichenzahl,
+  Seiten- oder Redezeit) — Inhalt und Ton bleiben deine, **keine** Recherche/Faktenprüfung
+  und **kein** Umschreiben zur Umgehung einer KI-/Plagiatsprüfung
 
 **So läuft's:**
 1. Du schickst mir deine Anforderung (2–3 Sätze reichen).
@@ -194,3 +200,22 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       vom 04.08. weiterhin expired/unpaid, seit ~41 h keine neue Session.
       Deliverables oben um Prompt-Erstellung + persoenliche Anlassbriefe
       erweitert (Scope-Grenzen notiert: kein Finetuning, kein Versand, kein Layout).
+- [x] AI-CEO 2026-08-07 Tick MEASURED: 45 bestehende blog/-Seiten live geprueft
+      -> **BLOG_TOTAL=45 BLOG_FAILS=0**, dazu index/gig/rtd/thanks/sitemap/
+      lead_magnet/impressum/agb/datenschutz je HTTP 200 (9 Kernseiten).
+      2 neue Seiten (karteikarten erstellen lassen ki, text kuerzen lassen;
+      Autocomplete 10 bzw. 2 Vorschlaege, karteikarten mit 3x KI-Modifier +
+      anki/goodnotes/"aus pdf", text kuerzen **0x "kostenlos"** + "...ki")
+      -> **47 Landingpages**, beide nach 40 s live **HTTP 200** und in der
+      Live-sitemap.xml **und** der Live-index.html enthalten (1228 URLs).
+      Die 3 Stripe-Live-Checkout-Links in gig.html erneut je **HTTP 200**;
+      Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
+      mit der Pakettabelle oben (Titel, Beschreibung, 3 Pakete unveraendert
+      gueltig). IndexNow 1228 URLs HTTP 200. verify.py --offline: 73 ok / 0 fail.
+      interlink --check: 0 offen, 0 ohne Cluster. ruff: 5 Findings = exakt die
+      Baseline (gegen `git show HEAD:` gegengeprueft), 0 neue.
+      Stripe: 0 Charges, 0,00 EUR available/pending; dieselben 2 Eigentest-
+      Sessions vom 04.08. weiterhin expired/unpaid, seit ~62 h keine neue Session.
+      Deliverables oben um Karteikarten-Importdatei + Text-Kuerzen erweitert
+      (Scope-Grenzen notiert: kein Deck-Upload, keine Verlagsinhalte, keine
+      Faktenpruefung, kein Detektor-Umschreiben).
