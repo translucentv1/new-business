@@ -391,6 +391,61 @@ KEYWORDS = [
     #   tinder profil, immobilien expose, chatbot, excel formel, makro, vba,
     #   automatisierung, n8n, app text, datenanalyse.
     # Insgesamt 67 Seeds in diesem Tick geprueft, 2 angenommen.
+    # 2026-08-07 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google
+    # Autocomplete, hl=de/gl=de), Screening-Skripte scripts/_tick_seeds.py und
+    # scripts/_tick_seeds2.py (46 Seeds, Rohausgabe im Report).
+    # web_search erneut NICHT verfuegbar: Firecrawl HTTP 402 BILLING_ERROR
+    # (insufficient_funds) -> Autocomplete bleibt die einzige MEASURED-Quelle.
+    # "karteikarten erstellen lassen" -> 10 Vorschlaege (= Maximum beider Runden),
+    # 3x KI-Modifier ("...ki", "ai karteikarten...", "...ki kostenlos") und die
+    # Tool-Modifier anki/goodnotes/app (= es existiert ein etablierter, teils
+    # bezahlter Werkzeugmarkt) sowie "...aus pdf" / "...zum lernen" (konkreter
+    # Arbeitsauftrag mit mitgeliefertem Quellmaterial).
+    # Ehrlich notiert: 2 der 10 Vorschlaege enthalten "kostenlos".
+    # Abgrenzung zu bestehenden Seiten: study-guide/zusammenfassung = Fliesstext,
+    # quiz-fragen = Multiple-Choice fuer Schulung/Event, lernplan = Zeitplan;
+    # hier Frage-Antwort-PAARE als Import-Datei (CSV/TSV/Text) fuer Anki & Co.
+    # Abgrenzung EHRLICH auf der Seite: Textdatei zum Selbst-Import, KEIN
+    # Deck-Upload, KEIN App-Account, keine Uebernahme fremder Verlagsinhalte.
+    ("karteikarten erstellen lassen ki", "Karteikarten erstellen lassen (KI)", "Frage-Antwort-Karten aus deinem Skript, PDF oder Thema – import-fertig fuer Anki, Quizlet & Co., ab 3,99 EUR in 24h."),
+    # "text kuerzen lassen" -> 2 Vorschlaege, **0x "kostenlos"**, davon 1x
+    # "text kuerzen lassen ki" (KI-Akzeptanz belegt). Signalniveau identisch mit
+    # den bereits live stehenden pressemitteilung/vortrag/pitch-deck (je 2 Treffer).
+    # Eigener Intent, keine Dublette: korrekturlesen = Fehler beheben,
+    # text-formulieren = Ton/Stil verbessern (Laenge egal), zusammenfassung =
+    # NEUER kurzer Text ueber die Quelle; hier bleibt es DEIN Text, nur auf eine
+    # harte Wort-/Zeichen-/Seitenvorgabe eingedampft. Deliverable = reiner Text.
+    ("text kürzen lassen", "Text kürzen lassen", "Zu lang? Dein Text auf die geforderte Wort-, Zeichen- oder Seitenzahl gekuerzt – Aussage und Ton bleiben erhalten, ab 3,99 EUR in 24h."),
+    # BEWUSST ABGELEHNT (2026-08-07 Tick):
+    # - "expose schreiben lassen" (6 Treffer, 0x kostenlos, mit "...preise"):
+    #   waere eine DUBLETTE zur bereits live stehenden
+    #   expose-schreiben-lassen-ki.html; zusaetzlich sind 2 der 6 Vorschlaege
+    #   "expose bachelorarbeit/masterarbeit" = Pruefungsleistung zur Abgabe.
+    # - "quiz erstellen lassen" (6, 1x kostenlos): deckungsgleich mit der
+    #   bestehenden quiz-fragen-erstellen-lassen.html -> Kannibalisierung.
+    # - "lernzettel erstellen lassen" (4, 1x kostenlos): inhaltlich vom
+    #   study-guide + der neuen Karteikarten-Seite abgedeckt.
+    # - "kurzgeschichte schreiben lassen" (2, 0x kostenlos, 1x "ki"): sauberes
+    #   Signal, aber der wahrscheinlichste Verwendungszweck ist die Abgabe in
+    #   Schule/Uni (Pruefungsleistung) und die Autocomplete-Modifier grenzen das
+    #   nicht ab -> gleiche Linie wie referat/praktikumsbericht, zurueckgestellt.
+    # - "urkunde erstellen lassen" (2): zweiter Vorschlag "...und drucken lassen"
+    #   = Druck-/Layoutleistung, koennen wir nicht liefern.
+    # - "einladung schreiben lassen" (2): erster Treffer ist der Tippfehler
+    #   "einladung/schreiben lassen" -> kein belastbarer Intent.
+    # - "fragebogen erstellen lassen" (2): zweiter Vorschlag ist
+    #   "...und auswerten lassen" = Datenerhebung + Auswertung, nicht unser
+    #   Text-Deliverable.
+    # - 0-1 Treffer (kein Signal): umfrage, agenda, zeitplan, projektplan,
+    #   wochenplan, raetsel, interviewleitfaden, firmennamen, persona,
+    #   weihnachtskarte, glueckwunsch, youtube-/podcast-beschreibung,
+    #   hausordnung, pflichtenheft, lastenheft, ablaufplan, grabrede,
+    #   kalkulation, visitenkarte, moderationstext, traurede, maerchen,
+    #   zwischenzeugnis, pruefungsfragen, klausur, eheversprechen, tischrede,
+    #   spielanleitung, app-beschreibung, marketingplan, marketingkonzept,
+    #   redaktionsplan, keyword-recherche, unterrichtsmaterial, hoerbuch-text,
+    #   seo texte.
+    # 46 Seeds in diesem Tick geprueft, 2 angenommen.
 ]
 
 def slug(kw):
