@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--[if IE 6]><html class="ie6" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if IE 7]><html class="lt-ie8 lt-ie9" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if gt IE 8]><!--><html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" />
+  <meta name="referrer" content="origin" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>site:wikipedia.org at DuckDuckGo</title>
+  <link title="DuckDuckGo (HTML)" type="application/opensearchdescription+xml" rel="search" href="//duckduckgo.com/opensearch_html_v2.xml" />
+  <link href="//duckduckgo.com/favicon.ico" rel="shortcut icon" />
+  <link rel="icon" href="//duckduckgo.com/favicon.ico" type="image/x-icon" />
+  <link id="icon60" rel="apple-touch-icon" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_60x60.png?v=2"/>
+  <link id="icon76" rel="apple-touch-icon" sizes="76x76" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_76x76.png?v=2"/>
+  <link id="icon120" rel="apple-touch-icon" sizes="120x120" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_120x120.png?v=2"/>
+  <link id="icon152" rel="apple-touch-icon" sizes="152x152" href="//duckduckgo.com/assets/icons/meta/DDG-iOS-icon_152x152.png?v=2"/>
+  <link rel="image_src" href="//duckduckgo.com/assets/icons/meta/DDG-icon_256x256.png">
+  <link rel="stylesheet" media="handheld, all" href="//duckduckgo.com/dist/h.238c80a7d9b754cfcdd5.css" type="text/css"/>
+</head>
+
+<body class="body--html">
+  <a name="top" id="top"></a>
+
+  <form action="/html/" method="post">
+    <input type="text" name="state_hidden" id="state_hidden" />
+  </form>
+
+  <div>
+    <div class="site-wrapper-border"></div>
+
+    <div id="header" class="header cw header--html">
+      <a title="DuckDuckGo" href="/html/" class="header__logo-wrap"></a>
+
+      <form name="x" class="header__form" action="/html/" method="post">
+        <div class="search search--header">
+          <input name="q" autocomplete="off" class="search__input" id="search_form_input_homepage" type="text" value="site:wikipedia.org" />
+          <input name="b" id="search_button_homepage" class="search__button search__button--html" value="" title="Search" alt="Search" type="submit" />
+        </div>
+
+        
+        
+        
+        
+
+        <div class="frm__select">
+          <select name="kl">
+            
+              <option value="" >All Regions</option>
+            
+              <option value="ar-es" >Argentina</option>
+            
+              <option value="au-en" >Australia</option>
+            
+              <option value="at-de" >Austria</option>
+            
+              <option value="be-fr" >Belgium (fr)</option>
+            
+              <option value="be-nl" >Belgium (nl)</option>
+            
+              <option value="br-pt" >Brazil</option>
+            
+              <option value="bg-bg" >Bulgaria</option>
+            
+              <option value="ca-en" >Canada (en)</option>
+            
+              <option value="ca-fr" >Canada (fr)</option>
+            
+              <option value="ct-ca" >Catalonia</option>
+            
+              <option value="cl-es" >Chile</option>
+            
+              <option value="cn-zh" >China</option>
+            
+              <option value="co-es" >Colombia</option>
+            
+              <option value="hr-hr" >Croatia</option>
+            
+              <option value="cz-cs" >Czech Republic</option>
+            
+              <option value="dk-da" >Denmark</option>
+            
+              <option value="ee-et" >Estonia</option>
+            
+              <option value="fi-fi" >Finland</option>
+            
+              <option value="fr-fr" >France</option>
+            
+              <option value="de-de" >Germany</option>
+            
+              <option value="gr-el" >Greece</option>
+            
+              <option value="hk-tzh" >Hong Kong</option>
+            
+              <option value="hu-hu" >Hungary</option>
+            
+              <option value="is-is" >Iceland</option>
+            
+              <option value="in-en" >India (en)</option>
+            
+              <option value="id-en" >Indonesia (en)</option>
+            
+              <option value="ie-en" >Ireland</option>
+            
+              <option value="il-en" >Israel (en)</option>
+            
+              <option value="it-it" >Italy</option>
+            
+              <option value="jp-jp" >Japan</option>
+            
+              <option value="kr-kr" >Korea</option>
+            
+              <option value="lv-lv" >Latvia</option>
+            
+              <option value="lt-lt" >Lithuania</option>
+            
+              <option value="my-en" >Malaysia (en)</option>
+            
+              <option value="mx-es" >Mexico</option>
+            
+              <option value="nl-nl" >Netherlands</option>
+            
+              <option value="nz-en" >New Zealand</option>
+            
+              <option value="no-no" >Norway</option>
+            
+              <option value="pk-en" >Pakistan (en)</option>
+            
+              <option value="pe-es" >Peru</option>
+            
+              <option value="ph-en" >Philippines (en)</option>
+            
+              <option value="pl-pl" >Poland</option>
+            
+              <option value="pt-pt" >Portugal</option>
+            
+              <option value="ro-ro" >Romania</option>
+            
+              <option value="ru-ru" >Russia</option>
+            
+              <option value="xa-ar" >Saudi Arabia</option>
+            
+              <option value="sg-en" >Singapore</option>
+            
+              <option value="sk-sk" >Slovakia</option>
+            
+              <option value="sl-sl" >Slovenia</option>
+            
+              <option value="za-en" >South Africa</option>
+            
+              <option value="es-ca" >Spain (ca)</option>
+            
+              <option value="es-es" >Spain (es)</option>
+            
+              <option value="se-sv" >Sweden</option>
+            
+              <option value="ch-de" >Switzerland (de)</option>
+            
+              <option value="ch-fr" >Switzerland (fr)</option>
+            
+              <option value="tw-tzh" >Taiwan</option>
+            
+              <option value="th-en" >Thailand (en)</option>
+            
+              <option value="tr-tr" >Turkey</option>
+            
+              <option value="us-en" >US (English)</option>
+            
+              <option value="us-es" >US (Spanish)</option>
+            
+              <option value="ua-uk" >Ukraine</option>
+            
+              <option value="uk-en" >United Kingdom</option>
+            
+              <option value="vn-en" >Vietnam (en)</option>
+            
+          </select>
+        </div>
+
+        <div class="frm__select frm__select--last">
+          <select class="" name="df">
+            
+              <option value="" selected>Any Time</option>
+            
+              <option value="d" >Past Day</option>
+            
+              <option value="w" >Past Week</option>
+            
+              <option value="m" >Past Month</option>
+            
+              <option value="y" >Past Year</option>
+            
+          </select>
+        </div>
+      </form>
+    </div>
+
+    
+
+    
+      <!-- Web results are present -->
+      <div>
+        <div class="serp__results">
+          <div id="links" class="results">
+            
+
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMain_Page&amp;rut=3e6ad0706f7e0c7adccdfb162ca78f71a23d1f588600466fadb1cf8a7c39d25d">Wikipedia, the free encyclopedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMain_Page&amp;rut=3e6ad0706f7e0c7adccdfb162ca78f71a23d1f588600466fadb1cf8a7c39d25d">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/en.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMain_Page&amp;rut=3e6ad0706f7e0c7adccdfb162ca78f71a23d1f588600466fadb1cf8a7c39d25d">
+                            en.wikipedia.org/wiki/Main_Page
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMain_Page&amp;rut=3e6ad0706f7e0c7adccdfb162ca78f71a23d1f588600466fadb1cf8a7c39d25d">Henry Macandrew (7 August 1866 - 16 July 1919) was a British Indian Army officer. He fought through the Tirah campaign in India, and then served as a staff officer during the Boer War, and received the Distinguished Service Order. Given command of the 5th Bengal Cavalry, upon the outbreak of the First World War he travelled to France as general staff officer grade 1 of the 1st Indian Cavalry ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fgpe.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=5d4470b6e7408d338467d1aa897df715e877ee27baab0695e99bb50c0ab1868f">Wikipedia - Wikipedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fgpe.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=5d4470b6e7408d338467d1aa897df715e877ee27baab0695e99bb50c0ab1868f">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/gpe.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fgpe.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=5d4470b6e7408d338467d1aa897df715e877ee27baab0695e99bb50c0ab1868f">
+                            gpe.wikipedia.org/wiki/Wikipedia
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fgpe.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=5d4470b6e7408d338467d1aa897df715e877ee27baab0695e99bb50c0ab1868f">Wikipedi be a free-content online encyclopedia wey community of volunteers, dem know as Wikipedians dey wrep den dey maintain am, thru open collaboration den de wiki software MediaWiki. Wikipedia be de largest den most-read reference work insyd history, [1][2] wey ebe consistently ranked among de ten most visited websites; as of August 2024, na dem rank am fourth by Semrush, [3] den seventh by ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEarth&amp;rut=b349b91e3d6e22a66203bbf42131946df480be6cc2c1552442ed3d9deb0cbd17">Earth - Wikipedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEarth&amp;rut=b349b91e3d6e22a66203bbf42131946df480be6cc2c1552442ed3d9deb0cbd17">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/en.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEarth&amp;rut=b349b91e3d6e22a66203bbf42131946df480be6cc2c1552442ed3d9deb0cbd17">
+                            en.wikipedia.org/wiki/Earth
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FEarth&amp;rut=b349b91e3d6e22a66203bbf42131946df480be6cc2c1552442ed3d9deb0cbd17">Earth is the third planet from the Sun and the only astronomical object known to harbor life. This is made possible by Earth being an ocean world, the only one in the Solar System sustaining liquid surface water. Almost all of Earth&#x27;s water is contained in its ocean, which covers 70.8% of Earth&#x27;s crust. The remaining 29.2% of Earth&#x27;s crust is land, which is predominantly located within Earth&#x27;s ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FConstitution_of_the_United_States&amp;rut=a94a93e657eb804c8ef09a4fc82d9673dfc32cb7a608bf1846702d8b874ebdc7">Constitution of the United States - Wikipedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FConstitution_of_the_United_States&amp;rut=a94a93e657eb804c8ef09a4fc82d9673dfc32cb7a608bf1846702d8b874ebdc7">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/en.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FConstitution_of_the_United_States&amp;rut=a94a93e657eb804c8ef09a4fc82d9673dfc32cb7a608bf1846702d8b874ebdc7">
+                            en.wikipedia.org/wiki/Constitution_of_the_United_States
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FConstitution_of_the_United_States&amp;rut=a94a93e657eb804c8ef09a4fc82d9673dfc32cb7a608bf1846702d8b874ebdc7">49:18 Reading of the United States Constitution of 1787 The Constitution of the United States is the supreme law of the United States of America. [3] It superseded the Articles of Confederation, the nation&#x27;s first constitution, on March 4, 1789. Originally including seven articles, the Constitution defined the foundational structure of the federal government. [4] The drafting of the ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_European_countries&amp;rut=85c7aba8379409bd5653d0e5c4fa21d1868c8986a3b0e8faf85f4f215cc7bbdd">List of European countries - Simple English Wikipedia, the free ...</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_European_countries&amp;rut=85c7aba8379409bd5653d0e5c4fa21d1868c8986a3b0e8faf85f4f215cc7bbdd">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/simple.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_European_countries&amp;rut=85c7aba8379409bd5653d0e5c4fa21d1868c8986a3b0e8faf85f4f215cc7bbdd">
+                            simple.wikipedia.org/wiki/List_of_European_countries
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_European_countries&amp;rut=85c7aba8379409bd5653d0e5c4fa21d1868c8986a3b0e8faf85f4f215cc7bbdd">Some might consider Albania being 28,648 km² while others say it is 28,748km². Geographically located entirely in Asia, but politically and socioculturally belongs to Europe. A transcontinental country, most of whose territory belongs to Asia. Partially recognized state.</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_U.S._states&amp;rut=54e131ef340d82d63c1e05144673fce0a2dfc2357cd00f6e56cd70ccc59d2bc6">List of U.S. states - Simple English Wikipedia, the free encyclopedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_U.S._states&amp;rut=54e131ef340d82d63c1e05144673fce0a2dfc2357cd00f6e56cd70ccc59d2bc6">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/simple.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_U.S._states&amp;rut=54e131ef340d82d63c1e05144673fce0a2dfc2357cd00f6e56cd70ccc59d2bc6">
+                            simple.wikipedia.org/wiki/List_of_U.S._states
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fsimple.wikipedia.org%2Fwiki%2FList_of_U.S._states&amp;rut=54e131ef340d82d63c1e05144673fce0a2dfc2357cd00f6e56cd70ccc59d2bc6">This article lists the 50 states of the United States. It also lists their populations, the date they became a state or agreed to the United States Declaration of Independence, their total area, land area, water area, and the number of representatives in the United States House of Representatives. Washington D.C., (Washington, District of Columbia) is a federal district and capital of the ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fdonate.wikipedia.org%2F&amp;rut=7134a057134e62910c7fa78ba2765d6e6504d80d631d11a69db4f1990ab2affc">Make your donation now - Wikimedia Foundation</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fdonate.wikipedia.org%2F&amp;rut=7134a057134e62910c7fa78ba2765d6e6504d80d631d11a69db4f1990ab2affc">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/donate.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fdonate.wikipedia.org%2F&amp;rut=7134a057134e62910c7fa78ba2765d6e6504d80d631d11a69db4f1990ab2affc">
+                            donate.wikipedia.org
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fdonate.wikipedia.org%2F&amp;rut=7134a057134e62910c7fa78ba2765d6e6504d80d631d11a69db4f1990ab2affc">Technology: Servers, bandwidth, maintenance, development. Wikipedia is one of the top 10 websites in the world, and it runs on a fraction of what other top websites spend. People and Projects: The other top websites have thousands of employees. Wikimedia Foundation has about 700 staff and contractors to support a wide variety of projects, making your donation a great investment in a highly ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E5%25AE%258F%25E7%25A6%258F%25E8%258B%2591%25E5%25A4%25A7%25E7%2581%25AB&amp;rut=b7565364872118d564d62f8f298c413343bf25ba8c6ddb653a19c0e9e39c5da1">宏福苑大火 - 维基百科，自由的百科全书</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E5%25AE%258F%25E7%25A6%258F%25E8%258B%2591%25E5%25A4%25A7%25E7%2581%25AB&amp;rut=b7565364872118d564d62f8f298c413343bf25ba8c6ddb653a19c0e9e39c5da1">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/zh.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E5%25AE%258F%25E7%25A6%258F%25E8%258B%2591%25E5%25A4%25A7%25E7%2581%25AB&amp;rut=b7565364872118d564d62f8f298c413343bf25ba8c6ddb653a19c0e9e39c5da1">
+                            zh.wikipedia.org/wiki/宏福苑大火
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E5%25AE%258F%25E7%25A6%258F%25E8%258B%2591%25E5%25A4%25A7%25E7%2581%25AB&amp;rut=b7565364872118d564d62f8f298c413343bf25ba8c6ddb653a19c0e9e39c5da1">2009年的宏福苑 2025年11月25日（即火災前一日）的宏福苑 宏福苑 位於 香港 新界 大埔區，是1983年落成的 居屋 屋苑，至2025年樓齡已達42年，內有8座大廈，每座31層，共計1,984個住宅單位 [22]。如以每個單位價值約港元300萬元推算，整個屋苑大火前市值約60億 [23]。根據2021年 香港人口普查，屋苑居住 ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E6%2584%259B%25C2%25B7%25E5%259B%259E%25E5%25AE%25B6%25E4%25B9%258B%25E4%25B8%2589%25E4%25BB%25A3%25E5%2590%258C%25E7%25B3%2596&amp;rut=cd01c8280aa573ac06fa50d5ff05fff441a2c21179db4beb02d0167151ded7f7">愛·回家之三代同糖 - 维基百科，自由的百科全书</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E6%2584%259B%25C2%25B7%25E5%259B%259E%25E5%25AE%25B6%25E4%25B9%258B%25E4%25B8%2589%25E4%25BB%25A3%25E5%2590%258C%25E7%25B3%2596&amp;rut=cd01c8280aa573ac06fa50d5ff05fff441a2c21179db4beb02d0167151ded7f7">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/zh.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E6%2584%259B%25C2%25B7%25E5%259B%259E%25E5%25AE%25B6%25E4%25B9%258B%25E4%25B8%2589%25E4%25BB%25A3%25E5%2590%258C%25E7%25B3%2596&amp;rut=cd01c8280aa573ac06fa50d5ff05fff441a2c21179db4beb02d0167151ded7f7">
+                            zh.wikipedia.org/wiki/愛·回家之三代同糖
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fzh.wikipedia.org%2Fwiki%2F%25E6%2584%259B%25C2%25B7%25E5%259B%259E%25E5%25AE%25B6%25E4%25B9%258B%25E4%25B8%2589%25E4%25BB%25A3%25E5%2590%258C%25E7%25B3%2596&amp;rut=cd01c8280aa573ac06fa50d5ff05fff441a2c21179db4beb02d0167151ded7f7">《愛·回家之三代同糖》（英語： Come Home Love: Three Generations of Sweetness）是由 香港 無綫集團 製作的 處境喜劇，由 羅永賢 監製， 馬俊縈 編審， 馬俊縈 、 謝浩洋 、 潘逸豪 執行監製。劇中主要演員 車婉婉 、 吳若希 、 李茵彤 、 趙浚承 、 何依婷 、 李偉健 、 侯雋熙 、 關曜儁 、 周志康 、 容 ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="result results_links results_links_deep web-result ">
+                  <div class="links_main links_deep result__body"> <!-- This is the visible part -->
+                    
+                      <h2 class="result__title">
+                        <a rel="nofollow" class="result__a" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fcdo.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=a7e34441224c5850ab4ec3e67e7594c3ef5d2997079540c20b591c1586962187">Wikipedia - Wikipedia</a>
+                      </h2>
+
+                    
+
+                    
+                      <div class="result__extras">
+                        <div class="result__extras__url">
+                          <span class="result__icon">
+                            <a rel="nofollow" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fcdo.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=a7e34441224c5850ab4ec3e67e7594c3ef5d2997079540c20b591c1586962187">
+                              <img class="result__icon__img" width="16" height="16" alt="" src="//external-content.duckduckgo.com/ip3/cdo.wikipedia.org.ico" name="i15" />
+                            </a>
+                          </span>
+                          <a class="result__url" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fcdo.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=a7e34441224c5850ab4ec3e67e7594c3ef5d2997079540c20b591c1586962187">
+                            cdo.wikipedia.org/wiki/Wikipedia
+                          </a>
+                          
+                        </div>
+                      </div>
+                    
+
+                    
+                      
+                        <a class="result__snippet" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fcdo.wikipedia.org%2Fwiki%2FWikipedia&amp;rut=a7e34441224c5850ab4ec3e67e7594c3ef5d2997079540c20b591c1586962187">Wikipedia gì dù-biĕu. Wikipedia, iâ hô̤ lō̤ Wiki Báik-kuŏ (Wiki百科) sê 1 buô uōng-lŏk báik-kuŏ-ciòng-cṳ̆, găk 2001 nièng 1 nguŏk 15 hô̤ sìng-lĭk. Ĭ gì mŭk-dék sê gióng-lĭk 1 buô uòng-cuòng cê̤ṳ-iù, miēng-hié, dŏ̤-ngṳ̄ gì báik-kuŏ-ciòng-cṳ̆. Wikipedia ôi cêng sâ̤ nè̤ng tì-gṳ̆ng dĭ-sék gâe̤ng chăng-kō̤ cṳ̆-lâu. Ĭ ...</a>
+                      
+                    
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              
+            
+
+            
+              
+              
+                <div class="nav-link">
+                  <form action="/html/" method="post">
+                    <input type="submit" class='btn btn--alt' value="Next" />
+                    <input type="hidden" name="q" value="site:wikipedia.org" />
+                    <input type="hidden" name="s" value="10" />
+                    <input type="hidden" name="nextParams" value="" />
+                    <input type="hidden" name="v" value="l" />
+                    <input type="hidden" name="o" value="json" />
+                    <input type="hidden" name="dc" value="11" />
+                    <input type="hidden" name="api" value="d.js" />
+                    <input type="hidden" name="vqd" value="4-210995016376684693984671819930507449123" />
+
+                    
+                    
+                    
+                      <input name="kl" value="wt-wt" type="hidden" />
+                    
+                    
+                    
+                    
+                  </form>
+                </div>
+              
+            
+
+            <div class="feedback-btn">
+              <a rel="nofollow" href="//duckduckgo.com/feedback.html" target="_new">Feedback</a>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div> <!-- links wrapper //-->
+    
+  </div>
+
+  <div id="bottom_spacing2"></div>
+
+  
+    <img src="//duckduckgo.com/t/sl_h"/>
+  
+</body>
+</html>
