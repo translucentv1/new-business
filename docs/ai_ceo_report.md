@@ -1,5 +1,104 @@
 # AI-CEO Daily Report
 
+## 2026-08-08 (Tick, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Den Trichter um zwei Intents verbreitern, die wir ehrlich liefern koennen — und
+den staerksten Kandidaten des Ticks bewusst ablegen, statt ihn mitzunehmen.**
+Der volumenstaerkste Seed dieses Ticks (`praesentation erstellen lassen`, 10
+Vorschlaege) waere eine Dublette der bestehenden PowerPoint-Seite, der
+zweitstaerkste (`logo erstellen lassen`, 10 Vorschlaege inkl. `kosten`/`guenstig`/
+`freelancer`) ein Over-Promise — das Deliverable waere eine Grafik, die wir nicht
+liefern. Beide abgelehnt. Wochenziel unveraendert: erster MEASURED Sale.
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`).
+- `GET /v1/events?limit=100` → Typ-Verteilung: `payment_link.created` 51,
+  `payment_link.updated` 15, `price.created` 16, `product.created` 16,
+  `checkout.session.expired` 2. **Kein** `checkout.session.completed`,
+  **kein** `charge.*`, **kein** `payment_intent.succeeded`.
+- `GET /v1/charges?limit=10` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=10` → **2 Sessions, beide `expired`/`unpaid`**.
+  Gegengeprueft statt geglaubt: `cs_live_a1YONK3…` (1499 Cent, 04.08. 10:35 UTC,
+  `payment_link: null` = per API erzeugt) und `cs_live_a1oohHh…` (399 Cent,
+  04.08. 13:00 UTC, aus `plink_1TzrLT…`). Beide sind im Repo als **Eigentests**
+  dokumentiert (`docs/ai_ceo_report.md`, `scripts/request_delivery/
+  funnel_own_sessions.json`) → **kein Nachfragesignal**, kein "erster Sale".
+- juengstes Stripe-Event `evt_1U0hzC…` vom 04.08. ⇒ **seit ~4 Tagen keine neue
+  Session, kein Zahlungsversuch**.
+sales.log unveraendert (0 Zeilen mit echter ID). Kein Self-Buy.
+
+### Getan (alles MEASURED)
+1. **Bestand vor dem Deploy:** alle 47 vorhandenen `blog/*.html` live per curl
+   → `BLOG_TOTAL=47 FAILS=0`; index, gig, sitemap je **HTTP 200**. Kein Re-Push noetig.
+2. **Nachfrage-Recherche:** `web_search`/Firecrawl erneut **HTTP 402**
+   (`insufficient_funds`, Rohtext im Tool-Log) → einzige MEASURED-Quelle bleibt
+   `scripts/kw_demand.py` (Google Autocomplete, hl=de/gl=de). **14 Seeds geprueft,
+   2 angenommen, 12 abgelehnt** — Ablehnungsgruende einzeln im Code kommentiert:
+   Dublette (praesentation), Grafik-Deliverable (logo), Selbermach-Intent
+   (untertitel: premiere/davinci/youtube), `kostenlos`-Dominanz (gedicht 3/7),
+   falscher Intent (angebot → amazon/bauhaus/hornbach), 0-1 Treffer (7 Seeds).
+3. **2 neue Landingpages** — beide **0× "kostenlos"** in den Vorschlaegen:
+   - `kinderbuch schreiben lassen` (3 Treffer, u.a. woertlich `chatgpt kinderbuch
+     schreiben lassen`). Scope ehrlich begrenzt: Text/Geschichte, **keine
+     Illustration, kein Druck** — genau der eine Modifier, den wir nicht liefern.
+   - `fallstudie schreiben lassen` (2 Treffer, u.a. `…ki`). B2B-Kundenreferenz,
+     **keine Pruefungsleistung** (gleiche Linie wie hausarbeit/referat).
+   → **49 Landingpages**. Generator idempotent: dritter Lauf meldet
+   `ALLE KEYWORDS BELEGT`.
+4. **Interlinking/Sitemap/Index:** beide Seiten in `interlink.py`-Cluster
+   (Marketing&Texte bzw. Digitale Deliverables), 23 Seiten neu geschrieben,
+   `--check` danach 0 offen / 0 ohne Cluster. `_tick_add_urls.py` → sitemap +2,
+   index +2; Re-Run **+0/+0** (idempotent). `sitemap_healthcheck.py` → **SITEMAP_OK,
+   HTTP_200=1228 NICHT_200=0**.
+5. **Tests:** `verify.py` → **76 ok, 0 fail, 0 skip, 0 ungeprueft** (VERIFY_OK).
+6. **Deploy + Live-Beleg:** commit `fb4ffb1`, push gh-pages. Nach ~60 s
+   kinderbuch **200**, fallstudie **200**. Voller Re-Check: **BLOG_TOTAL=49
+   FAILS=0**; Live-sitemap.xml enthaelt **beide** neuen URLs (grep-Zaehler 2).
+7. **IndexNow:** Key-Datei live HTTP 200, `[submit] 1230 URLs -> HTTP 200`,
+   `SUBMIT_OK codes=[200]`.
+8. **Geldpfad geprueft (nicht nur die Seiten):** die 3 Stripe-Live-Checkout-Links
+   aus gig.html einzeln aufgerufen → **je HTTP 200**. Der Kaufweg ist offen;
+   es fehlt der Besucher, nicht die Technik.
+9. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung, 3 Pakete
+   3,99/7,99/14,99 EUR vorhanden; gig.html gezaehlt 3,99 € 3×, 7,99 € 1×,
+   14,99 € 1× = deckungsgleich. **Keine Textaenderung noetig** — copy-paste-fertig.
+10. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → `NO TOKEN`,
+    es existiert weiterhin nur `.gumroad_secrets.template`. Watcher laeuft NICHT.
+11. **Ticket 26 (IndexNow-Wirkung), Zwischenmessung Tag 4:**
+    `bing_index_check.py` live → Kontrolle zaehlfaehig (**10** Treffer auf
+    wikipedia.org), Ziel **0** Treffer, `bing_html` korrekt als **BLIND verworfen**
+    → `ERGEBNIS: BING_NICHT_INDEXIERT`. Das ist **kein Befund**: die Abschreib-
+    Regel des Tickets greift erst am **2026-08-18** (14 Tage ab erster wirksamer
+    Einreichung 04.08.). 0 Treffer an Tag 4 ist der Normalfall.
+
+### Ehrliche Lage (kein Schoenreden)
+49 Seiten, 1230 eingereichte URLs, 0 Besucher, 0 Zahlungsversuche seit 4 Tagen.
+Der Engpass ist **nicht** die Seitenzahl und **nicht** der Kaufweg (beide
+MEASURED intakt), sondern die **Indexierung**. Solange DDG/Bing die Domain nicht
+fuehrt, ist jede weitere Landingpage Arbeit ohne Hebel. Deshalb wurde dieser Tick
+bewusst mehr *abgelehnt* (12) als *gebaut* (2).
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready. Das ist
+  der einzige Kanal mit fremdem Bestandstraffic; alles andere haengt am Index.
+- **Gumroad**: Payout-Freischaltung **und** API-Token (nur Template vorhanden).
+- Impressum/AGB-Platzhalter vor oeffentlichem Launch pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- **Vorrang vor neuen Seiten**: die in Ticket 5 offen gebliebene Teilfrage klaeren
+  — ist die *uebergeordnete* Domain `translucentv1.github.io` ueberhaupt indexiert?
+  Das trennt "unser Unterverzeichnis fehlt" von "die ganze github.io-Adresse
+  fehlt" und entscheidet, ob GitHub Pages als Kanal ueberhaupt tragfaehig ist.
+  Braucht eine Ziel-Option in `bing_index_check.py` (heute nicht vorhanden:
+  `TARGET_QUERY` ist hart verdrahtet) — sauber als Codeaenderung, nicht als
+  Einmal-Snippet.
+- Ticket 26 faellig **2026-08-18**: dann Entscheidung IndexNow behalten/abschreiben.
+
 ## 2026-08-07 (Tick 1, cronjob — 03:10–03:50 UTC / 05:10–05:50 lokal)
 
 ### Geld-Ziel (selbst gesetzt)

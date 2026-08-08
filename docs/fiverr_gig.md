@@ -219,3 +219,20 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       Deliverables oben um Karteikarten-Importdatei + Text-Kuerzen erweitert
       (Scope-Grenzen notiert: kein Deck-Upload, keine Verlagsinhalte, keine
       Faktenpruefung, kein Detektor-Umschreiben).
+- [x] AI-CEO 2026-08-08 Tick MEASURED: alle blog/-Seiten live geprueft, vor dem
+      Deploy **BLOG_TOTAL=47 FAILS=0**, nach dem Deploy **BLOG_TOTAL=49 FAILS=0**.
+      2 neue Seiten (kinderbuch schreiben lassen, fallstudie schreiben lassen;
+      Autocomplete 3 bzw. 2 Vorschlaege, **beide 0x "kostenlos"**, beide mit
+      explizitem KI-Modifier) -> **49 Landingpages**, beide nach ~60 s live
+      **HTTP 200** und in der Live-sitemap.xml enthalten (1230 URLs).
+      Die 3 Stripe-Live-Checkout-Links in gig.html erneut je **HTTP 200**;
+      Preise dort gezaehlt 3,99 € 3x / 7,99 € 1x / 14,99 € 1x = deckungsgleich
+      mit der Pakettabelle oben (Titel, Beschreibung, 3 Pakete unveraendert
+      gueltig, keine Textaenderung noetig). IndexNow 1230 URLs HTTP 200,
+      SUBMIT_OK. verify.py: **76 ok / 0 fail / 0 ungeprueft**. interlink --check:
+      0 offen, 0 ohne Cluster. sitemap_healthcheck: SITEMAP_OK (1228/1228).
+      Stripe: 0 Charges, 0,00 EUR available/pending; dieselben 2 Eigentest-
+      Sessions vom 04.08. weiterhin expired/unpaid, seit ~4 Tagen keine neue
+      Session. Gumroad unveraendert `NO TOKEN`.
+      Deliverables oben bewusst NICHT erweitert: die zwei neuen Seiten fallen
+      unter bestehende Positionen (Geschichte/Text bzw. Marketing-Text).
