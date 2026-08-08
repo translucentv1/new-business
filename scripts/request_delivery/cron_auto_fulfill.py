@@ -12,9 +12,22 @@ Ergebniswoerter (erstes Token der ERGEBNIS-Zeile):
     RTD_FULFILL_OK          rc=0  Pipeline lief, Live-Check gruen
     RTD_FULFILL_SALE        rc=0  wie OK, aber es wurde mindestens 1 Sale bedient
     RTD_FULFILL_DEFEKT      rc=1  Pipeline oder Live-Check rot
-    RTD_FULFILL_UNGEPRUEFT  rc=2  nicht messbar (Repo/Skript fehlt, Netz tot)
+    RTD_FULFILL_UNGEPRUEFT  rc=3  nicht messbar (Netz tot, Heartbeat, Audit stumm)
 
 Echter Defekt schlaegt Unmessbarkeit (Konvention aus Ticket 16/17/19).
+
+Warum rc=3 und nicht rc=2 (Ticket 27, MEASURED 2026-08-08):
+Der Cron-Runner kennt nur `returncode != 0 -> status='failed'`
+(cron/scheduler.py:2231) - einen dritten Zustand gibt es nicht. Die ZAHL
+ueberlebt aber woertlich im error-Text ("Script exited with code N") und ist
+damit der einzige Kanal, in dem DEFEKT und UNMESSBAR unterscheidbar bleiben.
+Code 2 taugt dafuer NICHT: den vergibt der Interpreter selbst, wenn er das
+Skript gar nicht oeffnen kann ("can't open file", MEASURED), und argparse bei
+Bedienfehlern. In derselben executions.db stehen 76 echte Zeilen dieser Art
+(Job d7e05ad49c14). Waere UNMESSBAR = 2, sehe ein fehlender Loader-Pfad - die
+wahrscheinlichste stille Todesart dieser Pipeline - exakt aus wie "heute nicht
+messbar". Deshalb: 1 = gemessener Defekt, 3 = eigener Unmessbarkeits-Befund,
+2 bleibt dem Interpreter reserviert und ist damit als FREMDsignal lesbar.
 """
 
 import json
@@ -39,6 +52,10 @@ HEALTH_TIMEOUT = 120
 SITE = "https://translucentv1.github.io/new-business"
 LIVE_URLS = ("rtd.html", "thanks.html")
 TIMEOUT = 900
+# Ticket 27: eigener Exitcode fuer "nicht messbar". Bewusst NICHT 2 (siehe
+# Modul-Docstring) und bewusst NICHT 0 - gruen heisst ausschliesslich
+# "gemessen und gut", sonst sieht ein dauerhaft unmessbarer Geldpfad gesund aus.
+EXIT_UNGEPRUEFT = 3
 
 
 def run_health():
@@ -99,21 +116,30 @@ def http_code(url: str) -> int:
 def main() -> int:
     if not os.path.isfile(FULFILL):
         print(f"ERGEBNIS: RTD_FULFILL_UNGEPRUEFT (Skript fehlt: {FULFILL})")
-        return 2
+        return EXIT_UNGEPRUEFT
 
     print(f"[1] Pipeline: {sys.executable} auto_fulfill.py  (cwd={REPO})")
     try:
         p = subprocess.run([sys.executable, FULFILL], cwd=REPO,
                            capture_output=True, text=True, timeout=TIMEOUT)
     except subprocess.TimeoutExpired:
-        print(f"ERGEBNIS: RTD_FULFILL_DEFEKT (Timeout nach {TIMEOUT}s)")
+        print(f"ERGEBNIS: RTD_FULFILL_DEFEKT (Quelle: Lieferpipeline - "
+              f"Timeout nach {TIMEOUT}s)")
         return 1
     out = (p.stdout or "") + (p.stderr or "")
     print(out.rstrip())
 
-    defekt = p.returncode != 0
-    if defekt:
+    # Ticket 27 (Nebenfrage B): WOHER der Defekt kommt, wird mitgefuehrt.
+    # Vorher stand in executions.db nur "RTD_FULFILL_DEFEKT" - am 2026-08-08
+    # 05:41 riss ein nie gefeuerter Waechter den Lieferjob mit ins Rot,
+    # obwohl die Lieferung sauber lief. Rot bleibt rot (ein toter Cron
+    # liefert nichts mehr), aber es darf nicht laenger nach kaputter
+    # Lieferung AUSSEHEN, wenn die Lieferung lief.
+    quellen = []
+    if p.returncode != 0:
+        quellen.append("Lieferpipeline")
         print(f"  auto_fulfill rc={p.returncode}")
+    defekt = bool(quellen)
 
     # Sale-Erkennung aus der Produktivausgabe: "neu=N" ist die Zahl der in
     # diesem Lauf bedienten Sales; "FULFILLED " steht pro ausgeliefertem Stueck.
@@ -133,6 +159,7 @@ def main() -> int:
         print(f"  {u:<14} HTTP {codes[u]}")
     if any(c not in (200, -1) for c in codes.values()):
         defekt = True
+        quellen.append("Live-Check Kaufpfad")
     unmessbar = any(c == -1 for c in codes.values())
 
     # [2b] Ticket 25: Liefer-Beleg schreiben, BEVOR Etappe [3] urteilt.
@@ -160,6 +187,7 @@ def main() -> int:
         print(f"  {ln.strip()}")
     if hrc == 1:
         defekt = True
+        quellen.append("Cron-Gesundheit")
     elif hrc != 0:
         unmessbar = True
 
@@ -171,14 +199,17 @@ def main() -> int:
         print("*** ERSTER SALE / SALE BEDIENT — sales.log pruefen! ***")
 
     if defekt:
-        print("ERGEBNIS: RTD_FULFILL_DEFEKT")
+        liefer_sauber = "Lieferpipeline" not in quellen
+        zusatz = (" | Lieferung selbst lief sauber" if liefer_sauber else "")
+        print(f"ERGEBNIS: RTD_FULFILL_DEFEKT (Quelle: "
+              f"{', '.join(quellen)}{zusatz})")
         return 1
     if sale:
         print("ERGEBNIS: RTD_FULFILL_SALE")
         return 0
     if unmessbar:
         print("ERGEBNIS: RTD_FULFILL_UNGEPRUEFT (Live-Check nicht messbar)")
-        return 2
+        return EXIT_UNGEPRUEFT
     print("ERGEBNIS: RTD_FULFILL_OK (Pipeline gelaufen, Kaufpfad HTTP 200)")
     return 0
 
@@ -270,7 +301,10 @@ def _selftest() -> int:
         t(rc == 1 and w == "RTD_FULFILL_DEFEKT", f"thanks.html 500 -> DEFEKT ({w})")
 
         rc, w, _ = run(stub("neu=0"), {"rtd.html": -1})
-        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT", f"Netzfehler -> UNGEPRUEFT ({w})")
+        t(rc == EXIT_UNGEPRUEFT and w == "RTD_FULFILL_UNGEPRUEFT",
+          f"Netzfehler -> UNGEPRUEFT rc={rc} ({w})")
+        # Ticket 27: Code 2 gehoert dem Interpreter ("can't open file").
+        t(rc != 2, "UNGEPRUEFT benutzt NICHT Code 2 (Interpreter-reserviert)")
 
         rc, w, _ = run(stub("neu=0", rc=1), {"rtd.html": -1})
         t(rc == 1 and w == "RTD_FULFILL_DEFEKT",
@@ -281,8 +315,8 @@ def _selftest() -> int:
           f"Sale + kaputter Kaufpfad -> DEFEKT ({w})")
 
         rc, w, _ = run(os.path.join(tmpdir, "gibtsnicht.py"), {})
-        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT",
-          f"fehlendes Skript -> UNGEPRUEFT ({w})")
+        t(rc == EXIT_UNGEPRUEFT and w == "RTD_FULFILL_UNGEPRUEFT",
+          f"fehlendes Skript -> UNGEPRUEFT rc={rc} ({w})")
 
         rc, w, _ = run(stub("import time"), {}, timeout=0)
         t(rc == 1, f"Timeout -> DEFEKT rc={rc}")
@@ -303,7 +337,7 @@ def _selftest() -> int:
 
         rc, w, _ = run(stub("neu=0"), {},
                        health=(2, "ERGEBNIS: CRON_HEALTH_UNGEPRUEFT"))
-        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT",
+        t(rc == EXIT_UNGEPRUEFT and w == "RTD_FULFILL_UNGEPRUEFT",
           f"Cron-Health unmessbar -> UNGEPRUEFT, kein Defekt-Claim ({w})")
 
         rc, w, _ = run(stub("boom", rc=1), {},
@@ -357,14 +391,14 @@ def _selftest() -> int:
         rc, w, _ = run(stub("neu=0"), {"rtd.html": -1}, hb_path=hb3)
         with open(hb3, encoding="utf-8") as fh:
             alt3 = json.load(fh)
-        t(rc == 2 and alt3.get("ts") == "2000-01-01T00:00:00+00:00",
+        t(rc == EXIT_UNGEPRUEFT and alt3.get("ts") == "2000-01-01T00:00:00+00:00",
           "unmessbarer Kaufpfad frischt den Heartbeat NICHT auf")
 
         # Nicht schreibbarer Heartbeat darf nicht als gruen durchgehen:
         # ohne Beleg kann das Audit die Lieferung nicht bestaetigen.
         rc, w, text = run(stub("neu=0"), {},
                           hb_path=os.path.join(tmpdir, "fehlt", "hb.json"))
-        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT"
+        t(rc == EXIT_UNGEPRUEFT and w == "RTD_FULFILL_UNGEPRUEFT"
           and "Heartbeat nicht schreibbar" in text,
           f"nicht schreibbarer Heartbeat -> UNGEPRUEFT ({w})")
 
@@ -373,6 +407,35 @@ def _selftest() -> int:
                       health=(0, "ERGEBNIS: CRON_HEALTH_OK_TEILMENGE"))
         t(w == "RTD_FULFILL_OK",
           "Health-Wort wird ueber rc gelesen, nicht per Substring")
+
+        # -- Ticket 27: Quellenzuschreibung im einzigen Signalkanal ---------
+        # In executions.db landen DEFEKT und UNGEPRUEFT beide als 'failed'.
+        # Unterscheidbar sind sie nur ueber (a) die Exitcode-ZAHL im
+        # error-Text und (b) die Quelle in der ERGEBNIS-Zeile.
+        rc, w, text = run(stub("neu=0"), {},
+                          health=(1, "ERGEBNIS: CRON_HEALTH_DEFEKT"))
+        t(rc == 1 and "Quelle: Cron-Gesundheit" in text
+          and "Lieferung selbst lief sauber" in text,
+          "Waechter-Defekt bei sauberer Lieferung wird als solcher benannt")
+
+        rc, w, text = run(stub("boom", rc=1), {})
+        t(rc == 1 and "Quelle: Lieferpipeline" in text
+          and "Lieferung selbst lief sauber" not in text,
+          "echter Lieferdefekt wird NICHT entlastet")
+
+        rc, w, text = run(stub("neu=0"), {"rtd.html": 404})
+        t("Quelle: Live-Check Kaufpfad" in text,
+          "Live-Check-Defekt nennt den Kaufpfad als Quelle")
+
+        # Gegenprobe zur Zahl: die drei Ergebniswoerter muessen PAARWEISE
+        # verschiedene Exitcodes haben, sonst ist der Kanal wieder blind.
+        rc_ok, _, _ = run(stub("neu=0"), {})
+        rc_def, _, _ = run(stub("boom", rc=1), {})
+        rc_ung, _, _ = run(stub("neu=0"), {"rtd.html": -1})
+        t(len({rc_ok, rc_def, rc_ung}) == 3 and rc_ok == 0 and rc_def == 1
+          and rc_ung == 3,
+          f"OK/DEFEKT/UNGEPRUEFT haben 3 verschiedene Codes "
+          f"({rc_ok}/{rc_def}/{rc_ung})")
     finally:
         (g["FULFILL"], g["http_code"], g["TIMEOUT"],
          g["run_health"], g["HEARTBEAT"]) = orig

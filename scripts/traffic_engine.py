@@ -446,6 +446,46 @@ KEYWORDS = [
     #   redaktionsplan, keyword-recherche, unterrichtsmaterial, hoerbuch-text,
     #   seo texte.
     # 46 Seeds in diesem Tick geprueft, 2 angenommen.
+    # 2026-08-08 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). web_search/Firecrawl erneut HTTP 402 (insufficient_funds, Rohtext im
+    # Report) -> Autocomplete bleibt die einzige MEASURED-Quelle; kein ASSUMED-Keyword.
+    # "kinderbuch schreiben lassen" -> 3 Vorschlaege, KEIN "kostenlos"-Modifier:
+    # "chatgpt kinderbuch schreiben lassen" (KI-Akzeptanz woertlich) und "kinderbuch
+    # schreiben und drucken lassen" (= es existiert ein bezahlter Markt inkl. Druck).
+    # Signalniveau wie "bericht"/"speisekarte" (je 3 Treffer, beide live).
+    # Deliverable EHRLICH abgegrenzt: Geschichte + Text, KEINE Illustrationen und
+    # KEIN Druck/Bindung (genau der eine Modifier, den wir nicht bedienen koennen).
+    ("kinderbuch schreiben lassen", "Kinderbuch schreiben lassen – Text & Geschichte", "Altersgerechte Geschichte mit Figuren, Handlungsbogen und Seitenaufteilung als fertiger Text – ab 3,99 EUR, in 24h. Ohne Illustration und Druck."),
+    # "fallstudie schreiben lassen" -> 2 Vorschlaege, KEIN "kostenlos"-Modifier,
+    # darunter woertlich "fallstudie schreiben lassen ki" (KI-Akzeptanz explizit).
+    # Gleiches Signalniveau wie "pressemitteilung"/"vortrag"/"pitch deck" (je 2, alle live).
+    # B2B: Kundenreferenz/Case Study fuer Website und Vertrieb. Deliverable = reiner Text.
+    # Abgrenzung EHRLICH: Marketing-Fallstudie aus DEINEN Zahlen, KEINE Pruefungs-
+    # leistung zur Abgabe (gleiche Linie wie hausarbeit/referat/praktikumsbericht).
+    ("fallstudie schreiben lassen", "Fallstudie schreiben lassen (Case Study)", "Kundenreferenz nach Schema Ausgangslage – Loesung – Ergebnis, mit Zitat und Zahlen – ab 3,99 EUR, in 24h geliefert."),
+    # BEWUSST ABGELEHNT (2026-08-08 Tick):
+    # - "praesentation erstellen lassen" (10 Treffer = groesstes Volumen des Ticks):
+    #   deckt inhaltlich die bestehende Seite powerpoint-erstellen-lassen-ki ab
+    #   (Vorschlag woertlich "powerpoint praesentation erstellen lassen ki") und
+    #   enthaelt 2x "kostenlos" -> gleiche Begruendung wie das frueher abgelehnte
+    #   "handout erstellen lassen". Kein Duplikat bauen.
+    # - "logo erstellen lassen" (10, davon "...kosten", "...guenstig", "...freelancer"):
+    #   starkes Kaufsignal, aber das Deliverable ist eine GRAFIK. Ein "Logo-Text" waere
+    #   Over-Promise gegenueber dem Suchintent -> Regel: nur liefern, was wir koennen.
+    # - "untertitel erstellen lassen" (7): Modifier premiere pro/davinci/youtube =
+    #   der Sucher will es SELBST im eigenen Tool machen, plus "kostenlos".
+    # - "gedicht schreiben lassen" (7): 3 der 7 Vorschlaege sind "kostenlos" ->
+    #   kein Bezahlwille (schon in einem frueheren Tick aus dem gleichen Grund raus).
+    # - "angebot erstellen lassen" (4): Modifier amazon/bauhaus/hornbach = Preisangebot
+    #   vom Haendler, kein geschriebenes Dokument (Wiederholungsbefund, bleibt abgelehnt).
+    # - "kinderbuch"-Nachbar "drehbuch schreiben lassen" (1) = kein Signal.
+    # - 0-1 Treffer (kein Signal): stellenanzeige schreiben lassen, elevator pitch
+    #   schreiben, geschaeftsbrief schreiben lassen, produkttexte schreiben lassen,
+    #   social media beitraege erstellen lassen, video skript schreiben lassen,
+    #   leitbild erstellen lassen.
+    # - "erklaervideo skript" (2): zweiter Vorschlag ist "...vorlage" = Gratis-Vorlagen-
+    #   Sucher, schwaecherer Bezahlwille als die zwei angenommenen -> zurueckgestellt.
+    # 14 Seeds in diesem Tick geprueft, 2 angenommen.
 ]
 
 def slug(kw):
