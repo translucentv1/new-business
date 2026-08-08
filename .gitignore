@@ -24,3 +24,7 @@ scripts/request_delivery/plinks_backup_*.json
 # Ticket-5-Sondierungen (Wegwerf-Rohdaten, Belege liegen in evidence/ticket5/)
 .tmp_t5/
 .tick_*.txt
+
+# Ticket 25: Laufzeit-Beleg der Liefer-Pipeline (wird alle 30 min neu geschrieben)
+scripts/request_delivery/.pipeline_heartbeat.json
+.tmp_t25/

@@ -57,18 +57,15 @@ MUTANTS = [
         '    if False:\n        defects.append(f"{tag}: enabled=False',
         "abgeschalteter Geldpfad-Job -> rot",
     ),
-    (
-        "M4 '0 completed' nicht mehr rot (exakt der Ticket-22-Zustand)",
-        "    if not done:\n        defects.append(",
-        "    if False:\n        defects.append(",
-        "Ticket-22-Historie (143 failed / 0 completed) -> rot",
-    ),
-    (
-        "M5 stille Stagnation nicht mehr rot",
-        "    if toleranz is not None and age > toleranz:",
-        "    if False and toleranz is not None and age > toleranz:",
-        "letzter Erfolg 3 Tage her -> rot (stille Stagnation)",
-    ),
+    # M4/M5 ENTFALLEN mit Ticket 25 - nicht stillschweigend, sondern weil die
+    # gemutierten Kriterien selbst abgeschafft wurden:
+    #   M4 "'0 completed' nicht mehr rot" -> 'completed' ist seit Ticket 25
+    #      KEIN Kriterium mehr (dieses Audit bestimmt es selbst = Latch,
+    #      MEASURED am Alt-Stand: rc=1 gegen eine kerngesunde Pipeline).
+    #   M5 "stille Stagnation" -> gleiche Schutzwirkung, neuer Ort: Kriterium
+    #      [A] (Lauf-VERSUCHE). Mutant N1 in _mutation_probe_t25.py belegt,
+    #      dass sie dort rot-faehig ist.
+    # Die Deckung ist damit verschoben, nicht verloren.
     (
         "M6 Intervall > 24 h nicht mehr rot (agb.html § 3)",
         "        if minutes > MAX_PROMISE_MIN:",

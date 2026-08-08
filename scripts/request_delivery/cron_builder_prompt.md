@@ -782,3 +782,84 @@ von TICKET 5 (Bing-Trefferzahl) - heute war 2026-08-06, also weiterhin
 gesperrt. Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10 = HITL,
 Ticket 21 = HITL, Ticket 23 = HITL, Ticket 25 = AFK (offen).
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-08 (Tick, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK (52 Seiten).
+verify_ticket13_live LIVE_OK (57 Seiten). dl_noindex_audit --live DL_NOINDEX_OK
+(24/24). verify_rtd_chain KETTE_OK (399/799/1499 cent, Hash-Paritaet real
+gemessen). rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+Der Tick startete mit UNCOMMITTETER Arbeit des Vorticks (cron_health_audit.py
++378 Z., cron_auto_fulfill.py +122 Z., _mutation_probe_t25.py untracked). Nach
+Merkregel NEU AUSGEFUEHRT statt uebernommen - sie hat gehalten.
+
+TICKET 25 ERLEDIGT + GESCHLOSSEN.
+>>> DER BEFUND WAR NICHT DER SELBSTBEZUG, SONDERN EIN LATCH <<<
+Das Audit beurteilte den Geldpfad-Traeger am Job-Exit 'completed' - an genau
+der Groesse, die es durch sein eigenes rc SELBST bestimmt. Ein rotes rc macht
+den naechsten Lauf failed, das Alter des letzten Erfolgs waechst, das Audit
+bleibt rot. AM ALT-STAND AUSGEFUEHRT (echte jobs.json + executions.db):
+rc=1 "letzter Erfolg vor 1031 min" gegen eine KERNGESUNDE Pipeline; neue
+Fassung mit denselben Daten rc=0; bei wirklich stummer Pipeline weiter rc=1.
+Kriterien jetzt: [A] letzter Lauf-VERSUCH + [B] Pipeline-Heartbeat (Etappe
+[2b] in cron_auto_fulfill, geschrieben VOR dem Urteil, nur bei sauberer
+Pipeline). 'completed' wird nur noch als [INFO - kein Kriterium] gedruckt.
+AUSFALLMODI GEMESSEN (executions.db, nicht argumentiert):
+  A job-lokal: 151 Fehl-Laeufe des Traegers, im selben Fenster 470 completed
+    ANDERER Jobs -> propagiert nicht -> zweiter Ring hilft.
+  B stille Abwesenheit: letzte DB-Zeile eines toten Jobs ist 'completed' -
+    Tod hinterlaesst eine GRUENE Zeile -> nur ein Dritter sieht das.
+  C Scheduler/Rechner tot: 06:42:32-13:31:10 = 409 min, 0 Laeufe IRGENDEINES
+    Jobs -> gemeinsam, NICHT abgedeckt, ehrlich benannt (braeuchte einen
+    Waechter ausserhalb dieses Rechners; nicht Gegenstand von T25).
+ENTSCHEIDUNG: zweiter Ring JA. Neu 5e99ad47470f, kind=interval 30 min,
+no_agent, deliver=local, Loader $HERMES_HOME/scripts/rtd_health_watchdog.py
+-> Repo-Skript (keine zweite Kopie). Direkt in cron/jobs.json geschrieben
+(Backup jobs.json.bak_t25_20260808_133913) - die CLI verstuemmelt deutsche
+Prompts und erzeugt kind=once.
+MEASURED: cron_health_audit --selftest 37/37 | cron_auto_fulfill --selftest
+27/27 (inkl. "PRODUKTIV-Heartbeat unangetastet") | _mutation_probe_t25.py
+MUTATION_PROBE_OK 21/21 (11 rote Mutanten in 2 Produktivdateien, exakte
+Diagnosezeile, kein Traceback, beide sha256-genau restauriert, rc 0->1->0) |
+echter Job-Lauf `hermes cron run 5e99ad47470f` -> "Ran now: succeeded",
+DB completed, Ausgabedatei mit "Waechter (2. Ring, Ticket 25): 1" (die Ringe
+sehen einander) und korrekt WAECHTER_UNGEPRUEFT bei exit 0 (kein Falsch-Rot) |
+danach cron_auto_fulfill live RTD_FULFILL_OK mit [3] CRON_HEALTH_OK | echter
+Traegerlauf `hermes cron run bfb63346d942` -> completed 13:41:58 mit
+RTD_FULFILL_OK in der Ausgabedatei.
+>>> NEBENBEFUND MIT BISS (Fremdbefund aus executions.db) <<<
+Der Probe-Ring des Vorticks (34410d148c1f) war als kind=once angelegt, feuerte
+0 mal und riss den Traeger ZWEIMAL mit ins Rot: 05:41 CRON_HEALTH_DEFEKT
+("0 Laeufe protokolliert") -> RTD_FULFILL_DEFEKT, 06:11 "Intervall nicht
+ableitbar (once)" -> RTD_FULFILL_UNGEPRUEFT. Ein Waechter, der nie lief, ist
+fuer das Audit ununterscheidbar von einem toten -> der neue Ring wurde sofort
+nach dem Anlegen einmal gefeuert.
+
+TICKET 27 NEU (OFFEN, Frontier): DEFEKT (rc=1) und UNGEPRUEFT (rc=2) landen im
+einzigen Signalkanal beide als status='failed' (heute beide Faelle real, 05:41
+und 06:11). Die Konvention "unmessbar ist kein Defekt-Claim" (T16/17/18/19)
+endet am Prozessrand. Der Waechter-Loader loest denselben Fall bereits
+ENTGEGENGESETZT (rc=2 -> exit 0) - mindestens eines der Bauteile irrt.
+Zielkonflikt: exit 0 laesst einen dauerhaft unmessbaren Geldpfad gruen
+aussehen; exit !=0 erzeugt Falsch-Rot bei jeder Nachtabschaltung (die Klasse,
+an der Ticket 22 starb). tickets/27-signalkanal-defekt-vs-unmessbar.md
+
+MERKREGELN (neu):
+- LATCH: ein Pruefer darf nie an einer Groesse urteilen, die er selbst setzt.
+  Testfrage: "veraendert mein eigenes Ergebnis den naechsten Messwert?" - wenn
+  ja, ist Gruen unerreichbar geworden, sobald es einmal rot war.
+- Kriterien, die einander die Luecke decken, sind NICHT redundant: [A]
+  (Lauf-Versuch) haette heute gelogen, weil zwei Jobs >10 min in 'claimed' mit
+  started_at=None standen (Pool vom Agenten-Job belegt) - nur [B] wird da alt.
+- Einen frisch angelegten Cron-Job SOFORT einmal feuern. "Existiert, hat aber
+  nie gefeuert" ist fuer jedes Audit dasselbe Zeichen wie "tot".
+- Cron-Jobs mit deutschem Prompt direkt in jobs.json schreiben (Backup!) - die
+  CLI erzeugt aus "in 30m" ein kind=once statt eines Intervalls.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live + dl_noindex_audit --live). Dann
+TICKET 27 abarbeiten (einziges unblockiertes AFK-Ticket mit Informationswert).
+Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21/23 = HITL,
+Ticket 26 = zeitgesperrt bis 2026-08-18.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.

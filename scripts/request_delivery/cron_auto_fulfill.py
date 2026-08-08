@@ -17,16 +17,24 @@ Ergebniswoerter (erstes Token der ERGEBNIS-Zeile):
 Echter Defekt schlaegt Unmessbarkeit (Konvention aus Ticket 16/17/19).
 """
 
+import json
 import os
 import subprocess
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 FULFILL = os.path.join(REPO, "scripts", "request_delivery", "auto_fulfill.py")
 HEALTH = os.path.join(REPO, "scripts", "request_delivery",
                       "cron_health_audit.py")
+# Ticket 25: Beleg, dass die LIEFER-Pipeline gelaufen ist - geschrieben NACH
+# Etappe [1]+[2] und damit kausal VOR dem Urteil von Etappe [3]. Das Audit
+# darf sich nicht am Exitstatus dieses Jobs orientieren, weil es ihn selbst
+# bestimmt (Latch: 5 Laeufe rot, Alter 909 -> 1031 min, Pipeline gesund).
+HEARTBEAT = os.path.join(REPO, "scripts", "request_delivery",
+                         ".pipeline_heartbeat.json")
 HEALTH_TIMEOUT = 120
 SITE = "https://translucentv1.github.io/new-business"
 LIVE_URLS = ("rtd.html", "thanks.html")
@@ -51,6 +59,27 @@ def run_health():
     except OSError as exc:
         return 2, f"cron_health_audit nicht startbar: {exc}"
     return p.returncode, ((p.stdout or "") + (p.stderr or "")).rstrip()
+
+
+def write_heartbeat(pipeline_rc, codes):
+    """Beleg der Liefer-Etappe schreiben. -> (ok, meldung).
+
+    Nur wenn die Pipeline sauber lief UND der Kaufpfad erreichbar war. Ein
+    fehlgeschlagener Lauf darf den Heartbeat NICHT auffrischen, sonst
+    verschweigt er genau den Fall, fuer den er da ist.
+    """
+    payload = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "pipeline_rc": pipeline_rc,
+        "live": codes,
+        "quelle": "cron_auto_fulfill.py Etappe [1]+[2]",
+    }
+    try:
+        with open(HEARTBEAT, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, indent=1)
+    except OSError as exc:
+        return False, f"Heartbeat nicht schreibbar: {exc}"
+    return True, payload["ts"]
 
 
 def http_code(url: str) -> int:
@@ -106,6 +135,19 @@ def main() -> int:
         defekt = True
     unmessbar = any(c == -1 for c in codes.values())
 
+    # [2b] Ticket 25: Liefer-Beleg schreiben, BEVOR Etappe [3] urteilt.
+    # Nur bei sauberer Pipeline + erreichbarem Kaufpfad - sonst wuerde der
+    # Heartbeat genau den Ausfall zudecken, den er melden soll.
+    if not defekt and not unmessbar:
+        hb_ok, hb_msg = write_heartbeat(p.returncode, codes)
+        print(f"[2b] Pipeline-Heartbeat {'geschrieben' if hb_ok else 'FEHLER'}"
+              f": {hb_msg}")
+        if not hb_ok:
+            unmessbar = True
+    else:
+        print("[2b] Pipeline-Heartbeat NICHT aufgefrischt "
+              "(Pipeline/Kaufpfad nicht sauber)")
+
     # [3] Ticket 24: das stehende Cron-Tor laeuft hier UNBEAUFSICHTIGT mit.
     # Damit haengt es nicht mehr daran, dass ein Agenten-Tick es aufruft -
     # genau die Bauform, die in Ticket 22 143x ausgefallen ist.
@@ -147,10 +189,25 @@ def _selftest() -> int:
     import io
     import tempfile
     import contextlib
+    import hashlib
 
     g = globals()
-    orig = (g["FULFILL"], g["http_code"], g["TIMEOUT"], g["run_health"])
+    orig = (g["FULFILL"], g["http_code"], g["TIMEOUT"], g["run_health"],
+            g["HEARTBEAT"])
     tmpdir = tempfile.mkdtemp(prefix="rtd_selftest_")
+    # >>> Der Selftest darf die PRODUKTIV-Evidenz nicht anfassen. <<<
+    # MEASURED 2026-08-07: er tat es - ein --selftest-Lauf schrieb die echte
+    # .pipeline_heartbeat.json neu (ts 15:16:12 -> 15:19:49, sha256 geaendert).
+    # Damit faelschte der Test genau den Beleg, auf den Kriterium [B] des
+    # Audits sich stuetzt: jeder Tick haette [B] dauerhaft gruen gehalten,
+    # auch bei toter Pipeline. Attrappen-Falle (Ticket 19), diesmal in der
+    # Gegenrichtung: nicht die Attrappe war zu grosszuegig, sondern der Test
+    # hat Produktivzustand erzeugt.
+    prod_hb = orig[4]
+    prod_hb_before = None
+    if os.path.isfile(prod_hb):
+        with open(prod_hb, "rb") as fh:
+            prod_hb_before = hashlib.sha256(fh.read()).hexdigest()
     ok = [0]
     bad = [0]
 
@@ -171,11 +228,14 @@ def _selftest() -> int:
             f.write(f"sys.exit({rc})\n")
         return p
 
-    def run(fulfill, codes, timeout=900, health=(0, "ERGEBNIS: CRON_HEALTH_OK")):
+    def run(fulfill, codes, timeout=900, health=(0, "ERGEBNIS: CRON_HEALTH_OK"),
+            hb_path=None):
         g["FULFILL"] = fulfill
         g["TIMEOUT"] = timeout
         g["http_code"] = lambda url: codes.get(url.rsplit("/", 1)[-1], 200)
         g["run_health"] = lambda: health
+        # Immer in den Temp-Ordner schreiben, nie in den Produktivpfad.
+        g["HEARTBEAT"] = hb_path or os.path.join(tmpdir, "hb.json")
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
             rc = main()
@@ -262,6 +322,52 @@ def _selftest() -> int:
         t(rc == 0 and w == "RTD_FULFILL_OK",
           f"gesunde Cron-Health aendert nichts ({w})")
 
+        # -- [2b] Pipeline-Heartbeat (Ticket 25) ---------------------------
+        # Der Heartbeat ist der einzige Beleg, mit dem das Audit "die
+        # Lieferung laeuft" von "der Job-Exit ist rot" trennt. Er muss
+        # GENAU DANN frisch werden, wenn Pipeline UND Kaufpfad sauber waren.
+        hb1 = os.path.join(tmpdir, "hb_gruen.json")
+        rc, w, text = run(stub("neu=0"), {}, hb_path=hb1)
+        hb_data = None
+        if os.path.isfile(hb1):
+            with open(hb1, encoding="utf-8") as fh:
+                hb_data = json.load(fh)
+        t(rc == 0 and hb_data is not None and hb_data.get("pipeline_rc") == 0
+          and datetime.fromisoformat(hb_data["ts"]).tzinfo is not None,
+          "gesunder Lauf schreibt Heartbeat mit tz-bewusstem Zeitstempel")
+        t("[2b] Pipeline-Heartbeat geschrieben" in text,
+          "Heartbeat-Schreibvorgang wird protokolliert")
+
+        # Gegenprobe: ein FEHLGESCHLAGENER Lauf darf den Heartbeat nicht
+        # auffrischen - sonst verschweigt er genau den Ausfall, fuer den er
+        # da ist (dann meldete das Audit ewig "Pipeline liefert").
+        hb2 = os.path.join(tmpdir, "hb_defekt.json")
+        with open(hb2, "w", encoding="utf-8") as fh:
+            fh.write('{"ts": "2000-01-01T00:00:00+00:00"}')
+        rc, w, text = run(stub("boom", rc=1), {}, hb_path=hb2)
+        with open(hb2, encoding="utf-8") as fh:
+            alt = json.load(fh)
+        t(rc == 1 and alt.get("ts") == "2000-01-01T00:00:00+00:00"
+          and "NICHT aufgefrischt" in text,
+          "defekte Pipeline frischt den Heartbeat NICHT auf")
+
+        hb3 = os.path.join(tmpdir, "hb_unmessbar.json")
+        with open(hb3, "w", encoding="utf-8") as fh:
+            fh.write('{"ts": "2000-01-01T00:00:00+00:00"}')
+        rc, w, _ = run(stub("neu=0"), {"rtd.html": -1}, hb_path=hb3)
+        with open(hb3, encoding="utf-8") as fh:
+            alt3 = json.load(fh)
+        t(rc == 2 and alt3.get("ts") == "2000-01-01T00:00:00+00:00",
+          "unmessbarer Kaufpfad frischt den Heartbeat NICHT auf")
+
+        # Nicht schreibbarer Heartbeat darf nicht als gruen durchgehen:
+        # ohne Beleg kann das Audit die Lieferung nicht bestaetigen.
+        rc, w, text = run(stub("neu=0"), {},
+                          hb_path=os.path.join(tmpdir, "fehlt", "hb.json"))
+        t(rc == 2 and w == "RTD_FULFILL_UNGEPRUEFT"
+          and "Heartbeat nicht schreibbar" in text,
+          f"nicht schreibbarer Heartbeat -> UNGEPRUEFT ({w})")
+
         # Ergebniswort exakt, nicht per Praefix (Merkregel Ticket 19).
         _, w, _ = run(stub("neu=0"), {},
                       health=(0, "ERGEBNIS: CRON_HEALTH_OK_TEILMENGE"))
@@ -269,7 +375,17 @@ def _selftest() -> int:
           "Health-Wort wird ueber rc gelesen, nicht per Substring")
     finally:
         (g["FULFILL"], g["http_code"], g["TIMEOUT"],
-         g["run_health"]) = orig
+         g["run_health"], g["HEARTBEAT"]) = orig
+
+    # >>> Der wichtigste Test kommt NACH dem finally: hat dieser Selftest
+    # die echte Heartbeat-Datei angefasst? (MEASURED-Defekt vom 2026-08-07)
+    prod_hb_after = None
+    if os.path.isfile(prod_hb):
+        with open(prod_hb, "rb") as fh:
+            prod_hb_after = hashlib.sha256(fh.read()).hexdigest()
+    t(prod_hb_after == prod_hb_before,
+      "PRODUKTIV-Heartbeat vom Selftest UNANGETASTET "
+      f"({str(prod_hb_before)[:12]} -> {str(prod_hb_after)[:12]})")
 
     print(f"\nSELFTEST {'OK' if not bad[0] else 'FEHLGESCHLAGEN'}: "
           f"{ok[0]}/{ok[0] + bad[0]}")

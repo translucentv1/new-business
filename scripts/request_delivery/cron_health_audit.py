@@ -51,9 +51,32 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 MONEY_DIR = os.path.join(ROOT, "scripts", "request_delivery")
 
 MONEY_TOKEN = "request_delivery"
+# Ticket 25: "nennt den Geldpfad" != "liefert". Ein WAECHTER-Job ruft nur das
+# Audit auf; er traegt keine Lieferung und schreibt keinen Heartbeat. Wuerde
+# er als Traeger gelten, meldete das Audit fuer immer UNGEPRUEFT ("2 Traeger,
+# nur EIN Heartbeat") und beurteilte ihn nach einem Beleg, den er per
+# Konstruktion nie erzeugt. Traeger ist deshalb nur, wer die
+# Fulfillment-Pipeline anstoesst.
+FULFILL_TOKEN = "auto_fulfill"
+# Ticket 25: woran ein WAECHTER erkannt wird - er ruft dieses Audit auf.
+AUDIT_TOKEN = "cron_health_audit"
 # § 3 agb.html verspricht Lieferung binnen 24 h -> ein Traeger, der seltener
 # als taeglich laeuft, kann die Zusage nicht halten.
 MAX_PROMISE_MIN = 1440
+
+# Ticket 25 (LATCH): Der Exitstatus des Traegers wird von DIESEM Audit
+# mitbestimmt - es laeuft als Etappe [3] IN cron_auto_fulfill.py. Ein Urteil,
+# das sich aus "letztes completed" speist, kann sich daher nie wieder
+# freimachen: ein rotes Audit verhindert das naechste completed, wodurch das
+# Alter weiter waechst. MEASURED 2026-08-07 an 5 Laeufen von bfb63346d942:
+# 909 -> 940 -> 970 -> 1001 -> 1031 min, monoton, Pipeline dabei kerngesund.
+# Kriterien daher NUR noch kausal VOR dem Urteil liegende Groessen:
+#   [A] Lauf-VERSUCHE aus executions.db (feuert der Job ueberhaupt?)
+#   [B] Pipeline-Heartbeat, geschrieben nach Etappe [1]+[2] (lief die
+#       Lieferung?) - unabhaengig davon, wie das Audit danach urteilt.
+PIPELINE_HB = os.path.join(MONEY_DIR, ".pipeline_heartbeat.json")
+# Fenster, in dem nach globalem Scheduler-Stillstand gesucht wird.
+STILLSTAND_FENSTER_MIN = 2880
 # Toleranz fuer die Erfolgs-Luecke: drei Intervalle, mindestens 3 h, hoechstens
 # die Zusage selbst.
 MIN_TOLERANZ_MIN = 180
@@ -142,6 +165,27 @@ def io_now():
     return datetime.now(timezone.utc)
 
 
+def io_read_pipeline_hb():
+    """Heartbeat der Liefer-Pipeline. -> (ts-string|None, fehlertext|None).
+
+    Geschrieben von cron_auto_fulfill.py NACH Etappe [1]+[2] und damit
+    kausal VOR dem Urteil dieses Audits (Ticket 25, Latch-Fix).
+    """
+    try:
+        with open(PIPELINE_HB, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except FileNotFoundError:
+        return None, (f"Pipeline-Heartbeat fehlt ({os.path.basename(PIPELINE_HB)}"
+                      f") - die Pipeline hat seit Einfuehrung nie gemeldet")
+    except OSError as exc:
+        return None, f"Pipeline-Heartbeat nicht lesbar: {exc}"
+    except ValueError as exc:
+        return None, f"Pipeline-Heartbeat nicht parsebar: {exc}"
+    if not isinstance(data, dict) or not data.get("ts"):
+        return None, "Pipeline-Heartbeat ohne Feld 'ts'"
+    return data.get("ts"), None
+
+
 # --------------------------------------------------------------------------
 def parse_ts(value):
     if not value:
@@ -168,8 +212,8 @@ def interval_minutes(job):
 
 
 def classify(jobs, home):
-    """Zielmenge ABLEITEN. -> (traeger, nebentraeger, offen, info)"""
-    traeger, neben, offen, info = [], [], [], []
+    """Zielmenge ABLEITEN. -> (traeger, waechter, nebentraeger, offen, info)"""
+    traeger, waechter, neben, offen, info = [], [], [], [], []
     for job in jobs:
         script = job.get("script")
         prompt = job.get("prompt") or ""
@@ -196,13 +240,56 @@ def classify(jobs, home):
             offen.append((job, str(exc)))
             continue
         if MONEY_TOKEN in text or nk(path).startswith(nk(MONEY_DIR)):
-            traeger.append((job, path, text))
+            # Ticket 25: Traeger ist nur, wer die Lieferung ANSTOESST. Ein
+            # Waechter ruft bloss dieses Audit auf; er schreibt per
+            # Konstruktion nie einen Pipeline-Heartbeat. Wuerde er als
+            # Traeger zaehlen, meldete [B] fuer immer "nur EIN Heartbeat"
+            # -> CRON_HEALTH_UNGEPRUEFT auf Dauer, und der Waechter wuerde
+            # nach einem Beleg beurteilt, den er nie erzeugen kann.
+            if FULFILL_TOKEN in text:
+                traeger.append((job, path, text))
+            elif AUDIT_TOKEN in text:
+                waechter.append((job, path, text))
+            else:
+                offen.append((job, f"Skript liegt im Geldpfad, nennt aber "
+                                   f"weder {FULFILL_TOKEN} noch {AUDIT_TOKEN} "
+                                   f"-> Rolle nicht ableitbar"))
         elif MONEY_TOKEN in prompt and not job.get("no_agent"):
             neben.append((job, "agentengetrieben, Prompt nennt " + MONEY_TOKEN))
-    return traeger, neben, offen, info
+    return traeger, waechter, neben, offen, info
 
 
-def check_traeger(job, path, text, execs, now, defects, unknown, out):
+def global_stillstand(execs, now):
+    """Groesste Zeitspanne im Fenster, in der KEIN EINZIGER Job gefeuert hat.
+
+    Trennt \"der Geldpfad-Job ist tot\" von \"der ganze Scheduler stand\"
+    (Rechner/Gateway aus). Ohne diese Trennung wird eine Nachtabschaltung als
+    Geldpfad-Defekt gemeldet - MEASURED 2026-08-07: 15 h ohne einen einzigen
+    Lauf irgendeines Jobs, danach 5x CRON_HEALTH_DEFEKT gegen eine gesunde
+    Pipeline. -> Minuten (float) oder None, wenn nicht bestimmbar.
+    """
+    if not execs:
+        return None
+    grenze = now - timedelta(minutes=STILLSTAND_FENSTER_MIN)
+    stamps = []
+    for rows in execs.values():
+        for _, raw in rows:
+            t = parse_ts(raw)
+            if t and t >= grenze:
+                stamps.append(t)
+    if not stamps:
+        return None          # nichts im Fenster -> keine Aussage (nicht 0!)
+    stamps.sort()
+    # Nur echte Luecken ZWISCHEN Laeufen und die Luecke bis jetzt zaehlen.
+    # Der Fensterrand zaehlt NICHT - sonst meldet eine frische DB Stillstand.
+    luecke = (now - stamps[-1]).total_seconds() / 60.0
+    for a, b in zip(stamps, stamps[1:]):
+        luecke = max(luecke, (b - a).total_seconds() / 60.0)
+    return luecke
+
+
+def check_traeger(job, path, text, execs, now, defects, unknown, out,
+                  hb_ts=None, hb_err=None, stillstand=None):
     jid = job.get("id")
     tag = f"{jid} {str(job.get('name'))[:44]}"
     out.append(f"  * {tag}")
@@ -270,6 +357,8 @@ def check_traeger(job, path, text, execs, now, defects, unknown, out):
     rows = execs.get(jid, [])
     done = [parse_ts(ts) for st, ts in rows if st == "completed"]
     done = [d for d in done if d]
+    attempts = [parse_ts(ts) for _, ts in rows]
+    attempts = [a for a in attempts if a]
     n_fail = sum(1 for st, _ in rows if st not in ("completed",))
     out.append(f"      Laeufe    = {len(rows)} gesamt / "
                f"{len(done)} completed / {n_fail} nicht-completed")
@@ -277,16 +366,128 @@ def check_traeger(job, path, text, execs, now, defects, unknown, out):
         defects.append(f"{tag}: 0 Laeufe protokolliert - der Job hat nie "
                        f"gefeuert (Ticket-22-Zustand)")
         return
-    if not done:
-        defects.append(f"{tag}: 0 completed in {len(rows)} Laeufen - der Job "
-                       f"laeuft, liefert aber nie (Ticket-22-Zustand)")
+
+    # -- Job-Exitstatus: ab Ticket 25 nur noch INFO ------------------------
+    # Er ist KEIN Kriterium mehr, weil dieses Audit ihn selbst mitbestimmt
+    # (Etappe [3] in cron_auto_fulfill.py -> rc=1 -> Job faellt -> nie wieder
+    # 'completed' -> Alter waechst monoton = Latch).
+    if done:
+        ok_age = (now - max(done)).total_seconds() / 60.0
+        out.append(f"      letzter Job-Exit 'completed' vor {ok_age:.0f} min "
+                   f"[INFO - kein Kriterium, Selbstbezug]")
+    else:
+        out.append(f"      letzter Job-Exit 'completed' = keiner in "
+                   f"{len(rows)} Laeufen [INFO - kein Kriterium, Selbstbezug; "
+                   f"ob geliefert wird, sagen [A] und [B]]")
+
+    stillstand_deckt = (stillstand is not None
+                        and toleranz is not None
+                        and stillstand > toleranz)
+
+    # -- [A] Feuert der Job ueberhaupt? (Lauf-VERSUCHE, jeder Status) ------
+    if attempts:
+        a_age = (now - max(attempts)).total_seconds() / 60.0
+        out.append(f"      [A] letzter Lauf-VERSUCH vor {a_age:.0f} min")
+        if toleranz is not None and a_age > toleranz:
+            if stillstand_deckt and stillstand >= a_age - 1:
+                unknown.append(
+                    f"{tag}: seit {a_age:.0f} min kein Lauf - in dieser Zeit "
+                    f"lief aber KEIN einziger Job ({stillstand:.0f} min "
+                    f"Scheduler-Stillstand, Rechner/Gateway aus) -> nicht dem "
+                    f"Geldpfad anlastbar")
+            else:
+                defects.append(
+                    f"{tag}: letzter Lauf-VERSUCH vor {a_age:.0f} min, "
+                    f"erlaubt waeren {toleranz:.0f} min - der Job feuert nicht")
+    else:
+        unknown.append(f"{tag}: kein Lauf-Zeitstempel parsebar")
+
+    # -- [B] Lief die Liefer-Pipeline? (Heartbeat aus Etappe [1]+[2]) ------
+    if hb_err:
+        out.append("      [B] Pipeline-Heartbeat = (fehlt)")
+        unknown.append(f"{tag}: {hb_err} -> Pipeline-Lauf nicht belegbar")
         return
-    last = max(done)
-    age = (now - last).total_seconds() / 60.0
-    out.append(f"      letzter Erfolg vor {age:.0f} min ({last.isoformat()})")
-    if toleranz is not None and age > toleranz:
-        defects.append(f"{tag}: letzter Erfolg vor {age:.0f} min, erlaubt "
-                       f"waeren {toleranz:.0f} min - Lieferung steht")
+    hb = parse_ts(hb_ts)
+    if hb is None:
+        out.append(f"      [B] Pipeline-Heartbeat = (ts unlesbar: {hb_ts!r})")
+        unknown.append(f"{tag}: Pipeline-Heartbeat-Zeitstempel unlesbar "
+                       f"({hb_ts!r})")
+        return
+    hb_age = (now - hb).total_seconds() / 60.0
+    out.append(f"      [B] Pipeline-Heartbeat vor {hb_age:.0f} min "
+               f"({hb.isoformat()})")
+    if toleranz is not None and hb_age > toleranz:
+        if stillstand_deckt and stillstand >= hb_age - 1:
+            unknown.append(
+                f"{tag}: Pipeline meldete zuletzt vor {hb_age:.0f} min - in "
+                f"dieser Zeit stand der Scheduler ({stillstand:.0f} min) -> "
+                f"nicht dem Geldpfad anlastbar")
+        else:
+            defects.append(
+                f"{tag}: Liefer-Pipeline meldete zuletzt vor {hb_age:.0f} min, "
+                f"erlaubt waeren {toleranz:.0f} min - die Lieferung steht")
+
+
+def check_waechter(job, path, text, execs, now, defects, unknown, out,
+                   stillstand=None):
+    """Der zweite, unabhaengige Ring (Ticket 25).
+
+    Er traegt KEINE Lieferung, also gilt Kriterium [B] (Pipeline-Heartbeat)
+    fuer ihn nicht. Geprueft wird nur, ob er ueberhaupt feuert - und das ueber
+    Lauf-VERSUCHE, nicht ueber 'completed': sein Exitstatus haengt am Urteil
+    des Audits, das er selbst startet (derselbe Latch wie beim Traeger).
+    """
+    jid = job.get("id")
+    tag = f"{jid} {str(job.get('name'))[:44]}"
+    out.append(f"  * {tag}  [WAECHTER]")
+    out.append(f"      script    = {path}")
+
+    if not job.get("enabled"):
+        defects.append(f"{tag}: enabled=False - der zweite Ring ist "
+                       f"abgeschaltet")
+    if not job.get("no_agent"):
+        defects.append(f"{tag}: no_agent=False - ein Waechter mit "
+                       f"Inferenz-Call erbt exakt die Ausfallmodi, gegen die "
+                       f"er schuetzen soll (Ticket 22)")
+    out.append(f"      enabled   = {job.get('enabled')}   "
+               f"no_agent = {job.get('no_agent')}")
+
+    minutes, err = interval_minutes(job)
+    if minutes is None:
+        unknown.append(f"{tag}: Intervall nicht ableitbar ({err})")
+        toleranz = None
+    else:
+        toleranz = min(max(3 * minutes, MIN_TOLERANZ_MIN), MAX_PROMISE_MIN)
+        out.append(f"      Intervall = {minutes:.0f} min  "
+                   f"(erlaubte Lauf-Luecke {toleranz:.0f} min)")
+
+    if execs is None:
+        out.append("      Laeufe    = (executions.db nicht lesbar)")
+        return
+    rows = execs.get(jid, [])
+    attempts = [parse_ts(ts) for _, ts in rows]
+    attempts = [a for a in attempts if a]
+    out.append(f"      Laeufe    = {len(rows)} gesamt")
+    if not rows:
+        defects.append(f"{tag}: 0 Laeufe protokolliert - der Waechter "
+                       f"existiert, hat aber nie gefeuert")
+        return
+    if not attempts:
+        unknown.append(f"{tag}: kein Lauf-Zeitstempel parsebar")
+        return
+    a_age = (now - max(attempts)).total_seconds() / 60.0
+    out.append(f"      [A] letzter Lauf-VERSUCH vor {a_age:.0f} min")
+    if toleranz is not None and a_age > toleranz:
+        if (stillstand is not None and stillstand > toleranz
+                and stillstand >= a_age - 1):
+            unknown.append(
+                f"{tag}: seit {a_age:.0f} min kein Lauf - in dieser Zeit lief "
+                f"aber KEIN einziger Job ({stillstand:.0f} min "
+                f"Scheduler-Stillstand) -> nicht dem Waechter anlastbar")
+        else:
+            defects.append(
+                f"{tag}: letzter Lauf-VERSUCH vor {a_age:.0f} min, erlaubt "
+                f"waeren {toleranz:.0f} min - der Waechter feuert nicht")
 
 
 def main():
@@ -314,14 +515,39 @@ def main():
         execs = None
         unknown.append(f"Protokoll nicht lesbar: {exc}")
 
-    traeger, neben, offen, info = classify(jobs, home)
+    traeger, waechter, neben, offen, info = classify(jobs, home)
     n_en = sum(1 for j in jobs if j.get("enabled"))
     print(f"Jobs            : {len(jobs)} gesamt, {n_en} enabled")
     print(f"Geldpfad-Traeger (abgeleitet, nicht hartkodiert): {len(traeger)}")
+    print(f"Waechter (2. Ring, Ticket 25): {len(waechter)}")
 
     now = io_now()
+    stillstand = global_stillstand(execs, now) if execs else None
+    hb_ts, hb_err = io_read_pipeline_hb()
+    if stillstand is not None:
+        print(f"Scheduler-Stillstand (groesste Luecke ohne EINEN Job-Lauf in "
+              f"{STILLSTAND_FENSTER_MIN} min): {stillstand:.0f} min")
+        # Nur ein Stillstand JENSEITS der Zusage ist ein echter Defekt: dann
+        # war die 24-h-Lieferzusage in diesem Fenster real ungedeckt.
+        if stillstand > MAX_PROMISE_MIN:
+            defects.append(
+                f"Scheduler stand {stillstand:.0f} min still (> "
+                f"{MAX_PROMISE_MIN} min) - in diesem Fenster war die "
+                f"24-h-Zusage aus agb.html § 3 real ungedeckt")
+    print(f"Pipeline-Heartbeat: "
+          + (f"{hb_ts}" if not hb_err else f"(fehlt) {hb_err}"))
+    if len(traeger) > 1 and not hb_err:
+        # Ehrliche Grenze: es gibt genau EINE Heartbeat-Datei. Bei mehreren
+        # Traegern kann [B] nicht sagen, WELCHER geliefert hat.
+        unknown.append(
+            f"{len(traeger)} Geldpfad-Traeger, aber nur EIN Pipeline-"
+            f"Heartbeat -> Kriterium [B] ist nicht traegerscharf")
     for job, path, text in traeger:
-        check_traeger(job, path, text, execs, now, defects, unknown, out)
+        check_traeger(job, path, text, execs, now, defects, unknown, out,
+                      hb_ts=hb_ts, hb_err=hb_err, stillstand=stillstand)
+    for job, path, text in waechter:
+        check_waechter(job, path, text, execs, now, defects, unknown, out,
+                       stillstand=stillstand)
     for line in out:
         print(line)
 
@@ -407,11 +633,13 @@ def _selftest():
                            ("completed", ts(45))]}
 
     def run(jobs, execs=None, files=None, dirs=None, jobs_exc=None,
-            exec_exc=None, home=HOME):
+            exec_exc=None, home=HOME, hb="__frisch__", hb_err=None):
         files = {nk(LOADER): LOADER_TEXT, nk(TARGET): ""} if files is None \
             else {nk(k): v for k, v in files.items()}
         dirs = {nk(ROOT)} if dirs is None else {nk(d) for d in dirs}
         execs = HEALTHY_EXEC if execs is None else execs
+        if hb == "__frisch__":
+            hb = ts(10)
 
         def fake_jobs(_home):
             if jobs_exc:
@@ -423,9 +651,13 @@ def _selftest():
                 raise Unmessbar(exec_exc)
             return execs
 
+        def fake_hb():
+            return (None, hb_err) if hb_err else (hb, None)
+
         keep = {k: g[k] for k in ("io_home", "io_read_jobs",
                                   "io_read_executions", "io_isfile",
-                                  "io_isdir", "io_read_text", "io_now")}
+                                  "io_isdir", "io_read_text", "io_now",
+                                  "io_read_pipeline_hb")}
         g["io_home"] = lambda: home
         g["io_read_jobs"] = fake_jobs
         g["io_read_executions"] = fake_execs
@@ -433,6 +665,7 @@ def _selftest():
         g["io_isdir"] = lambda p: nk(p) in dirs
         g["io_read_text"] = lambda p: files[nk(p)]
         g["io_now"] = lambda: NOW
+        g["io_read_pipeline_hb"] = fake_hb
         buf = _io.StringIO()
         try:
             with contextlib.redirect_stdout(buf):
@@ -508,18 +741,93 @@ def _selftest():
       "workdir zeigt ins Leere -> rot", f"rc={rc}")
 
     # -- Protokoll ---------------------------------------------------------
+    # Ticket-22-Lage: der Job feuert stuendlich, wird aber jedes Mal VOR der
+    # Pipeline abgebrochen (Spend-Protection) -> es gibt keinen Heartbeat.
     t22 = {"j1": [("failed", ts(i * 60)) for i in range(1, 144)]}
-    rc, out = run([job()], execs=t22)
-    t(rc == 1 and "0 completed in 143 Laeufen" in out and clean(out),
-      "Ticket-22-Historie (143 failed / 0 completed) -> rot", f"rc={rc}")
+    rc, out = run([job()], execs=t22, hb_err="Pipeline-Heartbeat fehlt")
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "Pipeline-Lauf nicht belegbar" in out and clean(out),
+      "Ticket-22-Lage ohne Heartbeat -> unmessbar, NICHT gruen", f"rc={rc}")
+
+    rc, out = run([job()], execs=t22, hb=ts(1200))
+    t(rc == 1 and "Liefer-Pipeline meldete zuletzt vor" in out and clean(out),
+      "Job feuert, Pipeline meldet seit 20 h nichts -> rot", f"rc={rc}")
 
     rc, out = run([job()], execs={"j1": []})
     t(rc == 1 and "0 Laeufe protokolliert" in out and clean(out),
       "Job hat nie gefeuert -> rot", f"rc={rc}")
 
     rc, out = run([job()], execs={"j1": [("completed", ts(3 * 1440))]})
-    t(rc == 1 and "letzter Erfolg vor" in out and clean(out),
-      "letzter Erfolg 3 Tage her -> rot (stille Stagnation)", f"rc={rc}")
+    t(rc == 1 and "der Job feuert nicht" in out and clean(out),
+      "letzter Lauf 3 Tage her -> rot (stille Stagnation)", f"rc={rc}")
+
+    # -- Ticket 25: LATCH-Regression ---------------------------------------
+    # Genau die reale Lage von 2026-08-07: der Job feuert alle 30 min, die
+    # Pipeline liefert (frischer Heartbeat), aber seit 1031 min steht kein
+    # 'completed' mehr in der DB - weil dieses Audit den Job rot macht.
+    latch = {"j1": [("failed", ts(m)) for m in (5, 35, 65, 95, 125)]
+                   + [("completed", ts(1031))]}
+    rc, out = run([job()], execs=latch)
+    t(rc == 0 and word(out) == "CRON_HEALTH_OK" and clean(out),
+      "LATCH: alte Laeufe rot + Pipeline liefert -> gruen (kein Selbstbezug)",
+      f"rc={rc} {word(out)}")
+    t("kein Kriterium, Selbstbezug" in out,
+      "Job-Exitstatus wird ausdruecklich als INFO gekennzeichnet")
+
+    # Gegenprobe: dieselbe Lage, aber die Pipeline meldet NICHT mehr ->
+    # der Fix darf einen echten Lieferausfall nicht mitverstecken.
+    rc, out = run([job()], execs=latch, hb=ts(1031))
+    t(rc == 1 and "Liefer-Pipeline meldete zuletzt vor 1031 min" in out
+      and clean(out),
+      "LATCH-Gegenprobe: Pipeline steht wirklich -> rot", f"rc={rc}")
+
+    # -- Ticket 25: Scheduler-Stillstand vs Geldpfad-Defekt ----------------
+    # Nachtabschaltung: KEIN Job lief 900 min, danach laeuft alles wieder.
+    nacht = {"j1": [("completed", ts(900)), ("completed", ts(930))],
+             "j2": [("completed", ts(905)), ("completed", ts(935))]}
+    rc, out = run([job()], execs=nacht, hb=ts(900))
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "nicht dem Geldpfad anlastbar" in out and clean(out),
+      "globaler Stillstand -> unmessbar, kein Defekt-Claim gegen den Geldpfad",
+      f"rc={rc} {word(out)}")
+
+    # Gegenprobe: NUR der Geldpfad-Job schweigt, andere laufen weiter -> rot.
+    allein = {"j1": [("completed", ts(900))],
+              "j2": [("completed", ts(m)) for m in (5, 35, 65, 95, 300, 600)]}
+    rc, out = run([job()], execs=allein, hb=ts(900))
+    t(rc == 1 and "der Job feuert nicht" in out and clean(out),
+      "nur der Geldpfad schweigt, andere Jobs laufen -> rot", f"rc={rc}")
+
+    # Stillstand jenseits der 24-h-Zusage ist sehr wohl ein Defekt.
+    lang = {"j1": [("completed", ts(30)), ("completed", ts(1600))]}
+    rc, out = run([job()], execs=lang)
+    t(rc == 1 and "24-h-Zusage aus agb.html § 3 real ungedeckt" in out
+      and clean(out),
+      "Stillstand > 1440 min -> rot (Zusage war real ungedeckt)", f"rc={rc}")
+
+    # Leeres Fenster: KEIN Lauf irgendeines Jobs liegt in den letzten 2880
+    # min. Dann ist der Stillstand NICHT bestimmbar - eine gedruckte "0 min"
+    # waere eine erfundene Null (Merkregel: nicht messbar != gemessen 0).
+    leer = {"j1": [("completed", ts(5000))]}
+    rc, out = run([job()], execs=leer, hb=ts(5000))
+    t(rc == 1 and "Scheduler-Stillstand" not in out
+      and "der Job feuert nicht" in out and clean(out),
+      "leeres Stillstands-Fenster erfindet keine 0 (keine Aussage)",
+      f"rc={rc}")
+
+    # -- Ticket 25: Heartbeat-Randfaelle -----------------------------------
+    rc, out = run([job()], hb_err="Pipeline-Heartbeat nicht parsebar: x")
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT" and clean(out),
+      "kaputter Heartbeat -> unmessbar, nicht gruen", f"rc={rc} {word(out)}")
+
+    rc, out = run([job()], hb="voellig-kein-datum")
+    t(rc == 2 and "Zeitstempel unlesbar" in out and clean(out),
+      "Heartbeat mit Muell-Zeitstempel -> unmessbar", f"rc={rc}")
+
+    # Echter Defekt schlaegt Unmessbarkeit (Konvention Ticket 17/19).
+    rc, out = run([job(enabled=False)], hb_err="Heartbeat fehlt")
+    t(rc == 1 and word(out) == "CRON_HEALTH_DEFEKT" and clean(out),
+      "Defekt + fehlender Heartbeat -> DEFEKT gewinnt", f"rc={rc} {word(out)}")
 
     rc, out = run([job(schedule={"kind": "interval", "minutes": 2880})],
                   execs={"j1": [("completed", ts(30))]})
@@ -563,11 +871,29 @@ def _selftest():
       "agentengetriebener Job zaehlt als Nebentraeger, nicht als Traeger",
       f"rc={rc} {word(out)}")
 
-    # -- zwei Traeger, einer kaputt ---------------------------------------
+    # -- zwei Traeger ------------------------------------------------------
+    # Ticket 25: "0 completed" ist KEIN Defekt-Kriterium mehr (Selbstbezug).
+    # Beim zweiten Traeger kommt hinzu, dass es nur EINEN Heartbeat gibt ->
+    # [B] kann nicht sagen, WER geliefert hat. Die ehrliche Antwort ist
+    # UNGEPRUEFT MIT GENANNTEM GRUND - nicht gruen und kein Defekt-Claim.
     two = {"j1": HEALTHY_EXEC["j1"], "j2": [("failed", ts(10))]}
     rc, out = run([job(), job(id="j2", name="Zweiter")], execs=two)
-    t(rc == 1 and "j2" in out and "0 completed" in out and clean(out),
-      "gesunder Traeger maskiert kaputten nicht", f"rc={rc}")
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "nur EIN Pipeline-Heartbeat" in out
+      and "nicht traegerscharf" in out and clean(out),
+      "zweiter Traeger: [B] nicht traegerscharf -> UNGEPRUEFT mit Grund",
+      f"rc={rc} {word(out)}")
+
+    # Die Maskierungs-Schutzwirkung bleibt auf Kriterium [A] erhalten, denn
+    # DAS ist traegerscharf: schweigt der zweite Traeger wirklich, muss der
+    # gesunde erste ihn nicht verdecken duerfen.
+    stumm = {"j1": HEALTHY_EXEC["j1"],
+             "j2": [("completed", ts(1400))]}
+    rc, out = run([job(), job(id="j2", name="Zweiter")], execs=stumm)
+    t(rc == 1 and word(out) == "CRON_HEALTH_DEFEKT"
+      and "j2" in out and "der Job feuert nicht" in out and clean(out),
+      "gesunder Traeger maskiert wirklich stummen zweiten nicht ([A])",
+      f"rc={rc} {word(out)}")
 
     # -- Ergebniswort exakt ------------------------------------------------
     rc, out = run([job()])
