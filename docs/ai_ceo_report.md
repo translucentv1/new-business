@@ -1,5 +1,113 @@
 # AI-CEO Daily Report
 
+## 2026-08-09 (Tick, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Zwei ehrlich lieferbare Intents mit Preisanker aufnehmen — und den Kanal
+selbst auf den Pruefstand stellen.** Der volumenstaerkste Seed dieses Ticks
+(`vereinssatzung`, 10 Vorschlaege) ist ein Rechtsdokument (RDG-Risiko) und
+traegt zusaetzlich `muster kostenlos` — abgelehnt, obwohl er die groesste
+Nachfrage hatte. Wochenziel unveraendert: erster MEASURED Sale.
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`);
+  juengstes Event `evt_1U0hzC…` vom **04.08. 13:02 UTC**.
+- `GET /v1/charges?limit=5` → **0 Charges**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=20` → unveraendert **2 Sessions**, beide
+  `expired`/`unpaid`, beide in Vor-Ticks als **Eigentests** gegenbewiesen
+  (`cs_live_a1YONK3…` 1499 Cent mit `metadata.probe=TICKET7-SESSION-PROBE`,
+  `cs_live_a1oohHh…` 399 Cent aus `scripts/request_delivery/funnel_own_sessions.json`).
+  ⇒ **seit ~5 Tagen keine neue Session, kein Zahlungsversuch.**
+sales.log unveraendert. Kein Self-Buy.
+
+### Getan (dieser Tick)
+1. **Stripe-Poll** (MEASURED, s.o.) — kein Sale.
+2. **Live-Check Bestand vor der Aenderung** (MEASURED, curl): 49 `blog/*.html`
+   → `BLOG_FAILS=0`; index/gig/rtd/thanks/lead_magnet/impressum/datenschutz/agb/
+   sitemap je **HTTP 200**. Kein Re-Push noetig.
+3. **Keyword-Recherche** (MEASURED, `scripts/kw_demand.py`, Google Autocomplete
+   hl=de/gl=de): **26 Seeds geprueft, 2 angenommen, 24 abgelehnt.**
+   Angenommen:
+   - `mahnung schreiben lassen` → 2 Vorschlaege, darunter **"anwalt mahnung
+     schreiben lassen"** = Anwalt als Preisanker ⇒ bezahlter Markt existiert;
+     **kein** "kostenlos"-Modifier.
+   - `praktikumsbericht schreiben lassen` → 2 Vorschlaege, darunter **"…ki"**
+     (KI-Akzeptanz belegt); **kein** "kostenlos"-Modifier.
+   Bewusst abgelehnt trotz hohem Volumen:
+   - `vereinssatzung` (10) — Rechtsdokument (RDG) + "muster kostenlos".
+   - `text erstellen lassen` (10) — 3 von 10 mit "kostenlos"/"ohne anmeldung",
+     zudem Dublette zu `text-schreiben-lassen-guenstig`/`text-formulieren-lassen`.
+   - `freelancer ki` (10) — Intent ist **Jobsuche** ("…jobs") bzw. Rauschen
+     ("kitas", "kicad", "killer"), kein Auftraggeber-Intent.
+   - `referat schreiben lassen` (3) — 1 von 3 "kostenlos", akademisch.
+   Die drei im Cron-Prompt vorgeschlagenen Seeds (`ki dienstleistung auf auftrag`,
+   `freelancer ki`, `text erstellen lassen`) haben die Huerde damit **nicht**
+   genommen — 0 Treffer bzw. falscher Intent. Ehrlich notiert statt mitgenommen.
+4. **2 neue Landingpages** via `scripts/traffic_engine.py` (idempotent — 3. Lauf
+   meldet "ALLE KEYWORDS BELEGT"): `blog/mahnung-schreiben-lassen-ki.html`,
+   `blog/praktikumsbericht-schreiben-lassen-ki.html` → **51 Landingpages**.
+   Risiko-Abgrenzung direkt auf der Seite:
+   - Mahnung: "keine Rechtsberatung, keine Verzugszinsen, keine Fristenpruefung,
+     kein Inkasso, kein Mahnbescheid" (RDG-Schutz).
+   - Praktikumsbericht: "wir formulieren **deine eigenen Angaben**, erfinden keine
+     Praktikumsinhalte und ersetzen nicht deine Leistung" — kein Ghostwriting-
+     Versprechen.
+5. **Interlinking/Sitemap/Index**: `interlink.py` → 23 Seiten neu geschrieben,
+   `--check` danach **exit 0**; `_tick_add_urls.py` → sitemap +2 / index +2,
+   zweiter Lauf **+0/+0** (idempotent).
+6. **Deploy + Live-Beleg** (MEASURED): commit `7feb113`, push gh-pages.
+   Nach ~60 s: mahnung **200**, praktikumsbericht **200**;
+   live-sitemap=True / live-index=True fuer beide; Live-Sitemap **1232 `<loc>`**.
+   Voller Re-Check: **`BLOG_TOTAL=51 BLOG_FAILS=0`**. Inhalt live gegengeprueft
+   (nicht nur der Statuscode): Haftungs-Hinweis und `id="related"`-Block je 1×
+   in der ausgelieferten Seite vorhanden.
+7. **IndexNow** (MEASURED): Key-Datei live HTTP 200,
+   `[submit] 1232 URLs -> HTTP 200`, Ergebnis `SUBMIT_OK codes=[200]`.
+8. **Ticket 5 — Wirkungsnachweis (das wichtigste Ergebnis dieses Ticks):**
+   `scripts/request_delivery/bing_index_check.py` →
+   **`BING_NICHT_INDEXIERT`**. Das Instrument ist nachweislich zaehlfaehig
+   (Positivkontrolle `site:wikipedia.org` → **10 Treffer**), die Bing-HTML-Quelle
+   wurde als **blind** verworfen statt als "0 Treffer" gelesen.
+   Ziel-Domain: **0 Treffer, Tag 5 in Folge.**
+9. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung, 3 Pakete
+   3,99/7,99/14,99 EUR vorhanden. Gegen `gig.html` gemessen: **3,99 € 3×,
+   7,99 € 1×, 14,99 € 1×** = deckungsgleich; **3 Stripe-Live-Checkout-Links je
+   HTTP 200**. Leistungsliste um die zwei neuen Deliverables (Mahnung/
+   Zahlungserinnerung, Praktikumsbericht) inkl. Abgrenzung erweitert — Text
+   bleibt copy-paste-fertig fuer den USER.
+10. **Gumroad** (MEASURED): `python scripts/gumroad_sale_poll.py` → **`NO TOKEN`**;
+    `.gumroad_secrets` existiert weiterhin nicht (nur `.template`). Watcher laeuft
+    NICHT. Beide Blocker unveraendert, beide USER.
+
+### Ehrliche Bewertung des Kanals
+51 Landingpages, 1232 per IndexNow eingereichte URLs, **0 Index-Treffer an Tag 5**,
+**0 Sessions in 5 Tagen**. Die Seitenzahl ist damit **nicht** der Engpass — die
+Auslieferung stimmt (51/51 HTTP 200), aber es kommt kein Sucher an. Die in Tick 4
+notierte Entscheidungsregel ("ohne Indexierung bringen weitere Seiten nichts")
+greift jetzt: **weitere Landingpages sind ab sofort der schwaechste verfuegbare
+Hebel.** Sie kosten 0 EUR und werden deshalb nicht zurueckgebaut, aber sie sind
+kein Plan mehr. Der einzige Kanal mit eigener Distribution (Fiverr) haengt an
+einem USER-Blocker, den ich ohne KYC/Account nicht selbst aufloesen darf und
+werde.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready. Das ist
+  der einzige Schritt, der den Kanalengpass wirklich aufloest.
+- **Gumroad**: Payout-Freischaltung **und** API-Token.
+- Impressum/AGB-Platzhalter vor breiter Bewerbung pruefen.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen; Session-Zaehler beobachten (bleibt er bei 2?).
+- `bing_index_check.py` erneut fahren — Tag 6. **Entscheidungsregel:** bleibt es
+  bei 0 Treffern, wird die Seitenproduktion auf 0-1 pro Tick gedrosselt und die
+  Zeit stattdessen in die Frage gesteckt, warum GitHub Pages nicht indexiert wird
+  (robots.txt, canonical, Sitemap-Einreichung ueber ein Webmaster-Tool ohne
+  Account-Zwang) — Ursache statt Menge.
+- Kein weiterer Ausbau der Keyword-Liste, solange der Index bei 0 steht.
+
 ## 2026-08-08 (Tick, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)

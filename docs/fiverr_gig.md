@@ -70,6 +70,14 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
 - Kürzen: vorhandene Texte auf eine harte Vorgabe eingedampft (Wortzahl, Zeichenzahl,
   Seiten- oder Redezeit) — Inhalt und Ton bleiben deine, **keine** Recherche/Faktenprüfung
   und **kein** Umschreiben zur Umgehung einer KI-/Plagiatsprüfung
+- Zahlungserinnerung & Mahnung: höfliche Zahlungserinnerung oder bestimmte Mahnung
+  als Formulierungs-Vorlage (Betreff, Forderungsdaten, Zahlungsziel, Schlussformel)
+  — **keine** Rechtsberatung, **keine** Verzugszins- oder Fristenberechnung,
+  **kein** Inkasso und **kein** Mahnbescheid
+- Praktikumsbericht: aus **deinen** Stichpunkten (Tätigkeiten, Abteilung, Zeitraum)
+  ein gegliederter Bericht mit Einleitung, Tätigkeitsbeschreibung und Fazit —
+  wir erfinden **keine** Praktikumsinhalte und ersetzen **nicht** deine eigene
+  Leistung; die Vorgaben deiner Schule/Hochschule prüfst du selbst
 
 **So läuft's:**
 1. Du schickst mir deine Anforderung (2–3 Sätze reichen).
