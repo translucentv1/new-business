@@ -486,6 +486,34 @@ KEYWORDS = [
     # - "erklaervideo skript" (2): zweiter Vorschlag ist "...vorlage" = Gratis-Vorlagen-
     #   Sucher, schwaecherer Bezahlwille als die zwei angenommenen -> zurueckgestellt.
     # 14 Seeds in diesem Tick geprueft, 2 angenommen.
+    # 2026-08-09 Tick: Nachfrage MEASURED via scripts/kw_demand.py (Google Autocomplete,
+    # hl=de/gl=de). 26 Seeds geprueft, 2 angenommen.
+    # "mahnung schreiben lassen" -> 2 Vorschlaege, davon "anwalt mahnung schreiben
+    # lassen" = Anwalt als PREISANKER (bezahlter Markt existiert), KEIN "kostenlos"-
+    # Modifier. Deliverable = reiner Text (Ollama, 0 EUR).
+    ("mahnung schreiben lassen ki", "Mahnung schreiben lassen (KI-Vorlage)", "Zahlungserinnerung oder Mahnung als fertige Formulierungs-Vorlage – hoeflich oder bestimmt, ab 3,99 EUR, in 24h."),
+    # "praktikumsbericht schreiben lassen" -> 2 Vorschlaege, davon "...ki"
+    # (KI-Akzeptanz belegt), KEIN "kostenlos"-Modifier. Deliverable = reiner Text.
+    ("praktikumsbericht schreiben lassen ki", "Praktikumsbericht schreiben lassen (KI)", "Aus deinen Stichpunkten und Taetigkeiten ein sauber gegliederter Praktikumsbericht – ab 3,99 EUR, in 24h."),
+    # ABGELEHNT in diesem Tick (Belege, damit kein spaeterer Tick sie erneut kauft):
+    # - "vereinssatzung" (10 Treffer, groesstes Volumen): Satzung = Rechtsdokument
+    #   (RDG-Risiko) UND "muster kostenlos" unter den Vorschlaegen -> raus.
+    # - "text erstellen lassen" (10): 3 von 10 mit "kostenlos"/"ohne anmeldung"
+    #   = Gratis-Sucher; zudem Duplikat zu text-schreiben-lassen-guenstig /
+    #   text-formulieren-lassen.
+    # - "freelancer ki" (10): Intent ist JOBSUCHE ("...jobs") bzw. Rauschen
+    #   ("kitas", "kicad", "killer") -> kein Auftraggeber-Intent.
+    # - "referat schreiben lassen" (3): 1 von 3 "kostenlos", akademisch -> zurueckgestellt.
+    # - 0-1 Treffer (kein Signal): ki dienstleistung auf auftrag, landingpage text
+    #   erstellen lassen, angebot schreiben lassen, stellenbeschreibung erstellen
+    #   lassen, werbetext schreiben lassen, danksagung schreiben lassen, youtube
+    #   skript schreiben lassen, checkliste erstellen lassen, steckbrief erstellen
+    #   lassen, unternehmensprofil erstellen lassen (nur "google unternehmensprofil"),
+    #   einladungstext schreiben lassen, amazon listing erstellen lassen, etsy
+    #   beschreibung schreiben lassen, handbuch schreiben lassen, schulungsunterlagen
+    #   erstellen lassen, immobilienbeschreibung erstellen lassen, google ads text
+    #   erstellen lassen, buch klappentext schreiben lassen, grusskarte text
+    #   schreiben lassen, social media plan erstellen lassen.
 ]
 
 def slug(kw):

@@ -43,6 +43,7 @@ CLUSTERS: dict[str, list[str]] = {
         "vortrag-erstellen-lassen-ki",
         "pitch-deck-erstellen-lassen",
         "e-mail-schreiben-lassen-ki",
+        "mahnung-schreiben-lassen-ki",
     ],
     "Marketing & Texte": [
         "text-schreiben-lassen-guenstig",
@@ -68,6 +69,7 @@ CLUSTERS: dict[str, list[str]] = {
         "lernplan-erstellen-lassen-ki",
         "karteikarten-erstellen-lassen-ki",
         "text-kuerzen-lassen",
+        "praktikumsbericht-schreiben-lassen-ki",
     ],
     "Digitale Deliverables": [
         "python-skript-erstellen-lassen",
