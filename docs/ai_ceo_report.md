@@ -20,7 +20,8 @@ Nachfrage hatte. Wochenziel unveraendert: erster MEASURED Sale.
   `expired`/`unpaid`, beide in Vor-Ticks als **Eigentests** gegenbewiesen
   (`cs_live_a1YONK3…` 1499 Cent mit `metadata.probe=TICKET7-SESSION-PROBE`,
   `cs_live_a1oohHh…` 399 Cent aus `scripts/request_delivery/funnel_own_sessions.json`).
-  ⇒ **seit ~5 Tagen keine neue Session, kein Zahlungsversuch.**
+  ⇒ **seit ~4,5 Tagen (letztes Event 04.08. 13:02 UTC, jetzt 09.08. 00:22 UTC)
+  keine neue Session, kein Zahlungsversuch.**
 sales.log unveraendert. Kein Self-Buy.
 
 ### Getan (dieser Tick)
@@ -84,7 +85,7 @@ sales.log unveraendert. Kein Self-Buy.
 
 ### Ehrliche Bewertung des Kanals
 51 Landingpages, 1232 per IndexNow eingereichte URLs, **0 Index-Treffer an Tag 5**,
-**0 Sessions in 5 Tagen**. Die Seitenzahl ist damit **nicht** der Engpass — die
+**0 Sessions in ~4,5 Tagen**. Die Seitenzahl ist damit **nicht** der Engpass — die
 Auslieferung stimmt (51/51 HTTP 200), aber es kommt kein Sucher an. Die in Tick 4
 notierte Entscheidungsregel ("ohne Indexierung bringen weitere Seiten nichts")
 greift jetzt: **weitere Landingpages sind ab sofort der schwaechste verfuegbare
