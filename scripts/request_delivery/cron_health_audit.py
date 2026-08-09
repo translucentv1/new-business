@@ -39,6 +39,7 @@ Aufruf:
     python scripts/request_delivery/cron_health_audit.py --selftest
 """
 
+import collections
 import json
 import os
 import re
@@ -142,6 +143,33 @@ def io_read_executions(home):
         raise Unmessbar(f"executions.db nicht lesbar: {exc}") from exc
     for job_id, status, ts in rows:
         out.setdefault(job_id, []).append((status, ts))
+    return out
+
+
+def io_read_signale(home):
+    """job_id -> Liste (status, error-Text). Read-only, WAL-schonend.
+
+    Ticket 27: getrennt von io_read_executions(), damit die GETESTETE
+    Urteilslogik unveraendert bleibt - diese Zeilen sind reine INFO und
+    duerfen nie in ein Urteil einfliessen (Latch-Regel, Ticket 25).
+    """
+    path = os.path.join(home, "cron", "executions.db")
+    if not os.path.isfile(path):
+        raise Unmessbar(f"executions.db fehlt: {path}")
+    uri = "file:///" + path.replace("\\", "/") + "?mode=ro"
+    out = {}
+    try:
+        con = sqlite3.connect(uri, uri=True, timeout=10)
+        try:
+            rows = con.execute(
+                "SELECT job_id, status, COALESCE(error, '') FROM executions"
+            ).fetchall()
+        finally:
+            con.close()
+    except sqlite3.Error as exc:
+        raise Unmessbar(f"executions.db nicht lesbar: {exc}") from exc
+    for job_id, status, err in rows:
+        out.setdefault(job_id, []).append((status, err))
     return out
 
 
@@ -259,37 +287,133 @@ def classify(jobs, home):
     return traeger, waechter, neben, offen, info
 
 
-def global_stillstand(execs, now):
+def global_stillstand(execs, now, bekannte_ids=None):
     """Groesste Zeitspanne im Fenster, in der KEIN EINZIGER Job gefeuert hat.
 
     Trennt \"der Geldpfad-Job ist tot\" von \"der ganze Scheduler stand\"
     (Rechner/Gateway aus). Ohne diese Trennung wird eine Nachtabschaltung als
     Geldpfad-Defekt gemeldet - MEASURED 2026-08-07: 15 h ohne einen einzigen
     Lauf irgendeines Jobs, danach 5x CRON_HEALTH_DEFEKT gegen eine gesunde
-    Pipeline. -> Minuten (float) oder None, wenn nicht bestimmbar.
+    Pipeline. -> (Minuten|None, Zahl ignorierter Fremdzeilen).
+
+    Ticket 27: gezaehlt werden NUR Laeufe von Jobs, die in jobs.json wirklich
+    stehen. Eine verwaiste Zeile - geloeschter Job oder eine Wegwerf-Sonde, die
+    per source='direct' in executions.db geschrieben wurde (MEASURED
+    2026-08-08: job_id 't27probe0001', 17:51, exit 3) - sieht sonst aus wie
+    Scheduler-Aktivitaet und VERKLEINERT die gemessene Luecke. Fehlerrichtung
+    = Falsch-Gruen genau bei Ausfallmodus C (Scheduler/Rechner tot), also die
+    teure Richtung. Bleibt nach dem Filter nichts uebrig, ist das Ergebnis
+    None (\"keine Aussage\"), NICHT 0.
     """
     if not execs:
-        return None
+        return None, 0
     grenze = now - timedelta(minutes=STILLSTAND_FENSTER_MIN)
     stamps = []
-    for rows in execs.values():
+    fremd = 0
+    for jid, rows in execs.items():
+        if bekannte_ids is not None and jid not in bekannte_ids:
+            fremd += len(rows)
+            continue
         for _, raw in rows:
             t = parse_ts(raw)
             if t and t >= grenze:
                 stamps.append(t)
     if not stamps:
-        return None          # nichts im Fenster -> keine Aussage (nicht 0!)
+        return None, fremd     # nichts im Fenster -> keine Aussage (nicht 0!)
     stamps.sort()
     # Nur echte Luecken ZWISCHEN Laeufen und die Luecke bis jetzt zaehlen.
     # Der Fensterrand zaehlt NICHT - sonst meldet eine frische DB Stillstand.
     luecke = (now - stamps[-1]).total_seconds() / 60.0
     for a, b in zip(stamps, stamps[1:]):
         luecke = max(luecke, (b - a).total_seconds() / 60.0)
-    return luecke
+    return luecke, fremd
+
+
+# -- Ticket 27: den einzigen Signalkanal lesbar machen ---------------------
+# ZWEITE MESSUNG 2026-08-09 (_probe_signalkanal_t27.py / _probe_signalzeit_t27.py,
+# gegen die echte executions.db): von den 148 'failed'-Zeilen des Geldpfad-
+# Traegers sind nur 8 ein SKRIPT-Urteil (7x exit 1, 1x exit 2). 136 sind
+# "RuntimeError: Skipped to prevent unintended spend" - der Runner brach VOR
+# dem Skript ab, das Urteil kam nie zustande; letzte solche Zeile
+# 2026-08-06T05:04, also Alt-Bestand der Agenten-Aera. Diese Klasse darf
+# deshalb NICHT als Skript-Defekt gelesen werden - sie sagt ueber den
+# Geldpfad genau nichts.
+# MEASURED 2026-08-09 gegen die echte executions.db: der Runner kennt fuer
+# beendete Laeufe nur 'completed' / 'failed' (+ 'unknown', das er NUR bei
+# Scheduler-Neustart setzt) - ein rc=1 (Defekt) und ein rc=3 (unmessbar)
+# liegen als IDENTISCHE 'failed'-Zeile in der DB. Der Exitcode ueberlebt
+# aber WOERTLICH im error-Text ("Script exited with code N"), MEASURED fuer
+# die Codes 1, 2 und 3. Der Kanal trennt beides also - nur las es niemand.
+# Diese Funktion ist der Leser. Reine INFO: sie faellt NIE ein Urteil.
+EXIT_RE = re.compile(r"^Script exited with code (\d+)")
+
+# Konvention des Geldpfads. MEASURED 2026-08-09: in der ganzen DB kommen genau
+# die Codes 1 (166x), 2 (73x) und 3 (1x) vor - kein weiterer. 2 und 3 heissen
+# beide "unmessbar": 2 in den Verifikations-Skripten und im Audit selbst,
+# 3 in cron_auto_fulfill.py/rtd_health_watchdog.py.
+SIGNAL_KONVENTION = {
+    1: "DEFEKT (exit 1)",
+    2: "unmessbar (exit 2)",
+    3: "unmessbar (exit 3)",
+}
+# Runner-Abbruch: das Skript lief NIE, es gibt kein Urteil ueber den Geldpfad.
+RUNNER_ABBRUCH = (
+    ("Skipped to prevent unintended spend", "Spend-Guard"),
+    ("Model '", "Modell fehlt"),
+    ("getaddrinfo failed", "DNS/Netz"),
+    ("Context length exceeded", "Kontext"),
+    ("HTTP 429", "Rate-Limit"),
+)
+
+
+def dekodiere_signale(rows):
+    """[(status, error)] -> (Counter der Klassen, Liste auffaelliger Codes).
+
+    Klassen sind bewusst grob und erschoepfend - jede Zeile landet in genau
+    einer, sonst taeuscht die Summe Vollstaendigkeit vor (Teil-Vollstaen-
+    digkeits-Falle, Ticket 13/15/17/20).
+    """
+    klassen = collections.Counter()
+    auffaellig = []
+    for status, err in rows:
+        err = err or ""
+        if status == "completed":
+            klassen["completed"] += 1
+            continue
+        m = EXIT_RE.match(err)
+        if m:
+            code = int(m.group(1))
+            name = SIGNAL_KONVENTION.get(code)
+            if name is None:
+                name = f"KONVENTIONSBRUCH (exit {code})"
+                auffaellig.append(code)
+            klassen[name] += 1
+        elif status == "unknown":
+            klassen["Scheduler-Neustart (kein Skript-Urteil)"] += 1
+        elif status in ("claimed", "running"):
+            klassen["laeuft/haengt"] += 1
+        else:
+            grund = next((g for marker, g in RUNNER_ABBRUCH if marker in err),
+                         "sonstiges")
+            klassen[f"RUNNER-ABBRUCH {grund} (Skript lief NIE)"] += 1
+    return klassen, auffaellig
+
+
+def signal_zeile(rows):
+    """Eine INFO-Zeile mit der dekodierten Aufschluesselung, oder None."""
+    if not rows:
+        return None
+    klassen, _ = dekodiere_signale(rows)
+    teile = [f"{v}x {k}" for k, v in klassen.most_common()
+             if k != "completed"]
+    if not teile:
+        return "      davon nicht-completed: keine"
+    return "      dekodiert (Ticket 27, INFO): " + ", ".join(teile)
 
 
 def check_traeger(job, path, text, execs, now, defects, unknown, out,
-                  hb_ts=None, hb_err=None, stillstand=None):
+                  hb_ts=None, hb_err=None, stillstand=None, signale=None,
+                  signal_err=None):
     jid = job.get("id")
     tag = f"{jid} {str(job.get('name'))[:44]}"
     out.append(f"  * {tag}")
@@ -362,6 +486,18 @@ def check_traeger(job, path, text, execs, now, defects, unknown, out,
     n_fail = sum(1 for st, _ in rows if st not in ("completed",))
     out.append(f"      Laeufe    = {len(rows)} gesamt / "
                f"{len(done)} completed / {n_fail} nicht-completed")
+    if n_fail:
+        # Ticket 27: die Zahl allein wirft echte Defekte, unmessbare Laeufe
+        # und Runner-Abbrueche (Skript lief nie) in EINEN Topf. Hier wird sie
+        # aufgeschluesselt - INFO, kein Urteil.
+        if signale is None:
+            out.append("      dekodiert (Ticket 27, INFO): NICHT GELESEN "
+                       f"({signal_err or 'kein Grund genannt'})")
+        else:
+            zeile = signal_zeile(signale.get(jid, []))
+            out.append(zeile if zeile else
+                       "      dekodiert (Ticket 27, INFO): keine "
+                       "Protokollzeilen zu diesem Job")
     if not rows:
         defects.append(f"{tag}: 0 Laeufe protokolliert - der Job hat nie "
                        f"gefeuert (Ticket-22-Zustand)")
@@ -515,6 +651,18 @@ def main():
         execs = None
         unknown.append(f"Protokoll nicht lesbar: {exc}")
 
+    # Ticket 27: die error-Texte separat lesen (reine INFO, nie ein Urteil).
+    # MEASURED 2026-08-09: die Leserfunktion existierte schon, main() rief sie
+    # NIE auf - der Live-Lauf druckte deshalb dauerhaft "nicht lesbar", obwohl
+    # die Texte lesbar sind. Selftest gruen, Produktivpfad tot. Deshalb wird
+    # der Grund jetzt mitgefuehrt: "nicht gelesen" != "nicht lesbar".
+    try:
+        signale = io_read_signale(home)
+        signal_err = None
+    except Unmessbar as exc:
+        signale = None
+        signal_err = str(exc)
+
     traeger, waechter, neben, offen, info = classify(jobs, home)
     n_en = sum(1 for j in jobs if j.get("enabled"))
     print(f"Jobs            : {len(jobs)} gesamt, {n_en} enabled")
@@ -522,8 +670,15 @@ def main():
     print(f"Waechter (2. Ring, Ticket 25): {len(waechter)}")
 
     now = io_now()
-    stillstand = global_stillstand(execs, now) if execs else None
+    # Ticket 27: nur Jobs zaehlen, die jobs.json wirklich kennt (Fremd-/
+    # Sondenzeilen in executions.db duerfen keinen Stillstand zudecken).
+    bekannte_ids = {j.get("id") for j in jobs}
+    stillstand, fremdzeilen = (global_stillstand(execs, now, bekannte_ids)
+                               if execs else (None, 0))
     hb_ts, hb_err = io_read_pipeline_hb()
+    if fremdzeilen:
+        print(f"Protokollzeilen ohne Job in jobs.json (ignoriert, Ticket 27): "
+              f"{fremdzeilen}")
     if stillstand is not None:
         print(f"Scheduler-Stillstand (groesste Luecke ohne EINEN Job-Lauf in "
               f"{STILLSTAND_FENSTER_MIN} min): {stillstand:.0f} min")
@@ -544,7 +699,8 @@ def main():
             f"Heartbeat -> Kriterium [B] ist nicht traegerscharf")
     for job, path, text in traeger:
         check_traeger(job, path, text, execs, now, defects, unknown, out,
-                      hb_ts=hb_ts, hb_err=hb_err, stillstand=stillstand)
+                      hb_ts=hb_ts, hb_err=hb_err, stillstand=stillstand,
+                      signale=signale, signal_err=signal_err)
     for job, path, text in waechter:
         check_waechter(job, path, text, execs, now, defects, unknown, out,
                        stillstand=stillstand)
@@ -633,7 +789,8 @@ def _selftest():
                            ("completed", ts(45))]}
 
     def run(jobs, execs=None, files=None, dirs=None, jobs_exc=None,
-            exec_exc=None, home=HOME, hb="__frisch__", hb_err=None):
+            exec_exc=None, home=HOME, hb="__frisch__", hb_err=None,
+            signale=None, signale_exc=None):
         files = {nk(LOADER): LOADER_TEXT, nk(TARGET): ""} if files is None \
             else {nk(k): v for k, v in files.items()}
         dirs = {nk(ROOT)} if dirs is None else {nk(d) for d in dirs}
@@ -651,16 +808,22 @@ def _selftest():
                 raise Unmessbar(exec_exc)
             return execs
 
+        def fake_signale(_home):
+            if signale_exc:
+                raise Unmessbar(signale_exc)
+            return {} if signale is None else signale
+
         def fake_hb():
             return (None, hb_err) if hb_err else (hb, None)
 
         keep = {k: g[k] for k in ("io_home", "io_read_jobs",
                                   "io_read_executions", "io_isfile",
                                   "io_isdir", "io_read_text", "io_now",
-                                  "io_read_pipeline_hb")}
+                                  "io_read_pipeline_hb", "io_read_signale")}
         g["io_home"] = lambda: home
         g["io_read_jobs"] = fake_jobs
         g["io_read_executions"] = fake_execs
+        g["io_read_signale"] = fake_signale
         g["io_isfile"] = lambda p: nk(p) in files
         g["io_isdir"] = lambda p: nk(p) in dirs
         g["io_read_text"] = lambda p: files[nk(p)]
@@ -782,10 +945,16 @@ def _selftest():
       "LATCH-Gegenprobe: Pipeline steht wirklich -> rot", f"rc={rc}")
 
     # -- Ticket 25: Scheduler-Stillstand vs Geldpfad-Defekt ----------------
+    # Ticket 27: j2 muss in jobs.json STEHEN, sonst zaehlt sein Puls nicht
+    # (Fremdzeilen werden ignoriert) - sonst prueft der Fall etwas anderes,
+    # als sein Name sagt. script=None + Prompt ohne Geldpfad-Token => von
+    # classify() folgenlos uebersprungen, aber als Job bekannt.
+    anderer = job(id="j2", name="irgendein anderer Job", script=None,
+                  prompt="taeglicher Report")
     # Nachtabschaltung: KEIN Job lief 900 min, danach laeuft alles wieder.
     nacht = {"j1": [("completed", ts(900)), ("completed", ts(930))],
              "j2": [("completed", ts(905)), ("completed", ts(935))]}
-    rc, out = run([job()], execs=nacht, hb=ts(900))
+    rc, out = run([job(), anderer], execs=nacht, hb=ts(900))
     t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
       and "nicht dem Geldpfad anlastbar" in out and clean(out),
       "globaler Stillstand -> unmessbar, kein Defekt-Claim gegen den Geldpfad",
@@ -794,7 +963,7 @@ def _selftest():
     # Gegenprobe: NUR der Geldpfad-Job schweigt, andere laufen weiter -> rot.
     allein = {"j1": [("completed", ts(900))],
               "j2": [("completed", ts(m)) for m in (5, 35, 65, 95, 300, 600)]}
-    rc, out = run([job()], execs=allein, hb=ts(900))
+    rc, out = run([job(), anderer], execs=allein, hb=ts(900))
     t(rc == 1 and "der Job feuert nicht" in out and clean(out),
       "nur der Geldpfad schweigt, andere Jobs laufen -> rot", f"rc={rc}")
 
@@ -814,6 +983,34 @@ def _selftest():
       and "der Job feuert nicht" in out and clean(out),
       "leeres Stillstands-Fenster erfindet keine 0 (keine Aussage)",
       f"rc={rc}")
+
+    # -- Ticket 27: Fremdzeilen in executions.db duerfen nicht mitzaehlen ---
+    # Wegwerf-Sonden/geloeschte Jobs schreiben Zeilen mit einer job_id, die
+    # jobs.json nicht kennt (MEASURED 2026-08-08: 't27probe0001', source=
+    # 'direct'). Sie faelschen den Scheduler-Puls in BEIDE Richtungen.
+    geist_nacht = {"j1": [("completed", ts(900)), ("completed", ts(930))],
+                   "zzz_sonde": [("failed", ts(m)) for m in (5, 35, 65)]}
+    rc, out = run([job()], execs=geist_nacht, hb=ts(900))
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "nicht dem Geldpfad anlastbar" in out and clean(out),
+      "Fremdzeilen tarnen keine Nachtabschaltung (kein Falsch-Rot)",
+      f"rc={rc} {word(out)}")
+    t("Protokollzeilen ohne Job in jobs.json (ignoriert, Ticket 27): 3" in out,
+      "ignorierte Fremdzeilen werden gezaehlt und gedruckt")
+
+    geist_lang = {"j1": [("completed", ts(30)), ("completed", ts(1600))],
+                  "zzz_sonde": [("failed", ts(800))]}
+    rc, out = run([job()], execs=geist_lang)
+    t(rc == 1 and "24-h-Zusage aus agb.html § 3 real ungedeckt" in out
+      and clean(out),
+      "Fremdzeile deckt echten >1440-min-Stillstand nicht zu (kein "
+      "Falsch-Gruen)", f"rc={rc}")
+
+    nur_geist = {"zzz_sonde": [("completed", ts(5)), ("completed", ts(35))]}
+    rc, out = run([job()], execs=nur_geist, hb=ts(5000))
+    t(rc != 0 and "Scheduler-Stillstand" not in out and clean(out),
+      "nur Fremdzeilen -> keine erfundene Stillstands-Zahl, nicht gruen",
+      f"rc={rc} {word(out)}")
 
     # -- Ticket 25: Heartbeat-Randfaelle -----------------------------------
     rc, out = run([job()], hb_err="Pipeline-Heartbeat nicht parsebar: x")
@@ -899,6 +1096,49 @@ def _selftest():
     rc, out = run([job()])
     t(word(out) == "CRON_HEALTH_OK" and "CRON_HEALTH_DEFEKT" not in out,
       "Ergebniswort exakt (kein Praefix-Treffer, Ticket 19)")
+
+    # -- Ticket 27: Signalkanal dekodieren (durch die ECHTE main()) --------
+    # Der Fall, an dem der Vortick scheiterte: die Leserfunktion existierte,
+    # main() rief sie nie auf -> live stand dauerhaft "nicht lesbar" da,
+    # obwohl die Texte lesbar sind. Diese Faelle laufen deshalb ALLE durch
+    # main(), nie gegen dekodiere_signale() direkt.
+    misch = {"j1": [("completed", ts(10)), ("failed", ts(40)),
+                    ("failed", ts(70)), ("failed", ts(100)),
+                    ("failed", ts(130)), ("unknown", ts(160))]}
+    sig = {"j1": [
+        ("completed", ""),
+        ("failed", "Script exited with code 1\nstdout:\n[1] Pipeline"),
+        ("failed", "Script exited with code 3\nstdout:\n[2] Live-Check"),
+        ("failed", "RuntimeError: Skipped to prevent unintended spend: "
+                   "global inference cost limit"),
+        ("failed", "Script exited with code 7\nstdout:\n?"),
+        ("unknown", "Scheduler restarted after this execution's owner"),
+    ]}
+    rc, out = run([job()], execs=misch, signale=sig)
+    t("1x DEFEKT (exit 1)" in out and "1x unmessbar (exit 3)" in out
+      and clean(out),
+      "DEFEKT und unmessbar sind im Protokoll UNTERSCHEIDBAR (Ticket 27)",
+      f"rc={rc}")
+    t("NICHT GELESEN" not in out and "nicht lesbar" not in out,
+      "Verdrahtung: main() liest die error-Texte wirklich "
+      "(Regression 2026-08-09)")
+    t("1x RUNNER-ABBRUCH Spend-Guard (Skript lief NIE)" in out,
+      "Runner-Abbruch wird NICHT als Skript-Defekt gelesen (136 reale Zeilen)")
+    t("1x KONVENTIONSBRUCH (exit 7)" in out,
+      "unbekannter Exitcode heisst Konventionsbruch, nicht stillschweigend ok")
+    t("1x Scheduler-Neustart (kein Skript-Urteil)" in out,
+      "Scheduler-Neustart ist kein Skript-Urteil")
+    t(word(out) == "CRON_HEALTH_OK",
+      "die Dekodierung ist INFO und aendert das Urteil NICHT (Latch-Regel)",
+      f"{word(out)}")
+
+    # nicht lesbar != nicht gelesen: der Grund muss im Klartext dastehen,
+    # und Unlesbarkeit darf keinen Defekt-Claim erzeugen.
+    rc, out = run([job()], execs=misch, signale_exc="executions.db gesperrt")
+    t("NICHT GELESEN (executions.db gesperrt)" in out
+      and word(out) == "CRON_HEALTH_OK" and clean(out),
+      "unlesbare error-Texte: Grund benannt, kein Defekt-Claim",
+      f"rc={rc} {word(out)}")
 
     ok = sum(1 for c, _ in results if c)
     print(f"\nSELFTEST {'OK' if ok == len(results) else 'FEHLGESCHLAGEN'}: "
