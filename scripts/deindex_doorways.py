@@ -52,7 +52,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOORWAY_DIR = "t"
 SITEMAP = ROOT / "sitemap.xml"
 NOINDEX_TAG = '<meta name="robots" content="noindex,follow">'
-LOC_MARKER = "/new-business/t/"
+LOC_MARKER = f"/new-business/{DOORWAY_DIR}/"
 
 
 def doorway_files() -> list[Path]:
