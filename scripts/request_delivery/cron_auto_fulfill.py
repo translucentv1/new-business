@@ -56,6 +56,12 @@ TIMEOUT = 900
 # Modul-Docstring) und bewusst NICHT 0 - gruen heisst ausschliesslich
 # "gemessen und gut", sonst sieht ein dauerhaft unmessbarer Geldpfad gesund aus.
 EXIT_UNGEPRUEFT = 3
+# Ticket 27, Nebenfrage B: eigener Code fuer "die UEBERWACHUNG ist defekt,
+# die Lieferung nicht". Vorher lief dieser Fall in EXIT 1 und behauptete damit
+# einen Defekt des Geldpfads (real am 2026-08-08 05:41: ein nie gefeuerter
+# Waechter machte den sauber laufenden Lieferjob rot). Auf 0 herabstufen waere
+# die Gegenrichtung: dann verschwindet ein toter zweiter Ring lautlos.
+EXIT_NEBENRING = 4
 
 
 def run_health():
@@ -140,6 +146,8 @@ def main() -> int:
         quellen.append("Lieferpipeline")
         print(f"  auto_fulfill rc={p.returncode}")
     defekt = bool(quellen)
+    # Ticket 27, Nebenfrage B: dritte Groesse neben 'defekt' und 'unmessbar'.
+    nebenring = False
 
     # Sale-Erkennung aus der Produktivausgabe: "neu=N" ist die Zahl der in
     # diesem Lauf bedienten Sales; "FULFILLED " steht pro ausgeliefertem Stueck.
@@ -180,14 +188,23 @@ def main() -> int:
     # genau die Bauform, die in Ticket 22 143x ausgefallen ist.
     print("[3] Cron-Gesundheit (Ticket 24)")
     hrc, hout = run_health()
+    # Ticket 27: NICHT auf exakte Praefixe filtern. Der erste Versuch prueste
+    # ln.startswith("  ! ") - und verschluckte damit prompt die neue
+    # Nebenring-Zeile "  !~ ", weil das vierte Zeichen kein Leerzeichen ist.
+    # Praefix-Falle wie in Ticket 19; der Selftest hat sie gefangen. Jetzt
+    # wird das Markerzeichen geprueft, nicht die Einrueckung.
     zeilen = [ln for ln in hout.splitlines()
-              if ln.startswith("ERGEBNIS:") or ln.startswith("  ! ")
-              or ln.startswith("  ? ")]
+              if ln.startswith("ERGEBNIS:")
+              or ln.lstrip().startswith(("!", "?"))]
     for ln in (zeilen or hout.splitlines()[-2:]):
         print(f"  {ln.strip()}")
     if hrc == 1:
         defekt = True
         quellen.append("Cron-Gesundheit")
+    elif hrc == EXIT_NEBENRING:
+        # Ticket 27: NICHT in 'defekt' - das waere ein Vorwurf gegen den
+        # Geldpfad, den keine Messung deckt. Eigene Groesse, eigene Zahl.
+        nebenring = True
     elif hrc != 0:
         unmessbar = True
 
@@ -204,6 +221,14 @@ def main() -> int:
         print(f"ERGEBNIS: RTD_FULFILL_DEFEKT (Quelle: "
               f"{', '.join(quellen)}{zusatz})")
         return 1
+    # Ticket 27: vor dem Sale-Wort, aus demselben Grund, aus dem 'defekt' davor
+    # steht - ein defekter zweiter Ring darf nicht von einem gruenen Wort
+    # zugedeckt werden. Der SALE-Banner ist zu diesem Zeitpunkt bereits
+    # gedruckt (Ticket 24), geht also nicht verloren.
+    if nebenring:
+        print("ERGEBNIS: RTD_FULFILL_NEBENRING_DEFEKT (2. Ring defekt - "
+              "Lieferung und Kaufpfad selbst unauffaellig)")
+        return EXIT_NEBENRING
     if sale:
         print("ERGEBNIS: RTD_FULFILL_SALE")
         return 0
@@ -344,6 +369,36 @@ def _selftest() -> int:
                        health=(2, "ERGEBNIS: CRON_HEALTH_UNGEPRUEFT"))
         t(rc == 1 and w == "RTD_FULFILL_DEFEKT",
           f"echter Defekt schlaegt Health-Unmessbarkeit ({w})")
+
+        # -- Ticket 27, Nebenfrage B --------------------------------------
+        # Ein Defekt des 2. Rings darf den Geldpfad nicht anklagen (real am
+        # 2026-08-08 05:41 passiert) und auch nicht lautlos gruen werden.
+        rc, w, text = run(stub("neu=0"), {},
+                          health=(4, "ERGEBNIS: CRON_HEALTH_NEBENRING_DEFEKT\n"
+                                     "  !~ w1: nie gefeuert"))
+        t(rc == EXIT_NEBENRING and w == "RTD_FULFILL_NEBENRING_DEFEKT",
+          f"Nebenring-Defekt -> eigener rc=4, kein Geldpfad-Vorwurf ({w}) "
+          f"rc={rc}")
+        t("Lieferung und Kaufpfad selbst unauffaellig" in text,
+          "das Wort sagt ausdruecklich, dass die Lieferung sauber lief")
+        t("nie gefeuert" in text,
+          "die Nebenring-Diagnosezeile wird durchgereicht")
+
+        rc, w, _ = run(stub("boom", rc=1), {},
+                       health=(4, "ERGEBNIS: CRON_HEALTH_NEBENRING_DEFEKT"))
+        t(rc == 1 and w == "RTD_FULFILL_DEFEKT",
+          f"echter Geldpfad-Defekt schlaegt Nebenring-Defekt ({w})")
+
+        # Der Sale bleibt das lauteste Signal - auch wenn der Ring defekt ist
+        # und das Ergebniswort bestimmt (Regressionsklasse aus Ticket 24).
+        rc, w, text = run(stub("neu=1"), {},
+                          health=(4, "ERGEBNIS: CRON_HEALTH_NEBENRING_DEFEKT"))
+        t(rc == EXIT_NEBENRING and "ERSTER SALE" in text,
+          f"Nebenring-Defekt verschluckt die SALE-Meldung NICHT ({w}) rc={rc}")
+
+        t(len({0, 1, EXIT_UNGEPRUEFT, EXIT_NEBENRING}) == 4,
+          "OK/DEFEKT/UNGEPRUEFT/NEBENRING sind 4 verschiedene Codes "
+          f"(0/1/{EXIT_UNGEPRUEFT}/{EXIT_NEBENRING})")
 
         # Regression, die dieser Umbau beinahe eingebaut haette: ein
         # Cron-Health-Defekt darf die SALE-Meldung nicht verschlucken.

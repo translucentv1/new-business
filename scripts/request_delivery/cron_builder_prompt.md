@@ -863,3 +863,71 @@ TICKET 27 abarbeiten (einziges unblockiertes AFK-Ticket mit Informationswert).
 Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21/23 = HITL,
 Ticket 26 = zeitgesperrt bis 2026-08-18.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-10 (Tick, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK. verify_ticket13_live
+LIVE_OK (61 Seiten). dl_noindex_audit --live DL_NOINDEX_OK (24/24).
+verify_rtd_chain KETTE_OK (Hash-Paritaet real in node ausgefuehrt).
+rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+TICKET 27 ERLEDIGT + GESCHLOSSEN, TICKET 28 NEU.
+Der Tick startete wieder mit UNCOMMITTETER Vortick-Arbeit (cron_auto_fulfill
++59 Z., cron_health_audit +236 Z., 2 untrackte Sonden). Nach Merkregel NEU
+AUSGEFUEHRT statt uebernommen — und diesmal hat sie NICHT gehalten:
+>>> DIE ERBSCHAFT WAR EIN FALSCH-GRUEN-GENERATOR <<<
+cron_health_audit --selftest war ROT (50/57). Der Vortick hatte eine WACH-UHR
+(wach_minuten(): nur belegbare Scheduler-Wachzeit statt Wanduhr-Alter gegen die
+Toleranz) eingebaut, um Falsch-Rot nach Nachtabschaltung zu beseitigen. Vier
+der sieben roten Faelle waren FALSCH-GRUEN AUF DEM GELDPFAD:
+  - Heartbeat 1031 min alt, Job feuert alle 30 min      -> rc=0 (Lieferung tot)
+  - nur der Geldpfad schweigt 900 min, anderer laeuft   -> rc=0
+  - wirklich stummer zweiter Traeger                    -> maskiert
+  - Geisterzeilen fremder job_ids als Wach-Alibi        -> rc=0
+Zwei Ursachen: Entwurf (Wach-Summe aus FREMDEN Laeufen, bei duenner Beleglage
+klein -> "wenig Wachzeit" fiel in den GRUEN-Zweig statt in "unmessbar") und
+Verdrahtung (main() reichte bekannte_ids NIE an check_traeger durch -> die
+Geisterzeilen-Sperre lief produktiv gar nicht mit; Funktion da, Aufrufer setzt
+sie nicht — dieselbe Klasse wie der nie aufgerufene Signal-Decoder).
+Wach-Uhr chirurgisch VERWORFEN, Nebenring-Trennung (gruen) BEHALTEN.
+ENTSCHEIDUNGEN Ticket 27: (Haupt) exit != 0 bei UNGEPRUEFT BLEIBT — teuer war
+nicht der Exitcode, sondern die Unlesbarkeit; der Decoder loest das. LIVE
+gemessen an 214 Traegerlaeufen: 136x RUNNER-ABBRUCH Spend-Guard (Skript lief
+NIE), 7x DEFEKT (exit 1), 2x Modell fehlt, 2x Scheduler-Neustart, 1x DNS/Netz,
+1x unmessbar (exit 2), 1x laeuft/haengt -> von 150 nicht-completed sind nur
+7 echte Defekte. (Neben B) Nebenring bekommt eigenen Signalwert rc=4
+(CRON_HEALTH_NEBENRING_DEFEKT / RTD_FULFILL_NEBENRING_DEFEKT), getrennt nach
+BETROFFENEM statt Schweregrad; Rangfolge Geldpfad > Nebenring > unmessbar > OK,
+SALE-Banner steht davor.
+MEASURED: health --selftest 57/57 | fulfill --selftest 38/38 |
+_mutation_probe_t27c.py MUTATION_PROBE_OK 36/36 (rote Mutanten in 2 Produktiv-
+dateien, exakte Diagnosezeile, kein Absturz, sha256-genau restauriert
+97f8922fa7f1 / 5e24130fcfd4, rc 0->1->0) | LIVE cron_auto_fulfill
+RTD_FULFILL_OK mit [3] CRON_HEALTH_OK.
+NEBENBEFUND (echt, nicht synthetisch): der erste Live-Lauf des Audits meldete
+CRON_HEALTH_DEFEKT — Stillstand 784 min (Rechner nachts aus), Heartbeat aber
+793 min alt; die T25-Regel verlangt Deckung auf die Minute, 8 min Differenz
+genuegten fuer den Defekt-Claim gegen eine kerngesunde Lieferung. Gegenprobe:
+Traeger einmal echt laufen lassen -> [2b] frischer Heartbeat -> CRON_HEALTH_OK.
+Also TRANSIENT und SELBSTHEILEND, KEIN Latch. -> TICKET 28
+(tickets/28-falschrot-nach-abschaltung.md), inkl. Kandidat "verpasste
+Gelegenheiten statt Zeit zaehlen" und dem Fallstrick DB-Zeile claimed mit
+started_at=NULL (Lauf, der nie startete, kann nichts melden).
+
+MERKREGELN (neu):
+- Eine Erbschaft ist erst geprueft, wenn ihr eigener Selftest LAEUFT. Zweimal
+  hat die Merkregel gehalten ("hat gehalten"), diesmal nicht — genau dafuer
+  existiert sie. Nie den gruenen Ausgang des Vorticks glauben.
+- Wer Falsch-Rot bekaempft, baut leicht Falsch-Gruen. Jeden Entlastungs-Zweig
+  ("das erklaert das Schweigen") daraufhin pruefen, ob er in GRUEN oder in
+  UNMESSBAR muendet. Entlastung ist kein Messwert.
+- Neuer Parameter mit Default = stiller Ausfall: nach jedem `def f(..., x=None)`
+  pruefen, ob der PRODUKTIVE Aufrufer x wirklich setzt.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live + dl_noindex_audit --live). Dann
+TICKET 28 abarbeiten (einziges unblockiertes AFK-Ticket mit Informationswert;
+Messlatte: alle 57 Selftest-Faelle bleiben gruen, die 4 Falsch-Gruen-Lagen als
+benannte Faelle aufnehmen). Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker,
+Ticket 10/21/23 = HITL, Ticket 26 = zeitgesperrt bis 2026-08-18.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.

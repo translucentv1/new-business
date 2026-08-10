@@ -329,6 +329,27 @@ def global_stillstand(execs, now, bekannte_ids=None):
     return luecke, fremd
 
 
+# -- Ticket 27, Hauptfrage: WACH-UHR VERWORFEN (2026-08-10) ---------------
+# Ein Vortick hatte hier wach_minuten() stehen: statt Wanduhr-Alter sollten
+# nur "Minuten mit belegbar laufendem Scheduler" gegen die Toleranz gehalten
+# werden, damit eine Nachtabschaltung GRUEN statt UNGEPRUEFT ergibt.
+# NEU AUSGEFUEHRT statt uebernommen (Merkregel) -> der committete Selftest war
+# damit ROT (50/57). Vier der sieben roten Faelle waren FALSCH-GRUEN auf dem
+# Geldpfad, also die teuerste Fehlerrichtung:
+#   * Heartbeat 1031 min alt, Job feuert alle 30 min -> rc=0: Lieferung tot,
+#     Audit gruen (Wach-Summe 125 min < Toleranz 180 min).
+#   * nur der Geldpfad schweigt 900 min, ein anderer Job laeuft -> rc=0.
+#   * ein wirklich stummer zweiter Traeger wurde vom gesunden ersten maskiert.
+#   * Geisterzeilen fremder job_ids lieferten das Wach-Alibi, weil main() den
+#     Parameter bekannte_ids NIE durchreichte (Wiring-Defekt: Funktion da,
+#     Aufrufer setzt sie nicht).
+# Entwurfsfehler: die Wach-Summe entsteht aus FREMDEN Laeufen, ist bei duenner
+# Beleglage klein, und "wenig Wachzeit" fiel in den GRUEN-Zweig statt in
+# "unmessbar". Bis ein Entwurf ohne Falsch-Gruen vorliegt, urteilt wieder der
+# stillstand_deckt-Test aus Ticket 25 (Nachtabschaltung -> UNGEPRUEFT).
+# Belege: tickets/27-signalkanal-defekt-vs-unmessbar.md, Nachfolger Ticket 28.
+
+
 # -- Ticket 27: den einzigen Signalkanal lesbar machen ---------------------
 # ZWEITE MESSUNG 2026-08-09 (_probe_signalkanal_t27.py / _probe_signalzeit_t27.py,
 # gegen die echte executions.db): von den 148 'failed'-Zeilen des Geldpfad-
@@ -355,6 +376,7 @@ SIGNAL_KONVENTION = {
     1: "DEFEKT (exit 1)",
     2: "unmessbar (exit 2)",
     3: "unmessbar (exit 3)",
+    4: "Nebenring defekt, Geldpfad NICHT betroffen (exit 4)",
 }
 # Runner-Abbruch: das Skript lief NIE, es gibt kein Urteil ueber den Geldpfad.
 RUNNER_ABBRUCH = (
@@ -630,7 +652,15 @@ def main():
     print("== cron_health_audit (Ticket 24) ==")
     print("Geltungsbereich : Scheduler-Infrastruktur ($HERMES_HOME) + "
           "lokaler Repo-Baum (kein Netz)")
-    defects, unknown, out = [], [], []
+    # Ticket 27, Nebenfrage B: ZWEI Defektlisten statt einer. Bis hierher
+    # schrieb check_waechter() in dieselbe Liste wie check_traeger() - ein
+    # toter ZWEITER RING erzeugte damit rc=1, und Etappe [3] in
+    # cron_auto_fulfill machte daraus RTD_FULFILL_DEFEKT: ein Defekt-Vorwurf
+    # gegen den GELDPFAD, obwohl die Lieferung sauber lief (real geschehen
+    # 2026-08-08 05:41). Das ist die Klasse "Nebenmessung vergiftet das
+    # Hauptsignal" aus Ticket 24. Getrennt wird nach BETROFFENEM, nicht nach
+    # Schweregrad: 'defects' = Geldpfad, 'ring_defects' = Ueberwachung.
+    defects, ring_defects, unknown, out = [], [], [], []
 
     home = io_home()
     print(f"HERMES_HOME     : {home}")
@@ -702,7 +732,7 @@ def main():
                       hb_ts=hb_ts, hb_err=hb_err, stillstand=stillstand,
                       signale=signale, signal_err=signal_err)
     for job, path, text in waechter:
-        check_waechter(job, path, text, execs, now, defects, unknown, out,
+        check_waechter(job, path, text, execs, now, ring_defects, unknown, out,
                        stillstand=stillstand)
     for line in out:
         print(line)
@@ -728,9 +758,14 @@ def main():
             "24-h-Zusage aus agb.html § 3 traegt niemand")
 
     if defects:
-        print(f"DEFEKTE ({len(defects)}):")
+        print(f"DEFEKTE GELDPFAD ({len(defects)}):")
         for d in defects:
             print(f"  ! {d}")
+    if ring_defects:
+        print(f"DEFEKTE NEBENRING ({len(ring_defects)}) - Ueberwachung, "
+              f"NICHT die Lieferung:")
+        for d in ring_defects:
+            print(f"  !~ {d}")
     if unknown:
         print(f"UNMESSBAR ({len(unknown)}):")
         for u in unknown:
@@ -741,6 +776,14 @@ def main():
         print(f"ERGEBNIS: CRON_HEALTH_DEFEKT ({len(defects)} Defekt(e), "
               f"{len(traeger)} Geldpfad-Traeger geprueft)")
         return 1
+    # Ticket 27: ein toter Nebenring ist ein GEMESSENER Defekt - also weder
+    # gruen (rc=0 waere Falsch-Gruen auf die Ueberwachung) noch "unmessbar"
+    # (rc=2 waere gelogen, er ist ja gemessen) noch ein Geldpfad-Vorwurf
+    # (rc=1 waere Falsch-Rot auf die Lieferung). Er bekommt die eigene Zahl.
+    if ring_defects:
+        print(f"ERGEBNIS: CRON_HEALTH_NEBENRING_DEFEKT ({len(ring_defects)} "
+              f"Defekt(e) am 2. Ring - die Lieferung selbst ist unauffaellig)")
+        return 4
     if unknown:
         print(f"ERGEBNIS: CRON_HEALTH_UNGEPRUEFT ({len(unknown)} Etappe(n) "
               f"nicht messbar)")
@@ -1139,6 +1182,76 @@ def _selftest():
       and word(out) == "CRON_HEALTH_OK" and clean(out),
       "unlesbare error-Texte: Grund benannt, kein Defekt-Claim",
       f"rc={rc} {word(out)}")
+
+    # -- Ticket 27, Nebenfrage B: Nebenring-Defekt != Geldpfad-Defekt ------
+    # BEFUND 2026-08-09: check_waechter() hatte in 48 Selftest-Faellen NULL
+    # Abdeckung - die gesamte Urteilslogik des 2. Rings war ungetestet, und
+    # dass sie in dieselbe defects-Liste schrieb wie der Traeger, fiel keinem
+    # Test auf. Genau diese Kopplung machte am 2026-08-08 05:41 den sauber
+    # liefernden Geldpfad-Job rot.
+    WD = os.path.join(HOME, "scripts", "rtd_health_watchdog.py")
+    # Der Text muss request_delivery + cron_health_audit nennen, aber NICHT
+    # das Fulfill-Token - sonst klassifiziert classify() ihn als Traeger.
+    WD_TEXT = ('TARGET = os.path.join("request_delivery",\n'
+               '                      "cron_health_audit.py")\n')
+
+    def wd(**kw):
+        base = dict(id="w1", name="RTD Cron Watchdog (2. Ring)", enabled=True,
+                    no_agent=True, script="rtd_health_watchdog.py",
+                    workdir=ROOT, prompt="",
+                    schedule={"kind": "interval", "minutes": 30})
+        base.update(kw)
+        return base
+
+    wd_files = {LOADER: LOADER_TEXT, TARGET: "", WD: WD_TEXT}
+
+    # Gesunder Ring: er wird ueberhaupt als WAECHTER erkannt und stoert nicht.
+    beide_ok = {"j1": [("completed", ts(10))], "w1": [("completed", ts(10))]}
+    rc, out = run([job(), wd()], execs=beide_ok, files=wd_files)
+    t(rc == 0 and word(out) == "CRON_HEALTH_OK" and "[WAECHTER]" in out
+      and clean(out),
+      "gesunder 2. Ring wird als WAECHTER klassifiziert und bleibt gruen",
+      f"rc={rc} {word(out)}")
+
+    # NUR der Ring ist defekt (abgeschaltet), die Lieferung laeuft sauber.
+    rc, out = run([job(), wd(enabled=False)], execs=beide_ok, files=wd_files)
+    t(rc == 4 and word(out) == "CRON_HEALTH_NEBENRING_DEFEKT" and clean(out),
+      "nur der 2. Ring defekt -> eigener rc=4, KEIN Geldpfad-Defekt",
+      f"rc={rc} {word(out)}")
+    t("DEFEKTE NEBENRING" in out and "DEFEKTE GELDPFAD" not in out,
+      "der Defekt wird dem Nebenring zugeschrieben, nicht dem Geldpfad")
+    t("die Lieferung selbst ist unauffaellig" in out,
+      "das Ergebniswort sagt ausdruecklich, dass die Lieferung sauber ist")
+
+    # Ring tot (0 Laeufe) - der klassische Fall vom 2026-08-08 05:41.
+    nur_traeger = {"j1": [("completed", ts(10))]}
+    rc, out = run([job(), wd()], execs=nur_traeger, files=wd_files)
+    t(rc == 4 and word(out) == "CRON_HEALTH_NEBENRING_DEFEKT"
+      and "hat aber nie gefeuert" in out and clean(out),
+      "nie gefeuerter Waechter -> rc=4 statt Geldpfad-Vorwurf (Fall 08-08 05:41)",
+      f"rc={rc} {word(out)}")
+
+    # Beide defekt: der Geldpfad-Vorwurf hat Vorrang, er ist das teurere Signal.
+    rc, out = run([job(enabled=False), wd(enabled=False)], execs=beide_ok,
+                  files=wd_files)
+    t(rc == 1 and word(out) == "CRON_HEALTH_DEFEKT" and clean(out),
+      "Traeger UND Ring defekt -> Geldpfad gewinnt (rc=1), Ring geht nicht unter",
+      f"rc={rc} {word(out)}")
+    t("DEFEKTE NEBENRING" in out and "DEFEKTE GELDPFAD" in out,
+      "beide Defektlisten werden gedruckt, auch wenn nur eine das rc bestimmt")
+
+    # Ring-Defekt schlaegt 'unmessbar': gemessen ist mehr wert als nicht messbar.
+    rc, out = run([job(), wd(enabled=False)], execs=beide_ok, files=wd_files,
+                  hb_err="Heartbeat fehlt")
+    t(rc == 4 and word(out) == "CRON_HEALTH_NEBENRING_DEFEKT" and clean(out),
+      "gemessener Ring-Defekt schlaegt UNGEPRUEFT (Merkregel T17/19)",
+      f"rc={rc} {word(out)}")
+
+    # Die neue Zahl muss die Signal-Konvention kennen, sonst meldet der
+    # Decoder sie als Konventionsbruch (Ticket 27, Hauptfrage).
+    t(SIGNAL_KONVENTION.get(4, "").startswith("Nebenring defekt"),
+      "exit 4 ist in der Signal-Konvention hinterlegt, kein Konventionsbruch",
+      f"{SIGNAL_KONVENTION.get(4)}")
 
     ok = sum(1 for c, _ in results if c)
     print(f"\nSELFTEST {'OK' if ok == len(results) else 'FEHLGESCHLAGEN'}: "
