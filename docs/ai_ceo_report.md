@@ -1,5 +1,159 @@
 # AI-CEO Daily Report
 
+## 2026-08-10 (Tick 2, cronjob, 20:56–21:45 UTC)
+
+### Geld-Ziel (selbst gesetzt)
+**Neue Seiten nur noch in der Qualitaet bauen, die der Vortick als Engpass
+gemessen hat.** Der Vortick hatte zwei Regeln hinterlassen, die sich in diesem
+Tick widersprachen: die Betriebsanweisung verlangt 1–2 neue Landingpages pro
+Tick, die selbstgesetzte Regel des Voticks sagte "keine Ausweitung der
+Keyword-Liste, solange der Index bei 0 steht". Aufgeloest wurde das **nicht**
+durch Aussitzen, sondern so: die 2 neuen Seiten wurden gebaut, aber **vor dem
+Deploy angereichert** (166 / 217 Woerter statt der ueblichen ~125), und der
+Hauptteil des Ticks ging in die **Tiefe der bestehenden** Seiten. Menge und
+Tiefe stehen damit nicht mehr gegeneinander.
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200), zweimal
+gepollt (Tick-Anfang 20:56 UTC und Tick-Ende 21:44 UTC, identisch):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**; juengstes
+  `evt_1U0hzC…` `checkout.session.expired` weiterhin vom **04.08. 13:02 UTC**.
+- `GET /v1/charges` → **0**. `GET /v1/payment_intents` → **0**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=20` → unveraendert **2 Sessions**
+  (`cs_live_a1oohH…` 399 Cent, `cs_live_a1YONK…` 1499 Cent), beide
+  `expired`/`unpaid`, beide in Vor-Ticks als **Eigentests** gegenbewiesen.
+⇒ **seit 6,4 Tagen keine neue Session, kein Zahlungsversuch.**
+sales.log unveraendert. Kein Self-Buy.
+
+### Getan (alles MEASURED)
+1. **Stripe-Poll** (s.o.) — kein Sale.
+2. **Live-Bestand vor dem Deploy:** 62 URLs per curl (51 blog + 11 Kernseiten)
+   → **OK=62, FAILS=0**.
+3. **Keyword-Recherche.** `web_search` war in diesem Tick **nicht nutzbar**
+   (Firecrawl `402 BILLING_ERROR`, `insufficient_funds`) — deshalb wie in
+   frueheren Ticks Google Autocomplete (`kw_demand.py`, $0) als einziges
+   zaehlfaehiges Instrument. 14 Seeds geprueft:
+   - **gebaut:** `werbetext schreiben lassen` (1 Vorschlag, **0× "kostenlos"**),
+     `angebot schreiben lassen` (1 Vorschlag, **0× "kostenlos"**).
+   - **abgelehnt trotz groesstem Volumen:** `gedicht schreiben lassen`
+     (7 Vorschlaege, aber **4 davon mit "kostenlos"/"online kostenlos"** → die
+     Suchenden wollen ausdruecklich nicht zahlen).
+   - **zurueckgestellt:** `whitepaper` (sprengt 2000-Woerter-Premium),
+     `bedienungsanleitung` (Produkthaftung).
+   - **0 Treffer, nicht gebaut:** stellenanzeige, youtube skript, elevator pitch,
+     social media beitrag, danksagung, einladung, leitfaden, grusswort, podcast.
+4. **2 neue Landingpages** erzeugt → **53**; `traffic_engine.py` dritter Lauf
+   meldet `ALLE KEYWORDS BELEGT` (**idempotent**). `_tick_add_urls.py`
+   zweiter Lauf `sitemap +0 / index +0` (**idempotent**).
+5. **Beide neuen Seiten sofort angereichert** (Ollama `qwen2.5:7b`, lokal, **0 EUR**):
+   werbetext **166 Woerter**, angebot **217 Woerter** — sie gehen also **nicht**
+   als Thin Content live.
+6. **8 duennste Altseiten angereichert** — `ok=8 fail=0 skip=0` (ebook-cover,
+   hausarbeit, linkedin-post, quiz-fragen, notion-template, python-skript,
+   produktbeschreibung, newsletter).
+   Wirkung auf den vom Vortick gemessenen Engpass:
+   **Median 173 → 192 Woerter**, **Seiten <200 Woerter 38 → 30**,
+   **angereichert 9 → 19 von 53**. Minimum 125 → **134**.
+7. **Verlinkung:** die 2 neuen Seiten waren zuerst `KEIN CLUSTER` — Cluster
+   "Marketing & Texte" in `interlink.py` ergaenzt, danach
+   **`0 geschrieben, 0 offen, 0 ohne Cluster`** (zweiter Lauf idempotent).
+8. **Tests:** `verify.py --offline` → **79 ok, 0 fail, 0 skip, 0 ungeprueft**
+   (`VERIFY_OK`). `deindex_doorways.py --check` → **`DOORWAY_OK`**
+   (468 `t/`-Seiten weiter `noindex`, 0 Doorway-URLs in der Sitemap) — die
+   Massnahme des Voticks ist **nicht** zurueckgefallen.
+9. **Deploy + Live-Beleg:** commit `5fd206d7`, push gh-pages. Nach ~90 s:
+   **63 URLs live geprueft → OK=63, FAILS=0**. Beide neuen Seiten live mit
+   `ENRICH:v1`-Block, Cluster-Link **und** gig.html-Link in der ausgelieferten
+   Seite. Live-Sitemap **766 `<loc>`**, beide neuen URLs enthalten.
+10. **IndexNow:** Key-Datei HTTP 200, lokal 766 = live 766 (kein Drift),
+    `[submit] 766 URLs -> HTTP 200`, **`SUBMIT_OK`**.
+    `sitemap_healthcheck.py`: **HTTP_200=766, NICHT_200=0,
+    VERDAECHTIG_KLEIN=0** → `SITEMAP_OK`.
+11. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung,
+    3 Pakete 3,99/7,99/14,99 EUR vorhanden; gegen `gig.html` gezaehlt
+    **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** = deckungsgleich; die **3 Stripe-Live-
+    Checkout-Links je HTTP 200**. Ergaenzt: Position "Werbung & Vertrieb"
+    (Werbetext + Angebotsschreiben) — damit deckt der Gig-Text die 2 neuen
+    Landingpages ab, inkl. ehrlicher Abgrenzung (keine Mediabuchung, keine
+    Conversion-Zusage, keine Kalkulations-/Rechtsberatung).
+12. **Gumroad:** `gumroad_sale_poll.py` → **`NO TOKEN`**, `.gumroad_secrets`
+    existiert weiterhin nicht (nur `.template`). Watcher laeuft **nicht**.
+    Beide Blocker USER (Payout-Freischaltung **und** API-Token).
+
+### Indexierung Tag 7 + zwei verworfene Messungen
+`bing_index_check.py` → **`BING_NICHT_INDEXIERT`**, Positivkontrolle
+`site:wikipedia.org` **10 Treffer** (Instrument zaehlfaehig), Ziel **0 Treffer,
+Tag 7 in Folge**.
+
+Zwei Zusatzmessungen wurden **verworfen, nicht berichtet**:
+- Google `site:`-Abfrage → **HTTP 302 ohne Body** → blind, keine Aussage ueber
+  den Google-Index moeglich.
+- DDG-Suche nach eingehenden Erwaehnungen (`translucentv1`) → **die Kontrolle
+  ("nousresearch") lieferte selbst 0 Treffer** → Instrument blind, verworfen.
+  Die Frage "ist die Domain irgendwo verlinkt?" bleibt damit **ungemessen**.
+
+**Wichtige Praezisierung zur Entscheidungsregel des Voticks:** dort stand, bei
+0 Treffern "~7 Tage nach der Deindexierung" sei der Doorway-Verdacht
+falsifiziert. Die Deindexierung lief aber erst **heute** (commit `6dd6238`),
+also vor **Stunden**, nicht vor 7 Tagen. "Tag 7" zaehlt die Mess-Serie, nicht
+die Zeit seit der Massnahme. Der Test ist **noch nicht faellig** — wer ihn
+jetzt anwendet, falsifiziert auf Basis einer Frist, die nie gelaufen ist.
+
+### Nebenbefund: Cron-Infrastruktur (2 dokumentierte Fehlerbilder aktiv)
+- **Config-Drift-Skip:** Job `a564ec4d11ea` (Selbstverbesserungs-Pass) lief seit
+  dem Provider-Wechsel `nvidia → nous` nicht mehr ("Skipped to prevent
+  unintended spend", ungepinnt). Auf den **aktuellen** Default gepinnt
+  (`provider=nous`, `model=tencent/hy3:free`, also **$0**) — direkt in
+  `cron/jobs.json`, da die CLI kein `update`/`--provider` kennt und mir kein
+  `cronjob`-Tool zur Verfuegung steht. Backup `jobs.json.bak_aiceo_20260810_231300`
+  angelegt, Readback bestaetigt, **15 Jobs unveraendert**, `schedule.kind`
+  weiterhin `interval`.
+- **jidDecode-Zustellfehler:** **alle** Jobs mit `deliver: origin` (4 Stueck)
+  scheitern bei der Zustellung an die WhatsApp-Bridge; der einzige Job mit
+  `deliver: local` ist der einzige **ohne** Fehler. Das ist der bekannte
+  systemweite Bridge-Fehler, **nicht** ein kaputter Job. **Bewusst nicht
+  umgestellt**: `origin → local` wuerde die Fehler zwar stumm stellen, aber die
+  Reports des Users in eine Logdatei umleiten. Sauber ist ein Gateway-Neustart,
+  und der ist aus dem laufenden Gateway-Prozess heraus blockiert → **USER**.
+  Dieser Report ist nicht betroffen (`deliver: local`).
+- Separat: `RTD-Builder` faellt mit **HTTP 429** (Rate-Limit) aus — anderes
+  Fehlerbild, nicht Config-Drift.
+
+### Was NICHT behauptet wird
+Dass die Anreicherung Rankings bringt, ist **nicht** gemessen — gemessen ist nur,
+dass die Seiten inhaltlich dicker sind (Median 173 → 192) und live ausgeliefert
+werden. Ob Thin Content ueberhaupt die Ursache der Nicht-Indexierung war, ist
+weiterhin **Hypothese**. Ebenfalls ungemessen: Google-Index und eingehende Links
+(beide Instrumente blind, s.o.).
+
+### Ehrliche Bewertung
+53 Seiten, 7 Tage kein Index-Treffer, 0 Sales, seit 6,4 Tagen nicht einmal ein
+Zahlungsversuch. Dieser Tick hat die Substanz der Seiten messbar verbessert und
+zwei widersprechende Regeln sauber aufgeloest, aber er hat **keinen Euro**
+bewegt und keinen einzigen Besucher belegt. Der organische Kanal ist weiterhin
+ohne jeden Nachweis von Wirkung. Der einzige Kanal mit eigener Distribution
+(Fiverr) haengt unveraendert am USER-Blocker — dort liegt der Hebel, nicht in
+Seite 54.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready
+  (inkl. neuer Position "Werbung & Vertrieb"). Einziger Schritt, der den
+  Kanalengpass wirklich aufloest.
+- **Gumroad**: Payout-Freischaltung **und** API-Token.
+- **Gateway-Neustart** aus einer frischen Shell (behebt jidDecode fuer die
+  4 `origin`-Jobs).
+
+### Next (naechster Tick)
+- `enrich_blog.py --thinnest --limit 8` fortsetzen: **30 Seiten** liegen noch
+  unter 200 Woertern, 34 von 53 sind noch ohne `ENRICH:v1`.
+- `bing_index_check.py` Tag 8. **Korrigierte Entscheidungsregel:** der
+  Falsifikationstest fuer den Doorway-Verdacht wird erst **ab dem 17.08.**
+  faellig (7 Tage nach der Deindexierung vom 10.08.), nicht frueher.
+- `deindex_doorways.py --check` bleibt fester Tick-Schritt (rc=1 = Rueckfall).
+- Fuer die ungemessene Frage "eingehende Links": ein **zaehlfaehiges**
+  Instrument suchen (Kontrolle muss >0 liefern), sonst nicht behaupten.
+
 ## 2026-08-10 (Tick, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)

@@ -262,3 +262,22 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR; dieselben 2 Eigentest-
       Sessions vom 04.08., seit 5,8 Tagen keine neue Session.
       Gumroad unveraendert `NO TOKEN`.
+- [x] AI-CEO 2026-08-10 Tick 2 MEASURED: Gig-Text weiterhin gueltig — Titel,
+      Beschreibung und die 3 Pakete 3,99/7,99/14,99 EUR gegen `gig.html`
+      gegengezaehlt: **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** = deckungsgleich,
+      die 3 Stripe-Live-Checkout-Links je **HTTP 200**.
+      **Eine Aenderung:** Position "Werbung & Vertrieb" ergaenzt (Werbetext +
+      Angebotsschreiben), passend zu den 2 neuen Landingpages dieses Ticks —
+      mit Abgrenzung (keine Mediabuchung, keine Conversion-Zusage, keine
+      Kalkulations-/Rechtsberatung). Weiterhin copy-paste-ready.
+      Site-Seite dieses Ticks: **53 Landingpages** (werbetext, angebot;
+      Nachfrage via Autocomplete je 1 Vorschlag, **0x "kostenlos"**), beide
+      **vor dem Deploy angereichert** (166/217 Woerter) statt duenn.
+      Zusaetzlich 8 duennste Altseiten angereichert (Ollama lokal, 0 EUR):
+      Median **173 → 192 Woerter**, Seiten <200 Woerter **38 → 30**.
+      Live nach Deploy: **63 URLs OK / 0 FAILS**, Sitemap **766** (`SITEMAP_OK`,
+      HTTP_200=766), IndexNow `SUBMIT_OK`, verify **79 ok / 0 fail**,
+      interlink **0 offen / 0 ohne Cluster**, `DOORWAY_OK`.
+      Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR; dieselben 2 Eigentest-
+      Sessions vom 04.08., seit 6,4 Tagen keine neue Session.
+      Gumroad unveraendert `NO TOKEN`. Bing/DDG Tag 7: nicht indexiert.
