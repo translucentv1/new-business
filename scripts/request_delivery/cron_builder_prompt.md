@@ -1005,3 +1005,69 @@ KEIN unblockiertes AFK-Ticket mit Informationswert mehr offen: Ticket 3 =
 USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21/23 = HITL, Ticket 26 =
 zeitgesperrt bis 2026-08-18. Also: "warte, beobachte Sales".
 Aktionismus ausdruecklich NICHT erwuenscht.
+
+STAND 2026-08-11 (Tick, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK (1260 Seiten, 0 unvollst.).
+verify_ticket13_live LIVE_OK (1265 Seiten vollzaehlig). dl_noindex_audit --live
+DL_NOINDEX_OK (24/24). verify_rtd_chain KETTE_OK (399/799/1499 cent, Feld
+'anfrage', Redirect ok, Hash-Paritaet real in node ausgefuehrt).
+cron_health_audit CRON_HEALTH_OK. verify.py VERIFY_OK (80 ok, 0 fail).
+rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+>>> TICKET 23 GESCHLOSSEN — PRAEMISSE FALSIFIZIERT, KEIN HITL <<<
+Das Ticket hiess "WhatsApp-Bridge tot" und war deshalb als HITL gefuehrt
+(Fix angeblich nur per Gateway-Neustart aus frischer Shell). BEIDES FALSCH:
+- Im selben gateway-stdio.log mit 98 jidDecode-Fehlern stehen 9 ERFOLGREICHE
+  Zustellungen (Job 3e7e333151b0 -> whatsapp:...@lid), die letzten unmittelbar
+  vor dem Tick. Eine tote Bridge stellt nicht 8x hintereinander zu.
+- Echte Ursache, vollzaehlig ueber ALLE 15 Jobs klassifiziert: 4 Jobs haben
+  deliver='origin' aber origin=None -> der Scheduler faellt auf den "home
+  channel" zurueck und sendet woertlich an whatsapp:self -> jidDecode('self')
+  ist undefined -> Bridge antwortet korrekt HTTP 500.
+  Betroffen: bfb63346d942 (GELDPFAD, traegt "ERSTER SALE"), 87a15fe059fc
+  (RTD-Builder = diese Tick-Berichte), 8c7afca842ac, a564ec4d11ea.
+  => Der lauteste Kanal des Systems war stumm. Der erste Sale waere nur in
+  sales.log sichtbar gewesen.
+NEU scripts/request_delivery/fix_cron_delivery_origin.py: uebertraegt den
+origin-Block eines NACHWEISLICH zustellenden Jobs auf die kaputten. Default
+--dry-run, Backup vor dem Schreiben, Gegenlesen danach (Job-Anzahl unveraendert,
+Rest-Kaputt=0), Rollback bei Abweichung, Adresse zur Laufzeit aus jobs.json
+(kein Credential im Code, Ausgabe gekuerzt).
+MEASURED (derselbe Job, derselbe Kanal, vorher/nachher):
+  21:56 / 22:27 / 22:58  ERROR bfb63346d942: WhatsApp bridge error (500) jidDecode
+  --- Fix 23:58:28 FIX_OK, Backup jobs.json.bak-t23-20260810-235828 (27394 B) ---
+  23:58:50               INFO  bfb63346d942: delivered to whatsapp:...@lid
+Danach FIX_NICHTS_ZU_TUN / ZUSTELL_OK (15 Jobs vollzaehlig), VERIFY_OK 80 ok.
+
+MERKREGELN (neu):
+- Immer auch nach dem ERFOLGSFALL greppen. Fehlerzeilen zaehlen misst die
+  Fehlerhaeufigkeit, nicht die Verfuegbarkeit. Ein einziger Erfolg im selben
+  Zeitfenster macht aus "Komponente kaputt" ein "Aufrufer kaputt" — und aus
+  einem HITL-Blocker einen AFK-Fix.
+- Fehlermeldungen benennen den Empfaenger: "delivery to whatsapp:self failed"
+  stand 5 Tage woertlich da; gelesen wurde nur der 500er dahinter.
+- Ein selbst genulltes Feld ist kein Messwert: last_delivery_error=None setzt
+  der Fix selbst, und ein Lauf OHNE Zustellversuch sieht identisch aus. Nur die
+  positive Zeile "delivered to ..." zaehlt.
+- Erfolg und Misserfolg landen in VERSCHIEDENEN Logs. `hermes cron run` laeuft
+  im CLI-Prozess (schreibt agent.log), der Scheduler im Gateway
+  (gateway-stdio.log bekam 0 neue Zeilen). Nach jedem Eingriff alle frisch
+  geaenderten Logs einsammeln: find logs -mmin -15.
+
+TICKET 30 NEU (OFFEN, AFK, unblockiert, HOHE Prioritaet) = naechster Tick:
+tickets/30-zustellbarkeit-ungewacht.md. Ticket 23 hat einen ZUSTAND repariert,
+nicht die EIGENSCHAFT — nichts hindert einen neu angelegten Job daran, wieder
+mit origin=None zu entstehen. Der Defekt macht KEINEN Job 'failed' und ist damit
+fuer alle bestehenden Tore unsichtbar (cron_health_audit prueft, ob der Geldpfad
+LAEUFT, nicht ob sein Ergebnis ANKOMMT). Vorgehen im Ticket: _probe_t23_
+inventory.py zu cron_delivery_audit.py ausbauen (Zielmenge abgeleitet, leere
+Menge nicht gruen, DELIVERY_UNGEPRUEFT rc=2), --selftest mit Fault Injection +
+exakter Diagnosezeile, Mutationsprobe, dann als Etappe in cron_auto_fulfill.py
+einhaengen OHNE das SALE-Banner hinter eine Verzweigung zu schieben.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live + dl_noindex_audit --live), dann
+TICKET 30. Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21 = HITL,
+Ticket 26 = zeitgesperrt bis 2026-08-18.
+Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
