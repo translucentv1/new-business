@@ -514,6 +514,30 @@ KEYWORDS = [
     #   erstellen lassen, immobilienbeschreibung erstellen lassen, google ads text
     #   erstellen lassen, buch klappentext schreiben lassen, grusskarte text
     #   schreiben lassen, social media plan erstellen lassen.
+    #
+    # 2026-08-10 Tick 2: 14 Seeds geprueft, **0 angenommen** — der Long Tail
+    # "X schreiben lassen" ist bei 51 Seiten auf diesem Qualitaetsniveau leer.
+    # Annahmebalken (bestehende Konvention): >=2 Autocomplete-Vorschlaege,
+    # geringer "kostenlos"-Anteil, Deliverable im Scope, kein Rechtsrisiko,
+    # kein Duplikat zu einer bestehenden Seite.
+    # - "gedicht schreiben lassen" (7): 4 von 7 mit "kostenlos" -> Gratis-Markt.
+    # - "songtext schreiben lassen" (4): 2 von 4 mit "kostenlos" -> dito.
+    # - "text erstellen lassen" (10): erneut geprueft, Befund von 08-09 bestaetigt.
+    # - "essay schreiben lassen" (3): widerspricht der eigenen Gig-Zusage
+    #   "keine akademischen Arbeiten zur Abgabe" (docs/fiverr_gig.md) -> raus.
+    # - "gutachten schreiben lassen" (1): Rechts-/Sachverstaendigenrisiko.
+    # - "vortrag" / "trauerrede" / "website text" / "geburtstagsrede": Seite
+    #   existiert bereits bzw. faellt unter eine bestehende Seite.
+    # - "ki dienstleistung" (6): Intent ist ANBIETEN ("...anbieten",
+    #   "dienstleistungsunternehmen"), nicht beauftragen.
+    # - 0 Treffer (kein Signal): social media post erstellen lassen,
+    #   stellenanzeige schreiben lassen, podcast skript schreiben lassen,
+    #   beschwerdebrief schreiben lassen, erfahrungsbericht schreiben lassen,
+    #   buchbeschreibung schreiben lassen, elternbrief schreiben lassen,
+    #   tischrede schreiben lassen.
+    # SCHLUSSFOLGERUNG des Ticks: nicht die Seiten-ANZAHL ist der Engpass,
+    # sondern die Seiten-TIEFE (Median 116 Woerter, MEASURED
+    # evidence/_t30_thin_content.py) -> scripts/enrich_blog.py.
 ]
 
 def slug(kw):

@@ -26,12 +26,21 @@ Nutzung:
 from __future__ import annotations
 
 import concurrent.futures as cf
-import glob
 import os
 import sys
 import time
 import urllib.error
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from legal_targets import (  # noqa: E402  (Pfad direkt darueber gesetzt)
+    REQUIRED,
+    is_exempt,
+    iter_html,
+    repo_root,
+    tree_drift,
+)
 
 BASE = "https://translucentv1.github.io/new-business/"
 
@@ -40,41 +49,38 @@ BASE = "https://translucentv1.github.io/new-business/"
 NEU = ["blog/hochzeitsrede-schreiben-lassen.html", "blog/pitch-deck-erstellen-lassen.html"]
 KAUFPFAD = ["rtd.html", "thanks.html", "agb.html", "datenschutz.html", "impressum.html"]
 
-REQUIRED = ("impressum.html", "datenschutz.html", "agb.html")
+REQUIRED = REQUIRED  # noqa: PLW0127 -- aus legal_targets, eine Quelle fuer beide Pruefer
 
 # Soft-404: GitHub Pages liefert seine 404-Seite mit 9379 B -- FETTER als jede echte
 # Landingpage. Groesse ist als Gesundheitsmerkmal wertlos, der Text ist es nicht.
 SOFT404_MARKER = ("Page not found", "File not found")
 
-
-def repo_root() -> str:
-    return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-
-
-def is_exempt(path: str, text: str) -> bool:
-    """Gleiche Regel wie legal_link_audit.is_exempt -- sonst driften die zwei Pruefer."""
-    if os.path.basename(path).lower() in REQUIRED:
-        return True
-    low = text.lower()
-    if 'http-equiv="refresh"' in low or "http-equiv='refresh'" in low:
-        return True
-    return len(text) < 400
+# Ratelimit / voruebergehende Serverfehler sind KEIN Defekt-Beleg. Seit Ticket 29
+# laeuft dieser Pruefer gegen 1258 statt 61 URLs -- damit wird 429 real moeglich.
+# Ein Ratelimit darf nicht als "Seite tot" gelesen werden (Falsch-Rot auf dem
+# Rechtspfad), muendet aber auch nicht in GRUEN, sondern in UNMESSBAR.
+TRANSIENT_CODES = (429, 502, 503, 504)
 
 
 def target_pages(root: str) -> list[str]:
-    """Zielmenge aus dem Baum ABLEITEN statt hartzukodieren."""
-    files: list[str] = []
-    for pat in ("*.html", "blog/*.html"):
-        files.extend(sorted(glob.glob(os.path.join(root, pat))))
-    out = []
-    for f in files:
+    """Zielmenge REKURSIV aus dem Baum ableiten -- gemeinsame Regel (Ticket 29).
+
+    Vorher stand hier glob("*.html") + glob("blog/*.html") -> 61 von 1287 Seiten.
+    Das war dieselbe eingefrorene Stichprobe, die Ticket 17 auf Seitenebene
+    beseitigt hatte, nur eine Ebene hoeher: nicht die Seitenliste war
+    hartkodiert, sondern die Verzeichnisliste. `seo/` (693) und `t/` (468) lagen
+    ausserhalb jeder Glob-Zeile.
+    """
+    out: list[str] = []
+    for rel in iter_html(root):
         try:
-            with open(f, encoding="utf-8", errors="replace") as fh:
+            with open(os.path.join(root, rel), encoding="utf-8", errors="replace") as fh:
                 text = fh.read()
         except OSError:
             continue
-        if not is_exempt(f, text):
-            out.append(os.path.relpath(f, root).replace("\\", "/"))
+        exempt, _grund = is_exempt(rel, text)
+        if not exempt:
+            out.append(rel)
     return out
 
 
@@ -105,6 +111,8 @@ def judge(code: int, body: str, needles=REQUIRED):
     """-> (status, detail) mit status in OK / DEFEKT / UNMESSBAR."""
     if code == -1:
         return "UNMESSBAR", "Netzfehler"
+    if code in TRANSIENT_CODES:
+        return "UNMESSBAR", "HTTP %s (Ratelimit/transient, kein Defekt-Beleg)" % code
     if code != 200:
         return "DEFEKT", "HTTP %s" % code
     if any(m in body for m in SOFT404_MARKER):
@@ -138,7 +146,25 @@ def main() -> int:
         elif st == "UNMESSBAR":
             unmessbar.append(p)
 
-    pages = target_pages(repo_root())
+    root = repo_root()
+    rels = iter_html(root)
+    pages = target_pages(root)
+
+    # Deckungsabgleich (Merkregel Ticket 18): "vollzaehlig" ist eine BEHAUPTUNG,
+    # solange die gelaufene Menge nicht gegen den ausgelieferten git-Tree
+    # gegengemessen wurde. Drift macht das Ergebnis unmessbar, nicht gruen.
+    drift_status, nur_tree, nur_walk = tree_drift(root, rels)
+    deckung_unklar = ""
+    if drift_status != "ok":
+        deckung_unklar = drift_status
+        print("[2a] Deckungsabgleich gegen git-Tree: %s" % drift_status)
+        for p in nur_tree[:5]:
+            print("     nur im Tree, nicht geprueft: %s" % p)
+        for p in nur_walk[:5]:
+            print("     nur gelaufen, nicht im Tree: %s" % p)
+    else:
+        print("[2a] Deckungsabgleich gegen git-Tree: ok (%d HTML-Dateien, 0 Drift)" % len(rels))
+
     print("[2] Rechtslinks im AUSGELIEFERTEN Body -- VOLLZAEHLIG (%d Seiten):" % len(pages))
     if not pages:
         # Leere-Schleife-Falle (Ticket 16): nichts zu pruefen ist kein gruenes Ergebnis.
@@ -172,10 +198,13 @@ def main() -> int:
         for f in fails:
             print("  ! " + f)
         return 1
-    if unmessbar:
+    if unmessbar or deckung_unklar:
         print("ERGEBNIS: LIVE_UNGEPRUEFT")
-        print("  ! nicht messbar (Netz): %d Seite(n) -- kein Gesundheits-Claim moeglich"
-              % len(unmessbar))
+        if deckung_unklar:
+            print("  ! Prueflaeche nicht belastbar: %s" % deckung_unklar)
+        if unmessbar:
+            print("  ! nicht messbar (Netz): %d Seite(n) -- kein Gesundheits-Claim moeglich"
+                  % len(unmessbar))
         return 2
     print("ERGEBNIS: LIVE_OK (%d Seiten vollzaehlig live geprueft)" % (len(pages) + len(KAUFPFAD)))
     return 0
@@ -193,18 +222,28 @@ GOOD_BODY = ("<html><body>ok " + "x" * 900
 FAT404_BODY = "<html><title>Page not found &middot; GitHub Pages</title>" + "y" * 9300 + "</html>"
 
 
-def _run_main(responder, pages=None):
+def _run_main(responder, pages=None, drift=None):
     """Faehrt die ECHTE main() gegen eine injizierte Aussenwelt."""
     import contextlib
     import io
 
-    global get, target_pages
+    global get, target_pages, iter_html, tree_drift
     orig_get, orig_pages = get, target_pages
+    orig_iter, orig_drift = iter_html, tree_drift
     orig_sleep = time.sleep
     get = responder
     if pages is not None:
         def target_pages(root):
             return list(pages)
+
+        def iter_html(root):
+            return list(pages)
+    if drift is not None:
+        def tree_drift(root, walked):
+            return drift
+    else:
+        def tree_drift(root, walked):
+            return "ok", [], []
     time.sleep = lambda s: None
     buf = io.StringIO()
     try:
@@ -212,6 +251,7 @@ def _run_main(responder, pages=None):
             rc = main()
     finally:
         get, target_pages = orig_get, orig_pages
+        iter_html, tree_drift = orig_iter, orig_drift
         time.sleep = orig_sleep
     return rc, buf.getvalue()
 
@@ -332,6 +372,81 @@ def selftest() -> int:
           len(echte) > 7, "%d Seiten" % len(echte))
     check("Rechtsseiten sind ausgenommen (nicht sich selbst pruefen)",
           not any(p in REQUIRED for p in echte), "")
+
+    # --- Ticket 29: die eingefrorene VERZEICHNIS-Liste ---------------------
+    # Der alte Pruefer sah nur "*.html" + "blog/*.html". Eine Seite in einem
+    # neu entstandenen Unterverzeichnis MUSS in der Zielmenge auftauchen.
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        tief = os.path.join(td, "seo", "neues-buch", "kapitel", "7")
+        os.makedirs(tief)
+        with open(os.path.join(tief, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write("<html><body>" + "x" * 900 + "</body></html>")
+        with open(os.path.join(td, "index.html"), "w", encoding="utf-8") as fh:
+            fh.write("<html><body>" + "x" * 900 + "</body></html>")
+        abgeleitet = target_pages(td)
+    check("T29: Seite in NEUEM tiefen Unterverzeichnis ist in der Zielmenge",
+          "seo/neues-buch/kapitel/7/index.html" in abgeleitet, str(len(abgeleitet)))
+    check("T29: Wurzelseite bleibt in der Zielmenge (keine Regression)",
+          "index.html" in abgeleitet, "")
+
+    # Gegen den ECHTEN Baum: genau die zwei Verzeichnisbaeume, die der alte
+    # Pruefer nie gesehen hat, muessen jetzt drin sein.
+    check("T29: seo/-Seiten sind in der echten Zielmenge",
+          sum(1 for p in echte if p.startswith("seo/")) > 100,
+          "%d Seiten" % sum(1 for p in echte if p.startswith("seo/")))
+    check("T29: t/-Seiten sind in der echten Zielmenge",
+          sum(1 for p in echte if p.startswith("t/")) > 100,
+          "%d Seiten" % sum(1 for p in echte if p.startswith("t/")))
+    check("T29: dl/ (bezahlte Kundenware) ist NICHT Zielmenge",
+          not any(p.startswith("dl/") for p in echte), "")
+
+    # --- Ticket 29: beide Pruefer, EINE Ableitungsregel --------------------
+    import legal_link_audit as _audit
+
+    import legal_targets as _lt
+    check("T29: Live-Pruefer nutzt legal_targets.is_exempt (Objektidentitaet)",
+          is_exempt is _lt.is_exempt, "")
+    check("T29: Baum-Pruefer nutzt dieselbe Funktion (kein Drift moeglich)",
+          _audit.is_exempt is _lt.is_exempt, "")
+    check("T29: beide Pruefer teilen das Pflicht-SET",
+          tuple(REQUIRED) == tuple(_audit.REQUIRED) == tuple(_lt.REQUIRED), str(REQUIRED))
+
+    # --- Ticket 29: Deckungsabgleich (Merkregel Ticket 18) -----------------
+    rc, out = _run_main(_responder({}), pages=ALLE,
+                        drift=("drift", ["seo/uebersehen/index.html"], []))
+    check("T29: Drift der Prueflaeche ist NICHT gruen (rc=2)",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_OK" not in out
+          and "Traceback" not in out, "rc=%s" % rc)
+    check("T29: Drift benennt die ungepruefte Seite",
+          "nur im Tree, nicht geprueft: seo/uebersehen/index.html" in out, "")
+
+    rc, out = _run_main(_responder({}), pages=ALLE,
+                        drift=("unmessbar: git nicht ausfuehrbar", [], []))
+    check("T29: unlesbarer git-Tree -> unmessbar, nicht gruen",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_OK" not in out, "rc=%s" % rc)
+
+    rc, out = _run_main(_responder({"blog/a.html": (404, "")}), pages=ALLE,
+                        drift=("drift", ["x/y.html"], []))
+    rot("T29: echter Defekt schlaegt Deckungsluecke (rc=1)", rc, out,
+        grund="! blog/a.html: HTTP 404")
+
+    # --- Ticket 29: Ratelimit ist kein Defekt-Beleg ------------------------
+    # Bei 1258 statt 61 URLs pro Lauf wird 429 real. Ein Ratelimit darf weder
+    # als "Seite tot" (Falsch-Rot) noch als gesund (Falsch-Gruen) enden.
+    rc, out = _run_main(_responder({"blog/b.html": (429, "")}), pages=ALLE)
+    check("T29: HTTP 429 -> LIVE_UNGEPRUEFT (rc=2), kein Defekt-Claim",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_DEFEKT" not in out
+          and "LIVE_OK" not in out and "Traceback" not in out, "rc=%s" % rc)
+    rc, out = _run_main(_responder({"blog/b.html": (503, "")}), pages=ALLE)
+    check("T29: HTTP 503 -> LIVE_UNGEPRUEFT (rc=2), kein Defekt-Claim",
+          rc == 2 and "LIVE_UNGEPRUEFT" in out and "LIVE_DEFEKT" not in out, "rc=%s" % rc)
+    rc, out = _run_main(_responder({"blog/b.html": (429, ""), "blog/a.html": (404, "")}),
+                        pages=ALLE)
+    rot("T29: Defekt schlaegt Ratelimit (rc=1)", rc, out,
+        grund="! blog/a.html: HTTP 404")
+    check("T29: 404 bleibt Defekt (Ratelimit-Regel hat es nicht aufgeweicht)",
+          judge(404, "")[0] == "DEFEKT", judge(404, "")[1])
 
     print()
     print("%d/%d bestanden -> %s"
