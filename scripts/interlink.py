@@ -57,6 +57,9 @@ CLUSTERS: dict[str, list[str]] = {
         "flyer-erstellen-lassen-ki",
         "speisekarte-erstellen-lassen-ki",
         "fallstudie-schreiben-lassen",
+        # 2026-08-10 Tick 2: neue Geldseiten, thematisch Marketing/Vertrieb
+        "werbetext-schreiben-lassen",
+        "angebot-schreiben-lassen",
     ],
     "Lernen & Studium": [
         "hausarbeit-schreiben-lassen-ki",

@@ -463,6 +463,35 @@ KEYWORDS = [
     # Abgrenzung EHRLICH: Marketing-Fallstudie aus DEINEN Zahlen, KEINE Pruefungs-
     # leistung zur Abgabe (gleiche Linie wie hausarbeit/referat/praktikumsbericht).
     ("fallstudie schreiben lassen", "Fallstudie schreiben lassen (Case Study)", "Kundenreferenz nach Schema Ausgangslage – Loesung – Ergebnis, mit Zitat und Zahlen – ab 3,99 EUR, in 24h geliefert."),
+    # 2026-08-10 Tick 2: Nachfrage MEASURED via scripts/kw_demand.py (Google
+    # Autocomplete, hl=de/gl=de). web_search war in diesem Tick nicht nutzbar
+    # (Firecrawl 402 BILLING_ERROR) -> Autocomplete blieb das einzige zaehlfaehige
+    # $0-Instrument, wie in frueheren Ticks.
+    # "werbetext schreiben lassen" -> 1 Vorschlag ("werbetexte schreiben lassen",
+    # Plural), **0x "kostenlos"**. Reines B2B-Geld-Keyword: wer Werbetext sucht,
+    # will verkaufen und zahlt dafuer. Deliverable = reiner Text (Ollama, 0 EUR).
+    # Abgrenzung EHRLICH: Text, KEIN Media-Einkauf, KEINE Erfolgs-/Conversion-Zusage.
+    ("werbetext schreiben lassen", "Werbetext schreiben lassen", "Anzeige, Landingpage oder Flyer-Copy mit Headline, Nutzenargumenten und CTA – ab 3,99 EUR, in 24h geliefert. Text, keine Mediabuchung und keine Conversion-Zusage."),
+    # "angebot schreiben lassen" -> 1 Vorschlag (woertlich "angebot schreiben
+    # lassen"), **0x "kostenlos"**. Zielgruppe Handwerk/Freelancer/Kleingewerbe,
+    # unmittelbarer Geldbezug. Deliverable = reiner Text.
+    # Abgrenzung EHRLICH: Formulierungs-Vorlage; KEINE Preis-/Kalkulations-
+    # beratung, KEINE Rechtsberatung, keine Pruefung von Fristen oder VOB/BGB.
+    ("angebot schreiben lassen", "Angebot schreiben lassen (Vorlage)", "Professionelles Angebotsschreiben mit Anschreiben, Leistungspositionen und Schlussformel als Formulierungs-Vorlage – ab 3,99 EUR, in 24h. Keine Kalkulations- oder Rechtsberatung."),
+    # BEWUSST ABGELEHNT (2026-08-10 Tick 2):
+    # - "gedicht schreiben lassen" (7 Treffer = groesstes Volumen des Ticks, aber
+    #   4 von 7 Vorschlaegen enthalten "kostenlos"/"online kostenlos" -> die
+    #   Suchenden wollen ausdruecklich NICHT zahlen. Gleiche Ablehnungslogik wie
+    #   frueher bei "handout"/"praesentation".
+    # - 0 Treffer (kein Signal, nicht gebaut): stellenanzeige schreiben lassen,
+    #   youtube skript schreiben lassen, elevator pitch erstellen lassen,
+    #   social media beitrag schreiben lassen, danksagung schreiben lassen,
+    #   einladung text schreiben lassen, leitfaden erstellen lassen,
+    #   grusswort schreiben lassen, podcast skript schreiben lassen.
+    # - "whitepaper schreiben lassen" (1) und "bedienungsanleitung erstellen
+    #   lassen" (1) haetten Signal, wurden aber zurueckgestellt: Whitepaper
+    #   sprengt den 2000-Woerter-Premium-Rahmen, Bedienungsanleitung beruehrt
+    #   Produkthaftung. Kandidaten fuer spaeter, bewusst nicht jetzt.
     # BEWUSST ABGELEHNT (2026-08-08 Tick):
     # - "praesentation erstellen lassen" (10 Treffer = groesstes Volumen des Ticks):
     #   deckt inhaltlich die bestehende Seite powerpoint-erstellen-lassen-ki ab

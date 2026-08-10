@@ -58,6 +58,11 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   (Rolle, Kontext, Aufgabenbeschreibung, Variablen, Beispiel-Output, kurze
   Anwendungsanleitung) — **kein** Modell-Finetuning, **kein** Account-Zugang und
   **keine** Garantie auf ein bestimmtes Modellergebnis
+- Werbung & Vertrieb: Werbetexte (Anzeige, Landingpage, Flyer-Copy — Headline,
+  Nutzenargumente, CTA; **keine** Mediabuchung, **keine** Conversion-Zusage) und
+  Angebotsschreiben als Formulierungs-Vorlage (Anschreiben, Leistungspositionen,
+  Schlussformel — **keine** Preis-/Kalkulationsberatung, **keine** Rechtsberatung,
+  keine Fristen- oder VOB/BGB-Prüfung)
 - Code: kleine Python-/JS-Skripte, CSV/JSON-Konverter, Excel-Tabellen mit Formeln
 - Templates: Notion-Vorlagen, Study-Guides, Quiz-Fragen, Checklisten
 - Lernen & Unterricht: Arbeitsblatt-Inhalte (Arbeitsaufträge, Aufgaben mit
