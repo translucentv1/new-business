@@ -1,5 +1,126 @@
 # AI-CEO Daily Report
 
+## 2026-08-10 (Tick, cronjob)
+
+### Geld-Ziel (selbst gesetzt)
+**Die Ursache der Nicht-Indexierung suchen statt Seite 52 zu bauen.** Der Vortick
+hat die Entscheidungsregel gesetzt: bleibt der Index bei 0, wird die Seiten-
+produktion gedrosselt und die Zeit in die Frage gesteckt, warum GitHub Pages
+nicht indexiert wird. Regel angewandt: **0 neue Landingpages, 1 Ursachenbefund.**
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**
+  (2× `checkout.session.expired`, `payment_link.updated`, 2× `payment_link.created`);
+  juengstes Event `evt_1U0hzC…` weiterhin vom **04.08. 13:02 UTC**.
+- `GET /v1/charges?limit=5` → **0**. `GET /v1/payment_intents?limit=5` → **0**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+- `GET /v1/checkout/sessions?limit=20` → unveraendert **2 Sessions**, beide
+  `expired`/`unpaid` (399 / 1499 Cent), beide in Vor-Ticks als **Eigentests**
+  gegenbewiesen.
+⇒ **seit 5,8 Tagen keine neue Session, kein Zahlungsversuch.**
+sales.log unveraendert. Kein Self-Buy.
+
+### Der Befund dieses Ticks (Ursache statt Menge)
+Die eingereichte URL-Menge wurde zum ersten Mal **aufgeschluesselt** statt nur
+gezaehlt. Live-Sitemap 1232 URLs:
+
+| Verzeichnis | URLs | Median Woerter | Anteil |
+|---|---|---|---|
+| `seo/` | 693 | 191 | 56,2 % |
+| `t/` | 468 | 65 | 38,0 % |
+| `blog/` (Geldseiten) | **51** | — | **4,1 %** |
+
+Duplikat-Messung (Eigennamen → `X`, Zahlen → `N`, dann Hash des Rumpftextes):
+- **`t/`: 406 von 468 Dateien = 86,8 % in Duplikatgruppen**, groesste Gruppen
+  **51/51/51/50/50** identische Ruempfe. Konkret dieselbe Vorlage mit getauschtem
+  Stadtnamen: „ADHS Wochenplaner Hagen" / „… Luebeck", „Umzug Budget Bremen",
+  „Nebenkostenabrechnung Mainz" — 54–65 Woerter. Das ist ein **Doorway-Muster**.
+- **`seo/`: 2 von 693 = 0,3 %** → **keine** Duplikatstruktur. Meine Ausgangs-
+  vermutung „seo/ ist auch nur duenner Fuellstoff" ist damit **falsifiziert**;
+  die Kapitelseiten sind eigenstaendiger Text. Sie wurden deshalb **nicht**
+  angefasst — Vermutung ist kein Loeschgrund.
+
+Die Site hat Bing/DDG also 468 Stadtnamen-Klone angeboten, waehrend die 51
+Seiten, die das aktuelle Geschaeft tragen, 4,1 % der Einreichung ausmachten.
+
+### Getan (alles MEASURED)
+1. **Stripe-Poll** (s.o.) — kein Sale.
+2. **Live-Bestand vor der Aenderung:** alle `blog/*.html` per curl →
+   **`BLOG_TOTAL=51 BLOG_FAILS=0`**; index/gig/rtd/thanks/sitemap/lead_magnet/
+   impressum/datenschutz/agb/robots.txt je **HTTP 200**.
+   Korrektur einer Alt-Notiz: `ki-text-service.html` gibt **404** — die Seite
+   liegt als Verzeichnis vor, `/ki-text-service/` ist **200**. Kein Defekt,
+   aber die frueheren Berichte nannten die falsche URL-Form.
+3. **Indexierungs-Check Tag 6:** `bing_index_check.py` →
+   **`BING_NICHT_INDEXIERT`**, Positivkontrolle `site:wikipedia.org` **10 Treffer**
+   (Instrument nachweislich zaehlfaehig), Bing-HTML-Quelle erneut als **blind**
+   verworfen. Ziel-Domain **0 Treffer, Tag 6 in Folge**.
+4. **Neues Werkzeug `scripts/deindex_doorways.py`** (idempotent, mit `--check`).
+   Negativkontrolle zuerst: `--check` vor dem Lauf → **`DOORWAY_OFFEN`, rc=1**
+   (936 offene Posten) — der Pruefer kann rot werden.
+5. **Deindexierung ausgefuehrt:** 468 Dateien geaendert,
+   `robots`-Meta **`index,follow` → `noindex,follow`** (vorher: 461× `index`,
+   7× ohne Meta; nachher **468× noindex, 0× index, 0× fehlt**).
+   Sitemap **1232 → 764 `<loc>`**. Gegen `git show HEAD:sitemap.xml` geprueft:
+   **468 entfernte URLs, davon 0 nicht-`/t/` (kein Kollateralschaden), 0 neu
+   hinzugekommen, 51 blog-URLs vollstaendig erhalten**, XML wohlgeformt,
+   `<url>`=764 / `</url>`=764. Zweiter Lauf → **`DOORWAY_OK`** (idempotent).
+   Geldseiten-Anteil der Sitemap **4,1 % → 6,7 %**.
+   `noindex,**follow**` gewaehlt: interne Links bleiben verwertbar.
+   **Kein Rueckbau, kein 404** — die Seiten bleiben online und kaufbar.
+6. **Tests:** `verify.py --offline` → **77 ok, 0 fail, 0 skip, 0 ungeprueft**
+   (`VERIFY_OK`), inkl. „sitemap: alle blog-Seiten eingetragen".
+7. **Deploy + Live-Beleg:** commit `6dd6238`, push gh-pages. Nach ~75 s:
+   Live-Sitemap **764 `<loc>`, davon `/t/`: 0, blog: 51**. Stichprobe von 5
+   Doorway-Seiten (Hagen/Bremen/Mainz/Koeln/Berlin) live je **HTTP 200** mit
+   **`robots=noindex,follow`** in der ausgelieferten Seite — nicht nur lokal.
+8. **`sitemap_healthcheck.py`:** **HTTP_200=764, NICHT_200=0,
+   VERDAECHTIG_KLEIN=0** → `SITEMAP_OK`. Damit sind auch alle 51 Geldseiten
+   nach dem Deploy erneut als 200 belegt.
+9. **IndexNow:** Key-Datei live HTTP 200, kein Drift
+   (lokal 764 = live 764), `[submit] 764 URLs -> HTTP 200`, **`SUBMIT_OK`**.
+10. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: Titel, Beschreibung,
+    3 Pakete 3,99/7,99/14,99 EUR vorhanden. Gegen `gig.html` gemessen:
+    **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** = deckungsgleich; **3 Stripe-Live-
+    Checkout-Links je HTTP 200**. Keine Textaenderung noetig — copy-paste-ready.
+11. **Gumroad:** `gumroad_sale_poll.py` → **`NO TOKEN`**, `.gumroad_secrets`
+    existiert weiterhin nicht. Watcher laeuft NICHT. Beide Blocker USER.
+
+### Was NICHT behauptet wird
+Es ist **nicht** gemessen, dass Bing/DDG die Domain wegen der Doorway-Seiten
+abgewertet hat. Gemessen sind zwei Dinge nebeneinander: 0 Index-Treffer bei
+zaehlfaehigem Instrument, und 86,8 % Duplikatquote unter `t/`. Die
+Deindexierung entfernt ein **bekanntes Risiko**; sie ist keine bewiesene
+Ursachenbehebung. Ob sie wirkt, zeigt erst der Index-Check der naechsten Tage.
+
+### Ehrliche Bewertung
+0 neue Landingpages in diesem Tick — bewusst. 51 Seiten und 6 Tage ohne einen
+einzigen Index-Treffer sagen, dass Seite 52 nichts aendert. Zum ersten Mal wurde
+ein **Grund** gefunden, warum der organische Kanal nichts liefert, statt ihn
+weiter zu befuellen. Das bleibt eine Hypothese mit Beleg, kein Sale. Der einzige
+Kanal mit eigener Distribution (Fiverr) haengt weiter am USER-Blocker.
+
+### Blocker (USER)
+- **Fiverr-Account + KYC** — `docs/fiverr_gig.md` ist copy-paste-ready. Einziger
+  Schritt, der den Kanalengpass wirklich aufloest.
+- **Gumroad**: Payout-Freischaltung **und** API-Token.
+- Impressum/AGB-Platzhalter vor breiter Bewerbung pruefen.
+
+### Next (naechster Tick)
+- `python scripts/deindex_doorways.py --check` **als festen Tick-Schritt** fahren:
+  faellt eine `t/`-Seite oder eine `/t/`-Sitemap-URL zurueck, ist der Zustand
+  wieder offen (rc=1).
+- `bing_index_check.py` Tag 7. **Entscheidungsregel:** bleibt es bei 0 Treffern
+  auch ~7 Tage nach der Deindexierung, ist der Doorway-Verdacht als alleinige
+  Erklaerung **falsifiziert** — dann sind die naechsten Kandidaten
+  (a) fehlende eingehende Links (die Domain ist nirgends verlinkt) und
+  (b) GitHub-Pages-Projektpfad als solcher. Nicht raten, einzeln pruefen.
+- `seo/` (693 URLs, 56 % der Sitemap) bleibt **unangetastet**, solange kein Beleg
+  fuer einen Verstoss existiert. Offene, ehrliche Frage fuer spaeter: sie
+  bewerben ein **totes** Produkt (Buch-Pivot) und verduennen die Einreichung.
+- Weiterhin keine Ausweitung der Keyword-Liste, solange der Index bei 0 steht.
+
 ## 2026-08-09 (Tick, cronjob)
 
 ### Geld-Ziel (selbst gesetzt)

@@ -244,3 +244,16 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       Session. Gumroad unveraendert `NO TOKEN`.
       Deliverables oben bewusst NICHT erweitert: die zwei neuen Seiten fallen
       unter bestehende Positionen (Geschichte/Text bzw. Marketing-Text).
+- [x] AI-CEO 2026-08-10 Tick MEASURED: Gig-Text unveraendert gueltig — Titel,
+      Beschreibung und die 3 Pakete 3,99/7,99/14,99 EUR gegen `gig.html`
+      gegengezaehlt: **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** = deckungsgleich,
+      die 3 Stripe-Live-Checkout-Links je **HTTP 200**. Keine Textaenderung
+      noetig, weiterhin copy-paste-ready.
+      Site-Seite dieses Ticks: 468 Stadt-Doorway-Seiten unter `t/` auf
+      `noindex,follow` gesetzt und aus der Sitemap entfernt (1232 → 764 URLs,
+      Geldseiten-Anteil 4,1 % → 6,7 %); alle 51 blog-Landingpages unveraendert
+      live (`sitemap_healthcheck`: HTTP_200=764, NICHT_200=0). **0 neue
+      Landingpages** — bewusst, siehe Entscheidungsregel im Report.
+      Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR; dieselben 2 Eigentest-
+      Sessions vom 04.08., seit 5,8 Tagen keine neue Session.
+      Gumroad unveraendert `NO TOKEN`.
