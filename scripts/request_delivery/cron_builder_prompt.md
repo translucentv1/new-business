@@ -931,3 +931,77 @@ Messlatte: alle 57 Selftest-Faelle bleiben gruen, die 4 Falsch-Gruen-Lagen als
 benannte Faelle aufnehmen). Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker,
 Ticket 10/21/23 = HITL, Ticket 26 = zeitgesperrt bis 2026-08-18.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-10 (Tick 2, MEASURED): auto_fulfill sessions=2 (roh) paid=0 neu=0.
+funnel_check BESUCHER=0 / API-PROBE=0 / EIGENTEST=2, vollzaehlig=ja -> weiterhin
+KEIN echter Traffic. legal_link_audit LEGAL_LINKS_OK. verify_ticket13_live
+LIVE_OK (61 Seiten). dl_noindex_audit --live DL_NOINDEX_OK (24/24).
+verify_rtd_chain KETTE_OK. verify.py VERIFY_OK (78 ok, 0 fail).
+rtd/thanks/index/agb/datenschutz/impressum/sitemap HTTP 200.
+
+TICKET 28 ERLEDIGT + GESCHLOSSEN. Der Tick startete wieder mit UNCOMMITTETER
+Vortick-Arbeit (cron_health_audit +204 Z., _mutation_probe_t28.py untracked).
+Nach Merkregel NEU AUSGEFUEHRT statt uebernommen - diesmal hat sie GEHALTEN
+(anders als beim Vortick, wo sie ein Falsch-Gruen-Generator war).
+ANTWORT: nicht die ZEIT zaehlen, sondern die VERPASSTEN GELEGENHEITEN - und das
+Ergebnis heisst nicht GRUEN, sondern UNMESSBAR. Kriterium [B]: >=1 eigener Lauf
+seit dem Heartbeat WIRKLICH GESTARTET (started_at gesetzt) ohne zu melden ->
+DEFEKT; 0 gestartete Laeufe -> kein Defekt-Claim, aber auch kein Gruen, sondern
+CRON_HEALTH_UNGEPRUEFT (rc=2) mit benannter Begruendung. Genau dort ist die
+Wach-Uhr gestorben: sie liess entlastetes Schweigen in GRUEN muenden.
+Dazu kein Dauerfreibrief (>1440 min stumm = DEFEKT) + 60 s Karenz gegen Jitter.
+Der Fallstrick war real: letzte DB-Zeile 'claimed' mit started_at=NULL - ein Lauf,
+der NIE startete und per Konstruktion nichts melden konnte.
+MEASURED: Alt-Stand (HEAD) gegen die konservierte Lage 784/793/9 min -> rc=1
+CRON_HEALTH_DEFEKT (Falsch-Rot AUSGEFUEHRT, nicht behauptet); neue Fassung
+dieselbe Lage -> rc=2 mit Begruendung | Selftest 67/67 | _mutation_probe_t28.py
+MUTATION_PROBE_OK 22/22 (6 rote Mutanten, sha256-genau restauriert
+13ab250e05eff98f, rc 0->1->0) | echte Laeufe CRON_HEALTH_OK + RTD_FULFILL_OK
+(mit [2b] frischem Heartbeat) | Regression VERIFY_OK 78 ok, KETTE_OK,
+cron_auto_fulfill --selftest 38/38.
+
+>>> ZWEI EIGENE GEGENPRUEFUNGEN, die der Vortick NICHT geliefert hatte <<<
+1. STILLE SCHRUMPFUNG (Ticket-18-Klasse): "67/67" allein beweist nichts - 57->67
+   koennte alte Faelle GELOESCHT haben. Labels beider Fassungen verglichen:
+   alle 57 HEAD-Faelle namentlich vorhanden, +10 neu, 0 verschwunden.
+2. ATTRAPPEN-FALLE (Ticket-19-Klasse): der Selftest baut seine eigene SQLite.
+   Gegen die ECHTE executions.db gemessen: Spalten job_id/status/claimed_at/
+   started_at/finished_at/error existieren, 1001 Zeilen, 2 ohne started_at ->
+   die Attrappe bildet das reale Schema ab, der Produktiv-SQL passt.
+
+>>> TICKET-PRAEMISSE FALSIFIZIERT <<<
+Ticket 28 sagte, der 2. Ring (rtd_health_watchdog.py) loese denselben Fall
+ENTGEGENGESETZT (rc=2 -> exit 0). Stimmt seit Ticket 27 nicht mehr; der Text war
+aus der T27-Beschreibung uebernommen statt gemessen. MEASURED an einer KOPIE
+(Produktion unangetastet) mit Audit-Attrappe rc=2:
+  "ERGEBNIS: WAECHTER_UNGEPRUEFT (Audit rc=2, kein Defekt-Claim)" exit 3
+Beide Ringe teilen die Konvention also laengst. Echter Waechterlauf: WAECHTER_OK.
+
+EHRLICHE GRENZE (nicht wegdiskutiert): bei dauerhaft stummem Scheduler bleibt
+UNGEPRUEFT das richtige Wort - Gruen ist dort NICHT das Ziel. Ausfallmodus C aus
+Ticket 25 (Rechner/Scheduler tot) braucht einen Waechter AUSSERHALB dieses
+Rechners und ist weiter offen. Der Exitcode bleibt !=0, der Job sieht in
+executions.db weiter 'failed' aus - lesbar gemacht hat das der T27-Decoder,
+beseitigt ist es nicht.
+
+MERKREGELN (neu):
+- Eine gewachsene Testzahl ist kein Deckungsbeweis. 57 -> 67 kann 10 neue Faelle
+  heissen oder 20 neue und 10 geloeschte. Fall-LABELS beider Fassungen
+  vergleichen, nie die Summen.
+- Zwei Merkregeln pruefen dasselbe Objekt von verschiedenen Seiten: die Attrappe
+  muss das reale SCHEMA abbilden (nicht nur den Vertrag) - gegen die echte
+  Datenquelle gegenmessen, nicht gegen die Vorstellung davon.
+- Eine Ticket-Beschreibung ist ein ASSUMED-Claim, auch wenn sie aus dem
+  Vorgaenger-Ticket stammt. Vor dem Beantworten den "Nicht vergessen"-Abschnitt
+  am IST-Stand nachmessen - hier war er seit einem Ticket ueberholt.
+- Zahlen in Kommentaren datieren. "hat 219 Zeilen" liest sich als Dauerzustand,
+  die DB waechst aber (heute 222) - datierte Momentaufnahme schreiben.
+- Fremde Ringe/Skripte NIE in der Produktion mutieren, um einen Zweig zu messen:
+  Kopie anlegen, Kopie zeigen lassen auf eine Attrappe.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live + dl_noindex_audit --live).
+KEIN unblockiertes AFK-Ticket mit Informationswert mehr offen: Ticket 3 =
+USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21/23 = HITL, Ticket 26 =
+zeitgesperrt bis 2026-08-18. Also: "warte, beobachte Sales".
+Aktionismus ausdruecklich NICHT erwuenscht.

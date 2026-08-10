@@ -124,7 +124,19 @@ def io_read_jobs(home):
 
 
 def io_read_executions(home):
-    """job_id -> Liste (status, timestamp-string). Read-only, WAL-schonend."""
+    """job_id -> Liste (status, timestamp-string, gestartet). Read-only.
+
+    Ticket 28: das dritte Feld trennt einen Lauf, der WIRKLICH GESTARTET ist
+    (started_at gesetzt), von einem bloss BEANSPRUCHTEN (status='claimed',
+    started_at=NULL). MEASURED 2026-08-10 01:45Z gegen die echte executions.db:
+    der Traeger bfb63346d942 hatte 219 Zeilen, davon 2 ohne started_at - und
+    genau so eine Zeile war die letzte, als das Audit Falsch-Rot meldete.
+    NACHGEMESSEN 2026-08-10 06:20Z (Momentaufnahme, die DB waechst): 222 Zeilen
+    des Traegers, davon 1 ohne started_at (repo-weit 2). Die Zahlen sind
+    datiert, nicht dauerhaft - der Ausfallmodus ist es, worauf es ankommt. Ein Lauf,
+    der nie startete, kann keinen Pipeline-Heartbeat schreiben; ihn als
+    verpasste Gelegenheit zu zaehlen reproduziert das Falsch-Rot exakt.
+    """
     path = os.path.join(home, "cron", "executions.db")
     if not os.path.isfile(path):
         raise Unmessbar(f"executions.db fehlt: {path}")
@@ -135,15 +147,30 @@ def io_read_executions(home):
         try:
             rows = con.execute(
                 "SELECT job_id, status, COALESCE(started_at, claimed_at, "
-                "finished_at) FROM executions"
+                "finished_at), started_at FROM executions"
             ).fetchall()
         finally:
             con.close()
     except sqlite3.Error as exc:
         raise Unmessbar(f"executions.db nicht lesbar: {exc}") from exc
-    for job_id, status, ts in rows:
-        out.setdefault(job_id, []).append((status, ts))
+    for job_id, status, ts, started_at in rows:
+        out.setdefault(job_id, []).append((status, ts, started_at is not None))
     return out
+
+
+def row_parts(row):
+    """(status, ts, gestartet) aus einer Protokollzeile.
+
+    Ticket 28: Alt-Form (status, ts) bleibt lesbar und gilt als GESTARTET -
+    so bedeuten die 57 bestehenden Selftest-Faelle weiterhin genau das, was
+    sie bisher bedeuteten (echte Laeufe), und nur die neuen Faelle setzen das
+    dritte Feld. Der PRODUKTIVE Leser oben liefert es immer mit; dass er das
+    tut, prueft ein eigener Selftest-Fall gegen eine echte SQLite-Datei
+    (Merkregel: neuer Parameter mit Default = stiller Ausfall).
+    """
+    if len(row) >= 3:
+        return row[0], row[1], bool(row[2])
+    return row[0], row[1], True
 
 
 def io_read_signale(home):
@@ -314,8 +341,8 @@ def global_stillstand(execs, now, bekannte_ids=None):
         if bekannte_ids is not None and jid not in bekannte_ids:
             fremd += len(rows)
             continue
-        for _, raw in rows:
-            t = parse_ts(raw)
+        for row in rows:
+            t = parse_ts(row_parts(row)[1])
             if t and t >= grenze:
                 stamps.append(t)
     if not stamps:
@@ -501,11 +528,16 @@ def check_traeger(job, path, text, execs, now, defects, unknown, out,
         out.append("      Laeufe    = (executions.db nicht lesbar)")
         return
     rows = execs.get(jid, [])
-    done = [parse_ts(ts) for st, ts in rows if st == "completed"]
+    parts = [row_parts(r) for r in rows]
+    done = [parse_ts(ts) for st, ts, _ in parts if st == "completed"]
     done = [d for d in done if d]
-    attempts = [parse_ts(ts) for _, ts in rows]
+    attempts = [parse_ts(ts) for _, ts, _ in parts]
     attempts = [a for a in attempts if a]
-    n_fail = sum(1 for st, _ in rows if st not in ("completed",))
+    # Ticket 28: Laeufe, die WIRKLICH gestartet sind (started_at gesetzt).
+    starts = [parse_ts(ts) for _, ts, gestartet in parts if gestartet]
+    starts = [s for s in starts if s]
+    n_nie_gestartet = sum(1 for _, _, gestartet in parts if not gestartet)
+    n_fail = sum(1 for st, _, _ in parts if st not in ("completed",))
     out.append(f"      Laeufe    = {len(rows)} gesamt / "
                f"{len(done)} completed / {n_fail} nicht-completed")
     if n_fail:
@@ -574,16 +606,52 @@ def check_traeger(job, path, text, execs, now, defects, unknown, out,
     hb_age = (now - hb).total_seconds() / 60.0
     out.append(f"      [B] Pipeline-Heartbeat vor {hb_age:.0f} min "
                f"({hb.isoformat()})")
-    if toleranz is not None and hb_age > toleranz:
-        if stillstand_deckt and stillstand >= hb_age - 1:
-            unknown.append(
-                f"{tag}: Pipeline meldete zuletzt vor {hb_age:.0f} min - in "
-                f"dieser Zeit stand der Scheduler ({stillstand:.0f} min) -> "
-                f"nicht dem Geldpfad anlastbar")
-        else:
-            defects.append(
-                f"{tag}: Liefer-Pipeline meldete zuletzt vor {hb_age:.0f} min, "
-                f"erlaubt waeren {toleranz:.0f} min - die Lieferung steht")
+    if toleranz is None or hb_age <= toleranz:
+        return
+
+    # -- Ticket 28: VERPASSTE GELEGENHEITEN statt gezaehlter Zeit ----------
+    # Alt (Ticket 25): entlastet wurde nur, wenn der globale Stillstand das
+    # Heartbeat-Alter auf die MINUTE deckte (stillstand >= hb_age - 1).
+    # MEASURED 2026-08-10: Stillstand 784 min, Heartbeat 793 min alt - 8 min
+    # Differenz genuegten fuer einen Defekt-Claim gegen eine kerngesunde
+    # Lieferung (der Heartbeat wurde 9 min VOR Beginn der Abschaltung
+    # geschrieben, das ist der Normalfall, nicht die Ausnahme).
+    # Neu wird nicht Zeit gegen Zeit gehalten, sondern gefragt: hatte die
+    # Pipeline seit dem Heartbeat ueberhaupt eine GELEGENHEIT zu melden?
+    # Gelegenheit = ein eigener Lauf, der WIRKLICH GESTARTET ist. Eine Zeile
+    # 'claimed' mit started_at=NULL ist keine - sie kann per Konstruktion
+    # keinen Heartbeat schreiben (genau die Zeile stand im realen Fall oben).
+    verpasst = [s for s in starts if (s - hb).total_seconds() > 60]
+    nie_gestartet_seit_hb = sum(
+        1 for _, ts, gestartet in parts
+        if not gestartet and (parse_ts(ts) or hb) > hb)
+    if verpasst:
+        # Deckt Falsch-Gruen-Fall 1 aus Ticket 27 ab: Job feuert alle 30 min,
+        # Pipeline meldet seit 1031 min nicht -> die Lieferung steht wirklich.
+        defects.append(
+            f"{tag}: Liefer-Pipeline meldete zuletzt vor {hb_age:.0f} min, "
+            f"erlaubt waeren {toleranz:.0f} min - seither sind "
+            f"{len(verpasst)} Laeufe wirklich GESTARTET, ohne zu melden "
+            f"- die Lieferung steht")
+        return
+    if hb_age > MAX_PROMISE_MIN:
+        # Harte Grenze, damit "keine Gelegenheit" kein Dauerfreibrief wird:
+        # jenseits der 24-h-Zusage aus agb.html § 3 ist die Lieferung
+        # nachweislich ueberfaellig - egal, wer sie verhindert hat.
+        defects.append(
+            f"{tag}: Liefer-Pipeline meldete zuletzt vor {hb_age:.0f} min "
+            f"(> {MAX_PROMISE_MIN} min) - seither ist zwar kein Lauf "
+            f"gestartet ({nie_gestartet_seit_hb} beansprucht/nie gestartet), "
+            f"aber die 24-h-Zusage aus agb.html § 3 ist damit real ungedeckt")
+        return
+    stillstand_txt = (f"{stillstand:.0f} min Scheduler-Stillstand"
+                      if stillstand is not None else "Stillstand unbekannt")
+    unknown.append(
+        f"{tag}: Pipeline meldete zuletzt vor {hb_age:.0f} min - seither ist "
+        f"KEIN eigener Lauf wirklich GESTARTET "
+        f"({nie_gestartet_seit_hb} beansprucht/nie gestartet, "
+        f"{stillstand_txt}), sie hatte also keine Gelegenheit zu melden "
+        f"-> nicht dem Geldpfad anlastbar")
 
 
 def check_waechter(job, path, text, execs, now, defects, unknown, out,
@@ -623,7 +691,7 @@ def check_waechter(job, path, text, execs, now, defects, unknown, out,
         out.append("      Laeufe    = (executions.db nicht lesbar)")
         return
     rows = execs.get(jid, [])
-    attempts = [parse_ts(ts) for _, ts in rows]
+    attempts = [parse_ts(row_parts(r)[1]) for r in rows]
     attempts = [a for a in attempts if a]
     out.append(f"      Laeufe    = {len(rows)} gesamt")
     if not rows:
@@ -1252,6 +1320,125 @@ def _selftest():
     t(SIGNAL_KONVENTION.get(4, "").startswith("Nebenring defekt"),
       "exit 4 ist in der Signal-Konvention hinterlegt, kein Konventionsbruch",
       f"{SIGNAL_KONVENTION.get(4)}")
+
+    # == Ticket 28: Falsch-Rot nach Abschaltung, ohne Falsch-Gruen ==========
+    # Alle folgenden Faelle nutzen die 3-Tupel-Form (status, ts, gestartet).
+    # Die 57 Faelle darueber bleiben 2-Tupel und bedeuten unveraendert
+    # "wirklich gelaufen" (row_parts-Default) - deshalb muessen sie gruen
+    # bleiben; sie sind die Messlatte, nicht dieser Block.
+
+    # (1) DER KONSERVIERTE REALFALL, MEASURED 2026-08-10 01:45Z:
+    #     Rechner 784 min aus, Heartbeat 793 min alt (9 min vor Beginn der
+    #     Abschaltung geschrieben), letzte DB-Zeile 'claimed' mit
+    #     started_at=NULL vor 9 min. Die alte Fassung meldete hier
+    #     CRON_HEALTH_DEFEKT gegen eine kerngesunde Lieferung.
+    real28 = {"j1": [("completed", ts(793), True),
+                     ("completed", ts(823), True),
+                     ("claimed", ts(9), False)]}
+    rc, out = run([job()], execs=real28, hb=ts(793))
+    t(rc != 1 and "die Lieferung steht" not in out and clean(out),
+      "T28-Realfall (784/793/9 min, claimed+started_at=NULL): KEIN "
+      "Defekt-Claim gegen den Geldpfad mehr", f"rc={rc} {word(out)}")
+    t(word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "keine Gelegenheit zu melden" in out,
+      "T28-Realfall heisst UNGEPRUEFT, nicht OK (Gruen waere ein "
+      "Gesundheits-Claim ohne frischen Beleg)", f"{word(out)}")
+    t("1 beansprucht/nie gestartet" in out,
+      "die nie gestartete Zeile wird als solche benannt, nicht als Lauf")
+
+    # (2) MESSLATTE aus Ticket 27, Falsch-Gruen-Fall 1: der Job feuert alle
+    #     30 min WIRKLICH, die Pipeline meldet seit 1031 min nicht. Die
+    #     verworfene Wach-Uhr gab hier rc=0. Muss rot bleiben.
+    tot = {"j1": [("failed", ts(m), True)
+                  for m in range(5, 1031, 30)]}
+    rc, out = run([job()], execs=tot, hb=ts(1031))
+    t(rc == 1 and "wirklich GESTARTET, ohne zu melden" in out
+      and "die Lieferung steht" in out and clean(out),
+      "Falsch-Gruen-Messlatte 1: gestartete Laeufe ohne Heartbeat -> DEFEKT",
+      f"rc={rc} {word(out)}")
+
+    # (3) EIN einziger wirklich gestarteter Lauf nach dem Heartbeat reicht
+    #     fuer den Defekt - die Gelegenheit ist die Untergrenze, nicht eine
+    #     Mehrheit.
+    einer = {"j1": [("completed", ts(500), True),
+                    ("failed", ts(20), True)]}
+    rc, out = run([job()], execs=einer, hb=ts(500))
+    t(rc == 1 and "seither sind 1 Laeufe wirklich GESTARTET" in out
+      and clean(out),
+      "eine einzige verpasste Gelegenheit genuegt fuer DEFEKT", f"rc={rc}")
+
+    # (4) DAUERHAFT beanspruchte, nie gestartete Laeufe: der Runner laesst die
+    #     Lieferung nie los. Das ist NICHT gruen - aber auch kein Skript-
+    #     Defekt (Ticket-27-Klasse "Skript lief NIE").
+    klemmt = {"j1": [("claimed", ts(m), False) for m in (10, 40, 70, 100)]
+                    + [("completed", ts(400), True)]}
+    rc, out = run([job()], execs=klemmt, hb=ts(400))
+    t(rc == 2 and word(out) == "CRON_HEALTH_UNGEPRUEFT"
+      and "4 beansprucht/nie gestartet" in out and clean(out),
+      "Runner beansprucht dauernd, startet nie -> unmessbar, NICHT gruen",
+      f"rc={rc} {word(out)}")
+
+    # (5) ... aber jenseits der 24-h-Zusage wird daraus ein Defekt. Sonst
+    #     waere "keine Gelegenheit" ein Dauerfreibrief fuer eine Lieferung,
+    #     die seit Tagen nichts liefert.
+    klemmt_lang = {"j1": [("claimed", ts(10), False),
+                          ("completed", ts(1500), True)]}
+    rc, out = run([job()], execs=klemmt_lang, hb=ts(1500))
+    t(rc == 1 and "24-h-Zusage aus agb.html § 3 ist damit real ungedeckt"
+      in out and clean(out),
+      "keine Gelegenheit, aber > 1440 min stumm -> DEFEKT (kein Freibrief)",
+      f"rc={rc} {word(out)}")
+
+    # (6) ZEITSTEMPEL-JITTER: der Lauf, der den Heartbeat schreibt, wird vom
+    #     Runner gestartet und schreibt Sekunden spaeter - liegen Runner-Uhr
+    #     und Heartbeat-Uhr minimal auseinander, sieht der Start SPAETER aus
+    #     als der Heartbeat. Ohne Karenz waere jeder gesunde Lauf sofort rot.
+    selbst = {"j1": [("completed", ts(299.5), True)]}
+    rc, out = run([job()], execs=selbst, hb=ts(300))
+    t(rc != 1 and "die Lieferung steht" not in out and clean(out),
+      "30 s Uhr-Jitter machen aus dem meldenden Lauf keine verpasste "
+      "Gelegenheit", f"rc={rc} {word(out)}")
+
+    # (7) VERDRAHTUNG (Merkregel: neuer Default = stiller Ausfall). Alle
+    #     Faelle oben injizieren das dritte Feld. Hier laeuft der PRODUKTIVE
+    #     Leser gegen eine ECHTE SQLite-Datei mit dem realen Schema - wenn er
+    #     started_at nicht mitliest, gilt jede claimed-Zeile wieder als Lauf.
+    import sqlite3 as _sq
+    import tempfile
+    _tmpdir = tempfile.mkdtemp(prefix="t28db")
+    _crondir = os.path.join(_tmpdir, "cron")
+    os.makedirs(_crondir, exist_ok=True)
+    _db = os.path.join(_crondir, "executions.db")
+    _con = _sq.connect(_db)
+    _con.execute("CREATE TABLE executions (id INTEGER, job_id TEXT, "
+                 "source TEXT, process_id TEXT, pid INTEGER, "
+                 "process_started_at TEXT, status TEXT, claimed_at TEXT, "
+                 "started_at TEXT, finished_at TEXT, error TEXT)")
+    _con.execute("INSERT INTO executions VALUES (1,'j1','sched',NULL,NULL,"
+                 "NULL,'completed','2026-08-10T04:00:00+02:00',"
+                 "'2026-08-10T04:00:01+02:00','2026-08-10T04:00:05+02:00',"
+                 "NULL)")
+    _con.execute("INSERT INTO executions VALUES (2,'j1','sched',NULL,NULL,"
+                 "NULL,'claimed','2026-08-10T06:04:12+02:00',NULL,NULL,NULL)")
+    _con.commit()
+    _con.close()
+    try:
+        _gelesen = io_read_executions(_tmpdir)
+        _rows = [row_parts(r) for r in _gelesen.get("j1", [])]
+    except Exception as exc:  # noqa: BLE001
+        _rows = [("EXC", str(exc), True)]
+    t([r[2] for r in _rows] == [True, False],
+      "Verdrahtung: der PRODUKTIVE Leser liefert started_at wirklich mit "
+      "(echte SQLite-Datei, reales Schema)", f"{_rows}")
+    t(_rows and _rows[1][1] == "2026-08-10T06:04:12+02:00",
+      "die nie gestartete Zeile behaelt claimed_at als Zeitstempel "
+      "(Kriterium [A] verliert nichts)", f"{_rows[-1] if _rows else None}")
+    try:
+        os.remove(_db)
+        os.rmdir(_crondir)
+        os.rmdir(_tmpdir)
+    except OSError:
+        pass
 
     ok = sum(1 for c, _ in results if c)
     print(f"\nSELFTEST {'OK' if ok == len(results) else 'FEHLGESCHLAGEN'}: "
