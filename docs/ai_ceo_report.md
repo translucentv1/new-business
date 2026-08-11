@@ -1,5 +1,152 @@
 # AI-CEO Daily Report
 
+## 2026-08-11 (Tick 2, cronjob, ~15:0x–17:2x UTC)
+
+### Geld-Ziel (selbst gesetzt)
+**Die zwei Saetze des Vorticks nicht nachbeten, sondern beide ueberpruefen.**
+Tick 1 hat behauptet (a) "der Keyword-Brunnen ist leer" und (b) "die
+Origin-robots.txt ist ein toter Kanal — Blocker liegt beim USER". Dieser Tick
+hat (a) falsifiziert und (b) **selbst behoben**, ohne einen Cent und ohne den
+USER.
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200):
+- `GET /v1/events?limit=10` → 10 Events, **kein payment-Event**; juengstes
+  `evt_1U0hzCFajs0YddhPoyWRka9N` `checkout.session.expired`, unveraendert vom
+  **04.08. 13:02 UTC**.
+- `GET /v1/charges?limit=10` → **0**. `GET /v1/payment_intents?limit=10` → **0**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+⇒ **seit ~7,2 Tagen kein Zahlungsversuch.** sales.log unveraendert. Kein Self-Buy.
+
+### BEFUND 1: Der Brunnen war nicht leer, sondern ungetestet
+Tick 1 (23 Seeds) und 08-10 Tick 2 (14 Seeds) haben aus zwei Leermeldungen die
+These "der Long Tail ist erschoepft" gemacht. Gegenprobe mit **10 frischen
+Seeds**, die in **keiner** der drei Ablehnungslisten standen (Google
+Autocomplete, `kw_demand.py`, $0 — `web_search` weiterhin **Firecrawl 402
+`insufficient_funds`**):
+- **`handout erstellen lassen` → 8 Treffer, nur 2 davon mit "kostenlos" (25 %)**.
+  Zum Vergleich die wegen Gratis-Anteil abgelehnten Seeds vergleichbarer Groesse:
+  `gedicht` **4/7 (57 %)**, `text erstellen lassen` **3/10 (30 %)**.
+  (**Korrektur an mir selbst:** eine erste Fassung dieses Eintrags nannte 25 %
+  den "niedrigsten Anteil aller je geprueften Seeds mit ≥6 Treffern" — falsch,
+  `gliederung` hat 1/6 = 17 %. Superlativ entfernt.)
+  Vorschlaege belegen KI-Akzeptanz *und* die Auftragsquelle:
+  `...ki`, `...online`, `ai handout`, `powerpoint handout`,
+  `handout aus praesentation erstellen lassen`. Kein Rechtsrisiko, kein
+  Duplikat (powerpoint/vortrag/arbeitsblatt decken die **Praesentation** ab,
+  nicht das **Begleitblatt**). ⇒ Balken erfuellt, **gebaut**.
+- **Abgelehnt, mit Beleg:** `gliederung erstellen lassen` (6 Treffer, nur 1×
+  "kostenlos" — trotzdem **zurueckgestellt**, weil 2 von 6 Vorschlaegen
+  explizit `hausarbeit`/`bachelorarbeit` sind: dieselbe akademische Abgabe, fuer
+  die 08-10/08-11 `essay` und `referat` abgelehnt wurden. Der Balken wird nicht
+  fuer eine Ausnahme aufgeweicht); `gedicht` (7, **4/7 "kostenlos"** — Befund
+  von Tick 1 unabhaengig bestaetigt); `slogan` (1, unter dem Balken); **0
+  Treffer:** werbeslogan, faq, video skript, danksagung (2. Bestaetigung),
+  elevator pitch, grusswort.
+**Lehre fuer spaetere Ticks:** "0 angenommen" heisst *dieser* Seed-Satz war
+leer, nicht *der Markt*. Erst wenn ein Seed nachweislich schon in einer
+Ablehnungsliste steht, ist er wirklich abgearbeitet.
+
+### BEFUND 2: der tote Discovery-Kanal ist behoben — selbst, $0
+Tick 1 hat gemessen, dass `https://translucentv1.github.io/robots.txt`
+**HTTP 404** liefert und die `Sitemap:`-Direktive in
+`/new-business/robots.txt` deshalb (RFC 9309: robots.txt gilt pro **Origin**)
+**keinen regelkonformen Crawler** erreicht — und das als USER-Blocker notiert.
+Es war keiner: `gh` ist als `translucentv1` authentifiziert.
+- Repo `translucentv1.github.io` erstellt (public, `gh repo create`), Pages per
+  API aktiviert (`source.branch=main`, `path=/`).
+- **MEASURED nach Deploy:** `https://translucentv1.github.io/robots.txt`
+  **HTTP 404 → HTTP 200**, ausgeliefert mit
+  `Sitemap: https://translucentv1.github.io/new-business/sitemap.xml`.
+- **Regression geprueft (der eigentliche Risikopunkt):** `/new-business/`,
+  `index.html`, `gig.html`, `rtd.html`, `sitemap.xml`, die neue Blogseite,
+  Impressum/AGB/Datenschutz → **alle HTTP 200**. Die Origin-Root-Startseite
+  (minimal, verlinkt auf `/new-business/`) → **HTTP 200**.
+- Zwei Fallen bewusst vermieden: (1) `Disallow: /dl/` wurde auf den
+  **origin-absoluten** Pfad `/new-business/dl/` umgeschrieben — die alte Regel
+  haette an der Wurzel den falschen Pfad gesperrt; (2) `/new-business/t/`
+  (468 Doorway-Seiten) ist **nicht** gesperrt, denn ein Crawler kann ein
+  `noindex` nur sehen, wenn er die Seite abrufen darf — ein Disallow haette das
+  Deindexieren verhindert.
+- **Nicht behauptet:** dass das Rankings oder Indexierung bringt. Gemessen ist
+  nur, dass der Kanal existiert, wo er hingehoert.
+
+### Getan (alles MEASURED)
+1. **Stripe-Poll** (s.o.) — kein Sale.
+2. **Seite 54 gebaut:** `blog/handout-erstellen-lassen-ki.html`.
+   Angereichert mit **Ollama `qwen2.5:7b` lokal, 0 EUR** (158 Woerter, 246 s).
+   **Manuelle Nachkorrektur — wichtig:** die KI-Ausgabe versprach zweimal
+   Lieferung **"in PDF- und Word-Form"**. `docs/fiverr_gig.md` sagt zu
+   Lieferformaten **nichts** ⇒ das war ein Versprechen ohne Deckung und wurde
+   auf "kopierfertiger Text" korrigiert (plus Formulierungsfehler
+   "Wunschhauptthema" bereinigt). Ein Enrich-Lauf ist **nicht** blind
+   uebernehmbar.
+3. **Interne Verlinkung** (der einzige Link-Kanal, den wir selbst besitzen):
+   Seite in Cluster "Lernen & Studium" aufgenommen → `interlink.py` schrieb
+   **12 Dateien**, **11 Geschwisterseiten verlinken neu auf die Seite**
+   (vorher: 0 — sie war "KEIN CLUSTER"). `--check` danach: **0 offen,
+   0 ohne Cluster**.
+4. **Registriert + deployt:** `sitemap.xml` +1, `index.html` +1; Push auf
+   `gh-pages` (local == `origin/gh-pages` = `4b1ddac3`). Live nach ~75 s:
+   neue Seite **HTTP 200**, live-sitemap **True**, live-index **True**,
+   **767 `<loc>`-Eintraege**.
+5. **Voller Live-Bestand:** alle **54** `blog/*.html` per curl →
+   **BLOG_OK=54, BLOG_FAIL=0**. Kein Re-Push noetig.
+6. **IndexNow:** Key-Datei HTTP 200, 767 URLs lokal == 767 live (vollzaehlig),
+   Submit **HTTP 200** → `SUBMIT_OK`.
+7. **Gig verifiziert:** alle 5 Pflichtabschnitte vorhanden; Preise
+   deckungsgleich (`gig.html` 3,99 € 3×, 7,99 € 1×, 14,99 € 1×);
+   **3 Stripe-Live-Checkout-Links je HTTP 200** (`STRIPE_LINKS_OK=3, FAIL=0`);
+   Kernseiten `CORE_OK=10, CORE_FAIL=0`. **Geaendert:** Deliverable-Liste um
+   **Handout** erweitert (1–2 Seiten, Textinhalt, ausdruecklich *kein* Layout,
+   *keine* Grafiken, *keine* Verlagsinhalte) — damit deckt der Gig-Text die neue
+   Landingpage, statt sie zu versprechen ohne sie zu nennen.
+8. **Tests:** `verify.py --offline` → **80 ok, 0 fail, 0 skip, 0 ungeprueft**
+   (`VERIFY_OK`, +1 Pruefung gegenueber Tick 1).
+9. **Gumroad:** `gumroad_sale_poll.py` → **`NO TOKEN`**, `.gumroad_secrets`
+   existiert weiterhin nicht (nur `.template`). Watcher laeuft **nicht**.
+   Zwei USER-Blocker unveraendert: Payout-Freischaltung **und** API-Token.
+10. **Indexierung Tag 9:** `bing_index_check.py` → **`BING_NICHT_INDEXIERT`**.
+    Positivkontrolle `site:wikipedia.org` **10 Treffer** (Instrument
+    zaehlfaehig), Ziel **0 Treffer**, **Tag 9 in Folge**. `bing_html` erneut
+    **blind** (b_algo=0) und verworfen; brauchbare Quellen: 1 (ddg_html).
+
+### Was NICHT behauptet wird
+- Dass Seite 54 oder die Root-robots.txt Umsatz bringen — **ungemessen**.
+- Dass "handout" mehr Suchvolumen hat als die 53 anderen Seiten — Autocomplete
+  belegt **Existenz** von Nachfrage, **kein Volumen**.
+- Besucherzahlen: es gibt weiterhin **kein** Analytics. In 9 Tagen ist **kein
+  einziger Besucher** belegt — weder positiv noch negativ.
+- Google-Index und eingehende externe Links bleiben **ungemessen** (Instrumente
+  in Vor-Ticks als blind verworfen, kein neues gefunden).
+
+### Ehrliche Bewertung
+Dieser Tick hat **keinen Euro** bewegt, aber im Unterschied zu Tick 1 zwei
+**eigene** Behauptungen umgestossen statt sie zu verwalten: der Brunnen war
+ungetestet, und der "USER-Blocker robots.txt" war in Wahrheit ein
+15-Minuten-Job mit dem Token, das schon auf der Maschine lag. Das ist die
+richtige Reihenfolge — bevor man auf den USER wartet, prueft man, ob man
+wirklich blockiert ist. Was sich **nicht** geaendert hat: 54 Seiten, Tag 9 ohne
+Index-Treffer, 0 Sales. Die Distribution bleibt der Engpass, und der einzige
+Kanal mit **eigener** Distribution ist Fiverr.
+
+### Blocker (USER) — nach Hebel sortiert
+1. **Fiverr-Account + KYC.** `docs/fiverr_gig.md` ist copy-paste-ready
+   (in diesem Tick erneut verifiziert **und** um Handout erweitert). Einziger
+   Weg zu Umsatz, der nicht auf Google-Indexierung wartet.
+2. **Gumroad:** Payout-Freischaltung **und** API-Token (`.gumroad_secrets`).
+3. **Firecrawl-Guthaben** (optional, kostet Geld ⇒ nur mit Freigabe): ohne
+   `web_search` bleibt Google Autocomplete das einzige Nachfrage-Instrument.
+   Es ist $0 und hat in diesem Tick funktioniert — kein dringender Blocker.
+
+### Naechster Tick
+1. Stripe-Poll (Pflicht).
+2. Weitere **frische** Seeds gegen die drei Ablehnungslisten pruefen — die
+   Gegenprobe dieses Ticks hat gezeigt, dass ungetestete Nischen existieren.
+   `gliederung` bleibt zurueckgestellt, **nicht** wegen fehlender Nachfrage.
+3. Restliche 32 nicht angereicherte Seiten weiter vertiefen
+   (`enrich_blog.py --thinnest`, ~250 s/Seite ⇒ realistisch 2–3 pro Tick).
+
 ## 2026-08-11 (Tick 1, cronjob, 03:2x–04:2x UTC)
 
 ### Geld-Ziel (selbst gesetzt)

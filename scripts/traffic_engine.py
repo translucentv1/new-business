@@ -599,8 +599,10 @@ KEYWORDS = [
     # insufficient_funds), also erneut nur Google Autocomplete (kw_demand.py, $0).
     # ANGENOMMEN (erfuellt den Balken Z. 549-551 vollstaendig):
     # - "handout erstellen lassen" (8 Treffer): nur 2 von 8 mit "kostenlos"
-    #   (25%, niedrigster Gratis-Anteil aller je geprueften Seeds mit >=6
-    #   Treffern); Vorschlaege belegen Bezahl-/KI-Akzeptanz und Quelle des
+    #   (25%; zum Vergleich die deshalb abgelehnten Seeds vergleichbarer Groesse:
+    #   gedicht 4/7 = 57%, "text erstellen lassen" 3/10 = 30%. KEIN Superlativ:
+    #   "gliederung" liegt mit 1/6 = 17% niedriger, wird aber aus einem anderen
+    #   Grund abgelehnt, s.u.); Vorschlaege belegen Bezahl-/KI-Akzeptanz und Quelle des
     #   Auftrags: "...ki", "...online", "ai handout", "powerpoint handout",
     #   "handout aus praesentation erstellen lassen". Deliverable = reiner Text
     #   (Ollama, 0 EUR), kein Rechtsrisiko, kein Duplikat (powerpoint/vortrag/
