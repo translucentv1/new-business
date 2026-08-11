@@ -595,7 +595,10 @@ KEYWORDS = [
 ]
 
 def slug(kw):
-    return kw.replace(" ", "-").replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss")
+    kw = kw.strip().lower()
+    for a, b in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss"), (" ", "-")):
+        kw = kw.replace(a, b)
+    return kw
 
 def page(kw, title, desc):
     s = slug(kw)
@@ -634,6 +637,11 @@ Study-Guides, Social-Media-Posts – alles als Festpreis-Deliverable.</p>
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         kw = sys.argv[1]
+        # Kein argparse: jedes Argument gilt als Keyword. Ohne diese Sperre
+        # erzeugt ein Tippfehler wie `--help` eine echte Seite blog/--help.html
+        # (2026-08-11 real passiert). Flags sind nie Keywords.
+        if kw.startswith("-"):
+            sys.exit(f"Kein Keyword: {kw!r}. Nutzung: traffic_engine.py \"keyword\"")
         title = f"KI: {kw.title()}"
         created, path = page(kw, title, f"Aufgabe erledigt: {kw}.")
     else:
