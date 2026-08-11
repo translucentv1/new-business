@@ -1108,3 +1108,49 @@ KEIN unblockiertes AFK-Ticket mit Informationswert mehr offen: Ticket 3 =
 USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21 = HITL, Ticket 26 =
 zeitgesperrt bis 2026-08-18. Also: "warte, beobachte Sales".
 Aktionismus ausdruecklich NICHT erwuenscht.
+
+STAND 2026-08-11 (Tick, wayfinder — MEASURED): Pflichtteil vollzaehlig LIVE
+gruen, 0 Sales. auto_fulfill REAL sessions=2 (roh) paid=0 neu=0; funnel_check
+BESUCHER=0/EIGENTEST=2; verify_rtd_chain KETTE_OK (399 cent=3,99 EUR, Feld
+'anfrage', Redirect ok, Hash-Paritaet real in node). Live-Check rtd/thanks/index/
+agb/datenschutz/impressum/sitemap/robots.txt ALLE HTTP 200. legal_link_audit
+LEGAL_LINKS_OK (1261), verify_ticket13_live LIVE_OK (1266), dl_noindex_audit
+DL_NOINDEX_OK (24/24), verify.py VERIFY_OK (81 ok), Selftests 67/67 + 13/13 +
+38/38.
+
+WICHTIGE KORREKTUR des Prompt-Tails: die Zeile "KEIN unblockiertes AFK-Ticket
+mehr offen" war zum Zeitpunkt des Schreibens WAHR, ist es jetzt aber NICHT
+mehr — die wayfinder_map.md listet Ticket 31 (AFK, unblockiert, hohe Prio) und
+Ticket 32 (AFK, unblockiert, mittl. Prio) als Frontier. Die Map ist das
+kanonische Artefakt; der Prompt-Tail war veraltet. Pro wayfinder-Skill daher
+diesen Tick das erste Frontier-Ticket bearbeitet:
+
+TICKET 31 SCHRITT 1 VON 2 (MEASURED): Canary `verify_delivery_leg.py` gebaut —
+prueft die END-TO-END-Zustellung ueber den produktiven Pfad
+(`cron.scheduler._deliver_result` + Resolver aus cron_delivery_audit, kein
+Nachbau). Kern `assess_delivery()` wertet das Gateway-Log nach der POSITIV-Regel
+aus: nur `delivered to <echtes Ziel>` = OK; `last_delivery_error=None` (Ticket-23-
+Falle) zaehlt NICHT; `whatsapp:self` = Defekt. `--selftest` 14/14 SELFTEST_OK
+(rc=0) INKL. Mutationsprobe (Mutant "immer OK" -> Selftest rot rc=1, Datei
+sha256-restauriert). Dabei echter Bug gefunden + gefixt: Poison-Check pruefte
+`whatsapp:self` vollstaendig-wertig erst gegen das chat_id-Suffix. `--live` (ohne
+`--confirm`, gated) lief produktiv ueber jobs.json (15 Jobs): 2 Alarm-Traeger
+mit aufloesbarem Ziel `bae39ea51a60` (AI-CEO "ERSTER SALE") + `5e99ad47470f`
+(2. Ring) -> `whatsapp:<len=18 pre=8511>` (redakt), Sendegang korrekt NICHT
+ausgefuehrt.
+
+OFFEN (Schritt 2, bewusst gated): der ECHTE Sendegang `verify_delivery_leg.py
+--live --confirm` schickt einmalig eine echte Nachricht ueber `_deliver_result`
+und verifiziert die positive Logzeile. Erfordert laufenden Gateway + bewusste
+Test-Zustellung an den Nutzer-Kanal — im manuellen Shell hier nicht messbar (kein
+Gateway) und als Seiteneffekt ruecksichtsvoll hinter `--confirm` geparkt. Nicht
+im unbeaufsichtigten Tick ausgefuehrt, nicht gefaket. Empfehlung: im
+Produktions-Cron-Env mit `--confirm` einmal laufen; Ticket dann schliessen.
+Bis dahin Ticket 31 OFFEN.
+
+Naechster Tick: Pflichtteil fahren. DANN Ticket 31 Schritt 2 (--live --confirm im
+Produktions-Env) oder, falls der Nutzer das nicht autorisiert, Ticket 32
+(AFK, unblockiert). Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21
+= HITL, Ticket 26 = zeitgesperrt bis 2026-08-18. Solange BESUCHER=0: "warte,
+beobachte Sales" bleibt die Grundhaltung; Aktionismus ohne Messgrundlage bleibt
+verboten.

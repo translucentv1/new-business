@@ -51,3 +51,34 @@ war jeweils ein **Canary durch die echten Produktivfunktionen** —
   Alarmlauf beobachtet. Das ist der Kern dieses Tickets.
 - Die WhatsApp-Adresse darf in keinem Log/Commit im Klartext landen
   (`redact()`-Konvention aus `cron_delivery_audit.py` übernehmen).
+
+## Stand (2026-08-11, MEASURED — Schritt 1 von 2)
+
+Gebaut: `scripts/request_delivery/verify_delivery_leg.py` — Canary durch die
+**echten** Produktivfunktionen (importiert `cron.scheduler._deliver_result` und
+den Resolver aus `cron_delivery_audit`, kein Nachbau). Kern ist `assess_delivery()`,
+die das Gateway-Log nach der POSITIV-Regel auswertet: nur die Zeile
+`delivered to <echtes Ziel>` zählt als Erfolg; `last_delivery_error = None`
+(Ticket-23-Falle) zählt NICHT; Poison-Ziel `whatsapp:self` ist Defekt.
+
+MEASURED:
+- `--selftest` **14/14 SELFTEST_OK** (rc=0): gruen (delivered+echtes Ziel),
+  rot (bridge-error / `self` / None-Feld / leeres Log / Traceback / leeres Ziel),
+  plus **Mutationsprobe** — ein Mutant, der `assess_delivery` immer gruen
+  zurueckgeben laesst, macht den Selftest rot (rc=1), Datei sha256-genau
+  restauriert. Die Mutation fand echten Bug: `whatsapp:self` wurde erst
+  vollstaendig-wertig gegen das chat_id-Suffix geprueft (Fix: Suffix nach ':').
+- `--live` (OHNE `--confirm`, gated): Resolver lief produktiv ueber `jobs.json`
+  (15 Jobs), fand **2 Alarm-Traeger mit aufloesbarem Ziel**:
+  `bae39ea51a60` (AI-CEO, traegt `ERSTER SALE`) -> `whatsapp:<len=18 pre=8511>`
+  und `5e99ad47470f` (2. Ring) -> `whatsapp:<len=18 pre=8511>` (beide redakt,
+  kein Klartext). Sendegang korrekt NICHT ausgefuehrt ohne `--confirm`.
+
+OFFEN (Schritt 2, bewusst nicht im unbeaufsichtigten Tick): der **echte**
+Sendegang `verify_delivery_leg.py --live --confirm` wuerde einmalig eine echte
+Nachricht ueber `_deliver_result` an die oben aufgeloeste Adresse schicken und
+den positiven Logeintrag `delivered to …` verifizieren. Das erfordert den
+laufenden Gateway + eine bewusste Test-Zustellung an den Nutzer-Kanal — im
+manuelen Shell hier nicht messbar (kein Gateway) und als Seiteneffekt
+ruecksichtsvoll gated. Empfehlung: im Produktions-Cron-Env mit `--confirm`
+einmal laufen lassen; Ticket dann schliessen. Bis dahin: Ticket bleibt OFFEN.
