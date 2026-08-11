@@ -1071,3 +1071,40 @@ legal_link_audit + verify_ticket13_live + dl_noindex_audit --live), dann
 TICKET 30. Ticket 3 = USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21 = HITL,
 Ticket 26 = zeitgesperrt bis 2026-08-18.
 Solange BESUCHER=0: "warte, beobachte Sales". Aktionismus NICHT erwuenscht.
+
+STAND 2026-08-11 (Tick 3, MEASURED): Der Prompt-Tail listete TICKET 30 weiterhin
+als "naechster Tick" offen — es war aber bereits geschlossen (Commit e702c344,
+"Ticket 30 geschlossen + publiziert": Cron-Meldeweg-Waechter DELIVERY_OK live
+verifiziert). Dieser Tick hat den Abschluss NEU vermessen statt uebernommen
+(Merkregel: Vortick-Arbeit ist ein ASSUMED-Claim, neu ausfuehren).
+
+TICKET 30 VERIFIZIERT (nicht nur behauptet):
+- cron_delivery_audit.py --selftest 46/46 SELFTEST_OK (rc=0).
+- cron_delivery_audit.py REAL -> DELIVERY_OK: 7 enabled Jobs + Fallback alle
+  aufloesbar zu whatsapp:<len=18 pre=8511> (Adressen redigiert, kein Credential
+  im Log); .env via hermes_cli.env_loader geladen; cron.scheduler (produktiv)
+  importiert; 15 Jobs gelesen.
+- Etappe [4] in cron_auto_fulfill.py integriert + im ECHTEN Lauf gefeuert:
+  cron_auto_fulfill REAL -> [4] DELIVERY_OK, CRON_HEALTH_OK, RTD_FULFILL_OK.
+  Damit ist der Ticket-23-Defekt (deliver='origin' ohne origin -> whatsapp:self
+  HTTP 500) als EIGENSCHAFT gewacht, nicht nur als Zustand repariert.
+- Zwei der einst kaputten Jobs (5e99ad47470f = 2. Ring, bae39ea51a60 =
+  AI-CEO "ERSTER SALE") liefern jetzt sauber an -> Fix haelt.
+
+PFLICHTTEIL (vollzaehlig, alle rc=0):
+auto_fulfill REAL: sessions=2 (roh, inkl. Eigentests) paid=0 neu=0 -> keine
+neuen Sales. funnel_check REAL: BESUCHER=0 / API-PROBE=0 / EIGENTEST=2,
+vollzaehlig=ja. legal_link_audit LEGAL_LINKS_OK (0 unvollstaendig).
+verify_ticket13_live LIVE_OK (1266 Seiten vollzaehlig live geprueft).
+dl_noindex_audit --live DL_NOINDEX_OK (24/24). cron_health_audit --selftest
+67/67. verify.py VERIFY_OK (81 ok, 0 fail). funnel_check --selftest 13/13.
+auto_fulfill --selftest OK. cron_auto_fulfill --selftest 38/38. Live-Check
+(canonische Domain translucentv1.github.io/new-business/): rtd/thanks/index/
+agb/datenschutz/impressum/sitemap/robots.txt ALLE HTTP 200.
+
+Naechster Tick: Pflichtteil fahren (auto_fulfill + funnel_check + Live-Check +
+legal_link_audit + verify_ticket13_live + dl_noindex_audit --live).
+KEIN unblockiertes AFK-Ticket mit Informationswert mehr offen: Ticket 3 =
+USER-KYC, Ticket 8 = 2 USER-Blocker, Ticket 10/21 = HITL, Ticket 26 =
+zeitgesperrt bis 2026-08-18. Also: "warte, beobachte Sales".
+Aktionismus ausdruecklich NICHT erwuenscht.
