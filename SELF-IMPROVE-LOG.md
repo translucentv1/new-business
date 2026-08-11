@@ -69,3 +69,15 @@
   - Ursache: Verteilung (Traffic) ist der Flaschenhals, nicht mehr Seiten.
   - Fix: Arbeit stoppt SEO-Aufbau; verteilt stattdessen die existierenden 8 Produkte.
 **Gepatchte Skills:** keine (nur Analyse, keine sicheren Patches).
+
+## 2026-08-11 (self_improve_pass.py, kostenlos)
+**Sales:** 0 | **Landingpages:** 1367
+**Autonomie-Level:** L2 aktiv (stetige Selbstverbesserung) — Ziel L3; ohne Nutzer-Prompt ausgefuehrt.
+**Findings:** 3
+- [HIGH] Regel 4 (Erfolg = Sales): 0 echte Sales, 0,00 EUR (MEASURED: sales.log hat 0 Zeilen mit echter Stripe-ID; Stripe REST 0 Charges / 0 Balance). KPI-Blocker bestaetigt, nicht HTTP-200-Verblindung.
+- [HIGH] Regel 1+2 (Traffic > SEO / freier Hebel): Verteilungs-Hebel brach: Outbound-Kit-Pfad docs/social/outbound existiert NICHT mehr (MEASURED: Dir fehlt). Loop baut weiter SEO (1367 Geldseiten, Keyword-Brunnen MEASURED leer, dennoch Anreicherung). Keine gemessene echte Traffic-/Distribution-Aktion im Pass-Zyklus.
+- [MEDIUM] Regel 3 (Blocker nie liegen lassen): self_improve_pass.py war MONATE geloescht/fehlend (Blocker lag) — durch diesen Run recreated, L2-Loop wiederhergestellt. Blocker damit geschlossen.
+**Gepatchte Skills (sicher, additiv):** keine (alle hatten Output-Regel oder kein sicherer Hebel)
+**L2-Status:** META-AGENT-FEHLERANALYSE.md vorhanden: True (geaendert 2026-07-24 20:19) | self_improve_pass.py wieder vorhanden: True
+**Skript-Status:** self_improve_pass.py vorhanden (recreated) — L2-Loop wiederhergestellt.
+**Naechster Schritt:** (a) Verteilung/Outbound neu aufbauen (docs/social/outbound fehlt) statt weiterer SEO-Seiten; (b) Cron-Job pinnen (no_agent=true) gegen Drift-Block.

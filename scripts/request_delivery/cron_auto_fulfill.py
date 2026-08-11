@@ -42,6 +42,11 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 FULFILL = os.path.join(REPO, "scripts", "request_delivery", "auto_fulfill.py")
 HEALTH = os.path.join(REPO, "scripts", "request_delivery",
                       "cron_health_audit.py")
+# Ticket 30: das Tor fuer den MELDEWEG. cron_health_audit prueft, ob der
+# Geldpfad LAEUFT - nicht, ob sein Ergebnis ANKOMMT. Genau dazwischen lag der
+# Ticket-23-Defekt (Bericht an whatsapp:self -> HTTP 500, kein Job 'failed').
+DELIVERY = os.path.join(REPO, "scripts", "request_delivery",
+                        "cron_delivery_audit.py")
 # Ticket 25: Beleg, dass die LIEFER-Pipeline gelaufen ist - geschrieben NACH
 # Etappe [1]+[2] und damit kausal VOR dem Urteil von Etappe [3]. Das Audit
 # darf sich nicht am Exitstatus dieses Jobs orientieren, weil es ihn selbst
@@ -62,6 +67,11 @@ EXIT_UNGEPRUEFT = 3
 # Waechter machte den sauber laufenden Lieferjob rot). Auf 0 herabstufen waere
 # die Gegenrichtung: dann verschwindet ein toter zweiter Ring lautlos.
 EXIT_NEBENRING = 4
+# Ticket 30: eigener Code fuer "die Arbeit lief, aber der BERICHT kommt nicht
+# an". Bewusst nicht 1: ein Melde-Defekt ist kein Liefer-Defekt (Ticket 27,
+# Trennung nach Betroffenem). Bewusst nicht 0: ein stummer Meldeweg ist genau
+# der Zustand, in dem der erste Sale unbemerkt bliebe.
+EXIT_MELDEWEG = 5
 
 
 def run_health():
@@ -81,6 +91,26 @@ def run_health():
         return 2, f"cron_health_audit Timeout nach {HEALTH_TIMEOUT}s"
     except OSError as exc:
         return 2, f"cron_health_audit nicht startbar: {exc}"
+    return p.returncode, ((p.stdout or "") + (p.stderr or "")).rstrip()
+
+
+def run_delivery():
+    """Ticket 30: Zustellbarkeit der Cron-Berichte unbeaufsichtigt mitpruefen.
+
+    -> (rc, ausgabe). rc 0 = zustellbar | 1 = Defekt | alles andere = unmessbar.
+    Gleiche Bauform wie run_health(): ein fehlendes oder abgestuerztes Audit ist
+    NIE ein Defekt-Claim (Merkregel Ticket 17: unmessbar != kaputt).
+    """
+    if not os.path.isfile(DELIVERY):
+        return 2, f"cron_delivery_audit.py fehlt: {DELIVERY}"
+    try:
+        p = subprocess.run([sys.executable, DELIVERY], cwd=REPO,
+                           capture_output=True, text=True,
+                           timeout=HEALTH_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return 2, f"cron_delivery_audit Timeout nach {HEALTH_TIMEOUT}s"
+    except OSError as exc:
+        return 2, f"cron_delivery_audit nicht startbar: {exc}"
     return p.returncode, ((p.stdout or "") + (p.stderr or "")).rstrip()
 
 
@@ -208,6 +238,22 @@ def main() -> int:
     elif hrc != 0:
         unmessbar = True
 
+    # [4] Ticket 30: kommt der BERICHT ueberhaupt an? Eigene Etappe, eigenes
+    # Ergebniswort - ein stummer Meldeweg ist kein Liefer-Defekt, aber auch
+    # nicht gruen. Steht VOR dem SALE-Banner, damit der Banner (Ticket 24)
+    # weiterhin unabhaengig von jeder Verzweigung gedruckt wird.
+    print("[4] Meldeweg-Zustellbarkeit (Ticket 30)")
+    drc, dout = run_delivery()
+    dzeilen = [ln for ln in dout.splitlines()
+               if ln.startswith("ERGEBNIS:") or ln.lstrip().startswith("DEFEKT")]
+    for ln in (dzeilen or dout.splitlines()[-2:]):
+        print(f"  {ln.strip()}")
+    meldeweg = False
+    if drc == 1:
+        meldeweg = True
+    elif drc != 0:
+        unmessbar = True
+
     # Der Sale ist das lauteste Signal des ganzen Systems - er wird IMMER
     # gedruckt, auch wenn parallel ein Defekt das Ergebniswort bestimmt.
     # (Sonst haette ausgerechnet ein Cron-Health-Defekt die ERSTER-SALE-
@@ -229,6 +275,14 @@ def main() -> int:
         print("ERGEBNIS: RTD_FULFILL_NEBENRING_DEFEKT (2. Ring defekt - "
               "Lieferung und Kaufpfad selbst unauffaellig)")
         return EXIT_NEBENRING
+    # Ticket 30: nach den beiden Ueberwachungs-Defekten, aber VOR jedem gruenen
+    # Wort. Wenn der Bericht nicht ankommt, darf das Ergebniswort nicht
+    # behaupten, alles sei in Ordnung - auch dann nicht, wenn ein Sale lief
+    # (der Banner steht bereits oben und geht nicht verloren).
+    if meldeweg:
+        print("ERGEBNIS: RTD_FULFILL_MELDEWEG_DEFEKT (Bericht nicht zustellbar "
+              "- Lieferung und Kaufpfad selbst unauffaellig)")
+        return EXIT_MELDEWEG
     if sale:
         print("ERGEBNIS: RTD_FULFILL_SALE")
         return 0
@@ -285,11 +339,14 @@ def _selftest() -> int:
         return p
 
     def run(fulfill, codes, timeout=900, health=(0, "ERGEBNIS: CRON_HEALTH_OK"),
-            hb_path=None):
+            hb_path=None, delivery=(0, "ERGEBNIS: DELIVERY_OK")):
         g["FULFILL"] = fulfill
         g["TIMEOUT"] = timeout
         g["http_code"] = lambda url: codes.get(url.rsplit("/", 1)[-1], 200)
         g["run_health"] = lambda: health
+        # Ticket 30: Etappe [4] injizierbar - sonst spraeche der Selftest mit
+        # der ECHTEN jobs.json und waere von der Tageslage abhaengig.
+        g["run_delivery"] = lambda: delivery
         # Immer in den Temp-Ordner schreiben, nie in den Produktivpfad.
         g["HEARTBEAT"] = hb_path or os.path.join(tmpdir, "hb.json")
         buf = io.StringIO()
