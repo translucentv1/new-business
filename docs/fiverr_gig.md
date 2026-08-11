@@ -83,6 +83,11 @@ Du beschreibst die Aufgabe — ich liefere das fertige Ergebnis innerhalb von 24
   ein gegliederter Bericht mit Einleitung, Tätigkeitsbeschreibung und Fazit —
   wir erfinden **keine** Praktikumsinhalte und ersetzen **nicht** deine eigene
   Leistung; die Vorgaben deiner Schule/Hochschule prüfst du selbst
+- Handout: das Begleitblatt zu Referat, Meeting oder Schulung auf 1–2 Seiten
+  (Titel, Gliederung, Kernaussagen als Stichpunkte, Merksätze, Quellenzeile) —
+  aus deiner Präsentation, deinem Skript oder deinen Stichpunkten; **Textinhalt**,
+  **kein** druckfertiges Layout, **keine** Grafiken/Diagramme und **keine**
+  Übernahme fremder Verlagsinhalte
 
 **So läuft's:**
 1. Du schickst mir deine Anforderung (2–3 Sätze reichen).

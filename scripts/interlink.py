@@ -73,6 +73,10 @@ CLUSTERS: dict[str, list[str]] = {
         "karteikarten-erstellen-lassen-ki",
         "text-kuerzen-lassen",
         "praktikumsbericht-schreiben-lassen-ki",
+        # 2026-08-11 Tick 2: Handout = Begleitblatt zu Referat/Vortrag/Schulung.
+        # Autocomplete-Kontext ("powerpoint handout", "handout aus praesentation")
+        # ist Schule/Studium -> dieser Cluster, nicht "Buero & Business".
+        "handout-erstellen-lassen-ki",
     ],
     "Digitale Deliverables": [
         "python-skript-erstellen-lassen",

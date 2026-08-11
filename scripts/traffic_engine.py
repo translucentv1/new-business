@@ -592,6 +592,33 @@ KEYWORDS = [
     # NEBENBEFUND (Falle): dieses Skript hat KEIN argparse — jedes Argument wird
     # als Keyword genommen. `traffic_engine.py --help` erzeugt daher eine echte
     # Datei blog/--help.html. Vor dem Commit pruefen und ggf. loeschen.
+    #
+    # 2026-08-11 Tick 2: 10 Seeds geprueft, **1 angenommen** — der Brunnen war
+    # nicht leer, sondern ungetestet: "handout" stand in keiner der drei
+    # Ablehnungslisten der Vorticks. web_search weiterhin 402 (Firecrawl
+    # insufficient_funds), also erneut nur Google Autocomplete (kw_demand.py, $0).
+    # ANGENOMMEN (erfuellt den Balken Z. 549-551 vollstaendig):
+    # - "handout erstellen lassen" (8 Treffer): nur 2 von 8 mit "kostenlos"
+    #   (25%, niedrigster Gratis-Anteil aller je geprueften Seeds mit >=6
+    #   Treffern); Vorschlaege belegen Bezahl-/KI-Akzeptanz und Quelle des
+    #   Auftrags: "...ki", "...online", "ai handout", "powerpoint handout",
+    #   "handout aus praesentation erstellen lassen". Deliverable = reiner Text
+    #   (Ollama, 0 EUR), kein Rechtsrisiko, kein Duplikat (powerpoint/vortrag/
+    #   arbeitsblatt decken die Praesentation ab, NICHT das Begleitblatt).
+    ("handout erstellen lassen ki", "Handout erstellen lassen (KI)", "Aus Praesentation, Skript oder Stichpunkten ein sauberes Handout auf einer Seite – ab 3,99 EUR, in 24h geliefert."),
+    # ABGELEHNT in diesem Tick:
+    # - "gliederung erstellen lassen" (6, nur 1x "kostenlos"): ZURUECKGESTELLT,
+    #   nicht wegen fehlender Nachfrage, sondern weil 2 von 6 Vorschlaegen
+    #   explizit "gliederung hausarbeit" / "gliederung bachelorarbeit" sind ->
+    #   dieselbe akademische Abgabe, fuer die 08-10/08-11 "essay" und "referat"
+    #   abgelehnt wurden. Balken nicht fuer eine Ausnahme aufweichen.
+    # - "gedicht schreiben lassen" (7): 4 von 7 "kostenlos" -> Befund vom
+    #   08-11 Tick 1 unabhaengig BESTAETIGT, bleibt abgelehnt.
+    # - "slogan erstellen lassen" (1): unter dem Balken.
+    # - 0 Treffer (kein Signal): werbeslogan erstellen lassen, faq erstellen
+    #   lassen, video skript schreiben lassen, danksagung schreiben lassen
+    #   (2. Bestaetigung), elevator pitch schreiben lassen, grusswort
+    #   schreiben lassen.
 ]
 
 def slug(kw):
