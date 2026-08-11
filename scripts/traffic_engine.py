@@ -567,6 +567,31 @@ KEYWORDS = [
     # SCHLUSSFOLGERUNG des Ticks: nicht die Seiten-ANZAHL ist der Engpass,
     # sondern die Seiten-TIEFE (Median 116 Woerter, MEASURED
     # evidence/_t30_thin_content.py) -> scripts/enrich_blog.py.
+    #
+    # 2026-08-11 Tick 1: 23 Seeds geprueft, **0 angenommen** — zweite Leermeldung
+    # in Folge. web_search weiterhin nicht nutzbar (Firecrawl 402), also erneut
+    # nur Autocomplete. WICHTIG fuer spaetere Ticks: der Annahmebalken oben
+    # (>=2 Vorschlaege, geringer "kostenlos"-Anteil, im Scope, kein Rechtsrisiko,
+    # kein Duplikat) wurde am 08-10 Tick 2 selbst verletzt — "werbetext" und
+    # "angebot" hatten je nur 1 Vorschlag und stehen weiter oben (Z. 537-539)
+    # sogar unter "0-1 Treffer (kein Signal)". Diese Inkonsistenz NICHT als
+    # Praezedenzfall benutzen, um den Balken weiter zu senken.
+    # - "songtext schreiben lassen" (4): 2 von 4 mit "kostenlos" -> Gratis-Markt.
+    # - "referat schreiben lassen" (3): 1 von 3 "kostenlos" UND akademische
+    #   Abgabe -> widerspricht der Gig-Zusage "keine akademischen Arbeiten".
+    # - "ratgeber schreiben lassen" (1): Buchlaenge, sprengt 2000-W.-Premium.
+    # - "antrag schreiben lassen" (1): einziger Vorschlag "psychotherapie
+    #   antrag" -> Medizin-/Sozialrecht, raus.
+    # - 1 Treffer, unter dem Balken (nicht gebaut): konzept schreiben lassen,
+    #   drehbuch schreiben lassen, steckbrief erstellen lassen,
+    #   hochzeitszeitung erstellen lassen.
+    # - 0 Treffer (kein Signal): laudatio, checkliste erstellen lassen,
+    #   leserbrief, traueranzeige, stellenausschreibung, erklaervideo skript,
+    #   beschwerde, glueckwunsch, abschiedsbrief, ueber mich text, leitbild,
+    #   markenname finden lassen, instagram bio, tiktok skript, kondolenzschreiben.
+    # NEBENBEFUND (Falle): dieses Skript hat KEIN argparse — jedes Argument wird
+    # als Keyword genommen. `traffic_engine.py --help` erzeugt daher eine echte
+    # Datei blog/--help.html. Vor dem Commit pruefen und ggf. loeschen.
 ]
 
 def slug(kw):

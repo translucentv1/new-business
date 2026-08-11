@@ -1,5 +1,157 @@
 # AI-CEO Daily Report
 
+## 2026-08-11 (Tick 1, cronjob, 03:2x–04:2x UTC)
+
+### Geld-Ziel (selbst gesetzt)
+**Aufhoeren, den leeren Brunnen weiterzupumpen — und zuerst pruefen, ob die
+Seiten ueberhaupt gefunden werden koennen.** Der Vortick endete mit dem Satz
+"der Hebel liegt nicht in Seite 54". Dieser Tick hat das nicht als Ausrede
+benutzt, sondern zwei Dinge getan, die man vorher nie gemessen hat: (a) den
+Keyword-Brunnen mit 23 neuen Seeds nachweislich leergepumpt, (b) die
+**Crawlbarkeit** selbst geprueft, statt weiter nur die Nicht-Indexierung zu
+zaehlen.
+
+### MEASURED Revenue
+**0,00 EUR. 0 Sales.** Beleg (Stripe REST, `sk_live_`, je HTTP 200):
+- `GET /v1/events?limit=5` → 5 Events, **kein payment-Event**; juengstes
+  `evt_1U0hzCFajs0YddhPoyWRka9N` `checkout.session.expired`, weiterhin vom
+  **04.08. 13:02 UTC**.
+- `GET /v1/charges?limit=10` → **0**. `GET /v1/payment_intents?limit=10` → **0**.
+- `GET /v1/balance` → available **0 EUR**, pending **0 EUR**.
+⇒ **seit ~7,1 Tagen kein Zahlungsversuch.** sales.log unveraendert. Kein Self-Buy.
+
+### NEUER BEFUND: robots.txt der Origin ist 404 (bisher nie geprueft)
+- `https://translucentv1.github.io/new-business/robots.txt` → **HTTP 200**
+  (enthaelt `Sitemap:`-Direktive, `Disallow: /dl/`).
+- `https://translucentv1.github.io/robots.txt` → **HTTP 404**
+  (GitHub-Pages-Platzhalter "There isn't a GitHub Pages site here").
+
+Nach RFC 9309 gilt robots.txt **pro Origin** (scheme+host+port), nicht pro
+Unterverzeichnis. Konsequenz, sauber getrennt:
+- **Kein Crawl-Blocker.** 404 = "unavailable" ⇒ Crawler duerfen alles abrufen.
+  Zusaetzlich MEASURED: die Blogseiten enthalten **kein** `meta robots`
+  (kein `noindex`) — die Hypothese "wir blockieren uns selbst" ist damit
+  **falsifiziert**.
+- **Aber:** die `Sitemap:`-Direktive in `/new-business/robots.txt` wird von
+  keinem regelkonformen Crawler je gelesen. Ein Discovery-Kanal, den wir seit
+  Wochen als vorhanden gefuehrt haben, ist faktisch **tot**. IndexNow laeuft
+  daran vorbei (direkte URL-Uebermittlung), deshalb ist das kein Widerspruch zu
+  `SUBMIT_OK`.
+- **Nicht behauptet:** dass dies die Ursache der Nicht-Indexierung ist. Es ist
+  ein toter Kanal, kein bewiesener Ursache-Wirkung-Zusammenhang.
+
+### Indexierung Tag 8
+`bing_index_check.py` → **`BING_NICHT_INDEXIERT`**. Positivkontrolle
+`site:wikipedia.org` **10 Treffer** (Instrument zaehlfaehig), Ziel **0 Treffer**,
+**Tag 8 in Folge**. `bing_html` als Quelle erneut **blind** (b_algo=0) und
+verworfen; brauchbare Quellen: 1 (ddg_html).
+
+### Keyword-Brunnen: 23 Seeds, 0 angenommen
+`web_search` erneut **nicht nutzbar** (Firecrawl `402 BILLING_ERROR`,
+`insufficient_funds`) → Google Autocomplete (`kw_demand.py`, $0) blieb das
+einzige zaehlfaehige Instrument. Geprueft (Trefferzahl in Klammern):
+- **abgelehnt trotz Signal:** `songtext` (4, aber **2/4 "kostenlos"**),
+  `referat` (3, **1/3 "kostenlos"** *und* akademische Abgabe — widerspricht der
+  eigenen Gig-Zusage), `ratgeber` (1, sprengt 2000-Woerter-Premium),
+  `antrag` (1, nur "psychotherapie antrag" → Medizin-/Sozialrecht).
+- **unter dem Annahmebalken (1 Treffer):** `konzept`, `drehbuch`, `steckbrief`,
+  `hochzeitszeitung`.
+- **0 Treffer:** laudatio, checkliste, leserbrief, traueranzeige,
+  stellenausschreibung, erklaervideo-skript, beschwerde, glueckwunsch,
+  abschiedsbrief, ueber-mich-text, leitbild, markenname, instagram-bio,
+  tiktok-skript, kondolenzschreiben.
+
+**0 neue Landingpages — bewusst, und diesmal regelkonform.** Der in
+`traffic_engine.py` (Z. 549–551) dokumentierte Annahmebalken lautet
+**">=2 Autocomplete-Vorschlaege, geringer 'kostenlos'-Anteil, im Scope, kein
+Rechtsrisiko, kein Duplikat"**. Keiner der 23 Seeds erfuellt ihn.
+**Selbstkorrektur, die hier hingehoert:** der Vortick hat `werbetext` und
+`angebot` mit **je 1 Treffer** gebaut und damit denselben Balken **verletzt** —
+dieselben zwei Begriffe stehen in derselben Datei (Z. 537–539) sogar
+ausdruecklich unter *"0-1 Treffer (kein Signal)"*. Zweimal hintereinander kommt
+der Long Tail leer zurueck; **das ist das Signal**, nicht ein Grund, den Balken
+noch einmal zu senken.
+
+### Getan (alles MEASURED)
+1. **Stripe-Poll** (s.o.) — kein Sale.
+2. **Live-Bestand:** alle **53** `blog/*.html` per curl → **BLOG_OK=53,
+   BLOG_FAIL=0**. Kein Re-Push noetig. Kernseiten **CORE_OK=10, CORE_FAIL=0**.
+3. **Crawlbarkeits-Diagnose** (neu, s.o.).
+4. **Keyword-Recherche** 23 Seeds → 0 angenommen (s.o.).
+5. **Tiefe statt Menge:** `enrich_blog.py --thinnest --limit 12` (Ollama
+   `qwen2.5:7b`, lokal, **0 EUR**). Der Lauf wurde nach **3 von 12** Seiten vom
+   eigenen 900-s-Cap abgeschnitten (144 s / 273 s / 166 s pro Seite — deutlich
+   langsamer als geplant). Fertig **und** geprueft: businessplan (172 W.),
+   excel-tabelle (165 W.), rede (183 W.).
+   Wirkung: **Median 192 → 198 Woerter**, **Seiten <200 W. 30 → 27**,
+   **angereichert 19 → 22 von 53**, Minimum 134 → 136.
+   Integritaetspruefung nach dem Abbruch: `git status` zeigt **genau 3**
+   geaenderte Dateien, **0 unvollstaendige HTML-Dateien** (alle 53 enden auf
+   `</html>`) — der Abbruch traf eine Luecke zwischen zwei Seiten, keine
+   halb geschriebene Datei.
+6. **Tests:** `verify.py --offline` → **79 ok, 0 fail, 0 skip, 0 ungeprueft**
+   (`VERIFY_OK`). `interlink --check` → **0 geschrieben, 0 offen, 0 ohne
+   Cluster**. `deindex_doorways --check` → **`DOORWAY_OK`** (468 `t/`-Seiten
+   weiter `noindex`, 0 Doorway-URLs in der Sitemap).
+7. **Fiverr-Gig** (`docs/fiverr_gig.md`) verifiziert: alle 5 Pflichtabschnitte
+   vorhanden (Titel, Beschreibung, Pakete, FAQ, Requirements); gegen `gig.html`
+   gezaehlt **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** = deckungsgleich mit der
+   Pakettabelle; die **3 Stripe-Live-Checkout-Links je HTTP 200**
+   (`STRIPE_LINKS_OK=3, FAIL=0`). **Keine Textaenderung noetig** — es kamen
+   keine neuen Deliverables dazu, also waere jede Ergaenzung ein Versprechen
+   ohne Landingpage.
+8. **Gumroad:** `gumroad_sale_poll.py` → **`NO TOKEN`**, `.gumroad_secrets`
+   existiert weiterhin nicht (nur `.template`). Watcher laeuft **nicht**.
+
+### Aufraeumen
+`scripts/traffic_engine.py --help` legt eine Seite **`blog/--help.html`** an
+(das Skript interpretiert jedes Argument als Keyword, es gibt kein argparse).
+Beim Sondieren in diesem Tick ist die Datei so entstanden und wurde **sofort
+geloescht** — sie ist nie committet und nie deployt worden (`git status`
+sauber, `BLOG_OK=53` und nicht 54). Hier dokumentiert, damit ein spaeterer Tick
+nicht dieselbe Falle unbemerkt ausloest.
+
+### Was NICHT behauptet wird
+- Dass die Anreicherung Rankings bringt — ungemessen. Gemessen ist nur die
+  Wortzahl.
+- Dass der robots-404 die Nicht-Indexierung **verursacht** — ungemessen.
+- Google-Index und eingehende Links bleiben **ungemessen** (beide Instrumente
+  in Vor-Ticks als blind verworfen, kein neues Instrument gefunden).
+- Besucherzahlen: es gibt **kein** Analytics auf der Site. Wir haben in
+  8 Tagen **keinen einzigen Besucher belegt** — weder positiv noch negativ.
+
+### Ehrliche Bewertung
+53 Seiten, **Tag 8 ohne Index-Treffer**, 0 Sales, seit 7,1 Tagen kein
+Zahlungsversuch. Dieser Tick hat **keinen Euro** bewegt. Sein Wert ist
+diagnostisch: der Keyword-Brunnen ist bei diesem Qualitaetsniveau nachweislich
+leer (23 Seeds, 0 Treffer ueber dem Balken), ein geglaubter Discovery-Kanal ist
+als tot entlarvt, und die Selbstblockade-Hypothese ist falsifiziert. Damit ist
+die Diagnose so scharf wie sie ohne fremde Hilfe werden kann: **die Seiten sind
+technisch in Ordnung und trotzdem unsichtbar, weil niemand auf sie verlinkt.**
+Seite 54 aendert daran nichts. Der einzige Kanal mit **eigener** Distribution
+ist Fiverr — und der haengt seit Tag 1 unveraendert am USER.
+
+### Blocker (USER) — nach Hebel sortiert
+1. **Fiverr-Account + KYC.** `docs/fiverr_gig.md` ist copy-paste-ready
+   (verifiziert, s.o.). Das ist der einzige Weg zu Umsatz, der nicht auf
+   Google-Indexierung wartet.
+2. **robots.txt der Origin** (neu, klein, $0): ein oeffentliches Repo
+   `translucentv1.github.io` mit einer einzigen `robots.txt`, die
+   `Sitemap: https://translucentv1.github.io/new-business/sitemap.xml`
+   enthaelt, macht die Sitemap fuer Crawler ueberhaupt erst auffindbar.
+   Bewusst **nicht** autonom getan: das Anlegen eines neuen Repos im
+   USER-Account ist eine Kontoaenderung, keine Code-Aenderung.
+3. **Gumroad:** Payout-Freischaltung **und** API-Token.
+
+### Next (naechster Tick)
+- Stripe-Poll wiederholen.
+- **Keine** neuen Keywords mehr raten: erst wenn `web_search` wieder Budget hat
+  (Firecrawl 402), gibt es ein zweites Nachfrage-Instrument. Bis dahin ist der
+  Autocomplete-Brunnen als leer dokumentiert.
+- Anreicherung fortsetzen (27 Seiten noch <200 Woerter) — aber mit
+  `--limit 3`, weil 12 Seiten nachweislich nicht in 900 s passen.
+- Indexierung Tag 9 messen.
+
 ## 2026-08-10 (Tick 2, cronjob, 20:56–21:45 UTC)
 
 ### Geld-Ziel (selbst gesetzt)

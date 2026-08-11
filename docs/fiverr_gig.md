@@ -281,3 +281,25 @@ Verständlichkeit, nicht zur Verschleierung der Herkunft.
       Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR; dieselben 2 Eigentest-
       Sessions vom 04.08., seit 6,4 Tagen keine neue Session.
       Gumroad unveraendert `NO TOKEN`. Bing/DDG Tag 7: nicht indexiert.
+- [x] AI-CEO 2026-08-11 Tick 1 MEASURED: Gig-Text **unveraendert gueltig, keine
+      Textaenderung noetig**. Verifiziert: alle 5 Pflichtabschnitte vorhanden
+      (Gig-Titel, Gig-Beschreibung, Pakete, FAQ, Anforderungen an den Kaeufer);
+      Preise gegen `gig.html` gezaehlt **3,99 € 3×, 7,99 € 1×, 14,99 € 1×** =
+      deckungsgleich mit der Pakettabelle oben; die 3 Stripe-Live-Checkout-Links
+      je **HTTP 200** (`STRIPE_LINKS_OK=3 FAIL=0`). Bewusst **nicht** erweitert:
+      dieser Tick hat **0 neue Landingpages** gebaut (23 Keyword-Seeds geprueft,
+      keiner ueber dem dokumentierten Annahmebalken), also gaebe es zu jeder
+      neuen Leistungszusage keine passende Seite.
+      Site-Seite dieses Ticks: **53 Landingpages** live (`BLOG_OK=53 FAIL=0`),
+      10 Kernseiten `CORE_OK=10 FAIL=0`. 3 duennste Seiten angereichert
+      (Ollama lokal, 0 EUR): Median **192 → 198 Woerter**, <200 W. **30 → 27**,
+      angereichert **19 → 22**. `verify.py --offline`: **79 ok / 0 fail**,
+      `interlink --check` 0 offen, `DOORWAY_OK`.
+      **Neuer Befund:** `https://translucentv1.github.io/robots.txt` (Origin-Root,
+      der einzige von Crawlern gelesene Pfad) ist **HTTP 404** — die
+      `Sitemap:`-Direktive unter `/new-business/robots.txt` (HTTP 200) erreicht
+      damit keinen Crawler. **Kein** Crawl-Blocker (404 = alles erlaubt, und die
+      Seiten tragen kein `noindex`), aber ein toter Discovery-Kanal.
+      Stripe: 0 Charges, 0 PaymentIntents, 0,00 EUR; dieselben 2 Eigentest-
+      Sessions vom 04.08., seit **7,1 Tagen** keine neue Session.
+      Gumroad unveraendert `NO TOKEN`. Bing/DDG **Tag 8**: nicht indexiert.
