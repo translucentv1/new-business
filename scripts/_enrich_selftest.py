@@ -123,6 +123,37 @@ case("Du-Form bleibt gruen",
      lambda d: d | {"intro": "Diese Seite ist fuer dich, wenn du eine Mahnung "
                              "senden moechtest. Du bekommst einen Text, mit dem "
                              "du deine Forderung klar formulierst und nachfasst."}, True)
+# Leistungskette — der reale 7b-Fehlgriff vom 2026-08-13
+# (blog/ghostwriter-buch-kosten.html) als Testfall. Beide Saetze kamen
+# WOERTLICH aus dem Modell und haben jede damalige Schranke passiert.
+case("'einen Ghostwriter fuer dich finden' -> rot",
+     lambda d: d | {"intro": "Diese Seite ist fuer dich, wenn du ein Buch planst. "
+                             "Wir loesen das, indem wir einen Ghostwriter fuer "
+                             "dich finden, der dein Buch schreibt."},
+     False, "falsche Leistungskette")
+case("'unsere Ghostwriter' -> rot",
+     lambda d: d | {"faq": d["faq"][:2] + [{
+         "f": "Welche Themen sind moeglich?",
+         "a": "Unsere Ghostwriter schreiben ueber ein breites Spektrum an "
+              "Themen, solange es zum Publikum passt."}]},
+     False, "falsche Leistungskette")
+case("'bereit zum Veroeffentlichen' -> rot",
+     lambda d: d | {"lieferung": ["Ein gepruefter Endtext, bereit zum "
+                                  "Veroeffentlichen", "Eine Gliederung",
+                                  "Ein Probekapitel"]},
+     False, "falsche Leistungskette")
+case("'druckreif' -> rot",
+     lambda d: d | {"lieferung": ["Ein druckreifes Manuskript",
+                                  "Eine Gliederung", "Ein Probekapitel"]},
+     False, "falsche Leistungskette")
+case("ehrliche Buch-Abgrenzung bleibt gruen",
+     lambda d: d | {"abgrenzung": "Nicht enthalten ist ein komplettes Buch: du "
+                                  "bekommst Expose, Gliederung und einen "
+                                  "Probekapitel-Entwurf zum Weiterschreiben."}, True)
+case("Wort 'Ghostwriter' allein bleibt gruen",
+     lambda d: d | {"intro": "Du vergleichst gerade, was ein Ghostwriter fuer "
+                             "ein Buch kostet. Hier siehst du, welchen kleinen "
+                             "Einstieg du stattdessen bekommst."}, True)
 
 
 def main():

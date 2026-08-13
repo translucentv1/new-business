@@ -69,7 +69,26 @@ NEEDS_NEGATION = [
 ]
 NEGATIONS = ("kein", "nicht", "ohne", "ersetzt", "keinerlei", "statt", "nein")
 
-# Widersprueche zum eigenen Angebot. Ein 3b-Lauf schrieb "Die Mahnung wird exakt
+# Widerspruch zur eigenen LEISTUNGSKETTE (KI-Entwurf + menschliche Pruefung).
+# MEASURED 2026-08-13: der 7b-Lauf fuer blog/ghostwriter-buch-kosten.html schrieb
+# "Wir loesen das Problem, indem wir einen Ghostwriter fuer dich finden, der dein
+# Buch fuer dich schreibt" und "Ein gepruefter Endtext, bereit zum Veroeffentlichen".
+# Beides passierte JEDE bestehende Schranke (legal, richtige Preise, Du-Form) und
+# war trotzdem sachlich falsch: es gibt kein Autoren-Netzwerk zu vermitteln, und
+# ein 3,99-EUR-Entwurf ist kein publikationsreifes Buch. Solche Saetze sind
+# geschaeftsschaedigender als ein Tippfehler -> harte Ablehnung.
+FALSE_SERVICE = [
+    # (a) behauptet menschliche Autoren / Vermittlung
+    r"\b(einen?|passenden?)\s+(ghostwriter|texter|autor|autorin|redakteur|freelancer)\w*\s+(fuer\s+dich\s+)?(finden|vermitteln|suchen|beauftragen)",
+    r"\bunser(e|em|en|es)?\s+(ghostwriter|texter|autoren|autorinnen|redakteure|schreiber)\w*",
+    r"\b(ghostwriter|texter|autor|redakteur)\w*\s+(schreibt|schreiben|verfasst|verfassen)\s+(dein|ihr|das|den|die)\b",
+    r"\bteam\s+(aus|von)\s+(ghostwriter|texter|autoren|redakteure)\w*",
+    # (b) behauptet ein publikationsreifes Endprodukt statt eines Entwurfs
+    r"\b(bereit|fertig)\s+(zum|zur)\s+(ver\u00f6ffentlich|veroeffentlich|druck|einreich|abgabe)\w*",
+    r"\b(druckreif|druckfertig|ver\u00f6ffentlichungsreif|veroeffentlichungsreif|publikationsreif|sendereif)\w*",
+]
+
+# Widerspruech zum eigenen Angebot. Ein 3b-Lauf schrieb "Die Mahnung wird exakt
 # wie in der AI-Vorlage erstellt und kann nicht angepasst werden" — legal, aber
 # sachlich falsch, weil 7,99/14,99 EUR ausdruecklich Korrekturschleifen enthalten.
 CONTRADICTIONS = [
@@ -122,6 +141,11 @@ Regeln:
 - Ab 7,99 EUR ist eine Korrekturschleife enthalten. Behaupte NIEMALS, der Text
   koenne nicht angepasst oder geaendert werden.
 - Erwaehne nicht, dass eine KI den Text schreibt; das steht bereits auf der Seite.
+- Es gibt KEIN Autoren-Netzwerk und KEINE Vermittlung: schreibe niemals, dass ein
+  Ghostwriter, Texter oder Autor gefunden, vermittelt oder beauftragt wird, und
+  niemals "unsere Ghostwriter/Texter/Autoren".
+- Geliefert wird ein Text-ENTWURF zur Weiterverwendung. Schreibe niemals
+  "bereit zum Veroeffentlichen", "druckreif", "einreichfertig" o.ae.
 - Gesamtlaenge aller Texte zusammen: 180 bis 350 Woerter.
 """
 
@@ -199,6 +223,10 @@ def validate(d) -> tuple[bool, str]:
         m = re.search(pat, plain)
         if m:
             return False, f"Widerspruch zum Angebot: {m.group(0)!r}"
+    for pat in FALSE_SERVICE:
+        m = re.search(pat, plain)
+        if m:
+            return False, f"falsche Leistungskette: {m.group(0)!r}"
     # Anrede-Bruch: der Rest der Seite duzt. Mehr als zwei Siez-Marker = Fremdtext.
     formal = len(re.findall(r"\b(Sie|Ihnen|Ihre[rnms]?|Ihr)\b", " ".join(_flat(d))))
     if formal > 2:

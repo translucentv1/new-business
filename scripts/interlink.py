@@ -91,6 +91,9 @@ CLUSTERS: dict[str, list[str]] = {
         "liebesbrief-schreiben-lassen",
         "brief-schreiben-lassen",
         "kinderbuch-schreiben-lassen",
+        # 2026-08-13 Tick 1: Buch-Themen. kinderbuch/biografie sind die
+        # Geschwister (Buchprojekt), daher dieser Cluster.
+        "ghostwriter-buch-kosten",
     ],
 }
 

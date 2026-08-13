@@ -621,6 +621,65 @@ KEYWORDS = [
     #   lassen, video skript schreiben lassen, danksagung schreiben lassen
     #   (2. Bestaetigung), elevator pitch schreiben lassen, grusswort
     #   schreiben lassen.
+    # 2026-08-13 Tick 1: 28 frische Seeds via scripts/kw_demand.py (Google
+    # Autocomplete hl=de/gl=de, 0 EUR — web_search weiterhin Firecrawl 402
+    # insufficient_funds, MEASURED in diesem Tick).
+    # BEFUND: die Formel "<deliverable> schreiben/erstellen lassen" ist im
+    # Long Tail wirklich weitgehend abgegrast (16 Seeds dieser Form: max.
+    # 4 Treffer). Signal gibt es dort, wo der Nutzer den ANBIETER sucht
+    # statt die Taetigkeit ("ghostwriter ...").
+    # ANGENOMMEN: "ghostwriter buch" -> 10 Treffer (Maximum) und
+    #   0 von 10 mit "kostenlos" — der bislang sauberste Bezahlwille aller
+    #   geprueften Seeds (Vergleich: handout 2/8 = 25 %, gliederung 1/6 = 17 %).
+    #   Modifier sind reine Kaeufersprache: "...kosten", "...schreiben lassen",
+    #   "...oesterreich", "...schweiz", "ghostwriter finden buch",
+    #   "ghostwriter fuer buch gesucht".
+    #   Gebaut wird die PREIS-Frage ("ghostwriter buch kosten", selbst als
+    #   Autocomplete-Vorschlag belegt), NICHT das Versprechen eines Buches:
+    #   fuer 3,99-14,99 EUR ist ein komplettes Buch unmoeglich. Die Seite
+    #   beantwortet die Kostenfrage und verkauft den ehrlichen kleinen
+    #   Einstieg (Expose / Kapitel-Gliederung / Probekapitel-Entwurf).
+    #   Die Abgrenzung steht in der Description und damit im ersten Screen,
+    #   nicht in einer Fussnote (gleiche Disziplin wie Kuendigung=keine
+    #   Rechtsberatung, Flyer=kein Druck-Layout).
+    #   Kein Duplikat: kinderbuch/biografie liefern Text, diese Seite liefert
+    #   Preis-Transparenz + Buch-Struktur.
+    (
+        "ghostwriter buch kosten",
+        "Ghostwriter fuer ein Buch: Kosten im Ueberblick",
+        "Was ein Buch-Ghostwriter kostet - und was du hier fuer 3,99 bis 14,99 EUR bekommst: Expose, Kapitel-Gliederung oder Probekapitel-Entwurf. Kein komplettes Buch.",
+    ),
+    # ABGELEHNT in diesem Tick, mit Beleg:
+    # - "buch schreiben lassen" (10 Treffer): 3 von 10 "kostenlos" (30 %) —
+    #   genau der Anteil, wegen dem "text erstellen lassen" abgelehnt wurde;
+    #   dazu 2 Recherche-Modifier ("erfahrungen", "ghostwriter"). Derselbe
+    #   Markt wird ueber "ghostwriter buch kosten" mit 0 % Gratis-Anteil
+    #   sauberer bedient. Kein zweites Blatt am selben Ast.
+    # - "ki texterstellung" (8 Treffer): Intent-Mismatch. "ohne anmeldung",
+    #   "ki tools texterstellung", "beste ki texterstellung" = der Nutzer
+    #   sucht ein WERKZEUG, keine Dienstleistung. Wir verkaufen die
+    #   Dienstleistung -> Seite wuerde am Suchintent vorbeigehen.
+    # - "ki texter" (9 Treffer): 5 der 9 Vorschlaege sind "texterkennung"
+    #   (OCR/Handschrift) — voellig anderes Produkt.
+    # - "ghostwriter" (10 Treffer) als Kopf-Keyword: "film", "serie",
+    #   "bedeutung", "jobs", "werden" = informationell/Jobsuche, dazu
+    #   bachelorarbeit/hausarbeit/masterarbeit (akademische Abgabe, seit
+    #   08-10 konsequent abgelehnt). Zu unspezifisch fuer eine Geldseite.
+    # - "schreibservice" (6 Treffer): "in der naehe", "jobs",
+    #   "fuer rechtsanwaelte", 2x Firmenname = lokaler/Job-Intent und
+    #   Anwalts-Diktat (Audio + Rechtsdomaene) — nicht unser Deliverable.
+    # - Unter dem Balken (1-4 Treffer): referat (3), essay (3), abstract (2),
+    #   einladung (2), aufsatz (4, davon 1x kostenlos), songtext (4, davon 2x
+    #   kostenlos), kurzgeschichte (2), klappentext (1), stellenbeschreibung
+    #   (1), amazon listing (1), excel formel (1), rap texte (1),
+    #   geburtstagsrede (1), ghostwriter rede (2), social media content (1),
+    #   instagram content (1), schreibservice online (1), ghostwriter buch
+    #   kosten als eigener Seed (1 — der Beleg liegt im Basis-Seed).
+    # - 0 Treffer (kein Signal): elternbrief schreiben lassen, geschaeftsbrief
+    #   schreiben lassen, landingpage text schreiben lassen, sql abfrage
+    #   schreiben lassen, danksagung schreiben lassen (3. Bestaetigung),
+    #   youtube skript schreiben lassen, video skript schreiben lassen
+    #   (2. Bestaetigung), text in auftrag geben, buch expose erstellen lassen.
 ]
 
 def slug(kw):
